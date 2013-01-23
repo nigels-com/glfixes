@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>atan - OpenGL Shading Language (GLSL)</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="radians"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>atan — return the arc-tangent of the parameters</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><div class="funcsynopsis"><p><code class="funcdef">genType <b class="fsfunc">atan</b>(</code>genType <var class="pdparam">y</var>, genType <var class="pdparam">x</var><code>)</code>;</p></div><div class="funcsynopsis"><p><code class="funcdef">genType <b class="fsfunc">atan</b>(</code>genType <var class="pdparam">y_over_x</var><code>)</code>;</p></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>y</code></em></span></dt><dd><p>
+                    Specify the numerator of the fraction whose arctangent to return.
+                </p></dd><dt><span class="term"><em class="parameter"><code>x</code></em></span></dt><dd><p>
+                    Specify the denominator of the fraction whose arctangent to return.
+                </p></dd><dt><span class="term"><em class="parameter"><code>y_over_x</code></em></span></dt><dd><p>
+                    Specify the fraction whose arctangent to return.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">atan</code> returns the angle whose trigonometric arctangent is
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                
+                <mml:mfrac>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">y</mml:mi>
+                    </mml:mrow>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">x</mml:mi>
+                    </mml:mrow>
+                </mml:mfrac>
+            </mml:math> or <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y_over_x</mml:mi></mml:math>,
+            depending on which overload is invoked. In the first overload, the signs of <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
+            and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math> are used to determine the quadrant
+            that the angle lies in. The values returned by <code class="function">atan</code> in this case are in the range
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                <mml:list order="numeric">
+                    <mml:csymbol encoding="" definitionURL=""><mml:mo>−</mml:mo><mml:pi definitionURL="" encoding=""></mml:pi></mml:csymbol>
+                    <mml:pi definitionURL="" encoding=""></mml:pi>
+                    </mml:list>
+            </mml:math>. Results are undefined if <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math> is zero.
+        </p><p>
+            For the second overload, <code class="function">atan</code> returns the angle whose tangent is
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y_over_x</mml:mi></mml:math>. Values
+            returned in this case are in the range
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                <mml:list order="numeric">
+                    <mml:mrow>
+                        <mml:mo>−</mml:mo>
+                        <mml:mfrac>
+                            <mml:csymbol encoding="" definitionURL=""><mml:pi definitionURL="" encoding=""></mml:pi></mml:csymbol>
+                            <mml:mn>2</mml:mn>
+                        </mml:mfrac>
+                    </mml:mrow>
+                    <mml:mfrac>
+                        <mml:pi definitionURL="" encoding=""></mml:pi>
+                        <mml:mn>2</mml:mn>
+                    </mml:mfrac>
+                </mml:list>
+            </mml:math>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>Function</strong></span></th><th align="left"><span class="bold"><strong>Version 1.10</strong></span></th><th align="left"><span class="bold"><strong>Version 1.20</strong></span></th><th align="left"><span class="bold"><strong>Version 1.30</strong></span></th><th align="left"><span class="bold"><strong>Version 1.40</strong></span></th><th align="left"><span class="bold"><strong>Version 1.50</strong></span></th><th align="left"><span class="bold"><strong>Version 3.30</strong></span></th><th align="left"><span class="bold"><strong>Version 4.00</strong></span></th><th align="left"><span class="bold"><strong>Version 4.10</strong></span></th><th align="left"><span class="bold"><strong>Version 4.20</strong></span></th><th align="center"><span class="bold"><strong>Version 4.30</strong></span></th></tr><tr><th align="left">atan</th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th></tr></thead></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="sin.xml"><span class="citerefentry"><span class="refentrytitle">sin</span></span></a>,
+            <a href="cos.xml"><span class="citerefentry"><span class="refentrytitle">cos</span></span></a>,
+            <a href="tan.xml"><span class="citerefentry"><span class="refentrytitle">tan</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2011 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

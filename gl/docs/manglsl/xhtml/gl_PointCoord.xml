@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_PointCoord - OpenGL Shading Language (GLSL)</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="gl_PointCoord"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_PointCoord — contains the coordinate of a fragment within a point</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><div class="funcsynopsis"><code class="function">in vec2 gl_PointCoord;</code></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">gl_PointCoord</code> is a fragment language input variable that contains
+            the two-dimensional coordinates indicating where within a point primitive the current
+            fragment is located. If the current primitive is not a point, then values read
+            from <code class="function">gl_PointCoord</code> are undefined.
+        </p><p>
+            <code class="function">gl_PointCoord.s</code> ranges from 0.0 to 1.0 across the point horizontally
+            from left to right. If <code class="constant">GL_POINT_SPRITE_COORD_ORIGIN</code> is
+            <code class="constant">GL_LOWER_LEFT</code>, <code class="function">gl_PointCoord.t</code> varies
+            from 0.0 to 1.0 vertically from bottom to top. Otherwise, if <code class="constant">GL_POINT_SPRITE_COORD_ORIGIN</code>
+            is <code class="constant">GL_UPPER_LEFT</code> then <code class="function">gl_PointCoord.t</code> varies
+            from 0.0 to 1.0 vertically from top to bottom. The default value of <code class="constant">GL_POINT_SPRITE_COORD_ORIGIN</code>
+            is <code class="constant">GL_UPPER_LEFT</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+                        Variable
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        Version 1.10
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        Version 1.20
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        Version 1.30
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        Version 1.40
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        Version 1.50
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        Version 3.30
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        Version 4.00
+                        </strong></span></th><th align="left"><span class="bold"><strong>
+                        Version 4.10
+                        </strong></span></th></tr><tr><th align="left">
+                            gl_PointCoord
+                        </th><th align="center">
+                            <span class="emphasis"><em>Y</em></span>
+                        </th><th align="center">
+                            <span class="emphasis"><em>Y</em></span>
+                        </th><th align="center">
+                            <span class="emphasis"><em>Y</em></span>
+                        </th><th align="center">
+                            <span class="emphasis"><em>Y</em></span>
+                        </th><th align="center">
+                            <span class="emphasis"><em>Y</em></span>
+                        </th><th align="center">
+                            <span class="emphasis"><em>Y</em></span>
+                        </th><th align="center">
+                            <span class="emphasis"><em>Y</em></span>
+                        </th><th align="center">
+                            <span class="emphasis"><em>Y</em></span>
+                        </th></tr></thead></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="gl_FragCoord.xml"><span class="citerefentry"><span class="refentrytitle">gl_FragCoord</span></span></a>,
+            <a href="gl_FragDepth.xml"><span class="citerefentry"><span class="refentrytitle">gl_FragDepth</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2011 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

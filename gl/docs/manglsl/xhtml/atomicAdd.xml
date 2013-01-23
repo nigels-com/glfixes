@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>atomicAdd - OpenGL Shading Language (GLSL)</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="atomicAdd"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>atomicAdd — perform an atomic addition to a variable</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><div class="funcsynopsis"><p><code class="funcdef">int <b class="fsfunc">atomicAdd</b>(</code>inout int <var class="pdparam">mem</var>, int <var class="pdparam">data</var><code>)</code>;</p><p><code class="funcdef">uint <b class="fsfunc">atomicAdd</b>(</code>inout uint <var class="pdparam">mem</var>, uint <var class="pdparam">data</var><code>)</code>;</p></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mem</code></em></span></dt><dd><p>
+                    The variable to use as the target of the operation.
+                </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
+                    The data to be added to <em class="parameter"><code>mem</code></em>.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">atomicAdd</code> performs an atomic addition of <em class="parameter"><code>data</code></em> to the contents of
+            <em class="parameter"><code>mem</code></em> and returns the original contents of <em class="parameter"><code>mem</code></em>
+            from before the addition occured. The contents of the memory being updated by the atomic operation are
+            guaranteed not to be modified by any other assignment or atomic memory function in any shader
+            invocation between the time the original value is read and the time the new value is written.
+        </p><p>
+            Atomic memory functions are supported only for a limited set of variables.  A shader will fail to compile 
+            if the value passed to the mem argument of  an atomic memory function does not correspond to a buffer or 
+            shared variable.  It is acceptable to pass an element of an array or a single component of a vector to the 
+            mem argument of an atomic memory function, as long as the underlying array or vector is a buffer or 
+            shared variable.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>Function</strong></span></th><th align="left"><span class="bold"><strong>Version 1.10</strong></span></th><th align="left"><span class="bold"><strong>Version 1.20</strong></span></th><th align="left"><span class="bold"><strong>Version 1.30</strong></span></th><th align="left"><span class="bold"><strong>Version 1.40</strong></span></th><th align="left"><span class="bold"><strong>Version 1.50</strong></span></th><th align="left"><span class="bold"><strong>Version 3.30</strong></span></th><th align="left"><span class="bold"><strong>Version 4.00</strong></span></th><th align="left"><span class="bold"><strong>Version 4.10</strong></span></th><th align="left"><span class="bold"><strong>Version 4.20</strong></span></th><th align="center"><span class="bold"><strong>Version 4.30</strong></span></th></tr><tr><th align="left">atomicAdd</th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th></tr></thead></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="atomicAnd.xml"><span class="citerefentry"><span class="refentrytitle">atomicAnd</span></span></a>,
+            <a href="atomicOr.xml"><span class="citerefentry"><span class="refentrytitle">atomicOr</span></span></a>,
+            <a href="atomicXor.xml"><span class="citerefentry"><span class="refentrytitle">atomicXor</span></span></a>,
+            <a href="atomicMin.xml"><span class="citerefentry"><span class="refentrytitle">atomicMin</span></span></a>,
+            <a href="atomicMax.xml"><span class="citerefentry"><span class="refentrytitle">atomicMax</span></span></a>,
+            <a href="atomicExchange.xml"><span class="citerefentry"><span class="refentrytitle">atomicExchange</span></span></a>,
+            <a href="atomicCompSwap.xml"><span class="citerefentry"><span class="refentrytitle">atomicCompSwap</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2011-2012 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>
