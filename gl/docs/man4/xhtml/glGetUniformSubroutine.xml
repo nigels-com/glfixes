@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetUniformSubroutine - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGetUniformSubroutine"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetUniformSubroutine — retrieve the value of a subroutine uniform of a given shader stage of the current program</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetUniformSubroutineuiv</b>(</code></td><td>GLenum  </td><td><var class="pdparam">shadertype</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">location</var>, </td></tr><tr><td> </td><td>GLuint * </td><td><var class="pdparam">values</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>shadertype</code></em></span></dt><dd><p>
+                    Specifies the shader stage from which to query for subroutine uniform index.
+                    <em class="parameter"><code>shadertype</code></em>
+                    must be one of <code class="constant">GL_VERTEX_SHADER</code>, <code class="constant">GL_TESS_CONTROL_SHADER</code>,
+                    <code class="constant">GL_TESS_EVALUATION_SHADER</code>, <code class="constant">GL_GEOMETRY_SHADER</code> or
+                    <code class="constant">GL_FRAGMENT_SHADER</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>location</code></em></span></dt><dd><p>
+                    Specifies the location of the subroutine uniform.
+                </p></dd><dt><span class="term"><em class="parameter"><code>values</code></em></span></dt><dd><p>
+                    Specifies the address of a variable to receive the value or values of the subroutine uniform.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetUniformSubroutine</code> retrieves the value of the subroutine uniform at location
+            <em class="parameter"><code>location</code></em> for shader stage <em class="parameter"><code>shadertype</code></em> of the current
+            program. <em class="parameter"><code>location</code></em> must be less than the value of
+            <code class="constant">GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS</code> for the shader currently in use at
+            shader stage <em class="parameter"><code>shadertype</code></em>. The value of the subroutine uniform is returned in
+            <em class="parameter"><code>values</code></em>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>shadertype</code></em> is not one of the accepted values.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>location</code></em> is greater than or equal to
+            the value of <code class="constant">GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS</code> for the shader currently in use at
+            shader stage <em class="parameter"><code>shadertype</code></em>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if no program is active.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>,
+            <a href="glGetActiveSubroutineUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveSubroutineUniform</span></span></a>,
+            <a href="glGetActiveSubroutineUniformName.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveSubroutineUniformName</span></span></a>,
+            <a href="glGetUniformLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

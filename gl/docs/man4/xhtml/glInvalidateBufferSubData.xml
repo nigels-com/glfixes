@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glInvalidateBufferSubData - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glInvalidateBufferSubData"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glInvalidateBufferSubData — invalidate a region of a buffer object's data store</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glInvalidateBufferSubData</b>(</code></td><td>GLuint  </td><td><var class="pdparam">buffer</var>, </td></tr><tr><td> </td><td>GLintptr  </td><td><var class="pdparam">offset</var>, </td></tr><tr><td> </td><td>GLsizeiptr  </td><td><var class="pdparam">length</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>buffer</code></em></span></dt><dd><p>
+                    The name of a buffer object, a subrange of whose data store to invalidate.
+                </p></dd><dt><span class="term"><em class="parameter"><code>offset</code></em></span></dt><dd><p>
+                    The offset within the buffer's data store of the start of the range to be invalidated.
+                </p></dd><dt><span class="term"><em class="parameter"><code>length</code></em></span></dt><dd><p>
+                    The length of the range within the buffer's data store to be invalidated.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glInvalidateBufferSubData</code> invalidates all or part of the
+            content of the data store of a buffer object. After invalidation, the content
+            of the specified range of the buffer's data store becomes undefined. The
+            start of the range is given by <em class="parameter"><code>offset</code></em> and its size
+            is given by <em class="parameter"><code>length</code></em>, both measured in basic machine units.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>offset</code></em> or
+            <em class="parameter"><code>length</code></em> is negative, or if <em class="parameter"><code>offset</code></em> +
+            <em class="parameter"><code>length</code></em> is greater than the value of <code class="constant">GL_BUFFER_SIZE</code>
+            for <em class="parameter"><code>buffer</code></em>.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>buffer</code></em> is not the
+            name of an existing buffer object.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if any part of <em class="parameter"><code>buffer</code></em>
+            is currently mapped.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a href="glGetBufferParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetBufferParameter</span></span></a> with argument <code class="constant">GL_BUFFER_SIZE</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glInvalidateTexSubImage.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateTexSubImage</span></span></a>,,
+            <a href="glInvalidateTexImage.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateTexImage</span></span></a>,
+            <a href="glInvalidateBufferData.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateBufferData</span></span></a>,
+            <a href="glInvalidateFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateFramebuffer</span></span></a>,
+            <a href="glInvalidateSubFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateSubFramebuffer</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2012 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

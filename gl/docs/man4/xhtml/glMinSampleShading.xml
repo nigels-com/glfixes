@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glMinSampleShading - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glMinSampleShading"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glMinSampleShading — specifies minimum rate at which sample shaing takes place</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><p><code class="funcdef">void <b class="fsfunc">glMinSampleShading</b>(</code>GLfloat <var class="pdparam">value</var><code>)</code>;</p></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>value</code></em></span></dt><dd><p>
+                    Specifies the rate at which samples are shaded within each covered pixel.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glMinSampleShading</code> specifies the rate at which samples are shaded within
+            a covered pixel. Sample-rate shading is enabled by calling <a href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+            with the parameter <code class="constant">GL_SAMPLE_SHADING</code>. If <code class="constant">GL_MULTISAMPLE</code>
+            or <code class="constant">GL_SAMPLE_SHADING</code> is disabled, sample shading has no effect.
+            Otherwise, an implementation must provide at least as many unique color values for
+            each covered fragment as specified by <em class="parameter"><code>value</code></em> times <em class="parameter"><code>samples</code></em> where
+            <em class="parameter"><code>samples</code></em> is the value of <code class="constant">GL_SAMPLES</code> for the current
+            framebuffer. At least 1 sample for each covered fragment is generated.
+        </p><p>
+            A <em class="parameter"><code>value</code></em> of 1.0 indicates that each sample in the framebuffer should be
+            indpendently shaded. A <em class="parameter"><code>value</code></em> of 0.0 effectively allows the GL to ignore
+            sample rate shading. Any value between 0.0 and 1.0 allows the GL to shade only a subset
+            of the total samples within each covered fragment. Which samples are shaded and the algorithm
+            used to select that subset of the fragment's samples is implementation dependent.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            The type of the <em class="parameter"><code>value</code></em> parameter was
+            changed from GLclampf to GLfloat. This change is transparent
+            to user code and is described in detail on the
+            <a href="removedTypes.xml"><span class="citerefentry"><span class="refentrytitle">removedTypes</span></span></a>
+            page.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            None.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MIN_SAMPLE_SHADING</code>.
+        </p><p>
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_SAMPLES</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="removedTypes.xml"><span class="citerefentry"><span class="refentrytitle">removedTypes</span></span></a>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2011 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

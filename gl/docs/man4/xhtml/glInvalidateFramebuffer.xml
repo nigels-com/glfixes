@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glInvalidateFramebuffer - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glInvalidateFramebuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glInvalidateFramebuffer — invalidate the content some or all of a framebuffer object's attachments</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glInvalidateFramebuffer</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">numAttachments</var>, </td></tr><tr><td> </td><td>const GLenum *  </td><td><var class="pdparam">attachments</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    The target to which the framebuffer is attached. <em class="parameter"><code>target</code></em> must be
+                    <code class="constant">GL_FRAMEBUFFER</code>, <code class="constant">GL_DRAW_FRAMEBUFFER</code>, or <code class="constant">GL_READ_FRAMEBUFFER</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>numAttachments</code></em></span></dt><dd><p>
+                    The number of entries in the <em class="parameter"><code>attachments</code></em> array.
+                </p></dd><dt><span class="term"><em class="parameter"><code>attachments</code></em></span></dt><dd><p>
+                    The address of an array identifying the attachments to be invalidated.
+                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glInvalidateFramebuffer</code> invalidates the content
+            of a specified set of attachments of a framebuffer. The framebuffer
+            whose content to invalidate is indicated by setting <em class="parameter"><code>target</code></em>
+            to the target to which it is bound. <em class="parameter"><code>target</code></em> may be
+            <code class="constant">GL_FRAMEBUFFER</code>, <code class="constant">GL_READ_FRAMEBUFFER</code> or
+            <code class="constant">GL_DRAW_FRAMEBUFFER</code>. <code class="constant">GL_FRAMEBUFFER</code>
+            is treated as if it were <code class="constant">GL_DRAW_FRAMEBUFFER</code>.
+        </p><p>
+            The set of attachments whose content to invalidate are specified in an array whose address is given
+            by <em class="parameter"><code>attachments</code></em> and which contains <em class="parameter"><code>numAttachments</code></em>
+            elements. The elements of <em class="parameter"><code>attachments</code></em> must be
+            <code class="constant">GL_DEPTH_ATTACHMENT</code>, <code class="constant">GL_STENCIL_ATTACHMENT</code>
+            <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>, or <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>i</em></span></code>,
+            where <span class="emphasis"><em>i</em></span> is between zero and the value of <code class="constant">GL_MAX_FRAMEBUFFER_ATTACHMENTS</code> minus one.
+            Furthermore, if the default framebuffer is bound to <em class="parameter"><code>target</code></em>, then
+            <em class="parameter"><code>attachments</code></em> may contain <code class="constant">GL_FRONT_LEFT</code>,
+            <code class="constant">GL_FRONT_RIGHT</code>, <code class="constant">GL_BACK_LEFT</code>, <code class="constant">GL_BACK_RIGHT</code>,
+            <code class="constant">GL_AUX<span class="emphasis"><em>i</em></span></code>, <code class="constant">GL_ACCUM</code>,
+            <code class="constant">GL_COLOR</code>, <code class="constant">GL_DEPTH</code>, or <code class="constant">GL_STENCIL</code>, identifying that specific buffer.
+            <code class="constant">GL_COLOR</code>, is treated as <code class="constant">GL_BACK_LEFT</code> for a double-buffered context and
+            <code class="constant">GL_FRONT_LEFT</code> for a single-buffered context.
+            After <code class="function">glInvalidateFramebuffer</code> is executed, the contents
+            of the specified attachments become undefined.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not one of the
+            accepted framebuffer target tokens.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if any element of <em class="parameter"><code>attachments</code></em> is
+            not one of the accepted framebuffer attachment tokens.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if element of <em class="parameter"><code>attachments</code></em> is
+            <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>i</em></span></code> where <span class="emphasis"><em>i</em></span> is greater than or equal
+            to the value of <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+            <a href="glInvalidateTexSubImage.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateTexSubImage</span></span></a>,
+            <a href="glInvalidateTexImage.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateTexImage</span></span></a>,
+            <a href="glInvalidateBufferSubData.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateBufferSubData</span></span></a>,
+            <a href="glInvalidateBufferData.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateBufferData</span></span></a>,
+            <a href="glInvalidateSubFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateSubFramebuffer</span></span></a>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2012 Khronos Group. 
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>
