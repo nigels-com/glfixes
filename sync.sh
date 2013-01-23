@@ -16,3 +16,7 @@ wget -P gl --mirror --no-parent --no-host-directories --cut-dirs=1 --accept=html
 
 wget -P gl --mirror --no-parent --no-host-directories --cut-dirs=1 --accept=html,xml \
   http://www.opengl.org/sdk/docs/manglsl/xhtml/
+
+# Tidy-up
+
+rm gl/robots.txt
