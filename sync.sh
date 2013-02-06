@@ -41,3 +41,15 @@ wget -P gles --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=ht
 
 rm gles/robots.txt
 
+#
+# EGL
+#
+
+rm -Rf egl
+
+wget -P egl --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=txt,spec,tm,h,html \
+  http://www.khronos.org/registry/egl/
+
+# Tidy-up
+
+rm egl/robots.txt
