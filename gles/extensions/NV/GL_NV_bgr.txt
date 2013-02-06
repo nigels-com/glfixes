@@ -18,8 +18,8 @@ Contact
 
 Version
 
-    Last Modified: 23 Oct 2012
-    NVIDIA Revision: 2
+    Last Modified: 07 Jan 2013
+    NVIDIA Revision: 3
 
 Number
 
@@ -60,7 +60,7 @@ Changes to Chapter 3 of the OpenGL ES 2.0.25 Specification (Rasterization)
 
         Format Name  Element Meaning and Order   Target Buffer
         -----------  --------------------------  ---------------
-        BGR_EXT      B,G,R                       Color
+        BGR_NV       B,G,R                       Color
 
     Add the following entries to Table 3.4 "Valid pixel format and type
     combinations":
@@ -68,7 +68,7 @@ Changes to Chapter 3 of the OpenGL ES 2.0.25 Specification (Rasterization)
         Internal
         Format    Type                    Bytes per Pixel
         --------  ----------------------  ---------------
-        BGR_EXT   UNSIGNED_BYTE                  3
+        BGR_NV    UNSIGNED_BYTE                  3
 
 Interactions with NV_texture_array
 
@@ -79,6 +79,7 @@ Revision History
 
     Rev.    Date          Author       Changes
     ----   ------------   ---------    -------------------------------------
+     3     07 Jan 2013    groth        Fix minor suffix mistake
      2     23 Oct 2012    groth        Formatting changed. Additional tables.
      1     03 June 2008   kashida      First draft written based on EXT_bgra.
 

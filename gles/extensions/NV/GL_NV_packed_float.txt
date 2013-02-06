@@ -32,6 +32,7 @@ Number
     
     OpenGL ES Extension #127
 
+
 Dependencies
 
     Written against the OpenGL ES 2.0.25 (Nov. 2010) Specification.
@@ -192,7 +193,7 @@ Changes to Chapter 3 of the OpenGL ES 2.0.25 Specification (Rasterization)
         type Parameter                    GL Data  Number of   Matching  
         Token Name                        Type     Components  Pixel Formats
         -------------------------------   -------  ----------  --------------
-        UNSIGNED_INT_10F_11F_11F_REV_NV   ushort   3           RGB 
+        UNSIGNED_INT_10F_11F_11F_REV_NV   uint     3           RGB
 
 
   Add the following to section 3.6.2 Transfor of Pixel Rectangles,

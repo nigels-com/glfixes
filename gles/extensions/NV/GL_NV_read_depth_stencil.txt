@@ -39,8 +39,6 @@ Dependencies
 
     NV_depth_buffer_float2 affects this extension.
 
-    OES_packed_depth_stencil affects this extension.
-
     NV_read_depth_stencil requires OES_packed_depth_stencil.
 
 Overview
@@ -87,7 +85,7 @@ Changes to Chapter 4 of the OpenGL ES 2.0 Specification
         If the <format> is DEPTH_COMPONENT, then values are obtained
         from the depth buffer. If there is no depth buffer, the error
         INVALID_OPERATION occurs. If the <type> is not UNSIGNED_SHORT,
-        FLOAT, or UNSIGNED_INT_24_8_EXT then the error INVALID_ENUM
+        FLOAT, or UNSIGNED_INT_24_8_OES then the error INVALID_ENUM
         occurs. If the <type> is FLOAT and the depth buffer is not a
         float buffer, an INVALID_OPERATION error occurs. If the <type>
         is UNSIGNED_SHORT or UNSIGNED_INT_24_8_OES and the depth buffer
