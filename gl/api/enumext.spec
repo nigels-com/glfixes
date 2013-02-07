@@ -1,6 +1,6 @@
 # enumext.spec - list of GL enumerants for glext.h header
 #
-# $Revision: 19241 $ on $Date: 2012-09-19 19:02:24 -0700 (Wed, 19 Sep 2012) $
+# $Revision: 20495 $ on $Date: 2013-02-06 13:01:10 -0800 (Wed, 06 Feb 2013) $
 
 # This is derived from the master GL enumerant registry (enum.spec).
 #
@@ -6783,35 +6783,35 @@ ATI_vertex_attrib_array_object enum:
 ###############################################################################
 
 # No new tokens
-# Extension #291 - OpenGL ES only, not in glext.h
-# OES_byte_coordinates enum:
+# Extension #291 - OpenGL ES only
+OES_byte_coordinates enum:
 
 ###############################################################################
 
-# Extension #292 - OpenGL ES only, not in glext.h
-# OES_fixed_point enum:
-#	FIXED_OES					= 0x140C
+# Extension #292 - OpenGL ES only
+OES_fixed_point enum:
+	FIXED_OES					= 0x140C
 
 ###############################################################################
 
 # No new tokens
-# Extension #293 - OpenGL ES only, not in glext.h
-# OES_single_precision enum:
+# Extension #293 - OpenGL ES only
+OES_single_precision enum:
 
 ###############################################################################
 
-# Extension #294 - OpenGL ES only, not in glext.h
-# OES_compressed_paletted_texture enum:
-#	PALETTE4_RGB8_OES				= 0x8B90
-#	PALETTE4_RGBA8_OES				= 0x8B91
-#	PALETTE4_R5_G6_B5_OES				= 0x8B92
-#	PALETTE4_RGBA4_OES				= 0x8B93
-#	PALETTE4_RGB5_A1_OES				= 0x8B94
-#	PALETTE8_RGB8_OES				= 0x8B95
-#	PALETTE8_RGBA8_OES				= 0x8B96
-#	PALETTE8_R5_G6_B5_OES				= 0x8B97
-#	PALETTE8_RGBA4_OES				= 0x8B98
-#	PALETTE8_RGB5_A1_OES				= 0x8B99
+# Extension #294 - OpenGL ES only
+OES_compressed_paletted_texture enum:
+	PALETTE4_RGB8_OES				= 0x8B90
+	PALETTE4_RGBA8_OES				= 0x8B91
+	PALETTE4_R5_G6_B5_OES				= 0x8B92
+	PALETTE4_RGBA4_OES				= 0x8B93
+	PALETTE4_RGB5_A1_OES				= 0x8B94
+	PALETTE8_RGB8_OES				= 0x8B95
+	PALETTE8_RGBA8_OES				= 0x8B96
+	PALETTE8_R5_G6_B5_OES				= 0x8B97
+	PALETTE8_RGBA4_OES				= 0x8B98
+	PALETTE8_RGB5_A1_OES				= 0x8B99
 
 ###############################################################################
 
@@ -6823,8 +6823,8 @@ OES_read_format enum:
 ###############################################################################
 
 # No new tokens
-# Extension #296 - OpenGL ES only, not in glext.h
-# OES_query_matrix enum:
+# Extension #296 - OpenGL ES only
+OES_query_matrix enum:
 
 ###############################################################################
 
@@ -8042,6 +8042,7 @@ EXT_framebuffer_multisample_blit_scaled enum:
 ###############################################################################
 
 # Extension #410
+# '##' tokens below were removed in later versions of the extension
 NV_path_rendering enum:
 	PATH_FORMAT_SVG_NV				= 0x9070
 	PATH_FORMAT_PS_NV				= 0x9071
@@ -8064,27 +8065,27 @@ NV_path_rendering enum:
 	PATH_FILL_COVER_MODE_NV				= 0x9082
 	PATH_STROKE_COVER_MODE_NV			= 0x9083
 	PATH_STROKE_MASK_NV				= 0x9084
-	PATH_SAMPLE_QUALITY_NV				= 0x9085
-	PATH_STROKE_BOUND_NV				= 0x9086
-	PATH_STROKE_OVERSAMPLE_COUNT_NV			= 0x9087
+##	  PATH_SAMPLE_QUALITY_NV			  = 0x9085
+##	  PATH_STROKE_BOUND_NV				  = 0x9086
+##	  PATH_STROKE_OVERSAMPLE_COUNT_NV		  = 0x9087
 	COUNT_UP_NV					= 0x9088
 	COUNT_DOWN_NV					= 0x9089
 	PATH_OBJECT_BOUNDING_BOX_NV			= 0x908A
 	CONVEX_HULL_NV					= 0x908B
-	MULTI_HULLS_NV					= 0x908C
+##	  MULTI_HULLS_NV				  = 0x908C
 	BOUNDING_BOX_NV					= 0x908D
 	TRANSLATE_X_NV					= 0x908E
 	TRANSLATE_Y_NV					= 0x908F
 	TRANSLATE_2D_NV					= 0x9090
 	TRANSLATE_3D_NV					= 0x9091
 	AFFINE_2D_NV					= 0x9092
-	PROJECTIVE_2D_NV				= 0x9093
+##	  PROJECTIVE_2D_NV				  = 0x9093
 	AFFINE_3D_NV					= 0x9094
-	PROJECTIVE_3D_NV				= 0x9095
+##	  PROJECTIVE_3D_NV				  = 0x9095
 	TRANSPOSE_AFFINE_2D_NV				= 0x9096
-	TRANSPOSE_PROJECTIVE_2D_NV			= 0x9097
+##	  TRANSPOSE_PROJECTIVE_2D_NV			  = 0x9097
 	TRANSPOSE_AFFINE_3D_NV				= 0x9098
-	TRANSPOSE_PROJECTIVE_3D_NV			= 0x9099
+##	  TRANSPOSE_PROJECTIVE_3D_NV			  = 0x9099
 	UTF8_NV						= 0x909A
 	UTF16_NV					= 0x909B
 	BOUNDING_BOX_OF_BOUNDING_BOXES_NV		= 0x909C
@@ -8164,20 +8165,23 @@ NV_path_rendering enum:
 	GLYPH_VERTICAL_BEARING_X_BIT_NV			= 0x20
 	GLYPH_VERTICAL_BEARING_Y_BIT_NV			= 0x40
 	GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV		= 0x80
-	GLYPH_HAS_KERNING_NV				= 0x100
-	FONT_X_MIN_BOUNDS_NV				= 0x00010000
-	FONT_Y_MIN_BOUNDS_NV				= 0x00020000
-	FONT_X_MAX_BOUNDS_NV				= 0x00040000
-	FONT_Y_MAX_BOUNDS_NV				= 0x00080000
-	FONT_UNITS_PER_EM_NV				= 0x00100000
-	FONT_ASCENDER_NV				= 0x00200000
-	FONT_DESCENDER_NV				= 0x00400000
-	FONT_HEIGHT_NV					= 0x00800000
-	FONT_MAX_ADVANCE_WIDTH_NV			= 0x01000000
-	FONT_MAX_ADVANCE_HEIGHT_NV			= 0x02000000
-	FONT_UNDERLINE_POSITION_NV			= 0x04000000
-	FONT_UNDERLINE_THICKNESS_NV			= 0x08000000
-	FONT_HAS_KERNING_NV				= 0x10000000
+	GLYPH_HAS_KERNING_BIT_NV			= 0x100
+	FONT_X_MIN_BOUNDS_BIT_NV			= 0x00010000
+	FONT_Y_MIN_BOUNDS_BIT_NV			= 0x00020000
+	FONT_X_MAX_BOUNDS_BIT_NV			= 0x00040000
+	FONT_Y_MAX_BOUNDS_BIT_NV			= 0x00080000
+	FONT_UNITS_PER_EM_BIT_NV			= 0x00100000
+	FONT_ASCENDER_BIT_NV				= 0x00200000
+	FONT_DESCENDER_BIT_NV				= 0x00400000
+	FONT_HEIGHT_BIT_NV				= 0x00800000
+	FONT_MAX_ADVANCE_WIDTH_BIT_NV			= 0x01000000
+	FONT_MAX_ADVANCE_HEIGHT_BIT_NV			= 0x02000000
+	FONT_UNDERLINE_POSITION_BIT_NV			= 0x04000000
+	FONT_UNDERLINE_THICKNESS_BIT_NV			= 0x08000000
+	FONT_HAS_KERNING_BIT_NV				= 0x10000000
+	use VERSION_1_3			    PRIMARY_COLOR
+	use NV_register_combiners	    PRIMARY_COLOR_NV
+	use NV_register_combiners	    SECONDARY_COLOR_NV
 
 ###############################################################################
 
@@ -8238,6 +8242,38 @@ AMD_query_buffer_object enum:
 ###############################################################################
 
 # Extension #421
+NV_compute_program5 enum:
+	COMPUTE_PROGRAM_NV				= 0x90FB
+	COMPUTE_PROGRAM_PARAMETER_BUFFER_NV		= 0x90FC
+
+###############################################################################
+
+# No new tokens
+# Extension #422
+NV_shader_storage_buffer_object enum:
+
+###############################################################################
+
+# No new tokens
+# Extension #423
+NV_shader_atomic_counters enum:
+
+###############################################################################
+
+# Extension #424
+NV_deep_texture3D enum:
+	MAX_DEEP_3D_TEXTURE_WIDTH_HEIGHT_NV		= 0x90D0
+	MAX_DEEP_3D_TEXTURE_DEPTH_NV			= 0x90D1
+
+###############################################################################
+
+# No new tokens
+# Extension #425
+NVX_conditional_render enum:
+
+###############################################################################
+
+# Extension #426
 AMD_sparse_texture enum:
 	VIRTUAL_PAGE_SIZE_X_AMD				= 0x9195
 	VIRTUAL_PAGE_SIZE_Y_AMD				= 0x9196
@@ -8248,4 +8284,30 @@ AMD_sparse_texture enum:
 	MIN_SPARSE_LEVEL_AMD				= 0x919B
 	MIN_LOD_WARNING_AMD				= 0x919C
 	TEXTURE_STORAGE_SPARSE_BIT_AMD			= 0x00000001
+
+###############################################################################
+
+# Extension #427 - GLX_EXT_buffer_age
+
+###############################################################################
+
+# No new tokens
+# Extension #428
+AMD_shader_trinary_minmax enum:
+
+###############################################################################
+
+# Extension #429
+
+INTEL_map_texture enum:
+	TEXTURE_MEMORY_LAYOUT_INTEL			= 0x83FF
+	LAYOUT_DEFAULT_INTEL				= 0
+	LAYOUT_LINEAR_INTEL				= 1
+	LAYOUT_LINEAR_CPU_CACHED_INTEL			= 2
+
+###############################################################################
+
+# No new tokens
+# Extension #430
+NV_draw_texture enum:
 

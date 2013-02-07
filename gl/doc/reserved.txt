@@ -289,10 +289,13 @@ GLX Vendor Private / Vendor Private with Reply opcodes (32-bits)
   1309			NVIDIA (use TBD)
   1310	  1311		NV_fragment_program
   1312			NV_fence
-  1313	  1420		NVIDIA (use TBD)
+  1313	  1318		GLX_NV_video_output
+  1319	  1420		NVIDIA (use TBD)
   1328	  1329		EXT_timer_query
   1330	  1331		EXT_texture_from_pixmap
-  1332	  1420		NVIDIA (use TBD)
+  1332	  1359		NVIDIA (use TBD)
+  1360			NV_copy_image
+  1361	  1420		NVIDIA (use TBD)
   1416			GLX_EXT_swap_control
   1421			OES_single_precision (Khronos OpenGL ES 1.0)
   1422	  1428		EXT_framebuffer_object
@@ -404,23 +407,29 @@ OpenGL Rendering Opcodes (16 Bits)
       4145    4179  NVIDIA (use TBD; was intended for NV_vertex_program)
       4180    4214  NV_vertex_program
       4215    4217  ARB_vertex_program
-      4218    4219  NVIDIA (use TBD)
+      4218    4219  NV_fragment_program
       4220	    EXT_stencil_two_side
       4221    4222  NV_point_sprite
       4223	    EXT_stencil_clear_tag
       4228	    EXT_blend_equation_separate
       4229	    EXT_depth_bounds_test
       4230    4239  ARB_vertex_program
-      4240    4280  NVIDIA (use TBD)
+      4240    4264  NV_half_float
+      4265    4280  NVIDIA (use TBD)
       4281    4282  EXT_gpu_program_parameters
-      4283    4307  NVIDIA (use TBD)
+      4283    4285  NV_depth_buffer_float
+      4286    4290  NVIDIA (use TBD)
+      4291	    NV_copy_image
+      4292    4307  NVIDIA (use TBD)
       4308    4312  OES_single_precision (Khronos OpenGL ES 1.0)
       4313    4315  SUN (use TBD)
       4316    4325  EXT_framebuffer_object
       4326    4329  ARB_matrix_palette
       4330	    EXT_framebuffer_blit
       4331	    EXT_framebuffer_multisample
-      4332    4459  NVIDIA (use TBD, bug 6720)
+      4332    4347  NVIDIA (use TBD, bug 6720)
+      4348	    NV_texture_barrier
+      4349    4459  NVIDIA (use TBD, bug 6720)
 
   8192-8207  Reserved to HP (unknown usage)
  16384-16415 Reserved to SUN (unknown usage)

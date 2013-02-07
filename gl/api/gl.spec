@@ -2,12 +2,12 @@
 # DON'T REMOVE PREVIOUS LINE!!! libspec depends on it!
 #
 # Copyright (c) 1991-2005 Silicon Graphics, Inc. All Rights Reserved.
-# Copyright (c) 2006-2012 The Khronos Group Inc.
+# Copyright (c) 2006-2013 The Khronos Group Inc.
 #
 # This document is licensed under the SGI Free Software B License Version
 # 2.0. For details, see http://oss.sgi.com/projects/FreeB/ .
 #
-# $Revision: 19760 $ on $Date: 2012-11-26 14:01:10 -0800 (Mon, 26 Nov 2012) $
+# $Revision: 20495 $ on $Date: 2013-02-06 13:01:10 -0800 (Wed, 06 Feb 2013) $
 
 required-props:
 # Description of a parameter
@@ -34,10 +34,12 @@ category: GREMEDY_frame_terminator GREMEDY_string_marker
 category: HP_image_transform
 category: IBM_multimode_draw_arrays IBM_vertex_array_lists
 category: INGR_blend_func_separate
-category: INTEL_parallel_arrays
+category: INTEL_parallel_arrays INTEL_map_texture
 category: KHR_debug
 category: MESAX_texture_stack MESA_resize_buffers MESA_window_pos
-category: NV_bindless_texture NV_conditional_render NV_copy_image NV_depth_buffer_float NV_evaluators NV_explicit_multisample NV_fence NV_float_buffer NV_fragment_program NV_fragment_program NV_framebuffer_multisample_coverage NV_geometry_program4 NV_gpu_program4 NV_gpu_program5 NV_gpu_shader5 NV_half_float NV_half_float NV_occlusion_query NV_parameter_buffer_object NV_parameter_buffer_object2 NV_path_rendering NV_pixel_data_range NV_pixel_data_range NV_point_sprite NV_present_video NV_primitive_restart NV_primitive_restart NV_register_combiners NV_register_combiners2 NV_shader_buffer_load NV_texture_barrier NV_texture_expand_normal NV_texture_expand_normal NV_texture_multisample NV_transform_feedback NV_transform_feedback2 NV_vdpau_interop NV_vdpau_interop NV_vertex_array_range NV_vertex_attrib_integer_64bit NV_vertex_buffer_unified_memory NV_vertex_program NV_vertex_program1_1_dcc NV_vertex_program2 NV_vertex_program4 NV_video_capture
+category: NV_bindless_texture NV_conditional_render NV_copy_image NV_depth_buffer_float NV_evaluators NV_explicit_multisample NV_fence NV_float_buffer NV_fragment_program NV_fragment_program NV_framebuffer_multisample_coverage NV_geometry_program4 NV_gpu_program4 NV_gpu_program5 NV_gpu_shader5 NV_half_float NV_half_float NV_occlusion_query NV_parameter_buffer_object NV_parameter_buffer_object2 NV_path_rendering NV_pixel_data_range NV_pixel_data_range NV_point_sprite NV_present_video NV_primitive_restart NV_primitive_restart NV_register_combiners NV_register_combiners2 NV_shader_buffer_load NV_texture_barrier NV_texture_expand_normal NV_texture_expand_normal NV_texture_multisample NV_transform_feedback NV_transform_feedback2 NV_vdpau_interop NV_vdpau_interop NV_vertex_array_range NV_vertex_attrib_integer_64bit NV_vertex_buffer_unified_memory NV_vertex_program NV_vertex_program1_1_dcc NV_vertex_program2 NV_vertex_program4 NV_video_capture NV_draw_texture
+category: NVX_conditional_render
+category: OES_byte_coordinates OES_fixed_point OES_single_precision OES_query_matrix
 category: PGI_misc_hints
 category: S3_s3tc
 category: SGIS_detail_texture SGIS_fog_function SGIS_multisample SGIS_pixel_texture SGIS_point_parameters SGIS_sharpen_texture SGIS_texture4D SGIS_texture_color_mask SGIS_texture_filter4 SGIX_async SGIX_flush_raster SGIX_fragment_lighting SGIX_framezoom SGIX_igloo_interface SGIX_instruments SGIX_list_priority SGIX_pixel_texture SGIX_polynomial_ffd SGIX_reference_plane SGIX_sprite SGIX_tag_sample_buffer SGI_color_table
@@ -222,6 +224,11 @@ passthru: #endif
 passthru:
 passthru: #ifndef GL_NV_vdpau_interop
 passthru: typedef GLintptr GLvdpauSurfaceNV;
+passthru: #endif
+passthru:
+passthru: #ifndef GL_OES_fixed_point
+passthru: /* GLint must be 32 bits, a relatively safe assumption on modern CPUs */
+passthru: typedef GLint GLfixed;
 passthru: #endif
 passthru:
 
@@ -20620,15 +20627,6 @@ newcategory: NV_texgen_reflection
 
 ###############################################################################
 #
-# Extension #???
-# @   EXT_texture_cube_map commands
-#
-###############################################################################
-
-# (none)
-
-###############################################################################
-#
 # Extension #180 - skipped
 # Extension #181 - skipped
 #
@@ -24567,9 +24565,6 @@ newcategory: APPLE_client_storage
 #
 ###############################################################################
 
-# @@ Need to verify/add GLX protocol
-
-# @@@ like #256 ATI_element_array
 ElementPointerAPPLE(type, pointer)
 	return		void
 	param		type		ElementPointerTypeATI in value
@@ -24642,9 +24637,6 @@ MultiDrawRangeElementArrayAPPLE(mode, start, end, first, count, primcount)
 #
 ###############################################################################
 
-# @@ Need to verify/add GLX protocol
-
-# @@@ like #222 NV_fence
 GenFencesAPPLE(n, fences)
 	return		void
 	param		n		SizeI in value
@@ -24785,9 +24777,6 @@ IsVertexArrayAPPLE(array)
 #
 ###############################################################################
 
-# @@ Need to verify/add GLX protocol
-
-# @@@ like #190 NV_vertex_array_range,
 VertexArrayRangeAPPLE(length, pointer)
 	return		void
 	param		length		SizeI in value
@@ -24863,6 +24852,7 @@ DrawBuffersATI(n, bufs)
 # Extension #278 - WGL_ATI_pixel_format_float
 #
 ###############################################################################
+
 newcategory: ATI_pixel_format_float
 passthru: /* This is really a WGL extension, but defines some associated GL enums.
 passthru:  * ATI does not export "GL_ATI_pixel_format_float" in the GL_EXTENSIONS string.
@@ -24905,8 +24895,6 @@ newcategory: NV_float_buffer
 #
 ###############################################################################
 
-# @@ Need to verify/add GLX protocol
-
 # Some NV_fragment_program entry points are shared with ARB_vertex_program,
 #   and are only included in that #define block, for now.
 newcategory: NV_fragment_program
@@ -24924,9 +24912,22 @@ ProgramNamedParameter4fNV(id, len, name, x, y, z, w)
 	category	NV_fragment_program
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	ProgramNamedParameter4fvNV
+	glxvectorequiv	ProgramNamedParameter4fvNV
 	offset		682
+
+ProgramNamedParameter4fvNV(id, len, name, v)
+	return		void
+	param		id		UInt32 in value
+	param		len		SizeI in value
+	param		name		UInt8 in array [1]
+	param		v		Float32 in array [4]
+	category	NV_fragment_program
+	version		1.2
+	extension
+	glxropcode	4218
+	glxflags	ignore
+	offset		684
 
 ProgramNamedParameter4dNV(id, len, name, x, y, z, w)
 	return		void
@@ -24940,22 +24941,9 @@ ProgramNamedParameter4dNV(id, len, name, x, y, z, w)
 	category	NV_fragment_program
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	ProgramNamedParameter4dvNV
+	glxvectorequiv	ProgramNamedParameter4dvNV
 	offset		683
-
-ProgramNamedParameter4fvNV(id, len, name, v)
-	return		void
-	param		id		UInt32 in value
-	param		len		SizeI in value
-	param		name		UInt8 in array [1]
-	param		v		Float32 in array [4]
-	category	NV_fragment_program
-	version		1.2
-	extension
-	glxropcode	?
-	glxflags	ignore
-	offset		684
 
 ProgramNamedParameter4dvNV(id, len, name, v)
 	return		void
@@ -24966,7 +24954,7 @@ ProgramNamedParameter4dvNV(id, len, name, v)
 	category	NV_fragment_program
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4219
 	glxflags	ignore
 	offset		685
 
@@ -24980,7 +24968,7 @@ GetProgramNamedParameterfvNV(id, len, name, params)
 	dlflags		notlistable
 	version		1.2
 	extension
-	glxsingle	?
+	glxvendorpriv	1310
 	glxflags	ignore
 	offset		686
 
@@ -24994,7 +24982,7 @@ GetProgramNamedParameterdvNV(id, len, name, params)
 	dlflags		notlistable
 	version		1.2
 	extension
-	glxsingle	?
+	glxvendorpriv	1311
 	glxflags	ignore
 	offset		687
 
@@ -25005,8 +24993,6 @@ GetProgramNamedParameterdvNV(id, len, name, params)
 #
 ###############################################################################
 
-# @@ Need to verify/add GLX protocol
-
 Vertex2hNV(x, y)
 	return		void
 	param		x		Half16NV in value
@@ -25014,8 +25000,8 @@ Vertex2hNV(x, y)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	Vertex2hvNV
+	glxvectorequiv	Vertex2hvNV
 	offset		?
 
 Vertex2hvNV(v)
@@ -25024,7 +25010,7 @@ Vertex2hvNV(v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4240
 	glxflags	ignore
 	offset		?
 
@@ -25036,8 +25022,8 @@ Vertex3hNV(x, y, z)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	Vertex3hvNV
+	glxvectorequiv	Vertex3hvNV
 	offset		?
 
 Vertex3hvNV(v)
@@ -25046,7 +25032,7 @@ Vertex3hvNV(v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4241
 	glxflags	ignore
 	offset		?
 
@@ -25059,8 +25045,8 @@ Vertex4hNV(x, y, z, w)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	Vertex4hvNV
+	glxvectorequiv	Vertex4hvNV
 	offset		?
 
 Vertex4hvNV(v)
@@ -25069,7 +25055,7 @@ Vertex4hvNV(v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4242
 	glxflags	ignore
 	offset		?
 
@@ -25081,8 +25067,8 @@ Normal3hNV(nx, ny, nz)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	Normal3hvNV
+	glxvectorequiv	Normal3hvNV
 	offset		?
 
 Normal3hvNV(v)
@@ -25091,7 +25077,7 @@ Normal3hvNV(v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4243
 	glxflags	ignore
 	offset		?
 
@@ -25103,8 +25089,8 @@ Color3hNV(red, green, blue)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	Color3hvNV
+	glxvectorequiv	Color3hvNV
 	offset		?
 
 Color3hvNV(v)
@@ -25113,7 +25099,7 @@ Color3hvNV(v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4244
 	glxflags	ignore
 	offset		?
 
@@ -25126,8 +25112,8 @@ Color4hNV(red, green, blue, alpha)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	Color4hvNV
+	glxvectorequiv	Color4hvNV
 	offset		?
 
 Color4hvNV(v)
@@ -25136,7 +25122,7 @@ Color4hvNV(v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4245
 	glxflags	ignore
 	offset		?
 
@@ -25146,8 +25132,8 @@ TexCoord1hNV(s)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	TexCoord1hvNV
+	glxvectorequiv	TexCoord1hvNV
 	offset		?
 
 TexCoord1hvNV(v)
@@ -25156,7 +25142,7 @@ TexCoord1hvNV(v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4246
 	glxflags	ignore
 	offset		?
 
@@ -25167,8 +25153,8 @@ TexCoord2hNV(s, t)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	TexCoord2hvNV
+	glxvectorequiv	TexCoord2hvNV
 	offset		?
 
 TexCoord2hvNV(v)
@@ -25177,7 +25163,7 @@ TexCoord2hvNV(v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4247
 	glxflags	ignore
 	offset		?
 
@@ -25189,8 +25175,8 @@ TexCoord3hNV(s, t, r)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	TexCoord3hvNV
+	glxvectorequiv	TexCoord3hvNV
 	offset		?
 
 TexCoord3hvNV(v)
@@ -25199,7 +25185,7 @@ TexCoord3hvNV(v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4248
 	glxflags	ignore
 	offset		?
 
@@ -25212,8 +25198,8 @@ TexCoord4hNV(s, t, r, q)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	TexCoord4hvNV
+	glxvectorequiv	TexCoord4hvNV
 	offset		?
 
 TexCoord4hvNV(v)
@@ -25222,7 +25208,7 @@ TexCoord4hvNV(v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4249
 	glxflags	ignore
 	offset		?
 
@@ -25233,8 +25219,8 @@ MultiTexCoord1hNV(target, s)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	MultiTexCoord1hvNV
+	glxvectorequiv	MultiTexCoord1hvNV
 	offset		?
 
 MultiTexCoord1hvNV(target, v)
@@ -25244,7 +25230,7 @@ MultiTexCoord1hvNV(target, v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4250
 	glxflags	ignore
 	offset		?
 
@@ -25256,8 +25242,8 @@ MultiTexCoord2hNV(target, s, t)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	MultiTexCoord2hvNV
+	glxvectorequiv	MultiTexCoord2hvNV
 	offset		?
 
 MultiTexCoord2hvNV(target, v)
@@ -25267,7 +25253,7 @@ MultiTexCoord2hvNV(target, v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4251
 	glxflags	ignore
 	offset		?
 
@@ -25280,8 +25266,8 @@ MultiTexCoord3hNV(target, s, t, r)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	MultiTexCoord3hvNV
+	glxvectorequiv	MultiTexCoord3hvNV
 	offset		?
 
 MultiTexCoord3hvNV(target, v)
@@ -25291,7 +25277,7 @@ MultiTexCoord3hvNV(target, v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4252
 	glxflags	ignore
 	offset		?
 
@@ -25305,8 +25291,8 @@ MultiTexCoord4hNV(target, s, t, r, q)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	MultiTexCoord4hvNV
+	glxvectorequiv	MultiTexCoord4hvNV
 	offset		?
 
 MultiTexCoord4hvNV(target, v)
@@ -25316,7 +25302,7 @@ MultiTexCoord4hvNV(target, v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4253
 	glxflags	ignore
 	offset		?
 
@@ -25326,8 +25312,8 @@ FogCoordhNV(fog)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	FogCoordhvNV
+	glxvectorequiv	FogCoordhvNV
 	offset		?
 
 FogCoordhvNV(fog)
@@ -25336,7 +25322,7 @@ FogCoordhvNV(fog)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4254
 	glxflags	ignore
 	offset		?
 
@@ -25348,8 +25334,8 @@ SecondaryColor3hNV(red, green, blue)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	SecondaryColor3hvNV
+	glxvectorequiv	SecondaryColor3hvNV
 	offset		?
 
 SecondaryColor3hvNV(v)
@@ -25358,7 +25344,7 @@ SecondaryColor3hvNV(v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4255
 	glxflags	ignore
 	offset		?
 
@@ -25368,8 +25354,8 @@ VertexWeighthNV(weight)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	VertexWeighthvNV
+	glxvectorequiv	VertexWeighthvNV
 	offset		?
 
 VertexWeighthvNV(weight)
@@ -25378,7 +25364,7 @@ VertexWeighthvNV(weight)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4256
 	glxflags	ignore
 	offset		?
 
@@ -25389,8 +25375,8 @@ VertexAttrib1hNV(index, x)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	VertexAttrib1hvNV
+	glxvectorequiv	VertexAttrib1hvNV
 	offset		?
 
 VertexAttrib1hvNV(index, v)
@@ -25400,7 +25386,7 @@ VertexAttrib1hvNV(index, v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4257
 	glxflags	ignore
 	offset		?
 
@@ -25412,8 +25398,8 @@ VertexAttrib2hNV(index, x, y)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	VertexAttrib2hvNV
+	glxvectorequiv	VertexAttrib2hvNV
 	offset		?
 
 VertexAttrib2hvNV(index, v)
@@ -25423,7 +25409,7 @@ VertexAttrib2hvNV(index, v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4258
 	glxflags	ignore
 	offset		?
 
@@ -25436,8 +25422,8 @@ VertexAttrib3hNV(index, x, y, z)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	VertexAttrib3hvNV
+	glxvectorequiv	VertexAttrib3hvNV
 	offset		?
 
 VertexAttrib3hvNV(index, v)
@@ -25447,7 +25433,7 @@ VertexAttrib3hvNV(index, v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4259
 	glxflags	ignore
 	offset		?
 
@@ -25461,8 +25447,8 @@ VertexAttrib4hNV(index, x, y, z, w)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
-	glxflags	ignore
+	vectorequiv	VertexAttrib4hvNV
+	glxvectorequiv	VertexAttrib4hvNV
 	offset		?
 
 VertexAttrib4hvNV(index, v)
@@ -25472,7 +25458,7 @@ VertexAttrib4hvNV(index, v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4260
 	glxflags	ignore
 	offset		?
 
@@ -25484,7 +25470,7 @@ VertexAttribs1hvNV(index, n, v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4261
 	glxflags	ignore
 	offset		?
 
@@ -25496,7 +25482,7 @@ VertexAttribs2hvNV(index, n, v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4262
 	glxflags	ignore
 	offset		?
 
@@ -25508,7 +25494,7 @@ VertexAttribs3hvNV(index, n, v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4263
 	glxflags	ignore
 	offset		?
 
@@ -25520,7 +25506,7 @@ VertexAttribs4hvNV(index, n, v)
 	category	NV_half_float
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4264
 	glxflags	ignore
 	offset		?
 
@@ -25530,8 +25516,6 @@ VertexAttribs4hvNV(index, n, v)
 # NV_pixel_data_range commands
 #
 ###############################################################################
-
-# @@ Need to verify/add GLX protocol
 
 PixelDataRangeNV(target, length, pointer)
 	return		void
@@ -25561,8 +25545,6 @@ FlushPixelDataRangeNV(target)
 # NV_primitive_restart commands
 #
 ###############################################################################
-
-# @@ Need to verify/add GLX protocol
 
 PrimitiveRestartNV()
 	return		void
@@ -25611,8 +25593,6 @@ newcategory: NV_vertex_program2
 #
 ###############################################################################
 
-# @@ Need to verify/add GLX protocol
-
 MapObjectBufferATI(buffer)
 	return		VoidPointer
 	param		buffer		UInt32 in value
@@ -25639,8 +25619,6 @@ UnmapObjectBufferATI(buffer)
 # ATI_separate_stencil commands
 #
 ###############################################################################
-
-# @@ Need to verify/add GLX protocol
 
 StencilOpSeparateATI(face, sfail, dpfail, dppass)
 	return		void
@@ -25674,8 +25652,6 @@ StencilFuncSeparateATI(frontfunc, backfunc, ref, mask)
 # ATI_vertex_attrib_array_object commands
 #
 ###############################################################################
-
-# @@ Need to verify/add GLX protocol
 
 VertexAttribArrayObjectATI(index, size, type, normalized, stride, buffer, offset)
 	return		void
@@ -25721,50 +25697,1556 @@ GetVertexAttribArrayObjectivATI(index, pname, params)
 
 ###############################################################################
 #
-# Extension #291 - OpenGL ES only, not in glext.h
+# Extension #291
 # OES_byte_coordinates commands
 #
 ###############################################################################
 
-# void Vertex{234}bOES(T coords)
-# void Vertex{234}bvOES(T *coords)
-# void TexCoord{1234}bOES(T coords)
-# void TexCoord{1234}bvOES(T *coords)
-# void MultiTexCoord{1234}bOES(enum texture, T coords)
-# void MultiTexCoord{1234}bvOES(enum texture, T *coords)
-# All are handcode - mapped to non-byte GLX protocol on client side
+MultiTexCoord1bOES(texture, s)
+	return		void
+	param		texture		GLenum in value
+	param		s		Int8 in value
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
 
-# newcategory: OES_byte_coordinates
+MultiTexCoord1bvOES(texture, coords)
+	return		void
+	param		texture		GLenum in value
+	param		coords		ConstByte in array [1]
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord2bOES(texture, s, t)
+	return		void
+	param		texture		GLenum in value
+	param		s		Int8 in value
+	param		t		Int8 in value
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord2bvOES(texture, coords)
+	return		void
+	param		texture		GLenum in value
+	param		coords		ConstByte in array [2]
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord3bOES(texture, s, t, r)
+	return		void
+	param		texture		GLenum in value
+	param		s		Int8 in value
+	param		t		Int8 in value
+	param		r		Int8 in value
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord3bvOES(texture, coords)
+	return		void
+	param		texture		GLenum in value
+	param		coords		ConstByte in array [3]
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord4bOES(texture, s, t, r, q)
+	return		void
+	param		texture		GLenum in value
+	param		s		Int8 in value
+	param		t		Int8 in value
+	param		r		Int8 in value
+	param		q		Int8 in value
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord4bvOES(texture, coords)
+	return		void
+	param		texture		GLenum in value
+	param		coords		ConstByte in array [4]
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord1bOES(s)
+	return		void
+	param		s		Int8 in value
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord1bvOES(coords)
+	return		void
+	param		coords		ConstByte in array [1]
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord2bOES(s, t)
+	return		void
+	param		s		Int8 in value
+	param		t		Int8 in value
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord2bvOES(coords)
+	return		void
+	param		coords		ConstByte in array [2]
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord3bOES(s, t, r)
+	return		void
+	param		s		Int8 in value
+	param		t		Int8 in value
+	param		r		Int8 in value
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord3bvOES(coords)
+	return		void
+	param		coords		ConstByte in array [3]
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord4bOES(s, t, r, q)
+	return		void
+	param		s		Int8 in value
+	param		t		Int8 in value
+	param		r		Int8 in value
+	param		q		Int8 in value
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord4bvOES(coords)
+	return		void
+	param		coords		ConstByte in array [4]
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Vertex2bOES(x)
+	return		void
+	param		x		Int8 in value
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Vertex2bvOES(coords)
+	return		void
+	param		coords		ConstByte in array [2]
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Vertex3bOES(x, y)
+	return		void
+	param		x		Int8 in value
+	param		y		Int8 in value
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Vertex3bvOES(coords)
+	return		void
+	param		coords		ConstByte in array [3]
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Vertex4bOES(x, y, z)
+	return		void
+	param		x		Int8 in value
+	param		y		Int8 in value
+	param		z		Int8 in value
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Vertex4bvOES(coords)
+	return		void
+	param		coords		ConstByte in array [4]
+	category	OES_byte_coordinates
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
 
 ###############################################################################
 #
-# Extension #292 - OpenGL ES only, not in glext.h
+# Extension #292
 # OES_fixed_point commands
 #
 ###############################################################################
 
-# Too many to list in just a comment - see spec in the extension registry
-# All are handcode - mapped to non-byte GLX protocol on client side
+# ??? VERIFY DONE ???
+## Many of these are compatibility profile only
 
-# newcategory: OES_fixed_point
+AccumxOES(op, value)
+	return		void
+	param		op		GLenum in value
+	param		value		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+AlphaFuncxOES(func, ref)
+	return		void
+	param		func		GLenum in value
+	param		ref		ClampedFixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+BitmapxOES(width, height, xorig, yorig, xmove, ymove, bitmap)
+	return		void
+	param		width		SizeI in value
+	param		height		SizeI in value
+	param		xorig		Fixed in value
+	param		yorig		Fixed in value
+	param		xmove		Fixed in value
+	param		ymove		Fixed in value
+	param		bitmap		ConstUByte in array [COMPSIZE()]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+BlendColorxOES(red, green, blue, alpha)
+	return		void
+	param		red		ClampedFixed in value
+	param		green		ClampedFixed in value
+	param		blue		ClampedFixed in value
+	param		alpha		ClampedFixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+ClearAccumxOES(red, green, blue, alpha)
+	return		void
+	param		red		ClampedFixed in value
+	param		green		ClampedFixed in value
+	param		blue		ClampedFixed in value
+	param		alpha		ClampedFixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+ClearColorxOES(red, green, blue, alpha)
+	return		void
+	param		red		ClampedFixed in value
+	param		green		ClampedFixed in value
+	param		blue		ClampedFixed in value
+	param		alpha		ClampedFixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+ClearDepthxOES(depth)
+	return		void
+	param		depth		ClampedFixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+ClipPlanexOES(plane, equation)
+	return		void
+	param		plane		GLenum in value
+	param		equation	ConstFixed in array [4]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Color3xOES(red, green, blue)
+	return		void
+	param		red		Fixed in value
+	param		green		Fixed in value
+	param		blue		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Color4xOES(red, green, blue, alpha)
+	return		void
+	param		red		Fixed in value
+	param		green		Fixed in value
+	param		blue		Fixed in value
+	param		alpha		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Color3xvOES(components)
+	return		void
+	param		components	ConstFixed in array [3]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Color4xvOES(components)
+	return		void
+	param		components	ConstFixed in array [4]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+ConvolutionParameterxOES(target, pname, param)
+	return		void
+	param		target		GLenum in value
+	param		pname		GLenum in value
+	param		param		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+ConvolutionParameterxvOES(target, pname, params)
+	return		void
+	param		target		GLenum in value
+	param		pname		GLenum in value
+	param		params		ConstFixed in array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+DepthRangexOES(n, f)
+	return		void
+	param		n		ClampedFixed in value
+	param		f		ClampedFixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+EvalCoord1xOES(u)
+	return		void
+	param		u		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+EvalCoord2xOES(u, v)
+	return		void
+	param		u		Fixed in value
+	param		v		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+EvalCoord1xvOES(coords)
+	return		void
+	param		coords		ConstFixed in array [1]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+EvalCoord2xvOES(coords)
+	return		void
+	param		coords		ConstFixed in array [2]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+FeedbackBufferxOES(n, type, buffer)
+	return		void
+	param		n		SizeI in value
+	param		type		GLenum in value
+	param		buffer		Fixed in array [n]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+FogxOES(pname, param)
+	return		void
+	param		pname		GLenum in value
+	param		param		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+FogxvOES(pname, param)
+	return		void
+	param		pname		GLenum in value
+	param		param		ConstFixed in array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+FrustumxOES(l, r, b, t, n, f)
+	return		void
+	param		l		Fixed in value
+	param		r		Fixed in value
+	param		b		Fixed in value
+	param		t		Fixed in value
+	param		n		Fixed in value
+	param		f		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+GetClipPlanexOES(plane, equation)
+	return		void
+	param		plane		GLenum in value
+	param		equation	Fixed out array [4]
+	category	OES_fixed_point
+	dlflags		notlistable
+	version		4.3
+	extension
+	glxsingle	?
+	glxflags	ignore
+	offset		?
+
+GetConvolutionParameterxvOES(target, pname, params)
+	return		void
+	param		target		GLenum in value
+	param		pname		GLenum in value
+	param		params		Fixed out array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	dlflags		notlistable
+	version		4.3
+	extension
+	glxsingle	?
+	glxflags	ignore
+	offset		?
+
+GetFixedvOES(pname, params)
+	return		void
+	param		pname		GLenum in value
+	param		params		Fixed out array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	dlflags		notlistable
+	version		4.3
+	extension
+	glxsingle	?
+	glxflags	ignore
+	offset		?
+
+GetHistogramParameterxvOES(target, pname, params)
+	return		void
+	param		target		GLenum in value
+	param		pname		GLenum in value
+	param		params		Fixed out array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	dlflags		notlistable
+	version		4.3
+	extension
+	glxsingle	?
+	glxflags	ignore
+	offset		?
+
+GetLightxOES(light, pname, params)
+	return		void
+	param		light		GLenum in value
+	param		pname		GLenum in value
+	param		params		Fixed out array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	dlflags		notlistable
+	version		4.3
+	extension
+	glxsingle	?
+	glxflags	ignore
+	offset		?
+
+GetMapxvOES(target, query, v)
+	return		void
+	param		target		GLenum in value
+	param		query		GLenum in value
+	param		v		Fixed out array [COMPSIZE(query)]
+	category	OES_fixed_point
+	dlflags		notlistable
+	version		4.3
+	extension
+	glxsingle	?
+	glxflags	ignore
+	offset		?
+
+GetMaterialxOES(face, pname, param)
+	return		void
+	param		face		GLenum in value
+	param		pname		GLenum in value
+	param		param		Fixed in value
+	category	OES_fixed_point
+	dlflags		notlistable
+	version		4.3
+	extension
+	glxsingle	?
+	glxflags	ignore
+	offset		?
+
+GetPixelMapxv(map, size, values)
+	return		void
+	param		map		GLenum in value
+	param		size		Int32 in value
+	param		values		Fixed out array [size]
+	category	OES_fixed_point
+	dlflags		notlistable
+	version		4.3
+	extension
+	glxsingle	?
+	glxflags	ignore
+	offset		?
+
+GetTexEnvxvOES(target, pname, params)
+	return		void
+	param		target		GLenum in value
+	param		pname		GLenum in value
+	param		params		Fixed out array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	dlflags		notlistable
+	version		4.3
+	extension
+	glxsingle	?
+	glxflags	ignore
+	offset		?
+
+GetTexGenxvOES(coord, pname, params)
+	return		void
+	param		coord		GLenum in value
+	param		pname		GLenum in value
+	param		params		Fixed out array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	dlflags		notlistable
+	version		4.3
+	extension
+	glxsingle	?
+	glxflags	ignore
+	offset		?
+
+GetTexLevelParameterxvOES(target, level, pname, params)
+	return		void
+	param		target		GLenum in value
+	param		level		Int32 in value
+	param		pname		GLenum in value
+	param		params		Fixed out array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	dlflags		notlistable
+	version		4.3
+	extension
+	glxsingle	?
+	glxflags	ignore
+	offset		?
+
+GetTexParameterxvOES(target, pname, params)
+	return		void
+	param		target		GLenum in value
+	param		pname		GLenum in value
+	param		params		Fixed out array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	dlflags		notlistable
+	version		4.3
+	extension
+	glxsingle	?
+	glxflags	ignore
+	offset		?
+
+IndexxOES(component)
+	return		void
+	param		component	Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+IndexxvOES(component)
+	return		void
+	param		component	ConstFixed in array [1]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+LightModelxOES(pname, param)
+	return		void
+	param		pname		GLenum in value
+	param		param		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+LightModelxvOES(pname, param)
+	return		void
+	param		pname		GLenum in value
+	param		param		ConstFixed in array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+LightxOES(light, pname, param)
+	return		void
+	param		light		GLenum in value
+	param		pname		GLenum in value
+	param		param		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+LightxvOES(light, pname, params)
+	return		void
+	param		light		GLenum in value
+	param		pname		GLenum in value
+	param		params		ConstFixed in array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+LineWidthxOES(width)
+	return		void
+	param		width		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+LoadMatrixxOES(m)
+	return		void
+	param		m		ConstFixed in array [16]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+LoadTransposeMatrixxOES(m)
+	return		void
+	param		m		ConstFixed in array [16]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Map1xOES(target, u1, u2, stride, order, points)
+	return		void
+	param		target		GLenum in value
+	param		u1		Fixed in value
+	param		u2		Fixed in value
+	param		stride		Int32 in value
+	param		order		Int32 in value
+	param		points		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Map2xOES(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points)
+	return		void
+	param		target		GLenum in value
+	param		u1		Fixed in value
+	param		u2		Fixed in value
+	param		ustride		Int32 in value
+	param		uorder		Int32 in value
+	param		v1		Fixed in value
+	param		v2		Fixed in value
+	param		vstride		Int32 in value
+	param		vorder		Int32 in value
+	param		points		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MapGrid1xOES(n, u1, u2)
+	return		void
+	param		n		Int32 in value
+	param		u1		Fixed in value
+	param		u2		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MapGrid2xOES(n, u1, u2, v1, v2)
+	return		void
+	param		n		Int32 in value
+	param		u1		Fixed in value
+	param		u2		Fixed in value
+	param		v1		Fixed in value
+	param		v2		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MaterialxOES(face, pname, param)
+	return		void
+	param		face		GLenum in value
+	param		pname		GLenum in value
+	param		param		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MaterialxvOES(face, pname, param)
+	return		void
+	param		face		GLenum in value
+	param		pname		GLenum in value
+	param		param		ConstFixed in array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultMatrixxOES(m)
+	return		void
+	param		m		ConstFixed in array [16]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultTransposeMatrixxOES(m)
+	return		void
+	param		m		ConstFixed in array [16]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord1xOES(texture, s)
+	return		void
+	param		texture		GLenum in value
+	param		s		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord2xOES(texture, s, t)
+	return		void
+	param		texture		GLenum in value
+	param		s		Fixed in value
+	param		t		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord3xOES(texture, s, t, r)
+	return		void
+	param		texture		GLenum in value
+	param		s		Fixed in value
+	param		t		Fixed in value
+	param		r		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord4xOES(texture, s, t, r, q)
+	return		void
+	param		texture		GLenum in value
+	param		s		Fixed in value
+	param		t		Fixed in value
+	param		r		Fixed in value
+	param		q		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord1xvOES(texture, coords)
+	return		void
+	param		texture		GLenum in value
+	param		coords		ConstFixed in array [1]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord2xvOES(texture, coords)
+	return		void
+	param		texture		GLenum in value
+	param		coords		ConstFixed in array [2]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord3xvOES(texture, coords)
+	return		void
+	param		texture		GLenum in value
+	param		coords		ConstFixed in array [3]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MultiTexCoord4xvOES(texture, coords)
+	return		void
+	param		texture		GLenum in value
+	param		coords		ConstFixed in array [4]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Normal3xOES(nx, ny, nz)
+	return		void
+	param		nx		Fixed in value
+	param		ny		Fixed in value
+	param		nz		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Normal3xvOES(coords)
+	return		void
+	param		coords		ConstFixed in array [3]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+OrthoxOES(l, r, b, t, n, f)
+	return		void
+	param		l		Fixed in value
+	param		r		Fixed in value
+	param		b		Fixed in value
+	param		t		Fixed in value
+	param		n		Fixed in value
+	param		f		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+PassThroughxOES(token)
+	return		void
+	param		token		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+PixelMapx(map, size, values)
+	return		void
+	param		map		GLenum in value
+	param		size		Int32 in value
+	param		values		ConstFixed in array [size]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+PixelStorex(pname, param)
+	return		void
+	param		pname		GLenum in value
+	param		param		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+PixelTransferxOES(pname, param)
+	return		void
+	param		pname		GLenum in value
+	param		param		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+PixelZoomxOES(xfactor, yfactor)
+	return		void
+	param		xfactor		Fixed in value
+	param		yfactor		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+PointParameterxvOES(pname, params)
+	return		void
+	param		pname		GLenum in value
+	param		params		ConstFixed in array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+PointSizexOES(size)
+	return		void
+	param		size		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+PolygonOffsetxOES(factor, units)
+	return		void
+	param		factor		Fixed in value
+	param		units		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+PrioritizeTexturesxOES(n, textures, priorities)
+	return		void
+	param		n		SizeI in value
+	param		textures	UInt32 in array [n]
+	param		priorities	ClampedFixed in array [n]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+RasterPos2xOES(x, y)
+	return		void
+	param		x		Fixed in value
+	param		y		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+RasterPos3xOES(x, y, z)
+	return		void
+	param		x		Fixed in value
+	param		y		Fixed in value
+	param		z		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+RasterPos4xOES(x, y, z, w)
+	return		void
+	param		x		Fixed in value
+	param		y		Fixed in value
+	param		z		Fixed in value
+	param		w		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+RasterPos2xvOES(coords)
+	return		void
+	param		coords		ConstFixed in array [2]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+RasterPos3xvOES(coords)
+	return		void
+	param		coords		ConstFixed in array [3]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+RasterPos4xvOES(coords)
+	return		void
+	param		coords		ConstFixed in array [4]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+RectxOES(x1, y1, x2, y2)
+	return		void
+	param		x1		Fixed in value
+	param		y1		Fixed in value
+	param		x2		Fixed in value
+	param		y2		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+RectxvOES(v1, v2)
+	return		void
+	param		v1		ConstFixed in array [2]
+	param		v2		ConstFixed in array [2]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+RotatexOES(angle, x, y, z)
+	return		void
+	param		angle		Fixed in value
+	param		x		Fixed in value
+	param		y		Fixed in value
+	param		z		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+SampleCoverageOES(value, invert)
+	return		void
+	param		value		ClampedFixed in value
+	param		invert		Boolean in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+ScalexOES(x, y, z)
+	return		void
+	param		x		Fixed in value
+	param		y		Fixed in value
+	param		z		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord1xOES(s)
+	return		void
+	param		s		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord2xOES(s, t)
+	return		void
+	param		s		Fixed in value
+	param		t		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord3xOES(s, t, r)
+	return		void
+	param		s		Fixed in value
+	param		t		Fixed in value
+	param		r		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord4xOES(s, t, r, q)
+	return		void
+	param		s		Fixed in value
+	param		t		Fixed in value
+	param		r		Fixed in value
+	param		q		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord1xvOES(coords)
+	return		void
+	param		coords		ConstFixed in array [1]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord2xvOES(coords)
+	return		void
+	param		coords		ConstFixed in array [2]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord3xvOES(coords)
+	return		void
+	param		coords		ConstFixed in array [3]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexCoord4xvOES(coords)
+	return		void
+	param		coords		ConstFixed in array [4]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexEnvxOES(target, pname, param)
+	return		void
+	param		target		GLenum in value
+	param		pname		GLenum in value
+	param		param		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexEnvxvOES(target, pname, params)
+	return		void
+	param		target		GLenum in value
+	param		pname		GLenum in value
+	param		params		ConstFixed in array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexGenxOES(coord, pname, param)
+	return		void
+	param		coord		GLenum in value
+	param		pname		GLenum in value
+	param		param		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexGenxvOES(coord, pname, params)
+	return		void
+	param		coord		GLenum in value
+	param		pname		GLenum in value
+	param		params		ConstFixed in array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexParameterxOES(target, pname, param)
+	return		void
+	param		target		GLenum in value
+	param		pname		GLenum in value
+	param		param		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TexParameterxvOES(target, pname, params)
+	return		void
+	param		target		GLenum in value
+	param		pname		GLenum in value
+	param		params		ConstFixed in array [COMPSIZE(pname)]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+TranslatexOES(x, y, z)
+	return		void
+	param		x		Fixed in value
+	param		y		Fixed in value
+	param		z		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Vertex2xOES(x)
+	return		void
+	param		x		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Vertex3xOES(x, y)
+	return		void
+	param		x		Fixed in value
+	param		y		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Vertex4xOES(x, y, z)
+	return		void
+	param		x		Fixed in value
+	param		y		Fixed in value
+	param		z		Fixed in value
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Vertex2xvOES(coords)
+	return		void
+	param		coords		ConstFixed in array [2]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Vertex3xvOES(coords)
+	return		void
+	param		coords		ConstFixed in array [3]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+Vertex4xvOES(coords)
+	return		void
+	param		coords		ConstFixed in array [4]
+	category	OES_fixed_point
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
 
 ###############################################################################
 #
-# Extension #293 - OpenGL ES only, not in glext.h
+# Extension #293
 # OES_single_precision commands
 #
 ###############################################################################
 
-# void DepthRangefOES(clampf n, clampf f)
-# void FrustumfOES(float l, float r, float b, float t, float n, float f)
-# void OrthofOES(float l, float r, float b, float t, float n, float f)
-# void ClipPlanefOES(enum plane, const float* equation)
-# void glClearDepthfOES(clampd depth)
-# GLX ropcodes 4308-4312 (not respectively, see extension spec)
-# void GetClipPlanefOES(enum plane, float* equation)
-# GLX vendor private 1421
+DepthRangefOES(n, f)
+	return		void
+	param		n		ClampedFloat32 in value
+	param		f		ClampedFloat32 in value
+	category	OES_single_precision
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
 
-# newcategory: OES_single_precision
+FrustumfOES(l, r, b, t, n, f)
+	return		void
+	param		l		Float32 in value
+	param		r		Float32 in value
+	param		b		Float32 in value
+	param		t		Float32 in value
+	param		n		Float32 in value
+	param		f		Float32 in value
+	category	OES_single_precision
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+OrthofOES(l, r, b, t, n, f)
+	return		void
+	param		l		Float32 in value
+	param		r		Float32 in value
+	param		b		Float32 in value
+	param		t		Float32 in value
+	param		n		Float32 in value
+	param		f		Float32 in value
+	category	OES_single_precision
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+ClipPlanefOES(plane, equation)
+	return		void
+	param		plane		GLenum in value
+	param		equation	ConstFloat32 in array [4]
+	category	OES_single_precision
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+ClearDepthfOES(depth)
+	return		void
+	param		depth		ClampedFloat64 in value
+	category	OES_single_precision
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+GetClipPlanefOES(plane, equation)
+	return		void
+	param		plane		GLenum in value
+	param		equation	Float32 out array [4]
+	category	OES_single_precision
+	dlflags		notlistable
+	version		4.3
+	extension
+	glxsingle	?
+	glxflags	ignore
+	offset		?
 
 ###############################################################################
 #
@@ -25774,11 +27256,11 @@ GetVertexAttribArrayObjectivATI(index, pname, params)
 ###############################################################################
 
 # (none)
-# newcategory: OES_compressed_paletted_texture
+newcategory: OES_compressed_paletted_texture
 
 ###############################################################################
 #
-# Extension #295 - This is an OpenGL ES extension, but also implemented in Mesa
+# Extension #295
 # OES_read_format commands
 #
 ###############################################################################
@@ -25788,15 +27270,21 @@ newcategory: OES_read_format
 
 ###############################################################################
 #
-# Extension #296 - OpenGL ES only, not in glext.h
+# Extension #296
 # OES_query_matrix commands
 #
 ###############################################################################
 
-# bitfield queryMatrixxOES(fixed mantissa[16], int exponent[16])
-# All are handcode - mapped to non-byte GLX protocol on client side
-
-# newcategory: OES_query_matrix
+QueryMatrixxOES(mantissa, exponent)
+	return		GLbitfield
+	param		mantissa	ConstFixed in array [16]
+	param		exponent	ConstInt32 in array [16]
+	category	OES_query_matrix
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
 
 ###############################################################################
 #
@@ -27197,6 +28685,7 @@ DepthRangedNV(zNear, zFar)
 	extension	soft WINSOFT NV50
 	version		2.0
 	glfflags	ignore
+	glxropcode	4283
 	glxflags	ignore
 
 ClearDepthdNV(depth)
@@ -27206,6 +28695,7 @@ ClearDepthdNV(depth)
 	extension	soft WINSOFT NV50
 	version		2.0
 	glfflags	ignore
+	glxropcode	4284
 	glxflags	ignore
 
 DepthBoundsdNV(zmin, zmax)
@@ -27216,6 +28706,7 @@ DepthBoundsdNV(zmin, zmax)
 	extension	soft WINSOFT NV50
 	version		2.0
 	glfflags	ignore
+	glxropcode	4285
 	glxflags	ignore
 
 ###############################################################################
@@ -27277,11 +28768,11 @@ newcategory: NV_geometry_shader4
 #
 ###############################################################################
 
-ProgramBufferParametersfvNV(target, buffer, index, count, params)
+ProgramBufferParametersfvNV(target, bindingIndex, wordIndex, count, params)
 	return		void
 	param		target		ProgramTarget in value
-	param		buffer		UInt32 in value
-	param		index		UInt32 in value
+	param		bindingIndex	UInt32 in value
+	param		wordIndex	UInt32 in value
 	param		count		SizeI in value
 	param		params		Float32 in array [count]
 	category	NV_parameter_buffer_object
@@ -27290,11 +28781,11 @@ ProgramBufferParametersfvNV(target, buffer, index, count, params)
 	glfflags	ignore
 	glxflags	ignore
 
-ProgramBufferParametersIivNV(target, buffer, index, count, params)
+ProgramBufferParametersIivNV(target, bindingIndex, wordIndex, count, params)
 	return		void
 	param		target		ProgramTarget in value
-	param		buffer		UInt32 in value
-	param		index		UInt32 in value
+	param		bindingIndex	UInt32 in value
+	param		wordIndex	UInt32 in value
 	param		count		SizeI in value
 	param		params		Int32 in array [count]
 	category	NV_parameter_buffer_object
@@ -27303,11 +28794,11 @@ ProgramBufferParametersIivNV(target, buffer, index, count, params)
 	glfflags	ignore
 	glxflags	ignore
 
-ProgramBufferParametersIuivNV(target, buffer, index, count, params)
+ProgramBufferParametersIuivNV(target, bindingIndex, wordIndex, count, params)
 	return		void
 	param		target		ProgramTarget in value
-	param		buffer		UInt32 in value
-	param		index		UInt32 in value
+	param		bindingIndex	UInt32 in value
+	param		wordIndex	UInt32 in value
 	param		count		SizeI in value
 	param		params		UInt32 in array [count]
 	category	NV_parameter_buffer_object
@@ -27734,26 +29225,6 @@ EndConditionalRenderNV()
 # NV_present_video commands
 #
 ###############################################################################
-
-# TBD
-#    void PresentFrameKeyedNV(uint video_slot, uint64EXT minPresentTime,
-#			      uint beginPresentTimeId, uint
-#			      presentDurationId, enum type, enum target0,
-#			      uint fill0, uint key0, enum target1, uint
-#			      fill1, uint key1);
-#
-#    void PresentFrameDualFillNV(uint video_slot, uint64EXT
-#				 minPresentTime, uint beginPresentTimeId,
-#				 uint presentDurationId, enum type, enum
-#				 target0, uint fill0, enum target1, uint
-#				 fill1, enum target2, uint fill2, enum
-#				 target3, uint fill3);
-#
-#    void GetVideoivNV(uint video_slot, enum pname, int *params);
-#    void GetVideouivNV(uint video_slot, enum pname, uint *params);
-#    void GetVideoi64vNV(uint video_slot, enum pname, int64EXT *params);
-#    void GetVideoui64vNV(uint video_slot, enum pname, uint64EXT *params);
-#    void VideoParameterivNV(uint video_slot, enum pname, const int *params);
 
 PresentFrameKeyedNV(video_slot, minPresentTime, beginPresentTimeId, presentDurationId, type, target0, fill0, key0, target1, fill1, key1)
 	return		void
@@ -31637,7 +33108,7 @@ CopyImageSubDataNV(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstT
 	category	NV_copy_image
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4291
 	glxflags	ignore
 	offset		?
 
@@ -32021,7 +33492,7 @@ TextureBarrierNV()
 	category	NV_texture_barrier
 	version		1.2
 	extension
-	glxropcode	?
+	glxropcode	4348
 	glxflags	ignore
 	offset		?
 
@@ -34206,8 +35677,76 @@ newcategory: NV_shader_atomic_float
 newcategory: AMD_query_buffer_object
 
 ###############################################################################
+
+###############################################################################
 #
 # Extension #421
+# NV_compute_program5 commands
+#
+###############################################################################
+
+# (none)
+newcategory: NV_compute_program5
+
+###############################################################################
+#
+# Extension #422
+# NV_shader_storage_buffer_object commands
+#
+###############################################################################
+
+# (none)
+newcategory: NV_shader_storage_buffer_object
+
+###############################################################################
+#
+# Extension #423
+# NV_shader_atomic_counters commands
+#
+###############################################################################
+
+# (none)
+newcategory: NV_shader_atomic_counters
+
+###############################################################################
+#
+# Extension #424
+# NV_deep_texture3D commands
+#
+###############################################################################
+
+# (none)
+newcategory: NV_deep_texture3D
+
+###############################################################################
+#
+# Extension #425
+# NVX_conditional_render enum:
+#
+###############################################################################
+
+BeginConditionalRenderNVX(id)
+	return		void
+	param		id		UInt32 in value
+	category	NVX_conditional_render
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+EndConditionalRenderNVX()
+	return		void
+	category	NVX_conditional_render
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+###############################################################################
+#
+# Extension #426
 # AMD_sparse_texture commands
 #
 ###############################################################################
@@ -34245,3 +35784,87 @@ TextureStorageSparseAMD(texture, target, internalFormat, width, height, depth, l
 	glxflags	ignore
 	offset		?
 
+###############################################################################
+#
+# Extension #427 - GLX_EXT_buffer_age
+#
+###############################################################################
+
+###############################################################################
+#
+# Extension #428
+# AMD_shader_trinary_minmax commands
+#
+###############################################################################
+
+# (none)
+newcategory: AMD_shader_trinary_minmax
+
+###############################################################################
+#
+# Extension #429
+# INTEL_map_texture commands
+#
+###############################################################################
+
+SyncTextureINTEL(texture)
+	return		void
+	param		texture		UInt32 in value
+	category	INTEL_map_texture
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+UnmapTexture2DINTEL(texture, level)
+	return		void
+	param		texture		UInt32 in value
+	param		level		Int32 in value
+	category	INTEL_map_texture
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+MapTexture2DINTEL(texture, level, access, stride, layout)
+	return		VoidPointer
+	param		texture		UInt32 in value
+	param		level		Int32 in value
+	param		access		GLbitfield in value
+	param		stride		Int32 in array [1]
+	param		layout		GLenum in array [1]
+	category	INTEL_map_texture
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?
+
+###############################################################################
+#
+# Extension #430
+# NV_draw_texture commands
+#
+###############################################################################
+
+DrawTextureNV(texture, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1)
+	return		void
+	param		texture		UInt32 in value
+	param		sampler		UInt32 in value
+	param		x0		Float32 in value
+	param		y0		Float32 in value
+	param		x1		Float32 in value
+	param		y1		Float32 in value
+	param		z		Float32 in value
+	param		s0		Float32 in value
+	param		t0		Float32 in value
+	param		s1		Float32 in value
+	param		t1		Float32 in value
+	category	NV_draw_texture
+	version		4.3
+	extension
+	glxropcode	?
+	glxflags	ignore
+	offset		?

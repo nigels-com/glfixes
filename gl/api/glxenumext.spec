@@ -4,7 +4,7 @@
 # This document is licensed under the SGI Free Software B License Version
 # 2.0. For details, see http://oss.sgi.com/projects/FreeB/ .
 #
-# $Revision: 19459 $ on $Date: 2012-10-15 11:34:35 -0700 (Mon, 15 Oct 2012) $
+# $Revision: 20030 $ on $Date: 2013-01-02 02:39:38 -0800 (Wed, 02 Jan 2013) $
 
 # List of GLX enumerants for glxext.h header
 #

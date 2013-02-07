@@ -3,7 +3,7 @@
 # It is an extremely important file. Do not mess with it unless
 # you know what you're doing and have permission to do so.
 #
-# $Revision: 19335 $ on $Date: 2012-09-28 18:06:41 -0700 (Fri, 28 Sep 2012) $
+# $Revision: 20466 $ on $Date: 2013-02-06 04:09:36 -0800 (Wed, 06 Feb 2013) $
 
 ###############################################################################
 #
@@ -342,6 +342,15 @@ ARB_shader_image_load_store enum: (additional; see below)
 # Also VERSION_4_3
 ARB_shader_storage_buffer_object enum: (additional; see below)
 	SHADER_STORAGE_BARRIER_BIT			= 0x00002000
+
+###############################################################################
+
+# Texture memory layout formats, apparently a zero-based format
+
+INTEL_map_texture enum: (additional; see below)
+	LAYOUT_DEFAULT_INTEL				= 0
+	LAYOUT_LINEAR_INTEL				= 1
+	LAYOUT_LINEAR_CPU_CACHED_INTEL			= 2
 
 ###############################################################################
 
@@ -1399,6 +1408,10 @@ GetTextureParameter enum:
 	use SGIX_texture_lod_bias TEXTURE_LOD_BIAS_R_SGIX
 	use SGIX_texture_scale_bias POST_TEXTURE_FILTER_BIAS_SGIX
 	use SGIX_texture_scale_bias POST_TEXTURE_FILTER_SCALE_SGIX
+
+# Aliases OpenGL 1.0 core enum above
+NV_texture_border_clamp enum: (OpenGL ES only; additional; see below)
+	TEXTURE_BORDER_COLOR_NV				= 0x1004
 
 ###############################################################################
 
@@ -2857,6 +2870,9 @@ ARB_texture_border_clamp enum:
 SGIS_texture_border_clamp enum:
 	CLAMP_TO_BORDER_SGIS				= 0x812D
 
+NV_texture_border_clamp enum: (OpenGL ES only)
+	CLAMP_TO_BORDER_NV				= 0x812D
+
 ###############################################################################
 
 SGIX_texture_multi_buffer enum:
@@ -3979,7 +3995,10 @@ INTEL_parallel_arrays enum:
 	COLOR_ARRAY_PARALLEL_POINTERS_INTEL		= 0x83F7
 	TEXTURE_COORD_ARRAY_PARALLEL_POINTERS_INTEL	= 0x83F8
 
-# INTEL_future_use: 0x83F9-0x83FF
+# INTEL_future_use: 0x83F9-0x83FE
+
+INTEL_map_texture enum:
+	TEXTURE_MEMORY_LAYOUT_INTEL			= 0x83FF
 
 ###############################################################################
 
@@ -6060,6 +6079,9 @@ ARB_vertex_buffer_object enum: (additional; see above)
 	DYNAMIC_READ_ARB				= 0x88E9
 	DYNAMIC_COPY_ARB				= 0x88EA
 
+# ARB_future_use: 0x88E3, 0x88E7
+# (for extending ARB_vertex_buffer_object):
+
 VERSION_2_1 enum:
 	PIXEL_PACK_BUFFER				= 0x88EB    # VERSION_2_1
 	PIXEL_UNPACK_BUFFER				= 0x88EC    # VERSION_2_1
@@ -6078,8 +6100,8 @@ EXT_pixel_buffer_object enum:
 	PIXEL_PACK_BUFFER_BINDING_EXT			= 0x88ED    # EXT_pixel_buffer_object
 	PIXEL_UNPACK_BUFFER_BINDING_EXT			= 0x88EF    # EXT_pixel_buffer_object
 
-# ARB_future_use: 0x88E3, 0x88E7, 0x88EE
-# (for extending ARB_vertex_buffer_object):
+NV_sRGB_formats enum: (OpenGL ES only; additional; see below)
+	ETC1_SRGB8_NV					= 0x88EE
 
 VERSION_3_0 enum:
 	use ARB_framebuffer_object	    DEPTH24_STENCIL8
@@ -6130,9 +6152,13 @@ VERSION_3_3 enum:
 ARB_instanced_arrays enum:
 	VERTEX_ATTRIB_ARRAY_DIVISOR_ARB			= 0x88FE
 
-# Aliases ARB_instance_arrays enum above
+# Aliases ARB_instanced_arrays enum above
 ANGLE_instanced_arrays enum: (OpenGL ES only)
 	VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE		= 0x88FE
+
+# Aliases NV_instanced_arrays enum above
+NV_instanced_arrays enum: (OpenGL ES only)
+	VERTEX_ATTRIB_ARRAY_DIVISOR_NV			= 0x88FE
 
 VERSION_3_0 enum:
 	MAX_ARRAY_TEXTURE_LAYERS			= 0x88FF    # VERSION_3_0
@@ -6921,6 +6947,17 @@ EXT_texture_sRGB enum:
 	COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT		= 0x8C4E
 	COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT		= 0x8C4F
 
+NV_sRGB_formats enum: (OpenGL ES only)
+	SRGB8_NV					= 0x8C41
+	SLUMINANCE_ALPHA_NV				= 0x8C44
+	SLUMINANCE8_ALPHA8_NV				= 0x8C45
+	SLUMINANCE_NV					= 0x8C46
+	SLUMINANCE8_NV					= 0x8C47
+	COMPRESSED_SRGB_S3TC_DXT1_NV			= 0x8C4C
+	COMPRESSED_SRGB_ALPHA_S3TC_DXT1_NV		= 0x8C4D
+	COMPRESSED_SRGB_ALPHA_S3TC_DXT3_NV		= 0x8C4E
+	COMPRESSED_SRGB_ALPHA_S3TC_DXT5_NV		= 0x8C4F
+
 # NV_future_use: 0x8C50-0x8C6F
 
 EXT_texture_compression_latc enum:
@@ -7067,6 +7104,12 @@ EXT_framebuffer_blit enum:
 	DRAW_FRAMEBUFFER_BINDING_EXT			= 0x8CA6    # alias GL_FRAMEBUFFER_BINDING_EXT
 	READ_FRAMEBUFFER_BINDING_EXT			= 0x8CAA
 
+NV_framebuffer_blit enum: (OpenGL ES only)
+	READ_FRAMEBUFFER_NV				= 0x8CA8
+	DRAW_FRAMEBUFFER_NV				= 0x8CA9
+	DRAW_FRAMEBUFFER_BINDING_NV			= 0x8CA6    # alias GL_FRAMEBUFFER_BINDING_EXT
+	READ_FRAMEBUFFER_BINDING_NV			= 0x8CAA
+
 VERSION_3_0 enum:
 	use ARB_framebuffer_object	    RENDERBUFFER_SAMPLES
 
@@ -7079,6 +7122,9 @@ ANGLE_framebuffer_multisample enum: (OpenGL ES only)
 
 EXT_framebuffer_multisample enum:
 	RENDERBUFFER_SAMPLES_EXT			= 0x8CAB
+
+NV_framebuffer_multisample enum: (OpenGL ES only)
+	RENDERBUFFER_SAMPLES_NV				= 0x8CAB
 
 NV_framebuffer_multisample_coverage enum: (additional; see below)
 	RENDERBUFFER_COVERAGE_SAMPLES_NV		= 0x8CAB
@@ -7308,6 +7354,10 @@ ANGLE_framebuffer_multisample enum: (OpenGL ES only; additional; see above)
 EXT_framebuffer_multisample enum: (additional; see above)
 	FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT		= 0x8D56
 	MAX_SAMPLES_EXT					= 0x8D57
+
+NV_framebuffer_multisample enum: (OpenGL ES only; additional; see above)
+	FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_NV		= 0x8D56
+	MAX_SAMPLES_NV					= 0x8D57
 
 # 0x8D58-0x8D5F reserved for additional FBO enums
 
@@ -7571,6 +7621,12 @@ EXT_gpu_shader4 enum:
 	UNSIGNED_INT_SAMPLER_1D_ARRAY_EXT		= 0x8DD6
 	UNSIGNED_INT_SAMPLER_2D_ARRAY_EXT		= 0x8DD7
 	UNSIGNED_INT_SAMPLER_BUFFER_EXT			= 0x8DD8
+
+NV_shadow_samplers_array enum: (OpenGL ES only)
+	SAMPLER_2D_ARRAY_SHADOW_NV			= 0x8DC4
+
+NV_shadow_samplers_cube enum: (OpenGL ES only)
+	SAMPLER_CUBE_SHADOW_NV				= 0x8DC5
 
 VERSION_3_2 enum:
 	GEOMETRY_SHADER					= 0x8DD9
@@ -8292,6 +8348,7 @@ NV_shader_buffer_store enum:
 ARB_texture_rgb10_a2ui enum:
 	RGB10_A2UI					= 0x906F
 
+# '##' tokens below were removed in later versions of the extension
 NV_path_rendering enum:
 	PATH_FORMAT_SVG_NV				= 0x9070
 	PATH_FORMAT_PS_NV				= 0x9071
@@ -8314,27 +8371,27 @@ NV_path_rendering enum:
 	PATH_FILL_COVER_MODE_NV				= 0x9082
 	PATH_STROKE_COVER_MODE_NV			= 0x9083
 	PATH_STROKE_MASK_NV				= 0x9084
-	PATH_SAMPLE_QUALITY_NV				= 0x9085
-	PATH_STROKE_BOUND_NV				= 0x9086
-	PATH_STROKE_OVERSAMPLE_COUNT_NV			= 0x9087
+##	  PATH_SAMPLE_QUALITY_NV			  = 0x9085
+##	  PATH_STROKE_BOUND_NV				  = 0x9086
+##	  PATH_STROKE_OVERSAMPLE_COUNT_NV		  = 0x9087
 	COUNT_UP_NV					= 0x9088
 	COUNT_DOWN_NV					= 0x9089
 	PATH_OBJECT_BOUNDING_BOX_NV			= 0x908A
 	CONVEX_HULL_NV					= 0x908B
-	MULTI_HULLS_NV					= 0x908C
+##	  MULTI_HULLS_NV				  = 0x908C
 	BOUNDING_BOX_NV					= 0x908D
 	TRANSLATE_X_NV					= 0x908E
 	TRANSLATE_Y_NV					= 0x908F
 	TRANSLATE_2D_NV					= 0x9090
 	TRANSLATE_3D_NV					= 0x9091
 	AFFINE_2D_NV					= 0x9092
-	PROJECTIVE_2D_NV				= 0x9093
+##	  PROJECTIVE_2D_NV				  = 0x9093
 	AFFINE_3D_NV					= 0x9094
-	PROJECTIVE_3D_NV				= 0x9095
+##	  PROJECTIVE_3D_NV				  = 0x9095
 	TRANSPOSE_AFFINE_2D_NV				= 0x9096
-	TRANSPOSE_PROJECTIVE_2D_NV			= 0x9097
+##	  TRANSPOSE_PROJECTIVE_2D_NV			  = 0x9097
 	TRANSPOSE_AFFINE_3D_NV				= 0x9098
-	TRANSPOSE_PROJECTIVE_3D_NV			= 0x9099
+##	  TRANSPOSE_PROJECTIVE_3D_NV			  = 0x9099
 	UTF8_NV						= 0x909A
 	UTF16_NV					= 0x909B
 	BOUNDING_BOX_OF_BOUNDING_BOXES_NV		= 0x909C
@@ -8414,20 +8471,20 @@ NV_path_rendering enum: (additional; see above)
 	GLYPH_VERTICAL_BEARING_X_BIT_NV			= 0x20
 	GLYPH_VERTICAL_BEARING_Y_BIT_NV			= 0x40
 	GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV		= 0x80
-	GLYPH_HAS_KERNING_NV				= 0x100
-	FONT_X_MIN_BOUNDS_NV				= 0x00010000
-	FONT_Y_MIN_BOUNDS_NV				= 0x00020000
-	FONT_X_MAX_BOUNDS_NV				= 0x00040000
-	FONT_Y_MAX_BOUNDS_NV				= 0x00080000
-	FONT_UNITS_PER_EM_NV				= 0x00100000
-	FONT_ASCENDER_NV				= 0x00200000
-	FONT_DESCENDER_NV				= 0x00400000
-	FONT_HEIGHT_NV					= 0x00800000
-	FONT_MAX_ADVANCE_WIDTH_NV			= 0x01000000
-	FONT_MAX_ADVANCE_HEIGHT_NV			= 0x02000000
-	FONT_UNDERLINE_POSITION_NV			= 0x04000000
-	FONT_UNDERLINE_THICKNESS_NV			= 0x08000000
-	FONT_HAS_KERNING_NV				= 0x10000000
+	GLYPH_HAS_KERNING_BIT_NV			= 0x100
+	FONT_X_MIN_BOUNDS_BIT_NV			= 0x00010000
+	FONT_Y_MIN_BOUNDS_BIT_NV			= 0x00020000
+	FONT_X_MAX_BOUNDS_BIT_NV			= 0x00040000
+	FONT_Y_MAX_BOUNDS_BIT_NV			= 0x00080000
+	FONT_UNITS_PER_EM_BIT_NV			= 0x00100000
+	FONT_ASCENDER_BIT_NV				= 0x00200000
+	FONT_DESCENDER_BIT_NV				= 0x00400000
+	FONT_HEIGHT_BIT_NV				= 0x00800000
+	FONT_MAX_ADVANCE_WIDTH_BIT_NV			= 0x01000000
+	FONT_MAX_ADVANCE_HEIGHT_BIT_NV			= 0x02000000
+	FONT_UNDERLINE_POSITION_BIT_NV			= 0x04000000
+	FONT_UNDERLINE_THICKNESS_BIT_NV			= 0x08000000
+	FONT_HAS_KERNING_BIT_NV				= 0x10000000
 
 EXT_framebuffer_multisample_blit_scaled enum:
 	SCALED_RESOLVE_FASTEST_EXT			= 0x90BA
@@ -8443,7 +8500,7 @@ NV_path_rendering enum: (additional; see above)
 
 # NV_future_use: 0x90C0-0x90C6
 
-ARB_shader_image_load_store
+ARB_shader_image_load_store enum:
 	IMAGE_FORMAT_COMPATIBILITY_TYPE			= 0x90C7
 	IMAGE_FORMAT_COMPATIBILITY_BY_SIZE		= 0x90C8
 	IMAGE_FORMAT_COMPATIBILITY_BY_CLASS		= 0x90C9
@@ -8454,9 +8511,10 @@ ARB_shader_image_load_store
 	MAX_FRAGMENT_IMAGE_UNIFORMS			= 0x90CE
 	MAX_COMBINED_IMAGE_UNIFORMS			= 0x90CF
 
-# NV_future_use: 0x90D0-0x90E0
+NV_deep_texture3D enum:
+	MAX_DEEP_3D_TEXTURE_WIDTH_HEIGHT_NV		= 0x90D0
+	MAX_DEEP_3D_TEXTURE_DEPTH_NV			= 0x90D1
 
-# RESERVED for features in progress: 0x90D2-0x90DF
 # Also VERSION_4_3
 ARB_shader_storage_buffer_object enum:
 	SHADER_STORAGE_BUFFER				= 0x90D2
@@ -8475,6 +8533,8 @@ ARB_shader_storage_buffer_object enum:
 	SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT		= 0x90DF
 	MAX_COMBINED_SHADER_OUTPUT_RESOURCES		= GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS
 	use ARB_shader_image_load_store			MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS
+
+# NV_future_use: 0x90E0
 
 EXT_x11_sync_object enum:
 	SYNC_X11_FENCE_EXT				= 0x90E1
@@ -8500,7 +8560,11 @@ EXT_multiview_draw_buffers enum: (OpenGL ES only)
 	MULTIVIEW_EXT					= 0x90F1
 	MAX_MULTIVIEW_BUFFERS_EXT			= 0x90F2
 
-# NV_future_use: 0x90F0-0x90FF
+NV_compute_program5 enum:
+	COMPUTE_PROGRAM_NV				= 0x90FB
+	COMPUTE_PROGRAM_PARAMETER_BUFFER_NV		= 0x90FC
+
+# NV_future_use: 0x90F3-0x90FA,0x90FD-0x90FF
 
 ###############################################################################
 
@@ -8640,7 +8704,11 @@ IMG_multisampled_render_to_texture enum: (OpenGL ES only)
 	MAX_SAMPLES_IMG					= 0x9135
 	TEXTURE_SAMPLES_IMG				= 0x9136
 
-# IMG_future_use: 0x9137-0x913F
+IMG_texture_compression_pvrtc2 enum:
+	COMPRESSED_RGBA_PVRTC_2BPPV2_IMG		= 0x9137
+	COMPRESSED_RGBA_PVRTC_4BPPV2_IMG		= 0x9138
+
+# IMG_future_use: 0x9139-0x913F
 
 ###############################################################################
 
@@ -8934,7 +9002,10 @@ ANGLE_texture_usage enum: (OpenGL ES only)
 ANGLE_pack_reverse_row_order enum: (OpenGL ES only)
 	PACK_REVERSE_ROW_ORDER_ANGLE			= 0x93A4
 
-# ANGLE_future_use: 0x93A1,0x93A5-0x93AF
+ANGLE_depth_texture enum: (OpenGL ES only)
+	PROGRAM_BINARY_ANGLE				= 0x93A6
+
+# ANGLE_future_use: 0x93A1,0x93A5,0x93A7-0x93AF
 
 ###############################################################################
 

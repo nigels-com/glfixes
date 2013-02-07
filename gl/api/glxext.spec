@@ -7,7 +7,7 @@
 # This document is licensed under the SGI Free Software B License Version
 # 2.0. For details, see http://oss.sgi.com/projects/FreeB/ .
 #
-# $Revision: 19459 $ on $Date: 2012-10-15 11:34:35 -0700 (Mon, 15 Oct 2012) $
+# $Revision: 20495 $ on $Date: 2013-02-06 13:01:10 -0800 (Wed, 06 Feb 2013) $
 
 required-props:
 param:		retval retained
@@ -1147,6 +1147,7 @@ GetVideoDeviceNV(dpy, screen, numVideoDevices, pVideoDevice)
 	param		pVideoDevice	GLXVideoDeviceNV out array [COMPSIZE(numVideoDevices)]
 	category	NV_video_output
 	glxflags	client-handcode server-handcode
+	glxvendorglx	1313
 
 ReleaseVideoDeviceNV(dpy, screen, VideoDevice)
 	return		int
@@ -1155,6 +1156,7 @@ ReleaseVideoDeviceNV(dpy, screen, VideoDevice)
 	param		VideoDevice	GLXVideoDeviceNV in value
 	category	NV_video_output
 	glxflags	client-handcode server-handcode
+	glxvendorglx	1314
 
 BindVideoImageNV(dpy, VideoDevice, pbuf, iVideoBuffer)
 	return		int
@@ -1164,6 +1166,7 @@ BindVideoImageNV(dpy, VideoDevice, pbuf, iVideoBuffer)
 	param		iVideoBuffer	int in value
 	category	NV_video_output
 	glxflags	client-handcode server-handcode
+	glxvendorglx	1315
 
 ReleaseVideoImageNV(dpy, pbuf)
 	return		int
@@ -1171,6 +1174,7 @@ ReleaseVideoImageNV(dpy, pbuf)
 	param		pbuf		GLXPbuffer in value
 	category	NV_video_output
 	glxflags	client-handcode server-handcode
+	glxvendorglx	1316
 
 SendPbufferToVideoNV(dpy, pbuf, iBufferType, pulCounterPbuffer, bBlock)
 	return		int
@@ -1181,6 +1185,7 @@ SendPbufferToVideoNV(dpy, pbuf, iBufferType, pulCounterPbuffer, bBlock)
 	param		bBlock		GLboolean in value
 	category	NV_video_output
 	glxflags	client-handcode server-handcode
+	glxvendorglx	1317
 
 GetVideoInfoNV(dpy, screen, VideoDevice, pulCounterOutputPbuffer, pulCounterOutputVideo)
 	return		int
@@ -1191,6 +1196,7 @@ GetVideoInfoNV(dpy, screen, VideoDevice, pulCounterOutputPbuffer, pulCounterOutp
 	param		pulCounterOutputVideo	ulong out reference
 	category	NV_video_output
 	glxflags	client-handcode server-handcode
+	glxvendorglx	1318
 
 ###############################################################################
 #
@@ -1338,6 +1344,7 @@ CopyImageSubDataNV(dpy, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, 
 	param		height		GLsizei in value
 	param		depth		GLsizei in value
 	category	NV_copy_image
+	glxvendorglx	1360
 	glxflags	client-handcode server-handcode
 
 ###############################################################################
