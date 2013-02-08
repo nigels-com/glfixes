@@ -17,7 +17,7 @@ Contact
 
 Status
 
-    Under development.
+    Implemented in ANGLE.
 
 Version
 
