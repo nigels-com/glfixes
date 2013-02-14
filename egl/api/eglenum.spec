@@ -651,12 +651,17 @@ EGL_NV_stream_sync
 # Reserved for Gary Sweet (Public bug 620)
 
 ###############################################################################
+
+# ARM: 0x3270-0x328F
+# Reserved for Tom Cooksey (Bug 9963)
+
+###############################################################################
 ### Please remember that new EGL enum allocations must be obtained by request
 ### to the Khronos API Registrar (see comments at the top of this file).
 ### File requests in the Khronos Bugzilla, Product "EGL", Component "Registry"
 ###############################################################################
 
-# Any_vendor_future_use: 0x3270-0x3FFF
+# Any_vendor_future_use: 0x3290-0x3FFF
 #
 #   This range must be the last range in the file.  To generate a new
 #   range, allocate multiples of 16 from the beginning of the

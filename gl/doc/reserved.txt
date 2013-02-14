@@ -41,7 +41,7 @@ Extension Numbers
 
 1-65		SGI
 66-67		HP
-68		3Dlabs (ex-Intergraph)
+68		ZiiLabs (ex-Intergraph)
 69-75		SGI
 76-77		PGI		Acquired by Template Graphics Systems
 78-79		MS
@@ -69,7 +69,7 @@ Extension Numbers
 161		SGI
 163-166		SUN
 167-172		SGI
-173-178		3Dlabs (ex-Intergraph)
+173-178		ZiiLabs (ex-Intergraph)
 179		NVIDIA
 180-181		SGI
 182-183		SUN
@@ -81,7 +81,7 @@ Extension Numbers
 199-201		IBM
 202-205		SGI
 206-208		3Dfx
-209		3Dlabs (ex-Intense3D)
+209		ZiiLabs (ex-Intergraph)
 210-214		SGI
 215-218		Mesa
 219		SGI
@@ -93,7 +93,7 @@ Extension Numbers
 237-242		Khronos / OpenML
 243		NVIDIA
 244-249		AMD
-250-255		3Dlabs (ex-Intense3D)
+250-255		ZiiLabs (ex-Intense3D)
 256		AMD
 257-258		SUN
 259-267		NVIDIA
@@ -114,7 +114,7 @@ Extension Numbers
 310		ARB Superbuffers Working Group
 311		Graphic Remedy
 312		ARB Superbuffers Working Group
-313		3Dlabs
+313		ZiiLabs
 314-315		NVIDIA
 316-317		ARB Superbuffers Working Group
 318		Mesa
@@ -166,7 +166,7 @@ Enumerateds (32 Bits)
 =====================
 
 0x8000	0x80BF	SGI
-0x80C0	0x80CF	3Dlabs (ex-Intergraph)
+0x80C0	0x80CF	ZiiLabs (ex-Intergraph/Intense3D)
 0x80D0	0x80DF	SGI
 0x80E0	0x810F	MS
 0x8110	0x814F	SGI
@@ -175,9 +175,9 @@ Enumerateds (32 Bits)
 0x81D0	0x81DF	SUN
 0x81E0	0x81FF	SGI
 0x8200	0x820F	ATI (Microsoft released unused 0x8200-0x82AF range on 2002/9/16)
-0x8210	0x823F	OpenGLARB
-    [0x8240-0x82AF unused]
-0x82B0	0x830F	ADD
+0x8210	0x823F	OpenGL ARB (Microsoft released unused 0x8200-0x82AF range on 2002/9/16)
+0x8240	0x82AF	ARB (Microsoft released unused 0x8200-0x82AF range on 2002/9/16)
+0x82B0	0x830F	ARB (range reclaimed from long-out-of-business ADD on 2012/05/10)
 0x8310	0x832F	SGI
 0x8330	0x833F	SUN
 0x8340	0x836F	SGI
@@ -192,12 +192,12 @@ Enumerateds (32 Bits)
 0x84A0	0x84BF	ATI
 0x84C0	0x84EF	OpenGL ARB
 0x84F0	0x855F	NVIDIA
-0x8560	0x856F	3Dlabs (ex-Intergraph)
+0x8560	0x856F	ZiiLabs (ex-Intergraph)
 0x8570	0x859F	ATI/NVIDIA
 0x85A0	0x85AF	SGI
 0x85B0	0x85BF	Apple
 0x85C0	0x85CF	SUN
-0x85D0	0x85DF	3Dlabs
+0x85D0	0x85DF	ZiiLabs
 0x85E0	0x85FF	SGI
 0x8600	0x861F	SUN
 0x8620	0x867F	NVIDIA
@@ -213,7 +213,7 @@ Enumerateds (32 Bits)
 0x8850	0x891F	NVIDIA
 0x8920	0x897F	ATI
 0x8980	0x898F	Khronos / OpenML
-0x8990	0x899F	3Dlabs
+0x8990	0x899F	ZiiLabs
 0x89A0	0x89FF	Matrox
 0x8A00	0x8A7F	Apple
 0x8A80	0x8AEF	Matrox
@@ -227,7 +227,7 @@ Enumerateds (32 Bits)
 0x8C10	0x8C8F	NVIDIA
 0x8C90	0x8C9F	ATI (OpenGL ES)
 0x8CA0	0x8CAF	OpenGL ARB
-0x8CB0	0x8CCF	3Dlabs
+0x8CB0	0x8CCF	ZiiLabs
 0x8CD0	0x8D5F	OpenGL ARB
 0x8D60	0x8D6F	Khronos (OpenGL ES)
 0x8D70	0x8DEF	NVIDIA
@@ -238,7 +238,7 @@ Enumerateds (32 Bits)
 0x8EB0	0x8EBF	Khronos (OpenGL ES)
 0x8EC0	0x8ECF	Vincent
 0x8ED0	0x8F4F	NVIDIA
-0x8F50	0x8F5F	3Dlabs (OpenGL ES)
+0x8F50	0x8F5F	ZiiLabs (OpenGL ES)
 0x8F60	0x8F6F	ARM (OpenGL ES)
 0x8F70	0x8F7F	HI Corp (OpenGL ES)
 0x8F80	0x8F8F	Zebra Imaging
@@ -252,6 +252,14 @@ Enumerateds (32 Bits)
 0x9130	0x913F	Imagination Technologies
 0x9140	0x91BF	AMD
 0x91C0	0x923F	AMD
+0x9240	0x924F	WebGL Working Group
+0x9250	0x925F	DMP
+0x9260	0x926F	Fujitsu
+0x9270	0x927F	Khronos OpenGL ES
+0x9280	0x937F	NVIDIA
+0x9380	0x939F	OpenGL ARB
+0x93A0	0x93AF	ANGLE
+0x93B0	0x93EF	Khronos OpenGL ES
 100000	100999	GLU Library
 101000	101999	OpenGL ARB	Conformance Tests
 103000	103999	IBM
@@ -518,9 +526,10 @@ Control
 ==========	=======		    =====
 OpenGL ARB	Jon Leech	    jon 'at' alumni.caltech.edu
 Khronos		Jon Leech	    jon 'at' alumni.caltech.edu (OpenML, OpenGL ES)
+Apple		Bob Beretta	    beretta 'at' apple.com
+ARM		TBD
 ATI		Bill Licea-Kane     bill.licea-kane 'at' amd.com
 ATI/NVIDIA	Bill Licea-Kane     bill.licea-kane 'at' amd.com
-Apple		Bob Beretta	    beretta 'at' apple.com
 HP		Andrew Wiltzius     andrew.wiltzius 'at' hp.com
 IBM		Dan Brokenshire     brokensh 'at' austin.ibm.com
 Imagination	Graham Connor	    gconnor 'at' videologic.com
@@ -532,15 +541,16 @@ NVIDIA		James Jones	    jajones 'at' nvidia.com
 S3		Yanjun Zhang	    YanjunZhang@s3graphics.com
 SUN		Daniel Petersen     daniel.petersen 'at' sun.com
 Vivante		Frido Garritsen     TBD
+ZiiLabs		TBD
 
 Out of business / acquired / unknown:
 3Dfx - same as NVIDIA (acquired)
-3Dlabs - no longer in the desktop graphics business. Mobile contact needed.
-ADD - probably out of business
+3Dlabs - refocused on mobile, now ZiiLabs
+ADD - out of business
 ATI - same as AMD (acquired)
 Compaq - same as HP (acquired)
 DEC - same as HP (acquired)
-E&S - appears to no longer be in the graphics business
+E&S - no longer in the graphics business (sells planetarium hardware)
 HP - no longer in the graphics business (other than as a system integrator)
 Intense3D - same as 3Dlabs (acquired)
 Intergraph - same as 3Dlabs (spinoff of Intense3D)

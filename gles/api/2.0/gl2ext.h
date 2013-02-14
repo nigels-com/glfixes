@@ -1,7 +1,7 @@
 #ifndef __gl2ext_h_
 #define __gl2ext_h_
 
-/* $Revision: 20463 $ on $Date:: 2013-02-06 01:08:08 -0800 #$ */
+/* $Revision: 20582 $ on $Date:: 2013-02-13 11:35:39 -0800 #$ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -635,9 +635,9 @@ typedef struct __GLsync *GLsync;
 
 /* GL_EXT_unpack_subimage */
 #ifndef GL_EXT_unpack_subimage
-#define GL_UNPACK_ROW_LENGTH                                    0x0CF2
-#define GL_UNPACK_SKIP_ROWS                                     0x0CF3
-#define GL_UNPACK_SKIP_PIXELS                                   0x0CF4
+#define GL_UNPACK_ROW_LENGTH_EXT                                0x0CF2
+#define GL_UNPACK_SKIP_ROWS_EXT                                 0x0CF3
+#define GL_UNPACK_SKIP_PIXELS_EXT                               0x0CF4
 #endif
 
 /*------------------------------------------------------------------------*

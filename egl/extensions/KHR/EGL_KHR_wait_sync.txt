@@ -22,7 +22,7 @@ Status
 
 Version
 
-    Version 5, October 31, 2012
+    Version 6, January 24, 2013
 
 Number
 
@@ -119,7 +119,7 @@ Changes to Chapter 3 of the EGL 1.4 Specification (EGL Functions and Errors)
 
     Each client API which supports eglWaitSyncKHR indicates this support in
     the form of a client API extension. If the GL_OES_EGL_sync extension is
-    supported by any version of OpenGL ES, a client wait may be performed
+    supported by any version of OpenGL ES, a server wait may be performed
     when the currently bound API is OpenGL ES. If the VG_KHR_EGL_sync
     extension is supported by OpenVG, a server wait may be performed when
     the currently bound API is OpenVG."
@@ -224,6 +224,9 @@ Issues
 
 Revision History
 
+#6   (Jon Leech, January 24, 2013)
+   - eglWaitSyncKHR causes a server wait in OpenGL ES when GL_OES_EGL_sync
+     is supported, not a client wait as formerly specified (Bug 9493).
 #5   (Jon Leech, October 31, 2012)
    - Change return type of eglWaitSyncKHR in spec body to EGLint to match
      New Functions section, and rearrange description of return type and
