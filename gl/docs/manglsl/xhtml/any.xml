@@ -11,7 +11,7 @@
     {
         bool result = false;
         int i;
-        for (i = 0; i &lt; x.length(); ++x)
+        for (i = 0; i &lt; x.length(); ++i)
         {
             result |= x[i];
         }
@@ -21,7 +21,7 @@
             <a href="all.xml"><span class="citerefentry"><span class="refentrytitle">all</span></span></a>,
             <a href="not.xml"><span class="citerefentry"><span class="refentrytitle">not</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2011 Khronos Group. 
+            Copyright <span class="trademark"></span>© 2011-2013 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.
             <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
