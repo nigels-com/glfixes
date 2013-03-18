@@ -1,7 +1,7 @@
 #ifndef __gl2ext_h_
 #define __gl2ext_h_
 
-/* $Revision: 20795 $ on $Date:: 2013-03-07 01:01:58 -0800 #$ */
+/* $Revision: 20800 $ on $Date:: 2013-03-07 03:33:09 -0800 #$ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -655,7 +655,7 @@ typedef struct __GLsync *GLsync;
 
 /* GL_FJ_shader_binary_GCCSO */
 #ifndef GL_FJ_shader_binary_GCCSO
-#define GL_GCCSO_SHADER_BINARY_F                                0x9260
+#define GL_GCCSO_SHADER_BINARY_FJ                               0x9260
 #endif
 
 /*------------------------------------------------------------------------*
@@ -714,7 +714,7 @@ typedef struct __GLsync *GLsync;
 #define GL_COVERAGE_ALL_FRAGMENTS_NV                            0x8ED5
 #define GL_COVERAGE_EDGE_FRAGMENTS_NV                           0x8ED6
 #define GL_COVERAGE_AUTOMATIC_NV                                0x8ED7
-#define GL_COVERAGE_BUFFER_BIT_NV                               0x8000
+#define GL_COVERAGE_BUFFER_BIT_NV                               0x00008000
 #endif
 
 /* GL_NV_depth_nonlinear */
@@ -1462,7 +1462,7 @@ typedef void (GL_APIENTRYP PFNGLGETINTEGERI_VEXTPROC) (GLenum target, GLuint ind
 GL_APICALL void GL_APIENTRY glMultiDrawArraysEXT (GLenum, const GLint *, const GLsizei *, GLsizei);
 GL_APICALL void GL_APIENTRY glMultiDrawElementsEXT (GLenum, const GLsizei *, GLenum, const GLvoid* *, GLsizei);
 #endif /* GL_GLEXT_PROTOTYPES */
-typedef void (GL_APIENTRYP PFNGLMULTIDRAWARRAYSEXTPROC) (GLenum mode, GLint *first, GLsizei *count, GLsizei primcount);
+typedef void (GL_APIENTRYP PFNGLMULTIDRAWARRAYSEXTPROC) (GLenum mode, const GLint *first, const GLsizei *count, GLsizei primcount);
 typedef void (GL_APIENTRYP PFNGLMULTIDRAWELEMENTSEXTPROC) (GLenum mode, const GLsizei *count, GLenum type, const GLvoid* *indices, GLsizei primcount);
 #endif
 

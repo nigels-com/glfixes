@@ -20,10 +20,15 @@ Status
 
     Complete
 
+    NOTE: there is an unrelated OpenGL extension also named
+    "GL_EXT_separate_shader_objects", found in the OpenGL extension registry
+    at http://www.opengl.org/registry/ . These two extensions have similar
+    purposes, but completely different interfaces.
+
 Version
 
-    Date: July 26, 2011
-    Revision: 3
+    Date: March 7, 2013
+    Revision: 4
 
 Number
 
@@ -955,3 +960,5 @@ Revision History
                                   GetProgramPipelineivEXT description, remove 
                                   the language erroneously deleting
                                   CURRENT_PROGRAM.
+    4     7 March 2013  Jon Leech Added note about the unrelated OpenGL 
+                                  extension of the same name.             
