@@ -497,7 +497,7 @@ extern "C" {
 #define GL_CONTEXT_FLAGS                  0x821E
 #define GL_COMPRESSED_RED                 0x8225
 #define GL_COMPRESSED_RG                  0x8226
-#define GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT 0x0001
+#define GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT 0x00000001
 #define GL_RGBA32F                        0x8814
 #define GL_RGB32F                         0x8815
 #define GL_RGBA16F                        0x881A
@@ -1953,7 +1953,7 @@ extern "C" {
 #define GL_TEXTURE_DEPTH_TYPE             0x8C16
 #define GL_UNSIGNED_NORMALIZED            0x8C17
 #define GL_FRAMEBUFFER_BINDING            0x8CA6
-#define GL_DRAW_FRAMEBUFFER_BINDING       GL_FRAMEBUFFER_BINDING
+#define GL_DRAW_FRAMEBUFFER_BINDING       0x8CA6
 #define GL_RENDERBUFFER_BINDING           0x8CA7
 #define GL_READ_FRAMEBUFFER               0x8CA8
 #define GL_DRAW_FRAMEBUFFER               0x8CA9
@@ -2141,9 +2141,9 @@ extern "C" {
 
 #ifndef GL_ARB_copy_buffer
 #define GL_COPY_READ_BUFFER_BINDING       0x8F36
-#define GL_COPY_READ_BUFFER               GL_COPY_READ_BUFFER_BINDING
+#define GL_COPY_READ_BUFFER               0x8F36
 #define GL_COPY_WRITE_BUFFER_BINDING      0x8F37
-#define GL_COPY_WRITE_BUFFER              GL_COPY_WRITE_BUFFER_BINDING
+#define GL_COPY_WRITE_BUFFER              0x8F37
 #endif
 
 #ifndef GL_ARB_shader_texture_lod
@@ -2393,9 +2393,9 @@ extern "C" {
 #ifndef GL_ARB_transform_feedback2
 #define GL_TRANSFORM_FEEDBACK             0x8E22
 #define GL_TRANSFORM_FEEDBACK_PAUSED      0x8E23
-#define GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED GL_TRANSFORM_FEEDBACK_PAUSED
+#define GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED 0x8E23
 #define GL_TRANSFORM_FEEDBACK_ACTIVE      0x8E24
-#define GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE GL_TRANSFORM_FEEDBACK_ACTIVE
+#define GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE 0x8E24
 #define GL_TRANSFORM_FEEDBACK_BINDING     0x8E25
 #endif
 
@@ -3017,8 +3017,8 @@ extern "C" {
 #define GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS 0x90DD
 #define GL_MAX_SHADER_STORAGE_BLOCK_SIZE  0x90DE
 #define GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT 0x90DF
-#define GL_SHADER_STORAGE_BARRIER_BIT     0x2000
-#define GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS
+#define GL_SHADER_STORAGE_BARRIER_BIT     0x00002000
+#define GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES 0x8F39
 /* reuse GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS */
 #endif
 
@@ -3476,12 +3476,9 @@ extern "C" {
 #ifndef GL_SGIX_tag_sample_buffer
 #endif
 
-#ifndef GL_FfdMaskSGIX
+#ifndef GL_SGIX_polynomial_ffd
 #define GL_TEXTURE_DEFORMATION_BIT_SGIX   0x00000001
 #define GL_GEOMETRY_DEFORMATION_BIT_SGIX  0x00000002
-#endif
-
-#ifndef GL_SGIX_polynomial_ffd
 #define GL_GEOMETRY_DEFORMATION_SGIX      0x8194
 #define GL_TEXTURE_DEFORMATION_SGIX       0x8195
 #define GL_DEFORMATIONS_MASK_SGIX         0x8196
@@ -3553,6 +3550,8 @@ extern "C" {
 #define GL_VERTEX_CONSISTENT_HINT_PGI     0x1A22B
 #define GL_MATERIAL_SIDE_HINT_PGI         0x1A22C
 #define GL_MAX_VERTEX_HINT_PGI            0x1A22D
+#define GL_VERTEX23_BIT_PGI               0x00000004
+#define GL_VERTEX4_BIT_PGI                0x00000008
 #define GL_COLOR3_BIT_PGI                 0x00010000
 #define GL_COLOR4_BIT_PGI                 0x00020000
 #define GL_EDGEFLAG_BIT_PGI               0x00040000
@@ -3569,8 +3568,6 @@ extern "C" {
 #define GL_TEXCOORD2_BIT_PGI              0x20000000
 #define GL_TEXCOORD3_BIT_PGI              0x40000000
 #define GL_TEXCOORD4_BIT_PGI              0x80000000
-#define GL_VERTEX23_BIT_PGI               0x00000004
-#define GL_VERTEX4_BIT_PGI                0x00000008
 #endif
 
 #ifndef GL_PGI_misc_hints
@@ -3739,16 +3736,6 @@ extern "C" {
 #define GL_ALPHA_MAX_SGIX                 0x8321
 #endif
 
-#ifndef GL_SGIX_impact_pixel_texture
-#define GL_PIXEL_TEX_GEN_Q_CEILING_SGIX   0x8184
-#define GL_PIXEL_TEX_GEN_Q_ROUND_SGIX     0x8185
-#define GL_PIXEL_TEX_GEN_Q_FLOOR_SGIX     0x8186
-#define GL_PIXEL_TEX_GEN_ALPHA_REPLACE_SGIX 0x8187
-#define GL_PIXEL_TEX_GEN_ALPHA_NO_REPLACE_SGIX 0x8188
-#define GL_PIXEL_TEX_GEN_ALPHA_LS_SGIX    0x8189
-#define GL_PIXEL_TEX_GEN_ALPHA_MS_SGIX    0x818A
-#endif
-
 #ifndef GL_EXT_bgra
 #define GL_BGR_EXT                        0x80E0
 #define GL_BGRA_EXT                       0x80E1
@@ -3896,11 +3883,6 @@ extern "C" {
 #define GL_TRANSFORM_HINT_APPLE           0x85B1
 #endif
 
-#ifndef GL_SGIX_fog_scale
-#define GL_FOG_SCALE_SGIX                 0x81FC
-#define GL_FOG_SCALE_VALUE_SGIX           0x81FD
-#endif
-
 #ifndef GL_SUNX_constant_data
 #define GL_UNPACK_CONSTANT_DATA_SUNX      0x81D5
 #define GL_TEXTURE_CONSTANT_DATA_SUNX     0x81D6
@@ -4007,12 +3989,12 @@ extern "C" {
 #endif
 
 #ifndef GL_EXT_vertex_weighting
-#define GL_MODELVIEW0_STACK_DEPTH_EXT     GL_MODELVIEW_STACK_DEPTH
+#define GL_MODELVIEW0_STACK_DEPTH_EXT     0x0BA3
 #define GL_MODELVIEW1_STACK_DEPTH_EXT     0x8502
-#define GL_MODELVIEW0_MATRIX_EXT          GL_MODELVIEW_MATRIX
+#define GL_MODELVIEW0_MATRIX_EXT          0x0BA6
 #define GL_MODELVIEW1_MATRIX_EXT          0x8506
 #define GL_VERTEX_WEIGHTING_EXT           0x8509
-#define GL_MODELVIEW0_EXT                 GL_MODELVIEW
+#define GL_MODELVIEW0_EXT                 0x1700
 #define GL_MODELVIEW1_EXT                 0x850A
 #define GL_CURRENT_VERTEX_WEIGHT_EXT      0x850B
 #define GL_VERTEX_WEIGHT_ARRAY_EXT        0x850C
@@ -4173,12 +4155,6 @@ extern "C" {
 #define GL_YCRCBA_SGIX                    0x8319
 #endif
 
-#ifndef GL_SGI_depth_pass_instrument
-#define GL_DEPTH_PASS_INSTRUMENT_SGIX     0x8310
-#define GL_DEPTH_PASS_INSTRUMENT_COUNTERS_SGIX 0x8311
-#define GL_DEPTH_PASS_INSTRUMENT_MAX_SGIX 0x8312
-#endif
-
 #ifndef GL_3DFX_texture_compression_FXT1
 #define GL_COMPRESSED_RGB_FXT1_3DFX       0x86B0
 #define GL_COMPRESSED_RGBA_FXT1_3DFX      0x86B1
@@ -4262,6 +4238,11 @@ extern "C" {
 #define GL_FENCE_CONDITION_NV             0x84F4
 #endif
 
+#ifndef GL_IBM_static_data
+#define GL_ALL_STATIC_DATA_IBM            103060
+#define GL_STATIC_VERTEX_ARRAY_IBM        103061
+#endif
+
 #ifndef GL_IBM_texture_mirrored_repeat
 #define GL_MIRRORED_REPEAT_IBM            0x8370
 #endif
@@ -4325,11 +4306,11 @@ extern "C" {
 #define GL_SHADER_OPERATION_NV            0x86DF
 #define GL_CULL_MODES_NV                  0x86E0
 #define GL_OFFSET_TEXTURE_MATRIX_NV       0x86E1
+#define GL_OFFSET_TEXTURE_2D_MATRIX_NV    0x86E1
 #define GL_OFFSET_TEXTURE_SCALE_NV        0x86E2
+#define GL_OFFSET_TEXTURE_2D_SCALE_NV     0x86E2
 #define GL_OFFSET_TEXTURE_BIAS_NV         0x86E3
-#define GL_OFFSET_TEXTURE_2D_MATRIX_NV    GL_OFFSET_TEXTURE_MATRIX_NV
-#define GL_OFFSET_TEXTURE_2D_SCALE_NV     GL_OFFSET_TEXTURE_SCALE_NV
-#define GL_OFFSET_TEXTURE_2D_BIAS_NV      GL_OFFSET_TEXTURE_BIAS_NV
+#define GL_OFFSET_TEXTURE_2D_BIAS_NV      0x86E3
 #define GL_PREVIOUS_TEXTURE_INPUT_NV      0x86E4
 #define GL_CONST_EYE_NV                   0x86E5
 #define GL_PASS_THROUGH_NV                0x86E6
@@ -5184,7 +5165,7 @@ extern "C" {
 #ifndef GL_EXT_framebuffer_blit
 #define GL_READ_FRAMEBUFFER_EXT           0x8CA8
 #define GL_DRAW_FRAMEBUFFER_EXT           0x8CA9
-#define GL_DRAW_FRAMEBUFFER_BINDING_EXT   GL_FRAMEBUFFER_BINDING_EXT
+#define GL_DRAW_FRAMEBUFFER_BINDING_EXT   0x8CA6
 #define GL_READ_FRAMEBUFFER_BINDING_EXT   0x8CAA
 #endif
 
@@ -5572,7 +5553,7 @@ extern "C" {
 #ifndef GL_AMD_texture_texture4
 #endif
 
-#ifndef GL_AMD_vertex_shader_tesselator
+#ifndef GL_AMD_vertex_shader_tessellator
 #define GL_SAMPLER_BUFFER_AMD             0x9001
 #define GL_INT_SAMPLER_BUFFER_AMD         0x9002
 #define GL_UNSIGNED_INT_SAMPLER_BUFFER_AMD 0x9003
@@ -5909,8 +5890,8 @@ extern "C" {
 #endif
 
 #ifndef GL_NV_multisample_coverage
-#define GL_COVERAGE_SAMPLES_NV            0x80A9
 #define GL_COLOR_SAMPLES_NV               0x8E20
+/* reuse GL_SAMPLES_ARB */
 #endif
 
 #ifndef GL_AMD_name_gen_delete
@@ -9178,8 +9159,9 @@ typedef void (APIENTRYP PFNGLBLENDEQUATIONEXTPROC) (GLenum mode);
 #define GL_SGIX_pixel_tiles 1
 #endif
 
-#ifndef GL_SGIX_texture_select
-#define GL_SGIX_texture_select 1
+#ifndef GL_SGIS_texture_select
+#define GL_SGIS_texture_select 1
+/* This used to be SGIX prefix, which was an error in the header */
 #endif
 
 #ifndef GL_SGIX_sprite
@@ -10082,6 +10064,10 @@ typedef void (APIENTRYP PFNGLWINDOWPOS4SMESAPROC) (GLshort x, GLshort y, GLshort
 typedef void (APIENTRYP PFNGLWINDOWPOS4SVMESAPROC) (const GLshort *v);
 #endif
 
+#ifndef GL_EXT_texture_compression_s3tc
+#define GL_EXT_texture_compression_s3tc 1
+#endif
+
 #ifndef GL_IBM_cull_vertex
 #define GL_IBM_cull_vertex 1
 #endif
@@ -10218,6 +10204,18 @@ typedef GLboolean (APIENTRYP PFNGLTESTFENCENVPROC) (GLuint fence);
 typedef void (APIENTRYP PFNGLGETFENCEIVNVPROC) (GLuint fence, GLenum pname, GLint *params);
 typedef void (APIENTRYP PFNGLFINISHFENCENVPROC) (GLuint fence);
 typedef void (APIENTRYP PFNGLSETFENCENVPROC) (GLuint fence, GLenum condition);
+#endif
+
+#ifndef GL_IBM_static_data
+#define GL_IBM_static_data 1
+#ifdef GL_GLEXT_PROTOTYPES
+GLAPI void APIENTRY glFlushStaticDataIBM (GLenum target);
+#endif /* GL_GLEXT_PROTOTYPES */
+typedef void (APIENTRYP PFNGLFLUSHSTATICDATAIBMPROC) (GLenum target);
+#endif
+
+#ifndef GL_IBM_texture_mirrored_repeat
+#define GL_IBM_texture_mirrored_repeat 1
 #endif
 
 #ifndef GL_NV_evaluators
@@ -11347,14 +11345,14 @@ GLAPI void APIENTRY glDepthRangefOES (GLclampf n, GLclampf f);
 GLAPI void APIENTRY glFrustumfOES (GLfloat l, GLfloat r, GLfloat b, GLfloat t, GLfloat n, GLfloat f);
 GLAPI void APIENTRY glOrthofOES (GLfloat l, GLfloat r, GLfloat b, GLfloat t, GLfloat n, GLfloat f);
 GLAPI void APIENTRY glClipPlanefOES (GLenum plane, const GLfloat *equation);
-GLAPI void APIENTRY glClearDepthfOES (GLclampd depth);
+GLAPI void APIENTRY glClearDepthfOES (GLclampf depth);
 GLAPI void APIENTRY glGetClipPlanefOES (GLenum plane, GLfloat *equation);
 #endif /* GL_GLEXT_PROTOTYPES */
 typedef void (APIENTRYP PFNGLDEPTHRANGEFOESPROC) (GLclampf n, GLclampf f);
 typedef void (APIENTRYP PFNGLFRUSTUMFOESPROC) (GLfloat l, GLfloat r, GLfloat b, GLfloat t, GLfloat n, GLfloat f);
 typedef void (APIENTRYP PFNGLORTHOFOESPROC) (GLfloat l, GLfloat r, GLfloat b, GLfloat t, GLfloat n, GLfloat f);
 typedef void (APIENTRYP PFNGLCLIPPLANEFOESPROC) (GLenum plane, const GLfloat *equation);
-typedef void (APIENTRYP PFNGLCLEARDEPTHFOESPROC) (GLclampd depth);
+typedef void (APIENTRYP PFNGLCLEARDEPTHFOESPROC) (GLclampf depth);
 typedef void (APIENTRYP PFNGLGETCLIPPLANEFOESPROC) (GLenum plane, GLfloat *equation);
 #endif
 
@@ -11369,9 +11367,9 @@ typedef void (APIENTRYP PFNGLGETCLIPPLANEFOESPROC) (GLenum plane, GLfloat *equat
 #ifndef GL_OES_query_matrix
 #define GL_OES_query_matrix 1
 #ifdef GL_GLEXT_PROTOTYPES
-GLAPI GLbitfield APIENTRY glQueryMatrixxOES (const GLfixed *mantissa, const GLint *exponent);
+GLAPI GLbitfield APIENTRY glQueryMatrixxOES (GLfixed *mantissa, GLint *exponent);
 #endif /* GL_GLEXT_PROTOTYPES */
-typedef GLbitfield (APIENTRYP PFNGLQUERYMATRIXXOESPROC) (const GLfixed *mantissa, const GLint *exponent);
+typedef GLbitfield (APIENTRYP PFNGLQUERYMATRIXXOESPROC) (GLfixed *mantissa, GLint *exponent);
 #endif
 
 #ifndef GL_EXT_depth_bounds_test
@@ -12386,8 +12384,8 @@ typedef void (APIENTRYP PFNGLGETPERFMONITORCOUNTERDATAAMDPROC) (GLuint monitor, 
 #define GL_AMD_texture_texture4 1
 #endif
 
-#ifndef GL_AMD_vertex_shader_tesselator
-#define GL_AMD_vertex_shader_tesselator 1
+#ifndef GL_AMD_vertex_shader_tessellator
+#define GL_AMD_vertex_shader_tessellator 1
 #ifdef GL_GLEXT_PROTOTYPES
 GLAPI void APIENTRY glTessellationFactorAMD (GLfloat factor);
 GLAPI void APIENTRY glTessellationModeAMD (GLenum mode);

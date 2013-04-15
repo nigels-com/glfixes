@@ -24,8 +24,8 @@ Status
 
 Version
 
-    Last Modified Date:         April 13, 2012
-    Revision:                   6
+    Last Modified Date:         March 12, 2012
+    Revision:                   7
 
 Number
 
@@ -760,10 +760,23 @@ Issues
     some drivers may not support RGB565, we believe they will add support
     quickly.
 
+    (13) OpenGL ES 2.0 may have some unavoidable differences from an OpenGL
+    context supporting ES2_compatibility, since this extension can't change
+    default GL state values or prevent behavior defined to work by the GL
+    specification. How do we deal with these differences?
+       
+    RESOLVED: If the application needs a strict OpenGL ES 2.0
+    implementation, it should not attempt to use a desktop GL context
+    with the ES2_compatibility extension supported. Instead, use the
+    {GLX|WGL}_EXT_create_context_es_profile extensions to request an
+    actual OpenGL ES 2.0 context, which will not have these caveats.
+
 Revision History
 
     Rev.    Date      Author    Changes
-    ----  ----------  --------  -----------------------------------------
+    ----  ----------  --------- -----------------------------------------
+    7     03/12/2013  Jon Leech Add issue 13 and copy resolution from
+                                ES3_compatibility spec.
     6     04/13/2012  Jon Leech Add RGB565 to required texture & renderbuffer
                                 formats and to the table of sized internal
                                 formats (Bug 8530).

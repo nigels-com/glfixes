@@ -25,8 +25,8 @@ Status
 
 Version
 
-    Last Modified Date:         November 10, 2012
-    Revision:                   8
+    Last Modified Date:         March 12, 2013
+    Revision:                   9
 
 Number
 
@@ -421,16 +421,17 @@ Issues
        these differences?
        
        RESOLVED: If the application needs a strict OpenGL ES 3.0
-       implementation it should create a context with the ES3 profile
-       bit set, as described in {GLX|WGL}_create_context_es profile. This
-       context should set the default state appropriate for a OpenGL ES 3.0
-       application; so seamless cubemaps are enabled by default and sRGB
-       surface's render mode cannot be changed.
+       implementation, it should not attempt to use a desktop GL context
+       with the ES3_compatibility extension supported. Instead, use the
+       {GLX|WGL}_EXT_create_context_es_profile extensions to request an
+       actual OpenGL ES 3.0 context, which will not have these caveats.
 
 Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------------
+    9     03/12/13  Jon Leech Update issue 2 resolution and fix typo.
+
     8     11/10/12  pdaniell  Add the missing token TEXTURE_IMMUTABLE_LEVELS
                               from ARB_texture_view, which is in ES 3.0, and
                               add language describing its behavior; add

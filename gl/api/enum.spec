@@ -3,7 +3,7 @@
 # It is an extremely important file. Do not mess with it unless
 # you know what you're doing and have permission to do so.
 #
-# $Revision: 20466 $ on $Date: 2013-02-06 04:09:36 -0800 (Wed, 06 Feb 2013) $
+# $Revision: 20868 $ on $Date: 2013-03-14 00:30:09 -0700 (Thu, 14 Mar 2013) $
 
 ###############################################################################
 #
@@ -1334,6 +1334,10 @@ GetPName enum:
 	use SGI_texture_color_table TEXTURE_COLOR_TABLE_SGI
 
 # Aliases OpenGL 1.0 core enums above
+EXT_vertex_weighting enum: (additional)
+	MODELVIEW0_STACK_DEPTH_EXT			= 0x0BA3 # GL_MODELVIEW_STACK_DEPTH
+	MODELVIEW0_MATRIX_EXT				= 0x0BA6 # GL_MODELVIEW_MATRIX
+
 QCOM_alpha_test enum: (OpenGL ES only)
 	ALPHA_TEST_QCOM					= 0x0BC0
 	ALPHA_TEST_FUNC_QCOM				= 0x0BC1
@@ -1643,6 +1647,10 @@ MatrixMode enum:
 	MODELVIEW					= 0x1700
 	PROJECTION					= 0x1701
 	TEXTURE						= 0x1702
+
+# Aliases OpenGL 1.0 core enums above
+EXT_vertex_weighting enum: (additional)
+	MODELVIEW0_EXT					= 0x1700 # GL_MODELVIEW
 
 ###############################################################################
 
@@ -2494,6 +2502,10 @@ OES_framebuffer_object enum: (OpenGL ES only; additional; see below)
 	RGBA4_OES					= 0x8056
 	RGB5_A1_OES					= 0x8057
 
+# Aliases EXT_texture enums above
+ARM_rgba8 enum: (OpenGL ES only)
+	RGBA8_OES					= 0x8058
+
 ###############################################################################
 
 EXT_texture_object enum:
@@ -2648,10 +2660,6 @@ EXT_multisample enum:
 	SAMPLE_PATTERN_EXT				= 0x80AC # 1 I
 	MULTISAMPLE_BIT_EXT				= 0x20000000
 
-# Reuses SAMPLES enum as COVERAGE_SAMPLES
-NV_multisample_coverage enum: (additional; see below)
-	COVERAGE_SAMPLES_NV				= 0x80A9
-
 ###############################################################################
 
 SGIS_sharpen_texture enum:
@@ -2700,6 +2708,9 @@ SGIX_texture_add_env enum:
 	TEXTURE_ENV_BIAS_SGIX				= 0x80BE
 
 ###############################################################################
+
+ARB_shadow_ambient enum:
+	TEXTURE_COMPARE_FAIL_VALUE_ARB			= 0x80BF
 
 SGIX_shadow_ambient enum:
 	SHADOW_AMBIENT_SGIX				= 0x80BF
@@ -2775,6 +2786,8 @@ SGI_color_table enum:
 
 ###############################################################################
 
+# Microsoft: 0x80E0-0x810F
+
 VERSION_1_2 enum: (Promoted for OpenGL 1.2)
 	BGR						= 0x80E0
 	BGRA						= 0x80E1
@@ -2786,21 +2799,42 @@ EXT_bgra enum:
 	BGR_EXT						= 0x80E0
 	BGRA_EXT					= 0x80E1
 
-###############################################################################
-
-# Microsoft: 0x80E2-0x80E7
-
-###############################################################################
+EXT_paletted_texture enum:
+	COLOR_INDEX1_EXT				= 0x80E2
+	COLOR_INDEX2_EXT				= 0x80E3
+	COLOR_INDEX4_EXT				= 0x80E4
+	COLOR_INDEX8_EXT				= 0x80E5
+	COLOR_INDEX12_EXT				= 0x80E6
+	COLOR_INDEX16_EXT				= 0x80E7
 
 VERSION_1_2 enum:
 	MAX_ELEMENTS_VERTICES				= 0x80E8
 	MAX_ELEMENTS_INDICES				= 0x80E9
 
+EXT_draw_range_elements enum:
+	MAX_ELEMENTS_VERTICES_EXT			= 0x80E8
+	MAX_ELEMENTS_INDICES_EXT			= 0x80E9
+
+WIN_phong_shading enum:
+	PHONG_WIN					= 0x80EA
+	PHONG_HINT_WIN					= 0x80EB
+
+WIN_specular_fog enum:
+	FOG_SPECULAR_TEXTURE_WIN			= 0x80EC
+
+EXT_paletted_texture enum:
+	TEXTURE_INDEX_SIZE_EXT				= 0x80ED
+
+# MS_future_use: 0x80EE-0x80EF
+
+EXT_clip_volume_hint enum:
+	CLIP_VOLUME_CLIPPING_HINT_EXT			= 0x80F0
+
+# MS_future_use: 0x80F1-0x810F
+
 ###############################################################################
 
-# Microsoft: 0x80EA-0x810F
-
-###############################################################################
+# SGI: 0x8110-0x814F
 
 SGIS_texture_select enum:
 	DUAL_ALPHA4_SGIS				= 0x8110
@@ -2961,17 +2995,49 @@ VERSION_1_2 enum: (Promoted for OpenGL 1.2)
 	REPLICATE_BORDER				= 0x8153
 	CONVOLUTION_BORDER_COLOR			= 0x8154
 
+###############################################################################
+
+# HP: 0x8150-0x816F
+
 HP_convolution_border_modes enum:
 	IGNORE_BORDER_HP				= 0x8150    # Not promoted
 	CONSTANT_BORDER_HP				= 0x8151
 	REPLICATE_BORDER_HP				= 0x8153
 	CONVOLUTION_BORDER_COLOR_HP			= 0x8154
 
+HP_image_transform enum:
+	IMAGE_SCALE_X_HP				= 0x8155
+	IMAGE_SCALE_Y_HP				= 0x8156
+	IMAGE_TRANSLATE_X_HP				= 0x8157
+	IMAGE_TRANSLATE_Y_HP				= 0x8158
+	IMAGE_ROTATE_ANGLE_HP				= 0x8159
+	IMAGE_ROTATE_ORIGIN_X_HP			= 0x815A
+	IMAGE_ROTATE_ORIGIN_Y_HP			= 0x815B
+	IMAGE_MAG_FILTER_HP				= 0x815C
+	IMAGE_MIN_FILTER_HP				= 0x815D
+	IMAGE_CUBIC_WEIGHT_HP				= 0x815E
+	CUBIC_HP					= 0x815F
+	AVERAGE_HP					= 0x8160
+	IMAGE_TRANSFORM_2D_HP				= 0x8161
+	POST_IMAGE_TRANSFORM_COLOR_TABLE_HP		= 0x8162
+	PROXY_POST_IMAGE_TRANSFORM_COLOR_TABLE_HP	= 0x8163
+
+# HP_future_use: 0x8164
+
+HP_occlusion_test enum:
+	OCCLUSION_TEST_HP				= 0x8165
+	OCCLUSION_TEST_RESULT_HP			= 0x8166
+
+HP_texture_lighting enum:
+	TEXTURE_LIGHTING_MODE_HP			= 0x8167
+	TEXTURE_POST_SPECULAR_HP			= 0x8168
+	TEXTURE_PRE_SPECULAR_HP				= 0x8169
+
+# HP_future_use: 0x816A-0x816F
+
 ###############################################################################
 
-# HP: 0x8155-0x816F
-
-###############################################################################
+# SGI: 0x8170-0x81CF
 
 SGIX_clipmap enum:
 	LINEAR_CLIPMAP_LINEAR_SGIX			= 0x8170
@@ -3296,17 +3362,17 @@ EXT_shared_texture_palette enum:
 
 ###############################################################################
 
-# Incomplete extension, not in enumext.spec
+# Incomplete extension
 # SGIX_fog_scale: 0x81FC-0x81FD
-#	FOG_SCALE_SGIX					= 0x81FC # 1 I
-#	FOG_SCALE_VALUE_SGIX				= 0x81FD # 1 F
+#	 FOG_SCALE_SGIX					 = 0x81FC # 1 I
+#	 FOG_SCALE_VALUE_SGIX				 = 0x81FD # 1 F
 
 ###############################################################################
 
-# Incomplete extension, not in enumext.spec
-# SGIX_fog_blend: 0x81FE-0x81FF
-#	FOG_BLEND_ALPHA_SGIX				= 0x81FE # 1 I
-#	FOG_BLEND_COLOR_SGIX				= 0x81FF # 1 I
+# Incomplete extension
+# SGIX_fog_blend:
+#	 FOG_BLEND_ALPHA_SGIX				 = 0x81FE # 1 I
+#	 FOG_BLEND_COLOR_SGIX				 = 0x81FF # 1 I
 
 ###############################################################################
 
@@ -3502,9 +3568,10 @@ ARB_separate_shader_objects enum:
 	PROGRAM_PIPELINE_BINDING			= 0x825A
 
 # Aliases ARB_separate_shader_objects enum above
+# Used to list ACTIVE_PROGRAM_EXT = 0x8259 but this was a bogus
+# redefinition and never shipped in the Khronos header.
 EXT_separate_shader_objects enum: (OpenGL ES only)
 	PROGRAM_SEPARABLE_EXT				= 0x8258
-	ACTIVE_PROGRAM_EXT				= 0x8259
 	PROGRAM_PIPELINE_BINDING_EXT			= 0x825A
 
 ARB_viewport_array enum:
@@ -3681,6 +3748,8 @@ VERSION_4_3 enum:
 
 ###############################################################################
 
+# SGI:		      0x8310-0x832F
+
 SGIX_depth_pass_instrument enum: 0x8310-0x8312
 	DEPTH_PASS_INSTRUMENT_SGIX			= 0x8310
 	DEPTH_PASS_INSTRUMENT_COUNTERS_SGIX		= 0x8311
@@ -3772,6 +3841,8 @@ SGIX_async_histogram enum:
 
 ###############################################################################
 
+# SUN:		      0x8330-0x833F
+
 EXT_pixel_transform enum:
 	PIXEL_TRANSFORM_2D_EXT				= 0x8330
 	PIXEL_MAG_FILTER_EXT				= 0x8331
@@ -3787,6 +3858,7 @@ EXT_pixel_transform enum:
 
 ###############################################################################
 
+# SGI:		      0x8340-0x836F
 # Incomplete extension, not in enumext.spec
 # SGIX_cube_map: 0x8340-0x8348
 #	ENV_MAP_SGIX					= 0x8340
@@ -3877,7 +3949,7 @@ SGIX_texture_coordinate_clamp enum:
 
 # Incomplete extension, not in enumext.spec
 # SGIX_fog_factor_to_alpha: 0x836F
-	FOG_FACTOR_TO_ALPHA_SGIX			= 0x836F
+#	FOG_FACTOR_TO_ALPHA_SGIX			= 0x836F
 
 ###############################################################################
 
@@ -4002,6 +4074,8 @@ INTEL_map_texture enum:
 
 ###############################################################################
 
+# SGI:		      0x8400-0x846F
+
 SGIX_fragment_lighting enum:
 	FRAGMENT_LIGHTING_SGIX				= 0x8400 # 1 I
 	FRAGMENT_COLOR_MATERIAL_SGIX			= 0x8401 # 1 I
@@ -4039,32 +4113,48 @@ SGIX_resample enum:
 
 ###############################################################################
 
-# Incomplete extension, not in enumext.spec
-# SGIX_fragment_lighting_space: 0x8436-0x8449
-#	EYE_SPACE_SGIX					= 0x8436
-#	TANGENT_SPACE_SGIX				= 0x8437
-#	OBJECT_SPACE_SGIX				= 0x8438
-#	TANGENT_ARRAY_SGIX				= 0x8439
-#	BINORMAL_ARRAY_SGIX				= 0x843A
-#	CURRENT_TANGENT_SGIX				= 0x843B # 3 F
-#	CURRENT_BINORMAL_SGIX				= 0x843C # 3 F
-#	FRAGMENT_LIGHT_SPACE_SGIX			= 0x843D # 1 I
-#	TANGENT_ARRAY_TYPE_SGIX				= 0x843E
-#	TANGENT_ARRAY_STRIDE_SGIX			= 0x843F
-#	TANGENT_ARRAY_COUNT_SGIX			= 0x8440
-#	BINORMAL_ARRAY_TYPE_SGIX			= 0x8441
-#	BINORMAL_ARRAY_STRIDE_SGIX			= 0x8442
-#	BINORMAL_ARRAY_COUNT_SGIX			= 0x8443
-#	TANGENT_ARRAY_POINTER_SGIX			= 0x8444
-#	BINORMAL_ARRAY_POINTER_SGIX			= 0x8445
-#	MAP1_TANGENT_SGIX				= 0x8446
-#	MAP2_TANGENT_SGIX				= 0x8447
-#	MAP1_BINORMAL_SGIX				= 0x8448
-#	MAP2_BINORMAL_SGIX				= 0x8449
+# Incomplete extension
+# SGIX_fragment_lighting_space enum:
+#	  EYE_SPACE_SGIX				  = 0x8436
+#	  TANGENT_SPACE_SGIX				  = 0x8437
+#	  OBJECT_SPACE_SGIX				  = 0x8438
+#	  TANGENT_ARRAY_SGIX				  = 0x8439
+#	  BINORMAL_ARRAY_SGIX				  = 0x843A
+#	  CURRENT_TANGENT_SGIX				  = 0x843B   3 F
+#	  CURRENT_BINORMAL_SGIX				  = 0x843C   3 F
+#	  FRAGMENT_LIGHT_SPACE_SGIX			  = 0x843D   1 I
+#	  TANGENT_ARRAY_TYPE_SGIX			  = 0x843E
+#	  TANGENT_ARRAY_STRIDE_SGIX			  = 0x843F
+#	  TANGENT_ARRAY_COUNT_SGIX			  = 0x8440
+#	  BINORMAL_ARRAY_TYPE_SGIX			  = 0x8441
+#	  BINORMAL_ARRAY_STRIDE_SGIX			  = 0x8442
+#	  BINORMAL_ARRAY_COUNT_SGIX			  = 0x8443
+#	  TANGENT_ARRAY_POINTER_SGIX			  = 0x8444
+#	  BINORMAL_ARRAY_POINTER_SGIX			  = 0x8445
+#	  MAP1_TANGENT_SGIX				  = 0x8446
+#	  MAP2_TANGENT_SGIX				  = 0x8447
+#	  MAP1_BINORMAL_SGIX				  = 0x8448
+#	  MAP2_BINORMAL_SGIX				  = 0x8449
+
+EXT_coordinate_frame enum:
+	TANGENT_ARRAY_EXT				= 0x8439
+	BINORMAL_ARRAY_EXT				= 0x843A
+	CURRENT_TANGENT_EXT				= 0x843B
+	CURRENT_BINORMAL_EXT				= 0x843C
+	TANGENT_ARRAY_TYPE_EXT				= 0x843E
+	TANGENT_ARRAY_STRIDE_EXT			= 0x843F
+	BINORMAL_ARRAY_TYPE_EXT				= 0x8440
+	BINORMAL_ARRAY_STRIDE_EXT			= 0x8441
+	TANGENT_ARRAY_POINTER_EXT			= 0x8442
+	BINORMAL_ARRAY_POINTER_EXT			= 0x8443
+	MAP1_TANGENT_EXT				= 0x8444
+	MAP2_TANGENT_EXT				= 0x8445
+	MAP1_BINORMAL_EXT				= 0x8446
+	MAP2_BINORMAL_EXT				= 0x8447
 
 ###############################################################################
 
-# Incomplete extension, not in enumext.spec
+# Incomplete extension
 # SGIX_bali_timer_instruments: 0x844A-0x844C
 #	BALI_GEOM_TIMER_INSTRUMENT_SGIX			= 0x844A # 1 I
 #	BALI_RASTER_TIMER_INSTRUMENT_SGIX		= 0x844B # 1 I
@@ -4134,7 +4224,7 @@ VERSION_2_1 enum:
 ###############################################################################
 
 # Incomplete extension, not in enumext.spec
-SGIX_icc_texture enum:
+# SGIX_icc_texture enum:
 #	RGB_ICC_SGIX					= 0x8460
 #	RGBA_ICC_SGIX					= 0x8461
 #	ALPHA_ICC_SGIX					= 0x8462
@@ -4431,14 +4521,15 @@ EXT_texture_lod_bias enum:
 EXT_vertex_weighting enum:
 	MODELVIEW1_STACK_DEPTH_EXT			= 0x8502
 
-# NV_texture_env_combine4 (additional; see below): 0x8503
+NV_texture_env_combine4 enum: (additional; see below):
+	COMBINE4_NV					= 0x8503
 
 NV_light_max_exponent enum:
 	MAX_SHININESS_NV				= 0x8504
 	MAX_SPOT_EXPONENT_NV				= 0x8505
 
 EXT_vertex_weighting enum:
-	MODELVIEW_MATRIX1_EXT				= 0x8506
+	MODELVIEW1_MATRIX_EXT				= 0x8506
 
 VERSION_1_4 enum: (Promoted for OpenGL 1.4)
 	INCR_WRAP					= 0x8507
@@ -4492,8 +4583,8 @@ EXT_texture_cube_map enum:
 	MAX_CUBE_MAP_TEXTURE_SIZE_EXT			= 0x851C
 
 NV_texgen_reflection enum:
-	NORMAL_MAP					= 0x8511
-	REFLECTION_MAP					= 0x8512
+	NORMAL_MAP_NV					= 0x8511
+	REFLECTION_MAP_NV				= 0x8512
 
 ARB_texture_cube_map enum:
 	NORMAL_MAP_ARB					= 0x8511
@@ -4572,7 +4663,7 @@ NV_register_combiners enum: (additional; see above):
 	HALF_BIAS_NORMAL_NV				= 0x853A
 	HALF_BIAS_NEGATE_NV				= 0x853B
 	SIGNED_IDENTITY_NV				= 0x853C
-	UNSIGNED_NEGATE_NV				= 0x853D
+	SIGNED_NEGATE_NV				= 0x853D
 	SCALE_BY_TWO_NV					= 0x853E
 	SCALE_BY_FOUR_NV				= 0x853F
 	SCALE_BY_ONE_HALF_NV				= 0x8540
@@ -4606,7 +4697,7 @@ NV_primitive_restart enum:
 	PRIMITIVE_RESTART_INDEX_NV			= 0x8559
 
 NV_fog_distance enum:
-	FOG_GEN_MODE_NV					= 0x855A
+	FOG_DISTANCE_MODE_NV				= 0x855A
 	EYE_RADIAL_NV					= 0x855B
 	EYE_PLANE_ABSOLUTE_NV				= 0x855C
 
@@ -4669,6 +4760,30 @@ VERSION_1_3 enum: (Promoted for OpenGL 1.3)
 	OPERAND1_ALPHA					= 0x8599
 	OPERAND2_ALPHA					= 0x859A
 
+ARB_texture_env_combine enum:
+	COMBINE_ARB					= 0x8570
+	COMBINE_RGB_ARB					= 0x8571
+	COMBINE_ALPHA_ARB				= 0x8572
+	RGB_SCALE_ARB					= 0x8573
+	ADD_SIGNED_ARB					= 0x8574
+	INTERPOLATE_ARB					= 0x8575
+	CONSTANT_ARB					= 0x8576
+	PRIMARY_COLOR_ARB				= 0x8577
+	PREVIOUS_ARB					= 0x8578
+	SOURCE0_RGB_ARB					= 0x8580
+	SOURCE1_RGB_ARB					= 0x8581
+	SOURCE2_RGB_ARB					= 0x8582
+	SOURCE0_ALPHA_ARB				= 0x8588
+	SOURCE1_ALPHA_ARB				= 0x8589
+	SOURCE2_ALPHA_ARB				= 0x858A
+	OPERAND0_RGB_ARB				= 0x8590
+	OPERAND1_RGB_ARB				= 0x8591
+	OPERAND2_RGB_ARB				= 0x8592
+	OPERAND0_ALPHA_ARB				= 0x8598
+	OPERAND1_ALPHA_ARB				= 0x8599
+	OPERAND2_ALPHA_ARB				= 0x859A
+	SUBTRACT_ARB					= 0x84E7
+
 EXT_texture_env_combine enum:
 	COMBINE_EXT					= 0x8570
 	COMBINE_RGB_EXT					= 0x8571
@@ -4693,19 +4808,21 @@ EXT_texture_env_combine enum:
 	OPERAND2_ALPHA_EXT				= 0x859A
 
 NV_texture_env_combine4 enum:
-	COMBINE4_NV					= 0x8503
 	SOURCE3_RGB_NV					= 0x8583
 	SOURCE3_ALPHA_NV				= 0x858B
 	OPERAND3_RGB_NV					= 0x8593
 	OPERAND3_ALPHA_NV				= 0x859B
 
 # "Future use" => "additional combiner input/output enums" only
+# ATI/NVIDIA_future_use: 0x8579-0x857F
 # ATI/NVIDIA_future_use: 0x8584-0x8587
 # ATI/NVIDIA_future_use: 0x858C-0x858F
 # ATI/NVIDIA_future_use: 0x8594-0x8597
 # ATI/NVIDIA_future_use: 0x859C-0x859F
 
 ###############################################################################
+
+# SGI:		      0x85A0-0x85AF
 
 SGIX_subsample enum:
 	PACK_SUBSAMPLE_RATE_SGIX			= 0x85A0
@@ -5127,22 +5244,22 @@ NV_evaluators enum:
 	MAP_ATTRIB_U_ORDER_NV				= 0x86C3
 	MAP_ATTRIB_V_ORDER_NV				= 0x86C4
 	EVAL_FRACTIONAL_TESSELLATION_NV			= 0x86C5
-	EVAL_VERTEX_ATRRIB0_NV				= 0x86C6
-	EVAL_VERTEX_ATRRIB1_NV				= 0x86C7
-	EVAL_VERTEX_ATRRIB2_NV				= 0x86C8
-	EVAL_VERTEX_ATRRIB3_NV				= 0x86C9
-	EVAL_VERTEX_ATRRIB4_NV				= 0x86CA
-	EVAL_VERTEX_ATRRIB5_NV				= 0x86CB
-	EVAL_VERTEX_ATRRIB6_NV				= 0x86CC
-	EVAL_VERTEX_ATRRIB7_NV				= 0x86CD
-	EVAL_VERTEX_ATRRIB8_NV				= 0x86CE
-	EVAL_VERTEX_ATRRIB9_NV				= 0x86CF
-	EVAL_VERTEX_ATRRIB10_NV				= 0x86D0
-	EVAL_VERTEX_ATRRIB11_NV				= 0x86D1
-	EVAL_VERTEX_ATRRIB12_NV				= 0x86D2
-	EVAL_VERTEX_ATRRIB13_NV				= 0x86D3
-	EVAL_VERTEX_ATRRIB14_NV				= 0x86D4
-	EVAL_VERTEX_ATRRIB15_NV				= 0x86D5
+	EVAL_VERTEX_ATTRIB0_NV				= 0x86C6
+	EVAL_VERTEX_ATTRIB1_NV				= 0x86C7
+	EVAL_VERTEX_ATTRIB2_NV				= 0x86C8
+	EVAL_VERTEX_ATTRIB3_NV				= 0x86C9
+	EVAL_VERTEX_ATTRIB4_NV				= 0x86CA
+	EVAL_VERTEX_ATTRIB5_NV				= 0x86CB
+	EVAL_VERTEX_ATTRIB6_NV				= 0x86CC
+	EVAL_VERTEX_ATTRIB7_NV				= 0x86CD
+	EVAL_VERTEX_ATTRIB8_NV				= 0x86CE
+	EVAL_VERTEX_ATTRIB9_NV				= 0x86CF
+	EVAL_VERTEX_ATTRIB10_NV				= 0x86D0
+	EVAL_VERTEX_ATTRIB11_NV				= 0x86D1
+	EVAL_VERTEX_ATTRIB12_NV				= 0x86D2
+	EVAL_VERTEX_ATTRIB13_NV				= 0x86D3
+	EVAL_VERTEX_ATTRIB14_NV				= 0x86D4
+	EVAL_VERTEX_ATTRIB15_NV				= 0x86D5
 	MAX_MAP_TESSELLATION_NV				= 0x86D6
 	MAX_RATIONAL_EVAL_ORDER_NV			= 0x86D7
 
@@ -5162,11 +5279,11 @@ NV_texture_shader enum:
 	SHADER_OPERATION_NV				= 0x86DF
 	CULL_MODES_NV					= 0x86E0
 	OFFSET_TEXTURE_MATRIX_NV			= 0x86E1
+	OFFSET_TEXTURE_2D_MATRIX_NV			= 0x86E1    # alias OFFSET_TEXTURE_MATRIX_NV
 	OFFSET_TEXTURE_SCALE_NV				= 0x86E2
+	OFFSET_TEXTURE_2D_SCALE_NV			= 0x86E2    # alias OFFSET_TEXTURE_SCALE_NV
 	OFFSET_TEXTURE_BIAS_NV				= 0x86E3
-	OFFSET_TEXTURE_2D_MATRIX_NV			= GL_OFFSET_TEXTURE_MATRIX_NV
-	OFFSET_TEXTURE_2D_SCALE_NV			= GL_OFFSET_TEXTURE_SCALE_NV
-	OFFSET_TEXTURE_2D_BIAS_NV			= GL_OFFSET_TEXTURE_BIAS_NV
+	OFFSET_TEXTURE_2D_BIAS_NV			= 0x86E3    # alias OFFSET_TEXTURE_BIAS_NV
 	PREVIOUS_TEXTURE_INPUT_NV			= 0x86E4
 	CONST_EYE_NV					= 0x86E5
 	PASS_THROUGH_NV					= 0x86E6
@@ -5607,10 +5724,10 @@ EXT_color_buffer_half_float enum: (OpenGL ES only; additional; see above)
 	RGB16F_EXT					= 0x881B
 
 ARB_color_buffer_float enum:
-	RGBA_FLOAT_MODE_ARB				= 0x8820    # Equivalent to TYPE_RGBA_FLOAT_ATI
+	RGBA_FLOAT_MODE_ARB				= 0x8820
 
-ATI_pixel_format_float enum: (really WGL_ATI_pixel_format_float)
-	TYPE_RGBA_FLOAT_ATI				= 0x8820
+ATI_pixel_format_float enum:
+	RGBA_FLOAT_MODE_ATI				= 0x8820
 
 # AMD_future_use: 0x8821-0x8822
 
@@ -5693,7 +5810,7 @@ NV_draw_buffers enum: (OpenGL ES only)
 	DRAW_BUFFER14_NV				= 0x8833
 	DRAW_BUFFER15_NV				= 0x8834
 
-ATI_pixel_format_float enum: (really WGL_ATI_pixel_format_float) (additional; see above)
+ATI_pixel_format_float enum: (additional; see above)
 	COLOR_CLEAR_UNCLAMPED_VALUE_ATI			= 0x8835
 
 # AMD_future_use: 0x8836-0x883C
@@ -7752,9 +7869,9 @@ NV_multisample_coverage enum:
 ARB_transform_feedback2 enum:
 	TRANSFORM_FEEDBACK				= 0x8E22
 	TRANSFORM_FEEDBACK_PAUSED			= 0x8E23
-	TRANSFORM_FEEDBACK_BUFFER_PAUSED		= GL_TRANSFORM_FEEDBACK_PAUSED
+	TRANSFORM_FEEDBACK_BUFFER_PAUSED		= 0x8E23    # alias TRANSFORM_FEEDBACK_PAUSED
 	TRANSFORM_FEEDBACK_ACTIVE			= 0x8E24
-	TRANSFORM_FEEDBACK_BUFFER_ACTIVE		= GL_TRANSFORM_FEEDBACK_ACTIVE
+	TRANSFORM_FEEDBACK_BUFFER_ACTIVE		= 0x8E24    # alias TRANSFORM_FEEDBACK_ACTIVE
 	TRANSFORM_FEEDBACK_BINDING			= 0x8E25
 
 NV_transform_feedback2 enum:
@@ -7864,10 +7981,13 @@ NV_gpu_program5 enum:
 	MAX_FRAGMENT_INTERPOLATION_OFFSET_NV		= 0x8E5C
 	FRAGMENT_PROGRAM_INTERPOLATION_OFFSET_BITS_NV	= 0x8E5D
 
-ARB_texture_gather enum:
+VERSION_4_0 enum:
 	MIN_PROGRAM_TEXTURE_GATHER_OFFSET		= 0x8E5E
 	MAX_PROGRAM_TEXTURE_GATHER_OFFSET		= 0x8E5F
-	MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB	= 0x8F9F
+
+ARB_texture_gather enum:
+	MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB		= 0x8E5E
+	MAX_PROGRAM_TEXTURE_GATHER_OFFSET_ARB		= 0x8E5F
 
 NV_gpu_program5 enum:
 	MIN_PROGRAM_TEXTURE_GATHER_OFFSET_NV		= 0x8E5E
@@ -7989,9 +8109,9 @@ NV_shader_buffer_load enum: (additional; see above)
 
 ARB_copy_buffer enum:
 	COPY_READ_BUFFER_BINDING			= 0x8F36
-	COPY_READ_BUFFER				= GL_COPY_READ_BUFFER_BINDING
+	COPY_READ_BUFFER				= 0x8F36    # alias COPY_READ_BUFFER_BINDING
 	COPY_WRITE_BUFFER_BINDING			= 0x8F37
-	COPY_WRITE_BUFFER				= GL_COPY_WRITE_BUFFER_BINDING
+	COPY_WRITE_BUFFER				= 0x8F37    # alias COPY_WRITE_BUFFER_BINDING
 
 VERSION_3_1 enum:
 	use ARB_copy_buffer		    COPY_READ_BUFFER
@@ -8069,7 +8189,10 @@ EXT_vertex_attrib_64bit enum:
 ARM_mali_shader_binary enum: (OpenGL ES only)
 	MALI_SHADER_BINARY_ARM				= 0x8F60
 
-# ARM_future_use: 0x8F61-0x8F6F
+ARM_mali_program_binary enum: (OpenGL ES only)
+	MALI_PROGRAM_BINARY_ARM				= 0x8F61
+
+# ARM_future_use: 0x8F62-0x8F6F
 
 ###############################################################################
 
@@ -8103,7 +8226,7 @@ VERSION_3_1 enum:
 	PRIMITIVE_RESTART_INDEX				= 0x8F9E    # Different from NV_primitive_restart value
 
 ARB_texture_gather enum: (additional; see above)
-	MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS		= 0x8F9F
+	MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB	= 0x8F9F
 
 ###############################################################################
 
@@ -8181,7 +8304,7 @@ EXT_vertex_attrib_64bit enum:
 # AMD: 0x9000-0x901F
 # Assigned for Bill Licea-Kane
 
-AMD_vertex_shader_tesselator enum:
+AMD_vertex_shader_tessellator enum:
 	SAMPLER_BUFFER_AMD				= 0x9001
 	INT_SAMPLER_BUFFER_AMD				= 0x9002
 	UNSIGNED_INT_SAMPLER_BUFFER_AMD			= 0x9003
@@ -8191,6 +8314,15 @@ AMD_vertex_shader_tesselator enum:
 	CONTINUOUS_AMD					= 0x9007
 
 # AMD_future_use: 0x9008
+
+VERSION_4_0 enum:
+	TEXTURE_CUBE_MAP_ARRAY				= 0x9009
+	TEXTURE_BINDING_CUBE_MAP_ARRAY			= 0x900A
+	PROXY_TEXTURE_CUBE_MAP_ARRAY			= 0x900B
+	SAMPLER_CUBE_MAP_ARRAY				= 0x900C
+	SAMPLER_CUBE_MAP_ARRAY_SHADOW			= 0x900D
+	INT_SAMPLER_CUBE_MAP_ARRAY			= 0x900E
+	UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY		= 0x900F
 
 ARB_texture_cube_map_array enum:
 	TEXTURE_CUBE_MAP_ARRAY				= 0x9009
@@ -8461,6 +8593,7 @@ NV_path_rendering enum: (additional; see above)
 	CIRCULAR_TANGENT_ARC_TO_NV			= 0xFC
 	ARC_TO_NV					= 0xFE
 	RELATIVE_ARC_TO_NV				= 0xFF
+# Bitfield values for this extension
 	BOLD_BIT_NV					= 0x01
 	ITALIC_BIT_NV					= 0x02
 	GLYPH_WIDTH_BIT_NV				= 0x01
@@ -8531,7 +8664,7 @@ ARB_shader_storage_buffer_object enum:
 	MAX_SHADER_STORAGE_BUFFER_BINDINGS		= 0x90DD
 	MAX_SHADER_STORAGE_BLOCK_SIZE			= 0x90DE
 	SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT		= 0x90DF
-	MAX_COMBINED_SHADER_OUTPUT_RESOURCES		= GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS
+	MAX_COMBINED_SHADER_OUTPUT_RESOURCES		= 0x8F39    # alias MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS
 	use ARB_shader_image_load_store			MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS
 
 # NV_future_use: 0x90E0
@@ -8903,12 +9036,12 @@ ARB_shader_atomic_counters enum:
 	MAX_FRAGMENT_ATOMIC_COUNTERS			 = 0x92D6
 	MAX_COMBINED_ATOMIC_COUNTERS			 = 0x92D7
 	MAX_ATOMIC_COUNTER_BUFFER_SIZE			 = 0x92D8
-	MAX_ATOMIC_COUNTER_BUFFER_BINDINGS		 = 0x92DC
 	ACTIVE_ATOMIC_COUNTER_BUFFERS			 = 0x92D9
 	UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX		 = 0x92DA
 	UNSIGNED_INT_ATOMIC_COUNTER			 = 0x92DB
+	MAX_ATOMIC_COUNTER_BUFFER_BINDINGS		 = 0x92DC
 
-# NV_future_use: 0x92DC-0x92DF
+# NV_future_use: 0x92DD-0x92DF
 
 # Also VERSION_4_3
 KHR_debug enum: (additional; see above)
@@ -9062,31 +9195,101 @@ GL_KHR_texture_compression_astc_ldr enum:
 
 ###############################################################################
 
-# IBM:	  103000-103999
-#	CULL_VERTEX_IBM					= 103050
-#	VERTEX_ARRAY_LIST_IBM				= 103070
-#	NORMAL_ARRAY_LIST_IBM				= 103071
-#	COLOR_ARRAY_LIST_IBM				= 103072
-#	INDEX_ARRAY_LIST_IBM				= 103073
-#	TEXTURE_COORD_ARRAY_LIST_IBM			= 103074
-#	EDGE_FLAG_ARRAY_LIST_IBM			= 103075
-#	FOG_COORDINATE_ARRAY_LIST_IBM			= 103076
-#	SECONDARY_COLOR_ARRAY_LIST_IBM			= 103077
-#	VERTEX_ARRAY_LIST_STRIDE_IBM			= 103080
-#	NORMAL_ARRAY_LIST_STRIDE_IBM			= 103081
-#	COLOR_ARRAY_LIST_STRIDE_IBM			= 103082
-#	INDEX_ARRAY_LIST_STRIDE_IBM			= 103083
-#	TEXTURE_COORD_ARRAY_LIST_STRIDE_IBM		= 103084
-#	EDGE_FLAG_ARRAY_LIST_STRIDE_IBM			= 103085
-#	FOG_COORDINATE_ARRAY_LIST_STRIDE_IBM		= 103086
-#	SECONDARY_COLOR_ARRAY_LIST_STRIDE_IBM		= 103087
+# IBM:	  103000-103999 (0x19258-0x1963F)
+
+IBM_rasterpos_clip enum:
+	RASTER_POSITION_UNCLIPPED_IBM			= 0x19262
+
+IBM_cull_vertex enum:
+	CULL_VERTEX_IBM					= 103050
+
+IBM_static_data enum:
+	ALL_STATIC_DATA_IBM				= 103060
+	STATIC_VERTEX_ARRAY_IBM				= 103061
+	VERTEX_ARRAY_LIST_IBM				= 103070
+	NORMAL_ARRAY_LIST_IBM				= 103071
+	COLOR_ARRAY_LIST_IBM				= 103072
+	INDEX_ARRAY_LIST_IBM				= 103073
+	TEXTURE_COORD_ARRAY_LIST_IBM			= 103074
+	EDGE_FLAG_ARRAY_LIST_IBM			= 103075
+	FOG_COORDINATE_ARRAY_LIST_IBM			= 103076
+	SECONDARY_COLOR_ARRAY_LIST_IBM			= 103077
+	VERTEX_ARRAY_LIST_STRIDE_IBM			= 103080
+	NORMAL_ARRAY_LIST_STRIDE_IBM			= 103081
+	COLOR_ARRAY_LIST_STRIDE_IBM			= 103082
+	INDEX_ARRAY_LIST_STRIDE_IBM			= 103083
+	TEXTURE_COORD_ARRAY_LIST_STRIDE_IBM		= 103084
+	EDGE_FLAG_ARRAY_LIST_STRIDE_IBM			= 103085
+	FOG_COORDINATE_ARRAY_LIST_STRIDE_IBM		= 103086
+	SECONDARY_COLOR_ARRAY_LIST_STRIDE_IBM		= 103087
+
+# Most of this range is available, but calculating IBM_future_use figures is
+# tedious and pointless since they're no longer building graphics hardware
+IBM_future_use: lots
 
 ###############################################################################
 
 # NEC:	  104000-104999
 # Compaq: 105000-105999 (Compaq was acquired by HP)
 # KPC:	  106000-106999 (Kubota is out of business)
-# PGI:	  107000-107999 (Portable was acquired by Template Graphics)
+
+###############################################################################
+
+# PGI:	  107000-107999 (0x1A1F8-0x1A5DF) (Portable was acquired by Template Graphics)
+
+PGI_misc_hints enum:
+	PREFER_DOUBLEBUFFER_HINT_PGI			= 0x1A1F8
+	CONSERVE_MEMORY_HINT_PGI			= 0x1A1FD
+	RECLAIM_MEMORY_HINT_PGI				= 0x1A1FE
+	NATIVE_GRAPHICS_HANDLE_PGI			= 0x1A202
+	NATIVE_GRAPHICS_BEGIN_HINT_PGI			= 0x1A203
+	NATIVE_GRAPHICS_END_HINT_PGI			= 0x1A204
+	ALWAYS_FAST_HINT_PGI				= 0x1A20C
+	ALWAYS_SOFT_HINT_PGI				= 0x1A20D
+	ALLOW_DRAW_OBJ_HINT_PGI				= 0x1A20E
+	ALLOW_DRAW_WIN_HINT_PGI				= 0x1A20F
+	ALLOW_DRAW_FRG_HINT_PGI				= 0x1A210
+	ALLOW_DRAW_MEM_HINT_PGI				= 0x1A211
+	STRICT_DEPTHFUNC_HINT_PGI			= 0x1A216
+	STRICT_LIGHTING_HINT_PGI			= 0x1A217
+	STRICT_SCISSOR_HINT_PGI				= 0x1A218
+	FULL_STIPPLE_HINT_PGI				= 0x1A219
+	CLIP_NEAR_HINT_PGI				= 0x1A220
+	CLIP_FAR_HINT_PGI				= 0x1A221
+	WIDE_LINE_HINT_PGI				= 0x1A222
+	BACK_NORMALS_HINT_PGI				= 0x1A223
+
+PGI_vertex_hints enum:
+	VERTEX_DATA_HINT_PGI				= 0x1A22A
+	VERTEX_CONSISTENT_HINT_PGI			= 0x1A22B
+	MATERIAL_SIDE_HINT_PGI				= 0x1A22C
+	MAX_VERTEX_HINT_PGI				= 0x1A22D
+# Bitfield values for HintPGI <mode>
+	VERTEX23_BIT_PGI				= 0x00000004
+	VERTEX4_BIT_PGI					= 0x00000008
+	COLOR3_BIT_PGI					= 0x00010000
+	COLOR4_BIT_PGI					= 0x00020000
+	EDGEFLAG_BIT_PGI				= 0x00040000
+	INDEX_BIT_PGI					= 0x00080000
+	MAT_AMBIENT_BIT_PGI				= 0x00100000
+	MAT_AMBIENT_AND_DIFFUSE_BIT_PGI			= 0x00200000
+	MAT_DIFFUSE_BIT_PGI				= 0x00400000
+	MAT_EMISSION_BIT_PGI				= 0x00800000
+	MAT_COLOR_INDEXES_BIT_PGI			= 0x01000000
+	MAT_SHININESS_BIT_PGI				= 0x02000000
+	MAT_SPECULAR_BIT_PGI				= 0x04000000
+	NORMAL_BIT_PGI					= 0x08000000
+	TEXCOORD1_BIT_PGI				= 0x10000000
+	TEXCOORD2_BIT_PGI				= 0x20000000
+	TEXCOORD3_BIT_PGI				= 0x40000000
+	TEXCOORD4_BIT_PGI				= 0x80000000
+
+# Most of this range is available, but calculating PGI_future_use
+# figures is tedious and pointless since they're out of business.
+PGI_future_use: lots
+
+###############################################################################
+
 # E&S:	  108000-108999
 
 ###############################################################################

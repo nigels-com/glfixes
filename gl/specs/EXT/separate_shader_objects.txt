@@ -23,10 +23,15 @@ Status
 
     Shipping in NVIDIA 190.00 release drivers
 
+    NOTE: there is an unrelated OpenGL ES extension also named
+    "GL_EXT_separate_shader_objects", found in the OpenGL ES extension
+    registry at http://www.khronos.org/registry/gles/ . These two extensions
+    have similar purposes, but completely different interfaces.
+
 Version
 
-    Last Modified Date:  January 11, 2010
-    Version:             9
+    Last Modified Date:  March 7, 2013
+    Version:             11
 
 Number
 
@@ -913,3 +918,5 @@ Revision History
     10    24/02/10  srahman   added glx protocol for
                               glCreateShaderProgramEXT
                               added issues 19 and 20 
+    11    03/07/13  Jon Leech Added note about the unrelated OpenGL ES
+                              extension of the same name.

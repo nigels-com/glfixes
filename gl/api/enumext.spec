@@ -1,6 +1,6 @@
 # enumext.spec - list of GL enumerants for glext.h header
 #
-# $Revision: 20495 $ on $Date: 2013-02-06 13:01:10 -0800 (Wed, 06 Feb 2013) $
+# $Revision: 20868 $ on $Date: 2013-03-14 00:30:09 -0700 (Thu, 14 Mar 2013) $
 
 # This is derived from the master GL enumerant registry (enum.spec).
 #
@@ -1113,7 +1113,7 @@ VERSION_3_0 enum:
 	CONTEXT_FLAGS					= 0x821E
 	COMPRESSED_RED					= 0x8225
 	COMPRESSED_RG					= 0x8226
-	CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT		= 0x0001
+	CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT		= 0x00000001
 	RGBA32F						= 0x8814
 	RGB32F						= 0x8815
 	RGBA16F						= 0x881A
@@ -2798,7 +2798,7 @@ ARB_framebuffer_object enum:
 	TEXTURE_DEPTH_TYPE				= 0x8C16
 	UNSIGNED_NORMALIZED				= 0x8C17
 	FRAMEBUFFER_BINDING				= 0x8CA6
-	DRAW_FRAMEBUFFER_BINDING			= GL_FRAMEBUFFER_BINDING
+	DRAW_FRAMEBUFFER_BINDING			= 0x8CA6    # alias FRAMEBUFFER_BINDING
 	RENDERBUFFER_BINDING				= 0x8CA7
 	READ_FRAMEBUFFER				= 0x8CA8
 	DRAW_FRAMEBUFFER				= 0x8CA9
@@ -3018,9 +3018,9 @@ passthru: /* ARB_compatibility just defines tokens from core 3.0 */
 # ARB Extension #59
 ARB_copy_buffer enum:
 	COPY_READ_BUFFER_BINDING			= 0x8F36
-	COPY_READ_BUFFER				= GL_COPY_READ_BUFFER_BINDING
+	COPY_READ_BUFFER				= 0x8F36    # alias COPY_READ_BUFFER_BINDING
 	COPY_WRITE_BUFFER_BINDING			= 0x8F37
-	COPY_WRITE_BUFFER				= GL_COPY_WRITE_BUFFER_BINDING
+	COPY_WRITE_BUFFER				= 0x8F37    # alias COPY_WRITE_BUFFER_BINDING
 
 ###############################################################################
 
@@ -3347,9 +3347,9 @@ ARB_texture_buffer_object_rgb32 enum:
 ARB_transform_feedback2 enum:
 	TRANSFORM_FEEDBACK				= 0x8E22
 	TRANSFORM_FEEDBACK_PAUSED			= 0x8E23
-	TRANSFORM_FEEDBACK_BUFFER_PAUSED		= GL_TRANSFORM_FEEDBACK_PAUSED
+	TRANSFORM_FEEDBACK_BUFFER_PAUSED		= 0x8E23    # alias TRANSFORM_FEEDBACK_PAUSED
 	TRANSFORM_FEEDBACK_ACTIVE			= 0x8E24
-	TRANSFORM_FEEDBACK_BUFFER_ACTIVE		= GL_TRANSFORM_FEEDBACK_ACTIVE
+	TRANSFORM_FEEDBACK_BUFFER_ACTIVE		= 0x8E24    # alias TRANSFORM_FEEDBACK_ACTIVE
 	TRANSFORM_FEEDBACK_BINDING			= 0x8E25
 
 ###############################################################################
@@ -4079,8 +4079,8 @@ ARB_shader_storage_buffer_object enum:
 	MAX_SHADER_STORAGE_BUFFER_BINDINGS		= 0x90DD
 	MAX_SHADER_STORAGE_BLOCK_SIZE			= 0x90DE
 	SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT		= 0x90DF
-	SHADER_STORAGE_BARRIER_BIT			= 0x2000
-	MAX_COMBINED_SHADER_OUTPUT_RESOURCES		= GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS
+	SHADER_STORAGE_BARRIER_BIT			= 0x00002000
+	MAX_COMBINED_SHADER_OUTPUT_RESOURCES		= 0x8F39    # alias MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS
 	use ARB_shader_image_load_store     MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS
 
 ###############################################################################
@@ -4706,10 +4706,9 @@ SGIX_tag_sample_buffer enum:
 ###############################################################################
 
 # Extension #59
-FfdMaskSGIX enum:
+SGIX_polynomial_ffd enum:
 	TEXTURE_DEFORMATION_BIT_SGIX			= 0x00000001
 	GEOMETRY_DEFORMATION_BIT_SGIX			= 0x00000002
-SGIX_polynomial_ffd enum:
 	GEOMETRY_DEFORMATION_SGIX			= 0x8194
 	TEXTURE_DEFORMATION_SGIX			= 0x8195
 	DEFORMATIONS_MASK_SGIX				= 0x8196 # 1 I
@@ -4821,6 +4820,8 @@ PGI_vertex_hints enum:
 	VERTEX_CONSISTENT_HINT_PGI			= 0x1A22B
 	MATERIAL_SIDE_HINT_PGI				= 0x1A22C
 	MAX_VERTEX_HINT_PGI				= 0x1A22D
+	VERTEX23_BIT_PGI				= 0x00000004
+	VERTEX4_BIT_PGI					= 0x00000008
 	COLOR3_BIT_PGI					= 0x00010000
 	COLOR4_BIT_PGI					= 0x00020000
 	EDGEFLAG_BIT_PGI				= 0x00040000
@@ -4837,8 +4838,6 @@ PGI_vertex_hints enum:
 	TEXCOORD2_BIT_PGI				= 0x20000000
 	TEXCOORD3_BIT_PGI				= 0x40000000
 	TEXCOORD4_BIT_PGI				= 0x80000000
-	VERTEX23_BIT_PGI				= 0x00000004
-	VERTEX4_BIT_PGI					= 0x00000008
 
 ###############################################################################
 
@@ -5116,21 +5115,8 @@ SGIX_blend_alpha_minmax enum:
 # Extension #123 - skipped
 # Extension #124 - skipped
 # Extension #125 - skipped
-
-###############################################################################
-
-# Extension #126
-SGIX_impact_pixel_texture enum:
-	PIXEL_TEX_GEN_Q_CEILING_SGIX			= 0x8184
-	PIXEL_TEX_GEN_Q_ROUND_SGIX			= 0x8185
-	PIXEL_TEX_GEN_Q_FLOOR_SGIX			= 0x8186
-	PIXEL_TEX_GEN_ALPHA_REPLACE_SGIX		= 0x8187
-	PIXEL_TEX_GEN_ALPHA_NO_REPLACE_SGIX		= 0x8188
-	PIXEL_TEX_GEN_ALPHA_LS_SGIX			= 0x8189
-	PIXEL_TEX_GEN_ALPHA_MS_SGIX			= 0x818A
-
-###############################################################################
-
+# Extension #126 - skipped (some enums used to be in glext.h, but this
+#   was an incomplete SGI extension that never actually shipped).
 # Extension #127 - skipped
 # Extension #128 - skipped
 
@@ -5374,14 +5360,10 @@ APPLE_transform_hint enum:
 
 ###############################################################################
 
-# Extension #161
-SGIX_fog_scale enum:
-	FOG_SCALE_SGIX					= 0x81FC
-	FOG_SCALE_VALUE_SGIX				= 0x81FD
-
-###############################################################################
-
+# Extension #161 - skipped
 # Extension #162 - skipped
+# (some enums used to be in glext.h, but these were incomplete SGI
+#  extensions that never actually shipped).
 
 ###############################################################################
 
@@ -5551,12 +5533,12 @@ EXT_texture_filter_anisotropic enum:
 
 # Extension #188
 EXT_vertex_weighting enum:
-	MODELVIEW0_STACK_DEPTH_EXT			= GL_MODELVIEW_STACK_DEPTH
+	MODELVIEW0_STACK_DEPTH_EXT			= 0x0BA3 # GL_MODELVIEW_STACK_DEPTH
 	MODELVIEW1_STACK_DEPTH_EXT			= 0x8502
-	MODELVIEW0_MATRIX_EXT				= GL_MODELVIEW_MATRIX
+	MODELVIEW0_MATRIX_EXT				= 0x0BA6 # GL_MODELVIEW_MATRIX
 	MODELVIEW1_MATRIX_EXT				= 0x8506
 	VERTEX_WEIGHTING_EXT				= 0x8509
-	MODELVIEW0_EXT					= GL_MODELVIEW
+	MODELVIEW0_EXT					= 0x1700 # GL_MODELVIEW
 	MODELVIEW1_EXT					= 0x850A
 	CURRENT_VERTEX_WEIGHT_EXT			= 0x850B
 	VERTEX_WEIGHT_ARRAY_EXT				= 0x850C
@@ -5759,11 +5741,8 @@ SGIX_ycrcba enum:
 
 ###############################################################################
 
-# Extension #205
-SGI_depth_pass_instrument enum:
-	DEPTH_PASS_INSTRUMENT_SGIX			= 0x8310
-	DEPTH_PASS_INSTRUMENT_COUNTERS_SGIX		= 0x8311
-	DEPTH_PASS_INSTRUMENT_MAX_SGIX			= 0x8312
+# Extension #205 - skipped (some enums used to be in glext.h, but this
+#   was an incomplete SGI extension that never actually shipped).
 
 ###############################################################################
 
@@ -5876,6 +5855,13 @@ NV_fence enum:
 
 ###############################################################################
 
+# Extension #223
+IBM_static_data enum:
+	ALL_STATIC_DATA_IBM				= 103060
+	STATIC_VERTEX_ARRAY_IBM				= 103061
+
+###############################################################################
+
 # Extension #224
 IBM_texture_mirrored_repeat enum:
 	MIRRORED_REPEAT_IBM				= 0x8370
@@ -5953,11 +5939,11 @@ NV_texture_shader enum:
 	SHADER_OPERATION_NV				= 0x86DF
 	CULL_MODES_NV					= 0x86E0
 	OFFSET_TEXTURE_MATRIX_NV			= 0x86E1
+	OFFSET_TEXTURE_2D_MATRIX_NV			= 0x86E1    # alias OFFSET_TEXTURE_MATRIX_NV
 	OFFSET_TEXTURE_SCALE_NV				= 0x86E2
+	OFFSET_TEXTURE_2D_SCALE_NV			= 0x86E2    # alias OFFSET_TEXTURE_SCALE_NV
 	OFFSET_TEXTURE_BIAS_NV				= 0x86E3
-	OFFSET_TEXTURE_2D_MATRIX_NV			= GL_OFFSET_TEXTURE_MATRIX_NV
-	OFFSET_TEXTURE_2D_SCALE_NV			= GL_OFFSET_TEXTURE_SCALE_NV
-	OFFSET_TEXTURE_2D_BIAS_NV			= GL_OFFSET_TEXTURE_BIAS_NV
+	OFFSET_TEXTURE_2D_BIAS_NV			= 0x86E3    # alias OFFSET_TEXTURE_BIAS_NV
 	PREVIOUS_TEXTURE_INPUT_NV			= 0x86E4
 	CONST_EYE_NV					= 0x86E5
 	PASS_THROUGH_NV					= 0x86E6
@@ -7023,7 +7009,7 @@ EXT_texture_sRGB enum:
 EXT_framebuffer_blit enum:
 	READ_FRAMEBUFFER_EXT				= 0x8CA8
 	DRAW_FRAMEBUFFER_EXT				= 0x8CA9
-	DRAW_FRAMEBUFFER_BINDING_EXT			= GL_FRAMEBUFFER_BINDING_EXT
+	DRAW_FRAMEBUFFER_BINDING_EXT			= 0x8CA6    # alias FRAMEBUFFER_BINDING_EXT
 	READ_FRAMEBUFFER_BINDING_EXT			= 0x8CAA
 
 ###############################################################################
@@ -7518,7 +7504,7 @@ AMD_texture_texture4 enum:
 ###############################################################################
 
 # Extension #363
-AMD_vertex_shader_tesselator enum:
+AMD_vertex_shader_tessellator enum:
 	SAMPLER_BUFFER_AMD				= 0x9001
 	INT_SAMPLER_BUFFER_AMD				= 0x9002
 	UNSIGNED_INT_SAMPLER_BUFFER_AMD			= 0x9003
@@ -7926,10 +7912,12 @@ NV_vertex_attrib_integer_64bit enum:
 ###############################################################################
 
 # Extension #393
-# Reuses SAMPLES enum as COVERAGE_SAMPLES
+# Revision 4 removed COVERAGE_SAMPLES_NV, which was an alias for
+# SAMPLES_ARB, due to a collision with the GL_NV_coverage_sample
+# OpenGL ES extension.
 NV_multisample_coverage enum:
-	COVERAGE_SAMPLES_NV				= 0x80A9
 	COLOR_SAMPLES_NV				= 0x8E20
+	use ARB_multisample		    SAMPLES_ARB
 
 ###############################################################################
 

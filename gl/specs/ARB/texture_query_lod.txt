@@ -23,8 +23,8 @@ Status
 
 Version
 
-    Last Modified Date:         08/02/2009
-    Revision:                   6
+    Last Modified Date:         04/10/2013
+    Revision:                   7
 
 Number
 
@@ -216,10 +216,21 @@ Issues
       for sampler1DArray, sampler2DArray, and samplerCubeArray samplers
       take one, two, and three coordinates, respectively.
 
+    (3) The core specification uses the "Lod" spelling, not "LOD". Should
+        this extension be modified to use "Lod"?
+
+      RESOLVED: The "Lod" spelling is the correct spelling for the core
+      specification and the preferred spelling for use. However, use of
+      "LOD" also exists, as the extension predated the core specification,
+      so this extension won't remove use of "LOD".
+
 Revision History
 
     Rev.    Date      Author    Changes
-    ----  --------    --------  -----------------------------------------
+    ----  ----------  --------  -----------------------------------------
+    7     04/10/2013  Jon Leech Add issue 3 regarding different spelling
+                                of "LOD" vs. "Lod" in extension & core.
+
     6     08/02/2009  Jon Leech Reformat to 80 columns and assign ARB
                                 extension number.
 

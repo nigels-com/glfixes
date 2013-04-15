@@ -19,7 +19,8 @@ Status
 
 Version
 
-    Last Modified Date: April 20, 2009
+    Revision:                   4
+    Last Modified Date:         March 7, 2013
 
 Number
 
@@ -85,8 +86,12 @@ New Tokens
     Accepted by the <pname> parameter of GetBooleanv, GetDoublev,
     GetIntegerv, and GetFloatv:
 
-        COVERAGE_SAMPLES_NV                  0x80A9
         COLOR_SAMPLES_NV                     0x8E20
+
+    (Note:  Earlier versions of this extension included a token
+     COVERAGE_SAMPLES_NV that was an alias for SAMPLES/SAMPLES_ARB.  This was
+     removed to avoid a name collision with a similar COVERAGE_SAMPLES_NV
+     token from the NV_coverage_sample extension to OpenGL ES.)
 
 Additions to Chapter 2 of the OpenGL 2.0 Specification (OpenGL Operation)
 
@@ -98,23 +103,20 @@ Additions to Chapter 3 of the OpenGL 2.0 Specification (Rasterization)
 
     (replace third and fourth paragraphs, p. 94)
 
-    During multisample rendering the contents of a pixel fragment are 
+    During multisample rendering the contents of a pixel fragment are
     changed in three ways.  First, each fragment includes a coverage
-    value with COVERAGE_SAMPLES_NV bits.  The value of 
-    COVERAGE_SAMPLES_NV is an implementation-dependent constant, and is
-    queried by calling GetIntegerv with <pname> set to 
-    COVERAGE_SAMPLES_NV.
+    value with SAMPLES_ARB bits.  The value of SAMPLES_ARB is an
+    implementation-dependent constant, and is queried by calling
+    GetIntegerv with <pname> set to SAMPLES_ARB.
 
-    Second, each fragment includes COVERAGE_SAMPLES_NV coverage 
-    samples.  The number of coverage samples is an implementation-
-    dependent constant, and is queried by calling GetIntegerv with 
-    <pname> set to COVERAGE_SAMPLES_NV.  The number of coverage samples
-    includes both samples that indicate only coverage information, as 
-    well as samples that include coverage, color, depth, and  texture
-    coordinate information.  The location of the coverage information 
-    only samples may be anywhere within the pixel.  These samples may 
-    be used with an implementation-dependent algorithm as additional 
-    weights when resolving the color values to a single  pixel color.
+    Second, each fragment includes SAMPLES_ARB coverage samples.  The
+    number of coverage samples includes both samples that indicate only
+    coverage information, as well as samples that include coverage,
+    color, depth, and texture coordinate information.  The location of
+    the coverage information only samples may be anywhere within the
+    pixel.  These samples may be used with an implementation-dependent
+    algorithm as additional weights when resolving the color values to a
+    single pixel color.
 
     Third, each fragment includes COLOR_SAMPLES_NV depth values,
     color values, and sets of texture coordinates instead of the
@@ -130,22 +132,22 @@ Additions to Chapter 3 of the OpenGL 2.0 Specification (Rasterization)
     including the fragment center or any of the color sample locations.
     The color value and the set of texture coordinates need not be 
     evaluated at the same location.  Each pixel fragment thus 
-    consists of integer x and y grid coordinates, COVERAGE_SAMPLES_NV
+    consists of integer x and y grid coordinates, SAMPLES_ARB
     samples, COLOR_SAMPLES_NV of which contain color and depth values,
     COLOR_SAMPLES_NV sets of texture coordinates, and a coverage value
-    with a maximum of COVERAGE_SAMPLES_NV bits.
+    with a maximum of SAMPLES_ARB bits.
 
     (modify seventh paragraph, p. 94)
 
     If MULTISAMPLE is enabled, multisample rasterization of all
     primitives differs substantially from single-sample rasterization.
-    It is understood that each pixel in the framebuffer has 
-    COVERAGE_SAMPLES_NV locations associated with it.  Of these
-    locations, COLOR_SAMPLES_NV have associated color, depth, and 
-    texture coordinates.  The remaining locations only supply
-    additional pixel coverage information.  These locations are exact
-    positions, rather than regions or areas, and each is referred to
-    as a sample point.  The sample points...
+    It is understood that each pixel in the framebuffer has SAMPLES_ARB
+    locations associated with it.  Of these locations, COLOR_SAMPLES_NV
+    have associated color, depth, and texture coordinates.  The
+    remaining locations only supply additional pixel coverage
+    information.  These locations are exact positions, rather than
+    regions or areas, and each is referred to as a sample point.  The
+    sample points...
 
 Additions to Chapter 4 of the OpenGL 2.0 Specification (Per-Fragment
 Operations and the Frame Buffer)
@@ -358,8 +360,9 @@ New Implementation Dependent State
                                           Minimum
     Get Value            Type Get Command Value   Description                Sec.
     -------------------- ---- ----------- ------- -------------------------- -----
-    COVERAGE_SAMPLES_NV  Z+   GetIntegerv 0       Number of coverage samples 3.2.1
-                                                  (aliased by SAMPLES_ARB)
+    SAMPLES_ARB          Z+   GetIntegerv 0       Number of coverage samples 3.2.1
+                                                  (state already in ARB_multisample,
+                                                   just defined to be coverage samples)
     COLOR_SAMPLES_NV     Z+   GetIntegerv 0       Number of color samples    3.2.1
 
 Issues
@@ -379,6 +382,10 @@ Issues
         pixel format.  This is enforced in the spec by requiring the 
         presence of COLOR_SAMPLES_NV in the attribute list in order to
         return a CSAA GLXFBConfig or pixel format.
+
+        (NOTE:  The token COVERAGE_SAMPLES_NV was removed in version 4
+         of the extension, but its value was always indistinguishable
+         from SAMPLES_ARB.)
 
     2)  How do we provide backward compatibility for 
         glXGetFBConfigAttrib and wglGetPixelFormatAttrib*v if 
@@ -410,6 +417,10 @@ Issues
         multisample pixel formats first, and CSAA pixel formats later.
         The assumption being that applications will tend to choose the
         first pixel format that meets the criteria.
+
+        (NOTE:  The token COVERAGE_SAMPLES_NV was removed in version 4
+         of the extension, but its value was always indistinguishable
+         from SAMPLES_ARB.)
 
     3)  The NV_framebuffer_multisample_coverage extension supplies
         specific rules with regards to how the requested number of
@@ -448,5 +459,8 @@ Revision History
         Revision 3, 4/20/2009, jajones:   Filled in GLX token values.
                                           Restored GLX 1.2 compatibility
                                           table entries.
+        Revision 4, 3/7/2013, pbrown:     Removed the OpenGL API token
+                                          COVERAGE_SAMPLES_NV, which was
+                                          just an alias for SAMPLES_ARB.
 
 
