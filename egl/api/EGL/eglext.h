@@ -34,8 +34,8 @@ extern "C" {
 
 /* Header file version number */
 /* Current version at http://www.khronos.org/registry/egl/ */
-/* $Revision: 20690 $ on $Date: 2013-02-22 17:15:05 -0800 (Fri, 22 Feb 2013) $ */
-#define EGL_EGLEXT_VERSION 15
+/* $Revision: 21116 $ on $Date: 2013-04-11 03:32:10 -0700 (Thu, 11 Apr 2013) $ */
+#define EGL_EGLEXT_VERSION 16
 
 #ifndef EGL_KHR_config_attribs
 #define EGL_KHR_config_attribs 1
@@ -556,6 +556,11 @@ typedef EGLint (EGLAPIENTRYP PFNEGLDUPNATIVEFENCEFDANDROIDPROC)(EGLDisplay dpy, 
 #define EGL_YUV_NARROW_RANGE_EXT		0x3283
 #define EGL_YUV_CHROMA_SITING_0_EXT		0x3284
 #define EGL_YUV_CHROMA_SITING_0_5_EXT		0x3285
+#endif
+
+#ifndef EGL_ARM_pixmap_multisample_discard
+#define EGL_ARM_pixmap_multisample_discard 1
+#define EGL_DISCARD_SAMPLES_ARM			0x3286
 #endif
 
 #ifdef __cplusplus

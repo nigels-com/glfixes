@@ -8,7 +8,7 @@
 # the Khronos Bugzilla for Product "EGL", component "Registry".
 #
 # Current version at http://www.khronos.org/registry/egl/
-# $Revision: 20690 $ on $Date: 2013-02-22 17:15:05 -0800 (Fri, 22 Feb 2013) $
+# $Revision: 21116 $ on $Date: 2013-04-11 03:32:10 -0700 (Thu, 11 Apr 2013) $
 
 # EGL Versioning
 Extensions define:
@@ -678,6 +678,9 @@ EGL_EXT_image_dma_buf_import enum:
 	EGL_YUV_NARROW_RANGE_EXT			= 0x3283
 	EGL_YUV_CHROMA_SITING_0_EXT			= 0x3284
 	EGL_YUV_CHROMA_SITING_0_5_EXT			= 0x3285
+
+EGL_ARM_pixmap_multisample_discard enum:
+	EGL_DISCARD_SAMPLES_ARM				= 0x3286
 
 ###############################################################################
 
