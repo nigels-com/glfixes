@@ -21,7 +21,7 @@ Status
 
 Version
 
-    Version 14, 2012/09/19
+    Version 15, 2013/03/27 
 
 Number
 
@@ -235,14 +235,14 @@ Additions to the EGL 1.4 Specification
     If the core profile is requested, then the context returned cannot
     implement functionality defined only by the compatibility profile.
 
-    OpenGL Context Flags
-    --------------------
+    OpenGL and OpenGL ES Context Flags
+    ----------------------------------
 
-    The value for attribute EGL_CONTEXT_FLAGS_KHR specifies a set of
-    flag bits affecting the context. Flags are only defined for OpenGL
-    context creation, and specifying a flags value other than zero for
-    other types of contexts, including OpenGL ES contexts, will generate
-    an error.
+    The value for attribute EGL_CONTEXT_FLAGS_KHR specifies a set of flag
+    bits affecting the context. Flag bits are only meaningful when creating
+    certain types of contexts, as described for each bit below, and
+    specifying such a flag bit when creating another type of context will
+    generate an error.
 
     If the EGL_CONTEXT_OPENGL_DEBUG_BIT_KHR flag bit is set in
     EGL_CONTEXT_FLAGS_KHR, then a <debug context> will be created. Debug
@@ -251,11 +251,17 @@ Additions to the EGL 1.4 Specification
     functionality while possibly incurring performance penalties. The
     additional functionality provided by debug contexts may vary
     according to the implementation(fn). In some cases a debug context
-    may be identical to a non-debug context.
+    may be identical to a non-debug context. This bit is supported for
+    OpenGL and OpenGL ES contexts.
         [fn: Khronos is still defining the expected and required
-        features of debug contexts, so implementations are currently
-        free to implement "debug contexts" with little or no debug
-        functionality.]
+             features of debug contexts, so implementations are
+             currently free to implement "debug contexts" with little or
+             no debug functionality. However, OpenGL and OpenGL ES
+             implementations supporting the GL_KHR_debug extension
+             should enable it when this bit is set.]
+        [fn2: See issue 9 below for discussion of backwards
+             compatibility issues with the debug bit and OpenGL ES
+             contexts.]
 
     If the EGL_CONTEXT_OPENGL_FORWARD_COMPATIBLE_BIT_KHR flag bit is set
     in EGL_CONTEXT_FLAGS_KHR, then a <forward-compatible> context will
@@ -263,15 +269,17 @@ Additions to the EGL 1.4 Specification
     versions 3.0 and later. They must not support functionality marked
     as <deprecated> by that version of the API, while a
     non-forward-compatible context must support all functionality in
-    that version, deprecated or not. Requesting a forward-compatible
-    context for OpenGL versions less than 3.0 is an error.
+    that version, deprecated or not. This bit is supported for OpenGL
+    contexts, and requesting a forward-compatible context for OpenGL
+    versions less than 3.0 will generate an error.
 
     If the EGL_CONTEXT_OPENGL_ROBUST_ACCESS_BIT_KHR bit is set in
     EGL_CONTEXT_FLAGS_KHR, then a context supporting <robust buffer
     access> will be created. Robust buffer access is defined in the
     GL_ARB_robustness extension specification, and the resulting context
     must also support either the GL_ARB_robustness extension, or a
-    version of OpenGL incorporating equivalent functionality.
+    version of OpenGL incorporating equivalent functionality. This bit
+    is supported for OpenGL contexts.
 
     The default value of EGL_CONTEXT_FLAGS_KHR is zero.
 
@@ -395,8 +403,8 @@ Additions to the EGL 1.4 Specification
           - Major version == 3 and minor version != 0
 
       * If an attribute name or attribute value in <attrib_list> is not
-        recognized (including unrecognized bits in bitmask attributes),
-        then an EGL_BAD_ATTRIBUTE error is generated."
+        recognized (including undefined or unsupported bits in bitmask
+        attributes), then an EGL_BAD_ATTRIBUTE error is generated."
 
     In section 3.7.3, replace the following two error conditions in the
     list of eglMakeCurrent errors:
@@ -536,7 +544,22 @@ Issues
     configs). The EGL Working Group considers this sufficiently benign
     behavior, and the functionality important enough, to make the change.
 
+ 9) Why was OpenGL ES support for EGL_CONTEXT_OPENGL_DEBUG_BIT_KHR added
+    in version 15 of the extension? Doesn't this break backwards
+    compatibility with older versions of the extension?
+
+    Now that the GL_KHR_debug extension is ratified and available,
+    OpenGL ES implementers needed a way to enable debug functionality,
+    and wanted to use the same mechanism as OpenGL. There is no
+    discovery mechanism for this capability, so an application creating
+    a OpenGL ES context with the debug bit set and running against an
+    older EGL driver should generate an error. The OpenGL ES Working
+    Group considers this benign behavior.
+
 Revision History
+
+    Version 15, 2013/03/27
+      - Add OpenGL ES support for debug contexts (Bug 10035).
 
     Version 14, 2012/09/19
       - Assign enum value to new bit and published updated extension.
