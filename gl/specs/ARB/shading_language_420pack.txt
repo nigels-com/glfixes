@@ -732,7 +732,7 @@ Conformance Tests
     Verify that the output of the following fragment shader is (0, 1, 0, 1):
 
     #version 410
-    #extension GL_ARB_shading_language_length: require
+    #extension GL_ARB_shading_language_420pack: require
     out vec4 color;
     void main()
     {
@@ -751,7 +751,7 @@ Conformance Tests
     Verify that the output of the following fragment shader is (0, 1, 0, 1):
 
     #version 410
-    #extension GL_ARB_shading_language_length: require
+    #extension GL_ARB_shading_language_420pack: require
     out vec4 color;
     void main()
     {
@@ -770,7 +770,7 @@ Conformance Tests
     Verify that the output of the following fragment shader is (0, 1, 0, 1):
 
     #version 410
-    #extension GL_ARB_shading_language_length: require
+    #extension GL_ARB_shading_language_420pack: require
     out vec4 color;
     void main()
     {
@@ -789,7 +789,7 @@ Conformance Tests
     Verify that the output of the following fragment shader is (0, 1, 0, 1):
 
     #version 410
-    #extension GL_ARB_shading_language_length: require
+    #extension GL_ARB_shading_language_420pack: require
     out vec4 color;
     void main()
     {
@@ -812,7 +812,7 @@ Conformance Tests
     Verify that the output of the following fragment shader is (0, 1, 0, 1):
 
     #version 410
-    #extension GL_ARB_shading_language_length: require
+    #extension GL_ARB_shading_language_420pack: require
     out vec4 color;
     void main()
     {
@@ -835,7 +835,7 @@ Conformance Tests
     Verify that the output of the following fragment shader is (0, 1, 0, 1):
 
     #version 410
-    #extension GL_ARB_shading_language_length: require
+    #extension GL_ARB_shading_language_420pack: require
     out vec4 color;
     void main()
     {
@@ -858,7 +858,7 @@ Conformance Tests
     Verify that the output of the following fragment shader is (0, 1, 0, 1):
 
     #version 410
-    #extension GL_ARB_shading_language_length: require
+    #extension GL_ARB_shading_language_420pack: require
     out vec4 color;
     void main()
     {
@@ -888,7 +888,7 @@ Conformance Tests
     Verify that the output of the following fragment shader is (0, 1, 0, 1):
 
     #version 410
-    #extension GL_ARB_shading_language_length: require
+    #extension GL_ARB_shading_language_420pack: require
     out vec4 color;
     void main()
     {
@@ -918,7 +918,7 @@ Conformance Tests
     Verify that the output of the following fragment shader is (0, 1, 0, 1):
 
     #version 410
-    #extension GL_ARB_shading_language_length: require
+    #extension GL_ARB_shading_language_420pack: require
     out vec4 color;
     void main()
     {
@@ -948,7 +948,7 @@ Conformance Tests
     Verify that the following shader generates a compilation error:
 
     #version 410
-    #extension GL_ARB_shading_language_length: require
+    #extension GL_ARB_shading_language_420pack: require
     out vec4 color;
     void main()
     {
@@ -969,7 +969,7 @@ Conformance Tests
     Verify that the following shader compiles without error:
 
     #version 410
-    #extension GL_ARB_shading_language_length: require
+    #extension GL_ARB_shading_language_420pack: require
     void main()
     {
         float b[vec2(0).length()];

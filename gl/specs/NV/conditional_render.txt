@@ -18,7 +18,7 @@ Status
 Version
 
     Last Modified Date:         08/07/2012
-    NVIDIA Revision:            4
+    NVIDIA Revision:            5
 
 Number
 
@@ -177,7 +177,18 @@ Additions to the AGL/GLX/WGL Specifications
 
 GLX Protocol
 
-    TBD.
+    The following rendering commands are sent to the server as part of
+    glXRender requests:
+
+        BeginConditionalRenderNV
+            2           12              rendering command length
+            2           348             rendering command opcode
+            4           CARD32          id
+            4           ENUM            mode
+
+        EndConditionalRenderNV
+            2           4               rendering command length
+            2           349             rendering command opcode
 
 Dependencies on NVX_conditional_render
 
@@ -364,8 +375,10 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  --------------------------------------------
-     4    08/07/12  pbrown    Fix minor typos; added interaction with the
+     5    08/07/12  pbrown    Fix minor typos; added interaction with the
                               older NVX_conditional_render extension.
+
+     4    09/22/10  srahman   Added GLX protocol.
 
      3    02/19/08  pbrown    Document the INVALID_OPERATION error from
                               calling BeginQuery while the query is used

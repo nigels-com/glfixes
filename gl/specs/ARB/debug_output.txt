@@ -29,8 +29,8 @@ Status
         
 Version
     
-    Last Modified Date: June 22, 2012
-    Author Revision: 15
+    Last Modified Date: April 16, 2013
+    Author Revision: 16
 
 Number
 
@@ -603,7 +603,7 @@ Additions to Chapter 6 of the OpenGL 4.0 Core Specification
                                    sizei bufSize,
                                    enum* sources,
                                    enum* types,
-                                   enum* ids,
+                                   uint* ids,
                                    enum* severities,
                                    sizei* lengths,
                                    char* messageLog);
@@ -851,6 +851,9 @@ Issues
                    messages into the message log.
 
 Revision History
+
+    (v16, 2013-04-16, Jon Leech)
+        - Fix type of <ids> parameter in GetDebugMessageLog body (Bug 10083)
 
     (v15, 2012-06-22, Piers Daniell)
         - Restored the ARB suffixes removed by mistake.

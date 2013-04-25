@@ -23,6 +23,7 @@ Contributors
     Thomas Roell
     Ian Romanick
     Jeremy Sandmel
+    Shazia Rahman
 
 Contact
 
@@ -36,8 +37,8 @@ IP Status
 
 Version
 
-    Last Modified Date: December 8, 2004
-    Revision: 1.0
+    Last Modified Date: August 16, 2012
+    Revision: 1.1
 
 Number
 
@@ -823,67 +824,56 @@ Requests)
 
 GLX Protocol
 
-    XXX still-in-progress
-
-    (ARB_vertex_buffer_object has similar issues and lacks specified
-    GLX protocol for its functionality.  This discussion just addresses
-    the issues created by pixel buffer objects, not buffer objects
-    in general.)
-
     Pixel buffers, like texture objects and display lists, are server-side
     state.
 
     Prior to pixel buffer objects, pixel storage state for image packing
-    and unpacking was considered client-side state.  However, pixel
+    and unpacking was considered client-side state. However, pixel
     buffers create the new situation where the server performs packing
     and unpacking into server-side pixel buffers.
-
-    The GLX protocol is designed so that the amount of unpacking done
-    by the client is parameterized with the request.  In other words,
-    the client can do as much unpacking as it wants, and then tell the
-    server what unpacking remains to be done by sending the appropriate
-    pixel storage parameters along with the image.
-
-    This means the GLX protocol for rendering commands involving pixel
-    data includes pixel store state for unpacking.
-
-    This means, in theory, the existing protocol for rendering commands
-    with pixel data is sufficient for manipulating pixel buffers.
-    A command (for example, glDrawPixels) could build a protocol request
-    containing the current pixel unpack state and specify zero bytes of
-    image payload when operating on a pixel buffer object.
-
-    In practice, while this addresses command requiring unpacking of
-    pixel data, commands that require packing of pixel data (for example,
-    glReadPixels) to return pixel data do not have protocol fields for
-    pixel store pack state.
 
     Fortunately, the GLX protocol, through foresight or oversight,
     has GLX protocol and non-rendering command opcodes (109 and 110)
     assigned for glPixelStoref and glPixelStorei respectively.
 
     It is better to use the existing protocol to send glPixelStorei and
-    glPixelStoref GLX commands.  This solves the problem of server-side
-    pixel state the same way for both pack and unpack state.  It may also
+    glPixelStoref GLX commands. This solves the problem of server-side
+    pixel state the same way for both pack and unpack state. It may also
     allow implementations to minimize validation overhead for pixel
     commands because the pixel store modes are stateful rather than
     being parameters sent with every pixel command.
 
-    To avoid creating useless protocol overhead for applications not using
-    pixel buffer objects, and hence not requiring server-side knowledge
-    of pixel store state, the GLX client library is free to defer pixel
-    store commands until just prior to pixel commands operating on pixel
-    buffer objects that require server-side pixel store state.
+    When bound to a pixel unpack buffer object, the pixel payload for a 
+    pixel command with no reply (for exmaple, glTexImage2D) is not sent.
+    Instead, the pointer itself is sent as a 64-bit offset.
+    Pixel storage modes are also not included in non-reply pixel commands.
 
-    There is no GLX protocol however for glPushClientAttrib and
-    glPopClientAttrib.  New protocol should be specified for these
-    commands.  These commands are also needed for vertex buffer objects
-    because the vertex array state becomes server-side.
+    Therefore, the following new protocol for pixel commands that use the
+    currently bound pixel unpack buffer object is specified:
 
-    When bound to an pixel unpack buffer object, the pixel payload for a
-    non-reply pixel command (for example, glTexImage2D) can be ignored.
-    In fact, GLX client implementations are expected to send zero bytes
-    of pixel payload in this case.
+        BitmapPBO
+        ColorSubTablePBO
+        ColorTablePBO
+        CompressedTexImage1DPBO
+        CompressedTexImage2DPBO
+        CompressedTexImage3DPBO
+        CompressedTexSubImage1DPBO
+        CompressedTexSubImage2DPBO
+        CompressedTexSubImage3DPBO
+        ConvolutionFilter1DPBO
+        ConvolutionFilter2DPBO
+        DrawPixelsPBO
+        PixelMapfvPBO
+        PixelMapuivPBO
+        PixelMapusvPBO
+        PolygonStipplePBO
+        SeparableFilter2DPBO
+        TexImage1DPBO
+        TexImage2DPBO
+        TexImage3DPBO**
+        TexSubImage1DPBO
+        TexSubImage2DPBO
+        TexSubImage3DPBO
 
     When bound to a pixel pack buffer object, the reply for pixel commands
     that return pixel data (for example, glReadPixels) is not required
@@ -894,21 +884,409 @@ GLX Protocol
     Therefore, protocol for "no reply" version of the following commands
     is specified:
 
-        GetCompressedTexImage_noreply
-        GetConvolutionFilter_noreply
-        GetHistogram_noreply
-        GetMinmax_noreply
-        GetPixelMapfv_noreply
-        GetPixelMapuiv_noreply
-        GetPixelMapusv_noreply
-        GetPolygonStipple_noreply
-        GetSeparableFilter,_noreply
-        GetTexImage_noreply
-        ReadPixels_noreply
+        GetColorTablePBO
+        GetCompressedTexImagePBO
+        GetConvolutionFilterPBO
+        GetHistogramPBO
+        GetMinmaxPBO
+        GetPixelMapfvPBO
+        GetPixelMapuivPBO
+        GetPixelMapusvPBO
+        GetPolygonStipplePBO
+        GetSeparableFilterPBO
+        GetTexImagePBO
+        ReadPixelsPBO
 
     If a "no reply" command is sent when the current pixel pack
     buffer object binding is zero, a GLXBadContextState error should
     be generated by the server.
+
+
+    The following rendering commands are sent to the server as part of a
+    glXRender request:
+
+       BitmapPBO
+
+            2           36              rendering command length
+            2           311             rendering command opcode
+            8           CARD64          bitmap
+            4           CARD32          width
+            4           CARD32          height
+            4           FLOAT32         xorig
+            4           FLOAT32         yorig
+            4           FLOAT32         xmove
+            4           FLOAT32         ymove
+
+        ColorSubTablePBO
+
+            2           32              rendering command length
+            2           312             rendering command opcode
+            8           CARD64          table
+            4           ENUM            target
+            4           CARD32          start
+            4           CARD32          count
+            4           ENUM            apiFormat  
+            4           ENUM            apiType
+
+        ColorTablePBO
+
+            2           32              rendering command length
+            2           313             rendering command opcode
+            8           CARD64          table
+            4           ENUM            target
+            4           ENUM            internalformat
+            4           CARD32          width
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+
+        CompressedTexImage1DPBO
+
+            2           36              rendering command length
+            2           314             rendering command opcode
+            8           CARD64          data
+            4           ENUM            target
+            4           CARD32          level
+            4           ENUM            internalFormat
+            4           CARD32          width
+            4           CARD32          border
+            4           CARD32          imageSize
+
+       CompressedTexImage2DPBO
+
+            2           40              rendering command length
+            2           315             rendering command opcode
+            8           CARD64          data
+            4           ENUM            target
+            4           CARD32          level
+            4           ENUM            internalFormat
+            4           CARD32          width
+            4           CARD32          height
+            4           CARD32          border
+            4           CARD32          imageSize
+
+        CompressedTexImage3DPBO
+
+            2           44              rendering command length
+            2           316             rendering command opcode
+            8           CARD64          data
+            4           ENUM            target
+            4           CARD32          level
+            4           ENUM            internalFormat
+            4           CARD32          width
+            4           CARD32          height
+            4           CARD32          depth
+            4           CARD32          border
+            4           CARD32          imageSize
+
+        CompressedTexSubImage1DPBO
+
+            2           36              rendering command length
+            2           317             rendering command opcode
+            8           CARD64          data
+            4           ENUM            target
+            4           CARD32          level
+            4           CARD32          xoffset
+            4           CARD32          width
+            4           ENUM            apiFormat
+            4           CARD32          imageSize
+
+        CompressedTexSubImage2DPBO
+
+            2           44              rendering command length
+            2           318             rendering command opcode
+            8           CARD64          data
+            4           ENUM            target
+            4           CARD32          level
+            4           CARD32          xoffset
+            4           CARD32          yoffset
+            4           CARD32          width
+            4           CARD32          height
+            4           ENUM            apiFormat
+            4           CARD32          imageSize
+
+        CompressedTexSubImage3DPBO
+
+            2           52              rendering command length
+            2           319             rendering command opcode
+            8           CARD64          data
+            4           ENUM            target
+            4           CARD32          level
+            4           CARD32          xoffset
+            4           CARD32          yoffset
+            4           CARD32          zoffset
+            4           CARD32          width
+            4           CARD32          height
+            4           CARD32          depth
+            4           ENUM            apiFormat
+            4           CARD32          imageSize
+
+        ConvolutionFilter1DPBO
+
+            2           32              rendering command length
+            2           320             rendering command opcode
+            8           CARD64          image
+            4           ENUM            target
+            4           ENUM            internalformat
+            4           CARD32          width
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+
+        ConvolutionFilter2DPBO
+
+            2           36              rendering command length
+            2           321             rendering command opcode
+            8           CARD64          image
+            4           ENUM            target
+            4           ENUM            internalformat
+            4           CARD32          width
+            4           CARD32          height
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+
+        DrawPixelsPBO
+
+            2           28              rendering command length
+            2           322             rendering command opcode
+            8           CARD64          image
+            4           CARD32          width
+            4           CARD32          height
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+   
+        PixelMapfvPBO
+
+            2           20              rendering command length
+            2           323             rendering command opcode
+            8           CARD64          values
+            4           ENUM            map
+            4           CARD32          mapsize
+
+        PixelMapuivPBO
+
+            2           20              rendering command length
+            2           324             rendering command opcode
+            8           CARD64          values
+            4           ENUM            map
+            4           CARD32          mapsize
+
+        PixelMapusvPBO
+
+            2           20              rendering command length
+            2           325             rendering command opcode
+            8           CARD64          values
+            4           ENUM            map
+            4           CARD32          mapsize
+   
+        PolygonStipplePBO
+
+            2           12              rendering command length
+            2           326             rendering command opcode
+            8           CARD64          mask
+
+        SeparableFilter2DPBO
+
+            2           44              rendering command length
+            2           327             rendering command opcode
+            8           CARD64          row
+            8           CARD64          column
+            4           ENUM            target
+            4           ENUM            internalFormat
+            4           CARD32          width
+            4           CARD32          height
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+
+        TexImage1DPBO
+
+            2           40              rendering command length
+            2           328             rendering command opcode
+            8           CARD64          image
+            4           ENUM            target
+            4           CARD32          level
+            4           CARD32          components
+            4           CARD32          width
+            4           CARD32          border
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+
+        TexImage2DPBO
+
+            2           44              rendering command length
+            2           329             rendering command opcode
+            8           CARD64          image
+            4           ENUM            target
+            4           CARD32          level
+            4           CARD32          components
+            4           CARD32          width
+            4           CARD32          height
+            4           CARD32          border
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+
+        TexImage3DPBO
+
+            2           48              rendering command length
+            2           330             rendering command opcode
+            8           CARD64          image
+            4           ENUM            target
+            4           CARD32          level
+            4           CARD32          components
+            4           CARD32          width
+            4           CARD32          height
+            4           CARD32          depth
+            4           CARD32          border
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+
+        TexSubImage1DPBO
+
+            2           36              rendering command length
+            2           331             rendering command opcode
+            8           CARD64          image
+            4           ENUM            target
+            4           CARD32          level
+            4           CARD32          xoffset
+            4           CARD32          width
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+
+        TexSubImage2DPBO
+
+            2           44              rendering command length
+            2           332             rendering command opcode
+            8           CARD64          image
+            4           ENUM            target
+            4           CARD32          level
+            4           CARD32          xoffset
+            4           CARD32          yoffset
+            4           CARD32          width
+            4           CARD32          height
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+
+        TexSubImage3DPBO
+
+            2           52              rendering command length
+            2           333             rendering command opcode
+            8           CARD64          image
+            4           ENUM            target
+            4           CARD32          level
+            4           CARD32          xoffset
+            4           CARD32          yoffset
+            4           CARD32          zoffset
+            4           CARD32          width
+            4           CARD32          height
+            4           CARD32          depth
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+
+        GetColorTablePBO
+
+            2           24              rendering command length
+            2           334             rendering command opcode
+            8           CARD64          table
+            4           ENUM            target
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+ 
+        GetCompressedTexImagePBO
+
+            2           20              rendering command length
+            2           335             rendering command opcode
+            8           CARD64          img
+            4           ENUM            target
+            4           CARD32          lod
+
+        GetConvolutionFilterPBO
+
+            2           24              rendering command length
+            2           336             rendering command opcode
+            8           CARD64          image
+            4           ENUM            target
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+
+        GetHistogramPBO
+
+            2           28              rendering command length
+            2           337             rendering command opcode
+            8           CARD64          values
+            4           ENUM            target
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+            1           BOOL            reset
+            3                           unused
+
+        GetMinmaxPBO
+
+            2           28              rendering command length
+            2           338             rendering command opcode
+            8           CARD64          values
+            4           ENUM            target
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+            1           BOOL            reset
+            3                           unused
+
+        GetPixelMapfvPBO
+
+            2           16              rendering command length
+            2           339             rendering command opcode
+            8           CARD64          values
+            4           ENUM            map
+
+        GetPixelMapuivPBO
+
+            2           16              rendering command length
+            2           340             rendering command opcode
+            8           CARD64          values
+            4           ENUM            map
+
+        GetPixelMapusvPBO
+
+            2           16              rendering command length
+            2           341             rendering command opcode
+            8           CARD64          values
+            4           ENUM            map
+
+        GetPolygonStipplePBO
+
+            2           12              rendering command length
+            2           342             rendering command opcode
+            8           CARD64          mask
+
+        GetSeparableFilterPBO
+
+            2           40              rendering command length
+            2           343             rendering command opcode
+            8           CARD64          row
+            8           CARD64          column
+            8           CARD64          span
+            4           ENUM            target
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+
+        GetTexImagePBO
+
+            2           28              rendering command length
+            2           344             rendering command opcode
+            8           CARD64          texels
+            4           ENUM            target
+            4           CARD32          level
+            4           ENUM            apiFormat
+            4           ENUM            apiType
+
+        ReadPixelsPBO
+
+            2           36              rendering command length
+            2           345             rendering command opcode
+            8           CARD64          pixels
+            4           CARD32          x
+            4           CARD32          y
+            4           CARD32          width
+            4           CARD32          height
+            4           ENUM            apiFormat
+            4           ENUM            apiType
 
 
 Errors
@@ -1432,3 +1810,7 @@ Revision History
         Add issue 23 for Jeremy about render-to-vertex-array.  Move
         render-to-vertex-array justification in overview to bottom of
         the list.
+
+   revision 1.1 srahman
+
+       Add GLX protocol support. 

@@ -17,8 +17,8 @@ Status
 
 Version
 
-    Last Modified Date:         07/15/2006
-    NVIDIA Revision:            5
+    Last Modified Date:         05/20/2010
+    NVIDIA Revision:            6
 
 Number
 
@@ -600,7 +600,128 @@ State Requests)
 
 GLX Protocol
 
-    UNDER DEVELOPMENT
+    The following rendering commands are sent to the server as part of
+    a glXRender request:
+
+    ClearColorIiEXT
+
+        2      20              rendering command length
+        2      4292            rendering command opcode
+        4      INT32           r
+        4      INT32           g
+        4      INT32           b
+        4      INT32           a
+
+    ClearColorIuiEXT
+
+        2      20              rendering command length
+        2      4293            rendering command opcode
+        4      CARD32          r
+        4      CARD32          g
+        4      CARD32          b
+        4      CARD32          a
+
+    TexParameterIivEXT
+
+        2      12+(4*n)        rendering command length
+        2      346             rendering command opcode
+        4      ENUM            target
+        4      ENUM            pname
+               0x2802 n=1      GL_TEXTURE_WRAP_S
+               0x2803 n=1      GL_TEXTURE_WRAP_T
+               0x8072 n=1      GL_TEXTURE_WRAP_R
+               0x2801 n=1      GL_TEXTURE_MIN_FILTER
+               0x2800 n=1      GL_TEXTURE_MAG_FILTER
+               0x8066 n=1      GL_TEXTURE_PRIORITY
+               0x813A n=1      GL_TEXTURE_MIN_LOD
+               0x813B n=1      GL_TEXTURE_MAX_LOD
+               0x813C n=1      GL_TEXTURE_BASE_LEVEL
+               0x813D n=1      GL_TEXTURE_MAX_LEVEL
+               0x8501 n=1      GL_TEXTURE_LOD_BIAS
+               0x884B n=1      GL_DEPTH_TEXTURE_MODE
+               0x884C n=1      GL_TEXTURE_COMPARE_MODE
+               0x884D n=1      GL_TEXTURE_COMPARE_FUNC
+               0x8191 n=1      GL_GENERATE_MIPMAP
+               0x1004 n=4      GL_TEXTURE_BORDER_COLOR
+        4*n    LISTofINT32     params
+
+    TexParameterIuivEXT
+
+        2      12+(4*n)        rendering command length
+        2      347             rendering command opcode
+        4      ENUM            target
+        4      ENUM            pname
+               0x2802 n=1      GL_TEXTURE_WRAP_S
+               0x2803 n=1      GL_TEXTURE_WRAP_T
+               0x8072 n=1      GL_TEXTURE_WRAP_R
+               0x2801 n=1      GL_TEXTURE_MIN_FILTER
+               0x2800 n=1      GL_TEXTURE_MAG_FILTER
+               0x8066 n=1      GL_TEXTURE_PRIORITY
+               0x813A n=1      GL_TEXTURE_MIN_LOD
+               0x813B n=1      GL_TEXTURE_MAX_LOD
+               0x813C n=1      GL_TEXTURE_BASE_LEVEL
+               0x813D n=1      GL_TEXTURE_MAX_LEVEL
+               0x8501 n=1      GL_TEXTURE_LOD_BIAS
+               0x884B n=1      GL_DEPTH_TEXTURE_MODE
+               0x884C n=1      GL_TEXTURE_COMPARE_MODE
+               0x884D n=1      GL_TEXTURE_COMPARE_FUNC
+               0x8191 n=1      GL_GENERATE_MIPMAP
+               0x1004 n=4      GL_TEXTURE_BORDER_COLOR
+        4*n    LISTofCARD32    params
+
+    The following new non-rendering commands are added:
+
+    GetTexParameterIivEXT
+
+        1      CARD8           opcode(X assigned)
+        1      203             GLX opcode
+        2      4               request length
+        4      GLX_CONTEXT_TAG context tag
+        4      ENUM            target
+        4      ENUM            pname
+    =>
+        1      1               reply
+        1                      unused
+        2      CARD16          sequence number
+        4      m               reply length, m=(n==1?0:n)
+        4                      unused
+        4      CARD32          n
+
+        if (n=1) this follows:
+
+        4      INT32           params
+        12                     unused
+
+        otherwise this follows:
+
+        16                     unused
+        n*4    LISTofINT32     params
+
+    GetTexParameterIuivEXT
+
+        1      CARD8           opcode(X assigned)
+        1      204             GLX opcode
+        2      4               request length
+        4      GLX_CONTEXT_TAG context tag
+        4      ENUM            target
+        4      ENUM            pname
+    =>
+        1      1               reply
+        1                      unused
+        2      CARD16          sequence number
+        4      m               reply length, m=(n==1?0:n)
+        4                      unused
+        4      CARD32          n
+
+        if (n=1) this follows:
+
+        4      CARD32          params
+        12                     unused
+
+        otherwise this follows:
+
+        16                     unused
+        n*4    LISTofCARD32    params
 
 Dependencies on ARB_texture_float
 
@@ -742,6 +863,8 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+      6   05/20/10  srahman   Add GLX protocol.
+
       5   07/15/07  pbrown    Fix typo in GetTexParameterIuivEXT function
                               name in "New Procedures and Functions".
 

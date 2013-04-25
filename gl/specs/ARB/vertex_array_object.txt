@@ -16,8 +16,8 @@ Status
 
 Version
 
-    Last Modified Data: September 19, 2012
-    Author revision:    12
+    Last Modified Data: October 8, 2012
+    Author revision:    13
 
 Number
 
@@ -232,7 +232,92 @@ Interactions with APPLE_vertex_array_object
 
 GLX Protocol
 
-    TBD
+    The following rendering commands are sent to the server as part of a
+    glXRender request.
+
+        BindVertexArray
+
+            2           8               rendering command length
+            2           350             rendering command opcode
+            4           CARD32          array
+
+        DeleteVertexArrays
+
+            2           8+(n*4)         rendering command length
+            2           351             rendering command opcode
+            4           CARD32          n
+            n*4         LISTofCARD32    arrays
+
+    The following non-rendering commands are sent using glx single requests:
+
+        GenVertexArrays
+
+            1           CARD8           opcode (X assigned)
+            1           206             GLX opcode
+            2           3               request length
+            4           GLX_CONTEXT_TAG context tag
+            4           CARD32          n
+          =>
+            1           1               reply
+            1                           unused
+            2           CARD16          sequence number
+            4           n               reply length
+            24                          unused
+            n*4         LISTofCARD32    arrays
+
+        IsVertexArray
+
+            1           CARD8           opcode (X assigned)
+            1           207             GLX opcode
+            2           3               request length
+            4           GLX_CONTEXT_TAG context tag
+            4           CARD32          array
+          =>
+            1           1               reply
+            1                           unused
+            2           CARD16          sequence number
+            4           0               reply length
+            4           BOOL32          return value
+            20                          unused
+
+    New protocols for GetPointerv and GetVertexAttribPointerv are specified
+
+        GetPointerv
+
+            1           CARD8           opcode (X assigned)
+            1           208             GLX opcode
+            2           3               request length
+            4           GLX_CONTEXT_TAG context tag
+            4           ENUM            pname
+          =>
+            1           1               reply
+            1           1               unused
+            2           CARD16          sequence number
+            4           m               reply length, m = (n + p) / 4
+            4                           unused
+            4           CARD32          n
+            16                          unused
+            n           LISTofBYTE      params
+            p                           unused, p=pad(n)
+
+        GetVertexAttribPointerv
+
+            1           CARD8           opcode (X assigned)
+            1           209             GLX opcode
+            2           4               request length
+            4           GLX_CONTEXT_TAG context tag
+            4           CARD32          index
+            4           ENUM            pname
+          =>
+            1           1               reply
+            1           1               unused
+            2           CARD16          sequence number
+            4           m               reply length, m = (n + p) / 4
+            4                           unused
+            4           CARD32          n
+            16                          unused
+            n           LISTofBYTE      pointer
+            p                           unused, p=pad(n)
 
 Errors
 
@@ -311,6 +396,20 @@ Issues
     code compatibility is improved by not using suffixes on the
     extension.
 
+    (7) How does this extension affect the GLX protocol of the commands that
+        modify or query vertex array state?
+
+    RESOLVED: This extension changes the behaviour of all the commands that
+    modify or query vertex array state to use currently bound vertex array
+    object when a non-zero vertex array object is bound.
+    Since vertex array object is stored in the server, new protocol must be
+    specified for GetPointerv and GetVertexAttribPointerv.
+    Additionally, commands GetVertexAttribdv, GetVertexAttribfv and
+    GetVertexAttribiv must query state from the server and commands
+    VertexAttrib*Pointer, EnableVertexAttribArray and DisableVertexAttribArray
+    must modify state in the server when a non-zero vertex array object is
+    bound. If the zero object is bound, the value is queried from client state.
+
 Revision History
 
     Rev.     Date      Author   Changes
@@ -353,3 +452,5 @@ Revision History
                                 state (Bug 5659).
       12  09/19/2012  Jon Leech Language tweaks for consistency with
                                 OpenGL 3.1 specification (Bug 4306).
+
+      13  10/08/2012  srahman   Added GLX protocol and issue #7.

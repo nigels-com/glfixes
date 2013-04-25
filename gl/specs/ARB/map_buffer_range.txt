@@ -19,7 +19,7 @@ Status
 Version
 
     Last Modified Date: June 22, 2012
-    Author Revision: 4
+    Author Revision: 5
 
 Number
 
@@ -248,6 +248,32 @@ New Implementation Dependent State
 
     None
 
+GLX Protocol
+
+    FlushMappedBufferRange is an entirely client-side command.
+
+    The following new non-rendering command is added:
+
+    MapBufferRange
+
+        1      CARD8           opcode (X assigned)
+        1      205             GLX opcode
+        2      8               request length
+        4      GLX_CONTEXT_TAG context tag
+        8      CARD64          offset
+        8      CARD64          length
+        4      ENUM            target
+        4      BITFIELD        access
+    =>
+        1      1               reply
+        1                      unused
+        2      CARD16          sequence number
+        4      0               reply length
+        4                      unused
+        4      CARD32          0 on error, otherwise 1.
+        8      CARD64          mapping address
+        8                      unused
+
 Usage Examples
 
         /* bind and initialize a buffer object */
@@ -321,5 +347,6 @@ Revision History
       1   06/03/2008     rcb    Initial version with sample code.
       2   07/07/2008     rcb    Various edits to match GL3 core spec.
       3   08/07/2008   jleech   Remove ARB suffixes.
-      4   06/22/2012   jleech   Define how buffer object state is affected
+      4   01/24/2011   srahman  Add GLX protocol.
+      5   06/22/2012   jleech   Define how buffer object state is affected
                                 by MapBufferRange. 
