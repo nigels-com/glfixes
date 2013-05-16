@@ -12,7 +12,7 @@ Contact
 
 Contributors
 
-    Sergey Leyontyev, AMD
+    Sergey Leontyev, AMD
 
 Status
 
@@ -344,3 +344,4 @@ Revision History
      3    05/02/2013  gsellers  Shipping. Finalize spec ready for posting.
      2    01/25/2013  gsellers  Resolve issues 1, 2, 3. Polish spec.
      1    01/17/2013  gsellers  Initial draft
+
