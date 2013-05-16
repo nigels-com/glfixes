@@ -38,8 +38,8 @@ Status
         
 Version
     
-    Last Modified Date: April 16, 2013
-    Author Revision: 10
+    Last Modified Date: April 26, 2013
+    Author Revision: 11
 
 Number
 
@@ -168,6 +168,10 @@ IP Status
     
 New Procedures and Functions
     
+    NOTE: when implemented in an OpenGL ES context, all entry points defined
+    by this extension must have a "KHR" suffix. When implemented in an
+    OpenGL context, all entry points must have NO suffix, as shown below.
+
     void DebugMessageControl(enum source,
                              enum type,
                              enum severity,
@@ -217,6 +221,10 @@ New Procedures and Functions
 
 New Types
     
+    NOTE: when implemented in an OpenGL ES context, this typedef must have a
+    "KHR" suffix (GLDEBUGPROCKHR). When implemented in an OpenGL context,
+    thie typedef must have NO suffix, as shown below.
+
     The callback function that applications can define, and
     is accepted by DebugMessageCallback, is defined as:
     
@@ -233,6 +241,10 @@ New Types
     
 New Tokens
     
+    NOTE: when implemented in an OpenGL ES context, all tokens defined by
+    this extension must have a "_KHR" suffix. When implemented in an OpenGL
+    context, all tokens must have NO suffix, as described below.
+
     Tokens accepted by the <target> parameters of Enable, Disable, and 
     IsEnabled:
     
@@ -937,6 +949,13 @@ Additions to the WGL Specification
     None.
 
 
+Interactions with OpenGL ES
+
+    This extension specification uses non-suffixed names for new entry
+    points, types, and tokens. This is correct for implementations against
+    OpenGL. However, when implemented in an OpenGL ES context, all new entry
+    points, types, and tokens are given KHR suffixes.
+
 Interactions with GLX_ARB_create_context_robustness
 
     If the GLX window-system binding API is used to create a context,
@@ -1513,7 +1532,29 @@ Issues
     RESOLVED: The ES group has chosen to keep it by vote
     
 
+    (16) Why do OpenGL implementations use KHR suffixes, while OpenGL
+         implementations use no suffix?
+
+    DISCUSSION: this functionality was initially defined by OpenGL 4.3, and
+    set of "backwards compatibility" extensions were defined to allow
+    implementing it against earlier GL versions. OpenGL ARB policy in the
+    case of backwards compatibility extensions is that extension suffixes
+    should not be added. The OpenGL ES Working Group then decided to support
+    the same functionality as an OpenGL ES extension, and both groups agreed
+    to share a single KHR specification for the extension. However, OpenGL
+    ES policy requires extension suffixes on Khronos-approved OES and KHR
+    extensions.
+
+    We are aware of this inconsistency, but both working groups have chosen
+    to stand by their own naming policies and the inconsistency is unlikely
+    to be resolved.
+
 Revision History
+
+    Revision 11, 2013/04/26 (Jon Leech)
+      - Implement OpenGL ES policy of adding KHR suffixes to all KHR
+        extensions. Add notes, OpenGL ES Interaction section, and issue 16
+        explaining the situation (Bug 9716).
 
     Revision 10, 2013/04/16 (Jon Leech)
       - Fix type of <ids> parameter in GetDebugMessageLog body (Bug 10083)

@@ -439,7 +439,8 @@ OpenGL Rendering Opcodes (16 Bits)
       4283    4285  NV_depth_buffer_float
       4286    4290  NVIDIA (use TBD)
       4291	    NV_copy_image
-      4292    4307  NVIDIA (use TBD)
+      4292    4293  EXT_texture_integer
+      4294    4307  NVIDIA (use TBD)
       4308    4312  OES_single_precision (Khronos OpenGL ES 1.0)
       4313    4315  SUN (use TBD)
       4316    4325  EXT_framebuffer_object
