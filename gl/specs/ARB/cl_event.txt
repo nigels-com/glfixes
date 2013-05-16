@@ -21,7 +21,7 @@ Status
 
 Version
 
-    Version 4, July 24, 2010
+    Version 5, May 7, 2013
 
 Number
 
@@ -249,8 +249,7 @@ Issues
 	eliminates header file concerns and provides the groundwork for
 	new types of GL sync objects in the future.
 
-	For the moment the explicit approach is used, but this could
-	easily change.
+	RESOLVED: use explicit parameters.
 
     2) How will the OpenCL header dependencies interact with
        specifying the API for this extension?
@@ -285,7 +284,7 @@ Issues
 	cl_khr_gl_event extension maps UNSIGNALED into CL_SUBMITTED, and
 	SIGNALED into CL_COMPLETE.
 
-	PROPOSED: Invert the cl_khr_gl_event mapping. CL_QUEUED,
+	RESOLVED: Invert the cl_khr_gl_event mapping. CL_QUEUED,
 	CL_SUBMITTED, and CL_RUNNING all map into UNSIGNALED.
 	CL_COMPLETE maps into SIGNALED.
 
@@ -299,13 +298,13 @@ Issues
 	SIGNALED state. But it may be useful to distinguish between the
 	two types of syncs in the query API.
 
-	PROPOSED: The OBJECT_TYPE of a GL sync object created from a CL
+	RESOLVED: The OBJECT_TYPE of a GL sync object created from a CL
 	event is SYNC_CL_EVENT_ARB.
 
     5) Are there any restrictions on the use of a sync object linked to
        a CL event object?
 
-	PROPOSED: No restrictions. The implementation may make different
+	RESOLVED: No restrictions. The implementation may make different
 	choices depending on the sync object type, however. For example,
 	WaitSync might be able to wait in the GPU for a fence sync
 	object and be forced to wait in the CPU for a sync object linked
@@ -315,26 +314,29 @@ Issues
 
     6) How are sync object lifetimes defined?
 
-	PROPOSED: A sync object linked to a CL event object places a
+	RESOLVED: A sync object linked to a CL event object places a
 	single reference on the event. Deleting the sync object removes
 	that reference.
 
-	PROPOSED: DeleteSync has a dependency on the completion of the
-	linked event object, and will not delete the sync object while
-	the event object has not yet completed. This is equivalent to
+	DeleteSync has a dependency on the completion of the linked
+	event object, and will not delete the sync object while the
+	event object has not yet completed. This is equivalent to
 	behavior of deleting a fence sync object, where deletion of the
 	object will be deferred until the underlying fence command has
 	completed.
 
     7) Should all OpenCL events be supported?
 
-	PROPOSED: No. Only events returned by clEnqueueReleaseGLObjects,
+	RESOLVED: No. Only events returned by clEnqueueReleaseGLObjects,
 	since that's the only known use case for this extension and
 	since this mirrors a recent restriction in the GL sync -> CL
 	event OpenCL extension which only allows events generated from
 	syncs to be used with clEnqueueAcquireGLObjects.
 
 Revision History
+
+    Version 5, 2013/05/07 (Jon Leech) - some resolved issues were
+    mistakenly still labelled as proposed. Fix labelling.
 
     Version 4, 2010/07/24 (Jon Leech) - resolve issue 2.
 
