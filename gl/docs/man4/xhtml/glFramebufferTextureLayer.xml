@@ -8,7 +8,7 @@
                 </p></dd><dt><span class="term"><em class="parameter"><code>attachment</code></em></span></dt><dd><p>
                     Specifies the attachment point of the framebuffer. <em class="parameter"><code>attachment</code></em> must be
                     <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>i</em></span></code>, <code class="constant">GL_DEPTH_ATTACHMENT</code>,
-                    <code class="constant">GL_STENCIL_ATTACHMENT</code> or <code class="constant">GL_DEPTH_STENCIL_ATTACHMMENT</code>.
+                    <code class="constant">GL_STENCIL_ATTACHMENT</code> or <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>texture</code></em></span></dt><dd><p>
                     Specifies the texture object to attach to the framebuffer attachment point named by <em class="parameter"><code>attachment</code></em>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>level</code></em></span></dt><dd><p>

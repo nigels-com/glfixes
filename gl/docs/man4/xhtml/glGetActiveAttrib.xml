@@ -76,7 +76,7 @@
     <code class="constant">GL_INT_VEC2</code>,
     <code class="constant">GL_INT_VEC3</code>,
     <code class="constant">GL_INT_VEC4</code>,
-    <code class="constant">GL_UNSIGNED_INT_VEC</code>,
+    <code class="constant">GL_UNSIGNED_INT</code>,
     <code class="constant">GL_UNSIGNED_INT_VEC2</code>,
     <code class="constant">GL_UNSIGNED_INT_VEC3</code>,
     <code class="constant">GL_UNSIGNED_INT_VEC4</code>,

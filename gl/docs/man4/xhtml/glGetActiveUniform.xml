@@ -574,8 +574,9 @@
     <em class="parameter"><code>bufSize</code></em> is less than 0.</p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
     with argument <code class="constant">GL_MAX_VERTEX_UNIFORM_COMPONENTS</code>,
     <code class="constant">GL_MAX_GEOMETRY_UNIFORM_COMPONENTS</code>,
-    <code class="constant">GL_MAX_FRAGMENT_UNIFORM_COMPONENTS</code>, or
-    <code class="constant">GL_MAX_COMBINED_UNIFORM_COMPONENTS</code>.</p><p><a href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
+    <code class="constant">GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS</code>,
+    <code class="constant">GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS</code>,
+    <code class="constant">GL_MAX_FRAGMENT_UNIFORM_COMPONENTS</code>.</p><p><a href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>
     with argument <code class="constant">GL_ACTIVE_UNIFORMS</code> or
     <code class="constant">GL_ACTIVE_UNIFORM_MAX_LENGTH</code>.</p><p><a href="glIsProgram.xml"><span class="citerefentry"><span class="refentrytitle">glIsProgram</span></span></a></p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p><a href="glGetUniform.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniform</span></span></a>,
     <a href="glGetUniformLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetUniformLocation</span></span></a>,

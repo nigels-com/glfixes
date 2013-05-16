@@ -12,12 +12,12 @@
             once per <em class="parameter"><code>divisor</code></em> instances of the set(s) of vertices being rendered.  An attribute
             is referred to as instanced if its <code class="constant">GL_VERTEX_ATTRIB_ARRAY_DIVISOR</code> value is non-zero.
         </p><p>
-            <em class="parameter"><code>index</code></em> must be less than the value of <code class="constant">GL_MAX_VERTEX_ATTRIBUTES</code>.
+            <em class="parameter"><code>index</code></em> must be less than the value of <code class="constant">GL_MAX_VERTEX_ATTRIBS</code>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
             <code class="function">glVertexAttribDivisor</code> is available only if the GL version is 3.3 or higher.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>index</code></em> is greater
-            than or equal to the value of <code class="constant">GL_MAX_VERTEX_ATTRIBUTES</code>.
+            than or equal to the value of <code class="constant">GL_MAX_VERTEX_ATTRIBS</code>.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
             <a href="glVertexAttribPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a>,
             <a href="glEnableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a>,

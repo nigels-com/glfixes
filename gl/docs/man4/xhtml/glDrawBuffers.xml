@@ -47,7 +47,7 @@
     tokens.</p><p><code class="constant">GL_INVALID_ENUM</code> is generated if the GL is bound
     to a framebuffer object and one or more of the values in <em class="parameter"><code>bufs</code></em>
     is anything other than <code class="constant">GL_NONE</code> or one of the
-    <code class="constant">GL_COLOR_ATTACHMENTS<span class="emphasis"><em>n</em></span></code> tokens.</p><p><code class="constant">GL_INVALID_ENUM</code> is generated if
+    <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>n</em></span></code> tokens.</p><p><code class="constant">GL_INVALID_ENUM</code> is generated if
     <em class="parameter"><code>n</code></em> is less than 0.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if a
     symbolic constant other than <code class="constant">GL_NONE</code>
     appears more than once in <em class="parameter"><code>bufs</code></em>.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if any of

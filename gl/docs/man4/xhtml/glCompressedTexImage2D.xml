@@ -43,7 +43,7 @@
             is treated as an array of compressed 1D textures.
         </p><p>
             If <em class="parameter"><code>target</code></em> is <code class="constant">GL_PROXY_TEXTURE_2D</code>, <code class="constant">GL_PROXY_TEXTURE_1D_ARRAY</code>
-            or <code class="constant">GL_PROXY_CUBE_MAP</code>, no data is read from <em class="parameter"><code>data</code></em>, but
+            or <code class="constant">GL_PROXY_TEXTURE_CUBE_MAP</code>, no data is read from <em class="parameter"><code>data</code></em>, but
             all of the texture image state is recalculated, checked for consistency,
             and checked against the implementation's capabilities.  If the
             implementation cannot handle a texture of the requested texture size, it

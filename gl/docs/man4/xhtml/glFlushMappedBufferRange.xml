@@ -12,7 +12,7 @@
                     Specifies the length of the buffer subrange, in basic machine units.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glFlushMappedBufferRange</code> indicates that modifications have been made to a range of a mapped buffer.
-            The buffer must previously have been mapped with the <code class="constant">GL_MAP_FLUSH_EXPLICIT</code> flag. <em class="parameter"><code>offset</code></em>
+            The buffer must previously have been mapped with the <code class="constant">GL_MAP_FLUSH_EXPLICIT_BIT</code> flag. <em class="parameter"><code>offset</code></em>
             and <em class="parameter"><code>length</code></em> indicate the modified subrange of the mapping, in basic units. The specified subrange to flush
             is relative to the start of the currently mapped range of the buffer. <code class="function">glFlushMappedBufferRange</code> may be called
             multiple times to indicate distinct subranges of the mapping which require flushing.
@@ -23,7 +23,7 @@
             <code class="constant">GL_INVALID_OPERATION</code> is generated if zero is bound to <em class="parameter"><code>target</code></em>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if the buffer bound to <em class="parameter"><code>target</code></em> is not
-            mapped, or is mapped without the <code class="constant">GL_MAP_FLUSH_EXPLICIT</code> flag.
+            mapped, or is mapped without the <code class="constant">GL_MAP_FLUSH_EXPLICIT_BIT</code> flag.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
             <a href="glMapBufferRange.xml"><span class="citerefentry"><span class="refentrytitle">glMapBufferRange</span></span></a>,
             <a href="glMapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>,

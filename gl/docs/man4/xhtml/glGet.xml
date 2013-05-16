@@ -448,7 +448,7 @@
                         of simultaneous outputs that may be written in a fragment shader.
                         The value must be at least 8.
                         See <a href="glDrawBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDrawBuffers</span></span></a>.
-                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_DUALSOURCE_DRAW_BUFFERS</code></span></dt><dd><p>
+                    </p></dd><dt><span class="term"><code class="constant">GL_MAX_DUAL_SOURCE_DRAW_BUFFERS</code></span></dt><dd><p>
               </p><p>
                         <em class="parameter"><code>params</code></em> returns one value, the maximum number
                         of active draw buffers when using dual-source  blending. The value must be at least 1.
@@ -574,7 +574,7 @@
                         <em class="parameter"><code>params</code></em> returns one value.
                         The value gives a rough estimate of the largest rectangular texture that
                         the GL can handle. The value must be at least 1024.
-                        Use <code class="constant">GL_PROXY_RECTANGLE_TEXTURE</code>
+                        Use <code class="constant">GL_PROXY_TEXTURE_RECTANGLE</code>
                         to determine if a texture is too large.
                         See <a href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_MAX_RENDERBUFFER_SIZE</code></span></dt><dd><p>
@@ -1162,7 +1162,7 @@
               </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value indicating the mode of the texture
                         compression hint.  The initial value is <code class="constant">GL_DONT_CARE</code>.
-                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_BUFFER_BINDING</code></span></dt><dd><p>
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_BINDING_BUFFER</code></span></dt><dd><p>
               </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value, the name of the buffer object
                         currently bound to the <code class="constant">GL_TEXTURE_BUFFER</code> buffer binding point. The initial value is 0.

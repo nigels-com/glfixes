@@ -63,7 +63,7 @@
         <a href="glTransformFeedbackVaryings.xml"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>
         specify the same varying variable.</p></li><li><p>The total number of components to capture in any transform feedback varying variable
         is  greater  than  the  constant <code class="constant">GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS</code>
-        and the buffer mode is <code class="constant">SEPARATE_ATTRIBS</code>.</p></li></ul></div><p>When a program object has been successfully linked, the
+        and the buffer mode is <code class="constant">GL_SEPARATE_ATTRIBS</code>.</p></li></ul></div><p>When a program object has been successfully linked, the
     program object can be made part of current state by calling
     <a href="glUseProgram.xml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>.
     Whether or not the link operation was successful, the program

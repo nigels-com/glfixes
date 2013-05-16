@@ -18,7 +18,7 @@
                         <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT</code> is returned if the framebuffer does not have at least one image attached to it.
                     </p></li><li><p>
                         <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER</code> is returned if the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code>
-                         is <code class="constant">GL_NONE</code> for any color attachment point(s) named by <code class="constant">GL_DRAWBUFFERi</code>.
+                         is <code class="constant">GL_NONE</code> for any color attachment point(s) named by <code class="constant">GL_DRAW_BUFFERi</code>.
                     </p></li><li><p>
                         <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER</code> is returned if <code class="constant">GL_READ_BUFFER</code> is not <code class="constant">GL_NONE</code>
                         and the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE</code> is <code class="constant">GL_NONE</code> for the color attachment point named

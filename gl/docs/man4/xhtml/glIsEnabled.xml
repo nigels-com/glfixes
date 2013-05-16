@@ -116,7 +116,7 @@
                         </td><td align="left">
                         <a href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>, <a href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>
                         </td></tr><tr><td align="left">
-                        <code class="constant">GL_TEXTURE_CUBEMAP_SEAMLESS</code>
+                        <code class="constant">GL_TEXTURE_CUBE_MAP_SEAMLESS</code>
                         </td><td align="left">
                         <a href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
                         </td></tr></tbody></table></div><p>

@@ -15,7 +15,7 @@
                     The value to clear a stencil render buffer to.
                 </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glClearBuffer*</code> clears the specified buffer to the specified value(s). If <em class="parameter"><code>buffer</code></em> is
-            <code class="constant">GL_COLOR</code>, a particular draw buffer <code class="constant">GL_DRAWBUFFER<em class="parameter"><code>i</code></em></code> is specified
+            <code class="constant">GL_COLOR</code>, a particular draw buffer <code class="constant">GL_DRAW_BUFFER<em class="parameter"><code>i</code></em></code> is specified
             by passing <em class="parameter"><code>i</code></em> as <em class="parameter"><code>drawBuffer</code></em>. In this case, <em class="parameter"><code>value</code></em> points to
             a four-element vector specifying the R, G, B and A color to clear that draw buffer to. If <em class="parameter"><code>buffer</code></em> is
             one of <code class="constant">GL_FRONT</code>, <code class="constant">GL_BACK</code>, <code class="constant">GL_LEFT</code>, <code class="constant">GL_RIGHT</code>,

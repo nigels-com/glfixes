@@ -100,7 +100,7 @@
             but will not directly affect transform feedback state. Instead, the indexed <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>
             bindings must be used through a call to <a href="glBindBufferBase.xml"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>
             or <a href="glBindBufferRange.xml"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a>. This will affect the generic
-            <code class="constant">GL_TRANSFORM_FEEDABCK_BUFFER</code> binding.
+            <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> binding.
         </p><p>
             Likewise, the <code class="constant">GL_UNIFORM_BUFFER</code>, <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> and <code class="constant">GL_SHADER_STORAGE_BUFFER</code>
             buffer binding points may
