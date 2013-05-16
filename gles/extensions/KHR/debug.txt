@@ -38,8 +38,8 @@ Status
         
 Version
     
-    Last Modified Date: September 18, 2012
-    Author Revision: 9
+    Last Modified Date: April 16, 2013
+    Author Revision: 10
 
 Number
 
@@ -855,7 +855,7 @@ Additions to Chapter 6 of the OpenGL 4.2 Specification
                                 sizei bufSize,
                                 enum* sources,
                                 enum* types,
-                                enum* ids,
+                                uint* ids,
                                 enum* severities,
                                 sizei* lengths,
                                 char* messageLog);
@@ -1514,6 +1514,9 @@ Issues
     
 
 Revision History
+
+    Revision 10, 2013/04/16 (Jon Leech)
+      - Fix type of <ids> parameter in GetDebugMessageLog body (Bug 10083)
 
     Revision 9, 2012/09/18 (pbrown)
       - Add a "void" function argument list for PopDebugGroup().  The GLEW 

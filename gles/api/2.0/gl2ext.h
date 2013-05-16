@@ -1,7 +1,7 @@
 #ifndef __gl2ext_h_
 #define __gl2ext_h_
 
-/* $Revision: 20800 $ on $Date:: 2013-03-07 03:33:09 -0800 #$ */
+/* $Revision: 21271 $ on $Date:: 2013-04-25 06:33:01 -0700 #$ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -15,6 +15,20 @@ extern "C" {
 #ifndef GL_APIENTRYP
 #   define GL_APIENTRYP GL_APIENTRY*
 #endif
+
+/* New types shared by several extensions */
+
+#ifndef __gl3_h_
+/* These are defineed with respect to <inttypes.h> in the
+ * Apple extension spec, but they are also used by non-APPLE
+ * extensions, and in the Khronos header we use the Khronos
+ * portable types in khrplatform.h, which must be defined.
+ */
+typedef khronos_int64_t GLint64;
+typedef khronos_uint64_t GLuint64;
+typedef struct __GLsync *GLsync;
+#endif
+
 
 /*------------------------------------------------------------------------*
  * OES extension tokens
@@ -385,19 +399,6 @@ typedef void (GL_APIENTRYP GLDEBUGPROC)(GLenum source,GLenum type,GLuint id,GLen
 /* GL_APPLE_sync */
 #ifndef GL_APPLE_sync
 
-#ifndef __gl3_h_
-/* These types are defined with reference to <inttypes.h>
- * in the Apple extension spec, but here we use the Khronos
- * portable types in khrplatform.h, and assume those types 
- * are always defined.
- * If any other extensions using these types are defined, 
- * the typedefs must move out of this block and be shared.
- */
-typedef khronos_int64_t GLint64;
-typedef khronos_uint64_t GLuint64;
-typedef struct __GLsync *GLsync;
-#endif
-
 #define GL_SYNC_OBJECT_APPLE                                    0x8A53
 #define GL_MAX_SERVER_WAIT_TIMEOUT_APPLE                        0x9111
 #define GL_OBJECT_TYPE_APPLE                                    0x9112
@@ -481,6 +482,17 @@ typedef struct __GLsync *GLsync;
 #define GL_COLOR_EXT                                            0x1800
 #define GL_DEPTH_EXT                                            0x1801
 #define GL_STENCIL_EXT                                          0x1802
+#endif
+
+#ifndef GL_EXT_disjoint_timer_query
+#define GL_EXT_disjoint_timer_query 1
+#define GL_QUERY_COUNTER_BITS_EXT                               0x8864
+#define GL_CURRENT_QUERY_EXT                                    0x8865
+#define GL_QUERY_RESULT_EXT                                     0x8866
+#define GL_QUERY_RESULT_AVAILABLE_EXT                           0x8867
+#define GL_TIME_ELAPSED_EXT                                     0x88BF
+#define GL_TIMESTAMP_EXT                                        0x8E28
+#define GL_GPU_DISJOINT_EXT                                     0x8FBB
 #endif
 
 /* GL_EXT_map_buffer_range */
@@ -1420,6 +1432,34 @@ GL_APICALL void GL_APIENTRY glDiscardFramebufferEXT (GLenum target, GLsizei numA
 #endif
 typedef void (GL_APIENTRYP PFNGLDISCARDFRAMEBUFFEREXTPROC) (GLenum target, GLsizei numAttachments, const GLenum *attachments);
 #endif
+
+#ifndef GL_EXT_disjoint_timer_query
+#define GL_EXT_disjoint_timer_query 1
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glGenQueriesEXT (GLsizei n, GLuint *ids);
+GL_APICALL void GL_APIENTRY glDeleteQueriesEXT (GLsizei n, const GLuint *ids);
+GL_APICALL GLboolean GL_APIENTRY glIsQueryEXT (GLuint id);
+GL_APICALL void GL_APIENTRY glBeginQueryEXT (GLenum target, GLuint id);
+GL_APICALL void GL_APIENTRY glEndQueryEXT (GLenum target);
+GL_APICALL void GL_APIENTRY glQueryCounterEXT (GLuint id, GLenum target);
+GL_APICALL void GL_APIENTRY glGetQueryivEXT (GLenum target, GLenum pname, GLint *params);
+GL_APICALL void GL_APIENTRY glGetQueryObjectivEXT (GLuint id, GLenum pname, GLint *params);
+GL_APICALL void GL_APIENTRY glGetQueryObjectuivEXT (GLuint id, GLenum pname, GLuint *params);
+GL_APICALL void GL_APIENTRY glGetQueryObjecti64vEXT (GLuint id, GLenum pname, GLint64EXT *params);
+GL_APICALL void GL_APIENTRY glGetQueryObjectui64vEXT (GLuint id, GLenum pname, GLuint64EXT *params);
+#endif
+typedef void (GL_APIENTRYP PFNGLGENQUERIESEXTPROC) (GLsizei n, GLuint *ids);
+typedef void (GL_APIENTRYP PFNGLDELETEQUERIESEXTPROC) (GLsizei n, const GLuint *ids);
+typedef GLboolean (GL_APIENTRYP PFNGLISQUERYEXTPROC) (GLuint id);
+typedef void (GL_APIENTRYP PFNGLBEGINQUERYEXTPROC) (GLenum target, GLuint id);
+typedef void (GL_APIENTRYP PFNGLENDQUERYEXTPROC) (GLenum target);
+typedef void (GL_APIENTRYP PFNGLQUERYCOUNTEREXTPROC) (GLuint id, GLenum target);
+typedef void (GL_APIENTRYP PFNGLGETQUERYIVEXTPROC) (GLenum target, GLenum pname, GLint *params);
+typedef void (GL_APIENTRYP PFNGLGETQUERYOBJECTIVEXTPROC) (GLuint id, GLenum pname, GLint *params);
+typedef void (GL_APIENTRYP PFNGLGETQUERYOBJECTUIVEXTPROC) (GLuint id, GLenum pname, GLuint *params);
+typedef void (GL_APIENTRYP PFNGLGETQUERYOBJECTI64VEXTPROC) (GLuint id, GLenum pname, GLint64EXT *params);
+typedef void (GL_APIENTRYP PFNGLGETQUERYOBJECTUI64VEXTPROC) (GLuint id, GLenum pname, GLuint64EXT *params);
+#endif /* GL_EXT_disjoint_timer_query */
 
 /* GL_EXT_map_buffer_range */
 #ifndef GL_EXT_map_buffer_range
