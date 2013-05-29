@@ -29,7 +29,7 @@ Status
 
 Version
 
-    Version 20, September 8, 2009
+    Version 21, April 23, 2013
 
 Number
 
@@ -363,12 +363,12 @@ Issues
     ---------------------
     The wording for this extension was originally written as a single
     extension defining two types of sync object; a "reusable sync
-    object" and a further type known as a "fence sync object".  To
-    produce a standalone specification of reusuable sync objects, all
-    references to fence sync objects were removed from the wording.
-    For posterity the issues list and revision history is maintained
-    below, even though some of the statements are only relevant to
-    fence sync objects.
+    object" and a "fence sync object". That extension was split to
+    produce standalone extensions for each type of sync object, and
+    references to the other type removed from the specification
+    language. This issues list has been simplied to remove references to
+    fence sync objects but is otherwise very similar to the
+    EGL_KHR_fence_sync extension issues list.
 
     1. Explain the key choices made in this extension.
 
@@ -413,14 +413,7 @@ Issues
     threads), such as between a thread with an active OpenGL context and
     a second thread performing video decode.
 
-    4. What does this extension provide that could not be accomplished
-    with native platform synchronization primitives and the existing
-    client API Finish commands?
-
-    RESPONSE: This extension provides a lighter-weight mechanism for
-    synchronizing an application with client API command streams than
-    the all-or-nothing Finish commands, enabling applications to block
-    until a subset of issued client API commands have completed.
+    4. [REMOVED - found in the fence_sync extension.]
 
     5. Should integration with native platform synchronization objects
     be included in this extension, or reserved for future
@@ -462,19 +455,12 @@ Issues
     signalling follow (these may need to be imbedded into the actual
     spec language):
 
-      * A sync object has two possible status values: signaled or
-        unsignaled.
-      * When created, the state of the sync object is unsignaled by
+      * A reusable sync object has two possible status values: signaled
+        or unsignaled.
+      * When created, the status of the sync object is unsignaled by
         default.
-      * A fence command is inserted into a command stream. A fence sync
-        object is not.
-      * A fence command, once its condition has been met, will set its
-        associated sync object to the signaled state. The only condition
-        currently supported is SYNC_PRIOR_COMMANDS_COMPLETE_KHR.
       * A reusable sync can be set to signaled or unsignaled
         status using eglSignalSyncKHR.
-      * A wait function, such as ClientWaitSyncKHR, waits on a sync
-        object, not on a fence command.
       * A wait function called on a sync object in the unsignaled state
         will block. It unblocks (note, not "returns to the application")
         when the sync object transitions to the signaled state.
@@ -502,26 +488,18 @@ Issues
     parameter to WaitSync, which initially must be something like
     EGL_SINGLE_WAIT_ONLY.
 
-    9. Should eglDestroySyncKHR release all WaitSyncs placed the sync
-    object?
+    9. Should eglDestroySyncKHR release all WaitSyncs placed on a
+    reusable sync object?
 
-    RESOLVED: In the general case, it is safest to release all threads
-    waiting on a sync object when the sync object is deleted so that
-    waiting threads do not wait forever.  This is the default
-    behavior for sync objects.
-
-    However fence sync objects are a special-case because they are
-    intended to be signalled by the graphics driver within a short
-    period of time (typically less than 1 second after creation) and so
-    should not cause waiting threads to hang forever.  Therefore to
-    reduce implementation complexity, fence sync objects are defined to
-    not release waiting threads; waiting threads are released normally
-    when their condition is satisfied or their timeout expires.  The
-    handle to the sync object immediately becomes invalid following a
-    call to eglDestroySyncKHR.
+    RESOLVED: Yes. It is safest to release all threads waiting on a
+    reusable object when the sync object is deleted so that waiting
+    threads do not wait forever.
 
 Revision History
 
+#21 (Jon Leech, April 23, 2013)
+    - Simplify issues list to remove issues specific to fence sync
+      objects.
 #20 (Jon Leech, September 8, 2009)
     - Change status to complete and note approval by the Promoters.
       Minor formatting changes.

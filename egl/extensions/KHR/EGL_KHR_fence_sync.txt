@@ -29,7 +29,7 @@ Status
 
 Version
 
-    Version 22, June 15, 2010
+    Version 23, April 23, 2013
 
 Number
 
@@ -400,43 +400,16 @@ Issues
     ---------------------
     The wording for this extension was originally written as a single
     extension defining two types of sync object; a "reusable sync
-    object" and a further type known as a "fence sync object".  To
-    produce a standalone specification of fence sync objects, all
-    references to reusable sync objects were removed from the wording.
-    For posterity the issues list and revision history is maintained
-    below, even though some of the statements are only relevant to
-    reusable sync objects.
+    object" and a "fence sync object". That extension was split to
+    produce standalone extensions for each type of sync object, and
+    references to the other type removed from the specification
+    language. This issues list has been simplied to remove references to
+    reusable sync objects but is otherwise very similar to the
+    EGL_KHR_reusable_sync extension issues list.
 
-    1. Explain the key choices made in this extension.
+    1. [REMOVED - found in the reusable_sync extension.]
 
-    RESPONSE: This extension has been written to enable adoption to be
-    as wide as possible, and to behave as similarly as possible to
-    synchronization primitives available in desktop OpenGL (e.g.,
-    NV_fence, ARB_sync).
-
-    In the interest of enabling widespread adoption, this extension
-    (following the ARB_sync model) has foregone the inclusion of
-    synchronization primitives and synchronization tests which may be
-    performed entirely inside client API command streams, instead
-    performing synchronization tests (eglClientWaitSyncKHR) inside the
-    application & host CPU.
-
-    In the interest of maintaining similarity with previous
-    synchronization primitives, this extension attempts to copy the
-    ARB_sync specification wherever possible (both functionally and
-    stylistically), only making changes where needed to operate inside
-    EGL (rather than a client API context) and match EGL naming
-    conventions.
-
-    2. Why place this behavior in EGL, rather than in the client APIs?
-
-    RESPONSE: Ultimately, synchronization between multiple asynchronous
-    client API contexts (potentially executing in different threads) is
-    a problem which affects or will affect all EGL client APIs. Rather
-    than creating separate synchronization primitives in each of the
-    client APIs (and then wrapping them in an EGL container), in the
-    interest of developer simplicity & consistency this behavior is
-    being placed inside EGL.
+    2. [REMOVED - found in the reusable_sync extension.]
 
     3. What does this extension provide that can not be accomplished
     with the existing, more efficient eglWaitClient and eglWaitNative
@@ -459,36 +432,7 @@ Issues
     the all-or-nothing Finish commands, enabling applications to block
     until a subset of issued client API commands have completed.
 
-    5. Should integration with native platform synchronization objects
-    be included in this extension, or reserved for future
-    (platform-specific) extensions?
-
-    RESOLVED: Integration with native platform synchronization objects
-    should not be part of this extension, but can be added as future
-    layered extensions if needed. These layered extensions can be
-    platform-specific, or perhaps OpenKODE based.
-
-    Originally, this extension included the ability to create native
-    platform synchronization objects from EGLSync objects. This feature
-    was removed for a few reasons:
-
-    i) The proposed mechanism suggested mapping EGLSync objects to
-    pthread conditional variables on platforms with pthread support.
-    However, pthread conditional variables require an associated
-    mutex and there was no mechanism to relay this associated mutex
-    to the application.
-
-    ii) On certain platforms support for converting to native
-    platform synchronization objects adds great complexity to the
-    implementation.
-
-    iii) Now that OpenKODE is more mature, it would be better to
-    allow conversion from EGLSyncKHR objects to OpenKODE
-    synchronization primitives rather than platform-specific ones.
-    We suggest that this functionality, if needed, be added as a
-    layered extension instead of being included here. This way,
-    EGL_KHR_sync remains minimal and easy to implement on a variety
-    of platforms.
+    5. [REMOVED - found in the reusable_sync extension.]
 
     6. Please provide a more detailed description of how
     eglClientWaitSyncKHR behaves.
@@ -499,66 +443,45 @@ Issues
     signalling follow (these may need to be imbedded into the actual
     spec language):
 
-      * A sync object has two possible status values: signaled or
+      * A fence sync object has two possible status values: signaled or
         unsignaled.
-      * When created, the state of the sync object is unsignaled by
-        default.
+      * When created, the status of the sync object is unsignaled.
       * A fence command is inserted into a command stream. A fence sync
         object is not.
       * A fence command, once its condition has been met, will set its
         associated sync object to the signaled state. The only condition
         currently supported is EGL_SYNC_PRIOR_COMMANDS_COMPLETE_KHR.
-      * A reusable sync can be set to signaled or unsignaled
-        status using eglSignalSyncKHR.
-      * A wait function, such as ClientWaitSyncKHR, waits on a sync
-        object, not on a fence command.
+      * A wait function, such as ClientWaitSyncKHR, waits on a fence
+        sync object, not on a fence command.
       * A wait function called on a sync object in the unsignaled state
         will block. It unblocks (note, not "returns to the application")
         when the sync object transitions to the signaled state.
       * A wait function called on a sync object in the signaled state
         will return immediately.
 
-    7. Should the 'flags' argument to eglClientWaitSyncKHR be
-    EGLint or EGLuint?
+    7. [REMOVED - found in the reusable_sync extension.]
 
-    RESOLVED: EGLint, setting a precedent for explicit bitmask types
-    in EGL going forward. We don't have an EGLuint type and it is
-    overkill for this purposes when other bitmasks (surface type
-    and api type) are already using EGLint attribute fields.
+    8. [REMOVED - found in the reusable_sync extension.]
 
-    8. Can multiple WaitSyncs be placed on the same sync object?
+    9. Should eglDestroySyncKHR release all WaitSyncs placed on a fence
+    sync object?
 
-    RESOLVED: Yes. This has been allowed all along but we now state it
-    more clearly in the spec language. However, there is some concern
-    that this is hard to implement and of limited use, and we might
-    remove this capability before approving the extension.
+    RESOLVED: No. (note that this behavior differs from reusable syncs.)
 
-    One way to do this while allowing multiple waiters at some future
-    point is to expose it through the API to developers as either a sync
-    attribute allowing multiple waits (default not allowing it), or a
-    parameter to WaitSync, which initially must be something like
-    EGL_SINGLE_WAIT_ONLY.
-
-    9. Should eglDestroySyncKHR release all WaitSyncs placed the sync
-    object?
-
-    RESOLVED: In the general case, it is safest to release all threads
-    waiting on a sync object when the sync object is deleted so that
-    waiting threads do not wait forever.  This is the default
-    behavior for sync objects.
-
-    However fence sync objects are a special-case because they are
-    intended to be signalled by the graphics driver within a short
-    period of time (typically less than 1 second after creation) and so
-    should not cause waiting threads to hang forever.  Therefore to
-    reduce implementation complexity, fence sync objects are defined to
-    not release waiting threads; waiting threads are released normally
-    when their condition is satisfied or their timeout expires.  The
-    handle to the sync object immediately becomes invalid following a
-    call to eglDestroySyncKHR.
+    Fence sync objects are intended to be signalled by the graphics
+    driver within a short period of time (typically less than 1 second
+    after creation) and so should not cause waiting threads to hang
+    forever. To reduce implementation complexity, fence sync objects are
+    defined to not release waiting threads; waiting threads are released
+    normally when their condition is satisfied or their timeout expires.
+    The handle to a fence sync object immediately becomes invalid
+    following a call to eglDestroySyncKHR.
 
 Revision History
 
+#23 (Jon Leech, April 23, 2013)
+    - Simplify issues list to remove issues specific to reusable sync
+      objects and general sync object design issues.
 #22 (Jon Leech, June 15, 2010)
     - Correct minor typos in GL/VG extension names.
 #21 (Jon Leech, May 5, 2010)
