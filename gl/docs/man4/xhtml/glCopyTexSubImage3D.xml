@@ -119,10 +119,7 @@
                 <mml:mrow>
                     <mml:mi mathvariant="italic">xoffset</mml:mi>
                     <mml:mo>&lt;</mml:mo>
-                    <mml:mrow>
-                        <mml:mo>-</mml:mo>
-                        <mml:mi mathvariant="italic">b</mml:mi>
-                    </mml:mrow>
+                    <mml:mn>0</mml:mn>
                 </mml:mrow>
             </mml:math>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
@@ -136,13 +133,7 @@
                         </mml:mrow>
                     </mml:mfenced>
                     <mml:mo>&gt;</mml:mo>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mrow>
-                            <mml:mi mathvariant="italic">w</mml:mi>
-                            <mml:mo>-</mml:mo>
-                            <mml:mi mathvariant="italic">b</mml:mi>
-                        </mml:mrow>
-                    </mml:mfenced>
+                    <mml:mi mathvariant="italic">w</mml:mi>
                 </mml:mrow>
             </mml:math>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
@@ -150,10 +141,7 @@
                 <mml:mrow>
                     <mml:mi mathvariant="italic">yoffset</mml:mi>
                     <mml:mo>&lt;</mml:mo>
-                    <mml:mrow>
-                        <mml:mo>-</mml:mo>
-                        <mml:mi mathvariant="italic">b</mml:mi>
-                    </mml:mrow>
+                    <mml:mn>0</mml:mn>
                 </mml:mrow>
             </mml:math>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
@@ -167,13 +155,7 @@
                         </mml:mrow>
                     </mml:mfenced>
                     <mml:mo>&gt;</mml:mo>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mrow>
-                            <mml:mi mathvariant="italic">h</mml:mi>
-                            <mml:mo>-</mml:mo>
-                            <mml:mi mathvariant="italic">b</mml:mi>
-                        </mml:mrow>
-                    </mml:mfenced>
+                    <mml:mi mathvariant="italic">h</mml:mi>
                 </mml:mrow>
             </mml:math>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
@@ -181,10 +163,7 @@
                 <mml:mrow>
                     <mml:mi mathvariant="italic">zoffset</mml:mi>
                     <mml:mo>&lt;</mml:mo>
-                    <mml:mrow>
-                        <mml:mo>-</mml:mo>
-                        <mml:mi mathvariant="italic">b</mml:mi>
-                    </mml:mrow>
+                    <mml:mn>0</mml:mn>
                 </mml:mrow>
             </mml:math>,
             or 
@@ -199,13 +178,7 @@
                         </mml:mrow>
                     </mml:mfenced>
                     <mml:mo>&gt;</mml:mo>
-                    <mml:mfenced open="(" close=")">
-                        <mml:mrow>
-                            <mml:mi mathvariant="italic">d</mml:mi>
-                            <mml:mo>-</mml:mo>
-                            <mml:mi mathvariant="italic">b</mml:mi>
-                        </mml:mrow>
-                    </mml:mfenced>
+                    <mml:mi mathvariant="italic">d</mml:mi>
                 </mml:mrow>
             </mml:math>,
             where 
@@ -214,10 +187,7 @@
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
             is the <code class="constant">GL_TEXTURE_HEIGHT</code>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">d</mml:mi></mml:math>
-            is the <code class="constant">GL_TEXTURE_DEPTH</code>,
-            and 
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">b</mml:mi></mml:math>
-            is the <code class="constant">GL_TEXTURE_BORDER</code>
+            is the <code class="constant">GL_TEXTURE_DEPTH</code> and
             of the texture image being modified.
             Note that 
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math>, 
@@ -243,7 +213,9 @@
             <a href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
-            Silicon Graphics, Inc. This document is licensed under the SGI
+            Silicon Graphics, Inc.
+            Copyright <span class="trademark"></span>© 2012-2013 Khronos Group.
+            This document is licensed under the SGI
             Free Software B License. For details, see
             <a href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
         </p></div></div></body></html>

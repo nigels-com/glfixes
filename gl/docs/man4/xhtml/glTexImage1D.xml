@@ -148,7 +148,7 @@
             <em class="parameter"><code>internalFormat</code></em> may be one of the base internal formats shown in
             Table 1, below
         </p><p>
-            </p><div class="table"><a id="id4869699"></a><p class="title"><b>Table 1. Base Internal Formats</b></p><table summary="Base Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+            </p><div class="table"><a id="id4879556"></a><p class="title"><b>Table 1. Base Internal Formats</b></p><table summary="Base Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Base Internal Format
             </strong></span></th><th align="left"><span class="bold"><strong>
             RGBA, Depth and Stencil Values
@@ -159,7 +159,7 @@
             <em class="parameter"><code>internalFormat</code></em> may also be one of the sized internal formats
             shown in Table 2, below
         </p><p>
-            </p><div class="table"><a id="id4856514"></a><p class="title"><b>Table 2. Sized Internal Formats</b></p><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+            </p><div class="table"><a id="id4875737"></a><p class="title"><b>Table 2. Sized Internal Formats</b></p><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Sized Internal Format
             </strong></span></th><th align="left"><span class="bold"><strong>
             Base Internal Format
@@ -178,7 +178,7 @@
             Finally, <em class="parameter"><code>internalFormat</code></em> may also be one of the generic or compressed
             compressed texture formats shown in Table 3 below
         </p><p>
-            </p><div class="table"><a id="id4876999"></a><p class="title"><b>Table 3. Compressed Internal Formats</b></p><table summary="Compressed Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+            </p><div class="table"><a id="id4856219"></a><p class="title"><b>Table 3. Compressed Internal Formats</b></p><table summary="Compressed Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Compressed Internal Format
             </strong></span></th><th align="left"><span class="bold"><strong>
             Base Internal Format
@@ -349,26 +349,7 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>width</code></em> is less than 0
             or greater than <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
         </p><p>
-			<code class="constant">GL_INVALID_VALUE</code> is generated if non-power-of-two textures are not supported and the <em class="parameter"><code>width</code></em> cannot be represented as
-			<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mrow>
-                    <mml:msup><mml:mn>2</mml:mn>
-                    <mml:mi mathvariant="italic">n</mml:mi>
-                    </mml:msup>
-                    <mml:mo>+</mml:mo>
-                    <mml:mrow>
-                        <mml:mn>2</mml:mn>
-                        <mml:mo>⁡</mml:mo>
-                        <mml:mfenced open="(" close=")">
-                            <mml:mi mathvariant="italic">border</mml:mi>
-                        </mml:mfenced>
-                    </mml:mrow>
-                </mml:mrow>
-            </mml:math>
-            for some integer value of <span class="emphasis"><em>n</em></span>.
-        </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>border</code></em> is not 0 or 1.
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>border</code></em> is not 0.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>type</code></em> is one of
             <code class="constant">GL_UNSIGNED_BYTE_3_3_2</code>,

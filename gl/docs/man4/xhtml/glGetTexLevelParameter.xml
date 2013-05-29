@@ -42,7 +42,6 @@
                     <code class="constant">GL_TEXTURE_HEIGHT</code>,
                     <code class="constant">GL_TEXTURE_DEPTH</code>,
                     <code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code>,
-                    <code class="constant">GL_TEXTURE_BORDER</code>,
                     <code class="constant">GL_TEXTURE_RED_SIZE</code>,
                     <code class="constant">GL_TEXTURE_GREEN_SIZE</code>,
                     <code class="constant">GL_TEXTURE_BLUE_SIZE</code>,
@@ -74,8 +73,8 @@
             <code class="constant">GL_MAX_TEXTURE_SIZE</code>, and <code class="constant">GL_MAX_3D_TEXTURE_SIZE</code> are not really
             descriptive enough.
             It has to report the largest square texture image that can be
-            accommodated with mipmaps and borders,
-            but a long skinny texture, or a texture without mipmaps and borders, may
+            accommodated with mipmaps
+            but a long skinny texture, or a texture without mipmaps may
             easily fit in texture memory.
             The proxy targets allow the user to more accurately query
             whether the GL can accommodate a texture of a given configuration.
@@ -92,20 +91,17 @@
                     </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value,
                         the width of the texture image.
-                        This value includes the border of the texture image. The initial value is
-                        0.
+                        The initial value is 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_HEIGHT</code></span></dt><dd><p>
                     </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value,
                         the height of the texture image.
-                        This value includes the border of the texture image. The initial value is
-                        0.
+                        The initial value is 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_DEPTH</code></span></dt><dd><p>
                     </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value,
                         the depth of the texture image.
-                        This value includes the border of the texture image. The initial value is
-                        0.
+                        The initial value is 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code></span></dt><dd><p>
                     </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value,
@@ -192,7 +188,7 @@
             <a href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
-            Silicon Graphics, Inc. Copyright <span class="trademark"></span>© 2010-2012
+            Silicon Graphics, Inc. Copyright <span class="trademark"></span>© 2010-2013
             Khronos Group. This document is licensed under the SGI
             Free Software B License. For details, see
             <a href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
