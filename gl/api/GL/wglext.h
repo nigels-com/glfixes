@@ -31,7 +31,7 @@ extern "C" {
 ** This header is generated from the Khronos OpenGL / OpenGL ES XML
 ** API Registry. The current version of the Registry, generator scripts
 ** used to make the header, and the header can be found at
-**   http://www.khronos.org/registry/
+**   http://www.opengl.org/registry/
 **
 ** Khronos $Revision$ on $Date$
 */
@@ -41,7 +41,7 @@ extern "C" {
 #include <windows.h>
 #endif
 
-#define WGL_WGLEXT_VERSION 20130613
+#define WGL_WGLEXT_VERSION 20130614
 
 /* Generated C header for:
  * API: wgl

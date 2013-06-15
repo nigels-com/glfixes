@@ -38,8 +38,8 @@ Status
         
 Version
     
-    Last Modified Date: April 26, 2013
-    Author Revision: 11
+    Last Modified Date: June 15, 2013
+    Author Revision: 12
 
 Number
 
@@ -272,8 +272,9 @@ New Tokens
         DEBUG_CALLBACK_USER_PARAM                        0x8245
 
     Tokens accepted or provided by the <source> parameters of
-    DebugMessageControl, DebugMessageInsert and DEBUGPROC, and the <sources> 
-    parameter of GetDebugMessageLog:
+    DebugMessageControl, DebugMessageInsert and DEBUGPROC, and the <sources>
+    parameter of GetDebugMessageLog (some commands restrict <source> to a
+    subset of these parameters; see the specification body for details):
         
         DEBUG_SOURCE_API                                 0x8246
         DEBUG_SOURCE_WINDOW_SYSTEM                       0x8247
@@ -1550,6 +1551,11 @@ Issues
     to be resolved.
 
 Revision History
+
+    Revision 12, 2013/06/15 (Jon Leech)
+      - Clarify in the New Tokens section that the <source> parameter of
+        some commands may not allow all possible values shown in this
+        section (public Bug 889).
 
     Revision 11, 2013/04/26 (Jon Leech)
       - Implement OpenGL ES policy of adding KHR suffixes to all KHR

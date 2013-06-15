@@ -31,7 +31,7 @@ extern "C" {
 ** This header is generated from the Khronos OpenGL / OpenGL ES XML
 ** API Registry. The current version of the Registry, generator scripts
 ** used to make the header, and the header can be found at
-**   http://www.khronos.org/registry/
+**   http://www.opengl.org/registry/
 **
 ** Khronos $Revision$ on $Date$
 */
@@ -101,6 +101,7 @@ typedef unsigned int GLbitfield;
 typedef double GLdouble;
 typedef unsigned int GLuint;
 typedef unsigned char GLboolean;
+typedef unsigned char GLubyte;
 typedef void (APIENTRYP PFNGLCULLFACEPROC) (GLenum mode);
 typedef void (APIENTRYP PFNGLFRONTFACEPROC) (GLenum mode);
 typedef void (APIENTRYP PFNGLHINTPROC) (GLenum target, GLenum mode);
@@ -140,7 +141,7 @@ typedef void (APIENTRYP PFNGLGETDOUBLEVPROC) (GLenum pname, GLdouble *params);
 typedef GLenum (APIENTRYP PFNGLGETERRORPROC) (void);
 typedef void (APIENTRYP PFNGLGETFLOATVPROC) (GLenum pname, GLfloat *params);
 typedef void (APIENTRYP PFNGLGETINTEGERVPROC) (GLenum pname, GLint *params);
-typedef const GLubyte * (APIENTRYP PFNGLGETSTRINGPROC) (GLenum name);
+typedef const GLubyte *(APIENTRYP PFNGLGETSTRINGPROC) (GLenum name);
 typedef void (APIENTRYP PFNGLGETTEXIMAGEPROC) (GLenum target, GLint level, GLenum format, GLenum type, GLvoid *pixels);
 typedef void (APIENTRYP PFNGLGETTEXPARAMETERFVPROC) (GLenum target, GLenum pname, GLfloat *params);
 typedef void (APIENTRYP PFNGLGETTEXPARAMETERIVPROC) (GLenum target, GLenum pname, GLint *params);
@@ -189,7 +190,7 @@ GLAPI void APIENTRY glGetDoublev (GLenum pname, GLdouble *params);
 GLAPI GLenum APIENTRY glGetError (void);
 GLAPI void APIENTRY glGetFloatv (GLenum pname, GLfloat *params);
 GLAPI void APIENTRY glGetIntegerv (GLenum pname, GLint *params);
-GLAPI const GLubyte * APIENTRY glGetString (GLenum name);
+GLAPI const GLubyte *APIENTRY glGetString (GLenum name);
 GLAPI void APIENTRY glGetTexImage (GLenum target, GLint level, GLenum format, GLenum type, GLvoid *pixels);
 GLAPI void APIENTRY glGetTexParameterfv (GLenum target, GLenum pname, GLfloat *params);
 GLAPI void APIENTRY glGetTexParameteriv (GLenum target, GLenum pname, GLint *params);
@@ -691,7 +692,6 @@ GLAPI void APIENTRY glGetBufferPointerv (GLenum target, GLenum pname, GLvoid **p
 typedef char GLchar;
 typedef short GLshort;
 typedef signed char GLbyte;
-typedef unsigned char GLubyte;
 typedef unsigned short GLushort;
 #define GL_BLEND_EQUATION_RGB             0x8009
 #define GL_VERTEX_ATTRIB_ARRAY_ENABLED    0x8622
@@ -1271,7 +1271,7 @@ typedef void (APIENTRYP PFNGLCLEARBUFFERIVPROC) (GLenum buffer, GLint drawbuffer
 typedef void (APIENTRYP PFNGLCLEARBUFFERUIVPROC) (GLenum buffer, GLint drawbuffer, const GLuint *value);
 typedef void (APIENTRYP PFNGLCLEARBUFFERFVPROC) (GLenum buffer, GLint drawbuffer, const GLfloat *value);
 typedef void (APIENTRYP PFNGLCLEARBUFFERFIPROC) (GLenum buffer, GLint drawbuffer, GLfloat depth, GLint stencil);
-typedef const GLubyte * (APIENTRYP PFNGLGETSTRINGIPROC) (GLenum name, GLuint index);
+typedef const GLubyte *(APIENTRYP PFNGLGETSTRINGIPROC) (GLenum name, GLuint index);
 typedef GLboolean (APIENTRYP PFNGLISRENDERBUFFERPROC) (GLuint renderbuffer);
 typedef void (APIENTRYP PFNGLBINDRENDERBUFFERPROC) (GLenum target, GLuint renderbuffer);
 typedef void (APIENTRYP PFNGLDELETERENDERBUFFERSPROC) (GLsizei n, const GLuint *renderbuffers);
@@ -1356,7 +1356,7 @@ GLAPI void APIENTRY glClearBufferiv (GLenum buffer, GLint drawbuffer, const GLin
 GLAPI void APIENTRY glClearBufferuiv (GLenum buffer, GLint drawbuffer, const GLuint *value);
 GLAPI void APIENTRY glClearBufferfv (GLenum buffer, GLint drawbuffer, const GLfloat *value);
 GLAPI void APIENTRY glClearBufferfi (GLenum buffer, GLint drawbuffer, GLfloat depth, GLint stencil);
-GLAPI const GLubyte * APIENTRY glGetStringi (GLenum name, GLuint index);
+GLAPI const GLubyte *APIENTRY glGetStringi (GLenum name, GLuint index);
 GLAPI GLboolean APIENTRY glIsRenderbuffer (GLuint renderbuffer);
 GLAPI void APIENTRY glBindRenderbuffer (GLenum target, GLuint renderbuffer);
 GLAPI void APIENTRY glDeleteRenderbuffers (GLsizei n, const GLuint *renderbuffers);
