@@ -235,7 +235,7 @@ WeightPointerTypeARB,*,*,	    GLenum,*,*
 WinCoord,*,*,			    GLint,*,*
 void,*,*,			    *,*,*
 ArrayObjectPNameATI,*,*,	    GLenum,*,*
-ArrayObjectUsageATI,*,*,	    GLenum,*,*,
+ArrayObjectUsageATI,*,*,	    GLenum,*,*
 ConstByte,*,*,			    GLbyte,*,*
 ConstUByte,*,*,			    GLubyte,*,*
 ConstFloat32,*,*,		    GLfloat,*,*
@@ -298,7 +298,7 @@ UInt64,*,*,			    GLuint64,*,*
 handleARB,*,*,			    GLhandleARB,*,*
 charARB,*,*,			    GLcharARB,*,*
 charPointerARB,*,*,		    GLcharARB*,*,*
-sync,*,*,			    GLsync,*,*,
+sync,*,*,			    GLsync,*,*
 # EXT_timer_query
 Int64EXT,*,*,			    GLint64EXT,*,*
 UInt64EXT,*,*,			    GLuint64EXT,*,*
@@ -330,7 +330,7 @@ GLDEBUGPROCARB,*,*,		    GLDEBUGPROCARB,*,*
 # AMD_debug_output
 GLDEBUGPROCAMD,*,*,		    GLDEBUGPROCAMD,*,*
 # NV_vdpau_interop
-vdpauSurfaceNV,*,*,		    GLvdpauSurfaceNV,*,*,
+vdpauSurfaceNV,*,*,		    GLvdpauSurfaceNV,*,*
 # External API types
 cl_context,*,*,			    struct _cl_context *,*,*
 cl_event,*,*,			    struct _cl_event *,*,*

@@ -48,9 +48,9 @@ extern "C" {
 /*************************************************************/
 
 /* Header file version number */
-/* wglext.h last updated 2012/01/04 */
+/* wglext.h last updated 2013/06/10 */
 /* Current version at http://www.opengl.org/registry/ */
-#define WGL_WGLEXT_VERSION 24
+#define WGL_WGLEXT_VERSION 25
 
 #ifndef WGL_ARB_buffer_region
 #define WGL_FRONT_COLOR_BUFFER_BIT_ARB 0x00000001
@@ -382,8 +382,8 @@ extern "C" {
 #endif
 
 #ifndef WGL_NV_gpu_affinity
-#define WGL_ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV 0x20D0
-#define WGL_ERROR_MISSING_AFFINITY_MASK_NV 0x20D1
+#define ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV 0x20D0
+#define ERROR_MISSING_AFFINITY_MASK_NV 0x20D1
 #endif
 
 #ifndef WGL_AMD_gpu_association

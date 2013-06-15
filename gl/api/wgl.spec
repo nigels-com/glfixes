@@ -4,7 +4,7 @@
 # This document is licensed under the SGI Free Software B License Version
 # 2.0. For details, see http://oss.sgi.com/projects/FreeB/ .
 #
-# $Revision: 10796 $ on $Date: 2010-03-19 17:31:10 -0700 (Fri, 19 Mar 2010) $
+# $Revision: 21920 $ on $Date: 2013-06-10 03:41:09 -0700 (Mon, 10 Jun 2013) $
 
 required-props:
 param:		retval retained
@@ -64,6 +64,7 @@ DescribePixelFormat( hdc, ipfd, cjpfd, ppfd )
 	param		ipfd		int in value
 	param		cjpfd		UINT in value
 	param		ppfd		PIXELFORMATDESCRIPTOR in reference
+	category	wgl
 
 GetCurrentDC( )
 	return		HDC

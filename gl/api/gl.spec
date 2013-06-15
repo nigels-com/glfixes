@@ -7,7 +7,7 @@
 # This document is licensed under the SGI Free Software B License Version
 # 2.0. For details, see http://oss.sgi.com/projects/FreeB/ .
 #
-# $Revision: 20868 $ on $Date: 2013-03-14 00:30:09 -0700 (Thu, 14 Mar 2013) $
+# $Revision: 21920 $ on $Date: 2013-06-10 03:41:09 -0700 (Mon, 10 Jun 2013) $
 
 required-props:
 # Description of a parameter
@@ -29157,7 +29157,6 @@ GetTexParameterIivEXT(target, pname, params)
 	param		params		Int32 out array [COMPSIZE(pname)]
 	category	EXT_texture_integer
 	dlflags		notlistable
-	version		1.0
 	version		2.0
 	extension	soft WINSOFT NV50
 	glfflags	ignore
@@ -29171,7 +29170,6 @@ GetTexParameterIuivEXT(target, pname, params)
 	param		params		UInt32 out array [COMPSIZE(pname)]
 	category	EXT_texture_integer
 	dlflags		notlistable
-	version		1.0
 	version		2.0
 	extension	soft WINSOFT NV50
 	glfflags	ignore

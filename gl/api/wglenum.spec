@@ -4,7 +4,7 @@
 # This document is licensed under the SGI Free Software B License Version
 # 2.0. For details, see http://oss.sgi.com/projects/FreeB/ .
 #
-# $Revision: 17770 $ on $Date: 2012-05-10 14:18:27 -0700 (Thu, 10 May 2012) $
+# $Revision: 21920 $ on $Date: 2013-06-10 03:41:09 -0700 (Mon, 10 Jun 2013) $
 
 # This is the master WGL enumerant registry.
 #
@@ -396,9 +396,9 @@ NV_video_capture enum:
 	WGL_UNIQUE_ID_NV				= 0x20CE
 	WGL_NUM_VIDEO_CAPTURE_SLOTS_NV			= 0x20CF
 
-WGL_NV_gpu_affinity:
-	WGL_ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV	= 0x20D0
-	WGL_ERROR_MISSING_AFFINITY_MASK_NV		= 0x20D1
+WGL_NV_gpu_affinity enum:
+	ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV		= 0x20D0
+	ERROR_MISSING_AFFINITY_MASK_NV			= 0x20D1
 
 # NV_future_use: 0x20D2-0x20EF
 
@@ -446,7 +446,7 @@ WGL_AMD_gpu_association enum:
 
 # Also includes a bitmask - see ContextFlags above
 # All values are shared with GLX and GL
-WGL_ARB_create_context_robustness:
+WGL_ARB_create_context_robustness enum:
 	WGL_LOSE_CONTEXT_ON_RESET_ARB			= 0x8252    # shared with GLX and GL
 	WGL_CONTEXT_RESET_NOTIFICATION_STRATEGY_ARB	= 0x8256    # shared with GLX and GL
 	WGL_NO_RESET_NOTIFICATION_ARB			= 0x8261    # shared with GLX and GL

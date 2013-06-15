@@ -1,6 +1,6 @@
 # enumext.spec - list of GL enumerants for glext.h header
 #
-# $Revision: 20868 $ on $Date: 2013-03-14 00:30:09 -0700 (Thu, 14 Mar 2013) $
+# $Revision: 21929 $ on $Date: 2013-06-10 17:23:29 -0700 (Mon, 10 Jun 2013) $
 
 # This is derived from the master GL enumerant registry (enum.spec).
 #
@@ -1549,7 +1549,6 @@ passthru: /* Reuse tokens from ARB_gpu_shader5 */
 	use ARB_gpu_shader5		    MIN_FRAGMENT_INTERPOLATION_OFFSET
 	use ARB_gpu_shader5		    MAX_FRAGMENT_INTERPOLATION_OFFSET
 	use ARB_gpu_shader5		    FRAGMENT_INTERPOLATION_OFFSET_BITS
-	use ARB_gpu_shader5		    MAX_VERTEX_STREAMS
 passthru: /* Reuse tokens from ARB_gpu_shader_fp64 */
 	use ARB_gpu_shader_fp64		    DOUBLE_VEC2
 	use ARB_gpu_shader_fp64		    DOUBLE_VEC3
@@ -3255,7 +3254,7 @@ ARB_gpu_shader5 enum:
 	MIN_FRAGMENT_INTERPOLATION_OFFSET		= 0x8E5B
 	MAX_FRAGMENT_INTERPOLATION_OFFSET		= 0x8E5C
 	FRAGMENT_INTERPOLATION_OFFSET_BITS		= 0x8E5D
-	use ARB_texture_multisample	    MAX_VERTEX_STREAMS
+	use ARB_transform_feedback3	    MAX_VERTEX_STREAMS
 
 ###############################################################################
 

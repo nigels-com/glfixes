@@ -4,7 +4,7 @@
 # This document is licensed under the SGI Free Software B License Version
 # 2.0. For details, see http://oss.sgi.com/projects/FreeB/ .
 #
-# $Revision: 17027 $ on $Date: 2012-03-05 11:19:50 -0800 (Mon, 05 Mar 2012) $
+# $Revision: 21928 $ on $Date: 2013-06-10 17:14:54 -0700 (Mon, 10 Jun 2013) $
 
 # List of WGL enumerants for wglext.h header
 #
@@ -26,9 +26,9 @@
 
 passthru:
 passthru: /* Header file version number */
-passthru: /* wglext.h last updated 2012/01/04 */
+passthru: /* wglext.h last updated 2013/06/10 */
 passthru: /* Current version at http://www.opengl.org/registry/ */
-passthru: #define WGL_WGLEXT_VERSION 24
+passthru: #define WGL_WGLEXT_VERSION 25
 
 ###############################################################################
 #
@@ -450,8 +450,8 @@ WGL_NV_swap_group enum:
 
 # Extension #355
 WGL_NV_gpu_affinity enum:
-	WGL_ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV	= 0x20D0
-	WGL_ERROR_MISSING_AFFINITY_MASK_NV		= 0x20D1
+	ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV		= 0x20D0
+	ERROR_MISSING_AFFINITY_MASK_NV			= 0x20D1
 
 ###############################################################################
 

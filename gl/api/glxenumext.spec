@@ -4,7 +4,7 @@
 # This document is licensed under the SGI Free Software B License Version
 # 2.0. For details, see http://oss.sgi.com/projects/FreeB/ .
 #
-# $Revision: 20030 $ on $Date: 2013-01-02 02:39:38 -0800 (Wed, 02 Jan 2013) $
+# $Revision: 21928 $ on $Date: 2013-06-10 17:14:54 -0700 (Mon, 10 Jun 2013) $
 
 # List of GLX enumerants for glxext.h header
 #
@@ -25,9 +25,9 @@
 
 passthru:
 passthru: /* Header file version number, required by OpenGL ABI for Linux */
-passthru: /* glxext.h last updated 2013/01/02 */
+passthru: /* glxext.h last updated 2013/06/10 */
 passthru: /* Current version at http://www.opengl.org/registry/ */
-passthru: #define GLX_GLXEXT_VERSION 34
+passthru: #define GLX_GLXEXT_VERSION 35
 
 ###############################################################################
 #

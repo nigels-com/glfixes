@@ -1015,7 +1015,6 @@ typedef void GLvoid;
 /* reuse GL_MIN_FRAGMENT_INTERPOLATION_OFFSET */
 /* reuse GL_MAX_FRAGMENT_INTERPOLATION_OFFSET */
 /* reuse GL_FRAGMENT_INTERPOLATION_OFFSET_BITS */
-/* reuse GL_MAX_VERTEX_STREAMS */
 /* Reuse tokens from ARB_gpu_shader_fp64 */
 /* reuse GL_DOUBLE_VEC2 */
 /* reuse GL_DOUBLE_VEC3 */
