@@ -6,7 +6,14 @@ extern "C" {
 #endif
 
 /*
-** Copyright (c) 2007-2012 The Khronos Group Inc.
+** THIS FILE IS OBSOLETE. Please migrate away from using the
+** ".spec" files and the headers generated from them to the
+** XML Registry and headers generated from that. See
+**   http://www.opengl.org/registry/api/README.txt
+** for more information.
+** 
+** 
+** Copyright (c) 2007-2013 The Khronos Group Inc.
 ** 
 ** Permission is hereby granted, free of charge, to any person obtaining a
 ** copy of this software and/or associated documentation files (the
@@ -31,9 +38,9 @@ extern "C" {
 /* glcorearb.h replaces gl3.h. It is for use with OpenGL core
  * profile implementations.
  *
- * glcorearb.h last updated on $Date: 2013-02-07 01:42:49 -0800 (Thu, 07 Feb 2013) $
+ * glcorearb.h last updated on $Date: 2013-06-13 02:52:31 -0700 (Thu, 13 Jun 2013) $
  *
- * RELEASE NOTES - 2013/02/07
+ * RELEASE NOTES - 2013/06/10
  *
  * glcorearb.h should be placed in the same directory as gl.h and
  * included as
