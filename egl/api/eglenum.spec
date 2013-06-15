@@ -8,7 +8,7 @@
 # the Khronos Bugzilla for Product "EGL", component "Registry".
 #
 # Current version at http://www.khronos.org/registry/egl/
-# $Revision: 21116 $ on $Date: 2013-04-11 03:32:10 -0700 (Thu, 11 Apr 2013) $
+# $Revision: 21861 $ on $Date: 2013-06-06 02:33:34 -0700 (Thu, 06 Jun 2013) $
 
 # EGL Versioning
 Extensions define:
@@ -688,12 +688,17 @@ EGL_ARM_pixmap_multisample_discard enum:
 # Reserved for John Kåre Alsaker (Public bug 757)
 
 ###############################################################################
+
+# Samsung: 0x32A0-0x32AF
+# Reserved for Dongyeon Kim (Public bug 880)
+
+###############################################################################
 ### Please remember that new EGL enum allocations must be obtained by request
 ### to the Khronos API Registrar (see comments at the top of this file).
 ### File requests in the Khronos Bugzilla, Product "EGL", Component "Registry"
 ###############################################################################
 
-# Any_vendor_future_use: 0x32A0-0x3FFF
+# Any_vendor_future_use: 0x32B0-0x3FFF
 #
 #   This range must be the last range in the file.  To generate a new
 #   range, allocate multiples of 16 from the beginning of the

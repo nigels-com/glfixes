@@ -110,7 +110,7 @@ New Tokens
         COMPRESSED_RED          0x8225
         COMPRESSED_RG           0x8226
 
-    Accepted by the <format> parameter of TexImage3D, TexImage2D,
+    Accepted by the <format> parameter of TexImage1D, TexImage2D,
     TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D,
     and ReadPixels: 
 

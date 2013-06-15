@@ -25,12 +25,12 @@ Status
 
 Version
 
-    Last Modified Date: November 30, 2011
-    Revision: 1.0
+    Last Modified Date: June 4, 2013
+    Revision: 2.0
 
 Number
 
-   411
+    411
 
 Dependencies
 
@@ -42,11 +42,12 @@ Overview
     This extension defines an interface that allows improved control
     of the physical memory used by the graphics device.
 
-    It allows the an existing page of system memory allocated by the application
-    to be used as memory directly accessible graphics processor. One example
-    application of this functionality would be to be able to avoid an explicit
-    synchronous copy whith sub-system of your application; for instance it is
-    possible to directly draw from a system memory copy of a video image.
+    It allows an existing page of system memory allocated by the application
+    to be used as memory directly accessible to the graphics processor. One
+    example application of this functionality would be to be able to avoid an
+    explicit synchronous copy with sub-system of the application; for instance
+    it is possible to directly draw from a system memory copy of a video
+    image.
 
 New Procedures and Functions
 
@@ -55,7 +56,7 @@ New Procedures and Functions
 New Tokens
 
     Accepted by the <target> parameters of BindBuffer, BufferData,
-    BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData, 
+    BufferSubData, MapBuffer, UnmapBuffer, GetBufferSubData,
     GetBufferParameteriv, GetBufferPointerv, MapBufferRange:
 
         EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD              0x9160
@@ -87,7 +88,7 @@ Additions to Chapter 2 of the OpenGL 4.2 (Core Profile) Specification
     the contents of the buffer object’s data store are undefined. If <target>
     is EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, then the client's memory is used
     directly by the GL for all subsequent operations on the buffer object's
-    data store. In this case, the application must guarantee the existance of
+    data store. In this case, the application must guarantee the existence of
     the buffer for the lifetime of the buffer object, or until its data store
     is re-specified by another call to BufferData. <usage> is specified as one
     of nine enumerated values, indicating the expected application usage
@@ -127,7 +128,7 @@ Issues
         RESOLVED: NO. once the memory page has been shared with the GL,
         then all the regular OpenGL commands can be used to ensure
         proper synchronization. the newly created buffer object is
-        no different from the ones that were allocaetd by GL, except
+        no different from the ones that were allocated by GL, except
         that the physical pages cannot be changed (but virtual mapping
         can change).
 
@@ -188,8 +189,8 @@ Example Usage
     (GL_TEXTURE_BUFFER), pixel reads and writes (GL_PIXEL_UNPACK_BUFFER,
     GL_PIXEL_PACK_BUFFER) or transform feedback (GL_TRANSFORM_FEEDBACK_BUFFER).
 
-    As an example, consider the following example, which peforms an asynchronous
-    pixel readback to client memory:
+    As an example, consider the following example, which performs an
+    asynchronous pixel readback to client memory:
 
        GLuint buffer;
        glGenBuffers(1, &buffer);
@@ -202,12 +203,12 @@ Example Usage
        glBindBuffer(GL_PIXEL_PACK_BUFFER_AMD, buffer);
        glReadPixels(0, 0, 1024, 1024, GL_RGBA, GL_UNSIGNED_BYTE, 0);
 
-       GLsync s = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE);
+       GLsync s = glFenceSync(GL_SYNC_GPU_COMMANDS_COMPLETE, 0);
 
        // Data will eventually end up in 'memory'. Other processing may occur
        // during the transfer time.
 
-       glClientWaitSync(s);
+       glClientWaitSync(s, GL_SYNC_FLUSH_COMMANDS_BIT, ~0ull);
 
        // It is now safe to use 'memory'
 
@@ -216,6 +217,7 @@ Revision History
     Rev.    Date      Author    Changes
     ----  --------    --------  -----------------------------------------
 
+     2    04/05/2013  gsellers  Fixed a couple of typos.
      1    11/30/2011  gsellers  Cleanup and minor updates.
      xx   03/22/2011  pboudier  Initial draft.
 
