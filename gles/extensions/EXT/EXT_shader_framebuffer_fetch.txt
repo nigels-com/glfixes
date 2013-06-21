@@ -16,8 +16,8 @@ Status
 
 Version
 
-    Last Modified Date: September 24, 2012
-    Author Revision: 3
+    Last Modified Date: May 28, 2013
+    Author Revision: 4
 
 Number
 
@@ -30,6 +30,8 @@ Dependencies
     This specification is written against the OpenGL ES 2.0.24 specification.
     This extension is written against the OpenGL ES Shading Language 1.0.17
     specification.
+    
+    OpenGL ES 3.0 affects the definition of this extension.
 
 Overview
 
@@ -101,6 +103,29 @@ Issues
     RESOLVED: There is no interaction.  The two remain orthogonal.  The rest
     of the pipeline continues as usual after the fragment shader stage.
     
+
+    5. How does this extension work in ES 3.0?
+
+    RESOLVED: Differently than in ES 2.0.
+
+    The built-in fragment outputs of ES 2.0 are replaced in #version 300 es
+    shaders by user-declared outputs, to accomodate integer and MRT 
+    framebuffers.  Three options were considered:
+
+        A) Add built-ins similar to gl_LastFragData.
+        
+        B) Add a layout to mark user-declared fragment outputs as having
+        defined content on entry to fragment shader.
+            
+        C) Allow marking user-declared fragment outputs as "inout".
+
+    This extension has chosen option C.  Adding built-ins per option A is
+    unwieldy for MRT framebuffers with mixed attachment types and precisions.  
+    Options B and C are semantically identical, but C requires fewer 
+    modifications to the specification and to user shaders.  Note that the 
+    inout qualifier is not allowed for re-declaring existing fragment outputs 
+    such as gl_FragDepth.
+
 New Procedures and Functions
 
     None
@@ -200,6 +225,27 @@ Changes to the OpenGL ES Shading Language 1.0.17 Specification, Chapter 7
     Redeclarations must not otherwise alter the declared type or array size of
     gl_LastFragData."
     
+Changes to the OpenGL ES Shading Language 3.00.3 Specification, Chapter 4
+
+    Modify Paragraph 2 of section 4.3.6:
+    "Except in the fragment stage, there is not an inout storage qualifier at
+    global scope for declaring a single variable name as both input and output
+    [...]"
+
+    Modify Paragraph 5 of section 4.3.6:
+    "Fragment outputs output per-fragment data and are declared using the out
+    or inout storage qualifier. It is an error to use centroid out or centroid
+    inout in a fragment shader [...]" and append new paragraph:
+
+    "Upon entry to the fragment shader, fragment outputs declared as inout will
+    contain the value written by the most recent fragment at the same position.
+    This behavior, and the ability to use the inout qualifier at global scope 
+    in a fragment shader, is optional and must be enabled by
+
+    #extension GL_EXT_shader_framebuffer_fetch : <behavior>
+    
+    Where <behavior> is as specified in section 3.4."
+
 Interactions with OES_standard_derivatives
 
     Results from shaders which use the built-in derivative functions dFdx,
@@ -208,6 +254,7 @@ Interactions with OES_standard_derivatives
 
 Revision History
 
+    Version 4, 2013/05/28 - Added ES3 interaction as requested in Bug 10236
     Version 3, 2012/09/24 - Remove obsolete issue 3 about derivatives
     Version 2, 2012/06/21 - Fix MULTISAMPLE enabled -> SAMPLE_BUFFERS = 1,
                             recast from APPLE to multivendor EXT, clarify that

@@ -1,7 +1,7 @@
 #ifndef __gl2ext_h_
 #define __gl2ext_h_
 
-/* $Revision: 21470 $ on $Date:: 2013-05-08 17:33:40 -0700 #$ */
+/* $Revision: 22061 $ on $Date:: 2013-06-18 18:35:32 -0700 #$ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -485,7 +485,6 @@ typedef void (GL_APIENTRYP GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,G
 #endif
 
 #ifndef GL_EXT_disjoint_timer_query
-#define GL_EXT_disjoint_timer_query 1
 #define GL_QUERY_COUNTER_BITS_EXT                               0x8864
 #define GL_CURRENT_QUERY_EXT                                    0x8865
 #define GL_QUERY_RESULT_EXT                                     0x8866
@@ -493,6 +492,44 @@ typedef void (GL_APIENTRYP GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,G
 #define GL_TIME_ELAPSED_EXT                                     0x88BF
 #define GL_TIMESTAMP_EXT                                        0x8E28
 #define GL_GPU_DISJOINT_EXT                                     0x8FBB
+#endif
+
+#ifndef GL_EXT_draw_buffers
+#define GL_EXT_draw_buffers 1
+#define GL_MAX_COLOR_ATTACHMENTS_EXT                            0x8CDF
+#define GL_MAX_DRAW_BUFFERS_EXT                                 0x8824
+#define GL_DRAW_BUFFER0_EXT                                     0x8825
+#define GL_DRAW_BUFFER1_EXT                                     0x8826
+#define GL_DRAW_BUFFER2_EXT                                     0x8827
+#define GL_DRAW_BUFFER3_EXT                                     0x8828
+#define GL_DRAW_BUFFER4_EXT                                     0x8829
+#define GL_DRAW_BUFFER5_EXT                                     0x882A
+#define GL_DRAW_BUFFER6_EXT                                     0x882B
+#define GL_DRAW_BUFFER7_EXT                                     0x882C
+#define GL_DRAW_BUFFER8_EXT                                     0x882D
+#define GL_DRAW_BUFFER9_EXT                                     0x882E
+#define GL_DRAW_BUFFER10_EXT                                    0x882F
+#define GL_DRAW_BUFFER11_EXT                                    0x8830
+#define GL_DRAW_BUFFER12_EXT                                    0x8831
+#define GL_DRAW_BUFFER13_EXT                                    0x8832
+#define GL_DRAW_BUFFER14_EXT                                    0x8833
+#define GL_DRAW_BUFFER15_EXT                                    0x8834
+#define GL_COLOR_ATTACHMENT0_EXT                                0x8CE0
+#define GL_COLOR_ATTACHMENT1_EXT                                0x8CE1
+#define GL_COLOR_ATTACHMENT2_EXT                                0x8CE2
+#define GL_COLOR_ATTACHMENT3_EXT                                0x8CE3
+#define GL_COLOR_ATTACHMENT4_EXT                                0x8CE4
+#define GL_COLOR_ATTACHMENT5_EXT                                0x8CE5
+#define GL_COLOR_ATTACHMENT6_EXT                                0x8CE6
+#define GL_COLOR_ATTACHMENT7_EXT                                0x8CE7
+#define GL_COLOR_ATTACHMENT8_EXT                                0x8CE8
+#define GL_COLOR_ATTACHMENT9_EXT                                0x8CE9
+#define GL_COLOR_ATTACHMENT10_EXT                               0x8CEA
+#define GL_COLOR_ATTACHMENT11_EXT                               0x8CEB
+#define GL_COLOR_ATTACHMENT12_EXT                               0x8CEC
+#define GL_COLOR_ATTACHMENT13_EXT                               0x8CED
+#define GL_COLOR_ATTACHMENT14_EXT                               0x8CEE
+#define GL_COLOR_ATTACHMENT15_EXT                               0x8CEF
 #endif
 
 /* GL_EXT_map_buffer_range */
@@ -1435,6 +1472,8 @@ typedef void (GL_APIENTRYP PFNGLDISCARDFRAMEBUFFEREXTPROC) (GLenum target, GLsiz
 
 #ifndef GL_EXT_disjoint_timer_query
 #define GL_EXT_disjoint_timer_query 1
+typedef khronos_int64_t GLint64EXT;
+typedef khronos_uint64_t GLuint64EXT;
 #ifdef GL_GLEXT_PROTOTYPES
 GL_APICALL void GL_APIENTRY glGenQueriesEXT (GLsizei n, GLuint *ids);
 GL_APICALL void GL_APIENTRY glDeleteQueriesEXT (GLsizei n, const GLuint *ids);
@@ -1460,6 +1499,14 @@ typedef void (GL_APIENTRYP PFNGLGETQUERYOBJECTUIVEXTPROC) (GLuint id, GLenum pna
 typedef void (GL_APIENTRYP PFNGLGETQUERYOBJECTI64VEXTPROC) (GLuint id, GLenum pname, GLint64EXT *params);
 typedef void (GL_APIENTRYP PFNGLGETQUERYOBJECTUI64VEXTPROC) (GLuint id, GLenum pname, GLuint64EXT *params);
 #endif /* GL_EXT_disjoint_timer_query */
+
+#ifndef GL_EXT_draw_buffers
+#define GL_EXT_draw_buffers 1
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glDrawBuffersEXT (GLsizei n, const GLenum *bufs);
+#endif
+typedef void (GL_APIENTRYP PFNGLDRAWBUFFERSEXTPROC) (GLsizei n, const GLenum *bufs);
+#endif /* GL_EXT_draw_buffers */
 
 /* GL_EXT_map_buffer_range */
 #ifndef GL_EXT_map_buffer_range
