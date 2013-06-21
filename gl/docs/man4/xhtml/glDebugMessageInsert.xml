@@ -21,9 +21,9 @@
             use by the GL implementation. <em class="parameter"><code>type</code></em> indicates the type of the message
             to be inserted and may be one of <code class="constant">GL_DEBUG_TYPE_ERROR</code>, <code class="constant">GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR</code>,
             <code class="constant">GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR</code>, <code class="constant">GL_DEBUG_TYPE_PORTABILITY</code>,
-            <code class="constant">GL_DEBUG_TYPE_PERFORMANCE</code>, or <code class="constant">GL_DEBUG_TYPE_OTHER</code>.
+            <code class="constant">GL_DEBUG_TYPE_PERFORMANCE</code>, <code class="constant">GL_DEBUG_TYPE_MARKER</code>, <code class="constant">GL_DEBUG_TYPE_PUSH_GROUP</code>, <code class="constant">GL_DEBUG_TYPE_POP_GROUP</code>, or <code class="constant">GL_DEBUG_TYPE_OTHER</code>.
             <em class="parameter"><code>severity</code></em> indicates the severity of the message and may be <code class="constant">GL_DEBUG_SEVERITY_LOW</code>,
-            <code class="constant">GL_DEBUG_SEVERITY_MEDIUM</code>, or <code class="constant">GL_DEBUG_SEVERITY_HIGH</code>.
+            <code class="constant">GL_DEBUG_SEVERITY_MEDIUM</code>, <code class="constant">GL_DEBUG_SEVERITY_HIGH</code> or <code class="constant">GL_DEBUG_SEVERITY_NOTIFICATION</code>.
             <em class="parameter"><code>id</code></em> is available for application defined use and may be any value. This value
             will be recorded and used to identify the message.
         </p><p>
@@ -32,6 +32,9 @@
             is negative then <em class="parameter"><code>message</code></em> is treated as a null-terminated string.
             The length of the message, whether specified explicitly or implicitly, must be less than
             or equal to the implementation defined constant <code class="constant">GL_MAX_DEBUG_MESSAGE_LENGTH</code>.
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="constant">GL_DEBUG_TYPE_MARKER</code>, <code class="constant">GL_DEBUG_TYPE_PUSH_GROUP</code>, <code class="constant">GL_DEBUG_TYPE_POP_GROUP</code>, and <code class="constant">GL_DEBUG_SEVERITY_NOTIFICATION</code>
+            are available only if the GL version is 4.3 or higher.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if any of <em class="parameter"><code>source</code></em>, <em class="parameter"><code>type</code></em>
             or <em class="parameter"><code>severity</code></em> is not one of the accepted interface types.

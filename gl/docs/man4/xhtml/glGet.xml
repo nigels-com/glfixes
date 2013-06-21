@@ -355,17 +355,6 @@
                         selection is always taken from the last vertex in the primitive.
                         If the value returned is equivalent to <code class="constant">GL_UNDEFINED_VERTEX</code>, then the 
                         selection is not guaranteed to be taken from any specific vertex in the primitive.
-                    </p></dd><dt><span class="term"><code class="constant">GL_LINE_WIDTH_GRANULARITY</code></span></dt><dd><p>
-              </p><p>
-                        <em class="parameter"><code>params</code></em> returns one value,
-                        the width difference between adjacent supported widths for antialiased lines.
-                        See <a href="glLineWidth.xml"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>.
-                    </p></dd><dt><span class="term"><code class="constant">GL_LINE_WIDTH_RANGE</code></span></dt><dd><p>
-              </p><p>
-                        <em class="parameter"><code>params</code></em> returns two values:
-                        the smallest and largest supported widths for antialiased
-                        lines.
-                        See <a href="glLineWidth.xml"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_LOGIC_OP_MODE</code></span></dt><dd><p>
               </p><p>
                         <em class="parameter"><code>params</code></em> returns one value,
@@ -816,6 +805,14 @@
                         <em class="parameter"><code>params</code></em> a single value, the name of the currently bound program pipeline
                         object, or zero if no program pipeline object is bound.
                         See <a href="glBindProgramPipeline.xml"><span class="citerefentry"><span class="refentrytitle">glBindProgramPipeline</span></span></a>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_PROGRAM_POINT_SIZE</code></span></dt><dd><p>
+              </p><p>
+                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating whether vertex
+                        program point size mode is enabled. If enabled, then the
+                        point size is taken from the shader built-in <code class="code">gl_PointSize</code>. If disabled,
+                        then the point size is taken from the point state as specified
+                        by <a href="glPointSize.xml"><span class="citerefentry"><span class="refentrytitle">glPointSize</span></span></a>.
+                        The initial value is <code class="constant">GL_FALSE</code>.
                     </p></dd><dt><span class="term"><code class="constant">GL_PROVOKING_VERTEX</code></span></dt><dd><p>
               </p><p>
                         <em class="parameter"><code>params</code></em> returns one value,
@@ -1276,14 +1273,6 @@
                         two-byte and four-byte pixel indices and components are swapped after being
                         read from memory. The initial value is <code class="constant">GL_FALSE</code>.
                         See <a href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>.
-                    </p></dd><dt><span class="term"><code class="constant">GL_VERTEX_PROGRAM_POINT_SIZE</code></span></dt><dd><p>
-              </p><p>
-                        <em class="parameter"><code>params</code></em> returns a single boolean value indicating whether vertex
-                        program point size mode is enabled. If enabled, and a vertex shader is active, then the
-                        point size is taken from the shader built-in <code class="code">gl_PointSize</code>. If disabled,
-                        and a vertex shader is active, then the point size is taken from the point state as specified
-                        by <a href="glPointSize.xml"><span class="citerefentry"><span class="refentrytitle">glPointSize</span></span></a>.
-                        The initial value is <code class="constant">GL_FALSE</code>.
                     </p></dd><dt><span class="term"><code class="constant">GL_VERTEX_BINDING_DIVISOR</code></span></dt><dd><p>
               </p><p>
                         Accepted by the indexed forms. <em class="parameter"><code>params</code></em> returns a single integer value representing the instance step

@@ -116,18 +116,11 @@
             accepted values are:
         </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_STENCIL_INDEX</code></span></dt><dd><p>
                         Stencil values are read from the stencil buffer.
-                        Each index is converted to fixed point,
-                        shifted left or right depending on the value and sign of <code class="constant">GL_INDEX_SHIFT</code>,
-                        and added to <code class="constant">GL_INDEX_OFFSET</code>.
-                        If <code class="constant">GL_MAP_STENCIL</code> is <code class="constant">GL_TRUE</code>,
-                        indices are replaced by their mappings in the table <code class="constant">GL_PIXEL_MAP_S_TO_S</code>.
                     </p></dd><dt><span class="term"><code class="constant">GL_DEPTH_COMPONENT</code></span></dt><dd><p>
                         Depth values are read from the depth buffer.
                         Each component is converted to floating point such that the minimum depth
                         value maps to 0 and the maximum value maps to 1.
-                        Each component is then multiplied by <code class="constant">GL_DEPTH_SCALE</code>,
-                        added to <code class="constant">GL_DEPTH_BIAS</code>,
-                        and finally clamped to the range 
+                        Each component is clamped to the range
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close="]">
@@ -879,8 +872,6 @@
             is non-zero, the read framebuffer is complete, and the value of <code class="constant">GL_SAMPLE_BUFFERS</code>
             for the read framebuffer is greater than zero.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_INDEX_MODE</code>
-        </p><p>
             <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_PACK_BUFFER_BINDING</code>
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
             <a href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>,

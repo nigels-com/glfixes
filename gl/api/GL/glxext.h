@@ -36,7 +36,7 @@ extern "C" {
 ** Khronos $Revision$ on $Date$
 */
 
-#define GLX_GLXEXT_VERSION 20130614
+#define GLX_GLXEXT_VERSION 20130617
 
 /* Generated C header for:
  * API: glx
@@ -603,11 +603,13 @@ Bool glXWaitForSbcOML (Display *dpy, GLXDrawable drawable, int64_t target_sbc, i
 #ifndef GLX_SGIX_dmbuffer
 #define GLX_SGIX_dmbuffer 1
 typedef XID GLXPbufferSGIX;
+#ifdef _DM_BUFFER_H_
 #define GLX_DIGITAL_MEDIA_PBUFFER_SGIX    0x8024
 typedef Bool ( *PFNGLXASSOCIATEDMPBUFFERSGIXPROC) (Display *dpy, GLXPbufferSGIX pbuffer, DMparams *params, DMbuffer dmbuffer);
 #ifdef GL_GLEXT_PROTOTYPES
 Bool glXAssociateDMPbufferSGIX (Display *dpy, GLXPbufferSGIX pbuffer, DMparams *params, DMbuffer dmbuffer);
 #endif
+#endif /* _DM_BUFFER_H_ */
 #endif /* GLX_SGIX_dmbuffer */
 
 #ifndef GLX_SGIX_fbconfig
@@ -642,22 +644,22 @@ GLXFBConfigSGIX glXGetFBConfigFromVisualSGIX (Display *dpy, XVisualInfo *vis);
 #ifndef GLX_SGIX_hyperpipe
 #define GLX_SGIX_hyperpipe 1
 typedef struct {
-    char    pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX];
+    char    pipeName[80]; /* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] */
     int     networkId;
 } GLXHyperpipeNetworkSGIX;
 typedef struct {
-    char    pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX];
+    char    pipeName[80]; /* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] */
     int     channel;
     unsigned int participationType;
     int     timeSlice;
 } GLXHyperpipeConfigSGIX;
 typedef struct {
-    char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX];
+    char pipeName[80]; /* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] */
     int srcXOrigin, srcYOrigin, srcWidth, srcHeight;
     int destXOrigin, destYOrigin, destWidth, destHeight;
 } GLXPipeRect;
 typedef struct {
-    char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX];
+    char pipeName[80]; /* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] */
     int XOrigin, YOrigin, maxHeight, maxWidth;
 } GLXPipeRectLimits;
 #define GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX 80
@@ -770,12 +772,14 @@ int glXChannelRectSyncSGIX (Display *display, int screen, int channel, GLenum sy
 #ifndef GLX_SGIX_video_source
 #define GLX_SGIX_video_source 1
 typedef XID GLXVideoSourceSGIX;
+#ifdef _VL_H
 typedef GLXVideoSourceSGIX ( *PFNGLXCREATEGLXVIDEOSOURCESGIXPROC) (Display *display, int screen, VLServer server, VLPath path, int nodeClass, VLNode drainNode);
 typedef void ( *PFNGLXDESTROYGLXVIDEOSOURCESGIXPROC) (Display *dpy, GLXVideoSourceSGIX glxvideosource);
 #ifdef GL_GLEXT_PROTOTYPES
 GLXVideoSourceSGIX glXCreateGLXVideoSourceSGIX (Display *display, int screen, VLServer server, VLPath path, int nodeClass, VLNode drainNode);
 void glXDestroyGLXVideoSourceSGIX (Display *dpy, GLXVideoSourceSGIX glxvideosource);
 #endif
+#endif /* _VL_H */
 #endif /* GLX_SGIX_video_source */
 
 #ifndef GLX_SGIX_visual_select_group

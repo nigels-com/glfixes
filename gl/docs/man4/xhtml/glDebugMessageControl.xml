@@ -27,13 +27,16 @@
         </p><p>
             <em class="parameter"><code>type</code></em> may be one of <code class="constant">GL_DEBUG_TYPE_ERROR</code>, <code class="constant">GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR</code>,
             <code class="constant">GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR</code>, <code class="constant">GL_DEBUG_TYPE_PORTABILITY</code>,
-            <code class="constant">GL_DEBUG_TYPE_PERFORMANCE</code>, <code class="constant">GL_DEBUG_TYPE_OTHER</code> to indicate the type of messages describing
-            GL errors, attempted use of deprecated features, triggering of undefined behavior, portability issues, performance notifications and other
-            types of messages. It may also take the value <code class="constant">GL_DONT_CARE</code>. If <em class="parameter"><code>type</code></em> is not <code class="constant">GL_DONT_CARE</code>
+            <code class="constant">GL_DEBUG_TYPE_PERFORMANCE</code>, <code class="constant">GL_DEBUG_TYPE_MARKER</code>, <code class="constant">GL_DEBUG_TYPE_PUSH_GROUP</code>,
+            <code class="constant">GL_DEBUG_TYPE_POP_GROUP</code>, or <code class="constant">GL_DEBUG_TYPE_OTHER</code> to indicate the type of messages describing
+            GL errors, attempted use of deprecated features, triggering of undefined behavior, portability issues, performance notifications, markers,
+            group push and pop events, and other
+            types of messages, respectively. It may also take the value <code class="constant">GL_DONT_CARE</code>. If <em class="parameter"><code>type</code></em> is not <code class="constant">GL_DONT_CARE</code>
             then only messages whose type matches <em class="parameter"><code>type</code></em> will be referenced.
         </p><p>
             <em class="parameter"><code>severity</code></em> may be one of <code class="constant">GL_DEBUG_SEVERITY_LOW</code>, <code class="constant">GL_DEBUG_SEVERITY_MEDIUM</code>,
-            or <code class="constant">GL_DEBUG_SEVERITY_HIGH</code> to select messages of low, medium or high severity messages. It may also take the
+            or <code class="constant">GL_DEBUG_SEVERITY_HIGH</code> to select messages of low, medium or high severity messages or to
+            <code class="constant">GL_DEBUG_SEVERITY_NOTIFICATION</code> for notifications. It may also take the
             value <code class="constant">GL_DONT_CARE</code>. If <em class="parameter"><code>severity</code></em> is not <code class="constant">GL_DONT_CARE</code> then only
             messages whose severity matches <em class="parameter"><code>severity</code></em> will be referenced.
         </p><p>
@@ -49,6 +52,9 @@
             Although debug messages may be enabled in a non-debug context, the quantity and detail of such messages may be substantially
             inferior to those in a debug context. In particular, a valid implementation of the debug message queue in a non-debug context
             may produce no messages at all.
+        </p><p>
+            <code class="constant">GL_DEBUG_TYPE_MARKER</code>, <code class="constant">GL_DEBUG_TYPE_PUSH_GROUP</code>, <code class="constant">GL_DEBUG_TYPE_POP_GROUP</code>, and <code class="constant">GL_DEBUG_SEVERITY_NOTIFICATION</code>
+            are available only if the GL version is 4.3 or higher.
         </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>count</code></em> is negative.
         </p><p>
