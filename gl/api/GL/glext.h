@@ -51,7 +51,7 @@ extern "C" {
 #define GLAPI extern
 #endif
 
-#define GL_GLEXT_VERSION 20130614
+#define GL_GLEXT_VERSION 20130615
 
 /* Generated C header for:
  * API: gl
@@ -3372,7 +3372,11 @@ GLAPI void APIENTRY glMinSampleShadingARB (GLfloat value);
 
 #ifndef GL_ARB_shader_objects
 #define GL_ARB_shader_objects 1
+#ifdef __APPLE__
+typedef void *GLhandleARB;
+#else
 typedef unsigned int GLhandleARB;
+#endif
 typedef char GLcharARB;
 #define GL_PROGRAM_OBJECT_ARB             0x8B40
 #define GL_SHADER_OBJECT_ARB              0x8B48
