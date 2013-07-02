@@ -24,7 +24,7 @@ Status
 
 Version
 
-    Version 3, August 6, 2010
+    Version 4, June 18, 2013
 
 Number
 
@@ -35,7 +35,7 @@ Dependencies
 
     OpenGL 1.1 is required. The language is written against the OpenGL 1.2
     specification.
-    
+
 Overview
 
     These functions behave identically to the standard OpenGL 1.1 functions
@@ -71,7 +71,7 @@ New Procedures and Functions
     void glMultiDrawElementsEXT( GLenum mode,
 				 GLsizei *count,
 				 GLenum type,
-				 const GLvoid **indices,
+				 const GLvoid * const *indices,
 				 GLsizei primcount)
 
     Parameters
@@ -172,15 +172,17 @@ New State
     None
 
 OpenGL ES interactions
-    This extension can also be implemented against OpenGL ES 1.x or 
+    This extension can also be implemented against OpenGL ES 1.x or
 	OpenGL ES 2.0. In those cases, remove references to glBegin, glEnd,
 	and to GL_QUAD_STRIP, GL_QUADS, and GL_POLYGON.
 
 
 Revision History
 
-    Version 3, 2010/08/06 - Added 'const' to MultiDrawArrays pointer
+    Version 4, 2013/06/18 (Jon Leech) - Added 'const' to
+	MultiDrawElementsEXT, too, based on feedback from Mesa.
+    Version 3, 2010/08/06 - Added 'const' to MultiDrawArraysEXT pointer
 	arguments to match the core GL entry point.
     30/09/09 - Added fields from the new extension template and
-        interactions with OpenGL ES.
+	interactions with OpenGL ES.
     6/24/99 - Added fields from the new extension template.

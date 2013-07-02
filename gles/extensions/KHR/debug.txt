@@ -38,8 +38,8 @@ Status
         
 Version
     
-    Last Modified Date: June 15, 2013
-    Author Revision: 12
+    Last Modified Date: June 24, 2013
+    Author Revision: 13
 
 Number
 
@@ -187,7 +187,7 @@ New Procedures and Functions
                             const char* buf);
 
     void DebugMessageCallback(DEBUGPROC callback,
-                              void* userParam);
+                              const void* userParam);
     
     uint GetDebugMessageLog(uint count,
                             sizei bufsize,
@@ -234,7 +234,7 @@ New Types
                                              GLenum severity,
                                              GLsizei length,
                                              const GLchar* message,
-                                             GLvoid* userParam);
+                                             const void* userParam);
 
     Note that this function pointer is defined as having the same calling 
     convention as the GL functions.
@@ -519,7 +519,7 @@ Additions to Chapter 5 of the OpenGL 4.2 Specification
     using the command
     
         void DebugMessageCallback(DEBUGPROC callback,
-                                  void* userParam);
+                                  const void* userParam);
         
     with <callback> storing the address of the callback function. This
     function's prototype must follow the type definition of DEBUGPROC 
@@ -619,8 +619,10 @@ Additions to Chapter 5 of the OpenGL 4.2 Specification
         - If <count> is greater than zero, then <ids> is an array of <count> 
           message IDs for the specified combination of <source> and <type>. In 
           this case, if <source> or <type> is DONT_CARE, or <severity> is not 
-          DONT_CARE, the error INVALID_OPERATION is generated. If <count> is 
-          zero, the value if <ids> is ignored.
+          DONT_CARE, the error INVALID_OPERATION is generated. 
+
+          Unrecognized message IDs in <ids> are ignored. If <count> is zero,
+          the value if <ids> is ignored.
 
     In addition, if any of <source>, <type>, and <severity> is not DONT_CARE 
     and is not one of the symbols from, respectively, Table 5.3, Table 5.4, 
@@ -891,13 +893,13 @@ Additions to Chapter 6 of the OpenGL 4.2 Specification
     separated by single null terminators.  The last string in the array
     will also be null-terminated.  The maximum size of <messageLog>,
     including the space used by all null terminators, is given by
-    <bufSize>.  If <bufSize> is less than zero, the error INVALID_VALUE
-    will be generated.  If a message's string, including its null
-    terminator, can not fully fit within the <messageLog> array's
-    remaining space, then that message and any subsequent messages will
-    not be fetched and will remain in the log.  The string lengths
-    stored in the array <lengths> include the space for the null
-    terminator of each string.
+    <bufSize>. If <bufSize> is less than zero and <messageLog> is not
+    NULL, an INVALID_VALUE error will be generated. If a message's
+    string, including its null terminator, can not fully fit within the
+    <messageLog> array's remaining space, then that message and any
+    subsequent messages will not be fetched and will remain in the log.
+    The string lengths stored in the array <lengths> include the space
+    for the null terminator of each string.
     
     Any or all of the arrays <sources>, <types>, <ids>, <severities>, 
     <lengths> and <messageLog> can also be null pointers, which causes
@@ -905,8 +907,7 @@ Additions to Chapter 6 of the OpenGL 4.2 Specification
     are fetched, however those messages will still be removed from the
     log.  Thus to simply delete up to <count> messages from the message
     log while ignoring their attributes, the application can call the
-    function with null pointers for all attribute arrays.  If
-    <messageLog> is NULL, the value of <bufSize> is ignored.
+    function with null pointers for all attribute arrays.  
 
     If the context was created without the CONTEXT_FLAG_DEBUG_BIT in the
     CONTEXT_FLAGS state, as described in Section 6.1.12, then the GL can opt
@@ -1551,6 +1552,14 @@ Issues
     to be resolved.
 
 Revision History
+
+    Revision 13, 2013/06/24 (Jon Leech)
+      - Add 'const' attribute to <userParam> for DebugMessageCallback and
+        the corresponding GLDEBUGPROC type. Specify that unrecognized
+        message IDs are ignored in the DebugMessageControl <ids> array.
+        Specify that GetDebugMessageLog <messageLog> parameter must be
+        NULL when <bufSize> is less than zero, to allow an early out.
+        Replace spurious GLvoid with void. (Bug 10083).
 
     Revision 12, 2013/06/15 (Jon Leech)
       - Clarify in the New Tokens section that the <source> parameter of
