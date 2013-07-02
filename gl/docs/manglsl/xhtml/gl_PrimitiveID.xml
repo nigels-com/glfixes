@@ -19,43 +19,7 @@
             in the fragment language behaves identically as it would in the tessellation control and evaluation
             languages. If a geometry shader is present but does not write to <code class="function">gl_PrimitiveID</code>,
             the value of <code class="function">gl_PrimitiveID</code> in the fragment shader is undefined.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
-                        Variable
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        Version 1.10
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        Version 1.20
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        Version 1.30
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        Version 1.40
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        Version 1.50
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        Version 3.30
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        Version 4.00
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        Version 4.10
-                        </strong></span></th></tr><tr><th align="left">
-                            gl_PrimitiveID
-                        </th><th align="center">
-                            <span class="emphasis"><em>Y</em></span>  
-                        </th><th align="center">
-                            <span class="emphasis"><em>Y</em></span>  
-                        </th><th align="center">
-                            <span class="emphasis"><em>Y</em></span>  
-                        </th><th align="center">
-                            <span class="emphasis"><em>Y</em></span>  
-                        </th><th align="center">
-                            <span class="emphasis"><em>Y</em></span>  
-                        </th><th align="center">
-                            <span class="emphasis"><em>Y</em></span>  
-                        </th><th align="center">
-                            <span class="emphasis"><em>Y</em></span>  
-                        </th><th align="center">
-                            <span class="emphasis"><em>Y</em></span>  
-                        </th></tr></thead></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
+        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>Function</strong></span></th><th align="left"><span class="bold"><strong>Version 1.10</strong></span></th><th align="left"><span class="bold"><strong>Version 1.20</strong></span></th><th align="left"><span class="bold"><strong>Version 1.30</strong></span></th><th align="left"><span class="bold"><strong>Version 1.40</strong></span></th><th align="left"><span class="bold"><strong>Version 1.50</strong></span></th><th align="left"><span class="bold"><strong>Version 3.30</strong></span></th><th align="left"><span class="bold"><strong>Version 4.00</strong></span></th><th align="left"><span class="bold"><strong>Version 4.10</strong></span></th><th align="left"><span class="bold"><strong>Version 4.20</strong></span></th><th align="center"><span class="bold"><strong>Version 4.30</strong></span></th></tr><tr><th align="left"><code class="function">gl_PrimitiveID</code> (Fragment and Geometry Languages)</th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th></tr><tr><th align="left"><code class="function">gl_PrimitiveID</code> (Tessellation Control and Evaluation Languages)</th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>-</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th><th align="center"><span class="emphasis"><em>Y</em></span></th></tr></thead></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
             <a href="gl_InstanceID.xml"><span class="citerefentry"><span class="refentrytitle">gl_InstanceID</span></span></a>,
             <a href="gl_VertexID.xml"><span class="citerefentry"><span class="refentrytitle">gl_VertexID</span></span></a>,
             <a href="gl_PrimitiveIDIn.xml"><span class="citerefentry"><span class="refentrytitle">gl_PrimitiveIDIn</span></span></a>
