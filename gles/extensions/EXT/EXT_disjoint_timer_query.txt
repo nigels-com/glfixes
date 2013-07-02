@@ -118,15 +118,15 @@ Additions to Chapter 2 of the OpenGL ES 2.0 Specification (OpenGL ES Operation)
     
     Letter Corresponding GL Type
     ------ ---------------------
-    i64    int64EXT
-    ui64   uint64EXT
+    i64    int64
+    ui64   uint64
 
     (Modify table 2.2, GL data types) Add two new types:
     
-    GL Type       Minimum Bit Width   Description
-    -------       -----------------   -----------------------------
-    int64EXT      64                  Signed 2's complement integer
-    uint64EXT     64                  Unsigned binary integer
+    GL Type    Minimum Bit Width   Description
+    -------    -----------------   -----------------------------
+    int64      64                  Signed 2's complement integer
+    uint64     64                  Unsigned binary integer
 
 Additions to Chapter 5 of the OpenGL ES 2.0 Specification (Special Functions)
 
@@ -565,7 +565,7 @@ Issues from EXT_timer_query
 
     (4) How are counter results of more than 32 bits returned?
 
-    RESOLVED:  Via two new datatypes, int64EXT and uint64EXT, and their
+    RESOLVED:  Via two new datatypes, int64 and uint64, and their
     corresponding GetQueryObject entry points.  These types hold integer
     values and have a minimum bit width of 64.
 
@@ -622,7 +622,7 @@ Issues from EXT_timer_query
 
    (9) What should the new 64 bit integer type be called?
 
-    RESOLVED: The new types will be called GLint64EXT/GLuint64EXT.  The new
+    RESOLVED: The new types will be called GLint64/GLuint64.  The new
     command suffixes will be i64 and ui64.  These names clearly convey the
     minimum size of the types.  These types are similar to the C99 standard
     type int_least64_t, but we use names similar to the C99 optional type
@@ -705,6 +705,8 @@ Issues
 
 Revision History
 
+    Revision 5, 2013/6/5
+      - Minor cleanup to match new gl2ext.h
     Revision 4, 2013/04/25 (Jon Leech)
       - Cleanup for publication 
       - Fix value assigned to GPU_DISJOINT_EXT

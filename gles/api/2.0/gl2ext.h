@@ -1,7 +1,7 @@
 #ifndef __gl2ext_h_
 #define __gl2ext_h_
 
-/* $Revision: 22126 $ on $Date:: 2013-06-23 14:16:45 -0700 #$ */
+/* $Revision: 22161 $ on $Date:: 2013-06-25 08:17:27 -0700 #$ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -19,7 +19,7 @@ extern "C" {
 /* New types shared by several extensions */
 
 #ifndef __gl3_h_
-/* These are defineed with respect to <inttypes.h> in the
+/* These are defined with respect to <inttypes.h> in the
  * Apple extension spec, but they are also used by non-APPLE
  * extensions, and in the Khronos header we use the Khronos
  * portable types in khrplatform.h, which must be defined.
@@ -108,23 +108,23 @@ typedef void* GLeglImageOES;
 #endif
 
 /* GL_OES_required_internalformat */
-#ifndef GL_OES_required_internalformat 
+#ifndef GL_OES_required_internalformat
 #define GL_ALPHA8_OES                                           0x803C
 #define GL_DEPTH_COMPONENT16_OES                                0x81A5
-/* reuse GL_DEPTH_COMPONENT24_OES */                            
-/* reuse GL_DEPTH24_STENCIL8_OES */                             
-/* reuse GL_DEPTH_COMPONENT32_OES */                            
+/* reuse GL_DEPTH_COMPONENT24_OES */
+/* reuse GL_DEPTH24_STENCIL8_OES */
+/* reuse GL_DEPTH_COMPONENT32_OES */
 #define GL_LUMINANCE4_ALPHA4_OES                                0x8043
 #define GL_LUMINANCE8_ALPHA8_OES                                0x8045
 #define GL_LUMINANCE8_OES                                       0x8040
 #define GL_RGBA4_OES                                            0x8056
 #define GL_RGB5_A1_OES                                          0x8057
 #define GL_RGB565_OES                                           0x8D62
-/* reuse GL_RGB8_OES */                              
-/* reuse GL_RGBA8_OES */  
+/* reuse GL_RGB8_OES */
+/* reuse GL_RGBA8_OES */
 /* reuse GL_RGB10_EXT */
 /* reuse GL_RGB10_A2_EXT */
-#endif 
+#endif
 
 /* GL_OES_rgb8_rgba8 */
 #ifndef GL_OES_rgb8_rgba8
@@ -224,9 +224,9 @@ typedef void (GL_APIENTRYP GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,G
 #define GL_SHADER_KHR                                           0x82E1
 #define GL_PROGRAM_KHR                                          0x82E2
 #define GL_QUERY_KHR                                            0x82E3
-/* PROGRAM_PIPELINE only in GL */                               
+/* PROGRAM_PIPELINE only in GL */
 #define GL_SAMPLER_KHR                                          0x82E6
-/* DISPLAY_LIST only in GL */                                   
+/* DISPLAY_LIST only in GL */
 #define GL_MAX_LABEL_LENGTH_KHR                                 0x82E8
 #define GL_MAX_DEBUG_MESSAGE_LENGTH_KHR                         0x9143
 #define GL_MAX_DEBUG_LOGGED_MESSAGES_KHR                        0x9144
@@ -336,12 +336,12 @@ typedef void (GL_APIENTRYP GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,G
 #endif
 
 /* GL_ANGLE_instanced_arrays */
-#ifndef GL_ANGLE_instanced_arrays 
+#ifndef GL_ANGLE_instanced_arrays
 #define GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE                    0x88FE
 #endif
 
 /* GL_ANGLE_pack_reverse_row_order */
-#ifndef GL_ANGLE_pack_reverse_row_order 
+#ifndef GL_ANGLE_pack_reverse_row_order
 #define GL_PACK_REVERSE_ROW_ORDER_ANGLE                         0x93A4
 #endif
 
@@ -351,23 +351,23 @@ typedef void (GL_APIENTRYP GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,G
 #endif
 
 /* GL_ANGLE_texture_compression_dxt3 */
-#ifndef GL_ANGLE_texture_compression_dxt3 
+#ifndef GL_ANGLE_texture_compression_dxt3
 #define GL_COMPRESSED_RGBA_S3TC_DXT3_ANGLE                      0x83F2
 #endif
 
 /* GL_ANGLE_texture_compression_dxt5 */
-#ifndef GL_ANGLE_texture_compression_dxt5 
+#ifndef GL_ANGLE_texture_compression_dxt5
 #define GL_COMPRESSED_RGBA_S3TC_DXT5_ANGLE                      0x83F3
 #endif
 
 /* GL_ANGLE_texture_usage */
-#ifndef GL_ANGLE_texture_usage 
+#ifndef GL_ANGLE_texture_usage
 #define GL_TEXTURE_USAGE_ANGLE                                  0x93A2
 #define GL_FRAMEBUFFER_ATTACHMENT_ANGLE                         0x93A3
 #endif
 
 /* GL_ANGLE_translated_shader_source */
-#ifndef GL_ANGLE_translated_shader_source 
+#ifndef GL_ANGLE_translated_shader_source
 #define GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE                0x93A0
 #endif
 
@@ -377,7 +377,7 @@ typedef void (GL_APIENTRYP GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,G
 
 /* GL_APPLE_copy_texture_levels */
 /* No new tokens introduced by this extension. */
-    
+
 /* GL_APPLE_framebuffer_multisample */
 #ifndef GL_APPLE_framebuffer_multisample
 #define GL_RENDERBUFFER_SAMPLES_APPLE                           0x8CAB
@@ -545,7 +545,7 @@ typedef void (GL_APIENTRYP GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,G
 /* GL_EXT_multisampled_render_to_texture */
 #ifndef GL_EXT_multisampled_render_to_texture
 #define GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT           0x8D6C
-/* reuse values from GL_EXT_framebuffer_multisample (desktop extension) */ 
+/* reuse values from GL_EXT_framebuffer_multisample (desktop extension) */
 #define GL_RENDERBUFFER_SAMPLES_EXT                             0x8CAB
 #define GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT               0x8D56
 #define GL_MAX_SAMPLES_EXT                                      0x8D57
@@ -653,10 +653,10 @@ typedef void (GL_APIENTRYP GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,G
 /* GL_EXT_texture_storage */
 #ifndef GL_EXT_texture_storage
 #define GL_TEXTURE_IMMUTABLE_FORMAT_EXT                         0x912F
-#define GL_ALPHA8_EXT                                           0x803C  
+#define GL_ALPHA8_EXT                                           0x803C
 #define GL_LUMINANCE8_EXT                                       0x8040
 #define GL_LUMINANCE8_ALPHA8_EXT                                0x8045
-#define GL_RGBA32F_EXT                                          0x8814  
+#define GL_RGBA32F_EXT                                          0x8814
 #define GL_RGB32F_EXT                                           0x8815
 #define GL_ALPHA32F_EXT                                         0x8816
 #define GL_LUMINANCE32F_EXT                                     0x8818
@@ -666,12 +666,12 @@ typedef void (GL_APIENTRYP GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,G
 #define GL_ALPHA16F_EXT                                         0x881C
 #define GL_LUMINANCE16F_EXT                                     0x881E
 #define GL_LUMINANCE_ALPHA16F_EXT                               0x881F
-#define GL_RGB10_A2_EXT                                         0x8059  
+#define GL_RGB10_A2_EXT                                         0x8059
 #define GL_RGB10_EXT                                            0x8052
 #define GL_BGRA8_EXT                                            0x93A1
 #define GL_R8_EXT                                               0x8229
 #define GL_RG8_EXT                                              0x822B
-#define GL_R32F_EXT                                             0x822E  
+#define GL_R32F_EXT                                             0x822E
 #define GL_RG32F_EXT                                            0x8230
 #define GL_R16F_EXT                                             0x822D
 #define GL_RG16F_EXT                                            0x822F
@@ -828,7 +828,7 @@ typedef void (GL_APIENTRYP GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,G
 #ifndef GL_NV_framebuffer_blit
 #define GL_READ_FRAMEBUFFER_NV                                  0x8CA8
 #define GL_DRAW_FRAMEBUFFER_NV                                  0x8CA9
-#define GL_DRAW_FRAMEBUFFER_BINDING_NV                          0x8CA6 
+#define GL_DRAW_FRAMEBUFFER_BINDING_NV                          0x8CA6
 #define GL_READ_FRAMEBUFFER_BINDING_NV                          0x8CAA
 #endif
 
@@ -867,10 +867,10 @@ typedef void (GL_APIENTRYP GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,G
 /* GL_NV_shadow_samplers_array */
 #ifndef GL_NV_shadow_samplers_array
 #define GL_SAMPLER_2D_ARRAY_SHADOW_NV                           0x8DC4
-#endif                                             
-                                                   
+#endif
+
 /* GL_NV_shadow_samplers_cube */
-#ifndef GL_NV_shadow_samplers_cube                 
+#ifndef GL_NV_shadow_samplers_cube
 #define GL_SAMPLER_CUBE_SHADOW_NV                               0x8DC5
 #endif
 
@@ -1205,7 +1205,7 @@ GL_APICALL void GL_APIENTRY glGetObjectLabelKHR (GLenum identifier, GLuint name,
 GL_APICALL void GL_APIENTRY glObjectPtrLabelKHR (const void *ptr, GLsizei length, const GLchar *label);
 GL_APICALL void GL_APIENTRY glGetObjectPtrLabelKHR (const void *ptr, GLsizei bufSize, GLsizei *length, GLchar *label);
 GL_APICALL void GL_APIENTRY glGetPointervKHR (GLenum pname, void **params);
-#endif 
+#endif
 typedef void (GL_APIENTRYP PFNGLDEBUGMESSAGECONTROLKHRPROC) (GLenum source, GLenum type, GLenum severity, GLsizei count, const GLuint *ids, GLboolean enabled);
 typedef void (GL_APIENTRYP PFNGLDEBUGMESSAGEINSERTKHRPROC) (GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *buf);
 typedef void (GL_APIENTRYP PFNGLDEBUGMESSAGECALLBACKKHRPROC) (GLDEBUGPROCKHR callback, const void *userParam);
@@ -1299,7 +1299,7 @@ GL_APICALL void GL_APIENTRY glRenderbufferStorageMultisampleANGLE (GLenum target
 typedef void (GL_APIENTRYP PFNGLRENDERBUFFERSTORAGEMULTISAMPLEANGLEPROC) (GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height);
 #endif
 
-#ifndef GL_ANGLE_instanced_arrays 
+#ifndef GL_ANGLE_instanced_arrays
 #define GL_ANGLE_instanced_arrays 1
 #ifdef GL_GLEXT_PROTOTYPES
 GL_APICALL void GL_APIENTRY glDrawArraysInstancedANGLE (GLenum mode, GLint first, GLsizei count, GLsizei primcount);
@@ -1312,7 +1312,7 @@ typedef void (GL_APIENTRYP PFNGLVERTEXATTRIBDIVISORANGLEPROC) (GLuint index, GLu
 #endif
 
 /* GL_ANGLE_pack_reverse_row_order */
-#ifndef GL_ANGLE_pack_reverse_row_order 
+#ifndef GL_ANGLE_pack_reverse_row_order
 #define GL_ANGLE_pack_reverse_row_order 1
 #endif
 
@@ -1322,21 +1322,21 @@ typedef void (GL_APIENTRYP PFNGLVERTEXATTRIBDIVISORANGLEPROC) (GLuint index, GLu
 #endif
 
 /* GL_ANGLE_texture_compression_dxt3 */
-#ifndef GL_ANGLE_texture_compression_dxt3 
+#ifndef GL_ANGLE_texture_compression_dxt3
 #define GL_ANGLE_texture_compression_dxt3 1
 #endif
 
 /* GL_ANGLE_texture_compression_dxt5 */
-#ifndef GL_ANGLE_texture_compression_dxt5 
+#ifndef GL_ANGLE_texture_compression_dxt5
 #define GL_ANGLE_texture_compression_dxt5 1
 #endif
 
 /* GL_ANGLE_texture_usage */
-#ifndef GL_ANGLE_texture_usage 
+#ifndef GL_ANGLE_texture_usage
 #define GL_ANGLE_texture_usage 1
 #endif
 
-#ifndef GL_ANGLE_translated_shader_source 
+#ifndef GL_ANGLE_translated_shader_source
 #define GL_ANGLE_translated_shader_source 1
 #ifdef GL_GLEXT_PROTOTYPES
 GL_APICALL void GL_APIENTRY glGetTranslatedShaderSourceANGLE (GLuint shader, GLsizei bufsize, GLsizei *length, GLchar *source);
@@ -1472,8 +1472,6 @@ typedef void (GL_APIENTRYP PFNGLDISCARDFRAMEBUFFEREXTPROC) (GLenum target, GLsiz
 
 #ifndef GL_EXT_disjoint_timer_query
 #define GL_EXT_disjoint_timer_query 1
-typedef khronos_int64_t GLint64EXT;
-typedef khronos_uint64_t GLuint64EXT;
 #ifdef GL_GLEXT_PROTOTYPES
 GL_APICALL void GL_APIENTRY glGenQueriesEXT (GLsizei n, GLuint *ids);
 GL_APICALL void GL_APIENTRY glDeleteQueriesEXT (GLsizei n, const GLuint *ids);
@@ -1484,8 +1482,8 @@ GL_APICALL void GL_APIENTRY glQueryCounterEXT (GLuint id, GLenum target);
 GL_APICALL void GL_APIENTRY glGetQueryivEXT (GLenum target, GLenum pname, GLint *params);
 GL_APICALL void GL_APIENTRY glGetQueryObjectivEXT (GLuint id, GLenum pname, GLint *params);
 GL_APICALL void GL_APIENTRY glGetQueryObjectuivEXT (GLuint id, GLenum pname, GLuint *params);
-GL_APICALL void GL_APIENTRY glGetQueryObjecti64vEXT (GLuint id, GLenum pname, GLint64EXT *params);
-GL_APICALL void GL_APIENTRY glGetQueryObjectui64vEXT (GLuint id, GLenum pname, GLuint64EXT *params);
+GL_APICALL void GL_APIENTRY glGetQueryObjecti64vEXT (GLuint id, GLenum pname, GLint64 *params);
+GL_APICALL void GL_APIENTRY glGetQueryObjectui64vEXT (GLuint id, GLenum pname, GLuint64 *params);
 #endif
 typedef void (GL_APIENTRYP PFNGLGENQUERIESEXTPROC) (GLsizei n, GLuint *ids);
 typedef void (GL_APIENTRYP PFNGLDELETEQUERIESEXTPROC) (GLsizei n, const GLuint *ids);
@@ -1496,8 +1494,8 @@ typedef void (GL_APIENTRYP PFNGLQUERYCOUNTEREXTPROC) (GLuint id, GLenum target);
 typedef void (GL_APIENTRYP PFNGLGETQUERYIVEXTPROC) (GLenum target, GLenum pname, GLint *params);
 typedef void (GL_APIENTRYP PFNGLGETQUERYOBJECTIVEXTPROC) (GLuint id, GLenum pname, GLint *params);
 typedef void (GL_APIENTRYP PFNGLGETQUERYOBJECTUIVEXTPROC) (GLuint id, GLenum pname, GLuint *params);
-typedef void (GL_APIENTRYP PFNGLGETQUERYOBJECTI64VEXTPROC) (GLuint id, GLenum pname, GLint64EXT *params);
-typedef void (GL_APIENTRYP PFNGLGETQUERYOBJECTUI64VEXTPROC) (GLuint id, GLenum pname, GLuint64EXT *params);
+typedef void (GL_APIENTRYP PFNGLGETQUERYOBJECTI64VEXTPROC) (GLuint id, GLenum pname, GLint64 *params);
+typedef void (GL_APIENTRYP PFNGLGETQUERYOBJECTUI64VEXTPROC) (GLuint id, GLenum pname, GLuint64 *params);
 #endif /* GL_EXT_disjoint_timer_query */
 
 #ifndef GL_EXT_draw_buffers

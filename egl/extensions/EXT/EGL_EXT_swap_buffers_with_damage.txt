@@ -8,7 +8,11 @@ Name Strings
 
 Notice
 
-    Copyright 2011,2012,2013 Intel Cooperation. All rights reserved.
+    Copyright 2011,2012,2013 Intel Cooperation
+
+IP Status
+
+    No known IP claims.
 
 Contributors
 
@@ -29,7 +33,7 @@ Status
 
 Version
 
-    8 - Mar 19, 2013
+    9 - June 12, 2013
 
 Number
 
@@ -329,3 +333,11 @@ Revision History
       - Document the awkward details that would be involved in
         providing more strict guarantees when presenting to a native
         window that has been resized.
+    Version 9, 12/06/2013, Chad Versace <chad.versace@intel.com>
+      - Remove the "all rights reserved" clause from the copyright notice. The
+        removal does not change the copyright notice's semantics, since the
+        clause is already implied by any unadorned copyright notice. But, the
+        removal does diminish the likelihood of unwarranted caution in readers
+        of the spec.
+      - Add "IP Status" section to explicitly state that this extension has no
+        knonw IP claims.

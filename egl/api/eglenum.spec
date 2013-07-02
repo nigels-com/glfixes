@@ -8,7 +8,7 @@
 # the Khronos Bugzilla for Product "EGL", component "Registry".
 #
 # Current version at http://www.khronos.org/registry/egl/
-# $Revision: 21861 $ on $Date: 2013-06-06 02:33:34 -0700 (Thu, 06 Jun 2013) $
+# $Revision: 21903 $ on $Date: 2013-06-07 17:42:56 -0700 (Fri, 07 Jun 2013) $
 
 # EGL Versioning
 Extensions define:
@@ -549,7 +549,11 @@ MESA_drm_image enum:
 	DRM_BUFFER_USE_SCANOUT_MESA			= 0x00000001
 	DRM_BUFFER_USE_SHARE_MESA			= 0x00000002
 
-# MESA_future_use: 0x31D5-0x31DF
+EXT_platform_x11 enum:
+	EGL_PLATFORM_X11_EXT				= 0x31D5
+	EGL_PLATFORM_X11_SCREEN_EXT			= 0x31D6
+
+# MESA_future_use: 0x31D7-0x31DF
 
 ###############################################################################
 

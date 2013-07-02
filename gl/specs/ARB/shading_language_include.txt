@@ -17,7 +17,7 @@ Status
 
 Version
 
-    Version 15, January 27, 2010
+    Version 16, June 24, 2013
 
 Number
 
@@ -50,7 +50,7 @@ New Procedures and Functions
     void DeleteNamedStringARB(int namelen, const char *name)
 
     void CompileShaderIncludeARB(uint shader, sizei count,
-				 const char **path,
+				 const char *const *path,
 				 const int *length)
 
     boolean IsNamedStringARB(int namelen, const char *name)
@@ -137,7 +137,7 @@ Additions to Chapter 2 of the OpenGL 3.2 Specification (OpenGL Operation)
     can be compiled with the command
 
 	void CompileShaderIncludeARB(uint shader, sizei count,
-				     const char **path,
+				     const char * const *path,
 				     const int *length)
 
     <path> is an ordered array of <count> pointers to optionally
@@ -557,6 +557,9 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------- ------------------------------------------
+    17	  13/06/24  Jon Leech
+      - Add additional 'const' attribute to CompileShaderIncludeARB
+	<path> (Bug 9006).
     16	  10/02/10  Jon Leech
       - Remove 'const' attribute from GetNamedStringARB <stringlen>.
     15	  10/01/27  Jon Leech

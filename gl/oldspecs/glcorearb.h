@@ -106,7 +106,7 @@ typedef void GLvoid;
 /* Boolean */
 #define GL_FALSE                          0
 #define GL_TRUE                           1
-/* BeginMode */
+/* PrimitiveType */
 #define GL_POINTS                         0x0000
 #define GL_LINES                          0x0001
 #define GL_LINE_LOOP                      0x0002

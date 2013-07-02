@@ -25,8 +25,8 @@ Status
 
 Version
 
-    Last Modified Date:         11/6/2006
-    Revision:                   2
+    Last Modified Date:         2013/06/25
+    Revision:                   3
 
 Number
 
@@ -87,9 +87,10 @@ Issues
 
     How are counter results of more than 32 bits returned?
 
-      RESOLVED:  Via two new datatypes, int64EXT and uint64EXT, and their
-      corresponding GetQueryObject entry points.  These types hold integer
-      values and have a minimum bit width of 64.
+      RESOLVED: Using the int64 and uint64 datatypes (introduced in OpenGL
+      3.2 and used by this extension as well), and corresponding
+      GetQueryObject entry points. These types hold integer values and have
+      a minimum bit width of 64.
 
     Should the extension measure total time elapsed between the full
     completion of the BeginQuery and EndQuery commands, or just time spent in
@@ -138,16 +139,23 @@ Issues
 
    What should the new 64 bit integer type be called?
    
-      RESOLVED: The new types will be called GLint64EXT/GLuint64EXT  The new
+      RESOLVED: The new types will be called GLint64/GLuint64  The new
       command suffixes will be i64 and ui64.  These names clearly convey the
       minimum size of the types.  These types are similar to the C99 standard
       type int_least64_t, but we use names similar to the C99 optional type
       int64_t for simplicity.
 
+      (note: previous versions of EXT_timer_query used GLint64EXT and and
+      GLuint64EXT. These types were later promoted to core in OpenGL 3.2,
+      and this extension was changed to use the core datatypes for
+      compatibility with changes to the OpenGL ES EXT_disjoint_timer_query
+      extension, which introduces the same query entry points, and would
+      have otherwise have had different function signatures).
+
 New Procedures and Functions
 
-     void GetQueryObjecti64vEXT(uint id, enum pname, int64EXT *params);
-     void GetQueryObjectui64vEXT(uint id, enum pname, uint64EXT *params);
+     void GetQueryObjecti64vEXT(uint id, enum pname, int64 *params);
+     void GetQueryObjectui64vEXT(uint id, enum pname, uint64 *params);
 
 New Tokens
 
@@ -163,16 +171,16 @@ Additions to Chapter 2 of the OpenGL 2.0 Specification (OpenGL Operation)
   
     Letter Corresponding GL Type
     ------ ---------------------
-    i64    int64EXT
-    ui64   uint64EXT
+    i64    int64
+    ui64   uint64
   
     (Modify table 2.2, GL data types, p. 9) Add two new types:
     
               Minimum
     GL Type   Bit Width Description
     --------- --------- ------------------------------------
-    int64EXT  64        signed 2's complement binary integer
-    uint64EXT 64        unsigned binary integer
+    int64     64        signed 2's complement binary integer
+    uint64    64        unsigned binary integer
     
 Additions to Chapter 3 of the OpenGL 2.0 Specification (Rasterization)
 
@@ -365,8 +373,8 @@ Requests)
 
       void GetQueryObjectiv(uint id, enum pname, int *params);
       void GetQueryObjectuiv(uint id, enum pname, uint *params);
-      void GetQueryObjecti64vEXT(uint id, enum pname, int64EXT *params);
-      void GetQueryObjectui64vEXT(uint id, enum pname, uint64EXT *params);      
+      void GetQueryObjecti64vEXT(uint id, enum pname, int64 *params);
+      void GetQueryObjectui64vEXT(uint id, enum pname, uint64 *params);      
     If <id> is not the name of a query object, or if the query object named by
     <id> is currently active, then an INVALID_OPERATION error is generated.
 
@@ -517,7 +525,7 @@ Usage Examples
         GLint available = 0;
         // timer queries can contain more than 32 bits of data, so always
         // query them using the 64 bit types to avoid overflow
-        GLuint64EXT timeElapsed = 0;
+        GLuint64 timeElapsed = 0;
 
         // Create a query object.
         glGenQueries(N, queries);
@@ -564,4 +572,6 @@ Usage Examples
 
 Revision History
 
-    none yet
+    Version 3, June 25, 2013 (Jon Leech) - replace int64EXT / uint64EXT with
+    core int64/uint64 types, for compatibility with EXT_disjoint_timer_query
+    (Bug 10449).
