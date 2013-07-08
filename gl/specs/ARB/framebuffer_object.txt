@@ -56,8 +56,8 @@ Status
 
 Version
 
-    Last Modified Date: October 2, 2011
-    Revision: #34
+    Last Modified Date: June 29, 2013
+    Revision: #35
 
 Number
 
@@ -590,6 +590,13 @@ New Tokens
     GetFloatv, and GetDoublev:
 
         MAX_SAMPLES                     0x8D57
+        FRAMEBUFFER_BINDING             0x8CA6 // alias DRAW_FRAMEBUFFER_BINDING
+        DRAW_FRAMEBUFFER_BINDING        0x8CA6
+        READ_FRAMEBUFFER_BINDING        0x8CAA
+        RENDERBUFFER_BINDING            0x8CA7
+        MAX_COLOR_ATTACHMENTS           0x8CDF
+        MAX_RENDERBUFFER_SIZE           0x84E8
+
 
     Returned by CheckFramebufferStatus():
 
@@ -601,16 +608,6 @@ New Tokens
         FRAMEBUFFER_UNSUPPORTED                       0x8CDD
         FRAMEBUFFER_INCOMPLETE_MULTISAMPLE            0x8D56
         FRAMEBUFFER_UNDEFINED                         0x8219
-
-    Accepted by the <pname> parameters of GetIntegerv, GetFloatv, 
-    and GetDoublev:
-
-        FRAMEBUFFER_BINDING             0x8CA6 // alias DRAW_FRAMEBUFFER_BINDING
-        DRAW_FRAMEBUFFER_BINDING        0x8CA6
-        READ_FRAMEBUFFER_BINDING        0x8CAA
-        RENDERBUFFER_BINDING            0x8CA7
-        MAX_COLOR_ATTACHMENTS           0x8CDF
-        MAX_RENDERBUFFER_SIZE           0x84E8
 
     Returned by GetError():
 
@@ -4531,3 +4528,8 @@ Revision History
           GetFramebufferAttachmentParameteriv to use DEPTH and STENCIL as
           attachment names, rather than the nonexistent DEPTH_BUFFER and
           STENCIL_BUFFER tokens (Bug 8102).
+
+    #35 June 29, 2013: Jon Leech
+        - Rearrange New Tokens section to allow all simple queries to be
+          queried with GetBooleanv as well, since it's defined to work for
+          all of them (Bug 6838).

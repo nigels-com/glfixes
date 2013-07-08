@@ -26,8 +26,8 @@ Status
 
 Version
 
-    Last Modified Date:         01/27/2011
-    NVIDIA Revision:            6
+    Last Modified Date:         07/01/2013
+    NVIDIA Revision:            7
 
 Number
 
@@ -88,7 +88,8 @@ New Procedures and Functions
     void EndTransformFeedbackEXT(void);
 
     void TransformFeedbackVaryingsEXT(uint program, sizei count,
-                                      const char **varyings, enum bufferMode);
+                                      const char * const *varyings, 
+                                      enum bufferMode);
     void GetTransformFeedbackVaryingEXT(uint program, uint index,
                                         sizei bufSize, sizei *length, 
                                         sizei *size, enum *type, char *name);
@@ -444,6 +445,7 @@ Operation)
     recorded in transform feedback mode.  This set is specified by the command
 
       void TransformFeedbackVaryingsEXT(uint program, sizei count,
+                                        const char * const *varyings, 
                                         const char **varyings, 
                                         enum bufferMode)
 
@@ -1199,7 +1201,11 @@ Issues
 Revision History
 
       Rev.    Date    Author    Changes
-      ----  --------  --------  -----------------------------------------
+      ----  --------  --------  ---------------------------------------------
+       7    07/01/13  Jon Leech Change type of TransformFeedbackVaryingsEXT
+                                parameter from 'const char **varyings' to
+                                'const char * const *varyings' (Bug 10231). 
+
        6    01/27/11  Jon Leech Change return value for start/size queries
                                 when no buffer bound from -1 to zero, to
                                 match state tables (Bug 7318).

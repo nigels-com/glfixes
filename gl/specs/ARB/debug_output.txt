@@ -29,8 +29,8 @@ Status
         
 Version
     
-    Last Modified Date: April 16, 2013
-    Author Revision: 16
+    Last Modified Date: July 8, 2013
+    Author Revision: 17
 
 Number
 
@@ -139,7 +139,7 @@ New Procedures and Functions
                                const char* buf);
 
     void DebugMessageCallbackARB(DEBUGPROCARB callback,
-                                 void* userParam);
+                                 const void* userParam);
     
     uint GetDebugMessageLogARB(uint count,
                                sizei bufsize,
@@ -164,7 +164,7 @@ New Types
                                               enum severity,
                                               sizei length,
                                               const char* message,
-                                              void* userParam);
+                                              const void* userParam);
 
     Note that this function pointer is defined as having the
     same calling convention as the GL functions.
@@ -373,7 +373,7 @@ Additions to Chapter 5 of the OpenGL 4.0 Core Specification
     messages using the command
     
         void DebugMessageCallbackARB(DEBUGPROCARB callback,
-                                     void* userParam);
+                                     const void* userParam);
         
     with <callback> storing the address of the callback function.  This
     function's prototype must follow the type definition of
@@ -851,6 +851,11 @@ Issues
                    messages into the message log.
 
 Revision History
+
+    (v17, 2013-07-08, Jon Leech)
+        - Change type of userParam parameter to DebugMessageCallbackARB and
+          GLDEBUGPROCARB from 'void *' to 'const void *' to match GL core
+          and KHR_debug (Bug 10083).
 
     (v16, 2013-04-16, Jon Leech)
         - Fix type of <ids> parameter in GetDebugMessageLog body (Bug 10083)
