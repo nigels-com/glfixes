@@ -33,7 +33,7 @@ Status
 
 Version
 
-    Version 6, December 1, 2010
+    DRAFT Version 7, June 12, 2013
 
 Number
 
@@ -195,18 +195,20 @@ Additions to Chapter 2 of the EGL 1.2 Specification (EGL Operation)
       +-------------------------+--------------------------------------------+
        Table aaa.  Legal values for eglCreateImageKHR <target> parameter
 
-    Attributes names accepted in <attrib_list> are shown in Table bbb,
-    together with the default values used if an attribute is not included in
+    Attribute names accepted in <attrib_list> are shown in Table bbb,
+    together with the <target> for which each attribute name is valid, and
+    the default value used for each attribute if it is not included in
     <attrib_list>.
 
-      +-----------------------------+-------------------------+---------------+
-      | Attribute                   | Description             | Default Value |
-      +-----------------------------+-------------------------+---------------+
-      | EGL_NONE                    | Marks the end of the    | N/A           |
-      |                             | attribute-value list    |               |
-      | EGL_IMAGE_PRESERVED_KHR     | Whether to preserve     | EGL_FALSE     |
-      |                             | pixel data              |               |
-      +-----------------------------+-------------------------+---------------+
+      +-------------------------+----------------------+-----------+---------------+
+      | Attribute               | Description          | Valid     | Default Value |
+      |                         |                      | <target>s |               |
+      +-------------------------+----------------------+-----------+---------------+
+      | EGL_NONE                | Marks the end of the | All       | N/A           |
+      |                         | attribute-value list |           |               |
+      | EGL_IMAGE_PRESERVED_KHR | Whether to preserve  | All       | EGL_FALSE     |
+      |                         | pixel data           |           |               |
+      +-------------------------+----------------------+-----------+---------------+
        Table bbb.  Legal attributes for eglCreateImageKHR <attrib_list> parameter
 
     This command returns an EGLImageKHR object corresponding to the image
@@ -241,6 +243,10 @@ Additions to Chapter 2 of the EGL 1.2 Specification (EGL Operation)
 
        * If an attribute specified in <attrib_list> is not one of the
          attributes listed in Table bbb, the error EGL_BAD_PARAMETER is
+         generated.
+
+       * If an attribute specified in <attrib_list> is not a valid attribute
+         for <target>, as shown in Table bbb, the error EGL_BAD_MATCH is
          generated.
 
        * If the resource specified by <dpy>, <ctx>, <target>, <buffer> and
@@ -710,6 +716,11 @@ Issues
 
 
 Revision History
+
+#7  (Jon Leech, June 12, 2013)
+    - Add a column to table bbb specifying which <target>s attributes are
+      valid for, and a generic error if an attribute doesn't match <target>
+      (Bug 10151).
 
 #6  (Jon Leech, December 1, 2010)
     - Clarify wording of EGL_BAD_CONTEXT error.

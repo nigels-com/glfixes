@@ -8,7 +8,7 @@
 # the Khronos Bugzilla for Product "EGL", component "Registry".
 #
 # Current version at http://www.khronos.org/registry/egl/
-# $Revision: 21903 $ on $Date: 2013-06-07 17:42:56 -0700 (Fri, 07 Jun 2013) $
+# $Revision: 22283 $ on $Date: 2013-07-08 03:44:11 -0700 (Mon, 08 Jul 2013) $
 
 # EGL Versioning
 Extensions define:
@@ -393,7 +393,9 @@ EGLContextProfileMask enum:
 	CONTEXT_OPENGL_CORE_PROFILE_BIT_KHR		= 0x00000001
 	CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT_KHR	= 0x00000002
 
-# Khronos_future_use: 0x30FE-0x30FF
+EGL_KHR_cl_event enum:
+	SYNC_CL_EVENT_KHR				= 0x30FE
+	SYNC_CL_EVENT_COMPLETE_KHR			= 0x30FF
 
 ###############################################################################
 

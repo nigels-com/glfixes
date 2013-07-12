@@ -33,7 +33,7 @@ Status
 
 Version
 
-    Version 9, March 28, 2012
+    DRAFT Version 11, June 26, 2013
 
 Number
 
@@ -185,28 +185,28 @@ Additions to the EGL Image (EGL_KHR_image) Specification:
     Add the following to Table bbb (Legal attributes for eglCreateImageKHR
     <attr_list> parameter), Section 2.5.1 (EGLImage Specification)
 
-      +----------------------------+--------------------------------+---------+
-      |                            |                                | Default |
-      |  Attribute                 |  Description                   | Value   |
-      +----------------------------+--------------------------------+---------+
-      |  EGL_GL_TEXTURE_LEVEL_KHR  |  Specifies the mipmap level    |   0     |
-      |                            |  used as the EGLImage source.  |         |
-      |                            |  Must be part of the complete  |         |
-      |                            |  texture object <buffer>       |         |
-      +----------------------------+--------------------------------+---------+
+      +---------------------------+-------------------------------+----------------------------+---------+
+      |                           |                               | Valid                      | Default |
+      | Attribute                 |  Description                  | <target>s                  | Value   |
+      +---------------------------+-------------------------------+----------------------------+---------+
+      | EGL_GL_TEXTURE_LEVEL_KHR  |  Specifies the mipmap level   | EGL_GL_TEXTURE_2D_KHR,     |   0     |
+      |                           |  used as the EGLImage source. | EGL_GL_TEXTURE_CUBE_MAP_*, |         |
+      |                           |  Must be part of the complete | EGL_GL_TEXTURE_3D_KHR      |         |
+      |                           |  texture object <buffer>      |                            |         |
+      +---------------------------+-------------------------------+----------------------------+---------+
 
     If KHR_gl_texture_3D_image is supported:
 
-      +-----------------------------+-------------------------------+---------+
-      |                             |                               | Default |
-      |  Attribute                  |  Description                  | Value   |
-      +-----------------------------+-------------------------------+---------+
-      |  EGL_GL_TEXTURE_ZOFFSET_KHR |  Specifies the depth offset   |   0     |
-      |                             |  of the image to use as the   |         |
-      |                             |  EGLImage source.  Must be    |         |
-      |                             |  part of the complete texture |         |
-      |                             |  object <buffer>              |         |
-      +-----------------------------+-------------------------------+---------+
+      +----------------------------+------------------------------+----------------------------+---------+
+      |                            |                              | Valid                      | Default |
+      | Attribute                  |  Description                 | <target>s                  | Value   |
+      +----------------------------+------------------------------+----------------------------+---------+
+      | EGL_GL_TEXTURE_ZOFFSET_KHR |  Specifies the depth offset  | EGL_GL_TEXTURE_3D_KHR      |   0     |
+      |                            |  of the image to use as the  |                            |         |
+      |                            |  EGLImage source.  Must be   |                            |         |
+      |                            |  part of the complete texture|                            |         |
+      |                            |  object <buffer>             |                            |         |
+      +----------------------------+------------------------------+----------------------------+---------+
 
 
     Insert the following text after paragraph 3 ("If <target> is
@@ -281,6 +281,10 @@ Additions to the EGL Image (EGL_KHR_image) Specification:
           or EGL_GL_TEXTURE_3D_KHR and <buffer> is not the name of a
           texture object of type <target>, the error EGL_BAD_PARAMETER
           is generated.
+
+        * If <target> is EGL_GL_RENDERBUFFER_KHR and <buffer> is not the
+          name of a renderbuffer object, the error EGL_BAD_PARAMETER is
+          generated.
 
         * If EGL_GL_TEXTURE_LEVEL_KHR is nonzero, and <target> is
           EGL_GL_TEXTURE_2D_KHR, EGL_GL_TEXTURE_CUBE_MAP_*_KHR or
@@ -375,6 +379,11 @@ Issues
 
 Revision History
 
+#11 (Jon Leech, June 26, 2013) - Add error when specifying a renderbuffer
+    <target> and not passing a renderbuffer object (Bug 10384).
+#10 (Jon Leech, June 13, 2013) - Add a "Valid Targets" column to table bbb
+    for new attributes, matching proposed changes in EGL_KHR_image_base (Bug
+    10151).
 #9  (Jon Leech, March 28, 2012)
     - Fix spelling of *CUBE_MAP* tokens (from CUBEMAP) to agree with
       eglext.h.
