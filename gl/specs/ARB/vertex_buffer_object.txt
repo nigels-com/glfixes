@@ -35,6 +35,11 @@ Contact
     Matt Craighead, NVIDIA Corporation (mcraighead 'at' nvidia.com)
     Kurt Akeley, NVIDIA Corporation (kakeley 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
     None.

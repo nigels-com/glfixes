@@ -20,6 +20,11 @@ Contributors
     Jon Leech, Khronos
     Members of the ARB Working group.
 
+Notice
+
+    Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.
@@ -27,8 +32,8 @@ Status
 
 Version
 
-    Last Modified Date: July 26, 2012
-    Revision:  16
+    Last Modified Date: July 15, 2013
+    Revision: 18
 
 Number
 
@@ -95,7 +100,7 @@ Overview
 
     In OpenGL, other than the course-grained extension mechanism, many 
     limitations of, or limited support for, an internalformat can only 
-    be signalled by failing an operation or by operating at reduced
+    be signaled by failing an operation or by operating at reduced
     performance.  Thus, such tests often involve attempts to create resources,
     using them in specific ways and benchmarking the operations to
     find out if it is supported in the desired form, and at a required 
@@ -819,18 +824,11 @@ Additions to Chapter 6 of the OpenGL 4.2 (Core Profile) Specification
       If the resource or operation is not supported, NONE is returned.
  
     - VIEW_COMPATIBILITY_CLASS: The compatibility class of the resource when
-      used as a texture view is returned in <params>. This corresponds to
-      the value from the /Class/ column in Table 3.X.2. The possible values
-      returned are VIEW_CLASS_128_BITS, VIEW_CLASS_96_BITS,
-      VIEW_CLASS_64_BITS, VIEW_CLASS_48_BITS, VIEW_CLASS_32_BITS,
-      VIEW_CLASS_24_BITS, VIEW_CLASS_16_BITS, VIEW_CLASS_8_BITS,
-      VIEW_CLASS_S3TC_DXT1_RGB, VIEW_CLASS_S3TC_DXT1_RGBA,
-      VIEW_CLASS_S3TC_DXT3_RGBA, VIEW_CLASS_S3TC_DXT5_RGBA,
-      VIEW_CLASS_RGTC1_RED, VIEW_CLASS_RGTC2_RG, VIEW_CLASS_BPTC_UNORM, and
-      VIEW_CLASS_BPTC_FLOAT.
-      If the resource has no other formats that are compatible, if resource
-      does not support views, or if texture views are not supported, 
-      NONE is returned.
+      used as a texture view is returned in <params>. The compatibility
+      class is one of the values from the /Class/ column of Table 3.X.2. If
+      the resource has no other formats that are compatible, the resource
+      does not support views, or if texture views are not supported, NONE is
+      returned.
 
     If <pname> is not one of the preceeding names, the error INVALID_ENUM
     is generated."
@@ -1326,7 +1324,11 @@ Issues
 Revision History
 
     Rev.  Date        Author    Changes
-    ----  ----------  --------  -----------------------------------------
+    ----  ----------  --------  --------------------------------------------
+     18   07/15/2013  Jon Leech Remove redundant list of VIEW_CLASS_* tokens 
+                                (Bug 10518).
+     17   07/11/2013  Jon Leech Clarify relationship between VIEW_CLASS_*
+                                tokens and ARB_texture_view (Bug 10518).
      16   07/26/2012  dgkoch    rename GENERATE_MIPMAP to MANUAL_GENERATE_MIPMAP 
                                 for clarity and restore previous token (9330)
      15   07/24/2012  dgkoch    Fix several token values (bug 9325)

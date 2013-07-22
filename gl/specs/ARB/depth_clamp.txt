@@ -11,6 +11,11 @@ Contact
     Jon Leech (jon 'at' alumni.caltech.edu)
     Mark J. Kilgard, NVIDIA Corporation (mjk 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2009-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete. Approved by the ARB on July 3, 2009.
@@ -41,10 +46,10 @@ Overview
     In some rendering applications such as shadow volumes, it is useful
     to allow line and polygon primitives to be rasterized without
     clipping the primitive to the near or far clip volume planes (side
-    clip volume planes clip normally).	Without the near and far clip
+    clip volume planes clip normally).  Without the near and far clip
     planes, rasterization (pixel coverage determination) in X and Y
     can proceed normally if we ignore the near and far clip planes.
-    The one major issue is that fragments of a	primitive may extend
+    The one major issue is that fragments of a  primitive may extend
     beyond the conventional window space depth range for depth values
     (typically the range [0,1]).  Rather than discarding fragments that
     defy the window space depth range (effectively what near and far
@@ -67,11 +72,11 @@ Issues
     of generating the equivalent capping geometry that would need to be
     drawn at the near or far clip plane to have the same effect as not
     clipping to the near and far clip planes and clamping interpolated
-    depth values outside the window-space depth range.	Should the
+    depth values outside the window-space depth range.  Should the
     functionality be described this way?
 
-      RESOLUTION:  No.	Describing the functionality as capping is
-      fairly involved.	Eliminating far and near plane clipping and
+      RESOLUTION:  No.  Describing the functionality as capping is
+      fairly involved.  Eliminating far and near plane clipping and
       clamping interpolated depth values to the depth range is much
       simpler to specify.
 
@@ -107,7 +112,7 @@ Issues
       position is set to point behind the far clip plane such that the
       pre-clamped zw is 2.5.  Because depth clamping is enabled the
       raster position zw is clamped to the current near and far depth
-      range values.  Say these values are 0.1 and 0.9.	So 2.5 is clamped
+      range values.  Say these values are 0.1 and 0.9.  So 2.5 is clamped
       to 0.9.
 
       Now consider what happens if a bitmap (or image rectangle) is
@@ -131,7 +136,7 @@ Issues
 
       RESOLUTION:  The depth clamp operation occurs as part of the depth
       test so depth clamping occurs AFTER any depth replace operation
-      in the pipeline.	A depth replace operation can reassign the
+      in the pipeline.  A depth replace operation can reassign the
       fragment's zw, but depth clamping if enabled will subsequently
       clamp this new zw.
 
@@ -163,7 +168,7 @@ New Tokens
     and by the <pname> parameter of GetBooleanv, GetIntegerv,
     GetFloatv, and GetDoublev:
 
-	DEPTH_CLAMP				      0x864F
+        DEPTH_CLAMP                                   0x864F
 
 Additions to Chapter 2 of the OpenGL 3.1 Specification (OpenGL Operation)
 
@@ -229,10 +234,10 @@ New State
 
 Add to table 6.7, transformation state
 
-Get Value	Type  Get Command  Initial Value  Description	  Sec	   Attribute
---------------	----  -----------  -------------  --------------  ------   ----------------
-DEPTH_CLAMP	B     IsEnabled    False	  Depth clamping  2.12.2   transform/enable
-						  on/off
+Get Value       Type  Get Command  Initial Value  Description     Sec      Attribute
+--------------  ----  -----------  -------------  --------------  ------   ----------------
+DEPTH_CLAMP     B     IsEnabled    False          Depth clamping  2.12.2   transform/enable
+                                                  on/off
 
 New Implementation Dependent State
 

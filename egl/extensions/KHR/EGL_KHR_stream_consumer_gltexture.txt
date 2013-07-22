@@ -16,6 +16,11 @@ Contacts
 
     Acorn Pooley, NVIDIA  (apooley 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2011-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.
@@ -72,7 +77,7 @@ the EGL_KHR_stream extension with this:
 
     3.10.2.1 GL Texture External consumer
 
-    Call 
+    Call
 
         EGLBoolean eglStreamConsumerGLTextureExternalKHR(
                     EGLDisplay dpy,
@@ -147,8 +152,8 @@ the EGL_KHR_stream extension with this:
     timeout is zero and the function does not block.
 
     eglStreamConsumerAcquireKHR returns EGL_TRUE if an image frame was
-    successfully latched into the texture object. 
-    
+    successfully latched into the texture object.
+
     If the producer has not inserted any new image frames since the
     last call to eglStreamConsumerAcquireKHR then
     eglStreamConsumerAcquireKHR will "latch" the same image frame it
@@ -161,10 +166,10 @@ the EGL_KHR_stream extension with this:
     inserted image frames are discarded and the
     eglStreamConsumerAcquireKHR will "latch" the most recently
     inserted image frame.
-    
+
     The application can use the value of EGL_CONSUMER_FRAME_KHR to
-    identify which image frame was actually latched. 
-    
+    identify which image frame was actually latched.
+
     On failure the texture becomes "incomplete", eglStreamConsumerAcquireKHR
     returns EGL_FALSE, and an error is generated.
 
@@ -307,7 +312,7 @@ Issues
         EGL or a GL extension?
 
         UNRESOLVED
-        
+
         SUGGESTION: need both
 
         See issue 1 in GL_NV_EGL_stream_consumer_external.txt
@@ -337,7 +342,7 @@ Issues
                   texture object
            or - connect an EGLImage to the GL_TEXTURE_EXTERNAL
                   texture object
-        
+
         D) Make the call to EGLStream implicitly call
         eglStreamConsumerReleaseKHR if an image is acquired.  This
         requires the GL context is current to the thread that deletes

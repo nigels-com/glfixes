@@ -17,9 +17,14 @@ Contact
 
     Dale Kirkland, NVIDIA (dkirkland 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2004-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
-    Complete. Appprove by the ARB on October 22, 2004.
+    Complete. Approved by the ARB on October 22, 2004.
 
 Version
 

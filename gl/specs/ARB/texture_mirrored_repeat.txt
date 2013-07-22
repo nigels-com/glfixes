@@ -12,6 +12,11 @@ Contact
     Dan Brokenshire, IBM, brokensh at us.ibm.com
     Pat Brown, Nvidia, pbrown at nvidia.com
 
+Notice
+
+    Copyright (c) 2001-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete. Approved by ARB on October 16, 2001.

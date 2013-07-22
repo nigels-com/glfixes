@@ -265,7 +265,7 @@ Issues
 
         RESOLVED: Undefined.  This may ease implementation constraints
         slightly.  Apps must not rely at all on the contents of the
-        region where the readback is occuring until it is known to be
+        region where the readback is occurring until it is known to be
         finished.
 
         An example of how an implementation might conceivably require

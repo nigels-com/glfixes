@@ -18,7 +18,12 @@ Contributors
     James Jones, NVIDIA Corporation
     Pat Brown, NVIDIA
     Remi Arnaud, Sony
-    
+
+Notice
+
+    Copyright (c) 2010-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete. Approved by the ARB at the 2010/01/22 F2F meeting.
@@ -26,8 +31,8 @@ Status
 
 Version
 
-    Last Modified Date:         2012/04/13
-    Revision:                   11
+    Last Modified Date:         2013/07/11
+    Revision:                   12
 
 Number
 
@@ -86,16 +91,16 @@ New Tokens
 
 Additions to Chapter 2 of the OpenGL 3.2 (Core Profile) Specification
 (OpenGL Operation)
-  
+
     (Modify table 2.1, Correspondence of command suffix letters to GL argument
      types, p. 14) Add one new type and suffix:
-  
+
     Letter Corresponding GL Type
     ------ ---------------------
     ui64   uint64
-    
+
     (Modify Section 2.14, Asynchronous Queries, p. 89)
-    
+
     Asynchronous queries provide a mechanism to return information about the
     processing of a sequence of GL commands. There are three query types
     supported by the GL. Transform feedback queries (see section 2.16) return
@@ -113,7 +118,7 @@ Additions to Chapter 4 of the OpenGL 3.2 Specification (Per-Fragment
 Operations and the Framebuffer)
 
     None.
-    
+
 Additions to Chapter 5 of the OpenGL 3.2 Specification (Special Functions)
 
     (Add new Section 5.4, Timer Queries, p. 246)
@@ -131,12 +136,12 @@ Additions to Chapter 5 of the OpenGL 3.2 Specification (Special Functions)
     timer is finally stopped, the elapsed time (in nanoseconds) is written to
     the corresponding query object as the query result value, and the query
     result for that object is marked as available.
-    
+
     If the elapsed time overflows the number of bits, <n>, available to hold
     elapsed time, its value becomes undefined.  It is recommended, but not
     required, that implementations handle this overflow case by saturating at
     2^n - 1.
-    
+
     A timer query object is created with the command
 
          void QueryCounter(uint id, enum target);
@@ -145,21 +150,21 @@ Additions to Chapter 5 of the OpenGL 3.2 Specification (Special Functions)
     name is marked as used and associated with a new query object of type
     TIMESTAMP. Otherwise <id> must be the name of an existing query object
     of that type.
-    
+
     When QueryCounter is called, the GL records the current time into
     the corresponding query object. The time is recorded after all previous
     commands on the GL client and server state and the framebuffer have been
     fully realized. When the time is recorded, the query result for that
     object is marked available. QueryCounter timer queries can be used
     within a BeginQuery / EndQuery block where the <target> is TIME_ELAPSED
-    and it does not affect the result of that query object. 
+    and it does not affect the result of that query object.
 
 ** core profile only
     QueryCounter fails and an INVALID\_OPERATION error is generated if <id>
     is not a name returned from a previous call to GenQueries, or if such a
     name has since been deleted with DeleteQueries.
 ** end core profile only
-    
+
     If <id> is already in use within a BeginQuery / EndQuery block, or if
     <id> is the name of an existing query object whose type does not match
     <target>, an INVALID_OPERATION error is generated.
@@ -182,7 +187,7 @@ Requests)
     The command
 
       boolean IsQuery(uint id);
-  
+
     returns TRUE if <id> is the name of a query object. If <id> is zero, or if
     <id> is a non-zero value that is not the name of a query object, IsQuery
     returns FALSE.
@@ -195,34 +200,34 @@ Requests)
     occlusion queries, PRIMITIVES_GENERATED and
     TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN for primitive queries, or
     TIME_ELAPSED or TIMESTAMP for timer queries.
-    
+
     If <pname> is CURRENT_QUERY, the name of the currently active query for
     <target>, or zero if no query is active, will be placed in <params>.
-    
+
     If <pname> is QUERY_COUNTER_BITS, the implementation-dependent number of
     bits used to hold the query result for <target> will be placed in
     <params>.  The number of query counter bits may be zero, in which case
     the counter contains no useful information.
-    
+
     For primitive queries (PRIMITIVES_GENERATED and
     TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN) if the number of bits is non-zero,
     the minimum number of bits allowed is 32.
-    
+
     For occlusion queries (SAMPLES_PASSED), if the number of bits is
     non-zero, the minimum number of bits allowed is a function of the
     implementation's maximum viewport dimensions (MAX_VIEWPORT_DIMS). The
     counter must be able to represent at least two overdraws for every pixel
     in the viewport. The formula to compute the allowable minimum value
     (where <n> is the minimum number of bits) is:
-    
+
         n = min(32, ceil(log_2(maxViewportWidth * maxViewportHeight * 2))).
-        
+
     For timer queries (TIME_ELAPSED and TIMESTAMP), if the number
     of bits is non-zero, the minimum number of bits allowed is 30 which
     will allow at least 1 second of timing.
 
     The state of a query object can be queried with the commands
-    
+
         void GetQueryObjectiv(uint id, enum pname, int *params);
         void GetQueryObjectuiv(uint id, enum pname, uint *params);
         void GetQueryObjecti64v(uint id, enum pname, int64 *params);
@@ -231,29 +236,29 @@ Requests)
     If <id> is not the name of a query object, or if the query object named
     by <id> is currently active, then an INVALID_OPERATION error is
     generated.
-    
+
     If <pname> is QUERY_RESULT, then the query object's result
     value is returned as a single integer in <params>. If the value is so
     large in magnitude that it cannot be represented with the requested type,
     then the nearest value representable using the requested type is
     returned. If the number of query counter bits for target is zero, then
     the result is returned as a single integer with the value zero.
-    
+
     There may be an indeterminate delay before the above query returns. If
     <pname> is QUERY_RESULT_AVAILABLE, FALSE is returned if such a delay
     would be required; otherwise TRUE is returned. It must always be true
     that if any query object returns a result available of TRUE, all queries
     of the same type issued prior to that query must also return TRUE.
-    
+
     Querying the state for any given query object forces that occlusion
     query to complete within a finite amount of time.
-    
+
     If multiple queries are issued using the same object name prior to
     calling GetQueryObject[u]i[64]v, the result and availability information
     returned will always be from the last query issued. The results from any
     queries before the last one will be lost if they are not retrieved before
     starting a new query on the same <target> and <id>.
-    
+
 Interactions with NV_present_video and NV_video_capture
 
     The GL timer recorded by this extension is the same timer as that used
@@ -272,14 +277,14 @@ Errors
     The error INVALID_ENUM is generated if BeginQuery or EndQuery is called
     where <target> is not SAMPLES_PASSED,
     TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN or TIME_ELAPSED.
-    
+
     The error INVALID_ENUM is generated if GetQueryiv is called where
     <target> is not SAMPLES_PASSED, TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN,
     TIME_ELAPSED or TIMESTAMP.
-    
+
     The error INVALID_ENUM is generated if QueryCounter is called where
     <target> is not TIMESTAMP.
-    
+
     The error INVALID_OPERATION is generated if QueryCounter is called
     on a query object that is already in use inside a BeginQuery/EndQuery.
 
@@ -289,7 +294,7 @@ Errors
     (in the core profile only)
     The error INVALID_OPERATION is generated if QueryCounter is called
     where <id> is not a name returned from a previous call to GenQueries,
-    or if such a name has since been deleted with DeleteQueries. 
+    or if such a name has since been deleted with DeleteQueries.
 
     The error INVALID_OPERATION is generated if GetQueryObjecti64v or
     GetQueryObjectui64v is called where <id> is not the name of a query
@@ -312,7 +317,7 @@ Examples
     (1) Here is some rough sample code that demonstrates the intended usage
         of this extension.
 
-        GLint queries[N];
+        GLuint queries[N];
         GLint available = 0;
         // timer queries can contain more than 32 bits of data, so always
         // query them using the 64 bit types to avoid overflow
@@ -360,11 +365,11 @@ Examples
         frame to wait for query results.  Ideally, the collection of results
         would be delayed one frame to minimize the amount of time spent
         waiting for the GPU to finish rendering.
-        
+
     (2) This example is basically the same as the example above but uses
         QueryCounter instead.
-    
-        GLint queries[N+1];
+
+        GLuint queries[N+1];
         GLint available = 0;
         // timer queries can contain more than 32 bits of data, so always
         // query them using the 64 bit types to avoid overflow
@@ -404,10 +409,10 @@ Examples
             // least significant 32 bits.
             AdjustObjectLODBasedOnDrawTime(i, timeElapsed);
         }
-        
+
     (3) This example demonstrates how to measure the latency between GL
         commands reaching the server and being realized in the framebuffer.
-        
+
         /* Submit a frame of rendering commands */
         while (!doneRendering) {
           ...
@@ -468,7 +473,7 @@ Issues from EXT_timer_query
     RESOLVED:  Via two new datatypes, int64EXT and uint64EXT, and their
     corresponding GetQueryObject entry points.  These types hold integer
     values and have a minimum bit width of 64.
-    
+
     UPDATE: This resolution was relevant for EXT_timer_query and OpenGL 2.0.
     OpenGL 3.2 now has int64 and uint64 datatypes as part of the core spec.
 
@@ -500,7 +505,7 @@ Issues from EXT_timer_query
     implementation -- not having to deal with queries with different result
     sizes, for example.  It would also mean that BeginQuery() with a query
     object of the "wrong" type would result in an INVALID_OPERATION error.
-    
+
     UPDATE: This resolution was relevant for EXT_timer_query and OpenGL 2.0.
     Since EXT_transform_feedback has since been incorporated into the core,
     the resolution is that BeginQuery will generate error INVALID_OPERATION
@@ -525,18 +530,18 @@ Issues from EXT_timer_query
     started as well.
 
    (9) What should the new 64 bit integer type be called?
-   
+
     RESOLVED: The new types will be called GLint64EXT/GLuint64EXT  The new
     command suffixes will be i64 and ui64.  These names clearly convey the
     minimum size of the types.  These types are similar to the C99 standard
     type int_least64_t, but we use names similar to the C99 optional type
     int64_t for simplicity.
-    
+
     UPDATE: This resolution was relevant for EXT_timer_query and OpenGL 2.0.
     OpenGL 3.2 now has int64 and uint64 datatypes as part of the core spec.
     The i64 suffix already exists in OpenGL 3.2 and the ui64 suffix has been
     added as part of this extension.
-    
+
 Issues
 
    (10) What about tile-based implementations? The effects of a command are
@@ -545,13 +550,13 @@ Issues
         the amount of time needed to render the same primitives is not
         consistent, which conflicts with issue (8) above. The time depends on
         how early or late in the scene it is placed.
-        
+
     RESOLVED: The current language supports tile-based rendering okay as it
     is written. Developers are warned that using timers on tile-based
     implementation may not produce results they expect since rendering is not
     done in a linear order. Timing results are calculated when the frame is
     completed and may depend on how early or late in the scene it is placed.
-    
+
    (11) Can the GL implementation use different clocks to implement the
         TIME_ELAPSED and TIMESTAMP queries?
 
@@ -574,7 +579,10 @@ Revision History
 
     Rev.  Date          Author    Changes
     ----  ------------  --------  -------------------------------------------
-    11    Apr 13, 2012  Jon Leech Clean up error language, add error for 
+    12    Jul 11, 2013  Jon Leech Change type of queries[] in sample code to
+                                  GLuint (public bug 432).
+
+    11    Apr 13, 2012  Jon Leech Clean up error language, add error for
                                   query objects which are not of type
                                   TIMESTAMP, and add issue 12 (Khronos
                                   internal bug 7662)
@@ -585,7 +593,7 @@ Revision History
 
      9    Dec 18, 2009  pdaniell  Remove ambiguous language about "interuptions
                                   to the GL". Rename CURRENT_TIME to TIMESTAMP.
-     
+
      8    Dec 10, 2009  Jon Leech Improve description of QueryCounter command.
 
      7    Dec 10, 2009  Jon Leech Replace non-ASCII punctuation.
@@ -600,7 +608,7 @@ Revision History
 
      4    Oct 23, 2009  pdaniell  Add support for TIMESTAMP_ARB as a <value>
                                   to Get* to allow synchronous time query.
-     
+
      3    Oct 15, 2009  pdaniell  Resolved Issue (10). Added Interactions
                                   with NV_present_video and NV_video_capture
                                   section.

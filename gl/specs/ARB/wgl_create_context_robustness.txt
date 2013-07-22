@@ -10,6 +10,11 @@ Contact
 
     Jon Leech (jon 'at' alumni.caltech.edu)
 
+Notice
+
+    Copyright (c) 2010-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete. Approved by the ARB on June 9, 2010.

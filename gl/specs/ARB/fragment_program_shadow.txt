@@ -20,6 +20,11 @@ Contact
 
     Bill Licea-Kane, AMD (bill.licea-kane 'at' amd.com)
 
+Notice
+
+    Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
     Unknown, but Microsoft claims to own intellectual property

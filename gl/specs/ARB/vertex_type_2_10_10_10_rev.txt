@@ -18,6 +18,11 @@ Contributors
     Jon Leech
     Contributors to the OES_vertex_type_10_10_10_2 extension
 
+Notice
+
+    Copyright (c) 2010-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete. Approved by the ARB at the 2010/01/22 F2F meeting.

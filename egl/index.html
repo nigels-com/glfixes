@@ -435,11 +435,16 @@
      <a href="api/1.0/EGL/egl.h"> &lt;EGL/egl.h&gt; </a>. </li>
 </ul>
 
-<h6> Enumerant and Function Registry </h6>
+<h6> EGL XML API Registry </h6>
 
-<p> The database from which EGL enumerant ranges are reserved is called
-    <tt><a href="api/eglenum.spec">eglenum.spec</a></tt>. It is in a
-    custom text file format. </p>
+<p> The database from which EGL enumerant ranges are reserved and the
+    <tt>eglext.h</tt> header is built is called <tt> <a
+    href="https://cvs.khronos.org/svn/repos/ogl/trunk/doc/registry/public/api/egl.xml">
+    egl.xml </a> </tt>. It uses an XML schema and processing scripts
+    shared with the OpenGL Registry, and currently lives together with
+    OpenGL Registry materials <a
+    href="https://cvs.khronos.org/svn/repos/ogl/trunk/doc/registry/public/api/">
+    in Khronos' public-access Subversion tree.</a> </p>
 <h6> <a name="otherextspecs"></a>
      Extension Specifications</h6>
 <ol>
@@ -545,6 +550,10 @@
 <li value=58> <a href="extensions/EXT/EGL_EXT_client_extensions.txt">EGL_EXT_client_extensions</a>
 </li>
 <li value=59> <a href="extensions/EXT/EGL_EXT_platform_x11.txt">EGL_EXT_platform_x11</a>
+</li>
+<li value=60> <a href="extensions/KHR/EGL_KHR_cl_event.txt">EGL_KHR_cl_event</a>
+</li>
+<li value=61> <a href="extensions/KHR/EGL_KHR_get_all_proc_addresses.txt">EGL_KHR_get_all_proc_addresses</a>
 </li>
 </ol>
 </div> <!-- END mainformat -->

@@ -10,16 +10,23 @@ Contact
 
     Mark Kilgard, NVIDIA (mjk 'at' nvidia.com)
 
+Contributors
+
+    Jeff Bolz, NVIDIA
+    Chris Dalton, NVIDIA
+
 Status
 
     Released in NVIDIA Driver Release 275.33 (June 2011).
 
     Substantially optimized in NVIDIA Driver Release 301.42 (May 2012).
 
+    Further optimized in NVIDIA Driver Release 314.xx (February 2013).
+
 Version
 
-    Last Modified Date:  July 27, 2012
-    Version:             5
+    Last Modified Date:  June 25, 2013
+    Version:             7
 
 Number
 
@@ -311,7 +318,7 @@ Overview
     from the font face.
 
         GLfloat yMinMax[2];
-        glGetPathMetricRangeNV(GL_FONT_Y_MIN_BOUNDS_NV|GL_FONT_Y_MAX_BOUNDS_NV,
+        glGetPathMetricRangeNV(GL_FONT_Y_MIN_BOUNDS_BIT_NV|GL_FONT_Y_MAX_BOUNDS_BIT_NV,
                                glyphBase, /*count*/1,
                                2*sizeof(GLfloat),
                                yMinMax);
@@ -1066,7 +1073,7 @@ Additions to Chapter 5 of the OpenGL 3.2 (unabridged) Specification
                                                                         ncp.y = cp.y+c[1]   npep.y = cp.y+c[1]
     --------------------------  --------------------------------------  ------------------  ---------------------
     CLOSE_PATH_NV               x = (1-t)*cp.x + t*sp.x                 ncp.x = sp.x        npep.x = sp.x
-                                y = (1-t)*cp.y + t*sp.y                 ncp.y = sp.x        npep.y = sp.y
+                                y = (1-t)*cp.y + t*sp.y                 ncp.y = sp.y        npep.y = sp.y
     RESTART_PATH_NV             -                                       ncp.x = 0           npep.x = 0
                                                                         ncp.y = 0           npep.y = 0
     --------------------------  --------------------------------------  ------------------  ---------------------
@@ -4364,11 +4371,11 @@ State Requests)
                                                              fonts.
         FONT_ASCENDER_BIT_NV                     21          Typographic ascender of the font face.  For font
                                                              formats not supplying this information, this value
-                                                             is the same as FONT_Y_MAX_BOUNDS_NV.
+                                                             is the same as FONT_Y_MAX_BOUNDS_BIT_NV.
         FONT_DESCENDER_BIT_NV                    22          Typographic descender of the font face (always a
                                                              positive value).  For font formats not supplying
                                                              this information, this value is the same as
-                                                             FONT_Y_MIN_BOUNDS_NV.
+                                                             FONT_Y_MIN_BOUNDS_BIT_NV.
         FONT_HEIGHT_BIT_NV                       23          Vertical distance between two consecutive baselines
                                                              in the font face (always a positive value).
         FONT_MAX_ADVANCE_WIDTH_BIT_NV            24          Maximal advance width for all glyphs in this font
@@ -4377,7 +4384,7 @@ State Requests)
         FONT_MAX_ADVANCE_HEIGHT_BIT_NV           25          Maximal advance height for all glyphs in this
                                                              font face for vertical layout.  For font formats
                                                              not supplying this information, this value is the
-                                                             same as FONT_HEIGHT_NV.
+                                                             same as FONT_HEIGHT_BIT_NV.
         FONT_UNDERLINE_POSITION_BIT_NV           26          Position of the underline line for this font face.
                                                              This position is the center of the underling stem.
         FONT_UNDERLINE_THICKNESS_BIT_NV          27          Thickness of the underline of this font face.
@@ -4500,9 +4507,9 @@ State Requests)
     belong to the same font face; otherwise, zero is returned.  If the
     vertical kerning metrics are unavailable for the font face or either
     named path object does not exist, zero is returned for kerningY.
-    (When the FONT_KERNING_NV or GLYPH_KERNING_NV glyph metrics are
-    false for the first path object name, kerningX and kerningY must
-    return zero.)
+    (When the FONT_HAS_KERNING_BIT_NV or GLYPH_HAS_KERNING_BIT_NV glyph
+    metrics are false for the first path object name, kerningX and
+    kerningY must return zero.)
 
     Spacing information (horizontal advance or kerning) in a path object
     is not changed if the path's commands, coordinates, or parameters
@@ -4899,6 +4906,20 @@ NVIDIA Implementation Details
 
     These transformType tokens are not operational (generate
     GL_INVALID_ENUM errors) if used in 275.xx or 280.xx drivers.
+
+    Performance improvements:
+
+    Release 304.xx and on substantially improves the performance of
+    path rendering stencil and cover operations on NVIDIA Fermi- and
+    Kepler-based GPUs (GeForce 400 Series and on).
+
+    Release 314.xx improves the performance of initially specifying or
+    modifying a path object prior to stenciling or covering the paths.
+
+    Bugs:
+
+    Due to NVIDIA driver bug 1315267, path objects were not actually
+    shared among contexts prior to Driver release 320.xx (July 2013).
 
 Issues
 
@@ -5512,9 +5533,9 @@ Issues
 
         The (x1,y1,x2,y2) format is also consistent with the way
         FreeType2 provides per-font face bounds information through
-        the GL_FONT_X_MIN_BOUNDS_NV, GL_FONT_Y_MIN_BOUNDS_NV,
-        GL_FONT_X_MAX_BOUNDS_NV, and GL_FONT_Y_MAX_BOUNDS_NV metric
-        queries.
+        the GL_FONT_X_MIN_BOUNDS_BIT_NV, GL_FONT_Y_MIN_BOUNDS_BIT_NV,
+        GL_FONT_X_MAX_BOUNDS_BIT_NV, and GL_FONT_Y_MAX_BOUNDS_BIT_NV
+        metric queries.
 
     36. Why is font loading part of this extension?  Shouldn't OpenGL
         stick with just rendering and not involved itself with fonts?
@@ -6964,6 +6985,9 @@ Issues
         serialization requirements than for "bindable" objects such as
         programs and textures.
 
+        Due to NVIDIA driver bug 1315267, path objects were not actually
+        shared among contexts prior to Driver release 320.xx (July 2013).
+
    109. Should the kerning separations be 2D offsets or 1D horizontal
         translations?
 
@@ -7430,3 +7454,5 @@ Revision History
       5   07/27/12 mjk        Fix getPathName return value sense;
                               Issue #129 and #130; UTF-8 and UTF-16
                               decoding fixes.
+      6   05/23/13 mjk        Fix typo in Table 5.pathEquations
+      7   06/25/13 mjk        Fix token names missing _BIT_NV suffix

@@ -18,6 +18,11 @@ Contacts
     Acorn Pooley, NVIDIA  (apooley 'at' nvidia.com)
     Marcus Lorentzon, ST-Ericsson AB (marcus.xm.lorentzon 'at' stericsson.com)
 
+Notice
+
+    Copyright (c) 2009-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.
@@ -58,7 +63,7 @@ Overview
     responsible for indicating the latency when that is possible (the
     latency is the time that elapses between the time it is retrieved
     from the EGLStream until the time it is displayed to the user).
-    
+
     Some APIs are stream oriented (examples: OpenMAX IL, OpenMAX AL).
     These APIs may be connected directly to an EGLStream as a producer
     or consumer.  Once a stream oriented producer is "connected" to an
@@ -92,7 +97,7 @@ Overview
     EGLStream, retrieve it, and display it to the user in the time
     indicated by EGL_CONSUMER_LATENCY_USEC_KHR.  The producer controls
     when the image frame will be displayed by inserting it into the
-    stream at time 
+    stream at time
         T - EGL_CONSUMER_LATENCY_USEC_KHR
     where T is the time that the image frame is intended to appear to
     the user.
@@ -130,15 +135,15 @@ Glossary
     The point in time when the producer inserts the image frame into
     the EGLStream.  This is the "Image Frame Intended Display Time"
     minus the "Consumer Latency".
-    
+
     Image Frame Intended Display Time
     The point in time when the user should first see the image frame
     on the display screen.
-    
+
     Image Frame Actual Display Time
     The point in time when the user actually first sees the image frame
     on the display screen.
-    
+
     Consumer Latency
     The elapsed time between an image frame's "Image Frame Insertion
     Time" and its "Image Frame Actual Display Time".  The consumer is
@@ -147,7 +152,7 @@ Glossary
     calculate the "Image Frame Insertion Time" for each image frame.
     The application has access to this value through the
     EGL_CONSUMER_LATENCY_USEC attribute.
-    
+
     Producer
     The entity that inserts image frames into the EGLStream.  The
     producer is responsible for timing: it must insert image frames at
@@ -274,7 +279,7 @@ Color Buffer"
 
     3.10.1 Creating an EGLStream
 
-    Call 
+    Call
 
         EGLStreamKHR eglCreateStreamKHR(
             EGLDisplay    dpy,
@@ -289,7 +294,7 @@ Color Buffer"
     Connecting an EGLStream to a consumer" and section "3.10.3
     Connecting an EGLStream to a producer").  It must be connected to
     a consumer before being connected to a producer.
-    
+
     There is no way for the application to query the size,
     colorformat, or number of buffers used in the EGLStream (although
     these attributes may be available from the producer's API or the
@@ -323,7 +328,7 @@ Color Buffer"
     3.10.2 Connecting an EGLStream to a consumer.
 
     Before using an EGLStream it must be connected to a consumer.
-    
+
     Refer to sections 3.10.2.1 and following for different ways to
     connect a consumer to an EGLStream.
 
@@ -339,14 +344,14 @@ Color Buffer"
 
     When an EGLStream is connected to a consumer its state becomes
     EGL_STREAM_STATE_CONNECTING_KHR.
-    
+
 
 
     3.10.2.1 No way to connect consumer to EGLStream
 
     EGL does not currently define any mechanisms to connect a consumer
     to an EGLStream.  These will be added via additional extensions.
-    
+
     (Example: See extension specification EGL_KHR_stream_consumer_gltexture)
 
 
@@ -363,7 +368,7 @@ Color Buffer"
     EGLStream, at the time that the first image frame is inserted into
     the EGLStream, or any time in between (this is left up to the
     implementation).
-    
+
     It is the responsibility of the producer to convert the images to
     a form that the consumer can consume.  The producer may negotiate
     with the consumer as to what formats and sizes the consumer is
@@ -406,7 +411,7 @@ Color Buffer"
        OpenMAX_AL_EGLStream_DataLocator
     .)
 
-    
+
     3.10.4 EGLStream Attributes
 
     Each EGLStream contains a set of attributes and values as
@@ -426,7 +431,7 @@ Color Buffer"
 
     3.10.4.1 Setting EGLStream Attributes
 
-    Call 
+    Call
 
         EGLBoolean eglStreamAttribKHR(
             EGLDisplay   dpy,
@@ -470,8 +475,8 @@ Color Buffer"
             EGLint      *value);
 
     to query the value of an EGLStream's attribute with type EGLint
-    and call 
-    
+    and call
+
         EGLBoolean eglQueryStreamu64KHR(
             EGLDisplay   dpy,
             EGLStreamKHR stream,
@@ -582,13 +587,13 @@ Color Buffer"
     This attribute indicates the number of microseconds that elapse (on
     average) from the time that an image frame is inserted into the
     EGLStream by the producer until the image frame is visible to the
-    user. 
-    
+    user.
+
     It is the responsibility of the consumer to set this value.  Some
     types of consumers may simply set this value to zero or an
     implementation constant value.  Other consumers may adjust this
     value dynamically as conditions change.
-    
+
     It is the responsibility of the producer to use this information to
     insert image frames into the EGLStream at an appropriate time.
     The producer should insert each image frame into the stream at the
@@ -607,14 +612,14 @@ Color Buffer"
 
     3.10.5.1 EGLStream operation in mailbox mode
 
-    The EGLStream conceptually operates as a mailbox. 
-    
+    The EGLStream conceptually operates as a mailbox.
+
     When the producer has a new image frame it empties the mailbox and
     inserts the new image frame into the mailbox.  If the image frame
     is intended to be displayed at time T then the producer must
     insert it into the EGLStream at time
         T - EGL_CONSUMER_LATENCY_USEC_KHR
-    
+
     The consumer retrieves the image frame from the mailbox and
     examines it.  When the consumer is finished examining the image
     frame it is either placed back in the mailbox (if the mailbox is
@@ -681,7 +686,7 @@ Issues
         In general, the producer is responsible for inserting image
         frames into the EGLStream at the correct time.  The correct
         time depends on how the image frames are being created and on
-        the value of EGL_CONSUMER_LATENCY_USEC_KHR.  
+        the value of EGL_CONSUMER_LATENCY_USEC_KHR.
 
     4.  What are the exact semantics of the consumer?
 
@@ -845,7 +850,7 @@ Revision History
         - clean up the language of recently produced, supplied, pending images
 
     #7  (October 19, 2009) Acorn Pooley
-        - Update based on comments from Robert and Bruce 
+        - Update based on comments from Robert and Bruce
         - remove mention of OpenWF
         - make EGL_BUFFER_REPLACE_KHR be the default EGL_SWAP_MODE_KHR
         - add issue 5

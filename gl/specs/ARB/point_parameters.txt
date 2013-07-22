@@ -10,6 +10,11 @@ Contact
 
     Michael Gold, NVIDIA (gold 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2000-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Approved by the ARB, 21 June 2000.

@@ -10,6 +10,11 @@ Contact
 
     Brian Paul (brian_e_paul 'at' yahoo.com)
 
+Notice
+
+    Copyright (c) 2002-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.

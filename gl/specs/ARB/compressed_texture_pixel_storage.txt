@@ -18,6 +18,11 @@ Contributors
     Pat Brown, NVIDIA
     Patrick Doane, Blizzard
 
+Notice
+
+    Copyright (c) 2011-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete. Approved by the ARB on 2011/06/20.

@@ -10,14 +10,19 @@ Contact
 
     Pat Brown, NVIDIA Corporation (pbrown 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2008-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Approved by the ARB on July 11, 2008
 
 Version
 
-    Last Modified Date:         6/30/2008
-    Revision:                   6
+    Last Modified Date:         7/9/2008
+    Revision:                   7
 
 Number
 
@@ -416,7 +421,7 @@ New State
     Get Value                           Type    Get Command  Value  Description                 Sec.    Attribute
     ---------------------------------   ----    ----------- ------- --------------------------- ------  ---------
     TEXTURE_BUFFER_DATA_STORE_          nxZ+    GetIntegerv    0    Buffer object bound as      3.8.12  texture
-      BINDING_EXT                                                   the data store for the 
+      BINDING_ARB                                                   the data store for the 
                                                                     active image unit's buffer
                                                                     texture
     TEXTURE_BUFFER_FORMAT_ARB           nxZ+    GetIntegerv  LUMIN- Internal format for the     3.8.12  texture
@@ -705,6 +710,10 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+      7   07/09/13  Jon Leech Correct suffix on
+                              TEXTURE_BUFFER_DATA_STORE_BINDING_ARB
+                              (was EXT).
+
       6   6/30/08   js        Trivial conversion to ARB from EXT
 
 

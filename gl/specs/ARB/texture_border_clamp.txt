@@ -10,6 +10,11 @@ Contact
 
     Patrick R. Brown, Intel Corporation (patrick.r.brown 'at' intel.com)
 
+Notice
+
+    Copyright (c) 2000-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.  Approved by the ARB, 20 June 2000

@@ -26,6 +26,11 @@ Contacts
 
     Gary King, NVIDIA Corporation (gking 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2006-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.
@@ -213,13 +218,13 @@ Additions to the EGL Image (EGL_KHR_image) Specification:
     NATIVE_PIXMAP_KHR...") of Section 2.5.1 (EGLImage Specification)
 
     "If <target> is EGL_GL_TEXTURE_2D_KHR, EGL_GL_TEXTURE_3D_KHR,
-    EGL_GL_RENDERBUFFER_KHR, 
+    EGL_GL_RENDERBUFFER_KHR,
     EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_X_KHR,
     EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_X_KHR,
     EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Y_KHR,
     EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Y_KHR,
     EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Z_KHR, or
-    EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_KHR, 
+    EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_KHR,
     <dpy> must be a valid EGLDisplay,
     and <ctx> must be a valid OpenGL ES API context on that display.
 
@@ -332,7 +337,7 @@ Issues
 
         SUGGESTION:  Disallow this operation, and generate an error.
 
-    2.  What happens when one of 
+    2.  What happens when one of
             glTexImage2D
             glCopyTexImage2D
             glCompressedTexImage2D
@@ -345,7 +350,7 @@ Issues
         RESOLVED: the EGLImage sibling is orphaned.  The mipmap level and the
         EGLImage no longer have any connection.
 
-    3.  What happens when one of 
+    3.  What happens when one of
             glTexSubImage2D
             glCopyTexSubImage2D
             glCompressedTexSubImage2D
@@ -403,7 +408,7 @@ Revision History
     - Changed requirement to egl 1.2 to include EGLClientBuffer type.
     - formatting to keep within 80 columns
     - added error condition descriptions for <dpy> and <ctx>
-    - changed error condition for EGL_GL_TEXTURE_ZOFFSET_KHR too big to 
+    - changed error condition for EGL_GL_TEXTURE_ZOFFSET_KHR too big to
         be EGL_BAD_PARAMETER
 #2  (November 27, 2006)
     - Changed OES token to KHR

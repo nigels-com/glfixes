@@ -6,6 +6,11 @@ Name Strings
 
     GL_ARB_compatibility
 
+Notice
+
+    Copyright (c) 2009-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete. Approved by the ARB on 2009/02/17.

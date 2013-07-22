@@ -22,11 +22,16 @@ Contacts
     Jon Leech (jon 'at' alumni.caltech.edu)
     Gary King, NVIDIA Corporation (gking 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2008-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete. Functionality approved (as part of KHR_image) by the
     Khronos Board of Promoters on February 11, 2008.
- 
+
     Split into KHR_image_base and KHR_image_pixmap approved by the
     Khronos Technical Working Group on November 19, 2008.
 
