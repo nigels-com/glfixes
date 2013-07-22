@@ -14,6 +14,11 @@ Contributors
 
     Members of the Khronos OpenGL ARB TSG
 
+Notice
+
+    Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.
@@ -21,8 +26,8 @@ Status
 
 Version
 
-    Last Modified Date: July 10, 2012
-    Revision:           18
+    Last Modified Date: July 11, 2013
+    Revision:           19
 
 Number
 
@@ -31,7 +36,7 @@ Number
 Dependencies
 
     OpenGL 2.0 is required.
-    
+
     This extension is written against the OpenGL 4.2 Compatibility Profile
     Specification (January 19, 2012).
 
@@ -100,16 +105,16 @@ IP Status
 
 New Procedures and Functions
 
-      void GetProgramInterfaceiv(uint program, enum programInterface, 
+      void GetProgramInterfaceiv(uint program, enum programInterface,
                                  enum pname, int *params);
       uint GetProgramResourceIndex(uint program, enum programInterface,
                                    const char *name);
-      void GetProgramResourceName(uint program, enum programInterface, 
-                                  uint index, sizei bufSize, sizei *length, 
+      void GetProgramResourceName(uint program, enum programInterface,
+                                  uint index, sizei bufSize, sizei *length,
                                   char *name);
-      void GetProgramResourceiv(uint program, enum programInterface, 
-                                uint index, sizei propCount, 
-                                const enum *props, sizei bufSize, 
+      void GetProgramResourceiv(uint program, enum programInterface,
+                                uint index, sizei propCount,
+                                const enum *props, sizei bufSize,
                                 sizei *length, int *params);
       int GetProgramResourceLocation(uint program, enum programInterface,
                                      const char *name);
@@ -366,7 +371,7 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
 
       * uniforms declared as atomic counters;
 
-      * members of a uniform block; 
+      * members of a uniform block;
 
       * built-in inputs, outputs, and uniforms (starting with "gl_"); and
 
@@ -378,7 +383,7 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
 
     The command
 
-      void GetProgramInterfaceiv(uint program, enum programInterface, 
+      void GetProgramInterfaceiv(uint program, enum programInterface,
                                  enum pname, int *params);
 
     queries a property of the interface <programInterface> in program
@@ -413,7 +418,7 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
     TESS_CONTROL_SUBROUTINE_UNIFORM, TESS_EVALUATION_SUBROUTINE_UNIFORM,
     GEOMETRY_SUBROUTINE_UNIFORM, FRAGMENT_SUBROUTINE_UNIFORM, or
     COMPUTE_SUBROUTINE_UNIFORM.
-    
+
     Each entry in the active resource list for an interface is assigned a
     unique unsigned integer index in the range 0..<N>-1, where <N> is the
     number of entries in the active resource list.  The command
@@ -442,10 +447,10 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
     "gl_NextBuffer", "gl_SkipComponents1", "gl_SkipComponents2",
     "gl_SkipComponents3", and "gl_SkipComponents4".
 
-    The command 
+    The command
 
-      void GetProgramResourceName(uint program, enum programInterface, 
-                                  uint index, sizei bufSize, sizei *length, 
+      void GetProgramResourceName(uint program, enum programInterface,
+                                  uint index, sizei bufSize, sizei *length,
                                   char *name);
 
     returns the name string assigned to the single active resource with an
@@ -470,11 +475,11 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
     can be queried by calling GetProgramInterfaceiv with a <pname> of
     MAX_NAME_LENGTH.
 
-    The command 
+    The command
 
-      void GetProgramResourceiv(uint program, enum programInterface, 
-                                uint index, sizei propCount, 
-                                const enum *props, sizei bufSize, 
+      void GetProgramResourceiv(uint program, enum programInterface,
+                                uint index, sizei propCount,
+                                const enum *props, sizei bufSize,
                                 sizei *length, int *params);
 
     returns values for multiple properties of a single active resource with an
@@ -498,14 +503,14 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
       ---------------------------  ----------------------------------------
       NAME_LENGTH                  all but ATOMIC_COUNTER_BUFFER
 
-      TYPE                         UNIFORM, PROGRAM_INPUT, PROGRAM_OUTPUT, 
-                                     TRANSFORM_FEEDBACK_VARYING, 
+      TYPE                         UNIFORM, PROGRAM_INPUT, PROGRAM_OUTPUT,
+                                     TRANSFORM_FEEDBACK_VARYING,
                                      BUFFER_VARIABLE
 
       ARRAY_SIZE                   UNIFORM, BUFFER_VARIABLE, PROGRAM_INPUT,
                                      PROGRAM_OUTPUT, VERTEX_SUBROUTINE_
-                                     UNIFORM, TESS_CONTROL_SUBROUTINE_UNIFORM, 
-                                     TESS_EVALUATION_SUBROUTINE_UNIFORM, 
+                                     UNIFORM, TESS_CONTROL_SUBROUTINE_UNIFORM,
+                                     TESS_EVALUATION_SUBROUTINE_UNIFORM,
                                      GEOMETRY_SUBROUTINE_UNIFORM, FRAGMENT_
                                      SUBROUTINE_UNIFORM, COMPUTE_SUBROUTINE_
                                      UNIFORM, TRANSFORM_FEEDBACK_VARYING
@@ -781,7 +786,7 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
 
     Additionally, the command
 
-      void GetActiveAttrib(uint program, uint index, 
+      void GetActiveAttrib(uint program, uint index,
                            sizei bufSize, sizei *length, int *size,
                            enum *type, char *name);
 
@@ -804,7 +809,7 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
     vertex shader input variables are enumerated, including the special
     built-in inputs gl_VertexID and gl_InstanceID.
 
-    The command 
+    The command
 
       int GetAttribLocation(uint program, const char *name);
 
@@ -847,8 +852,8 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
 
       int GetUniformLocation(uint program, const char *name)
 
-      void GetActiveUniformName(uint program, uint uniformIndex, 
-                                sizei bufSize, sizei *length, 
+      void GetActiveUniformName(uint program, uint uniformIndex,
+                                sizei bufSize, sizei *length,
                                 char *uniformName);
 
     are equivalent to calling
@@ -860,13 +865,13 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
 
     The command
 
-      void GetUniformIndices(uint program, sizei uniformCount, 
+      void GetUniformIndices(uint program, sizei uniformCount,
                              const char **uniformNames, uint *uniformIndices);
 
     is equivalent to
 
       for (int i = 0; i < uniformCount; i++) {
-        uniformIndices[i] = 
+        uniformIndices[i] =
           GetProgramResourceIndex(program, UNIFORM, uniformNames[i];
       }
 
@@ -880,14 +885,14 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
 
       const enum props[] = { ARRAY_SIZE, TYPE };
       GetProgramResourceName(program, UNIFORM, index, bufSize, length, name);
-      GetProgramResourceiv(program, UNIFORM, index, 
+      GetProgramResourceiv(program, UNIFORM, index,
                            1, &props[0], 1, NULL, size);
-      GetProgramResourceiv(program, UNIFORM, index, 
+      GetProgramResourceiv(program, UNIFORM, index,
                            1, &props[1], 1, NULL, (int *) type);
 
     The command
 
-      void GetActiveUniformsiv(uint program, sizei uniformCount, 
+      void GetActiveUniformsiv(uint program, sizei uniformCount,
                                const uint *uniformIndices, enum pname,
                                int *params);
 
@@ -928,7 +933,7 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
       uint GetUniformBlockIndex(uint program, const char *uniformBlockName);
 
       void GetActiveUniformBlockName(uint program, uint uniformBlockIndex,
-                                     sizei bufSize, sizei length, 
+                                     sizei bufSize, sizei length,
                                      char *uniformBlockName);
 
     are equivalent to calling
@@ -1072,7 +1077,7 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
     Dedicated commands are provided to determine properties of active
     subroutines and active subroutine uniforms.  The commands
 
-      uint GetSubroutineIndex(uint program, enum shadertype, 
+      uint GetSubroutineIndex(uint program, enum shadertype,
                               const char *name);
 
       void GetActiveSubroutineName(uint program, enum shadertype, uint index,
@@ -1082,22 +1087,22 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
 
       GetProgramResourceIndex(program, programInterface, name);
 
-      GetProgramResourceName(program, programInterface, index, bufsize, 
+      GetProgramResourceName(program, programInterface, index, bufsize,
                              length, name);
 
     where <programInterface> is taken from Table X.5 according to the value of
     <shadertype>.
-      
+
     The commands
 
       void GetSubroutineUniformLocation(uint program, enum shadertype,
                                         const char *name);
 
       void GetActiveSubroutineUniformName(uint program, enum shadertype,
-                                          uint index, sizei bufsize, 
+                                          uint index, sizei bufsize,
                                           sizei *length, char *name);
 
-      void GetActiveSubroutineUniformiv(uint program, enum shadertype, 
+      void GetActiveSubroutineUniformiv(uint program, enum shadertype,
                                         uint index, enum pname, int *values);
 
     are equivalent to
@@ -1107,7 +1112,7 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
       GetProgramResourceName(program, programInterface, index, bufsize, length,
                              name);
 
-      GetProgramResourceiv(program, programInterface, index, 1, &pname, 
+      GetProgramResourceiv(program, programInterface, index, 1, &pname,
                            maxSize, NULL, values);
 
     where <programInterface> is taken from Table X.6 according to the value of
@@ -1129,8 +1134,8 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
 
     Additionally, the dedicated command
 
-      void GetTransformFeedbackVarying(uint program, uint index, 
-                                       sizei bufSize, sizei *length, 
+      void GetTransformFeedbackVarying(uint program, uint index,
+                                       sizei bufSize, sizei *length,
                                        sizei *size, enum *type, char *name);
 
     can be used to enumerate properties of a single output variable captured
@@ -1139,11 +1144,15 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
       const enum props[] = { ARRAY_SIZE, TYPE };
       GetProgramResourceName(program, TRANSFORM_FEEDBACK_VARYING, index,
                              bufSize, length, name);
-      GetProgramResourceiv(program, TRANSFORM_FEEDBACK_VARYING, index, 
+      GetProgramResourceiv(program, TRANSFORM_FEEDBACK_VARYING, index,
                            1, &props[0], 1, NULL, size);
-      GetProgramResourceiv(program, TRANSFORM_FEEDBACK_VARYING, index, 
+      GetProgramResourceiv(program, TRANSFORM_FEEDBACK_VARYING, index,
                            1, &props[1], 1, NULL, (int *) type);
 
+
+    GetTransformFeedbackVarying may be used to query any transform
+    feedback varying variable, not just those specified with
+    TransformFeedbackVarying.
 
 Additions to Chapter 3 of the OpenGL 4.2 (Compatibility Profile) Specification
 (Rasterization)
@@ -1176,7 +1185,7 @@ Additions to Chapter 3 of the OpenGL 4.2 (Compatibility Profile) Specification
     or
 
       GetProgramResourceLocationIndex(program, PROGRAM_OUTPUT, name);
-    
+
 
 Additions to Chapter 4 of the OpenGL 4.2 (Compatibility Profile) Specification
 (Per-Fragment Operations and the Frame Buffer)
@@ -1315,10 +1324,10 @@ New State
     MAX_NAME_LENGTH                   nxZ+  GetProgramInterfaceiv     0     maximum name length for     2.14.3
                                                                             active resources
     MAX_NUM_ACTIVE_VARIABLES          nxZ+  GetProgramInterfaceiv     0     maximum number of active    2.14.3
-                                                                            variables for active 
+                                                                            variables for active
                                                                             resources
     MAX_NUM_COMPATIBLE_SUBROUTINES    nxZ+  GetProgramInterfaceiv     0     maximum number of compat-   2.14.3
-                                                                            ible subroutines for 
+                                                                            ible subroutines for
                                                                             subroutine uniforms
 
     Add table, labeled "Program Object Resource State"
@@ -1505,7 +1514,7 @@ Issues
       recursive enumeration (e.g., enumerate "t" as a structure and provide
       "pointers" to a collection of members), or some sort of new property
       that returns a variable-length array of strides.
-          
+
     (7) The ARB_array_of_arrays extension allows shaders to declare
         multi-dimensional arrays that could be enumerated by this API?  How
         should arrays of arrays be enumerated?
@@ -1527,7 +1536,7 @@ Issues
         struct ArrayMid    { ArrayBottom b[3]; };
         uniform ArrayMid   a[5];
 
-     which would enumerate "a[0].b[0].c[0]" through "a[4].b[3].c[0]".  
+     which would enumerate "a[0].b[0].c[0]" through "a[4].b[3].c[0]".
 
      We also apply the top-level array flattening for shader storage block
      members.  For example:
@@ -1640,10 +1649,10 @@ Issues
         glGetProgramInterface(program, GL_PROGRAM_INPUT, GL_ACTIVE_RESOURCES,
                               &nActive);
         VariableInfo *varInfo = malloc(nActive*sizeof(VariableInfo));
-        for (GLuint i = 0; i < nActive; i++) { 
+        for (GLuint i = 0; i < nActive; i++) {
           glGetProgramResourceiv(program, GL_PROGRAM_INPUT, i,
                                  nInputProps, inputProps,
-                                 nActive*nInputProps, NULL, 
+                                 nActive*nInputProps, NULL,
                                  (GLint*) (&varInfo[i]));
         }
 
@@ -1799,7 +1808,7 @@ Issues
          to GetProgramResourceiv()?
 
       RESOLVED:  Use an "int *" to be consistent with all the other
-      "*iv"-style queries.  
+      "*iv"-style queries.
 
       We considered using a "void *" so applications could avoid manual casts
       for cases where the API would be used to fill a structure with
@@ -1856,13 +1865,9 @@ Issues
 
 Revision History
 
-    Revision 18, July 10, 2012 (pbrown)
-      - Specify an INVALID_ENUM error when ATOMIC_COUNTER_BUFFER is passed
-        to GetProgramResourceIndex or GetProgramResourceName.  Clarify that
-        the array element portion of a string passed to
-        GetProgramResourceLocation or GetProgramResourceLocationIndex
-        must not have, a "+" sign, extra leading zeroes, or whitespace (bug
-        9254).
+    Revision 19, July 11, 2013 (Jon Leech)
+      - Clarify that GetTransformFeedbackVarying can be used to query
+        any transform feedback varying variable (Bug 10472).
     Revision 17, July 7, 2012 (pbrown)
       - Specify that "special" built-ins inputs and outputs such as
         "gl_VertexID" should be enumerated in the PROGRAM_INPUT and
@@ -1942,7 +1947,7 @@ Revision History
         transform feedback markers.
       - Add general discussion of locations assigned to active variables.
       - Add interface properties MAX_NUM_ACTIVE_VARIABLES and
-        MAX_NUM_COMPATIBLE_SUBROUTINES. 
+        MAX_NUM_COMPATIBLE_SUBROUTINES.
       - Add resource properties LOCATION and LOCATION_INDEX.
       - Add <bufSize> and <length> parameters to GetProgramResourcesiv.
     Revision 2, March 22, 2012

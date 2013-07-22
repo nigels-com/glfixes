@@ -16,6 +16,11 @@ Contacts
 
     Acorn Pooley, NVIDIA  (apooley 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2011-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.
@@ -72,7 +77,7 @@ Description" in the EGL spec, replace
         EGL_WINDOW_BIT | EGL_PIXMAP_BIT | EGL_PBUFFER_BIT
 with
         EGL_WINDOW_BIT | EGL_PIXMAP_BIT | EGL_PBUFFER_BIT | EGL_STREAM_BIT_KHR
-and replace 
+and replace
         "...cannot be used to create a pbuffer or pixmap."
 with
         "...cannot be used to create a pbuffer, pixmap, or stream."
@@ -121,12 +126,12 @@ the EGL_KHR_stream extension with this:
     eglCreateStreamProducerSurfaceKHR.  This is the estimated time that
     will elapse between the time the image frame is inserted into the
     EGLStream and the time that the image frame will appear to the
-    user.  
+    user.
 
     The image frame is not inserted into the EGLStream until the GL
     has finished rendering it.  Therefore predicting exactly when the
     image frame will be inserted into the stream is nontrivial.
-    
+
     If it is critical that this frame of data reach the screen at a
     particular point in time, then the application can
         - render the frame (using GL/GLES commands)
@@ -147,7 +152,7 @@ the EGL_KHR_stream extension with this:
     cases the application can ignore the value of
     EGL_CONSUMER_LATENCY_USEC_KHR, not call glFinish, and not wait
     before calling eglSwapBuffers.
-    
+
     On failure eglCreateStreamProducerSurfaceKHR returns EGL_NO_SURFACE
     and generates an error.
 
@@ -194,11 +199,11 @@ specification:
     have been inserted into the EGLStream as described in section
     "3.10.5 EGLStream operation" in the EGL_KHR_stream extension
     specification, and the EGL_PRODUCER_FRAME_KHR attribute and
-    EGL_STREAM_STATE_KHR attribute values will reflect this.  
+    EGL_STREAM_STATE_KHR attribute values will reflect this.
 
     The contents of the color buffer and all ancillary buffers are
-    always undefined after calling eglSwapBuffers. 
-    
+    always undefined after calling eglSwapBuffers.
+
     eglSwapBuffers is never synchronized to a video frame when
     <surface> is the producer for an EGLStream (it is as if the
     swapinterval (set by eglSwapInterval, see below section "3.9.3
@@ -241,7 +246,7 @@ Issues
         3 buffers.  One that is the EGLSurface back buffer.  One that
         is waiting for the consumer to acquire.  And one that the
         consumer has acquired and is actively consuming.
-        
+
         RESOLVED: remove the EGL_BUFFER_COUNT_KHR parameter and always
         use 3 buffers.  This attribute can be added back with a
         layered extension later if needed.
@@ -263,7 +268,7 @@ Issues
         RESOLVED: Frames are inserted into the EGLStream as described
         in section "3.10.5 EGLStream operation" in the EGL_KHR_stream
         extension specification.  In particular:
-        
+
             If the value of EGL_STREAM_FIFO_LENGTH_KHR is 0 or if the
             EGL_KHR_stream_fifo extension is not supported then the
             new frame replaces any frames that already exist in the
@@ -349,7 +354,7 @@ Revision History
     #8 (October 12, 2011) Acorn Pooley
         - remove interactions with EGL_KHR_stream_fifo extension (they
           are already decribed in that extension).
-    
+
     #7 (October 11, 2011) Acorn Pooley
         - Add issue 4
         - add changes to section 3.9 of the EGL spec to clarify

@@ -15,6 +15,11 @@ Contact
 
     Rob Mace, NVIDIA (rmace 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2004-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
     No known IP issues.

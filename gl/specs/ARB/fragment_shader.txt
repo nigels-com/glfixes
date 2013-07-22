@@ -34,6 +34,11 @@ Contact
     Barthold Lichtenbelt, 3Dlabs, Inc. (barthold 'at' 3dlabs.com)
     Randi Rost, 3Dlabs, Inc. (rost 'at' 3dlabs.com)
 
+Notice
+
+    Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
     As described in the Contributor License, which can be found at

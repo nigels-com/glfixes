@@ -14,6 +14,12 @@ Contributors
 
     Pat Brown, NVIDIA
     Daniel Koch, TransGaming
+    Jon Leech
+
+Notice
+
+    Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
 
 Status
 
@@ -22,8 +28,8 @@ Status
 
 Version
 
-    Last Modified Date: August 13, 2012
-    Revision: 3
+    Last Modified Date: July 15, 2013
+    Revision: 4
 
 Number
 
@@ -35,6 +41,8 @@ Dependencies
     specification.
 
     ARB_texture_storage or OpenGL 4.2 is required.
+
+    ARB_internalformat_query2 interacts with this extension.
 
     EXT_texture_compression_s3tc interacts with this extension.
 
@@ -88,6 +96,27 @@ New Tokens
         TEXTURE_VIEW_MIN_LAYER                          0x82DD
         TEXTURE_VIEW_NUM_LAYERS                         0x82DE
         TEXTURE_IMMUTABLE_LEVELS                        0x82DF
+
+    Used as compatibility class names in table 3.X.2 (see the "Interactions
+    with ARB_internalformat_query2" section below).
+
+        VIEW_CLASS_128_BITS                             
+        VIEW_CLASS_96_BITS                              
+        VIEW_CLASS_64_BITS                              
+        VIEW_CLASS_48_BITS                              
+        VIEW_CLASS_32_BITS                              
+        VIEW_CLASS_24_BITS                              
+        VIEW_CLASS_16_BITS                              
+        VIEW_CLASS_8_BITS                               
+        VIEW_CLASS_S3TC_DXT1_RGB                        
+        VIEW_CLASS_S3TC_DXT1_RGBA                       
+        VIEW_CLASS_S3TC_DXT3_RGBA                       
+        VIEW_CLASS_S3TC_DXT5_RGBA                       
+        VIEW_CLASS_RGTC1_RED                            
+        VIEW_CLASS_RGTC2_RG                             
+        VIEW_CLASS_BPTC_UNORM                           
+        VIEW_CLASS_BPTC_FLOAT                           
+
 
 Additions to Chapter 2 of the OpenGL 4.2 Specification (OpenGL Operation)
 
@@ -240,37 +269,40 @@ Additions to Chapter 3 of the OpenGL 4.2 Specification (Rasterization)
     that table, or else an INVALID_OPERATION error is generated.
 
     ---------------------------------------------------------------------------
-    | Class      | Internal formats                                           | 
+    | Class                 | Internal formats                                | 
     ---------------------------------------------------------------------------
-    | 128-bit    | RGBA32F, RGBA32UI, RGBA32I                                 |
+    | VIEW_CLASS_128_BITS   | RGBA32F, RGBA32UI, RGBA32I                      |
     ---------------------------------------------------------------------------
-    | 96-bit     | RGB32F, RGB32UI, RGB32I                                    |
+    | VIEW_CLASS_96_BITS    | RGB32F, RGB32UI, RGB32I                         |
     ---------------------------------------------------------------------------
-    | 64-bit     | RGBA16F, RG32F, RGBA16UI, RG32UI, RGBA16I, RG32I, RGBA16,  |
-    |            | RGBA16_SNORM                                               |
+    | VIEW_CLASS_64_BITS    | RGBA16F, RG32F, RGBA16UI, RG32UI, RGBA16I,      |
+    |                       | RG32I, RGBA16, RGBA16_SNORM                     |
     ---------------------------------------------------------------------------
-    | 48-bit     | RGB16, RGB16_SNORM, RGB16F, RGB16UI, RGB16I                |
+    | VIEW_CLASS_48_BITS    | RGB16, RGB16_SNORM, RGB16F, RGB16UI, RGB16I     |
     ---------------------------------------------------------------------------
-    | 32-bit     | RG16F, R11F_G11F_B10F, R32F, RGB10_A2UI, RGBA8UI, RG16UI,  |
-    |            | R32UI, RGBA8I, RG16I, R32I, RGB10_A2, RGBA8, RG16,         |
-    |            | RGBA8_SNORM, RG16_SNORM, SRGB8_ALPHA8, RGB9_E5             |
+    | VIEW_CLASS_32_BITS    | RG16F, R11F_G11F_B10F, R32F,                    |
+    |                       | RGB10_A2UI, RGBA8UI, RG16UI, R32UI,             |
+    |                       | RGBA8I, RG16I, R32I, RGB10_A2, RGBA8, RG16,     |
+    |                       | RGBA8_SNORM, RG16_SNORM, SRGB8_ALPHA8, RGB9_E5  |
     ---------------------------------------------------------------------------
-    | 24-bit     | RGB8, RGB8_SNORM, SRGB8, RGB8UI, RGB8I                     |
+    | VIEW_CLASS_24_BITS    | RGB8, RGB8_SNORM, SRGB8, RGB8UI, RGB8I          |
     ---------------------------------------------------------------------------
-    | 16-bit     | R16F, RG8UI, R16UI, RG8I, R16I, RG8, R16, RG8_SNORM,       |
-    |            | R16_SNORM                                                  |
+    | VIEW_CLASS_16_BITS    | R16F, RG8UI, R16UI, RG8I, R16I, RG8, R16,       |
+    |                       | RG8_SNORM, R16_SNORM                            |
     ---------------------------------------------------------------------------
-    | 8-bit      | R8UI, R8I, R8, R8_SNORM                                    |
+    | VIEW_CLASS_8_BITS     | R8UI, R8I, R8, R8_SNORM                         |
     ---------------------------------------------------------------------------
-    | RGTC1_RED  | COMPRESSED_RED_RGTC1, COMPRESSED_SIGNED_RED_RGTC1          |
+    | VIEW_CLASS_RGTC1_RED  | COMPRESSED_RED_RGTC1,                           |
+    |                       | COMPRESSED_SIGNED_RED_RGTC1                     |
     ---------------------------------------------------------------------------
-    | RGTC2_RG   | COMPRESSED_RG_RGTC2, COMPRESSED_SIGNED_RG_RGTC2            |
+    | VIEW_CLASS_RGTC2_RG   | COMPRESSED_RG_RGTC2,                            |
+    |                       | COMPRESSED_SIGNED_RG_RGTC2                      |
     ---------------------------------------------------------------------------
-    | BPTC_UNORM | COMPRESSED_RGBA_BPTC_UNORM,                                |
-    |            | COMPRESSED_SRGB_ALPHA_BPTC_UNORM                           |
+    | VIEW_CLASS_BPTC_UNORM | COMPRESSED_RGBA_BPTC_UNORM,                     |
+    |                       | COMPRESSED_SRGB_ALPHA_BPTC_UNORM                |
     ---------------------------------------------------------------------------
-    | BPTC_FLOAT | COMPRESSED_RGB_BPTC_SIGNED_FLOAT,                          |
-    |            | COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT                         |
+    | VIEW_CLASS_BPTC_FLOAT | COMPRESSED_RGB_BPTC_SIGNED_FLOAT,               |
+    |                       | COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT              |
     ---------------------------------------------------------------------------
 
         Table 3.X.2: Compatible internal formats for TextureView. Formats in 
@@ -347,21 +379,29 @@ Dependencies on EXT_texture_compression_s3tc
     If EXT_texture_compression_s3tc and EXT_texture_sRGB are supported, then
     Table 3.X.2 is updated to add the following rows:
 
-    ---------------------------------------------------------------------------
-    | Class          | Internal formats                                       | 
-    ---------------------------------------------------------------------------
-    | S3TC_DXT1_RGB  | COMPRESSED_RGB_S3TC_DXT1_EXT,                          | 
-    |                | COMPRESSED_SRGB_S3TC_DXT1_EXT                          |
-    ---------------------------------------------------------------------------
-    | S3TC_DXT1_RGBA | COMPRESSED_RGBA_S3TC_DXT1_EXT,                         | 
-    |                | COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT                    |
-    ---------------------------------------------------------------------------
-    | S3TC_DXT3_RGBA | COMPRESSED_RGBA_S3TC_DXT3_EXT,                         |
-    |                | COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT                    |
-    ---------------------------------------------------------------------------
-    | S3TC_DXT5_RGBA | COMPRESSED_RGBA_S3TC_DXT5_EXT,                         |
-    |                | COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT                    |
-    ---------------------------------------------------------------------------
+    -------------------------------------------------------------------
+    | Class                     | Internal formats                    |
+    -------------------------------------------------------------------
+    | VIEW_CLASS_S3TC_DXT1_RGB  | COMPRESSED_RGB_S3TC_DXT1_EXT,       |
+    |                           | COMPRESSED_SRGB_S3TC_DXT1_EXT       |
+    -------------------------------------------------------------------
+    | VIEW_CLASS_S3TC_DXT1_RGBA | COMPRESSED_RGBA_S3TC_DXT1_EXT,      |
+    |                           | COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT |
+    -------------------------------------------------------------------
+    | VIEW_CLASS_S3TC_DXT3_RGBA | COMPRESSED_RGBA_S3TC_DXT3_EXT,      |
+    |                           | COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT |
+    -------------------------------------------------------------------
+    | VIEW_CLASS_S3TC_DXT5_RGBA | COMPRESSED_RGBA_S3TC_DXT5_EXT,      |
+    |                           | COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT |
+    -------------------------------------------------------------------
+
+Interactions with ARB_internalformat_query2
+
+    The VIEW_CLASS_* tokens used as compatibility class names in table 3.X.2
+    are the same tokens returned by the VIEW_COMPATIBILITY_CLASS query in
+    ARB_internalformat_query2. In this extension they are simply a labelling
+    mechanism and serve no functional purpose in the API, so their numeric
+    values are not specified.
 
 Dependencies on ARB_texture_storage_multisample
 
@@ -531,6 +571,9 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+      4   07/15/13  Jon Leech Change "Class" column of table 3.X.2 from
+                              abstract names to VIEW_CLASS_* enums from
+                              ARB_internalformat_query2 (Bug 10518).
       3   08/13/12  Jon Leech Renumbered from #142 to #124
       2   05/07/12  dgkoch    Added class names to Table 3.X.2
       1             jbolz     Internal revisions.

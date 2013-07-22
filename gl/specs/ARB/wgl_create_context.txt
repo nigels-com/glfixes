@@ -13,6 +13,11 @@ Contact
     Jon Leech (jon 'at' alumni.caltech.edu)
     Michael Gold, NVIDIA (gold 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2009-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
     No known IP claims.
@@ -52,34 +57,34 @@ Overview
 New Procedures and Functions
 
     HGLRC wglCreateContextAttribsARB(HDC hDC, HGLRC hShareContext,
-				     const int *attribList)
+                                     const int *attribList)
 
 New Tokens
 
     Accepted as an attribute name in <*attribList>:
 
-	WGL_CONTEXT_MAJOR_VERSION_ARB		0x2091
-	WGL_CONTEXT_MINOR_VERSION_ARB		0x2092
-	WGL_CONTEXT_LAYER_PLANE_ARB		0x2093
-	WGL_CONTEXT_FLAGS_ARB			0x2094
-	WGL_CONTEXT_PROFILE_MASK_ARB		0x9126
+        WGL_CONTEXT_MAJOR_VERSION_ARB           0x2091
+        WGL_CONTEXT_MINOR_VERSION_ARB           0x2092
+        WGL_CONTEXT_LAYER_PLANE_ARB             0x2093
+        WGL_CONTEXT_FLAGS_ARB                   0x2094
+        WGL_CONTEXT_PROFILE_MASK_ARB            0x9126
 
     Accepted as bits in the attribute value for WGL_CONTEXT_FLAGS in
     <*attribList>:
 
-	WGL_CONTEXT_DEBUG_BIT_ARB		0x0001
-	WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB	0x0002
+        WGL_CONTEXT_DEBUG_BIT_ARB               0x0001
+        WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB  0x0002
 
     Accepted as bits in the attribute value for
     WGL_CONTEXT_PROFILE_MASK_ARB in <*attribList>:
 
-	WGL_CONTEXT_CORE_PROFILE_BIT_ARB	0x00000001
-	WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB 0x00000002
+        WGL_CONTEXT_CORE_PROFILE_BIT_ARB        0x00000001
+        WGL_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB 0x00000002
 
     New errors returned by GetLastError:
 
-	ERROR_INVALID_VERSION_ARB		0x2095
-	ERROR_INVALID_PROFILE_ARB		0x2096
+        ERROR_INVALID_VERSION_ARB               0x2095
+        ERROR_INVALID_PROFILE_ARB               0x2096
 
 Additions to the OpenGL / GLX / GLX Protocol Specificaitons
 
@@ -93,7 +98,7 @@ Additions to the WGL specification
     To create an OpenGL rendering context, call
 
     HGLRC wglCreateContextAttribsARB(HDC hDC, HGLRC hshareContext,
-				     const int *attribList);
+                                     const int *attribList);
 
     If wglCreateContextAttribsARB succeeds, it initializes the context
     to the initial state defined by the OpenGL specification, and
@@ -128,14 +133,14 @@ Additions to the WGL specification
 
       * Any version no less than that requested and no greater than 3.0.
       * Version 3.1, if the GL_ARB_compatibility extension is also
-	implemented.
+        implemented.
       * The compatibility profile of version 3.2 or greater.
 
     If version 3.1 is requested, the context returned may implement
     any of the following versions:
 
       * Version 3.1. The GL_ARB_compatibility extension may or may not
-	be implemented, as determined by the implementation.
+        be implemented, as determined by the implementation.
       * The core profile of version 3.2 or greater.
 
     If version 3.2 or greater is requested, the context returned may
@@ -143,7 +148,7 @@ Additions to the WGL specification
 
       * The requested profile of the requested version.
       * The requested profile of any later version, so long as no
-	features have been removed from that later version and profile.
+        features have been removed from that later version and profile.
 
     Querying the GL_VERSION string with glGetString (or the
     GL_MAJOR_VERSION and GL_MINOR_VERSION values with glGetIntegerv, in
@@ -195,8 +200,8 @@ Additions to the WGL specification
     additional functionality provided by debug contexts may vary
     according to the implementation(fn). In some cases a debug context
     may be identical to a non-debug context.
-	[fn: The ARB Ecosystem TSG is still defining the expected and
-	required features of debug contexts.]
+        [fn: The ARB Ecosystem TSG is still defining the expected and
+        required features of debug contexts.]
 
     If the WGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB is set in
     WGL_CONTEXT_FLAGS_ARB, then a <forward-compatible> context will be
@@ -273,20 +278,20 @@ Additions to the WGL specification
 
     When this extension is supported, calling
 
-	wglCreateContext(hdc)
+        wglCreateContext(hdc)
 
     is equivalent to calling
 
-	wglCreateContextAttribs(hdc,0,NULL).
+        wglCreateContextAttribs(hdc,0,NULL).
 
     Calling
 
-	wglCreateLayerContext(hdc,layer)
+        wglCreateLayerContext(hdc,layer)
 
     is equivalent to calling
 
-	wglCreateContextAttribs(hdc, 0,
-				{ WGL_CONTEXT_LAYER_PLANE, layer, 0 }) .
+        wglCreateContextAttribs(hdc, 0,
+                                { WGL_CONTEXT_LAYER_PLANE, layer, 0 }) .
 
     The legacy context creation routines can only return OpenGL 3.1
     contexts if the GL_ARB_compatibility extension is supported, and can

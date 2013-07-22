@@ -17,8 +17,8 @@ Status
 
 Version
 
-    Last Modified Date:         09/23/2010
-    NVIDIA Revision:            5
+    Last Modified Date:         07/04/2013
+    NVIDIA Revision:            6
 
 Number
 
@@ -382,9 +382,13 @@ Additions to Chapter 2 of the OpenGL 3.0 Specification (OpenGL Operation)
                               | "VOL"
 
     <texAccess>             ::= <textureUseS> "," <texTarget> <optTexOffset>
+                              | <textureUseV> "," <texTarget> <optTexOffset>
 
     <texTarget>             ::= "ARRAYCUBE"
                               | "SHADOWARRAYCUBE"
+
+    <optTexOffset>          ::= /* empty */
+                              | <texOffset>
 
     <texOffset>             ::= "offset" "(" <instOperandV> ")"
 
@@ -409,14 +413,17 @@ Additions to Chapter 2 of the OpenGL 3.0 Specification (OpenGL Operation)
 
     <bufferBinding>         ::= "program" "." "buffer" <arrayRange>
 
-    <textureUseS>           ::= <textureUseV> <scalarSuffix>
+    <textureUseS>           ::= <textureUseV> <texImageUnitComp>
 
-    <textureUseV>           ::= <texVarName> <optArrayMem>
+    <textureUseV>           ::= <texImageUnit>
+                              | <texVarName> <optArrayMem>
 
     <textureUseDS>          ::= "texture" <arrayMemAbs>
 
     <textureUseDM>          ::= <textureUseDS>
                               | "texture" <arrayRange>
+
+    <texImageUnitComp>      ::= <scalarSuffix>
 
 
     Modify Section 2.X.3.1, Program Variable Types
@@ -1058,6 +1065,16 @@ Additions to Chapter 2 of the OpenGL 3.0 Specification (OpenGL Operation)
       TEXTURE textures[] = { texture[0..3] };
       TEX out, coord, textures[2], 2D;     # acts as if all textures are used
       TEX out, coord, texture[1], 3D;
+
+    (Add language describing texture gather component selection)
+
+    The TXG and TXGO instructions provide the ability to assemble a
+    four-component vector by taking the value of a single component of a
+    multi-component texture from each of four texels.  The component selected
+    is identified by the <texImageUnitComp> grammar rule.  Component selection
+    is not supported for any other instruction, and a program will fail to
+    load if <texImageUnitComp> is matched for any texture instruction other
+    than TXG or TXGO.
 
 
     Add New Section 2.X.4.5, Program Memory Access
@@ -3145,6 +3162,10 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+     6    07/04/13  pbrown    Add missing language describing the
+                              <texImageUnitComp> grammar rule for component
+                              selection in TXG and TXGO instructions.
+
      5    09/23/10  pbrown    Add missing constants for {MIN,MAX}_PROGRAM_
                               TEXTURE_GATHER_OFFSET_NV (same as ARB/core).
                               Add missing description for "su" in the opcode

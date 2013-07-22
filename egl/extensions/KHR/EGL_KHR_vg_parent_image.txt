@@ -16,6 +16,11 @@ Contacts
 
     Gary King, NVIDIA Corporation (gking 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2006-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.
@@ -90,7 +95,7 @@ Additions to the EGL Image (EGL_KHR_image) Specification:
         * If <target> is EGL_VG_PARENT_IMAGE_KHR and <ctx> is not a
           valid EGLContext, the error EGL_BAD_CONTEXT is generated.
 
-        * If <target> is EGL_VG_PARENT_IMAGE_KHR and <ctx> is not a valid 
+        * If <target> is EGL_VG_PARENT_IMAGE_KHR and <ctx> is not a valid
           OpenVG context, the error EGL_BAD_MATCH is returned.
 
         * If <target> is EGL_VG_PARENT_IMAGE_KHR and <buffer> is not a handle

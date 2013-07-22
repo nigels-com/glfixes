@@ -17,6 +17,11 @@ Contributors
     Kenneth Russell, Google
     Pat Brown, NVIDIA
 
+Notice
+
+    Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.

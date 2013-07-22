@@ -22,7 +22,8 @@ Contact
 
 Notice
 
-    Copyright NVIDIA Corporation, 2001-2003.
+    Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
 
 IP Status
 

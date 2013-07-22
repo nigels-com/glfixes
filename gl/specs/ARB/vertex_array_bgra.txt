@@ -21,6 +21,11 @@ Contact
     Mark Kilgard, NVIDIA (mjk 'at' nvidia.com)
     Daniel Koch, TransGaming (daniel 'at' transgaming.com)
 
+Notice
+
+    Copyright (c) 2009-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete. Approved by the ARB on July 3, 2009.

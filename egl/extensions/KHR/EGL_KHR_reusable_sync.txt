@@ -22,6 +22,11 @@ Contacts
     Jon Leech (jon 'at' alumni.caltech.edu)
     Robert Palmer (robert.palmer 'at' nokia.com)
 
+Notice
+
+    Copyright (c) 2006-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.

@@ -15,6 +15,11 @@ Contacts
 
     Jon Leech (jon 'at' alumni.caltech.edu)
 
+Notice
+
+    Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.
@@ -75,8 +80,8 @@ Changes to Chapter 3 of the EGL 1.4 Specification (EGL Functions and Errors)
 
    "The command
 
-        EGLint eglWaitSyncKHR(EGLDisplay dpy, 
-                              EGLSyncKHR sync, 
+        EGLint eglWaitSyncKHR(EGLDisplay dpy,
+                              EGLSyncKHR sync,
                               EGLint flags)
 
     is similar to eglClientWaitSyncKHR, but instead of blocking and not
@@ -154,7 +159,7 @@ Changes to Chapter 3 of the EGL 1.4 Specification (EGL Functions and Errors)
     Modify the description of eglDestroySyncKHR to include both client and
     server syncs:
 
-   "... If any eglClientWaitSyncKHR 
+   "... If any eglClientWaitSyncKHR
         * or eglWaitSyncKHR *
     commands are blocking on <sync> when eglDestroySyncKHR is called, they
     will be woken up, as if <sync> were signaled."

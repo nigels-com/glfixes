@@ -18,6 +18,11 @@ Contact
 
     Bill Licea-Kane, ATI Research (bill 'at' ati.com)
 
+Notice
+
+    Copyright (c) 2009-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
     No known IP issues.
@@ -59,7 +64,7 @@ Overview
     Mipmap texture fetches and anisotropic texture fetches
     require an implicit derivatives to calculate rho, lambda
     and/or the line of anisotropy.  These implicit derivatives
-    will be undefined for texture fetches occuring inside
+    will be undefined for texture fetches occurring inside
     non-uniform control flow or for vertex shader texture
     fetches, resulting in undefined texels.
 

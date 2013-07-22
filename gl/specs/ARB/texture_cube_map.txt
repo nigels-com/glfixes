@@ -6,13 +6,14 @@ Name Strings
 
     GL_ARB_texture_cube_map
 
-Notice
-
-    Copyright OpenGL Architectural Review Board, 1999.
-
 Contact
 
     Michael Gold, NVIDIA (gold 'at' nvidia.com)
+
+Notice
+
+    Copyright (c) 1999-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
 
 Status
 

@@ -28,6 +28,11 @@ Contact
 
     Benj Lipchak, AMD (benj.lipchak 'at' amd.com)
 
+Notice
+
+    Copyright (c) 2002-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
     Microsoft claims to own intellectual property related to this 

@@ -16,6 +16,11 @@ Contact
     Jon Leech, SGI (ljp 'at' sgi.com)
     Paula Womack, 3dfx (paulaw 'at' 3dfx.com)
 
+Notice
+
+    Copyright (c) 1999-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Approved by ARB on 12/8/1999.

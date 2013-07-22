@@ -167,7 +167,7 @@ Functions)
     returning from DeleteSync the <sync> name is invalid and can no
     longer be used to refer to the sync object.
 
-  Modify section 5.2.2 "Signalling" (p. 245)
+  Modify section 5.2.2 "Signaling" (p. 245)
 
   (Replace the first paragraph with the following, p. 245)
 

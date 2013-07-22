@@ -11,6 +11,11 @@ Contact
     Bimal Poddar, Intel, bimal.poddar@intel.com
     Paula Womack, Nvidia, PWomack@nvidia.com
 
+Notice
+
+    Copyright (c) 2001-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status 
 
     Complete. Approved by ARB on June 13, 2001

@@ -21,8 +21,8 @@ Status
 
 Version
 
-    Last Modified Date:   March 21, 2012
-    Author Revision:      1
+    Last Modified Date:   May 16, 2013
+    Author Revision:      2
 
 Number
 
@@ -423,7 +423,7 @@ Additions to Chapter 3 of the OpenGL 4.0 Specification (Rasterization)
     CompressedTexSubImage*, and by rendering to a framebuffer object, even if
     the texture object is referenced by one or more texture handles.
 
-    When a sampler parameter is referenced by one or more texture handles, the
+    When a sampler object is referenced by one or more texture handles, the
     sampler parameters of the object may not be changed.  The error
     INVALID_OPERATION is when calling SamplerParameter* functions to modify a
     sampler object referenced by one or more texture handles.
@@ -1401,5 +1401,7 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+     2    05/16/13  pbrown    Fix typo in spec language.
+
      1              jbolz     Internal revisions.
                     pbrown

@@ -14,6 +14,11 @@ Contacts
 
     Acorn Pooley, NVIDIA  (apooley 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2011-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.
@@ -51,7 +56,7 @@ Overview
 
     This extension allows an EGLStream to operate as a fifo rather
     than as a mailbox.
-    
+
     The EGL_KHR_stream extension defines the EGLStream object.
     The EGLStream object works like a 1 entry mailbox, allowing the
     consumer to consume the frame that the producer most recently
@@ -163,7 +168,7 @@ Attributes" in the EGL_KHR_stream extension.
     When EGL_STREAM_FIFO_LENGTH_KHR is greater than 0 then the
     EGLStream operates in fifo mode as described in section "3.10.5.2
     EGLStream operation in fifo mode".
-    
+
     In fifo mode the EGLStream contains up to N image frames, where N
     is the value of the EGL_STREAM_FIFO_LENGTH_KHR attribute.
 
@@ -230,7 +235,7 @@ mailbox mode" in the EGL_KHR_stream extension.
     consume (behavior in this case is described in the documentation
     for each type of consumer - see section "3.10.2 Connecting an
     EGLStream to a consumer").
-    
+
     If the fifo is empty when the consumer is finished consuming an
     image frame then the consumer holds on to the image frame in case
     it needs to be consumed again later (this happens if the consumer
@@ -246,7 +251,7 @@ mailbox mode" in the EGL_KHR_stream extension.
     is stalled until the fifo is no longer full.  When the fifo is not
     empty the EGLStream state is
     EGL_STREAM_STATE_NEW_FRAME_AVAILABLE_KHR.
-    
+
     This operation implies:
 
         - Frames are never discarded until the consumer has examined
@@ -362,8 +367,8 @@ paragraphs:
     fifo.  If there are no new image frames in the fifo then
     eglStreamConsumerAcquireNV will "latch" the same image frame it
     latched last time eglStreamConsumerAcquireNV was called.
-        
-        
+
+
 Issues
     1.  Is this extension useful?
 
@@ -377,13 +382,13 @@ Issues
         developers interested in EGLStream have thought at first that
         they want to use EGLStreams in fifo mode.  Later after
         thinking about it they realize standard mode (non-fifo or
-        "mailbox" mode) is more useful. 
-        
+        "mailbox" mode) is more useful.
+
         Mailbox mode is easier to use and is less confusing for
         aldatalocator-producer, gltexture-consumer usecase which was
         the primary usecase for the extension at the time it was
         devised.
-        
+
         Trying to describe both mailbox mode and fifo mode in
         the same extension made the extension complicated.  It was
         confusing when the timestamps were useful (only in fifo mode).
@@ -402,7 +407,7 @@ Issues
         replacing the fifo mode extension.  By keeping the fifo mode
         functionality segregated into its own extension this would be
         easier to accomplish.
-        
+
 Revision History
 
     #6 (October 12, 2011) Acorn Pooley

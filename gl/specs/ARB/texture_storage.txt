@@ -24,6 +24,11 @@ Contributors
     Lingjun Chen, Qualcomm
     Daniel Koch, Transgaming Inc
 
+Notice
+
+    Copyright (c) 2011-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete. Approved by the ARB on 2011/06/20.

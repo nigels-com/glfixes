@@ -25,7 +25,8 @@ Contact
 
 Notice
 
-    Copyright to be assigned to the ARB.
+    Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
 
 Status
 

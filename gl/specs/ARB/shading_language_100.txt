@@ -12,6 +12,11 @@ Contact
     Barthold Lichtenbelt, NVIDIA (blichtenbelt 'at' nvidia.com)
     Jon Leech, SGI (ljp 'at' sgi.com)
 
+Notice
+
+    Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
     Microsoft claims to own unspecified intellectual property related to

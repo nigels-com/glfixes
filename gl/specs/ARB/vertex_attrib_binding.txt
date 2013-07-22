@@ -15,6 +15,11 @@ Contributors
     Pat Brown, NVIDIA
     Bruce Merry
 
+Notice
+
+    Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.
@@ -22,8 +27,8 @@ Status
 
 Version
 
-    Last Modified Date: August 13, 2012
-    Revision: 2
+    Last Modified Date: July 19, 2013
+    Revision: 3
 
 Number
 
@@ -130,8 +135,9 @@ Additions to Chapter 2 of the OpenGL 2.0 Specification (OpenGL Operation)
     
     The commands
 
-      [Compatibility profile: Keep the named attribute *Pointer commands in 
-                              this list]
+      [Compatibility profile only: Keep the named attribute *Pointer
+                              commands in this list]
+
       void VertexAttribFormat(uint attribindex, int size, enum type, 
                               boolean normalized, uint relativeoffset);
       void VertexAttribIFormat(uint attribindex, int size, enum type, 
@@ -195,6 +201,10 @@ Additions to Chapter 2 of the OpenGL 2.0 Specification (OpenGL Operation)
     buffer object attached to this bindpoint is detached. An INVALID_VALUE 
     error is generated if <bindingindex> is greater than the value of 
     MAX_VERTEX_ATTRIB_BINDINGS.
+      [Core profile only:]
+    An INVALID_OPERATION error is generated if buffer is not zero or a
+    name returned from a previous call to GenBuffers, or if such a name
+    has since been deleted with DeleteBuffers.
     
     The association between a vertex attribute and the vertex buffer binding
     used by that attribute is set by the command
@@ -214,9 +224,11 @@ Additions to Chapter 2 of the OpenGL 2.0 Specification (OpenGL Operation)
     four values. The values within each array element are stored sequentially 
     in memory. However, if size is BGRA, the first, second, third, and fourth 
     values of each array element are taken from the third, second, first, and 
-    fourth values in memory respectively. [Compatibility profile only:] For 
-    each *Pointer command, <pointer> specifies the location in memory of the
-    first value of the first element of the array being specified.
+    fourth values in memory respectively.
+        [Compatibility profile only:]
+    For each *Pointer command, <pointer> specifies the location in
+    memory of the first value of the first element of the array being
+    specified.
 
     The command
 
@@ -580,6 +592,9 @@ Issues
 Revision History
 
     Rev.    Date    Author    Changes
-    ----  --------  --------  -----------------------------------------
+    ----  --------  --------  ------------------------------------------
+      3   07/19/13  Jon Leech Add error to BindVertexBuffer for the core
+                              profile if <buffer> is not a name returned
+                              by GenBuffers (Bug 10486).
       2   08/13/12  Jon Leech Renumbered from #143 to #125
       1             jbolz     Internal revisions.

@@ -15,6 +15,11 @@ Contact
     Pat Brown, NVIDIA Corporation (pbrown 'at' nvidia.com)
     Eric Zolnowski, AMD (eric.zolnowski 'at' amd.com)
 
+Notice
+
+    Copyright (c) 2010-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete. Approved by the ARB at the 2010/01/22 F2F meeting.

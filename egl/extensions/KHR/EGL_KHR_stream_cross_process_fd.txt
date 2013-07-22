@@ -15,6 +15,11 @@ Contacts
 
     Acorn Pooley, NVIDIA  (apooley 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2011-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.
@@ -208,7 +213,7 @@ the EGL_KHR_stream extension
     producer to the EGLStream terminates (normally or abnormally) then
     the EGLStream state becomes EGL_STREAM_STATE_DISCONNECTED_KHR.
 
-    If a process has created an EGLStreamKHR handle either with 
+    If a process has created an EGLStreamKHR handle either with
     eglCreateStreamKHR or eglCreateStreamFromFileDescriptorKHR but has
     not connected a producer or consumer to the stream, and this
     process terminates (normally or abnormally) then this has no
@@ -526,7 +531,7 @@ Revision History
         - Add issue 8.
         - Better define EGLStream behavior when a process terminates.
         - Add Interactions with the EGL_NV_stream_sync extension.
-    
+
     #6  (April 20, 2012) Ian Stewart
         - Fix extension/function names in interactions
         - Removed references to NV_stream_sync.

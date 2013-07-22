@@ -12,6 +12,11 @@ Contact
     Mark Kilgard, NVIDIA Corporation (mjk 'at' nvidia.com)
     Pat Brown, NVIDIA Corporation (pbrown 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
     No known IP issues.

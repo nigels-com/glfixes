@@ -12,6 +12,11 @@ Contact
     Dave Gosselin
     Dan Ginsburg, AMD (dan.ginsburg 'at' amd.com)
 
+Notice
+
+    Copyright (c) 2001-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete. Approved by ARB on February 16, 2001.

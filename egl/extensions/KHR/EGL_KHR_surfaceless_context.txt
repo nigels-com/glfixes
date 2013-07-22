@@ -17,6 +17,11 @@ Contact
 
     Acorn Pooley:   apooley at nvidia dot com
 
+Notice
+
+    Copyright (c) 2010-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Complete.
@@ -41,7 +46,7 @@ Dependencies
 
 Overview
 
-    These extensions allows an application to make a context current by 
+    These extensions allows an application to make a context current by
     passing EGL_NO_SURFACE for the write and read surface in the
     call to eglMakeCurrent. The motivation is that applications that only
     want to render to client API targets (such as OpenGL framebuffer
@@ -90,7 +95,7 @@ Drawables"
 
    "If both <draw> and <read> are EGL_NO_SURFACE, and <ctx> is a context
     which supports being bound without read and draw surfaces, then no error
-    is generated and the context is made current without a 
+    is generated and the context is made current without a
     <default framebuffer>.  The meaning of this is defined by the API of the
     supporting context.  (See chapter 4 of the OpenGL 3.0 Specification, and
     the GL_EXT_surfaceless_context OpenGL ES extension.)"
@@ -98,10 +103,10 @@ Drawables"
     Append to the paragraph starting "The first time an OpenGL or OpenGL
     ES context is made current..." with
 
-    "If the first time <ctx> is made current, it is without a default 
-    framebuffer (e.g. both <draw> and <read> are EGL_NO_SURFACE), then 
-    the viewport and scissor regions are set as though 
-    glViewport(0,0,0,0) and glScissor(0,0,0,0) were called." 
+    "If the first time <ctx> is made current, it is without a default
+    framebuffer (e.g. both <draw> and <read> are EGL_NO_SURFACE), then
+    the viewport and scissor regions are set as though
+    glViewport(0,0,0,0) and glScissor(0,0,0,0) were called."
 
 Interactions with other extensions
 
@@ -118,7 +123,7 @@ Issues
 
     RESOLVED. Because multiple API implementations may be available as contexts
     we cannot gaurantee that all OpenGL ES 1.x or OpenGL ES 2.x contexts will
-    support GL_EXT_surfaceless_context.  If the user attempts to call 
+    support GL_EXT_surfaceless_context.  If the user attempts to call
     eglMakeCurrent with EGL_NO_SURFACE on a context which does not support it,
     this simply results in EGL_BAD_MATCH.
 

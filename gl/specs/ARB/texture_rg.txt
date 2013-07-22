@@ -3,7 +3,7 @@ Name
     ARB_texture_rg
 
 Name Strings
-    
+
     GL_ARB_texture_rg
 
 Contributors
@@ -15,12 +15,17 @@ Contact
 
     Daniel Koch, TransGaming, Inc. (daniel 'at' transgaming.com)
 
-Status 
-    
+Notice
+
+    Copyright (c) 2008-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
+Status
+
     Approved by the ARB on July 11, 2008
 
 Version
-    
+
     Last Modified Date: May 28, 2009
     Author Revision: 6
 
@@ -51,32 +56,32 @@ Overview
     using the intensity, luminance or luminance-alpha (I/L/LA) formats.
     With the advent of programmable shaders and render-to-texture capabilites
     these legacy formats carry some historical artifacts which are no longer
-    useful. 
+    useful.
 
-    For example, when sampling from such textures, the luminance values 
-    are replicated across the color components, and the intensity values are 
+    For example, when sampling from such textures, the luminance values
+    are replicated across the color components, and the intensity values are
     replicated across both the color and alpha components. This is no
     longer necessary with programmable shaders.
-    
-    It is also desirable to be able to render to one- and two- 
-    component format textures using capabilities such as framebuffer 
+
+    It is also desirable to be able to render to one- and two-
+    component format textures using capabilities such as framebuffer
     objects (FBO), but rendering to I/L/LA formats is under-specified
     (specifically how to map R/G/B/A values to I/L/A texture channels).
 
-    This extension adds new base internal formats for the one-component RED 
+    This extension adds new base internal formats for the one-component RED
     and two-component RG (red green) texture formats as well as sized
     internal formats for fixed-point, floating-point and pure integer texture
-    formats. The new texure formats can be used for texturing as well 
-    as for rendering into with framebuffer objects.  
+    formats. The new texure formats can be used for texturing as well
+    as for rendering into with framebuffer objects.
 
 IP Status
-    
+
     No known IP claims.
 
 New Tokens
 
     Accepted by the <internalFormat> parameter of TexImage1D, TexImage2D,
-    TexImage3D, CopyTexImage1D, and CopyTexImage2D: 	
+    TexImage3D, CopyTexImage1D, and CopyTexImage2D:
 
         R8                      0x8229
         R16                     0x822A
@@ -112,7 +117,7 @@ New Tokens
 
     Accepted by the <format> parameter of TexImage1D, TexImage2D,
     TexImage3D, TexSubImage1D, TexSubImage2D, TexSubImage3D,
-    and ReadPixels: 
+    and ReadPixels:
 
         RG                      0x8227
         RG_INTEGER              0x8228
@@ -121,11 +126,11 @@ New Tokens
 
         RG                      0x8227
 
-    Accepted by the <param> parameter of the TexParameter{if}* 
+    Accepted by the <param> parameter of the TexParameter{if}*
     functions when <pname> is DEPTH_TEXTURE_MODE:
 
         RED                     0x1903
-        
+
     Accepted by the <format> parameter of GetTexImage:
 
         RG                      0x8227
@@ -133,7 +138,7 @@ New Tokens
 
 
 New Procedures and Functions
-    
+
     None
 
 Additions to Chapter 2 of the OpenGL 2.1 Specification (OpenGL Operation)
@@ -144,13 +149,13 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
 
     Modify section 3.6.3 "Pixel Transfer Modes", the "Color Table Specification"
     subsection and in the third paragraph of the definition of ColorTable modify
-    the last sentence to read: 
-    
-    "internalformat must be one of the formats in table 3.15 or table 3.16, 
-    with the exception of the RED, RG and DEPTH_COMPONENT base and sized 
+    the last sentence to read:
+
+    "internalformat must be one of the formats in table 3.15 or table 3.16,
+    with the exception of the RED, RG and DEPTH_COMPONENT base and sized
     internal formats."
 
-    (Add the following to Table 3.6: "DrawPixels and ReadPixels formats", 
+    (Add the following to Table 3.6: "DrawPixels and ReadPixels formats",
      as modified by EXT_texture_integer)
 
     Format Name     Element Meaning and Order      Target Buffer
@@ -163,11 +168,11 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
 
     Base Internal Format  RGBA and Depth Values   Internal Components
     --------------------  ---------------------   -------------------
-    RED			  R			  R
+    RED                   R                       R
     RG                    R,G                     R,G
 
     (Add the following to Table 3.16: "Correspondence of sized internal
-    formats to base internal formats, and desired component resolutions 
+    formats to base internal formats, and desired component resolutions
     for each sized internal format", as modified by ARB_texture_float and
     ARB_texture_integer)
 
@@ -195,25 +200,25 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
     RG32I           RG               i32  i32
     RG32UI          RG               ui32 ui32
 
-    (Add the following to Table 3.17: "Generic and specific compressed 
+    (Add the following to Table 3.17: "Generic and specific compressed
     internal formats")
 
     Compressed Internal Format      Base Internal Format    Type
     --------------------------      --------------------    ---------
-    COMPRESSED_RED                  RED                     Generic 
+    COMPRESSED_RED                  RED                     Generic
     COMPRESSED_RG                   RG                      Generic
-    
-    (Modify Table 3.18: "Texure parameters and their values") 
 
-    Add RED to the "Legal Values" column for the row containing the 
-    definition of DEPTH_TEXTURE_MODE.  
+    (Modify Table 3.18: "Texure parameters and their values")
+
+    Add RED to the "Legal Values" column for the row containing the
+    definition of DEPTH_TEXTURE_MODE.
 
     Modify the first sentence of section 3.8.5 "Depth Component Textures"
     (as modified by EXT_packed_depth_stencil or ARB_framebuffer_object) to read:
 
-    "Depth textures and the depth components of depth/stencil textures can 
+    "Depth textures and the depth components of depth/stencil textures can
      be treated as RED, LUMINANCE, INTENSITY or ALPHA textures during texture
-     filtering and application." 
+     filtering and application."
 
     (Add the following to Table 3.20: "Correspondence of filtered texture
      components to texture source components.")
@@ -236,21 +241,21 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
 
     Modify Section 3.8.14 "Texture Comparision Modes", the "Depth Texture
     Comparision Mode" subsection, and change the second to last paragraph
-    to read: 
+    to read:
 
     "The resulting r is assigned to R_t, L_t, I_t, or A_t if the value of the
     DEPTH_TEXTURE_MODE is respectively RED, LUMINANCE, INTENSITY, or ALPHA."
-    
+
 Additions to Chapter 4 of the OpenGL 2.1 Specification (Per-Fragment Operations
 and the Framebuffer)
 
     In section 4.3.2 "Reading Pixels" the subsection "Obtaining Pixels from
-    the framebuffer", modify the first sentence of the 3rd paragraph in the 
+    the framebuffer", modify the first sentence of the 3rd paragraph in the
     definition of ReadBuffer to read:
- 
+
     "If the GL is in RGBA mode, and format is one of RED, GREEN, BLUE, ALPHA,
     RG, RGB, RGBA, BGR, BGRA, LUMINANCE, or LUMINANCE_ALPHA, then red,
-    green, blue, and alpha values are obtained from the selected buffer at 
+    green, blue, and alpha values are obtained from the selected buffer at
     each pixel location."
 
     In subsection "Placement in Pixel Pack Buffer or Client Memory," modify
@@ -259,7 +264,7 @@ and the Framebuffer)
     "Likewise if the format is RG, LUMINANCE_ALPHA, RGB, BGR, only the
     corresponding two or three elements are written."
 
-    In section 4.4.4 "Framebuffer Completeness" as added by 
+    In section 4.4.4 "Framebuffer Completeness" as added by
     EXT_framebuffer_object or ARB_framebuffer_object, modify the first bullet
     point and add RED and RG to the list of base internal formats which
     are color-renderable.
@@ -271,10 +276,10 @@ Additions to Chapter 5 of the OpenGL 2.1 Specification (Special Functions)
 Additions to Chapter 6 of the OpenGL 2.1 Specification (State and State Requests)
 
     Modify section 6.1.4 "Texture Queries". Change the second sentence of the
-    second paragraph to read: 
+    second paragraph to read:
 
     "Calling GetTexImage with a color format (one of RED, GREEN, BLUE, ALPHA,
-    RG, RGB, BGR, RGBA, BGRA, LUMINANCE, LUMINANCE_ALPHA, or one of the 
+    RG, RGB, BGR, RGBA, BGRA, LUMINANCE, LUMINANCE_ALPHA, or one of the
     *_INTEGER variants) when the base internal format of the texture image is
     not a color format; with a format of DEPTH_COMPONENT when the base internal
     format is not DEPTH_COMPONENT or DEPTH_STENCIL; with a format of
@@ -287,54 +292,54 @@ Additions to Chapter 6 of the OpenGL 2.1 Specification (State and State Requests
 
     Base Internal Format    R    G   B   A
     --------------------  ---- ----- --- ---
-    RED                    R_i   0    0   1 
+    RED                    R_i   0    0   1
     RG                     R_i   G_i  0   1
 
 Dependencies on EXT_packed_depth_stencil
-    
-    If EXT_packed_depth_stencil is not supported then delete any reference to 
+
+    If EXT_packed_depth_stencil is not supported then delete any reference to
     depth/stencil textures (unless ARB_framebuffer_objects is supported).
 
 Dependencies on EXT_framebuffer_object
-    
+
     If EXT_framebuffer_object is not supported then delete any reference to
     framebuffer objects (unless ARB_framebuffer_objects is supported).
 
 Dependencies on ARB_framebuffer_object
 
     If ARB_framebuffer_object is not supported:
-     * delete any reference to depth/stencil textures 
+     * delete any reference to depth/stencil textures
        (unless EXT_packed_depth_stencil is supported).
      * delete any reference to framebuffer objects
        (unless EXT_framebuffer_object is supported).
 
 Dependencies on EXT_texture_integer
 
-    If EXT_texture_integer is not supported: 
+    If EXT_texture_integer is not supported:
      * delete any reference to the R*I*, R*UI* and *INTEGER* formats.
 
 Dependencies on ARB_texture_float
 
-    If ARB_texture_float is not supported: 
+    If ARB_texture_float is not supported:
      * delete any reference to the R*F* formats.
 
 Issues
-    
+
     1) What should this extension be called? ARB_rg_formats, ARB_rg_texture,
        ARB_texture_rg, etc
-	
-	DECIDED. Using ARB_texture_rg.
 
-    2) Why use RED token used instead of just "R"? 
-	
+        DECIDED. Using ARB_texture_rg.
+
+    2) Why use RED token used instead of just "R"?
+
        a) there is already some precedent for using RED for single-component
           images
        b) the "R" token is already used for texcoord generation, and it is
           less confusing if we don't reuse it.
 
      3) Why use RG instead of REDGREEN?
-	
-	The list {RED, RG, RGB, RGBA} is more visually appealing than 
+
+        The list {RED, RG, RGB, RGBA} is more visually appealing than
         {RED, REDGREEN, RGB, RGBA}.
 
      4) Why don't the new tokens and entry points in this extension have
@@ -349,23 +354,23 @@ Issues
         suffixes on the extension.
 
      5) What are the default values for the unspecified channels if you sampled
-        from an R or RG texture?  Is it (r,0,0,1) or (r,1,1,1).  
+        from an R or RG texture?  Is it (r,0,0,1) or (r,1,1,1).
 
-        CLARIFICATION: As per OpenGL defaults as specified in Table 3.20 
+        CLARIFICATION: As per OpenGL defaults as specified in Table 3.20
         (as modified by this extension) the default values for unspecified
         components are (r,0,0,1).  Note that this does differ from D3D where
         unspecified values would be filled in as (r,1,1,1).
-     
+
      6) Are the RG formats accepted by the imaging subset of functions?
 
         RESOLUTION: NO. This extension does not add RG support to the functions
-        defined in the imaging subset (that is: [Get]Color[Sub]Table, 
+        defined in the imaging subset (that is: [Get]Color[Sub]Table,
         [Get]ConvolutionFilter, [Get]SeparableFilter, GetHistogram, GetMinMax)
         as it is felt that there is little benefit in doing so. This could be
         added as a separate extension if desired.
 
 Revision History
-    
+
     #6 May 28, 2008, jleech
         - Remove extraneous *_INTEGER formats from table 6.1
     #5 April 8, 2008, dgkoch

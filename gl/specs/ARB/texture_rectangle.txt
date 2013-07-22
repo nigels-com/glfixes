@@ -28,7 +28,8 @@ Contact
 
 Notice
 
-     Copyright 2005, OpenGL Architectural Review Board.
+    Copyright (c) 2004-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
 
 Status
 

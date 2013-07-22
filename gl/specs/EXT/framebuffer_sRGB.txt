@@ -10,7 +10,11 @@ Name Strings
 
 Contributors
 
+    Alex Eddy, Apple
+    Chris Niederauer, Apple
     Herb (Charles) Kuta, Quantum3D
+    Jeremy Sandmel, Apple
+    Jesse Hall, NVIDIA
 
     From the EXT_texture_sRGB specification...
 
@@ -22,7 +26,6 @@ Contributors
     Mark J. Kilgard, NVIDIA
     Pat Brown, NVIDIA
     Yanjun Zhang, S3 Graphics
-    Jeremy Sandmel, Apple
      
 Contact
 
@@ -34,8 +37,8 @@ Status
 
 Version
 
-    Date: August 11, 2008
-    Revision: 2
+    Date: September 17, 2010
+    Revision: 4
 
 Number
 
@@ -131,6 +134,8 @@ Additions to Chapter 3 of the 2.0 Specification (Rasterization)
 Additions to Chapter 4 of the 2.0 Specification (Per-Fragment Operations
 and the Frame Buffer)
 
+ -- Section 4.1.8 "Blending"
+
     DELETE the following sentence from section 4.1.8 (Blending) because
     it is moved to the new "sRGB Conversion" section:
 
@@ -213,6 +218,70 @@ and the Frame Buffer)
     clamped to [0,1] and then converted to a fixed-point value in the
     manner described in section 2.14.9.  The resulting four values are
     sent to the subsequent dithering operation."
+
+ -- Section 4.1.10 "Logical Operation"
+
+    Add this pargraph after the first paragraph in the section:
+
+    "Logical operation has no effect on an sRGB destination color buffer
+    (i.e., the boolean FRAMEBUFFER_SRGB_CAPABLE_EXT state for the
+    drawable is true) when FRAMEBUFFER_SRGB_EXT is enabled; however,
+    if the logical operation is enabled, blending is still disabled."
+
+    If ARB_color_buffer_float is supported, that specification's paragraph
+    (upon which the above paragraph is modeled) would be modified to
+    read:
+
+    "Logical operation has no effect on a floating-point destination
+    color buffer or sRGB destination color buffer (i.e., the boolean
+    FRAMEBUFFER_SRGB_CAPABLE_EXT state for the drawable is true) when
+    FRAMEBUFFER_SRGB_EXT is enabled; however, if the logical operation
+    is enabled, blending is still disabled."
+
+ -- Section 4.2.3 "Clearing the Buffers"
+
+    Change the first full sentence after the ClearColor prototype to
+    read:
+
+    "Each of the specified components is clamped to [0,1]."
+
+    (removing the "converted to fixed-point..." phrase because this
+    technically happens prior to sRGB conversion and/or dithering during
+    a Clear rather than at the time of the ClearColor call.)
+
+    Change the first sentence in the second to last paragraph of the
+    section to read:
+
+    "When Clear is called, the only per-fragment operations that are
+    applied (if enabled) are the pixel ownership test, the scissor test,
+    sRGB conversion, and dithering.  The resulting color value (possibly
+    sRGB converted and/or dithered) is converted to fixed-point according
+    to the rules of section 2.14.19."
+
+ -- Section 4.2.4 "The Accumulation Buffer"
+
+    Change the fifth sentence of the second pargraph (describing ACCUM) to read:
+
+    "Each component, considered as a fixed-point value in
+    [0,1] (see section 2.14.9) is converted to floating-point;
+    special rules apply if the color buffer is sRGB-capable.
+    Specifically, if FRAMEBUFFER_SRGB_EXT is enabled and the boolean
+    FRAMEBUFFER_SRGB_CAPABLE_EXT state for the drawable is true, the R, G,
+    and B destination color values (after conversion from fixed-point to
+    floating-point) are considered to be encoded for the sRGB color space
+    and hence need to be linearized prior to their use for accumulation.
+    This conversion uses the formula to compute cl from cs is section
+    4.1.8."
+
+    Change the second to last sentence of the fourth paragraph (describing
+    RETURN) to read:
+
+    "The resulting color value is placed in the buffers currently
+    enabled for color writing as if it were a fragment produced from
+    rasterization, except that the only per-fragment operations that are
+    applied (if enabled) are the pixel ownership test, the scissor test
+    (section 4.1.2), sRGB conversion (section 4.2.X), and dithering
+    (section 4.1.9)."
 
 Additions to Chapter 5 of the 2.0 Specification (Special Functions)
 
@@ -568,10 +637,86 @@ Issues
         means DVI output devices should benefit from blending in the
         sRGB color space just like analog monitors.
 
+    20) How does an sRGB framebuffer interact with glClearColor?
+
+        RESOLVED:  The R, G, and B color components passed to glClearColor
+        are assumed to be linear color components.
+
+        So when GL_FRAMEBUFFER_SRGB_EXT is enabled and the color buffer
+        is sRGB-capable, the clear color is converted to a sRGB value
+        as part of the clear operation.
+
+        This behavior is consistent with the behavior of Direct3D 9,
+        10, and 11.
+
+    21) How does an sRGB framebuffer interact querying with
+        GL_COLOR_CLEAR_VALUE?
+
+        RESOLVED:  The sRGB conversion of the clear color value
+        happens during the clear operation so when glGetFloatv for
+        GL_COLOR_CLEAR_VALUE returns an RGBA value, the RGB components
+        are the same values last passed to glClearColor (or similar
+        routines that update the same state such as glClearColorIiEXT
+        and glClearColorIuiEXT).
+
+    22) How does an sRGB framebuffer interact with the accumulation
+        buffer?
+
+        RESOLVED:  When the accumulation buffer reads color values from
+        the color buffer during the GL_ACCUM or GL_LOAD operations,
+        the color values should be converted from sRGB values to linear
+        RGB values if GL_FRAMEBUFFER_SRGB_EXT is enabled and the color
+        buffer is sRGB-capable.  Amended language says that the GL_ACCUM
+        (and implicitly, the GL_LOAD operation defined in terms of
+        GL_ACCUM) perform an sRGB to linear RGB conversion when color
+        buffer pixels are accumulated/loaded into the accumulation
+        buffer.
+
+        When the accumulation returns color values to the color
+        buffer during the GL_RETURN operation, the color values in the
+        accumulation buffer should be converted from linear RGB values
+        to sRGB values if GL_FRAMEBUFFER_SRGB_EXT is enabled and the
+        color buffer is sRGB-capable.  The specification accomplishes
+        this by saying that the sRGB conversion (if enabled) per-fragment
+        operation applies to the GL_RETURN operation.
+
+        No sRGB conversion affects the accumulation buffer alpha
+        component.
+
+        This behavior ensures that the accumulation buffer and its linear
+        operations are performed on linear color values.
+
+    23) How does an sRGB framebuffer interact with GL_LOGIC_OP?
+
+        RESOLVED:  When GL_LOGIC_OP is enabled and rendering to an
+        sRGB-capable color buffer with GL_FRAMEBUFFER_SRGB_EXT enabled,
+        the framebuffer's color representation is no longer fixed-point
+        so a bit-wise operation such as logic-op is dubious.
+
+        This same issue was faced with floating-point color buffers
+        and the decision there was to ignore the logic operation for
+        floating-point color components (and ignore blending, if enabled,
+        too because logic-op's behavior trumps blending).
+
+        So sRGB color components should ignore logic-op if enabled.
+
+        This resolution is consistent with the ARB_color_buffer_float
+        specification.
+
+Implementation Notes
+
+    Implementations of this extension prior to late 2010 likely do
+    not implement the correct sRGB conversion for accumulation buffer
+    operations (the correct specification language was added in September
+    2010).
+
 Revision History
 
         Rev.    Date    Author    Changes
         ----  --------  --------  -------------------------------------
+           4  09/17/10  mjk       Add logic-op interaction
+           3  09/14/10  mjk       Add interactions with clear and
+                                  accumulation buffer operations
            2  08/11/08  mjk       Get Command: IsEnabled -> GetInteger
                                   for FRAMEBUFFER_SRGB_CAPABLE_EXT
            1  10/21/06  barthold  Added revision history         
