@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glBindVertexBuffer - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glBindVertexBuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBindVertexBuffer — bind a buffer to a vertex buffer bind point</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glBindVertexBuffer</b>(</code></td><td>GLuint  </td><td><var class="pdparam">bindingindex</var>, </td></tr><tr><td> </td><td>GLuint  </td><td><var class="pdparam">buffer</var>, </td></tr><tr><td> </td><td>GLintptr  </td><td><var class="pdparam">offset</var>, </td></tr><tr><td> </td><td>GLintptr  </td><td><var class="pdparam">stride</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>bindingindex</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glBindVertexBuffer - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glBindVertexBuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBindVertexBuffer — bind a buffer to a vertex buffer bind point</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBindVertexBuffer</strong>(</code></td><td>GLuint <var class="pdparam">bindingindex</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">buffer</var>, </td></tr><tr><td> </td><td>GLintptr <var class="pdparam">offset</var>, </td></tr><tr><td> </td><td>GLintptr <var class="pdparam">stride</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>bindingindex</code></em></span></dt><dd><p>
                     The index of the vertex buffer binding point to which to bind the buffer.
                 </p></dd><dt><span class="term"><em class="parameter"><code>buffer</code></em></span></dt><dd><p>
                     The name of an existing buffer to bind to the vertex buffer binding point.
@@ -9,7 +8,7 @@
                     The offset of the first element of the buffer.
                 </p></dd><dt><span class="term"><em class="parameter"><code>stride</code></em></span></dt><dd><p>
                     The distance between elements within the buffer.
-                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glBindVertexBuffer</code> binds the buffer named <em class="parameter"><code>buffer</code></em>
             to the vertex buffer binding point whose index is given by <em class="parameter"><code>bindingindex</code></em>.
             <em class="parameter"><code>offset</code></em> and <em class="parameter"><code>stride</code></em> specify the offset of the first
@@ -18,7 +17,7 @@
             the value of <code class="constant">GL_MAX_VERTEX_ATTRIB_BINDINGS</code>. <em class="parameter"><code>offset</code></em>
             and <em class="parameter"><code>stride</code></em> must be greater than or equal to zero. If <em class="parameter"><code>buffer</code></em>
             is zero, then any buffer currently bound to the specified binding point is unbound.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVAILD_VALUE</code> is generated if <em class="parameter"><code>bindingindex</code></em> is greater than
             or equal to the value of <code class="constant">GL_MAX_VERTEX_ATTRIB_BINDINGS</code>.
         </p><p>
@@ -29,16 +28,16 @@
             existing buffer object.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if no vertex array object is bound.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_VERTEX_ATTRIB_BINDINGS</code>.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a href="glVertexAttribBinding.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribBinding</span></span></a>,
-            <a href="glVertexAttribFormat.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribFormat</span></span></a>,
-            <a href="glVertexAttribPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a>,
-            <a href="glVertexBindingDivisor.xml"><span class="citerefentry"><span class="refentrytitle">glVertexBindingDivisor</span></span></a>.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+        </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_VERTEX_ATTRIB_BINDINGS</code>.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glVertexAttribBinding.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribBinding</span></span></a>,
+            <a class="citerefentry" href="glVertexAttribFormat.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribFormat</span></span></a>,
+            <a class="citerefentry" href="glVertexAttribPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a>,
+            <a class="citerefentry" href="glVertexBindingDivisor.xml"><span class="citerefentry"><span class="refentrytitle">glVertexBindingDivisor</span></span></a>.
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2012 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.
-            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

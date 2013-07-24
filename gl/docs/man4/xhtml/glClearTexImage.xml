@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glClearTexImage - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glClearTexImage"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glClearTexImage — fills all a texture image with a constant value</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glClearTexImage</strong>(</code></td><td>GLuint <var class="pdparam">texture</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const void * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>texture</code></em></span></dt><dd><p>
+                    The name of an existing texture object containing the image to be cleared.
+                </p></dd><dt><span class="term"><em class="parameter"><code>level</code></em></span></dt><dd><p>
+                    The level of <em class="parameter"><code>texture</code></em> containing the region to be cleared.
+                </p></dd><dt><span class="term"><em class="parameter"><code>format</code></em></span></dt><dd><p>
+                    The format of the data whose address in memory is given by <em class="parameter"><code>data</code></em>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>type</code></em></span></dt><dd><p>
+                    The type of the data whose address in memory is given by <em class="parameter"><code>data</code></em>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
+                    The address in memory of the data to be used to clear the specified region.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glClearTexImage</code> fills all an image contained in a
+            texture with an application supplied value. <em class="parameter"><code>texture</code></em> must be
+            the name of an existing texture. Further, <em class="parameter"><code>texture</code></em> may not be
+            the name of a buffer texture, nor may its internal format be compressed.
+        </p><p>
+            <em class="parameter"><code>format</code></em> and <em class="parameter"><code>type</code></em> specify the format and type of the
+            source data and are interpreted as they are for <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>.
+            Textures with a base internal format of <code class="constant">GL_DEPTH_COMPONENT</code>, <code class="constant">GL_STENCIL_INDEX</code>, or <code class="constant">GL_DEPTH_STENCIL</code>
+            require depth component, stencil, or depth-stencil component data respectively.
+            Textures with other base internal formats require RGBA formats. Textures with integer
+            internal formats require integer data.
+        </p><p>
+            <em class="parameter"><code>data</code></em> is a pointer to an array of between one and four components of texel
+            data that will be used as the source for the constant fill value. The elements of
+            data are converted by the GL into the internal format of the texture image (that
+            was specified when the level was defined by any of the <code class="function">glTexImage*</code>, <code class="function">glTexStorage*</code>
+            or <code class="function">glCopyTexImage*</code> commands), and then
+            used to fill the specified range of the destination texture level. If <em class="parameter"><code>data</code></em> is <code class="constant">NULL</code>, then
+            the pointer is ignored and the sub-range of the texture image is filled with zeros. If
+            texture is a multisample texture, all the samples in a texel are cleared to the value
+            specified by data.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            <code class="function">glClearTexImage</code> is available only if the GL version is 4.4 or greater.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>texture</code></em> is zero or not the
+            name of an existing texture object.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>texture</code></em> is a buffer texture.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>texture</code></em> has a compressed
+            internal format.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the base internal format is
+            <code class="constant">GL_DEPTH_COMPONENT</code> and <em class="parameter"><code>format</code></em> is not <code class="constant">GL_DEPTH_COMPONENT</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the base internal format is
+            <code class="constant">GL_DEPTH_STENCIL</code> and <em class="parameter"><code>format</code></em> is not <code class="constant">GL_DEPTH_STENCIL</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the base internal format is
+            <code class="constant">GL_STENCIL_INDEX</code> and <em class="parameter"><code>format</code></em> is not <code class="constant">GL_STENCIL_INDEX</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the base internal format is
+            <code class="constant">GL_RGBA</code> and <em class="parameter"><code>format</code></em> is <code class="constant">GL_DEPTH_COMPONENT</code>, <code class="constant">GL_STENCIL_INDEX</code>, or <code class="constant">GL_DEPTH_STENCIL</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the internal format is integer and <em class="parameter"><code>format</code></em> does not specify integer data.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the internal format is not
+            integer and <em class="parameter"><code>format</code></em> specifies integer data.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the image array identified by <em class="parameter"><code>level</code></em>
+            has not previously been defined by a call to <code class="function">glTexImage*</code> or <code class="function">glTexStorage*</code>.
+        </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetTexImage.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexImage</span></span></a>, <a class="citerefentry" href="glGetInternalformat.xml"><span class="citerefentry"><span class="refentrytitle">glGetInternalformat</span></span></a>
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glClearTexSubImage.xml"><span class="citerefentry"><span class="refentrytitle">glClearTexSubImage</span></span></a>,
+            <a class="citerefentry" href="glTexStorage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexStorage1D</span></span></a>,
+            <a class="citerefentry" href="glTexStorage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a>,
+            <a class="citerefentry" href="glTexStorage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a>,
+            <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>,
+            <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+            <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in 
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>
