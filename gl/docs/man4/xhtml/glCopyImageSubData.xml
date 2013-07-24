@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glCopyImageSubData - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glCopyImageSubData"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCopyImageSubData — perform a raw data copy between two images</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glCopyImageSubData</b>(</code></td><td>GLuint  </td><td><var class="pdparam">srcName</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">srcTarget</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">srcLevel</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">srcX</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">srcY</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">srcZ</var>, </td></tr><tr><td> </td><td>GLuint  </td><td><var class="pdparam">dstName</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">dstTarget</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">dstLevel</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">dstX</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">dstY</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">dstZ</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">srcWidth</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">srcHeight</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">srcDepth</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>srcName</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glCopyImageSubData - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glCopyImageSubData"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCopyImageSubData — perform a raw data copy between two images</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glCopyImageSubData</strong>(</code></td><td>GLuint <var class="pdparam">srcName</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">srcTarget</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">srcLevel</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">srcX</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">srcY</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">srcZ</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">dstName</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">dstTarget</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">dstLevel</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">dstX</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">dstY</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">dstZ</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">srcWidth</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">srcHeight</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">srcDepth</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>srcName</code></em></span></dt><dd><p>
                     The name of a texture or renderbuffer object from which to copy.
                 </p></dd><dt><span class="term"><em class="parameter"><code>srcTarget</code></em></span></dt><dd><p>
                     The target representing the namespace of the source name <em class="parameter"><code>srcName</code></em>.
@@ -29,7 +28,7 @@
                     The height of the region to be copied.
                 </p></dd><dt><span class="term"><em class="parameter"><code>srcDepth</code></em></span></dt><dd><p>
                     The depth of the region to be copied.
-                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glCopyImageSubData</code> may be used to copy data from
             one image (i.e. texture or renderbuffer) to another. <code class="function">glCopyImageSubData</code>
             does not perform general-purpose conversions
@@ -102,7 +101,7 @@
      * one format is compressed and the other is uncompressed and
        Table 4.X.1 lists the two formats in the same row.
     If the formats are not compatible INVALID_OPERATION is generated.
-        </p><div class="table"><a id="id4818015"></a><p class="title"><b>Table 1. Sized Internal Formats</b></p><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+        </p><div class="table"><a id="idp18490624"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Texel / Block Size
             </strong></span></th><th align="left"><span class="bold"><strong>
             Uncompressed Internal Format
@@ -129,7 +128,7 @@
                    <code class="constant">COMPRESSED_RGBA_S3TC_DXT1_EXT</code>,
                    <code class="constant">COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT</code>,
                    <code class="constant">COMPRESSED_RED_RGTC1</code>,
-                   <code class="constant">COMPRESSED_SIGNED_RED_RGTC1</code></td></tr></tbody></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+                   <code class="constant">COMPRESSED_SIGNED_RED_RGTC1</code></td></tr></tbody></table></div></div><br class="table-break" /></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if the texel size of
             the uncompressed image is not equal to the block size of the
             compressed image.
@@ -158,13 +157,13 @@
             corresponding image object, or if the image format is compressed
             and the dimensions of the subregion fail to meet the alignment
             constraints of the format.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_COMPUTE_WORK_GROUP_COUNT</code>
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a href="glDispatchComputeIndirect.xml"><span class="citerefentry"><span class="refentrytitle">glDispatchComputeIndirect</span></span></a>.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+        </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_COMPUTE_WORK_GROUP_COUNT</code>
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glDispatchComputeIndirect.xml"><span class="citerefentry"><span class="refentrytitle">glDispatchComputeIndirect</span></span></a>.
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2012 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.
-            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

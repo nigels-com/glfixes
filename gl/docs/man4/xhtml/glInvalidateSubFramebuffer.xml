@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glInvalidateSubFramebuffer - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glInvalidateSubFramebuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glInvalidateSubFramebuffer — invalidate the content of a region of some or all of a framebuffer object's attachments</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glInvalidateSubFramebuffer</b>(</code></td><td>GLenum  </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">numAttachments</var>, </td></tr><tr><td> </td><td>const GLenum *  </td><td><var class="pdparam">attachments</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLint  </td><td><var class="pdparam">height</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glInvalidateSubFramebuffer - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glInvalidateSubFramebuffer"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glInvalidateSubFramebuffer — invalidate the content of a region of some or all of a framebuffer object's attachments</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glInvalidateSubFramebuffer</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">numAttachments</var>, </td></tr><tr><td> </td><td>const GLenum * <var class="pdparam">attachments</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">x</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">y</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">height</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     The target to which the framebuffer is attached. <em class="parameter"><code>target</code></em> must be
                     <code class="constant">GL_FRAMEBUFFER</code>, <code class="constant">GL_DRAW_FRAMEBUFFER</code>, or <code class="constant">GL_READ_FRAMEBUFFER</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>numAttachments</code></em></span></dt><dd><p>
@@ -16,7 +15,7 @@
                     The width of the region to be invalidated.
                 </p></dd><dt><span class="term"><em class="parameter"><code>height</code></em></span></dt><dd><p>
                     The height of the region to be invalidated.
-                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glInvalidateSubFramebuffer</code> invalidates the content of a region
             of a specified set of attachments of a framebuffer. The framebuffer
             whose content to invalidate is indicated by setting <em class="parameter"><code>target</code></em>
@@ -49,7 +48,7 @@
             bound framebuffer object, are ignored.
             After <code class="function">glInvalidateFramebuffer</code> is executed, the contents
             of the specified region of the specified attachments become undefined.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not one of the
             accepted framebuffer target tokens.
         </p><p>
@@ -59,17 +58,17 @@
             <code class="constant">GL_INVALID_OPERATION</code> is generated if element of <em class="parameter"><code>attachments</code></em> is
             <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>i</em></span></code> where <span class="emphasis"><em>i</em></span> is greater than or equal
             to the value of <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a href="glInvalidateTexSubImage.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateTexSubImage</span></span></a>,
-            <a href="glInvalidateTexImage.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateTexImage</span></span></a>,
-            <a href="glInvalidateBufferSubData.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateBufferSubData</span></span></a>,
-            <a href="glInvalidateBufferData.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateBufferData</span></span></a>,
-            <a href="glInvalidateFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateFramebuffer</span></span></a>.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+        </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glInvalidateTexSubImage.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateTexSubImage</span></span></a>,
+            <a class="citerefentry" href="glInvalidateTexImage.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateTexImage</span></span></a>,
+            <a class="citerefentry" href="glInvalidateBufferSubData.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateBufferSubData</span></span></a>,
+            <a class="citerefentry" href="glInvalidateBufferData.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateBufferData</span></span></a>,
+            <a class="citerefentry" href="glInvalidateFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glInvalidateFramebuffer</span></span></a>.
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2012 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.
-            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetProgramInterface - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGetProgramInterface"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetProgramInterface — query a property of an interface in a program</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glGetProgramInterfaceiv</b>(</code></td><td>GLuint  </td><td><var class="pdparam">program</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">programInterface</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *  </td><td><var class="pdparam">params</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>program</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetProgramInterface - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glGetProgramInterface"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetProgramInterface — query a property of an interface in a program</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetProgramInterfaceiv</strong>(</code></td><td>GLuint <var class="pdparam">program</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">programInterface</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>program</code></em></span></dt><dd><p>
                     The name of a program object whose interface to query.
                 </p></dd><dt><span class="term"><em class="parameter"><code>programInterface</code></em></span></dt><dd><p>
                     A token identifying the interface within <em class="parameter"><code>program</code></em> to query.
@@ -9,7 +8,7 @@
                     The name of the parameter within <em class="parameter"><code>programInterface</code></em> to query.
                 </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
                     The address of a variable to retrieve the value of <em class="parameter"><code>pname</code></em> for the program interface.
-                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glGetProgramInterfaceiv</code> queries the property of the interface identifed
             by <em class="parameter"><code>programInterface</code></em> in <em class="parameter"><code>program</code></em>, the property name of
             which is given by <em class="parameter"><code>pname</code></em>.
@@ -17,7 +16,7 @@
             <em class="parameter"><code>program</code></em> must be the name of an existing program object. <em class="parameter"><code>programInterface</code></em>
             is the name of the interface within <em class="parameter"><code>program</code></em> to query and must be one of the following
             values:
-        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_UNIFORM</code></span></dt><dd><p>
+        </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_UNIFORM</code></span></dt><dd><p>
                         The query is targeted at the set of active uniforms within <em class="parameter"><code>program</code></em>.
                     </p></dd><dt><span class="term"><code class="constant">GL_UNIFORM_BLOCK</code></span></dt><dd><p>
                         The query is targeted at the set of active uniform blocks within <em class="parameter"><code>program</code></em>.
@@ -44,6 +43,9 @@
                         The query is targeted at the set of active buffer variables used by <em class="parameter"><code>program</code></em>.
                     </p></dd><dt><span class="term"><code class="constant">GL_SHADER_STORAGE_BLOCK</code></span></dt><dd><p>
                         The query is targeted at the set of active shader storage blocks used by <em class="parameter"><code>program</code></em>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code></span></dt><dd><p>
+                        The query is targeted at the set of active buffer binding points to which output variables in the
+                        <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING</code> interface are written.
                     </p></dd></dl></div><p>
             <em class="parameter"><code>pname</code></em> identifies the property of <em class="parameter"><code>programInterface</code></em>
             to return in <em class="parameter"><code>params</code></em>.
@@ -76,7 +78,7 @@
             <code class="constant">GL_TESS_CONTROL_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_TESS_EVALUATION_SUBROUTINE_UNIFORM</code>,
             <code class="constant">GL_GEOMETRY_SUBROUTINE_UNIFORM</code>, <code class="constant">GL_FRAGMENT_SUBROUTINE_UNIFORM</code>, or
             <code class="constant">GL_COMPUTE_SUBROUTINE_UNIFORM</code>.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>identifier</code></em>
             is not one of the accepted object types.
         </p><p>
@@ -86,19 +88,28 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>bufSize</code></em> is
             zero.
         </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>pname</code></em> is <code class="constant">GL_MAX_NAME_LENGTH</code> and
+            <em class="parameter"><code>programInterface</code></em> is <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> or <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>,
+            since active atomic counter and transform feedback buffer resources are not assigned name strings.
+        </p><p>
+            <code class="constant">GL_INVALID_OPERATION</code> error is generated if <em class="parameter"><code>pname</code></em> is
+            <code class="constant">GL_MAX_NUM_ACTIVE_VARIABLES</code> and <em class="parameter"><code>programInterface</code></em> is not <code class="constant">GL_UNIFORM_BLOCK</code>,
+            <code class="constant">GL_SHADER_STORAGE_BLOCK</code>, <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>, or
+            <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>.
+        </p><p>
             If not NULL, <em class="parameter"><code>length</code></em> and <em class="parameter"><code>label</code></em> should be addresses
             to which the client has write access, otherwise undefined behavior, including process termination
             may occur.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_LABEL_LENGTH</code>.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a href="glPushDebugGroup.xml"><span class="citerefentry"><span class="refentrytitle">glPushDebugGroup</span></span></a>,
-            <a href="glPopDebugGroup.xml"><span class="citerefentry"><span class="refentrytitle">glPopDebugGroup</span></span></a>,
-            <a href="glObjectLabel.xml"><span class="citerefentry"><span class="refentrytitle">glObjectLabel</span></span></a>,
-            <a href="glGetObjectLabel.xml"><span class="citerefentry"><span class="refentrytitle">glGetObjectLabel</span></span></a>.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+        </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_LABEL_LENGTH</code>.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glPushDebugGroup.xml"><span class="citerefentry"><span class="refentrytitle">glPushDebugGroup</span></span></a>,
+            <a class="citerefentry" href="glPopDebugGroup.xml"><span class="citerefentry"><span class="refentrytitle">glPopDebugGroup</span></span></a>,
+            <a class="citerefentry" href="glObjectLabel.xml"><span class="citerefentry"><span class="refentrytitle">glObjectLabel</span></span></a>,
+            <a class="citerefentry" href="glGetObjectLabel.xml"><span class="citerefentry"><span class="refentrytitle">glGetObjectLabel</span></span></a>.
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2012 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.
-            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glBindBufferRange - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glBindBufferRange"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBindBufferRange — bind a range within a buffer object to an indexed buffer target</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glBindBufferRange</b>(</code></td><td>GLenum </td><td><var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLuint </td><td><var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLuint </td><td><var class="pdparam">buffer</var>, </td></tr><tr><td> </td><td>GLintptr </td><td><var class="pdparam">offset</var>, </td></tr><tr><td> </td><td>GLsizeiptr </td><td><var class="pdparam">size</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glBindBufferRange - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glBindBufferRange"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBindBufferRange — bind a range within a buffer object to an indexed buffer target</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBindBufferRange</strong>(</code></td><td>GLenum<var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLuint<var class="pdparam">index</var>, </td></tr><tr><td> </td><td>GLuint<var class="pdparam">buffer</var>, </td></tr><tr><td> </td><td>GLintptr<var class="pdparam">offset</var>, </td></tr><tr><td> </td><td>GLsizeiptr<var class="pdparam">size</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specify the target of the bind operation. <em class="parameter"><code>target</code></em> must be
                     one of <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>,
                     <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>, <code class="constant">GL_UNIFORM_BUFFER</code>,
@@ -14,25 +13,25 @@
                     The starting offset in basic machine units into the buffer object <em class="parameter"><code>buffer</code></em>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>size</code></em></span></dt><dd><p>
                     The amount of data in machine units that can be read from the buffet object while used as an indexed target.
-                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glBindBufferRange</code> binds a range the buffer object <em class="parameter"><code>buffer</code></em>
             represented by <em class="parameter"><code>offset</code></em> and <em class="parameter"><code>size</code></em> to the
             binding point at index <em class="parameter"><code>index</code></em> of the array of targets specified by <em class="parameter"><code>target</code></em>.
             Each <em class="parameter"><code>target</code></em> represents an indexed array of buffer binding points, as well
             as a single general binding point that can be used by other buffer manipulation functions such as
-            <a href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a> or
-            <a href="glMapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>. In addition to binding
+            <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a> or
+            <a class="citerefentry" href="glMapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>. In addition to binding
             a range of <em class="parameter"><code>buffer</code></em> to the indexed buffer binding target, <code class="function">glBindBufferRange</code>
             also binds the range to the generic buffer binding point specified by <em class="parameter"><code>target</code></em>.
         </p><p>
             <em class="parameter"><code>offset</code></em> specifies the offset in basic machine units into the buffer object
             <em class="parameter"><code>buffer</code></em> and <em class="parameter"><code>size</code></em> specifies the amount of data that
             can be read from the buffer object while used as an indexed target.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
             The <code class="constant">GL_ATOMIC_COUNTER_BUFER</code> target is available only if the GL version is 4.2 or greater.
         </p><p>
             The <code class="constant">GL_SHADER_STORAGE_BUFFER</code> target is available only if the GL version is 4.3 or greater.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not
             one of <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>,
             <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>, <code class="constant">GL_UNIFORM_BUFFER</code> or
@@ -47,16 +46,16 @@
         </p><p>
             Additional errors may be generated if <em class="parameter"><code>offset</code></em> violates any
             <em class="parameter"><code>target</code></em>-specific alignmemt restrictions.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a href="glGenBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a>,
-            <a href="glDeleteBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>,
-            <a href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
-            <a href="glBindBufferBase.xml"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>,
-            <a href="glMapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>,
-            <a href="glUnmapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a>,
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGenBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a>,
+            <a class="citerefentry" href="glDeleteBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>,
+            <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+            <a class="citerefentry" href="glBindBufferBase.xml"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>,
+            <a class="citerefentry" href="glMapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>,
+            <a class="citerefentry" href="glUnmapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a>,
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2010-2011 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.
-            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

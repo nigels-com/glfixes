@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glDrawElementsInstancedBaseInstance - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glDrawElementsInstancedBaseInstance"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDrawElementsInstancedBaseInstance — draw multiple instances of a set of elements with offset applied to instanced attributes</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glDrawElementsInstancedBaseInstance</b>(</code></td><td>GLenum  </td><td><var class="pdparam">mode</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">count</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const void *  </td><td><var class="pdparam">indices</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">primcount</var>, </td></tr><tr><td> </td><td>GLuitn  </td><td><var class="pdparam">baseinstance</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glDrawElementsInstancedBaseInstance - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glDrawElementsInstancedBaseInstance"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDrawElementsInstancedBaseInstance — draw multiple instances of a set of elements with offset applied to instanced attributes</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glDrawElementsInstancedBaseInstance</strong>(</code></td><td>GLenum <var class="pdparam">mode</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">count</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const void * <var class="pdparam">indices</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">primcount</var>, </td></tr><tr><td> </td><td>GLuitn <var class="pdparam">baseinstance</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
                     Specifies what kind of primitives to render.
                     Symbolic constants
                     <code class="constant">GL_POINTS</code>,
@@ -27,8 +26,8 @@
                     Specifies the number of instances of the specified range of indices to be rendered.
                 </p></dd><dt><span class="term"><em class="parameter"><code>baseinstance</code></em></span></dt><dd><p>
                     Specifies the base instance for use in fetching instanced vertex attributes.
-                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">glDrawElementsInstancedBaseInstance</code> behaves identically to <a href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glDrawElementsInstancedBaseInstance</code> behaves identically to <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>
             except that <em class="parameter"><code>primcount</code></em> instances of the set of elements are executed and the value of the internal counter
             <em class="parameter"><code>instanceID</code></em> advances for each iteration. <em class="parameter"><code>instanceID</code></em> is an internal 32-bit integer counter
             that may be read by a vertex shader as <code class="constant">gl_InstanceID</code>.
@@ -45,12 +44,12 @@
     }</pre><p>
         </p><p>
             Specific vertex attributes may be classified as <span class="emphasis"><em>instanced</em></span> through the use of
-            <a href="glVertexAttribDivisor.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribDivisor</span></span></a>. Instanced vertex attributes
+            <a class="citerefentry" href="glVertexAttribDivisor.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribDivisor</span></span></a>. Instanced vertex attributes
             supply per-instance vertex data to the vertex shader. The index of the vertex fetched from the enabled instanced vertex
             attribute arrays is calculated as
 <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
   <mml:mrow>
-    <mml:mfenced open="&#x230A;" close="&#x230B;">
+    <mml:mfenced open="⌊" close="⌋">
       <mml:mfrac>
         <mml:mrow>
           <mml:mi>gl</mml:mi>
@@ -64,7 +63,7 @@
     <mml:mi>baseInstance</mml:mi>
   </mml:mrow>
 </mml:math>. Note that <em class="parameter"><code>baseinstance</code></em> does not affect the shader-visible value of <code class="constant">gl_InstanceID</code>.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
             <code class="function">glDrawElementsInstancedBaseInstance</code> is available only if the GL version is 4.2 or greater.
         </p><p>
             <code class="constant">GL_LINE_STRIP_ADJACENCY</code>,
@@ -72,7 +71,7 @@
             <code class="constant">GL_TRIANGLE_STRIP_ADJACENCY</code> and
             <code class="constant">GL_TRIANGLES_ADJACENCY</code>
             are available only if the GL version is 3.2 or greater.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not one of <code class="constant">GL_POINTS</code>,
             <code class="constant">GL_LINE_STRIP</code>, <code class="constant">GL_LINE_LOOP</code>, <code class="constant">GL_LINES</code>,
             <code class="constant">GL_TRIANGLE_STRIP</code>, <code class="constant">GL_TRIANGLE_FAN</code>, or <code class="constant">GL_TRIANGLES</code>.
@@ -84,12 +83,12 @@
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to an
             enabled array and the buffer object's data store is currently mapped.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
-            <a href="glDrawArraysInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstanced</span></span></a>
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
+            <a class="citerefentry" href="glDrawArraysInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstanced</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2011 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.
-            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glMultiDrawArraysIndirect - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glMultiDrawArraysIndirect"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glMultiDrawArraysIndirect — render multiple sets of primitives from array data, taking parameters from memory</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">void <b class="fsfunc">glMultiDrawArraysIndirect</b>(</code></td><td>GLenum  </td><td><var class="pdparam">mode</var>, </td></tr><tr><td> </td><td>const void * </td><td><var class="pdparam">indirect</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">drawcount</var>, </td></tr><tr><td> </td><td>GLsizei  </td><td><var class="pdparam">stride</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glMultiDrawArraysIndirect - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glMultiDrawArraysIndirect"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glMultiDrawArraysIndirect — render multiple sets of primitives from array data, taking parameters from memory</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glMultiDrawArraysIndirect</strong>(</code></td><td>GLenum <var class="pdparam">mode</var>, </td></tr><tr><td> </td><td>const void *<var class="pdparam">indirect</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">drawcount</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">stride</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
                     Specifies what kind of primitives to render.
                     Symbolic constants
                     <code class="constant">GL_POINTS</code>,
@@ -23,11 +22,11 @@
                     Specifies the the number of elements in the array of draw parameter structures.
                 </p></dd><dt><span class="term"><em class="parameter"><code>stride</code></em></span></dt><dd><p>
                     Specifies the distance in basic machine units between elements of the draw parameter array.
-                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glMultiDrawArraysIndirect</code> specifies multiple geometric primitives
             with very few subroutine calls. <code class="function">glMultiDrawArraysIndirect</code> behaves
-            similarly to a multitude of calls to <a href="glDrawArraysInstancedBaseInstance.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstancedBaseInstance</span></span></a>,
-            execept that the parameters to each call to <a href="glDrawArraysInstancedBaseInstance.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstancedBaseInstance</span></span></a>
+            similarly to a multitude of calls to <a class="citerefentry" href="glDrawArraysInstancedBaseInstance.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstancedBaseInstance</span></span></a>,
+            execept that the parameters to each call to <a class="citerefentry" href="glDrawArraysInstancedBaseInstance.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstancedBaseInstance</span></span></a>
             are stored in an array in memory at the address given by <em class="parameter"><code>indirect</code></em>, separated
             by the stride, in basic machine units, specified by <em class="parameter"><code>stride</code></em>. If <em class="parameter"><code>stride</code></em>
             is zero, then the array is assumed to be tightly packed in memory.
@@ -64,21 +63,21 @@
             is interpreted as an offset, in basic machine units, into that buffer and the parameter
             data is read from the buffer rather than from client memory.
         </p><p>
-            In contrast to <a href="glDrawArraysInstancedBaseInstance.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstancedBaseInstance</span></span></a>,
+            In contrast to <a class="citerefentry" href="glDrawArraysInstancedBaseInstance.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstancedBaseInstance</span></span></a>,
             the <code class="code">first</code> member of the parameter structure is unsigned, and out-of-range indices
             do not generate an error.
         </p><p>
             Vertex attributes that are modified by <code class="function">glMultiDrawArraysIndirect</code> have an
             unspecified value after <code class="function">glMultiDrawArraysIndirect</code> returns. Attributes that aren't
             modified remain well defined.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="notes"></a><h2>Notes</h2><p>
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
             The <em class="parameter"><code>baseInstance</code></em> member of the <em class="parameter"><code>DrawArraysIndirectCommand</code></em>
             structure is defined only if the GL version is 4.2 or greater. For versions of the GL less than 4.2,
             this parameter is present but is reserved and should be set to zero. On earlier versions of the GL,
             behavior is undefined if it is non-zero.
         </p><p>
             <code class="function">glMultiDrawArraysIndirect</code> is available only if the GL version is 4.3 or greater.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not an accepted value.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>stride</code></em> is not a multiple
@@ -94,16 +93,16 @@
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>mode</code></em> is <code class="constant">GL_PATCHES</code>
             and no tessellation control shader is active.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>,
-            <a href="glDrawArraysInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstanced</span></span></a>,
-            <a href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
-            <a href="glDrawRangeElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
-            <a href="glDrawArraysIndirect.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysIndirect</span></span></a>,
-            <a href="glMultiDrawElementsIndirect.xml"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElementsIndirect</span></span></a>
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>,
+            <a class="citerefentry" href="glDrawArraysInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstanced</span></span></a>,
+            <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
+            <a class="citerefentry" href="glDrawRangeElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
+            <a class="citerefentry" href="glDrawArraysIndirect.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysIndirect</span></span></a>,
+            <a class="citerefentry" href="glMultiDrawElementsIndirect.xml"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElementsIndirect</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2012 Khronos Group.
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.
-            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

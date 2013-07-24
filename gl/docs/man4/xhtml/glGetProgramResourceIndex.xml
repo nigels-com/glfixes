@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetProgramResourceIndex - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.69.1" /></head><body><div class="refentry" lang="en" xml:lang="en"><a id="glGetProgramResourceIndex"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetProgramResourceIndex — query the index of a named resource within a program</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0"><tr><td><code class="funcdef">GLuint <b class="fsfunc">glGetProgramResourceIndex</b>(</code></td><td>GLuint  </td><td><var class="pdparam">program</var>, </td></tr><tr><td> </td><td>GLenum  </td><td><var class="pdparam">programInterface</var>, </td></tr><tr><td> </td><td>const char *  </td><td><var class="pdparam">name</var><code>)</code>;</td></tr></table></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>program</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetProgramResourceIndex - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glGetProgramResourceIndex"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetProgramResourceIndex — query the index of a named resource within a program</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">GLuint <strong class="fsfunc">glGetProgramResourceIndex</strong>(</code></td><td>GLuint <var class="pdparam">program</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">programInterface</var>, </td></tr><tr><td> </td><td>const char * <var class="pdparam">name</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>program</code></em></span></dt><dd><p>
                     The name of a program object whose resources to query.
                 </p></dd><dt><span class="term"><em class="parameter"><code>programInterface</code></em></span></dt><dd><p>
                     A token identifying the interface within <em class="parameter"><code>program</code></em> containing the resource named <em class="parameter"><code>name</code></em>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>name</code></em></span></dt><dd><p>
                     The name of the resource to query the index of.
-                </p></dd></dl></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="description"></a><h2>Description</h2><p>
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glGetProgramResourceIndex</code> returns the unsigned
             integer index assigned to a resource named <em class="parameter"><code>name</code></em> in
             the interface type <em class="parameter"><code>programInterface</code></em> of program object <em class="parameter"><code>program</code></em>.
@@ -16,7 +15,7 @@
             is the name of the interface within <em class="parameter"><code>program</code></em> which contains the resource named
             <em class="parameter"><code>name</code></em>and must be one of the following
             values:
-        </p><div class="variablelist"><dl><dt><span class="term"><code class="constant">GL_UNIFORM</code></span></dt><dd><p>
+        </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_UNIFORM</code></span></dt><dd><p>
                         The query is targeted at the set of active uniforms within <em class="parameter"><code>program</code></em>.
                     </p></dd><dt><span class="term"><code class="constant">GL_UNIFORM_BLOCK</code></span></dt><dd><p>
                         The query is targeted at the set of active uniform blocks within <em class="parameter"><code>program</code></em>.
@@ -37,6 +36,9 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_TRANSFORM_FEEDBACK_VARYING</code></span></dt><dd><p>
                         The query is targeted at the set of output variables from the last non-fragment stage of <em class="parameter"><code>program</code></em> that would be
                         captured if transform feedback were active.
+                    </p></dd><dt><span class="term"><code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code></span></dt><dd><p>
+                        The query is targeted at the set of active buffer binding points to which output variables in the
+                        <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING</code> interface are written.
                     </p></dd><dt><span class="term"><code class="constant">GL_BUFFER_VARIABLE</code></span></dt><dd><p>
                         The query is targeted at the set of active buffer variables used by <em class="parameter"><code>program</code></em>.
                     </p></dd><dt><span class="term"><code class="constant">GL_SHADER_STORAGE_BLOCK</code></span></dt><dd><p>
@@ -53,20 +55,24 @@
             should be returned when querying the index assigned to the special names
             <code class="code">gl_NextBuffer</code>, <code class="code">gl_SkipComponents1</code>, <code class="code">gl_SkipComponents2</code>,
             <code class="code">gl_SkipComponents3</code>, or <code class="code">gl_SkipComponents4</code>.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="errors"></a><h2>Errors</h2><p>
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>programInterface</code></em>
             is not one of the accepted interface types.
         </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>programInterface</code></em> is
+            <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> or <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>, since active atomic
+            counter and transform feedback buffer resources are not assigned name strings.
+        </p><p>
             Although not an error, <code class="constant">GL_INVALID_INDEX</code> is returned if <em class="parameter"><code>name</code></em>
             is not the name of a resource within the interface identified by <em class="parameter"><code>programInterface</code></em>.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="seealso"></a><h2>See Also</h2><p>
-            <a href="glGetProgramResourceName.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramResourceName</span></span></a>,
-            <a href="glGetGetProgramResource.xml"><span class="citerefentry"><span class="refentrytitle">glGetGetProgramResource</span></span></a>,
-            <a href="glGetProgramResourceLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramResourceLocation</span></span></a>,
-            <a href="glGetProgramResourceLocationIndex.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramResourceLocationIndex</span></span></a>.
-        </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="Copyright"></a><h2>Copyright</h2><p>
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGetProgramResourceName.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramResourceName</span></span></a>,
+            <a class="citerefentry" href="glGetGetProgramResource.xml"><span class="citerefentry"><span class="refentrytitle">glGetGetProgramResource</span></span></a>,
+            <a class="citerefentry" href="glGetProgramResourceLocation.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramResourceLocation</span></span></a>,
+            <a class="citerefentry" href="glGetProgramResourceLocationIndex.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramResourceLocationIndex</span></span></a>.
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2012 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.
-            <a href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>
