@@ -35,7 +35,7 @@
             each element of which takes the form (in C):
             </p><pre class="programlisting">    typedef  struct {
         uint  count;
-        uint  primCount;
+        uint  instanceCount;
         uint  first;
         uint  baseInstance;
     } DrawArraysIndirectCommand;</pre><p>
@@ -55,7 +55,7 @@
             cmd = (const DrawArraysIndirectCommand  *)indirect + n;
         }
 
-        glDrawArraysInstancedBaseInstance(mode,  cmd-&gt;first,  cmd-&gt;count,  cmd-&gt;primCount, cmd-&gt;baseInstance);
+        glDrawArraysInstancedBaseInstance(mode,  cmd-&gt;first,  cmd-&gt;count,  cmd-&gt;instanceCount, cmd-&gt;baseInstance);
     }</pre><p>
         </p><p>
             If a buffer is bound to the <code class="constant">GL_DRAW_INDIRECT_BUFFER</code> binding at the time
@@ -101,7 +101,7 @@
             <a class="citerefentry" href="glDrawArraysIndirect.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysIndirect</span></span></a>,
             <a class="citerefentry" href="glMultiDrawElementsIndirect.xml"><span class="citerefentry"><span class="refentrytitle">glMultiDrawElementsIndirect</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2012 Khronos Group.
+            Copyright <span class="trademark"></span>© 2012-2013 Khronos Group.
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.

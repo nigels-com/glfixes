@@ -138,6 +138,15 @@
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:msup><mml:mn>2</mml:mn><mml:mi>n</mml:mi></mml:msup><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:math>
                         where <span class="emphasis"><em>n</em></span> is equal to 8 for <code class="constant">GL_UNSIGNED_BYTE</code>,
                         16 for <code class="constant">GL_UNSIGNED_SHORT</code> and 32 for <code class="constant">GL_UNSIGNED_INT</code>.
+                    </p></dd><dt><span class="term"><code class="constant">GL_RASTERIZER_DISCARD</code></span></dt><dd><p>
+                </p><p>
+                        If enabled,
+                        primitives are discarded after the optional transform feedback stage,
+                        but before rasterization. Furthermore, when enabled, <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a>,
+                        <a class="citerefentry" href="glClearBufferData.xml"><span class="citerefentry"><span class="refentrytitle">glClearBufferData</span></span></a>,
+                        <a class="citerefentry" href="glClearBufferSubData.xml"><span class="citerefentry"><span class="refentrytitle">glClearBufferSubData</span></span></a>,
+                        <a class="citerefentry" href="glClearTexImage.xml"><span class="citerefentry"><span class="refentrytitle">glClearTexImage</span></span></a>, and
+                        <a class="citerefentry" href="glClearTexSubImage.xml"><span class="citerefentry"><span class="refentrytitle">glClearTexSubImage</span></span></a> are ignored.
                     </p></dd><dt><span class="term"><code class="constant">GL_SAMPLE_ALPHA_TO_COVERAGE</code></span></dt><dd><p>
                 </p><p>
                         If enabled,
