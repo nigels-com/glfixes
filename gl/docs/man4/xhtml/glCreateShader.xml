@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
 <?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glCreateShader - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glCreateShader"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glCreateShader — Creates a shader object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">GLuint <strong class="fsfunc">glCreateShader</strong>(</code></td><td>GLenum <var class="pdparam">shaderType</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>shaderType</code></em></span></dt><dd><p>Specifies the type of shader to be created.
-		    Must be one of <code class="constant">GL_VERTEX_SHADER</code>,
+		    Must be one of <code class="constant">GL_COMPUTE_SHADER</code>,
+		    <code class="constant">GL_VERTEX_SHADER</code>,
 		    <code class="constant">GL_TESS_CONTROL_SHADER</code>,
 		    <code class="constant">GL_TESS_EVALUATION_SHADER</code>,
 		    <code class="constant">GL_GEOMETRY_SHADER</code>,
@@ -11,6 +12,8 @@
 	strings that define a shader. <em class="parameter"><code>shaderType</code></em>
 	indicates the type of shader to be created. Five types of shader
 	are supported. A shader of type
+	<code class="constant">GL_COMPUTE_SHADER</code> is a shader that is
+	intended to run on the programmable compute processor. A shader of type
 	<code class="constant">GL_VERTEX_SHADER</code> is a shader that is
 	intended to run on the programmable vertex processor.
 	A shader of type <code class="constant">GL_TESS_CONTROL_SHADER</code> is a shader that
@@ -23,7 +26,7 @@
 	type <code class="constant">GL_FRAGMENT_SHADER</code> is a shader that is
 	intended to run on the programmable fragment processor.</p><p>When created, a shader object's
 	<code class="constant">GL_SHADER_TYPE</code> parameter is set to either
-	<code class="constant">GL_VERTEX_SHADER</code>, <code class="constant">GL_TESS_CONTROL_SHADER</code>,
+	<code class="constant">GL_COMPUTE_SHADER</code>, <code class="constant">GL_VERTEX_SHADER</code>, <code class="constant">GL_TESS_CONTROL_SHADER</code>,
 	<code class="constant">GL_TESS_EVALUATION_SHADER</code>, <code class="constant">GL_GEOMETRY_SHADER</code>
 	or <code class="constant">GL_FRAGMENT_SHADER</code>, depending on the value
 	of <em class="parameter"><code>shaderType</code></em>.</p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>Like buffer and texture objects, the name space for
@@ -33,7 +36,7 @@
 	objects and the data associated with those attached objects are
 	shared as well.</p><p>Applications are responsible for providing the
 	synchronization across API calls when objects are accessed from
-	different execution threads.</p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>This function returns 0 if an error occurs creating the
+	different execution threads.</p><p><code class="constant">GL_COMPUTE_SHADER</code> is available only if the GL version is 4.3 or higher.</p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>This function returns 0 if an error occurs creating the
 	shader object.</p><p><code class="constant">GL_INVALID_ENUM</code> is generated if
 	<em class="parameter"><code>shaderType</code></em> is not an accepted value.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGetShader.xml"><span class="citerefentry"><span class="refentrytitle">glGetShader</span></span></a>
 	with a valid shader object and the parameter to be queried</p><p><a class="citerefentry" href="glGetShaderInfoLog.xml"><span class="citerefentry"><span class="refentrytitle">glGetShaderInfoLog</span></span></a>
