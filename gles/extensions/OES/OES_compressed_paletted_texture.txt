@@ -12,6 +12,8 @@ Contact
 
 Notice
 
+    Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
 
 IP Status
 
@@ -266,7 +268,7 @@ Revision History
            new formats.
 
     07/21/2004    0.5    (Aaftab Munshi)
-	   - Fixed PALETTE_8xxx drawing
+           - Fixed PALETTE_8xxx drawing
 
     11/12/2005    0.6    (Aaftab Munshi)
        - Corrections

@@ -10,6 +10,11 @@ Contact
 
     Jon Leech (jon 'at' alumni.caltech.edu)
 
+Notice
+
+    Copyright (c) 2005-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
     None.
@@ -60,6 +65,6 @@ New State
 
 Revision History
 
-    4/24/2008	Jon Leech	Withdraw the extension and refer to ES 2.0
-				instead.
-    7/6/2005	Aaftab Munshi	Created the extension
+    4/24/2008   Jon Leech       Withdraw the extension and refer to ES 2.0
+                                instead.
+    7/6/2005    Aaftab Munshi   Created the extension

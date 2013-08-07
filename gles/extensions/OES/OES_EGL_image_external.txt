@@ -21,6 +21,11 @@ Contacts
 
     Acorn Pooley, NVIDIA Corporation (apooley 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2009-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Ratified by Khronos Promoters, 10 December 2010

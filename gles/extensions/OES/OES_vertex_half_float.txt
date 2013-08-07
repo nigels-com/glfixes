@@ -10,6 +10,11 @@ Contact
 
     Aaftab Munshi (amunshi@ati.com)
 
+Notice
+
+    Copyright (c) 2005-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
     None.
@@ -133,4 +138,4 @@ Revision History
 
     June 15, 2005    Aaftab Munshi    First draft of extension.
     June 22, 2005    Aaftab Munshi    Renamed HALF_FLOAT token to HALF_FLOAT_OES
-    #3, 2007/04/22   Jon Leech	      Add version date and extension number.
+    #3, 2007/04/22   Jon Leech        Add version date and extension number.

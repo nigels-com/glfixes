@@ -16,6 +16,11 @@ Contacts
 
     Gary King, NVIDIA Corporation (gking 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2006-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Approved by the Khronos OpenKODE Working Group in January, 2007

@@ -23,6 +23,11 @@ Contact
 
     Benj Lipchak, AMD (benj.lipchak 'at' amd.com)
 
+Notice
+
+    Copyright (c) 2007-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Ratified by the Khronos BOP, May 29, 2008.
@@ -34,7 +39,7 @@ Version
 
 Number
 
-    47
+    OpenGL ES Extension #47
 
 Dependencies
 

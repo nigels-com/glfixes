@@ -15,6 +15,11 @@ Contact
 
     Benj Lipchak, Apple (lipchak 'at' apple.com)
 
+Notice
+
+    Copyright (c) 2007-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Ratified by the Khronos BOP, March 20, 2008.
@@ -26,7 +31,7 @@ Version
 
 Number
 
-    43
+    OpenGL ES Extension #43
 
 Dependencies
 

@@ -10,6 +10,11 @@ Contact
 
     Tom Olson (t-olson 'at' ti.com)
 
+Notice
+
+    Copyright (c) 2004-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Ratified by the Khronos BOP, Aug 5, 2004.
@@ -590,4 +595,4 @@ Revision History
           ways to define it.
 
     April 13, 2004
-	- Initial version (v0.3)
+        - Initial version (v0.3)
