@@ -16,6 +16,11 @@ Contact
 
     Ben Bowman, Imagination Technologies (benji 'dot' bowman 'at' imgtec 'dot' com)
 
+Notice
+
+    Copyright (c) 2009-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
 

@@ -17,7 +17,8 @@ Contact
 
 Notice
 
-    Copyright © 2005 The Khronos Group Inc.
+    Copyright (c) 2005-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
 
 Status
 
@@ -29,7 +30,7 @@ Version
 
 Number
 
-    45
+    OpenGL ES Extension #45
 
 Dependencies
 

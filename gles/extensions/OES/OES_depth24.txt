@@ -10,6 +10,11 @@ Contact
 
     Aaftab Munshi (amunshi@ati.com)
 
+Notice
+
+    Copyright (c) 2005-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
     None.

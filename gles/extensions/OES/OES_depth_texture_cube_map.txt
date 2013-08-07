@@ -10,6 +10,11 @@ Contact
 
     Daniel Koch (daniel 'at' transgaming 'dot' com)
 
+Notice
+
+    Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Recommended by the OpenGL ES Working Group, September 12, 2012

@@ -20,6 +20,11 @@ Contact
 
     Aaftab Munshi (amunshi@apple.com)
 
+Notice
+
+    Copyright (c) 2006-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 IP Status
 
     None.
@@ -34,7 +39,7 @@ Version
 
 Number
 
-    46
+    OpenGL ES Extension #46
 
 Dependencies
 
@@ -162,7 +167,7 @@ Revision History
                                       when used as a vertex attribute data format.
 
     Oct  20, 2006    Aaftab Munshi    Fixed errors to say 3- or 4- tuples instead
-	                                  of just 3- tuples.
+                                          of just 3- tuples.
 
     Jun  13, 2007    Aaftab Munshi    Removed 10.10.10{.2} texture formats.
 

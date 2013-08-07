@@ -10,6 +10,11 @@ Contact
 
     Aaftab Munshi (amunshi@ati.com)
 
+Notice
+
+    Copyright (c) 2005-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Ratified by the Khronos BOP, July 22, 2005.
@@ -39,22 +44,22 @@ Overview
     sufficient to allow this.  The OES_extended_matrix_palette extension increases 
     this minimum from 9 to 32.  
 
-	Another issue is that it is very difficult for ISVs to handle different 
-	size matrix palettes as it affects how they store their geometry 
-	in the database - may require multiple representations which is
-	not really feasible.  So the minimum size is going to be what most ISVs
-	will use.
+        Another issue is that it is very difficult for ISVs to handle different 
+        size matrix palettes as it affects how they store their geometry 
+        in the database - may require multiple representations which is
+        not really feasible.  So the minimum size is going to be what most ISVs
+        will use.
 
-	By extending the minimum size of the matrix palette, we remove this
-	fragmentation and allow applications to render geometry with minimal
-	number of calls to glDrawElements or glDrawArrays.  The OpenGL ES
-	implementation can support this without requiring any additional hardware
-	by breaking the primitive, plus it gives implementations the flexibility
-	to accelerate with a bigger matrix palette if they choose to do so.
+        By extending the minimum size of the matrix palette, we remove this
+        fragmentation and allow applications to render geometry with minimal
+        number of calls to glDrawElements or glDrawArrays.  The OpenGL ES
+        implementation can support this without requiring any additional hardware
+        by breaking the primitive, plus it gives implementations the flexibility
+        to accelerate with a bigger matrix palette if they choose to do so.
 
-	Additionally, feedback has also been received to increase the number of
-	matrices that are blend per vertex from 3 to 4.  The OES_extended_matrix_palette
-	extension increases the minium number of matrices / vertex to 4.
+        Additionally, feedback has also been received to increase the number of
+        matrices that are blend per vertex from 3 to 4.  The OES_extended_matrix_palette
+        extension increases the minium number of matrices / vertex to 4.
     
 IP Status
 

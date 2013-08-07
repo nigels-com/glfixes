@@ -10,6 +10,11 @@ Contact
 
     Aaftab Munshi (amunshi@apple.com)
 
+Notice
+
+    Copyright (c) 2006-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Ratified by the Khronos BOP, March 20, 2008.
@@ -20,7 +25,7 @@ Version
 
 Number
 
-    44
+    OpenGL ES Extension #44
 
 Dependencies
 

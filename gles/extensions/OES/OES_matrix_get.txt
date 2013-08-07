@@ -10,6 +10,11 @@ Contact
 
     Aaftab Munshi (amunshi@ati.com)
 
+Notice
+
+    Copyright (c) 2004-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Ratified by the Khronos BOP, Aug 5, 2004.
@@ -66,9 +71,9 @@ New Tokens
 
     Accepted by the <pname> parameter of GetIntegerv:
 
-	MODELVIEW_MATRIX_FLOAT_AS_INT_BITS_OES	0x898d
-	PROJECTION_MATRIX_FLOAT_AS_INT_BITS_OES	0x898e
-	TEXTURE_MATRIX_FLOAT_AS_INT_BITS_OES	0x898f
+        MODELVIEW_MATRIX_FLOAT_AS_INT_BITS_OES  0x898d
+        PROJECTION_MATRIX_FLOAT_AS_INT_BITS_OES 0x898e
+        TEXTURE_MATRIX_FLOAT_AS_INT_BITS_OES    0x898f
 
 Additions to Chapter 2 of the OpenGL 1.4 Specification (OpenGL Operation)
 
