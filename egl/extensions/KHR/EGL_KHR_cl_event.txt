@@ -31,7 +31,7 @@ Status
 
 Version
 
-    Version 8, July 19, 2013
+    Version 9, August 12, 2013
 
 Number
 
@@ -57,10 +57,9 @@ Overview
 
 New Types
 
-    /*
-     * OpenCL event object
-     */
-    typedef struct _cl_event *cl_event;
+    None. However, event handles of type cl_event, defined in the OpenCL
+    header files, may be included in the attribute list passed to
+    eglCreateSyncKHR.
 
 New Procedures and Functions
 
@@ -175,26 +174,18 @@ Issues
     2) What should the command to create a sync object linked to an
        OpenCL event look like?
 
-    RESOLVED: We reuse the general attribute list mechanism rather than having
-    a constructor specific to CL events. This was intended in the sync object
-    design from the start.
+    RESOLVED: We reuse the general attribute list mechanism rather than
+    having a constructor specific to CL events. This was intended in the
+    sync object design from the start.
 
     3) How will the OpenCL header dependencies interact with
        specifying the API for this extension?
 
-    DISCUSSION: EGL extensions are specified in the Khronos-supplied
-    "eglext.h" headers. Normally this header is self-contained,
-    requiring only that <KHR/khrplatform.h>, <EGL/eglplatform.h>,
-    and <EGL/egl.h> be available to define necessary EGL types.
-    specifying an event interface using the cl_event data type
-    introduces a dependency on cl.h. Even worse, there may be a
-    dependency loop between CL and EGL headers in order to define
-    both the cl_khr_egl_event and the EGL_KHR_cl_event extensions.
-
-    RESOLVED: We will use the same incomplete types as cl.h, and remove
-    the dependency by having eglext.h define
-
-        typedef struct _cl_event *cl_event;
+    DISCUSSION: To use this extension, OpenCL event handles of type cl_event
+    are specified in the attribute lists passed to eglCreateSyncKHR. Because
+    no formal parameters are of type cl_event, the EGL headers do not need
+    to define this type. Applications must #include the appropriate OpenCL
+    header files as well as <EGL/eglext.h> when using this extension.
 
     This issue resolution is consistent with the equivalent issue for
     GL_ARB_cl_event.
@@ -242,6 +233,9 @@ Issues
 
 
 Revision History
+
+    Version 9, 2013/08/12 (Jon Leech) - remove unused cl_event type from the
+    extension and from <EGL/eglext.h> (Bug 10661).
 
     Version 8, 2013/07/19 (Jon Leech) - assign extension number and
     missing enum value, and clean up a few typos for publication.

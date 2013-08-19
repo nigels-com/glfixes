@@ -10,6 +10,11 @@ Contact
 
     Kari Pulli, Nokia (kari.pulli 'at' nokia.com)
 
+Notice
+
+    Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Ratified by the Khronos BOP, July 23, 2003.
