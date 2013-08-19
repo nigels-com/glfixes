@@ -33,8 +33,8 @@ Status
 
 Version
 
-    Last Modified Date: June 25, 2013
-    Revision: 15
+    Last Modified Date: August 12, 2013
+    Revision: 16
 
 Number
 
@@ -437,10 +437,10 @@ Issues
     8. Should these commands support support loading <data> from the pixel
     unpack buffer (ie PBO) or only client memory?
 
-    RESOLVED. No. ClearBufferSubData only supports client memory. There seems
-    to be little value in supporting buffer-backed sources when there is
-    only one texels' worth of data to upload. If the worst case (RGBA32F) it
-    is only 16 bytes of data.
+    RESOLVED. ClearTex*Image only supports <data> in client memory, like the
+    comparable ClearBuffer*Data commands. There seems to be little value in
+    supporting buffer-backed sources when there is only one texels' worth of
+    data to upload. If the worst case (RGBA32F) it is only 16 bytes of data.
 
     9. How does clearing multisample textures work?
 
@@ -508,6 +508,8 @@ Issues
 
 Revision History
 
+    Revision 16, 2013/08/12, Jon Leech
+        - Clarify issue 8 (public bug 934).
     Revision 15, 2013/06/25, dgkoch
         - assign value for GL_CLEAR_TEXTURE
     Revision 14, 2013/06/21, dgkoch

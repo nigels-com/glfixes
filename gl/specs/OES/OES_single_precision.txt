@@ -10,6 +10,11 @@ Contact
 
     David Blythe (blythe 'at' bluevoid.com)
 
+Notice
+
+    Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Status
 
     Ratified by the Khronos BOP, July 23, 2003.
@@ -228,4 +233,4 @@ Revision History
         - Added ClipPlanef function (Aaftab Munshi)
 
     04/22/2007    0.6
-	- Fixed 'void void' typo (Jon Leech)
+        - Fixed 'void void' typo (Jon Leech)

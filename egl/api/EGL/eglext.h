@@ -38,7 +38,7 @@ extern "C" {
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20130721
+#define EGL_EGLEXT_VERSION 20130812
 
 /* Generated C header for:
  * API: egl
@@ -51,7 +51,6 @@ extern "C" {
 
 #ifndef EGL_KHR_cl_event
 #define EGL_KHR_cl_event 1
-typedef struct _cl_event *cl_event;
 #define EGL_CL_EVENT_HANDLE_KHR           0x309C
 #define EGL_SYNC_CL_EVENT_KHR             0x30FE
 #define EGL_SYNC_CL_EVENT_COMPLETE_KHR    0x30FF
