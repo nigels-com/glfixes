@@ -26,8 +26,8 @@ Status
 
 Version
 
-    Last Modified Date: July 11, 2013
-    Revision:           19
+    Last Modified Date: August 19, 2013
+    Revision:           20
 
 Number
 
@@ -601,10 +601,12 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
     values found in table 2.16.
 
     For the property ARRAY_SIZE, a single integer identifying the number of
-    active array elements of an active variable is written to <params>.  The
+    active array elements of an active variable is written to <params>. The
     array size returned is in units of the type associated with the property
-    TYPE.  For active variables not corresponding to an array of basic types,
-    the value zero is written to <params>.
+    TYPE. For active variables not corresponding to an array of basic types,
+    the value one is written to <params>. If the variable is a shader
+    storage block member in an array with no declared size, the value zero
+    is written to <params>.
 
     For the property BLOCK_INDEX, a single integer identifying the index of
     the active interface block containing an active variable is written to
@@ -866,7 +868,8 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
     The command
 
       void GetUniformIndices(uint program, sizei uniformCount,
-                             const char **uniformNames, uint *uniformIndices);
+                             const char * const *uniformNames, 
+                             uint *uniformIndices);
 
     is equivalent to
 
@@ -1863,8 +1866,22 @@ Issues
       vertex shader, whether or not they correspond to attributes in
       conventional or generic vertex attribute arrays.
 
+    (25) What should the value of ARRAY_SIZE be for non-array and unsized
+         array variables?
+
+      RESOLVED: For compatibility with GetActiveUniform, ARRAY_SIZE of a
+      non-array variable is one (initially this was specified as zero, an
+      unintentional incompatibility). For unsized array variables, the size
+      is zero.
+
 Revision History
 
+    Revision 20, August 19, 2013 (Jon Leech)
+      - Change ARRAY_SIZE query to return one for active variables not
+        corresponding to an array of basic types, rather than zero, for
+        compatibility with GetActiveUniform (Bug 10647). Return zero for
+        explicitly unsized arrays (Bug 10641). Add extra 'const' qualifier
+        for GetUniformIndices <uniformNames> argument (Bug 10703).
     Revision 19, July 11, 2013 (Jon Leech)
       - Clarify that GetTransformFeedbackVarying can be used to query
         any transform feedback varying variable (Bug 10472).

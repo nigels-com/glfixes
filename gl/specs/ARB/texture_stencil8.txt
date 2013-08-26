@@ -28,8 +28,8 @@ Status
 
 Version
 
-    Last Modified Date:         June 28, 2013
-    Revision:                   3
+    Last Modified Date:         August 8, 2013
+    Revision:                   4
 
 Number
 
@@ -58,8 +58,9 @@ New Tokens
         STENCIL_INDEX           0x1901  /* existing enum */
 
     Accepted by the <internalformat> parameter of TexImage3D, TexImage2D,
-    TexImage1D, TexSubImage3D, TexSubImage2D, TexSubImage1D, CopyTexImage2D,
-    CopyTexImage2D, TexStorage3D, TexStorage2D, TexStorage1D:
+    TexImage1D, CopyTexImage2D, CopyTexImage1D, TexStorage3D, TexStorage2D,
+    TexStorage1D, TexImage3DMultisample, TexImage2DMultisample,
+    TexStorage3DMultisample, TexStorage2DMultisample:
 
         STENCIL_INDEX8          0x8D48  /* existing enum */
 
@@ -243,3 +244,5 @@ Revision History
                               Update errors for GetTexImage.
      3    06/28/13  Jon Leech Fix dates in revision history. Change filter
                               modes for texture completeness (Bug 10372).
+     4    08/08/13  pdaniell  Fix the functions that accept STENCIL_INDEX8 as
+                              an <internalformat> parameter.

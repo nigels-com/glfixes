@@ -42,8 +42,8 @@ Status
 
 Version
 
-    Last Modified Date:     2011/09/17
-    Author revision:        66
+    Last Modified Date:     2013/08/19
+    Author revision:        67
 
 Number
 
@@ -175,7 +175,7 @@ New Procedures and Functions
 
    void    GetUniformIndices(uint program,
                                 sizei uniformCount, 
-                                const char** uniformNames, 
+                                const char* const * uniformNames, 
                                 uint* uniformIndices);
 
    void    GetActiveUniformsiv(uint program,
@@ -501,7 +501,7 @@ Additions to Chapter 2 - OpenGL Operation
 
         void GetUniformIndices(uint program,
                                   sizei uniformCount, 
-                                  const char** uniformNames, 
+                                  const char* const * uniformNames, 
                                   uint* uniformIndices);
 
     <program> is the name of a program object for which the command
@@ -3376,6 +3376,10 @@ Issues
 
 
 Revision History
+
+    (v67, 2013-08-17, jon)
+        - Add extra 'const' qualifier for GetUniformIndices <uniformNames>
+          argument (Bug 10703).
 
     (v66, 2012-09-17, jon)
         - Remove _EXT suffix from GL_UNIFORM_BUFFER_EXT in sample code (Bug
