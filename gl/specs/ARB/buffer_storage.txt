@@ -15,6 +15,7 @@ Contributors
     Jeff Bolz, NVIDIA
     Daniel Koch, NVIDIA
     Jon Leech
+    Mark Kilgard, NVIDIA
 
 Notice
 
@@ -28,8 +29,8 @@ Status
 
 Version
 
-    Last Modified Date: August 15, 2013
-    Revision: 22
+    Last Modified Date: August 16, 2013
+    Revision: 23
 
 Number
 
@@ -71,6 +72,8 @@ New Procedures and Functions
                        sizeiptr size,
                        const void * data,
                        bitfield flags);
+
+    When EXT_direct_state_access is present:
 
     void NamedBufferStorageEXT(uint buffer,
                                sizeiptr size,
@@ -703,3 +706,4 @@ Revision History
                                 DYNAMIC_STORAGE_BIT (Bug 10561, public Bug
                                 925).
 
+    23    08/16/2013  mjk       Better indicate DSA entrypoints

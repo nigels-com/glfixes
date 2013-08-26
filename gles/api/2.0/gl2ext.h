@@ -1,7 +1,7 @@
 #ifndef __gl2ext_h_
 #define __gl2ext_h_
 
-/* $Revision: 22161 $ on $Date:: 2013-06-25 08:17:27 -0700 #$ */
+/* $Revision: 22777 $ on $Date:: 2013-08-19 15:30:27 -0700 #$ */
 
 #ifdef __cplusplus
 extern "C" {
@@ -625,6 +625,12 @@ typedef void (GL_APIENTRYP GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,G
 #define GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT            0x8210
 #endif
 
+/* GL_EXT_sRGB_write_control */
+#ifndef GL_EXT_sRGB_write_control
+#define GL_EXT_sRGB_write_control 1
+#define GL_FRAMEBUFFER_SRGB_EXT                                 0x8DB9
+#endif
+
 /* GL_EXT_texture_compression_dxt1 */
 #ifndef GL_EXT_texture_compression_dxt1
 #define GL_COMPRESSED_RGB_S3TC_DXT1_EXT                         0x83F0
@@ -648,6 +654,14 @@ typedef void (GL_APIENTRYP GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,G
 #define GL_RG_EXT                                               0x8227
 #define GL_R8_EXT                                               0x8229
 #define GL_RG8_EXT                                              0x822B
+#endif
+
+/* GL_EXT_texture_sRGB_decode */
+#ifndef GL_EXT_texture_sRGB_decode
+#define GL_EXT_texture_sRGB_decode 1
+#define GL_TEXTURE_SRGB_DECODE_EXT                              0x8A48
+#define GL_DECODE_EXT                                           0x8A49
+#define GL_SKIP_DECODE_EXT                                      0x8A4A
 #endif
 
 /* GL_EXT_texture_storage */
@@ -1473,7 +1487,7 @@ typedef void (GL_APIENTRYP PFNGLDISCARDFRAMEBUFFEREXTPROC) (GLenum target, GLsiz
 #ifndef GL_EXT_disjoint_timer_query
 #define GL_EXT_disjoint_timer_query 1
 #ifdef GL_GLEXT_PROTOTYPES
-GL_APICALL void GL_APIENTRY glGenQueriesEXT (GLsizei n, GLuint *ids);
+/* reuse glGenQueriesEXT */
 GL_APICALL void GL_APIENTRY glDeleteQueriesEXT (GLsizei n, const GLuint *ids);
 GL_APICALL GLboolean GL_APIENTRY glIsQueryEXT (GLuint id);
 GL_APICALL void GL_APIENTRY glBeginQueryEXT (GLenum target, GLuint id);
@@ -1485,7 +1499,7 @@ GL_APICALL void GL_APIENTRY glGetQueryObjectuivEXT (GLuint id, GLenum pname, GLu
 GL_APICALL void GL_APIENTRY glGetQueryObjecti64vEXT (GLuint id, GLenum pname, GLint64 *params);
 GL_APICALL void GL_APIENTRY glGetQueryObjectui64vEXT (GLuint id, GLenum pname, GLuint64 *params);
 #endif
-typedef void (GL_APIENTRYP PFNGLGENQUERIESEXTPROC) (GLsizei n, GLuint *ids);
+/* reuse PFNGLGENQUERIESEXTPROC */
 typedef void (GL_APIENTRYP PFNGLDELETEQUERIESEXTPROC) (GLsizei n, const GLuint *ids);
 typedef GLboolean (GL_APIENTRYP PFNGLISQUERYEXTPROC) (GLuint id);
 typedef void (GL_APIENTRYP PFNGLBEGINQUERYEXTPROC) (GLenum target, GLuint id);

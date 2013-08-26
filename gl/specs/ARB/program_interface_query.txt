@@ -1868,6 +1868,13 @@ Revision History
     Revision 19, July 11, 2013 (Jon Leech)
       - Clarify that GetTransformFeedbackVarying can be used to query
         any transform feedback varying variable (Bug 10472).
+    Revision 18, July 10, 2012 (pbrown)
+      - Specify an INVALID_ENUM error when ATOMIC_COUNTER_BUFFER is passed
+        to GetProgramResourceIndex or GetProgramResourceName.  Clarify that
+        the array element portion of a string passed to
+        GetProgramResourceLocation or GetProgramResourceLocationIndex
+        must not have, a "+" sign, extra leading zeroes, or whitespace (bug
+        9254).
     Revision 17, July 7, 2012 (pbrown)
       - Specify that "special" built-ins inputs and outputs such as
         "gl_VertexID" should be enumerated in the PROGRAM_INPUT and

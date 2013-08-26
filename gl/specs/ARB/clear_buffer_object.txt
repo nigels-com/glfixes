@@ -10,6 +10,12 @@ Contact
 
     Graham Sellers (graham.sellers 'at' amd.com)
 
+Contributors
+
+    Jon Leech
+    Piers Daniell, NVIDIA
+    Mark Kilgard, NVIDIA
+
 Notice
 
     Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
@@ -22,8 +28,8 @@ Status
 
 Version
 
-    Last Modified Date: September 12, 2012
-    Version: 10
+    Last Modified Date: August 7, 2013
+    Version: 11
 
 Number
 
@@ -71,6 +77,8 @@ New Procedures and Functions
                                 enum format,
                                 enum type,
                                 const void * data);
+
+    When EXT_direct_state_access is present:
 
         void ClearNamedBufferDataEXT(uint buffer,
                                      enum internalformat,
@@ -272,7 +280,9 @@ Revision History
 
     Rev.  Date        Author    Changes
     ----  ----------  --------  ---------------------------------------------
-    10    09/12/2021  Jon Leech Modify error condition when the target buffer
+    11    08/07/2013  mjk       Better indicate DSA entrypoints
+
+    10    09/12/2012  Jon Leech Modify error condition when the target buffer
                                 is mapped to only be generated when the
                                 mapped region intersects the region being
                                 cleared (bug 9343).

@@ -23,6 +23,7 @@ Contributors
     Maurice Ribble, Qualcomm
     Lingjun Chen, Qualcomm
     Daniel Koch, Transgaming Inc
+    Mark Kilgard, NVIDIA
 
 Notice
 
@@ -36,8 +37,8 @@ Status
 
 Version
 
-    Last Modified Date: January 19, 2012
-    Author Revision: 25
+    Last Modified Date: August 7, 2013
+    Author Revision: 26
 
 Number
 
@@ -100,6 +101,8 @@ New Procedures and Functions
     void TexStorage3D(enum target, sizei levels,
                       enum internalformat,
                       sizei width, sizei height, sizei depth);
+
+    When EXT_direct_state_access is present:
 
     void TextureStorage1DEXT(uint texture, enum target, sizei levels,
                              enum internalformat,
@@ -896,6 +899,9 @@ Issues
     decision.
 
 Revision History
+
+    Revision 26, 2013/08/07 (mjk)
+      - Better indicate DSA entrypoints
 
     Revision 25, 2012/01/19 (bmerry)
       - Clarify that the pixel unpack buffer has no effect.

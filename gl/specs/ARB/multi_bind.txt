@@ -132,7 +132,7 @@ Modifications to the OpenGL 4.3 (Compatibility Profile) Specification
     object.  For BindBuffersRange, <offsets> and <sizes> specify arrays of
     <count> values indicating the range of each buffer to bind.  If <buffers>
     is NULL, all bindings from <first> through <first>+<count>-1 are reset
-    to their unbound (zero) state. In this case, the offsets and strides
+    to their unbound (zero) state. In this case, the offsets and sizes
     associated with the binding points are set to default values, ignoring
     <offsets> and <sizes>.
 
@@ -830,6 +830,9 @@ Issues
 
 Revision History
 
+    Revision 11, August 16, 2013 (Jon Leech)
+      - Typo fix for BindBuffers* "offsets and strides" -> "offsets and
+        sizes" (Bug 10685).
     Revision 10, July 21, 2013 (Jon Leech)
       - Specify that multibind commands are equivalent to repeated calls to
         the corresponding single bind commands except that objects are not
