@@ -7056,7 +7056,7 @@ Issues
 
         If the modelview matrix is projective, the application can choose
         to interpolate we as a texture coordinate with glPathTexGenNV's
-        GL_EYE_PLANE mode and perform the division -ze/we during fragment
+        GL_EYE_LINEAR mode and perform the division -ze/we during fragment
         coloring.
 
    113. How should path color and texture coordinate generation be
