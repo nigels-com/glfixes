@@ -26,8 +26,8 @@ Status
 
 Version
 
-    Last Modified Date:         07/01/2013
-    NVIDIA Revision:            7
+    Last Modified Date:         08/09/2013
+    NVIDIA Revision:            8
 
 Number
 
@@ -446,7 +446,6 @@ Operation)
 
       void TransformFeedbackVaryingsEXT(uint program, sizei count,
                                         const char * const *varyings, 
-                                        const char **varyings, 
                                         enum bufferMode)
 
     <program> specifies the program object.  <count> specifies the number of
@@ -1202,6 +1201,9 @@ Revision History
 
       Rev.    Date    Author    Changes
       ----  --------  --------  ---------------------------------------------
+       8    08/09/13  pbrown    Remove extra <varyings> parameter in
+                                TransformFeedbackVaryingsEXT.
+
        7    07/01/13  Jon Leech Change type of TransformFeedbackVaryingsEXT
                                 parameter from 'const char **varyings' to
                                 'const char * const *varyings' (Bug 10231). 

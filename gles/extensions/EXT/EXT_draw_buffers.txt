@@ -537,8 +537,17 @@ Issues
     sets all the draw buffers to NONE. The ES 3.0 spec will be updated
     accordingly.
 
+   8) What value should gl_MaxDrawBuffers in the shading language report?
+    
+    RESOLVE: It should match MAX_DRAW_BUFFERS_EXT from the API. None
+    of the API or GLSL specifications explicitly state the linkage
+    between API and SL constants, but it seems logical that one would
+    expect them to match, regardless of whether or not an extension
+    directive is used in the shading language.
+
 Revision History
 
+    07/12/2013  dgkoch  add issue 8
     05/11/2013  dgkoch  add issue 7 and relevant clarifications
                         minor clarification for issue 5.
     01/30/2013  dgkoch  add issue 6 and clear interactions

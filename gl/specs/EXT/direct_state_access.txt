@@ -1,4 +1,5 @@
-Name 
+Name
+ 
     EXT_direct_state_access
 
 Name Strings
@@ -26,6 +27,9 @@ Contributors
     Jeff Juliano, NVIDIA
     Jon Burgess, NVIDIA
     Mike Marcin
+    Nigel Stewart, NVIDIA
+    Jason McKesson
+    Graham Sellers, AMD
 
 Contact
 
@@ -40,9 +44,13 @@ Status
 
 Version
 
-    Last Modified Date:         09/07/2010
-    Author revision:            34
-    Version                     1.1 (version 1.0 lacked OpenGL 3.0 support)
+    Last Modified Date:         07/29/2013
+    Author revision:            37
+    Version                     1.2
+
+    (version 1.0 lacked OpenGL 3.0 support)
+    (version 1.1 lacked GL_TEXTUREi support for glVertexArrayTexCoordOffsetEXT)
+    (version 1.1 didn't clearly specify GL_TEXTURE_COORD_ARRAY works with glGetVertexArrayIntegeri_vEXT)
 
 Number
 
@@ -1340,6 +1348,15 @@ Additions to Chapter 2 of the OpenGL 3.0 Specification (OpenGL Operation)
     parameter matches the index parameter for the corresponding
     EnableVertexAttribArray and DisableVertexAttribArray commands.
 
+    Additionally EnableVertexArrayEXT and DisableVertexArrayEXT accept
+    the tokens TEXTURE0 through TEXTUREn where n is less than the
+    implementation-dependent limit of MAX_TEXTURE_COORDS.  For these
+    GL_TEXTUREi tokens, EnableVertexArrayEXT and DisableVertexArrayEXT
+    act identically to EnableVertexArrayEXT(vaobj, TEXTURE_COORD_ARRAY)
+    or DisableVertexArrayEXT(vaobj, TEXTURE_COORD_ARRAY) respectively
+    as if the active client texture is set to texture coordinate set i
+    based on the token TEXTUREi indicated by array.
+
     If the vertex array object named by the vaobj parameter has not
     been previously bound but has been generated (without subsequent
     deletion) by GenVertexArrays, the GL first creates a new state
@@ -2319,14 +2336,14 @@ State Requests)
     tokens).  For GetVertexArrayIntegeri_vEXT, pname must be one of the
     "Get value" tokens in tables 6.8 and 6.9 that use GetVertexAttribiv
     or GetVertexAttribPointerv (so allowing only the VERTEX_ATTRIB_*
-    tokens) or a token of the form TEXTURE_COORD_ARRAY_*; index
-    identifies the vertex attribute array to query or texture coordinate
-    set index respectively.  For GetVertexArrayPointervEXT, pname must
-    be a *_ARRAY_POINTER token from tables 6.6, 6.7, and 6.8 excluding
-    VERTEX_ATTRIB_ARRAY_POINTER.  For GetVertexArrayPointeri_vEXT, pname
-    must be VERTEX_ATTRIB_ARRAY_POINTER or TEXTURE_COORD_ARRAY_POINTER
-    with the index parameter indicating the vertex attribute or texture
-    coordindate set index.
+    tokens) or a token of the form TEXTURE_COORD_ARRAY (the enable) or
+    TEXTURE_COORD_ARRAY_*; index identifies the vertex attribute
+    array to query or texture coordinate set index respectively.  For
+    GetVertexArrayPointervEXT, pname must be a *_ARRAY_POINTER token from
+    tables 6.6, 6.7, and 6.8 excluding VERTEX_ATTRIB_ARRAY_POINTER.  For
+    GetVertexArrayPointeri_vEXT, pname must be VERTEX_ATTRIB_ARRAY_POINTER
+    or TEXTURE_COORD_ARRAY_POINTER with the index parameter indicating
+    the vertex attribute or texture coordindate set index.
 
     If the state queried by GetVertexArrayIntegervEXT or
     GetVertexArrayVertexAttribIntegervEXT is maintained as a pointer,
@@ -2988,6 +3005,31 @@ New Implementation Dependent State
 
     None.
 
+NVIDIA Implementation Details
+
+    NVIDIA drivers prior to 330.00 (August 2013) have a bug where
+    glMultiTexGeniEXT acts identically to glTexGeni (so glMultiTexGeniEXT
+    ignores its texture unit parameter).
+    
+    As a workaround, use glMultiTexGenivEXT.  So problematic code written
+    as:
+    
+      glMultiTexGeniEXT(texUnit, coord, pname, value);
+
+    can be rewritten as:
+
+      GLenum pvalue = value;
+      glMultiTexGenivEXT(texUnit, coord, pname, pvalue);
+
+    NVIDIA drivers prior to 330.00 (August 2013) do not support
+    the glEnableVertexArrayEXT and glDisableVertexArrayEXT with the
+    GL_TEXTUREi tokens and instead generate a GL_INVALID_ENUM error.
+    See issue 32.  The only workaround is to change the texture
+    unit selector (glActiveTexture) and bind the vertex array
+    object (glBindVertexArray) and call glEnable or glDisable with
+    GL_TEXTURE_COORD_ARRAY.  Alternatively use generic vertex attribute
+    arrays instead of texture coordinate arrays.
+
 Issues
 
     (0) What is changed from version 1.0 to version 1.1 of this extension
@@ -3493,7 +3535,7 @@ Issues
           glGetIntegerv(GL_MAX_TEXTURE_COORDS, &max);
           for (i=0; i<max; i++) {
             glClientActiveTexture(GL_TEXTURE0 + i);
-            glDisableClientState(GL_TEXTURE_COORD_ARRAY_ARRAY);
+            glDisableClientState(GL_TEXTURE_COORD_ARRAY);
             glTexCoordPointer(4, GL_FLOAT, 0, 0);
           }
 
@@ -4082,6 +4124,95 @@ Issues
         to the same underlying type (a signed int of the same size in
         bytes as a pointer).
 
+   (31) Should the internalformat parameter of various DSA versions of
+        gl*Tex*Image* routines be a GLint or GLenum?
+
+        RESOLVED:  Match the type for internalformat of the pre-DSA
+        version of the routine.
+
+        This is a legacy of OpenGL 1.0 where the internalformat parameter
+        to glTexImage1D and glTexImage2D was a GLint-typed value that
+        could be 1, 2, 3, or 4 for the number of components.
+
+        In OpenGL 1.1, internal texture formats were introduced to provide
+        more specificity to the internal representation of texels within
+        a texture.  This was part of introducing texture objects to OpenGL
+        (a feature not originally in OpenGL 1.0).
+
+        The intent of this decision is to make it easier for existing
+        code converting use the selector-free DSA routines without
+        signed/unsigned warnings because GLenum is unsigned while GLint
+        is signed.
+
+        This means the following commands take a GLint internalformat
+        parameter:
+
+            glTextureImage1DEXT
+            glTextureImage2DEXT
+            glTextureImage3DEXT
+            glMultiTexImage1DEXT
+            glMultiTexImage2DEXT
+            glMultiTexImage3DEXT
+
+        This means the following commands take a GLenum internalformat
+        parameter:
+
+            glCopyTextureImage1DEXT
+            glCopyTextureImage2DEXT
+            glCopyMultiTexImage1DEXT
+            glCopyMultiTexImage2DEXT
+
+            glCompressedTextureImage1DEXT
+            glCompressedTextureImage2DEXT
+            glCompressedTextureImage3DEXT
+            glCompressedMultiTexImage1DEXT
+            glCompressedMultiTexImage2DEXT
+            glCompressedMultiTexImage3DEXT
+
+            glTextureBufferEXT
+            glMultiTexBufferEXT
+            glNamedRenderbufferStorageEXT
+            glNamedRenderbufferStorageMultisampleEXT
+            glNamedRenderbufferStorageMultisampleCoverageEXT
+
+        Warning: pre-July 2013 versions of glext.h have the DSA prototypes that
+        should be using GLint internalformat using GLenum instead.  See:
+
+            https://cvs.khronos.org/bugzilla/show_bug.cgi?id=10413
+
+   (32) How can a particular vertex array object's texture coordinate
+        set array be updated without depending on the active client
+        texture selector?
+
+        RESOLVED:  The glEnableVertexArrayEXT and glDisableVertexArrayEXT
+        commands should be extended to accept GL_TEXTUREi tokens where
+        GL_TEXTUREi indicates the specific vertex array for texture
+        coordinate set i to enable or disable respectively.
+
+        Due to a specification lapse, this behavior was not specified in
+        the version 1.1 of this specification but was added for version
+        1.2.
+
+        The use of a GL_TEXTUREi token follows the precedent set for how
+        GL_TEXTUREi is supported for the selector-free matrix routines.
+
+        Implementations of EXT_direct_state_access prior to July 2013
+        cannot be expected to implement this behavior and will generate
+        a GL_INVALID_ENUM error instead.  This error can be used to
+        distinguish version 1.2 and earlier versions of this extension.
+
+        Calling glEnableVertexArrayEXT or glDisableVertexArrayEXT with
+        GL_TEXTURE_COORD_ARRAY can be expected to update the texture
+        coordinate array based on the current active client texture
+        coordinate set of the indicated vertex array object, effectively
+        depending on the current active texture selector but not the
+        current bound vertex array object selector.
+
+        Querying the enable of multitexture texture coordinate arrays
+        uses glGetVertexArrayIntegeri_vEXT with GL_TEXTURE_COORD_ARRAY
+        for the pname.  This behavior was not clearly specified before
+        version 1.2.
+
 Revision History
 
     Rev.    Date    Author    Changes
@@ -4144,3 +4275,10 @@ Revision History
                               texture image units
      34   09/07/10  mjk       some Get*Indexedv instanced needed EXT
                               suffixes; issue 27 update
+     35   06/18/13  mjk       add issue 31; glext.h had GLenum internalformat
+                              when spec said GLint for gl*Tex*Image*EXT commands
+     36   06/24/13  mjk       fix glEnableVertexArrayEXT and
+                              glDisableVertexArrayEXT so they accept the
+                              GL_TEXTUREi tokens to be free of active
+                              client texture selector (issue 32)
+     37   07/29/13  mjk       document NVIDIA driver bugs

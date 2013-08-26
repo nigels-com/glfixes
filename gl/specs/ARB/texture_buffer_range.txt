@@ -10,6 +10,11 @@ Contact
 
     Graham Sellers (graham.sellers 'at' amd.com)
 
+Contributors
+
+    Jon Leech
+    Mark Kilgard, NVIDIA
+
 Notice
 
     Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
@@ -22,8 +27,8 @@ Status
 
 Version
 
-    Last Modified Date: May 29, 2012
-    Version: 7
+    Last Modified Date: August 7, 2013
+    Version: 8
 
 Number
 
@@ -60,6 +65,8 @@ New Procedures and Functions
                             uint buffer,
                             intptr offset,
                             sizeiptr size);
+
+    When EXT_direct_state_access is present:
 
         void TextureBufferRangeEXT(uint texture,
                                    enum target,
@@ -237,6 +244,7 @@ Revision History
 
     Rev.  Date        Author    Changes
     ----  ----------  --------  -----------------------------------------
+     8    08/07/2013  mjk       Better indicate DSA entrypoints
      7    05/29/2012  Jon Leech Fix capitalization of <internalformat>.
      6    05/02/2012  drakos    Add EXT suffix to TextureBufferRange.
      5    04/30/2012  gsellers  Assign token values.

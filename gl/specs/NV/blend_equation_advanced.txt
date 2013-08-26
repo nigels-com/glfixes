@@ -25,8 +25,8 @@ Status
 
 Version
 
-    Last Modified Date:         July 17, 2013
-    NVIDIA Revision:            1
+    Last Modified Date:         August 19, 2013
+    NVIDIA Revision:            3
 
 Number
 
@@ -685,7 +685,7 @@ Dependencies on OpenGL 4.3 or later (any Profile)
 
 Dependencies on OpenGL ES 2.0
 
-    If OpenGL ES 2.0 is not supported, references to BlendEquationi,
+    If unextended OpenGL ES 2.0 is supported, references to BlendEquationi,
     BlendEquationSeparatei, GetInteger64v, and GetDoublev should be ignored.
 
     Tokens not present in unextended OpenGL ES 2.0 should have the _NV suffix
@@ -703,7 +703,7 @@ Dependencies on EXT_blend_minmax
 
 Dependencies on OpenGL ES 3.0
 
-    If OpenGL ES 3.0 is not supported, references to BlendEquationi,
+    If unextended OpenGL ES 3.0 is supported, references to BlendEquationi,
     BlendEquationSeparatei, and GetDoublev should be ignored.
 
     Tokens not present in unextended OpenGL ES 3.0 should have the _NV suffix
@@ -1333,6 +1333,10 @@ Issues
 
       * http://www.w3.org/TR/SVGCompositing
 
+      W3C also has a CSS standard (Compositing and Blending Level 1):
+
+      * http://www.w3.org/TR/compositing-1/
+
       Adobe's widely-used Portable Document Format (PDF) specification
       provides numerous blending equations in its "Transparency" section:
 
@@ -1528,4 +1532,9 @@ Revision History
     
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+     3    08/19/13  pbrown    Fix typos in the OpenGL ES 2.0 and 3.0
+                              interactions sections.
+
+     2    07/25/13  mjk       Add W3C CSS compositing reference
+
      1              pbrown    Internal revisions.

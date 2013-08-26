@@ -25,8 +25,8 @@ Status
 
 Version
 
-    Last Modified Date:  June 25, 2013
-    Version:             7
+    Last Modified Date:  August 1, 2013
+    Version:             8
 
 Number
 
@@ -399,13 +399,13 @@ Overview
     Using the range of glyphs, stenciling and covering the instanced
     paths for "OpenGL" can be done this way:
 
-        glStencilFillPathInstancedNV(6, glyphBase,
-                                     GL_UNSIGNED_BYTE, "OpenGL",
+        glStencilFillPathInstancedNV(6, GL_UNSIGNED_BYTE, "OpenGL",
+                                     glyphBase,
                                      GL_PATH_FILL_MODE_NV, 0xFF,
                                      GL_TRANSLATE_2D_NV, xtranslate);
 
-        glCoverFillPathInstancedNV(6, glyphBase,
-                                   GL_UNSIGNED_BYTE, "OpenGL",
+        glCoverFillPathInstancedNV(6, GL_UNSIGNED_BYTE, "OpenGL",
+                                   glyphBase,
                                    GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV,
                                    GL_TRANSLATE_2D_NV, xtranslate);
 
@@ -7056,7 +7056,7 @@ Issues
 
         If the modelview matrix is projective, the application can choose
         to interpolate we as a texture coordinate with glPathTexGenNV's
-        GL_EYE_PLANE mode and perform the division -ze/we during fragment
+        GL_EYE_LINEAR mode and perform the division -ze/we during fragment
         coloring.
 
    113. How should path color and texture coordinate generation be
@@ -7456,3 +7456,4 @@ Revision History
                               decoding fixes.
       6   05/23/13 mjk        Fix typo in Table 5.pathEquations
       7   06/25/13 mjk        Fix token names missing _BIT_NV suffix
+      8   08/01/13 mjk        Bad argument order in instanced example

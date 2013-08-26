@@ -31,8 +31,8 @@ Status
 
 Version
 
-    Last Modified Date:         07/08/2013
-    Revision:                   9
+    Last Modified Date:         08/16/2013
+    Revision:                   11
 
 Number
 
@@ -79,7 +79,6 @@ New Procedures and Functions
                                   boolean commit);
 
         void TexturePageCommitmentEXT(uint texture,
-                                      enum target,
                                       int level,
                                       int xoffset,
                                       int yoffset,
@@ -88,6 +87,9 @@ New Procedures and Functions
                                       sizei height,
                                       sizei depth,
                                       boolean commit);
+
+        [[ Note: TexturePageCommitmentEXT is supported if and only if 
+           the EXT_direct_state_access extension is supported. ]]
 
 New Tokens
 
@@ -132,6 +134,8 @@ Samplers)
         | R16                           | Y                             |
         | R16_SNORM                     | Y                             |
         | RG8                           | Y                             |
+        | RG8_SNORM                     | Y                             |
+        | RG16                          | Y                             |
         | RG16_SNORM                    | Y                             |
         | R3_G3_B2                      |                               |
         | RGB4                          |                               |
@@ -193,40 +197,40 @@ Samplers)
 
     Insert the following paragraph before Table 8.16:
 
-        If <pname> is TEXTURE_SPARSE_ARB then the state is stored in the
-    texture, but only takes effect the next time storage is allocated for a
-    texture using TexStorage*. If the value of TEXTURE_IMMUTABLE_FORMAT is
-    TRUE, then TEXTURE_SPARSE_ARB cannot be changed and an error is generated.
-    In this case, if <param> is TRUE then <target> must be one of TEXTURE_2D,
-    TEXTURE_2D_ARRAY, TEXTURE_CUBE_MAP, TEXTURE_CUBE_MAP_ARRAY, TEXTURE_3D, or
-    TEXTURE_RECTANGLE.
+        If <pname> is TEXTURE_SPARSE_ARB or VIRTUAL_PAGE_SIZE_INDEX_ARB, then
+    the state is stored in the texture, but only takes effect the next time
+    storage is allocated for a texture using TexStorage*. If the value of
+    TEXTURE_IMMUTABLE_FORMAT is TRUE, then TEXTURE_SPARSE_ARB and
+    VIRTUAL_PAGE_SIZE_INDEX_ARB cannot be changed and an error is generated.
 
     Append to Table 8.16: "Texture parameters and their values."
 
-        +-----------------------+-----------+---------------------------+
-        | Name                  | Type      | Legal values              |
-        +-----------------------+-----------+---------------------------+
-        | TEXTURE_SPARSE_ARB    | boolean   | TRUE, FALSE               |
-        +-----------------------+-----------+---------------------------+
+      +------------------------------+---------+---------------------------+
+      | Name                         | Type    | Legal values              |
+      +------------------------------+---------+---------------------------+
+      | TEXTURE_SPARSE_ARB           | boolean | TRUE, FALSE               |
+      | VIRTUAL_PAGE_SIZE_INDEX_ARB  | int     | any non-negative integer  |
+      +------------------------------+---------+---------------------------+
 
     Add to the Errors table for TexParameter*
 
-        INVALID_OPERATION is generated if <pname> is TEXTURE_SPARSE_ARB and
-    the value of TEXTURE_IMMUTABLE_FORMAT for the target texture is TRUE.
+        INVALID_OPERATION is generated if <pname> is TEXTURE_SPARSE_ARB or
+    VIRTUAL_PAGE_SIZE_INDEX_ARB and the value of TEXTURE_IMMUTABLE_FORMAT for
+    the texture identified by <target> is TRUE.
 
         INVALID_VALUE is generated if <pname> is TEXTURE_SPARSE_ARB, <pname>
-    is TRUE and <target> is not one of the targets for which sparse textures
-    are supported.
+    is TRUE and <target> is not one of TEXTURE_2D, TEXTURE_2D_ARRAY,
+    TEXTURE_CUBE_MAP, TEXTURE_CUBE_MAP_ARRAY, TEXTURE_3D, or
+    TEXTURE_RECTANGLE.
 
     Additions to Section 8.18 of the OpenGL Specification, "Texture Views"
 
         Texture views may be created that reference sparse textures (see
     Section 8.20.1), and in such cases, the view is considered to be sparse.
-    Should a texture view reference part or all of the ail of the tail of
-    a sparse texture, then modifications to the commitment of that tail
-    via the view affect the tail of the parent texture and all other views
-    that reference the tail, even for portions of the tail outside the
-    controling view.
+    Should a texture view reference part or all of the tail of a sparse
+    texture, then modifications to the commitment of that tail via the view
+    affect the tail of the parent texture and all other views that reference
+    the tail, even for portions of the tail outside the controling view.
 
     Additions to Section 8.19 of the OpenGL Specification, "Immutable-Format
     Texture Images"
@@ -250,9 +254,9 @@ Samplers)
 
         An INVALID_OPERATION error is generated if the texture's
         TEXTURE_SPARSE_ARB parameter is TRUE and the value of its
-        VIRTUAL_PAGE_SIZE_INDEX_ARB parameter is less than zero or is greater
-        than or equal to NUM_VIRTUAL_PAGE_SIZES_ARB for the specified target
-        and internal format.
+        VIRTUAL_PAGE_SIZE_INDEX_ARB parameter is greater than or equal to
+        NUM_VIRTUAL_PAGE_SIZES_ARB for the specified target and internal
+        format.
 
         An INVALID_VALUE error is generated if the texture's TEXTURE_SPARSE_ARB
         parameter is TRUE and any of the following are true:
@@ -268,9 +272,9 @@ Samplers)
 
         An INVALID_VALUE error is generated if the texture's
         TEXTURE_SPARSE_ARB parameter is TRUE and <width> or <height> is greater
-        than the value of MAX_SPARSE_3D_TEXTURE_SIZE when <target> is
+        than the value of MAX_SPARSE_3D_TEXTURE_SIZE_ARB when <target> is
         TEXTURE_3D, or if <height> or <depth> is greater than the value of
-        MAX_SPARSE_ARRAY_TEXTURE_LAYERS if <target> is a 1D or 2D array
+        MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB if <target> is a 1D or 2D array
         texture target, respectively.
 
         An INVALID_VALUE error is generated if TEXTURE_SPARSE_ARB is TRUE and
@@ -375,25 +379,12 @@ Samplers)
                                   sizei depth,
                                   boolean commit);
 
-    with <target> and <level> indicating the texture image whose residency is
-    to be modified. <xoffset>, <yoffset>, <zoffset>, <width>, <height> and
-    <depth> are interpreted as they are in TexSubImage3D. <xoffset>, <yoffset>
-    <zoffset>, <width>, <height> and <depth> must satisfy the following
-    requirements:
-
-        * <xoffset> + <width> must be less than or equal to the width
-          of the texture.
-
-        * <xoffset> must be an integer multiple of VIRTUAL_PAGE_SIZE_X_ARB.
-
-        * <width> must be one of:
-            - an integer multiple of VIRTUAL_PAGE_SIZE_X_ARB, or
-            - exactly equal to <LevelWidth> - <xoffset>, where <LevelWidth>
-              is the width of the target level (i.e., the updated region
-              must span from <xoffset> to the edge of the level).
-
-        * <yoffset> and <height>, and <zoffset> and <depth> must satisfy
-          similar requirements for their respective dimensions.
+    with <target> and <level> indicating the level of the texture object whose
+    residency is to be modified. <xoffset>, <yoffset>, <zoffset>, <width>,
+    <height> and <depth> are interpreted as they are in TexSubImage3D.  An
+    error will be generated unless <xoffset>, <yoffset> <zoffset>, <width>,
+    <height> and <depth> specify a region of the texture level that is aligned
+    to multiples of the page size or to the edges of the texture.
 
     If the value of <commit> is TRUE, then the texture pages contained in
     the region defined by the values of <xoffset>, <yoffset>, <zoffset>,
@@ -407,28 +398,28 @@ Samplers)
     again become undefined.
 
     For the purposes of commitment, a cube map texture is treated as a 2D
-    array texture with a depth of 6 and cube map array textures are treated
-    as 2D array textures with a depth that is an integer multiple of 6.
+    array texture with a depth of six and cube map array textures are treated
+    as 2D array textures with a depth equal to six times the number of layers
+    in the cube map array.
 
-    When a level of a sparse texture is larger than the virtual page size, then
-    the level may be partially resident. As the level of detail increases and
-    the dimensions of each level become larger, eventually a single level
-    becomes smaller than the virtual page size. Depending on the
-    implementation, padding and internal memory layout considerations may
-    mean that may not be partially populated.
-
-    The number of levels of the mipmap that may be partially populated may be
-    queried by calling GetTexParameteriv with the <pname>
-    NUM_SPARSE_LEVELS_ARB. The portion of the mipmap at level
-    NUM_SPARSE_LEVELS_ARB and higher is known as the mipmap 'tail'. It should
-    be noted that if NUM_SPARSE_LEVELS_ARB is zero, then no levels of the
-    texture may be sparsely populated.
-
-    Partial residency inside the tail is not possible and the entire tail is
-    made resident or non-resident concurrently. That is, as soon as any part
-    of the tail is made resident, the whole tail becomes resident (and contains
-    undefined data). If any part of the tail is made non-resident, then the
-    whole tail is made non-resident at that time.
+    For levels of a sparse texture where each dimension is a multiple of the
+    virtual page size, the residency of individual page-size regions is
+    controlled by TexPageCommitmentARB and such levels may be partially
+    populated.  When the mipmap chain reaches a level that is not an integer
+    multiple of the virtual page size in any dimension, padding and memory
+    layout considerations may make it impossible to treat that level and
+    subsequent smaller ones as partially populated.  The set of levels that
+    can be partially populated is implementation-dependent.  The total number
+    of levels that may be partially populated may be queried by calling
+    GetTexParameteriv with the <pname> NUM_SPARSE_LEVELS_ARB.
+    
+    The collection of texture levels that may not be partially populated, if
+    any, consists of levels NUM_SPARSE_LEVELS_ARB and higher, and is referred
+    to as the mipmap 'tail'.  The levels comprising the tail are made resident
+    or non-resident as a unit.  The tail is resident if and only if
+    TexPageCommitmentARB has been called successfully with <level> greater
+    than or equal to NUM_SPARSE_LEVELS_ARB and the value of <commit> was TRUE
+    for the last such call.
 
     Views of sparse textures are also considered sparse. Modifications to
     commitment of a texture via a view of it affect the parent texture and
@@ -439,18 +430,87 @@ Samplers)
     by the view. Furthermore, modifications to tail commitment may affect
     views referencing other parts of the tail.
 
-    +-----------------------------------------------------------------------------+
-    | Errors                                                                      |
-    +-----------------------------------------------------------------------------+
-    | An INVALID_VALUE error is generated if <xoffset> or <width> are not integer |
-    | multiples of the texture images' value of VIRTUAL_PAGE_SIZE_X_ARB, if       |
-    | <yoffset> or <height> are not integer multiples of the texture image's      |
-    | value of VIRTUAL_PAGE_SIZE_Y_ARB, or if <zoffset> or <height> are not       |
-    | integer multiples of the texture image's VIRTUAL_PAGE_SIZE_Z_ARB.           |
-    |                                                                             |
-    | An INVALID_OPERATION error is generated if TEXTURE_IMMUTABLE_FORMAT is      |
-    | FALSE or if TEXTURE_SPARSE_ARB is false.                                    |
-    +-----------------------------------------------------------------------------+
+    Errors
+
+      An INVALID_OPERATION error is generated if <xoffset> + <width> or
+      <yoffset> + <height> is greater than the width or height, respectively,
+      of level <level> of the texture bound to <target>.
+
+      An INVALID_OPERATION error is generated if <zoffset> + <depth> is
+      greater than
+
+        * the depth of level <level> of the texture bound to <target>, if
+          <target> is TEXTURE_3D;
+
+        * the number of layers of level <level> of the texture bound to
+          <target>, if <target> is TEXTURE_2D_ARRAY;
+
+        * six times the number of layers of level <level> of the texture bound
+          to <target>, if <target> is TEXTURE_CUBE_MAP_ARRAY; or
+
+        * one, for all other targets.
+
+      An INVALID_VALUE error is generated if <xoffset>, <yoffset>, or
+      <zoffset> is not a multiple of VIRTUAL_PAGE_SIZE_X_ARB,
+      VIRTUAL_PAGE_SIZE_Y_ARB, or VIRTUAL_PAGE_SIZE_Z_ARB, respectively, of
+      the texture bound to <target>.
+
+      An INVALID_OPERATION error is generated if <width> is not an integer
+      multiple of VIRTUAL_PAGE_SIZE_X_ARB and <width> plus <xoffset> is not
+      equal to the width of level <level> of the texture bound to <target>.
+
+      An INVALID_OPERATION error is generated if <height> is not an integer
+      multiple of VIRTUAL_PAGE_SIZE_Y_ARB and <height> plus <yoffset> is not
+      equal to the height of level <level> of the texture bound to <target>.
+
+      An INVALID_OPERATION error is generated if <depth> is not an integer
+      multiple of VIRTUAL_PAGE_SIZE_Z_ARB and <depth> plus <zoffset> is not
+      equal to
+
+        * the depth of level <level> of the texture bound to <target>, if
+          <target> is TEXTURE_3D;
+
+        * the number of layers of level <level> of the texture bound to
+          <target>, if <target> is TEXTURE_2D_ARRAY;
+
+        * six times the number of layers of level <level> of the texture bound
+          to <target>, if <target> is TEXTURE_CUBE_MAP_ARRAY; or
+
+        * one, for all other targets.
+
+      An INVALID_OPERATION error is generated if the value of
+      TEXTURE_IMMUTABLE_FORMAT or TEXTURE_SPARSE_ARB for the texture bound to
+      <target> is FALSE.
+
+    [[ The following is only added if EXT_direct_state_access is supported. ]]
+
+    The command
+
+        void TexturePageCommitmentEXT(uint texture,
+                                      int level,
+                                      int xoffset,
+                                      int yoffset,
+                                      int zoffset,
+                                      sizei width,
+                                      sizei height,
+                                      sizei depth,
+                                      boolean commit);
+
+    may also be used to control the residency of sparse textures.  This
+    command behaves identically to TexPageCommitmentARB, except that the
+    texture is identified by the name <texture> instead of via <target>.
+
+    Errors
+
+      An INVALID_OPERATION error is generated if <texture> is not the name of
+      an existing texture.
+
+      All other errors listed for TexPageCommitmentARB also apply to
+      TexturePageCommitmentEXT, except that references to "the texture bound
+      to <target>" should be replaced with "the texture <texture>", and all
+      other references to "<target>" should be replaced with "the target of
+      texture <texture>".
+
 
 Additions to the AGL/GLX/WGL Specifications
 
@@ -485,7 +545,7 @@ New Implementation Dependent State
     |                                            |       |             |                 | for a sparse texture.                 |       |
     | MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB        | Z+    | GetIntegerv | 2048            | Maximum number of layers in a sparse  | 8.19  |
     |                                            |       |             |                 | array texture.                        |       |
-    | SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB | B     | GetBooleanv | FALSE           | TRUE if there are no restrictions on  | 8.19  |
+    | SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB | B     | GetBooleanv | -               | TRUE if there are no restrictions on  | 8.19  |
     |                                            |       |             |                 | the allocation of mipmaps in sparse   |       |
     |                                            |       |             |                 | textures and FALSE otherwise.         |       |
     +--------------------------------------------+-------+-------------+-----------------+---------------------------------------+-------+
@@ -558,23 +618,31 @@ Issues
        The base level of the texture must be an integer multiple of the page
        size in each dimension. This need not be a power of two or square or
        anything of that nature. As we proceed along the mipmap chain, the
-       current level will become smaller and smaller, at each step halving
-       in size. At some point, the level dimensions will no longer be an
-       integer multiple of the page size. We refer to this level and all higher
-       numbered (smaller sized) levels as the mipmap 'tail'. Images within
-       the tail do not necessarily align to page boundaries, even if the tail
-       itself would consume more than a full page in memory. Therefore, we do
-       not allow the tail to be sparse. As soon as any part of the tail is
-       made resident, the whole thing becomes resident. As soon as any part
-       of the tail is made non-resident, the whole thing becomes non-resident.
-       Clearly, making the base level a square power of two mulitple of the
-       page size will mean that the greatest part of the texture can be
-       sparse and will minimize the size of the tail. However, it's perfectly
-       legal, with a hypothetical 256 x 256 texel page size to create a texture
-       with a base level of 4096 x 256. Such a texture can be sparse in the
-       base level, but level 1 would be 2048 x 128, which is no longer a
-       multiple of the page size, and would therefore be considered as the
-       start of the tail.
+       current level will become smaller and smaller, at each step halving in
+       size. At some point, the level dimensions will no longer be an integer
+       multiple of the page size, where the memory corresponding to that level
+       and smaller sized levels may not be evenly divided into pages.  The
+       memory allocated to such levels may not be naturally aligned on memory
+       page boundaries or may be too small to bother with partial residency.
+       Implementations are permitted to treat such a level and all subsequent
+       levels as either fully resident or fully non-resident.  We refer to
+       this set of levels as the mipmap "tail".  The set of levels belonging
+       to the tail is implementation-dependent.  Some implementations may
+       start the tail at the first level where any dimension is not the
+       multiple of a page size; others might pad out such allocations to page
+       boundaries and start the tail at a much smaller mipmap level.  The tail
+       is made resident or non-resident as a unit; the tail is resident if and
+       only if <resident> was TRUE for the last call to TexPageCommitmentARB
+       when <level> was any value in the tail.
+
+       Clearly, making the base level a square power of two multiple of the
+       page size will mean that the greatest part of the texture can be sparse
+       and will minimize the size of the tail. However, it's perfectly legal,
+       with a hypothetical 256 x 256 texel page size to create a texture with
+       a base level of 4096 x 256. Such a texture can be sparse in the base
+       level, but level 1 would be 2048 x 128, which is no longer a multiple
+       of the page size, and therefore might be considered as the start of the
+       tail.
 
     8) What's SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB for?
 
@@ -607,7 +675,31 @@ Revision History
 
     Rev.    Date      Author    Changes
     ----  --------    --------  -----------------------------------------
-
+    11    08/16/2013  pbrown    Remove the <target> parameter from the DSA
+                                function TexturePageCommitmentEXT() and also
+                                add more explicit error language.  The
+                                parameter removal was agreed to before the
+                                spec was published but didn't get added to the
+                                shipping spec (bug 10445).  Add missing
+                                RG8_SNORM and RG16 entries to the formats
+                                table and list them as supporting sparse
+                                textures (bug 10709).
+    10    08/06/2013  pbrown    Add spec langauge for the VIRTUAL_PAGE_SIZE_
+                                INDEX_ARB texture parameter.  Remove the
+                                TexStorage error for a negative virtual page
+                                size index, since that can be checked by
+                                TexParameter.  Fix the errors section for the
+                                offset and sizes in TexPageCommitmentARB (bug
+                                10387) and remove duplicate introductory
+                                language describing alignment requirements.
+                                Clarify spec language and issue (7) describing
+                                the implementation-dependent sparse mipmap
+                                "tail" (bug 10353) and guarantee that any
+                                level that is a multiple of the page size is
+                                not in the tail.  Add spec language describing
+                                TexturePageCommitmentEXT.  Add a few missing
+                                "_ARB" suffixes.  Remove the "minimum maximum"
+                                for SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB.
      9    07/08/2013  gsellers  Fix token value clash for
                                 NUM_SPARSE_LEVELS_ARB.
      8    07/03/2013  gsellers  Change MIN_SPARSE_LEVEL_ARB to
