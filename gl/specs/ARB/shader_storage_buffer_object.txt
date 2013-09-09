@@ -31,8 +31,8 @@ Status
 
 Version
 
-    Last Modified Date:         June 1, 2012
-    Revision:                   13
+    Last Modified Date:         September 6, 2013
+    Revision:                   14
 
 Number
 
@@ -279,7 +279,7 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
     point corresponding to each active shader storage block must be populated
     with a buffer object with a size no smaller than the minimum required size
     of the shader storage block (the value of BUFFER_SIZE for the appropriate
-    SHADER_STORAGE_BLOCK resource).  For binding points populated by
+    SHADER_STORAGE_BUFFER resource).  For binding points populated by
     BindBufferRange, the size in question is the value of the <size> parameter
     or the size of the buffer minus the value of the <offset> parameter,
     whichever is smaller.  If any active shader storage block is not backed by
@@ -1584,6 +1584,10 @@ Issues
 
 
 Revision History
+
+    Revision 14, September 6, 2013 (Jon Leech)
+      - Fix typo SHADER_STORAGE_BLOCK -> SHADER_STORAGE_BUFFER in the
+        description of ShaderStorageBlockBinding (Bug 10795).
 
     Revision 13, June 1, 2012 (pbrown)
       - Mark issues (8) and (9) as resolved.
