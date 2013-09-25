@@ -27,8 +27,8 @@ Status
 
 Version
 
-    Date: March 25, 2013
-    Revision: 5
+    Date: September 20, 2013
+    Revision: 6
 
 Number
 
@@ -45,6 +45,8 @@ Dependencies
     Specification (May 12, 2009).
     
     OpenGL ES 3.0 affects the definition of this extension.
+
+    NV_non_square_matrices affects the definition of this extension.
 
 Overview
 
@@ -943,8 +945,9 @@ Additions to the OpenGL ES Shading Language Specification, Version 1.0.17
 
 Dependencies on OpenGL ES 3.0
 
-    If OpenGL ES 3.0 is not present, references to ProgramUniform{1234}ui[v]
-    and ProgramUniformMatrix{2x3,3x2,2x4,4x2,3x4,4x3}fv should be ignored.
+    If neither OpenGL ES 3.0 nor NV_non_square_matrices is present,
+    references to ProgramUniform{1234}ui[v] and
+    ProgramUniformMatrix{2x3,3x2,2x4,4x2,3x4,4x3}fv should be ignored.
     Also, any redundant language about explicit shader variable locations set
     within the shader text should also be ignored.
     
@@ -1013,6 +1016,12 @@ Dependencies on OpenGL ES 3.0
       extension do not have this requirement.))  A separable program object
       will fail to link if any attached shader uses one of the above variables
       without redeclaration."
+
+Dependencies on NV_non_square_matrices
+
+    If NV_non_square_matrices is supported, ProgramUniform{1234}ui[v]EXT and
+    ProgramUniformMatrix{2x3,3x2,2x4,4x2,3x4,4x3}fvEXT are supported in
+    OpenGL ES 2.0.
 
 Errors
 
@@ -1087,3 +1096,4 @@ Revision History
                                  extension of the same name.             
 
     5     2013-03-25  Benj       Add interactions with OpenGL ES 3.0.
+    6     2013-09-20  dkoch      Add interactions with NV_non_square_matrices.
