@@ -1,10 +1,12 @@
-Name
+Names
 
     KHR_get_all_proc_addresses
+    KHR_client_get_all_proc_addresses
 
 Name Strings
 
     EGL_KHR_get_all_proc_addresses
+    EGL_KHR_client_get_all_proc_addresses
 
 Contributors
 
@@ -13,6 +15,7 @@ Contributors
     Robert Palmer
     Acorn Pooley
     Greg Prisament
+    Chad Versace
 
 Contacts
 
@@ -30,11 +33,16 @@ Status
 
 Version
 
-    Version 2 - March 6, 2013
+    Version 3 - July 31, 2013
 
 Number
 
     EGL Extension #61
+
+Extension Types
+
+    EGL_KHR_get_all_proc_addresses is an EGL display extension
+    EGL_KHR_client_get_all_proc_addresses is an EGL client extension
 
 Dependencies
 
@@ -42,6 +50,8 @@ Dependencies
 
     This extension is written based on the wording of the EGL 1.4
     specification.
+
+    Interacts with EGL_EXT_client_extensions.
 
 Overview
 
@@ -66,6 +76,17 @@ Overview
     that eglGetProcAddress return only non-extension functions.  If
     the extension string is present, applications can query all EGL
     and client API functions using eglGetProcAddress.
+
+    To allow users to query this extension before initializing a display, and
+    to also allow vendors to ship this extension without
+    EGL_EXT_client_extensions, two names are assigned to this extension: one
+    a display extension and the other a client extension.  Identical
+    functionality is exposed by each name, but users query each name using
+    different methods.  Users query EGL_KHR_get_all_proc_addresses in the
+    usual way; that is, by calling eglQueryString(dpy, EGL_EXTENSIONS) on an
+    initialized display.  To query EGL_KHR_client_get_all_proc_addresses,
+    users must use a different method which is described below in the section
+    concerning EGL_EXT_client_extensions.
 
 New Types
 
@@ -118,14 +139,62 @@ following:
     libraries implementing them. However, portable clients cannot rely on
     this behavior."
 
+Interactions with EGL_EXT_client_extensions
+
+    The EGL specification describes the behavior of eglGetProcAddress as
+    independent of any display.  Therefore, this extension's functionality
+    falls under the classification 'client extension' rather than 'display
+    extension'. Accordingly, users may wish to query this extension before
+    initializing a display.
+
+    If the EGL_EXT_client_extensions is supported, then users can query this
+    extension by checking for the name EGL_KHR_client_get_all_proc_addresses
+    in the extension string of EGL_NO_DISPLAY.
+
+    The EGL implementation must expose the name
+    EGL_KHR_client_get_all_proc_addresses if and only if it exposes
+    EGL_KHR_get_all_proc_addresses and supports EGL_EXT_client_extensions.
+    This requirement eliminates the problematic situation where, if an EGL
+    implementation exposed only one name, then an EGL client would fail to
+    detect the extension if it queried only the other name.
+
+    Despite having two names assigned to this extension, the restrictions
+    described in EGL_EXT_client_extensions still apply. As
+    EGL_KHR_client_get_all_proc_addresses is defined as a client extension,
+    its name can appear only in the extension string of EGL_NO_DISPLAY and
+    not in the extension string of any valid display. The converse applies
+    to EGL_KHR_get_all_proc_addresses, as it is defined as a display
+    extension.
+
 Issues
 
     1.  What should this spec be called?
 
         PROPOSED: KHR_get_all_proc_addresses
 
+    2.  Should this extension be classified as a client extension, as defined
+        by EGL_EXT_client_extensions?
+
+        DISCUSSION: Yes and no.
+
+        Yes, because this extension exposes functionality that is solely
+        a property of the EGL library itself, independent of any display.
+        Such functionality falls under the classification of 'client
+        extension'.
+
+        No, because classifying it as a client extension would create
+        a dependency on EGL_EXT_client_extensions, and there exists no
+        precedent for a KHR extension that depends on an EXT extension.
+
+        RESOLUTION: Expose this extension under two names, one a client
+        extension and the other a display extension.
 
 Revision History
+
+    #3 (July 31, 2013) Chad Versace
+        - Assign additional name, EGL_KHR_client_get_all_proc_addresses.
+        - Add section "Extension Types", section "Interactions with
+          EGL_EXT_client_extensions", and issue #2.
 
     #2  (March 6, 2013) Jon Leech
         - Bring into sync with latest EGL 1.4 spec update and simplify
