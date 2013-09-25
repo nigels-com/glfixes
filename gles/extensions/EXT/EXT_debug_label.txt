@@ -11,6 +11,7 @@ Contributors
     Seth Sowerby
     Benj Lipchak
     Jean-François Roy
+    Charles Brissart
 
 Contact
 
@@ -22,8 +23,8 @@ Status
 
 Version
 
-    Date: July 22, 2011
-    Revision: 2
+    Date: October 18, 2012
+    Revision: 3
 
 Number
 
@@ -45,6 +46,8 @@ Dependencies
     EXT_occlusion_query_boolean affects the definition of this extension.
 
     EXT_separate_shader_objects affects the definition of this extension.
+
+    OpenGL ES 3.0 affects the definition of this extension.
 
 Overview
 
@@ -78,7 +81,7 @@ New Tokens
         VERTEX_ARRAY_OBJECT_EXT                        0x9154
         QUERY_OBJECT_EXT                               0x9153
         PROGRAM_PIPELINE_OBJECT_EXT                    0x8A4F
-        
+
 Additions to Chapter 2 of the OpenGL ES 2.0 Specification (OpenGL Operation)
 
     None
@@ -118,9 +121,10 @@ Additions to Chapter 5 of the OpenGL ES 2.0 Specification (Special Functions)
     A label is part of the state of the object to which it is associated. 
     The initial state of an object's label is NULL. Labels need not be unique.
     
-    Values supported for <type> are: TEXTURE, FRAMEBUFFER, RENDERBUFFER,        
-    BUFFER_OBJECT_EXT, SHADER_OBJECT_EXT, PROGRAM_OBJECT_EXT, 
-    VERTEX_ARRAY_OBJECT_EXT, QUERY_OBJECT_EXT, and PROGRAM_PIPELINE_OBJECT_EXT.
+    Values supported for <type> are: TEXTURE, FRAMEBUFFER, RENDERBUFFER,
+    BUFFER_OBJECT_EXT, SHADER_OBJECT_EXT, PROGRAM_OBJECT_EXT,
+    VERTEX_ARRAY_OBJECT_EXT, QUERY_OBJECT_EXT, SAMPLER, TRANSFORM_FEEDBACK, and
+    PROGRAM_PIPELINE_OBJECT_EXT.
     
 Additions to Chapter 6 of the OpenGL ES 2.0 Specification (State and State
 Requests)
@@ -146,9 +150,10 @@ Requests)
     If <object> is not an object of type <type>, an INVALID_OPERATION error is 
     generated.
     
-    Values supported for <type> are: TEXTURE, FRAMEBUFFER, RENDERBUFFER,        
-    BUFFER_OBJECT_EXT, SHADER_OBJECT_EXT, PROGRAM_OBJECT_EXT, 
-    VERTEX_ARRAY_OBJECT_EXT, QUERY_OBJECT_EXT, and PROGRAM_PIPELINE_OBJECT_EXT.
+    Values supported for <type> are: TEXTURE, FRAMEBUFFER, RENDERBUFFER,
+    BUFFER_OBJECT_EXT, SHADER_OBJECT_EXT, PROGRAM_OBJECT_EXT,
+    VERTEX_ARRAY_OBJECT_EXT, QUERY_OBJECT_EXT, SAMPLER, TRANSFORM_FEEDBACK, and
+    PROGRAM_PIPELINE_OBJECT_EXT.
     
 Interactions with OpenGL ES 1.1 and OES_framebuffer_object
 
@@ -159,6 +164,12 @@ Interactions with OpenGL ES 1.1 and OES_framebuffer_object
     If OES_framebuffer_object is supported, FRAMEBUFFER and 
     RENDERBUFFER should be replaced by FRAMEBUFFER_OES and RENDERBUFFER_OES, 
     respectively. Otherwise they should be omitted.
+
+Interactions with OpenGL ES 3.0
+
+    If the GL is not OpenGL ES 3.0, mentions of TRANSFORM_FEEDBACK and
+    SAMPLER as types accepted by LabelObjectEXT and
+    GetObjectLabelEXT are omitted.
 
 Interactions with OES_vertex_array_object
 
@@ -257,6 +268,19 @@ New State
     ---------------------------  ----  -----------------  -----  -----------  ---
     PROGRAM_PIPELINE_OBJECT_EXT  0*xc  GetObjectLabelEXT  empty  Debug label  5.X
 
+    Add the following to Table 6.24 Transform Feedback State:
+
+    Get Value                Type  Get Cmnd           Value    Description  Sec
+    -----------------------  ----  -----------------  -------  -----------  ---
+    TRANSFORM_FEEDBACK       0*xc  GetObjectLabelEXT  empty    Debug label  5.X
+
+    Add the following to the Table 6.1 Textures (state per sampler object):
+
+    Get Value                Type  Get Cmnd           Value    Description  Sec
+    -----------------------  ----  -----------------  -------  -----------  ---
+    SAMPLER                  0*xc  GetObjectLabelEXT  empty    Debug label  5.X
+
+
 New Implementation Dependent State
 
     None
@@ -309,3 +333,7 @@ Revision History
     Date 07/22/2011
     Revision: 2
        - rename APPLE to EXT, update token names and values
+
+    Date 10/18/2012
+    Revision: 3
+       - Add OpenGL ES 3.0 interactions: transform feedback and sampler objects

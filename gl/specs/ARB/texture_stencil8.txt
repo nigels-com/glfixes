@@ -28,8 +28,8 @@ Status
 
 Version
 
-    Last Modified Date:         August 8, 2013
-    Revision:                   4
+    Last Modified Date:         August 26, 2013
+    Revision:                   5
 
 Number
 
@@ -77,9 +77,14 @@ Additions to Chapter 8 of the OpenGL 4.3 (Compatibility Profile) Specification
     Modify the last paragraph of p. 207 to include STENCIL_INDEX:
 
     "Textures with a base internal format of DEPTH_COMPONENT, DEPTH_STENCIL,
-    or STENCIL_INDEX are supported by texture image specification commands only
-    if <target> is..."
-
+    or STENCIL_INDEX are supported by texture image specification commands
+    only if <target> is TEXTURE_1D, TEXTURE_2D, TEXTURE_1D_ARRAY,
+    TEXTURE_2D_ARRAY, TEXTURE_RECTANGLE, TEXTURE_CUBE_MAP,
+    TEXTURE_CUBE_MAP_ARRAY, TEXTURE_2D_MULTISAMPLE,
+    TEXTURE_2D_MULTISAMPLE_ARRAY, PROXY_TEXTURE_1D, PROXY_TEXTURE_2D,
+    PROXY_TEXTURE_1D_ARRAY, PROXY_TEXTURE_2D_ARRAY, PROXY_TEXTURE_RECTANGLE,
+    PROXY_TEXTURE_CUBE_MAP, PROXY_TEXTURE_CUBE_MAP_ARRAY,
+    PROXY_TEXTURE_2D_MULTISAMPLE or PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY."
 
     Add a row to Table 8.18: Conversion from RGBA, depth, and stencil pixel
     components to internal texture, table, or filter components
@@ -245,4 +250,7 @@ Revision History
      3    06/28/13  Jon Leech Fix dates in revision history. Change filter
                               modes for texture completeness (Bug 10372).
      4    08/08/13  pdaniell  Fix the functions that accept STENCIL_INDEX8 as
-                              an <internalformat> parameter.
+                              an <internalformat> parameter (Bug 10558).
+     5    08/26/13  pdaniell  Fix the list of texture targets that support
+                              stencil (and depth and depth/stencil) textures
+                              to include the multisample targets (Bug 10558).

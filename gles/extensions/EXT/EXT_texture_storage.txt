@@ -31,8 +31,8 @@ Status
 
 Version
 
-    Last Modified Date: 24 July, 2012
-    Author Revision: 27
+    Last Modified Date: 18 September, 2013
+    Author Revision: 28
 
 Number
 
@@ -47,7 +47,8 @@ Dependencies
     OES_compressed_paletted_texture, OES_texture_float, OES_texture_half_float
     EXT_texture_type_2_10_10_10_REV, EXT_texture_format_BGRA8888,
     EXT_texture3D, EXT_texture_rg, APPLE_texture_2D_limited_npot,
-    APPLE_rgb_422, ARB_texture_cube_map, ARB_texture_cube_map_array,
+    APPLE_rgb_422, APPLE_texture_format_BGRA8888, 
+    ARB_texture_cube_map, ARB_texture_cube_map_array,
     ARB_texture_rectangle, SGIS_generate_mipmap,
     EXT_direct_state_access, OES_EGL_image, WGL_ARB_render_texture,
     GLX_EXT_texture_from_pixmap, and core specifications that
@@ -144,7 +145,7 @@ New Tokens
         RGB10_A2_EXT                   0x8059  /* reuse tokens from EXT_texture */
         RGB10_EXT                      0x8052
 
-      (if EXT_texture_format_BGRA8888 is supported)
+      (if EXT_texture_format_BGRA8888 or APPLE_texture_format_BGRA8888 is supported)
         BGRA8_EXT                      0x93A1
 
       (if EXT_texture_rg is supported)
@@ -160,7 +161,7 @@ New Tokens
         RG16F_EXT                      0x822F
 
       (APPLE_rgb_422 is supported)
-        RGB_422_APPLE                  0x8A1F
+        RGB_RAW_422_APPLE              0x8A51
 
 
 Additions to Chapter 2 of the OpenGL 3.2 Core Profile Specification
@@ -548,7 +549,7 @@ Dependencies on OpenGL ES
         RGB10_A2_EXT        RGBA       UNSIGNED_INT_2_10_10_10_REV_EXT
         RGB10_EXT           RGB        UNSIGNED_INT_2_10_10_10_REV_EXT
 
-    If EXT_texture_format_BGRA8888 is supported:
+    If EXT_texture_format_BGRA8888 or APPLE_texture_format_BGRA8888 is supported:
 
         <internalformat>    <format>   <type>
         ----------------    --------   ------
@@ -579,7 +580,7 @@ Dependencies on OpenGL ES
 
         <internalformat>    <format>       <type>
         ----------------    --------       ------
-        RGB_422_APPLE       RGB_422_APPLE  UNSIGNED_SHORT_8_8_APPLE
+        RGB_RAW_422_APPLE   RGB_422_APPLE  UNSIGNED_SHORT_8_8_APPLE
 
 
 Dependencies on texture targets
@@ -625,7 +626,7 @@ Dependencies on OES_compressed_paletted_texture
 Dependencies on APPLE_rgb_422
 
     UNSIGNED_SHORT_8_8_APPLE is implied as the <type> when TexStorage2DEXT
-    is called with <internalformat> RGB_422_APPLE.  Subsequently supplying 
+    is called with <internalformat> RGB_RAW_422_APPLE.  Subsequently supplying 
     UNSIGNED_SHORT_8_8_REV_APPLE as the <type> to a TexSubImage2D updating
     such an immutable texture will generate an INVALID_OPERATION error.
 
@@ -996,6 +997,10 @@ Issues
     decision.
 
 Revision History
+
+    Revision 28, 2013/09/18 (Benj Lipchak)
+      - Add interaction with APPLE_texture_format_BGRA8888.
+      - Fix interaction with APPLE_rgb_422.
 
     Revision 27, 2012/07/24 (Benj Lipchak)
       - Add interaction with APPLE_rgb_422.

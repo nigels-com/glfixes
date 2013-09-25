@@ -27,8 +27,8 @@ Status
 
 Version
 
-    Date: March 7, 2013
-    Revision: 4
+    Date: September 20, 2013
+    Revision: 6
 
 Number
 
@@ -43,6 +43,10 @@ Dependencies
 
     Written based on the wording of The OpenGL ES Shading Language 1.0.17
     Specification (May 12, 2009).
+    
+    OpenGL ES 3.0 affects the definition of this extension.
+
+    NV_non_square_matrices affects the definition of this extension.
 
 Overview
 
@@ -138,6 +142,15 @@ New Procedures and Functions
     void ProgramUniform4fEXT(uint program, int location,
                              float x, float y, float z, float w);
 
+    void ProgramUniform1uiEXT(uint program, int location,
+                              uint x);
+    void ProgramUniform2uiEXT(uint program, int location,
+                              uint x, uint y);
+    void ProgramUniform3uiEXT(uint program, int location,
+                              uint x, uint y, uint z);
+    void ProgramUniform4uiEXT(uint program, int location,
+                              uint x, uint y, uint z, uint w);
+
     void ProgramUniform1ivEXT(uint program, int location,
                               sizei count, const int *value);
     void ProgramUniform2ivEXT(uint program, int location,
@@ -156,6 +169,15 @@ New Procedures and Functions
     void ProgramUniform4fvEXT(uint program, int location,
                               sizei count, const float *value);
 
+    void ProgramUniform1uivEXT(uint program, int location,
+                               sizei count, const uint *value);
+    void ProgramUniform2uivEXT(uint program, int location,
+                               sizei count, const uint *value);
+    void ProgramUniform3uivEXT(uint program, int location,
+                               sizei count, const uint *value);
+    void ProgramUniform4uivEXT(uint program, int location,
+                               sizei count, const uint *value);
+
     void ProgramUniformMatrix2fvEXT(uint program, int location,
                                     sizei count, boolean transpose,
                                     const float *value);
@@ -165,6 +187,25 @@ New Procedures and Functions
     void ProgramUniformMatrix4fvEXT(uint program, int location,
                                     sizei count, boolean transpose,
                                     const float *value);
+    void ProgramUniformMatrix2x3fvEXT(uint program, int location,
+                                     sizei count, boolean transpose,
+                                     const float *value);
+    void ProgramUniformMatrix3x2fvEXT(uint program, int location,
+                                     sizei count, boolean transpose,
+                                     const float *value);
+    void ProgramUniformMatrix2x4fvEXT(uint program, int location,
+                                     sizei count, boolean transpose,
+                                     const float *value);
+    void ProgramUniformMatrix4x2fvEXT(uint program, int location,
+                                     sizei count, boolean transpose,
+                                     const float *value);
+    void ProgramUniformMatrix3x4fvEXT(uint program, int location,
+                                     sizei count, boolean transpose,
+                                     const float *value);
+    void ProgramUniformMatrix4x3fvEXT(uint program, int location,
+                                     sizei count, boolean transpose,
+                                     const float *value);
+
 
    void ValidateProgramPipelineEXT(uint pipeline);
 
@@ -504,7 +545,7 @@ Additions to Chapter 2 of the OpenGL ES 2.0 Specification (OpenGL Operation):
     between programs occurs, no GL error will be generated, but some or all
     of the inputs on the interface will be undefined.
 
-    On an interface between program objects, the inputs and outputs are
+    At an interface between program objects, the inputs and outputs are
     considered to match exactly if and only if:
 
       * For every user-declared input variable declared, there is an output
@@ -605,11 +646,21 @@ Additions to Chapter 2 of the OpenGL ES 2.0 Specification (OpenGL Operation):
 
         void ProgramUniform{1234}{if}EXT(uint program, int location,
                                          T value);
+        void ProgramUniform{1234}uiEXT(uint program, int location,
+                                       T value);
         void ProgramUniform{1234}{if}vEXT(uint program, int location,
-                                          sizei count, const T value);
+                                          sizei count, const T *value);
+        void ProgramUniform{1234}uivEXT(uint program, int location,
+                                          sizei count, const uint *value);
         void ProgramUniformMatrix{234}fvEXT(uint program, int location,
                                             sizei count, boolean transpose,
                                             const float *value);
+        void ProgramUniformMatrix{2x3,3x2,2x4,
+                                  4x2,3x4,4x3}fvEXT(uint program, 
+                                                    int location,
+                                                    sizei count, 
+                                                    boolean transpose,
+                                                    const float *value);
 
     These commands operate identically to the corresponding commands
     above without "Program" in the command name except, rather than
@@ -892,6 +943,86 @@ Additions to the OpenGL ES Shading Language Specification, Version 1.0.17
     the same location, or if explicit location assignments leave the linker 
     unable to find space for other variables without explicit assignments."
 
+Dependencies on OpenGL ES 3.0
+
+    If neither OpenGL ES 3.0 nor NV_non_square_matrices is present,
+    references to ProgramUniform{1234}ui[v] and
+    ProgramUniformMatrix{2x3,3x2,2x4,4x2,3x4,4x3}fv should be ignored.
+    Also, any redundant language about explicit shader variable locations set
+    within the shader text should also be ignored.
+    
+    The behavior of mixing GLSL ES 1.00 shaders with GLSL ES 3.00 shaders
+    in the same rendering pipeline is undefined.
+    
+    If the GL is OpenGL ES 3.0, make the following changes:
+    
+    Replace this sentence from the first paragraph of section 2.10.PPO Shader 
+    Interface Matching:
+    
+    "These inputs and outputs must typically match in name, type, and 
+    qualification."
+    
+    with the following language:
+    
+    "An output variable is considered to match an input variable in the
+    subequent shader if:
+
+        * the two variables match in name, type, and qualification; or
+
+        * the two variables are declared with the same location layout
+          qualifier and match in type and qualification."
+    
+    Add this paragraph after the first paragraph of section 2.10.PPO:
+    
+    "Variables declared as structures are considered to match in type if and 
+    only if structure members match in name, type, qualification, and 
+    declaration order.  Variables declared as arrays are considered to match 
+    in type only if both declarations specify the same element type and array 
+    size.  The rules for determining if variables match in qualification are
+    found in the OpenGL Shading Language Specification."
+    
+    Replace the last paragraph from section 2.10.PPO:
+    
+    "Built-in inputs or outputs do not affect interface matching.  Any such 
+    built-in inputs are well-defined unless they are derived from built-in 
+    outputs not written by the previous shader stage."
+    
+    with the following new language:
+    
+    "When using GLSL ES 1.00 shaders, built-in inputs or outputs do not affect 
+    interface matching. Any such built-in inputs are well-defined unless they 
+    are derived from built-in outputs not written by the previous shader stage.
+    
+    When using GLSL ES 3.00 shaders in separable programs, gl_Position and 
+    gl_PointSize built-in outputs must be redeclared according to Section 7.5 
+    of the OpenGL Shading Language Specification. Other built-in inputs or 
+    outputs do not affect interface matching. Any such built-in inputs are 
+    well-defined unless they are derived from built-in outputs not written by 
+    the previous shader stage."
+    
+    and add to GLSL ES 3.00 new section 7.5, Built-In Redeclaration and 
+    Separable Programs:
+    
+    "The following vertex shader outputs may be redeclared at global scope to
+    specify a built-in output interface, with or without special qualifiers:
+
+        gl_Position
+        gl_PointSize
+
+      When compiling shaders using either of the above variables, both such
+      variables must be redeclared prior to use.  ((Note:  This restriction
+      applies only to shaders using version 300 that enable the
+      EXT_separate_shader_objects extension; shaders not enabling the
+      extension do not have this requirement.))  A separable program object
+      will fail to link if any attached shader uses one of the above variables
+      without redeclaration."
+
+Dependencies on NV_non_square_matrices
+
+    If NV_non_square_matrices is supported, ProgramUniform{1234}ui[v]EXT and
+    ProgramUniformMatrix{2x3,3x2,2x4,4x2,3x4,4x3}fvEXT are supported in
+    OpenGL ES 2.0.
+
 Errors
 
     UseProgramStagesEXT generates INVALID_OPERATION if the program
@@ -948,17 +1079,21 @@ Issues
     
 Revision History
 
-    Rev.    Date        Author    Changes
-    ----  ------------  --------  ---------------------------------------------
-    1     17 June 2011  Benj      Initial revision for ES based on
-                                  ARB_separate_shader_objects extension.
+    Rev.    Date      Author     Changes
+    ----  ----------  ---------  ---------------------------------------------
+    1     2011-06-17  Benj       Initial revision for ES based on
+                                 ARB_separate_shader_objects extension.
 
-    2     22 July 2011  Benj      Rename APPLE to EXT, specify that PPOs are
-                                  not shareable.
+    2     2011-07-22  Benj       Rename APPLE to EXT, specify that PPOs are
+                                 not shareable.
 
-    3     26 July 2011  Benj      Add VALIDATE_STATUS to state tables and
-                                  GetProgramPipelineivEXT description, remove 
-                                  the language erroneously deleting
-                                  CURRENT_PROGRAM.
-    4     7 March 2013  Jon Leech Added note about the unrelated OpenGL 
-                                  extension of the same name.             
+    3     2011-07-26  Benj       Add VALIDATE_STATUS to state tables and
+                                 GetProgramPipelineivEXT description, remove 
+                                 the language erroneously deleting
+                                 CURRENT_PROGRAM.
+
+    4     2013-03-07  Jon Leech  Added note about the unrelated OpenGL 
+                                 extension of the same name.             
+
+    5     2013-03-25  Benj       Add interactions with OpenGL ES 3.0.
+    6     2013-09-20  dkoch      Add interactions with NV_non_square_matrices.

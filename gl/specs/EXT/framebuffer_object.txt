@@ -55,11 +55,10 @@ Status
 
 Version
 
-    Last Modified Date: April 22, 2008
-    Revision: #120
+    Last Modified Date: September 23, 2013
+    Revision: #121
 
 Number
-
     310
 
 Dependencies
@@ -78,6 +77,9 @@ Dependencies
     ARB_fragment_program affects the definition of this extension.
 
     ARB_fragment_shader affects the definition of this extension.
+
+    ARB_framebuffer_object and OpenGL 3.0 core affect the definition of
+    this extension.
 
     ARB_texture_rectangle affects the definition of this extension.
 
@@ -2099,6 +2101,15 @@ ARB_vertex_shader
     If ARB_fragment_program, ARB_fragment_shader, and ARB_vertex_shader
     are all not supported, then all references to the currently bound
     program or shader should be ignored.
+
+Dependencies on ARB_framebuffer_object and OpenGL 3.0 
+
+    Framebuffer objects created with the commands defined by the
+    GL_EXT_framebuffer_object extension are defined to be shared, while
+    FBOs created with commands defined by the OpenGL core or
+    GL_ARB_framebuffer_object extension are defined *not* to be shared.
+    Undefined behavior results when using FBOs created by EXT commands
+    through non-EXT interfaces, or vice-versa.
 
 Dependencies on ARB_texture_rectangle
 
@@ -6731,6 +6742,13 @@ Issues
             framebuffer objects rather than introduce an asymmetry with
             other GL objects like textures.
 
+            ADDITIONAL COMMENTS:
+
+            Undefined behavior results when using FBOs created by EXT
+            commands through non-EXT FBO interfaces, or vice-versa. See
+            the "Dependencies on ARB_framebuffer_object and OpenGL 3.0"
+            section above.
+
     (77) If the application deletes an object and that object contains
          an image which is attached to a framebuffer object, exactly
          when and how is the image detached from the framebuffer?
@@ -7295,6 +7313,10 @@ Issues
          violated.
 
 Revision History
+    #121, September 23, 2013: Jon Leech
+        - Specify that undefined behavior results when mixing EXT and
+          ARB_framebuffer_object / OpenGL 3.0 API framebuffer objects
+          (Bug 10738).
     #120, April 22, 2008: Jeremy Sandmel & Jon Leech
         - Update errors section so detaching renderbuffers and textures
           using object name zero is not an error.

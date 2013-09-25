@@ -195,7 +195,7 @@ New Procedures and Functions
                               const void* userParam);
     
     uint GetDebugMessageLog(uint count,
-                            sizei bufsize,
+                            sizei bufSize,
                             enum* sources,
                             enum* types,
                             uint* ids,

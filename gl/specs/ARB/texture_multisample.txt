@@ -21,8 +21,8 @@ Status
 
 Version
 
-    Last Modified Date:         08/02/09
-    Revision:                   10
+    Last Modified Date:         September 23, 2013
+    Revision:                   11
 
 Number
 
@@ -49,11 +49,11 @@ Overview
 
 New Procedures and Functions
 
-    void TexImage2DMultisample(enum target, sizei samples, int internalformat,
+    void TexImage2DMultisample(enum target, sizei samples, enum internalformat,
                                sizei width, sizei height,
                                boolean fixedsamplelocations);
 
-    void TexImage3DMultisample(enum target, sizei samples, int internalformat,
+    void TexImage3DMultisample(enum target, sizei samples, enum internalformat,
                                sizei width, sizei height, sizei depth,
                                boolean fixedsamplelocations);
 
@@ -193,12 +193,12 @@ Additions to Chapter 3 of the OpenGL 3.1 Specification (Rasterization)
     The commands
 
         void TexImage2DMultisample(enum target, sizei samples,
-                                   int internalformat,
+                                   enum internalformat,
                                    sizei width, sizei height,
                                    boolean fixedsamplelocations);
 
         void TexImage3DMultisample(enum target, sizei samples,
-                                   int internalformat,
+                                   enum internalformat,
                                    sizei width, sizei height, sizei depth,
                                    boolean fixedsamplelocations);
 
@@ -652,7 +652,9 @@ Issues
 Revision History
 
     Rev.    Date    Author    Changes
-    ----  --------  --------  -----------------------------------------
+    ----  --------  --------  -----------------------------------------------
+    11    9/23/13   Jon Leech Change type of <internalformat> argument to    
+                              enum (Bug 10496).
     10    8/02/09   Jon Leech Reformat to 80 columns and assign ARB
                               extension number.
     9     7/23/09   groth     Update return of textureSize(gsampler2DMSarray)
