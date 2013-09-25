@@ -61,8 +61,8 @@ Status
 
 Version
 
-    Last Modified Date: June 29, 2013
-    Revision: #35
+    Last Modified Date: September 23, 2013
+    Revision: #36
 
 Number
 
@@ -3400,6 +3400,15 @@ Dependencies on NV_float_buffer
     FLOAT_R_NV, FLOAT_RG_NV, FLOAT_RGB_NV and FLOAT_RGBA_NV from the list
     of color-renderable base internal formats from section 4.4.4
 
+Dependencies on EXT_framebuffer_object
+
+    Framebuffer objects created with the commands defined by the
+    GL_EXT_framebuffer_object extension are defined to be shared, while
+    FBOs created with commands defined by the OpenGL core or
+    GL_ARB_framebuffer_object extension are defined *not* to be shared.
+    Undefined behavior results when using FBOs created by EXT commands
+    through non-EXT interfaces, or vice-versa.
+
 Dependencies on EXT_texture_array
     
     If EXT_texture_array is not supported, delete all references to 
@@ -4225,7 +4234,7 @@ Issues
            color encoding.
          * Many other minor tweaks to synchronize with the GL3 framebuffer
            objects.
-         * ARB FBOs are not shareable.
+         * ARB FBOs are not shareable. 
           
     (4) Do we need new enum values, or can we re-use the ones from the EXT
         versions?
@@ -4340,6 +4349,11 @@ Issues
         there is no way that an implementation could differentiate FBOs
         created with this extension from those created by core GL.
 
+        ADDITIONAL COMMENTS:
+
+        Undefined behavior results when using FBOs created by EXT
+        commands through non-EXT FBO interfaces, or vice-versa. See the
+        "Dependencies on EXT_framebuffer_object" section above.
 
 Revision History
 
@@ -4538,3 +4552,8 @@ Revision History
         - Rearrange New Tokens section to allow all simple queries to be
           queried with GetBooleanv as well, since it's defined to work for
           all of them (Bug 6838).
+
+    #36, September 23, 2013: Jon Leech
+        - Specify that undefined behavior results when mixing EXT and
+          ARB_framebuffer_object / OpenGL 3.0 API framebuffer objects
+          (Bug 10738).
