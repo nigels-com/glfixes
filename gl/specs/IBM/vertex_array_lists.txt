@@ -78,13 +78,13 @@ New Procedures and Functions
     void ColorPointerListIBM (GLint size, 
 		 	      GLenum type, 
 			      GLint stride, 
-			      const GLvoid **pointer, 
+			      const void **pointer, 
 			      GLint ptrstride)
 
     void SecondaryColorPointerListIBM (GLint size, 
                                        GLenum type, 
 			               GLint stride, 
-			               const GLvoid **pointer, 
+			               const void **pointer, 
 			               GLint ptrstride)
 
     void EdgeFlagPointerListIBM (GLint stride,
@@ -93,29 +93,29 @@ New Procedures and Functions
 
     void FogCoordPointerListIBM (GLenum type,
 				 GLint stride,
-				 const GLvoid **pointer,
+				 const void **pointer,
 				 GLint ptrstride)
 
     void IndexPointerListIBM (GLenum type, 
 			      GLint stride, 
-			      const GLvoid **pointer, 
+			      const void **pointer, 
 			      GLint ptrstride);
 
     void NormalPointerListIBM (GLenum type, 
 			       GLint stride, 
-			       const GLvoid **pointer, 
+			       const void **pointer, 
 			       GLint ptrstride);
 
     void TexCoordPointerListIBM (GLint size, 
 				 GLenum type, 
 				 GLint stride, 
-				 const GLvoid **pointer,
+				 const void **pointer,
 				 GLint ptrstride);
 
     void VertexPointerListIBM (GLint size, 
 			       GLenum type, 
 			       GLint stride, 
-			       const GLvoid **pointer, 
+			       const void **pointer, 
 			       GLint ptrstride);
 
 

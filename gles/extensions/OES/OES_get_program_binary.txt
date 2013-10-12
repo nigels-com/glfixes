@@ -34,8 +34,8 @@ Status
 
 Version
     
-    Last Modified Date: June 2, 2008
-    Revision: #13
+    Last Modified Date: October 8, 2013
+    Revision: #14
 
 Number
 
@@ -333,14 +333,14 @@ Sample Usage
         if (success)
         {
             GLint   binaryLength;
-            GLvoid* binary;
+            void*   binary;
             FILE*   outfile;
 
             //
             //  Retrieve the binary from the program object
             //
             glGetProgramiv(newProgram, GL_PROGRAM_BINARY_LENGTH_OES, &binaryLength);
-            binary = (GLvoid*)malloc(binaryLength);
+            binary = (void*)malloc(binaryLength);
             glGetProgramBinaryOES(newProgram, &binaryLength, NULL, binaryFormat, binary);
 
             //
@@ -370,7 +370,7 @@ Sample Usage
                            GLuint progObj)
     {
         GLint   binaryLength;
-        GLvoid* binary;
+        void*   binary;
         GLint   success;
         FILE*   infile;
 
@@ -380,7 +380,7 @@ Sample Usage
         infile = fopen(myBinaryFileName, "rb");
         fseek(infile, 0, SEEK_END);
         binaryLength = (GLint)ftell(infile);
-        binary = (GLvoid*)malloc(binaryLength);
+        binary = (void*)malloc(binaryLength);
         fseek(infile, 0, SEEK_SET);
         fread(binary, binaryLength, 1, infile);
         fclose(infile);
@@ -405,6 +405,7 @@ Sample Usage
 
 Revision History
 
+    #14    10/08/2013    Jon Leech       Change GLvoid -> void (Bug 10412).
     #13    06/02/2008    Benj Lipchak    Fix typo: GLint -> int, update status.
     #12    05/07/2008    Benj Lipchak    Add Issue about BindAttribLocation.
     #11    04/03/2008    Benj Lipchak    Fix memory leaks in sample code.

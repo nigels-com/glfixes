@@ -71,7 +71,7 @@ New Procedures and Functions
     void glMultiDrawElementsEXT( GLenum mode,
 				 GLsizei *count,
 				 GLenum type,
-				 const GLvoid * const *indices,
+				 const void * const *indices,
 				 GLsizei primcount)
 
     Parameters
@@ -121,7 +121,7 @@ Additions to Chapter 2 of the 1.2 Specification (OpenGL Operation)
 	void glMultiDrawElementsEXT( GLenum mode,
 				     GLsizei *count,
 				     GLenum type,
-				     const GLvoid **indices,
+				     const void **indices,
 				     GLsizei primcount)
 
     Behaves identically to DrawElements except that a list of arrays is
@@ -179,6 +179,8 @@ OpenGL ES interactions
 
 Revision History
 
+    Version 5, 2013/09/08 (Jon Leech) - Changed GLvoid -> void
+        (Bug 10412).
     Version 4, 2013/06/18 (Jon Leech) - Added 'const' to
 	MultiDrawElementsEXT, too, based on feedback from Mesa.
     Version 3, 2010/08/06 - Added 'const' to MultiDrawArraysEXT pointer

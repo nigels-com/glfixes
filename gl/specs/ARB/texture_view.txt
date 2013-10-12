@@ -566,11 +566,20 @@ Issues
     texture, instead requiring a MemoryBarrier call to force coherency. This
     same solution applies with texture views.
 
+    (13) Are interactions with ETC2/EAC compressed texture formats defined?
+
+    RESOLVED: No. It is likely that these formats are emulated with
+    uncompressed internal formats on older hardware, and the resulting
+    complications make defining texture view classes for these formats too
+    difficult for too little functionality.
+
 
 Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+      5   10/08/13  Jon Leech Add issue 13 discussing why ETC2/EAC view
+                              classes aren't supported (Bug 11011).
       4   07/15/13  Jon Leech Change "Class" column of table 3.X.2 from
                               abstract names to VIEW_CLASS_* enums from
                               ARB_internalformat_query2 (Bug 10518).
