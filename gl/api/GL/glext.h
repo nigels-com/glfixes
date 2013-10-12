@@ -53,7 +53,7 @@ extern "C" {
 #define GLAPI extern
 #endif
 
-#define GL_GLEXT_VERSION 20130924
+#define GL_GLEXT_VERSION 20130930
 
 /* Generated C header for:
  * API: gl
@@ -4370,8 +4370,8 @@ GLAPI void APIENTRY glWindowPos3svARB (const GLshort *v);
 #define GL_KHR_debug 1
 #endif /* GL_KHR_debug */
 
-#ifndef GL_KHR_texture_compression_astc_ldr
-#define GL_KHR_texture_compression_astc_ldr 1
+#ifndef GL_KHR_texture_compression_astc_hdr
+#define GL_KHR_texture_compression_astc_hdr 1
 #define GL_COMPRESSED_RGBA_ASTC_4x4_KHR   0x93B0
 #define GL_COMPRESSED_RGBA_ASTC_5x4_KHR   0x93B1
 #define GL_COMPRESSED_RGBA_ASTC_5x5_KHR   0x93B2
@@ -4400,6 +4400,10 @@ GLAPI void APIENTRY glWindowPos3svARB (const GLshort *v);
 #define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR 0x93DB
 #define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR 0x93DC
 #define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR 0x93DD
+#endif /* GL_KHR_texture_compression_astc_hdr */
+
+#ifndef GL_KHR_texture_compression_astc_ldr
+#define GL_KHR_texture_compression_astc_ldr 1
 #endif /* GL_KHR_texture_compression_astc_ldr */
 
 #ifndef GL_OES_byte_coordinates
@@ -7094,6 +7098,10 @@ GLAPI void APIENTRY glBindImageTextureEXT (GLuint index, GLuint texture, GLint l
 GLAPI void APIENTRY glMemoryBarrierEXT (GLbitfield barriers);
 #endif
 #endif /* GL_EXT_shader_image_load_store */
+
+#ifndef GL_EXT_shader_integer_mix
+#define GL_EXT_shader_integer_mix 1
+#endif /* GL_EXT_shader_integer_mix */
 
 #ifndef GL_EXT_shadow_funcs
 #define GL_EXT_shadow_funcs 1

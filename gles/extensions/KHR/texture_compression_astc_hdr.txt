@@ -1,9 +1,10 @@
 Name
 
-    KHR_texture_compression_astc_ldr
+    KHR_texture_compression_astc_hdr
 
 Name Strings
 
+    GL_KHR_texture_compression_astc_hdr
     GL_KHR_texture_compression_astc_ldr
 
 Contact
@@ -15,12 +16,14 @@ Contributors
     Sean Ellis, ARM
     Jorn Nystad, ARM
     Tom Olson, ARM
+    Andy Pomianowski, AMD
     Cass Everitt, NVIDIA
     Walter Donovan, NVIDIA
     Robert Simpson, Qualcomm
     Maurice Ribble, Qualcomm
     Larry Seiler, Intel
     Daniel Koch, Transgaming
+    Anthony Wood, Imagination Technologies
 
 IP Status
 
@@ -36,11 +39,12 @@ Status
     Complete.
     Approved by the ARB on 2012/06/18.
     Approved by the OpenGL ES WG on 2012/06/15.
-    Ratified by the Khronos Board of Promoters on 2012/07/27.
+    Ratified by the Khronos Board of Promoters on 2012/07/27 (LDR profile).
+    Ratified by the Khronos Board of Promoters on 2013/09/27 (HDR profile).
 
 Version
 
-    Last Modified Date: July 27, 2012
+    Last Modified Date: June 25, 2013
 
 Number
 
@@ -49,19 +53,20 @@ Number
 
 Dependencies
 
-    Written based on the wording of the OpenGL ES 3.0 specification.
+    Written based on the wording of the OpenGL ES 3.0 specification
 
 Overview
 
     Adaptive Scalable Texture Compression (ASTC) is a new texture
     compression technology that offers unprecendented flexibility,
     while producing better or comparable results than existing texture
-    compressions at all bit rates. It includes support for 2D and 3D
-    textures, with low and high dynamic range, at bitrates from below
-    1 bit/pixel up to 8 bits/pixel in fine steps.
+    compressions at all bit rates. It includes support for 2D and
+    slice-based 3D textures, with low and high dynamic range, at
+    bitrates from below 1 bit/pixel up to 8 bits/pixel in fine steps.
 
-    The goal of this extension is to support the 2D, LDR-only profile
-    of the ASTC texture compression specification.
+    The goal of this extension is to support the full 2D profile of the
+    ASTC texture compression specification, and allow construction of
+    3D textures from multiple 2D slices.
 
     ASTC-compressed textures are handled in OpenGL ES and OpenGL by
     adding new supported formats to the existing mechanisms for handling
@@ -69,14 +74,14 @@ Overview
 
 Issues
 
-    The HDR and 3D parts of the full ASTC specification are still
-    undergoing detailed evaluation. The encoding space required to
-    implement these parts of the full ASTC specification are marked
-    as reserved.
+    The block-based 3D part of this specification is still undergoing
+    detailed evaluation by members of the OpenGL ES working group.
 
 Interactions with Other Extensions
 
     Will interact with EXT_texture_storage.
+
+    Extends extension KHR_texture_compression_astc_ldr.
 
 Interactions with OpenGL 4.2
 
@@ -160,28 +165,31 @@ Additions to Chapter 3 of the OpenGL ES 3.0 Specification (Rasterization)
 
     "If internalformat is one of the ASTC formats described in table 3.16,
      the compressed image data is stored using one of the ASTC compressed
-     texture image encodings (see appendix C). The ASTC LDR texture
-     compression algorithm supports only two-dimensional images. If
-     internalformat is a 2D ASTC format, CompressedTexImage3D will generate
-     an INVALID_OPERATION error if target is not TEXTURE_2D_ARRAY."
+     texture image encodings (see appendix C). The ASTC texture compression
+     algorithm supports both two- and three-dimensional images, but the 3D
+     block-based compression is not supported by this extension. If
+     internalformat is a 2D ASTC format, CompressedTexImage3D will accept an
+     array of compressed data consisting of multiple rows of compressed
+     blocks laid out as described in Section 3.8.3. The width and height of
+     each sub-image must be a multiple of the ASTC block size."
 
     At the end of the section, add:
 
     "If internalformat is one of the ASTC formats described in table 3.16, the
      texture is stored using one of the ASTC compressed texture image
-     encodings (see appendix C). If internalformat is a 2D ASTC format,
-     CompressedTexSubImage3D will generate an INVALID_OPERATION error if
-     target is not TEXTURE_2D_ARRAY. Since ASTC images are easily edited along
+     encodings (see appendix C). Since ASTC images are easily edited along
      block footprint boundaries, the limitations on subimage location and size
-     are as follows for CompressedTexSubImage2D:
+     are as follows for CompressedTexSubImage2D and CompressedTexSubImage3D.
      These commands will result in an INVALID_OPERATION error if one of the
      following conditions occurs:
      * width is not a multiple of the block width, and width + xoffset is not
        equal to the width of the texture level.
      * height is not a multiple of block height, and height+yoffset is not
        equal to the height of the texture level.
-     * xoffset or yoffset is not a multiple of the corresponding block
-       dimension.
+     * depth is not a multiple of block depth, and depth+zoffset is not
+       equal to the depth of the texture level.
+     * xoffset, yoffset or zoffset is not a multiple of the corresponding
+       block dimension.
      The contents of any block of texels of an ASTC compressed texture
      image that does not intersect the area being modified are preserved
      during valid CompressedTexSubImage* calls.
@@ -190,7 +198,7 @@ Additions to Chapter 3 of the OpenGL ES 3.0 Specification (Rasterization)
      to Table 3.17:
 
      ------------------------------------------------------
-                                                 Block
+                                                      Block
      Compressed Internal Format              Width   Height
      ------------------------------------------------------
      COMPRESSED_RGBA_ASTC_4x4_KHR               4       4
@@ -207,6 +215,7 @@ Additions to Chapter 3 of the OpenGL ES 3.0 Specification (Rasterization)
      COMPRESSED_RGBA_ASTC_10x10_KHR            10      10
      COMPRESSED_RGBA_ASTC_12x10_KHR            12      10
      COMPRESSED_RGBA_ASTC_12x12_KHR            12      12
+
      COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR       4       4
      COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR       5       4
      COMPRESSED_SRGB8_ALPHA8_ASTC_5x5_KHR       5       5
@@ -274,13 +283,21 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     Low dynamic range images may optionally be specified using the sRGB
     color space.
 
-    A sub-profile ("LDR Profile") is defined, which supports only 2D images
-    at low dynamic range. This is the profile supported by this extension.
+    A sub-profile ("HDR Profile") is defined, which supports only 2D images
+    (and 3D images made up of multiple 2D slices) at low or high dynamic
+    range. This is the profile supported by this extension.
 
     Support for this profile is indicated by the presence of the extension
-    string "GL_KHR_texture_compression_astc_ldr". If, in future, the
-    full profile is supported, "GL_KHR_texture_compression_astc_ldr" must
+    string "GL_KHR_texture_compression_astc_hdr". If, in future, the
+    full profile is supported, "GL_KHR_texture_compression_astc_hdr" must
     still be published, in order to ensure backward compatibility.
+
+    A lower sub-profile ("LDR Profile") may be implemented, which supports
+    only 2D images at low dynamic range. This is indicated by the presence of
+    the extension string "GL_KHR_texture_compression_astc_ldr". If either the
+    HDR or full profile are implemented, then both name strings
+    "GL_KHR_texture_compression_astc_ldr" and 
+    "GL_KHR_texture_compression_astc_hdr" must be published.
 
     ASTC textures may be encoded as 1, 2, 3 or 4 components, but they are
     all decoded into RGBA.
@@ -305,8 +322,7 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     * Scalable and long-lived. The format should support existing R, RG,
       RGB and RGBA image types, and also have high "headroom", allowing
       continuing use for several years and the ability to innovate in
-      encoders. Part of this is the choice to include HDR and 3D in the
-      full profile.
+      encoders. Part of this is the choice to include HDR and 3D.
     * Feature orthogonality. The choices for the various features of the
       format are all orthogonal to each other. This has three effects:
       first, it allows a large, flexible configuration space; second,
@@ -333,12 +349,12 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     can represent varying numbers of texels (the block "footprint").
 
     Block footprint sizes are not confined to powers-of-two, and are
-    also not confined to be square. The 2D formats have block dimensions
-    ranging from 4 to 12 texels.
+    also not confined to be square. They may be 2D, in which case the
+    block dimensions range from 4 to 12 texels, or 3D, in which case
+    the block dimensions range from 3 to 6 texels.
 
     Decoding one texel requires only the data from a single block. This
-    simplifies cache design, reduces bandwidth and improves encoder
-    throughput.
+    simplifies cache design, reduces bandwidth and improves encoder throughput.
 
     C.2.4   Block Encoding
     ----------------------
@@ -408,31 +424,34 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     nearby regions of single color. This may be used to short-circuit fetching of
     what would be identical blocks, and further reduce memory bandwidth.
 
-    C.2.5   Returned Values
-    -----------------------
+    C.2.5   LDR and HDR Modes
+    -------------------------
 
-    The decoding process for LDR content produces output with the following
-    properties.
+    The decoding process for LDR content can be simplified if it is known in
+    advance that sRGB output is required. This selection is therefore included
+    as part of the global configuration.
 
-    ------------------------------------------------
-    Operation           LDR Mode
-    ------------------------------------------------
-    Returned value      Vector of FP16 values,
+    The two modes differ in various ways.
+
+    -----------------------------------------------------------------------------
+    Operation           LDR Mode                    HDR Mode
+    -----------------------------------------------------------------------------
+    Returned value      Vector of FP16 values,      Vector of FP16 values
                         or Vector of UNORM8 values.
 
-    sRGB compatible     Yes
+    sRGB compatible     Yes                         No
 
-    LDR endpoint        16 bits, or
+    LDR endpoint        16 bits, or                 16 bits
     decoding precision  8 bits for sRGB
 
-    HDR endpoint mode   Error color
+    HDR endpoint mode   Error color                 As decoded
     results
 
-    Error results       Error color
-    ------------------------------------------------
-        Table C.2.1 - LDR Profile Properties
+    Error results       Error color                 Vector of NaNs (0xFFFF)
+    -----------------------------------------------------------------------------
+          Table C.2.1 - Differences Between LDR and HDR Modes
 
-    The error color for SRGB decode is opaque fully-saturated magenta
+    The error color is opaque fully-saturated magenta
     (R,G,B,A = 0xFF, 0x00, 0xFF, 0xFF). This has been chosen as it is much more
     noticeable than black or white, and occurs far less often in valid images.
 
@@ -445,7 +464,7 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     conditions, including invalid block encodings or use of reserved endpoint
     modes.
 
-    Future, forward-compatible extensions to KHR_texture_compression_astc_ldr
+    Future, forward-compatible extensions to KHR_texture_compression_astc
     may define valid interpretations of these conditions, which will decode to
     some other color. Therefore, encoders and applications must not rely on
     invalid encodings as a way of generating the error color.
@@ -455,9 +474,8 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
 
     The global configuration data for the format is as follows:
 
-    *   Block dimension (always 2D for LDR profile)
+    *   Block dimension (always 2D for HDR profile)
     *   Block footprint size
-    *   Dynamic range (HDR or LDR)
     *   sRGB output enabled or not
 
     The data specified per block is as follows:
@@ -467,7 +485,7 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     *   Texel weight values
     *   Number of partitions
     *   Partition pattern index
-    *   Color endpoint modes
+    *   Color endpoint modes (includes LDR or HDR selection)
     *   Color endpoint data
     *   Number of planes
     *   Plane-to-channel assignment
@@ -476,7 +494,7 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     ------------------------
 
     To decode one texel:
-    (Optimization: If within known void-extent, immediately return single 
+    (Optimization: If within known void-extent, immediately return single
         color)
 
     Find block containing texel
@@ -502,13 +520,11 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     Return interpolated color
 
     C.2.8   Block Determination and Bit Rates
-    -----------------------------------------
-
     The block footprint is a global setting for any given texture, and is
     therefore not encoded in the individual blocks.
 
-    For 2D textures, the block footprint's width and height are selectable from a
-    number of predefined sizes, namely 4, 5, 6, 8, 10 and 12 pixels.
+    For 2D textures, the block footprint's width and height are selectable
+    from a number of predefined sizes, namely 4, 5, 6, 8, 10 and 12 pixels.
 
     For square and nearly-square blocks, this gives the following bit rates:
 
@@ -541,6 +557,9 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     lower available rate. A consistent value in this column indicates an even
     spread of bit rates.
 
+    The HDR profile supports only those block footprints listed in Table
+    C.2.2. Other block sizes are not supported.
+
     For images which are not an integer multiple of the block size, additional
     texels are added to the edges with maximum X and Y. These texels may be
     any color, as they will not be accessed.
@@ -549,11 +568,19 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     addresses and pixel addresses within the block, for legal image sizes,
     without undue complexity.
 
-    Given an image which is W x H pixels in size, with block size w x h,
-    the size of the image in blocks is:
+    Given a 2D image which is W x H pixels in size, with block size
+    w x h, the size of the image in blocks is:
 
         Bw = ceiling(W/w)
         Bh = ceiling(H/h)
+
+    For a 3D image, each 2D slice is a single texel thick, so that for an
+    image which is W x H x D pixels in size, with block size w x h, the size
+    of the image in blocks is:
+
+        Bw = ceiling(W/w)
+        Bh = ceiling(H/h)
+        Bd = D
 
     C.2.9   Block Layout
     --------------------
@@ -609,7 +636,7 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
        Extra  | Part  | Block mode                                 |
      --------------------------------------------------------------
 
-        Table C.2.3 - Block Layout Overview
+        Table C.2.4 - Block Layout Overview
 
     Dotted partition lines indicate that the split position is not fixed.
 
@@ -634,7 +661,7 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
       CEM     | 0   0 |              Block Mode                   |
     --------------------------------------------------------------
 
-        Table C.2.4 - Single-partition Block Layout
+        Table C.2.5 - Single-partition Block Layout
 
     CEM is the color endpoint mode field, which determines how the Color
     Endpoint Data is encoded.
@@ -652,7 +679,7 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
       Partition Index |              Block Mode                   |
     --------------------------------------------------------------
 
-        Table C.2.5 - Multi-partition Block Layout
+        Table C.2.6 - Multi-partition Block Layout
 
     The Partition Index field specifies which partition layout to use. CEM is
     the first 6 bits of color endpoint mode information for the various
@@ -681,18 +708,18 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     together with a precision bit H, as follows:
 
     Low Precision Range (H=0)               High Precision Range (H=1)
-R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
+R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
 -----------------------------------------------------------------------------
 000 Invalid                                 Invalid
 001 Invalid                                 Invalid
-010 0..1                           1        0..9                    1     1
+010 0..1                          1         0..9                   1      1
 011 0..2            1                       0..11           1             2
-100 0..3                           2        0..15                         4
-101 0..4                    1               0..19                   1     2
-110 0..5            1              1        0..23           1             3
-111 0..7                           3        0..31                         5
+100 0..3                          2         0..15                         4
+101 0..4                   1                0..19                  1      2
+110 0..5            1             1         0..23           1             3
+111 0..7                          3         0..31                         5
 -----------------------------------------------------------------------------
-        Table C.2.6 - Weight Range Encodings
+    Table C.2.7 - Weight Range Encodings
 
     Each weight value is encoded using the specified number of Trits, Quints
     and Bits. The details of this encoding can be found in Section C.3.12 -
@@ -717,7 +744,7 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     x   x   1   1   1   x   x   x   x   0   0   -     -     Reserved*
     x   x   x   x   x   x   x   0   0   0   0   -     -     Reserved
     -------------------------------------------------------------------------
-        Table C.2.7 - 2D Block Mode Layout
+    Table C.2.8 - 2D Block Mode Layout
 
     Note that, due to the encoding of the R field, as described in the
     previous page, bits R2 and R1 cannot both be zero, which disambiguates
@@ -729,6 +756,10 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
 
     The D bit is set to indicate dual-plane mode. In this mode, the maximum
     allowed number of partitions is 3.
+
+    The penultimate row of the table is reserved only if bits [4:2] are not
+    all 1, in which case it encodes a void-extent block (as shown in the
+    previous row).
 
     The size of the grid in each dimension must be less than or equal to
     the corresponding dimension of the block footprint. If the grid size
@@ -748,22 +779,22 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     ---------------------------------------------
     0   LDR Luminance, direct               0
     1   LDR Luminance, base+offset          0
-    2   -- Reserved for HDR --              0
-    3   -- Reserved for HDR --              0
+    2   HDR Luminance, large range          0
+    3   HDR Luminance, small range          0
     4   LDR Luminance+Alpha, direct         1
     5   LDR Luminance+Alpha, base+offset    1
     6   LDR RGB, base+scale                 1
-    7   -- Reserved for HDR --              1
+    7   HDR RGB, base+scale                 1
     8   LDR RGB, direct                     2
     9   LDR RGB, base+offset                2
     10  LDR RGB, base+scale plus two A      2
-    11  -- Reserved for HDR --              2
+    11  HDR RGB, direct                     2
     12  LDR RGBA, direct                    3
     13  LDR RGBA, base+offset               3
-    14  -- Reserved for HDR --              3
-    15  -- Reserved for HDR --              3
+    14  HDR RGB, direct + LDR Alpha         3
+    15  HDR RGB, direct + HDR Alpha         3
     ---------------------------------------------
-        Table C.2.8 - Color Endpoint Modes
+    Table C.2.10 - Color Endpoint Modes
 
     In multi-partition mode, the CEM field is of variable width, from 6 to 14
     bits. The lowest 2 bits of the CEM field specify how the endpoint mode
@@ -779,7 +810,7 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     10  All endpoint pairs are of class 1 or 2.
     11  All endpoint pairs are of class 2 or 3.
     ----------------------------------------------------
-        Table C.2.9 - Multi-Partition Color Endpoint Modes
+    Table C.2.11 - Multi-Partition Color Endpoint Modes
 
     If the CEM selector value in bits [24:23] is not 00,
     then data layout is as follows:
@@ -802,7 +833,7 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     4      |C3 |C2 |C1 |C0 | CEM  |
             ----------------------
 
-        Table C.2.10 - Multi-Partition Color Endpoint Modes
+    Table C.2.12 - Multi-Partition Color Endpoint Modes
 
     In this view, each partition i has two fields. Ci is the class selector
     bit, choosing between the two possible CEM classes (0 indicates the
@@ -844,7 +875,7 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     0 .. (3 * 2^n)-1    t * 2^n + m     5       8 + 5*n
     0 .. (5 * 2^n)-1    q * 2^n + m     3       7 + 3*n
 
-        Table C.2.11 -Encoding for Different Ranges
+    Table C.2.13 -Encoding for Different Ranges
 
     Since 3^5 is 243, it is possible to pack five trits into 8 bits(which has
     256 possible values), so a trit can effectively be encoded as 1.6 bits.
@@ -883,7 +914,7 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     |    m2        |T3  T2 |      m1       |T1  T0 |      m0       |
      --------------------------------------------------------------
 
-        Table C.2.12 - Trit-based Packing
+    Table C.2.14 - Trit-based Packing
 
     The five trits t0 to t4 are obtained by bit manipulations of the 8 bits
     T[7:0] as follows:
@@ -920,7 +951,7 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
       m2       |Q4  Q3 |     m1        |Q2  Q1  Q0 |      m0       |
     ---------------------------------------------------------------
 
-        Table C.2.13 - Quint-based Packing
+    Table C.2.15 - Quint-based Packing
 
     The three quints q0 to q2 are obtained by bit manipulations of the 7 bits
     Q[6:0] as follows:
@@ -932,7 +963,7 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
                 q2 = 4; C = { Q[4:3], ~Q[6:5], Q[0] }
             else
                 q2 = T[6:5]; C = Q[4:0]
-        
+
             if C[2:0] = 101
                 q1 = 4; q0 = C[4:3]
             else
@@ -983,7 +1014,7 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     0..159    1 5   edcba   aaaaaaaaa   edcb0000e   6   Quint value
     0..191  1   6   fedcba  aaaaaaaaa   fedcb000f   5   Trit value
     ---------------------------------------------------------------
-        Table C.2.14 - Color Unquantization Parameters
+    Table C.2.16 - Color Unquantization Parameters
 
     These are then processed as follows:
 
@@ -1003,8 +1034,8 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     values v0 to v[n-1] and convert them into two RGBA color endpoints e0
     and e1.
 
-    The HDR Modes are reserved. How they are dealt with is documented in the
-    following section.
+    The HDR Modes are more complex and do not fit neatly into this section.
+    They are documented in following section.
 
     The methods can be summarized as follows.
 
@@ -1013,22 +1044,27 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     -------------------------------------------------
     0   LDR Luminance, direct                       2
     1   LDR Luminance, base+offset                  2
-    2   -- Reserved for HDR --                      2
-    3   -- Reserved for HDR --                      2
+    2   HDR Luminance, large range                  2
+    3   HDR Luminance, small range                  2
     4   LDR Luminance+Alpha, direct                 4
     5   LDR Luminance+Alpha, base+offset            4
     6   LDR RGB, base+scale                         4
-    7   -- Reserved for HDR --                      4
+    7   HDR RGB, base+scale                         4
     8   LDR RGB, direct                             6
     9   LDR RGB, base+offset                        6
     10  LDR RGB, base+scale plus two A              6
-    11  -- Reserved for HDR --                      6
+    11  HDR RGB                                     6
     12  LDR RGBA, direct                            8
     13  LDR RGBA, base+offset                       8
-    14  -- Reserved for HDR --                      8
-    15  -- Reserved for HDR --                      8
+    14  HDR RGB + LDR Alpha                         8
+    15  HDR RGB + HDR Alpha                         8
     -------------------------------------------------
-        Table C.2.15 - Color Endpoint Modes
+    Table C.2.17 -Color Endpoint Modes
+
+    Mode 14 is special in that the alpha values are interpolated linearly,
+    but the color components are interpolated logarithmically. This is the
+    only endpoint format with mixed-mode operation, and will return the
+    error value if encountered in LDR mode.
 
     Decode the different LDR endpoint modes as follows:
 
@@ -1144,12 +1180,384 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     C.2.15 HDR Endpoint Decoding
     -------------------------
 
-    In the LDR profile of ASTC, all HDR endpoint modes are reserved.
+    For HDR endpoint modes, color values are represented in a 12-bit
+    pseudo-logarithmic representation.
+    
+    HDR Endpoint Mode 2
 
-    Color endpoints specified with any of the HDR modes will return the error
-    color. Since different partitions may specify different endpoint modes,
-    this may only affect a subset of texels within a block. It is not classed
-    as a block decode error.
+    Mode 2 represents luminance-only data with a large range. It encodes
+    using two values (v0, v1). The complete decoding procedure is as follows:
+
+        if(v1 >= v0)
+        {
+            y0 = (v0 << 4);
+            y1 = (v1 << 4);
+        }
+        else
+        {
+            y0 = (v1 << 4) + 8;
+            y1 = (v0 << 4) - 8;
+        }
+        // Construct RGBA result (0x780 is 1.0f)
+        e0 = (y0, y0, y0, 0x780);
+        e1 = (y1, y1, y1, 0x780);
+
+    HDR Endpoint Mode 3
+
+    Mode 3 represents luminance-only data with a small range. It packs the
+    bits for a base luminance value, together with an offset, into two values
+    (v0, v1):
+
+    Value   7   6   5   4   3   2   1   0
+    -----   ------------------------------
+    v0     |M  |         L[6:0]           |
+            ------------------------------
+    v1     |    X[3:0]     |   d[3:0]     |
+            ------------------------------
+
+    Table C.2.18 - HDR Mode 3 Value Layout
+
+    The bit field marked as X allocates different bits to L or d depending
+    on the value of the mode bit M.
+
+    The complete decoding procedure is as follows:
+
+        // Check mode bit and extract.
+        if((v0&0x80) !=0)
+        {
+            y0 = ((v1 & 0xE0) << 4) | ((v0 & 0x7F) << 2);
+            d  =  (v1 & 0x1F) << 2;
+        }
+        else
+        {
+            y0 = ((v1 & 0xF0) << 4) | ((v0 & 0x7F) << 1);
+            d  =  (v1 & 0x0F) << 1;
+        }
+
+        // Add delta and clamp
+        y1 = y0 + d;
+        if(y1 > 0xFFF) { y1 = 0xFFF; }
+
+        // Construct RGBA result (0x780 is 1.0f)
+        e0 = (y0, y0, y0, 0x780);
+        e1 = (y1, y1, y1, 0x780);
+
+    HDR Endpoint Mode 7
+
+    Mode 7 packs the bits for a base RGB value, a scale factor, and some
+    mode bits into the four values (v0, v1, v2, v3):
+
+    Value   7   6   5   4   3   2   1   0
+    -----   ------------------------------
+    v0     |M[3:2] |       R[5:0]         |
+    -----   ------------------------------
+    v1     |M1 |X0 |X1 |      G[4:0]      |
+    -----   ------------------------------
+    v2     |M0 |X2 |X3 |      B[4:0]      |
+    -----   ------------------------------
+    v3     |X4 |X5 |X6 |      S[4:0]      |
+    -----   ------------------------------
+    Table C.2.19 - HDR Mode 7 Value Layout
+
+    The mode bits M0 to M3 are a packed representation of an endpoint bit
+    mode, together with the major component index. For modes 0 to 4, the
+    component (red, green, or blue) with the largest magnitude is identified,
+    and the values swizzled to ensure that it is decoded from the red channel.
+
+    The endpoint bit mode is used to determine the number of bits assigned
+    to each component of the endpoint, and the destination of each of the
+    extra bits X0 to X6, as follows:
+
+    ------------------------------------------------------
+            Number of bits      Destination of extra bits
+    Mode    R   G   B   S       X0  X1  X2  X3  X4  X5  X6
+    ------------------------------------------------------
+    0       11  5   5   7       R9  R8  R7  R10 R6  S6  S5
+    1       11  6   6   5       R8  G5  R7  B5  R6  R10 R9
+    2       10  5   5   8       R9  R8  R7  R6  S7  S6  S5
+    3       9   6   6   7       R8  G5  R7  B5  R6  S6  S5
+    4       8   7   7   6       G6  G5  B6  B5  R6  R7  S5
+    5       7   7   7   7       G6  G5  B6  B5  R6  S6  S5
+    ------------------------------------------------------
+    Table C.2.20 - Endpoint Bit Mode
+
+    As noted before, this appears complex when expressed in C, but much
+    easier to achieve in hardware - bit masking, extraction, shifting
+    and assignment usually ends up as a single wire or multiplexer.
+
+    The complete decoding procedure is as follows:
+
+        // Extract mode bits and unpack to major component and mode.
+        int modeval = ((v0&0xC0)>>6) | ((v1&0x80)>>5) | ((v2&0x80)>>4);
+
+        int majcomp;
+        int mode;
+
+        if( (modeval & 0xC ) != 0xC )
+        {
+            majcomp = modeval >> 2; mode = modeval & 3;
+        }
+        else if( modeval != 0xF )
+        {
+            majcomp = modeval & 3;  mode = 4;
+        }
+        else
+        {
+            majcomp = 0; mode = 5;
+        }
+        
+        // Extract low-order bits of r, g, b, and s.
+        int red   = v0 & 0x3f;
+        int green = v1 & 0x1f;
+        int blue  = v2 & 0x1f;
+        int scale = v3 & 0x1f;
+        
+        // Extract high-order bits, which may be assigned depending on mode
+        int x0 = (v1 >> 6) & 1; int x1 = (v1 >> 5) & 1;
+        int x2 = (v2 >> 6) & 1; int x3 = (v2 >> 5) & 1;
+        int x4 = (v3 >> 7) & 1; int x5 = (v3 >> 6) & 1;
+        int x6 = (v3 >> 5) & 1;
+
+        // Now move the high-order xs into the right place.
+        int ohm = 1 << mode;
+        if( ohm & 0x30 ) green |= x0 << 6;
+        if( ohm & 0x3A ) green |= x1 << 5;
+        if( ohm & 0x30 ) blue |= x2 << 6;
+        if( ohm & 0x3A ) blue |= x3 << 5;
+        if( ohm & 0x3D ) scale |= x6 << 5;
+        if( ohm & 0x2D ) scale |= x5 << 6;
+        if( ohm & 0x04 ) scale |= x4 << 7;
+        if( ohm & 0x3B ) red |= x4 << 6;
+        if( ohm & 0x04 ) red |= x3 << 6;
+        if( ohm & 0x10 ) red |= x5 << 7;
+        if( ohm & 0x0F ) red |= x2 << 7;
+        if( ohm & 0x05 ) red |= x1 << 8;
+        if( ohm & 0x0A ) red |= x0 << 8;
+        if( ohm & 0x05 ) red |= x0 << 9;
+        if( ohm & 0x02 ) red |= x6 << 9;
+        if( ohm & 0x01 ) red |= x3 << 10;
+        if( ohm & 0x02 ) red |= x5 << 10;
+
+        // Shift the bits to the top of the 12-bit result.
+        static const int shamts[6] = { 1,1,2,3,4,5 };
+        int shamt = shamts[mode];
+        red <<= shamt; green <<= shamt; blue <<= shamt; scale <<= shamt;
+
+        // Minor components are stored as differences
+        if( mode != 5 ) { green = red - green; blue = red - blue; }
+
+        // Swizzle major component into place
+        if( majcomp == 1 ) swap( red, green );
+        if( majcomp == 2 ) swap( red, blue );
+
+        // Clamp output values, set alpha to 1.0
+        e1.r = clamp( red, 0, 0xFFF );
+        e1.g = clamp( green, 0, 0xFFF );
+        e1.b = clamp( blue, 0, 0xFFF );
+        e1.alpha = 0x780;
+
+        e0.r = clamp( red - scale, 0, 0xFFF );
+        e0.g = clamp( green - scale, 0, 0xFFF );
+        e0.b = clamp( blue - scale, 0, 0xFFF );
+        e0.alpha = 0x780;
+
+    HDR Endpoint Mode 11
+
+    Mode 11 specifies two RGB values, which it calculates from a number of
+    bitfields (a, b0, b1, c, d0 and d1) which are packed together with some
+    mode bits into the six values (v0, v1, v2, v3, v4, v5):
+
+    Value   7   6   5   4   3   2   1   0
+    -----   ------------------------------
+    v0     |            a[7:0]            |
+    -----   ------------------------------
+    v1     |m0 |a8 |      c[5:0]          |
+    -----   ------------------------------
+    v2     |m1 |X0 |     b0[5:0]          |
+    -----   ------------------------------
+    v3     |m2 |X1 |     b1[5:0]          |
+    -----   ------------------------------
+    v4     |mj0|X2 |X4 |     d0[4:0]      |
+    -----   ------------------------------
+    v5     |mj1|X3 |X5 |     d1[4:0]      |
+    -----   ------------------------------
+    Table C.2.21 - HDR Mode 11 Value Layout
+
+    If the major component bits mj[1:0 ] are both 1, then the RGB values
+    are specified directly
+
+    Value   7   6   5   4   3   2   1   0
+    -----   ------------------------------
+    v0     |          R0[11:4]            |
+    -----   ------------------------------
+    v1     |          R1[11:4]            |
+    -----   ------------------------------
+    v2     |          G0[11:4]            |
+    -----   ------------------------------
+    v3     |          G1[11:4]            |
+    -----   ------------------------------
+    v4     | 1 |        B0[11:5]          |
+    -----   ------------------------------
+    v5     | 1 |        B1[11:5]          |
+    -----   ------------------------------
+    Table C.2.22 - HDR Mode 11 Value Layout
+
+    The mode bits m[2:0] specify the bit allocation for the different
+    values, and the destinations of the extra bits X0 to X5:
+
+    -------------------------------------------------------------------------
+            Number of bits      Destination of extra bits
+    Mode    a   b   c   d       X0      X1      X2      X3      X4      X5
+    -------------------------------------------------------------------------
+    0       9   7   6   7       b0[6]   b1[6]   d0[6]   d1[6]   d0[5]   d1[5]
+    1       9   8   6   6       b0[6]   b1[6]   b0[7]   b1[7]   d0[5]   d1[5]
+    2       10  6   7   7       a[9]    c[6]    d0[6]   d1[6]   d0[5]   d1[5]
+    3       10  7   7   6       b0[6]   b1[6]   a[9]    c[6]    d0[5]   d1[5]
+    4       11  8   6   5       b0[6]   b1[6]   b0[7]   b1[7]   a[9]    a[10]
+    5       11  6   7   6       a[9]    a[10]   c[7]    c[6]    d0[5]   d1[5]
+    6       12  7   7   5       b0[6]   b1[6]   a[11]   c[6]    a[9]    a[10]
+    7       12  6   7   6       a[9]    a[10]   a[11]   c[6]    d0[5]   d1[5]
+    -------------------------------------------------------------------------
+    Table C.2.23 - Endpoint Bit Mode
+
+    The complete decoding procedure is as follows:
+
+        // Find major component
+        int majcomp = ((v4 & 0x80) >> 7) | ((v5 & 0x80) >> 6);
+
+        // Deal with simple case first
+        if( majcomp == 3 )
+        {
+            e0 = (v0 << 4, v2 << 4, (v4 & 0x7f) << 5, 0x780);
+            e1 = (v1 << 4, v3 << 4, (v5 & 0x7f) << 5, 0x780);
+            return;
+        }
+
+        // Decode mode, parameters.
+        int mode = ((v1&0x80)>>7) | ((v2&0x80)>>6) | ((v3&0x80)>>5);
+        int va  = v0 | ((v1 & 0x40) << 2);
+        int vb0 = v2 & 0x3f;
+        int vb1 = v3 & 0x3f;
+        int vc  = v1 & 0x3f;
+        int vd0 = v4 & 0x7f;
+        int vd1 = v5 & 0x7f;
+
+        // Assign top bits of vd0, vd1.
+        static const int dbitstab[8] = {7,6,7,6,5,6,5,6};
+        vd0 = signextend( vd0, dbitstab[mode] );
+        vd1 = signextend( vd1, dbitstab[mode] );
+
+        // Extract and place extra bits
+        int x0 = (v2 >> 6) & 1;
+        int x1 = (v3 >> 6) & 1;
+        int x2 = (v4 >> 6) & 1;
+        int x3 = (v5 >> 6) & 1;
+        int x4 = (v4 >> 5) & 1;
+        int x5 = (v5 >> 5) & 1;
+
+        int ohm = 1 << mode;
+        if( ohm & 0xA4 ) va |= x0 << 9;
+        if( ohm & 0x08 ) va |= x2 << 9;
+        if( ohm & 0x50 ) va |= x4 << 9;
+        if( ohm & 0x50 ) va |= x5 << 10;
+        if( ohm & 0xA0 ) va |= x1 << 10;
+        if( ohm & 0xC0 ) va |= x2 << 11;
+        if( ohm & 0x04 ) vc |= x1 << 6;
+        if( ohm & 0xE8 ) vc |= x3 << 6;
+        if( ohm & 0x20 ) vc |= x2 << 7;
+        if( ohm & 0x5B ) vb0 |= x0 << 6;
+        if( ohm & 0x5B ) vb1 |= x1 << 6;
+        if( ohm & 0x12 ) vb0 |= x2 << 7;
+        if( ohm & 0x12 ) vb1 |= x3 << 7;
+
+        // Now shift up so that major component is at top of 12-bit value
+        int shamt = (modeval >> 1) ^ 3;
+        va <<= shamt; vb0 <<= shamt; vb1 <<= shamt;
+        vc <<= shamt; vd0 <<= shamt; vd1 <<= shamt;
+
+        e1.r = clamp( va, 0, 0xFFF );
+        e1.g = clamp( va - vb0, 0, 0xFFF );
+        e1.b = clamp( va - vb1, 0, 0xFFF );
+        e1.alpha = 0x780;
+
+        e0.r = clamp( va - vc, 0, 0xFFF );
+        e0.g = clamp( va - vb0 - vc - vd0, 0, 0xFFF );
+        e0.b = clamp( va - vb1 - vc - vd1, 0, 0xFFF );
+        e0.alpha = 0x780;
+
+        if( majcomp == 1 )      { swap( e0.r, e0.g ); swap( e1.r, e1.g ); }
+        else if( majcomp == 2 ) { swap( e0.r, e0.b ); swap( e1.r, e1.b ); }
+
+    HDR Endpoint Mode 14
+
+    Mode 14 specifies two RGBA values, using the eight values (v0, v1, v2,
+    v3, v4, v5, v6, v7). First, the RGB values are decoded from (v0..v5)
+    using the method from Mode 11, then the alpha values are filled in
+    from v6 and v7:
+
+        // Decode RGB as for mode 11
+        (e0,e1) = decode_mode_11(v0,v1,v2,v3,v4,v5)
+        
+        // Now fill in the alphas
+        e0.alpha = v6;
+        e1.alpha = v7;
+
+    Note that in this mode, the alpha values are interpreted (and
+    interpolated) as 8-bit unsigned normalized values, as in the LDR modes.
+    This is the only mode that exhibits this behaviour.
+
+    HDR Endpoint Mode 15
+
+    Mode 15 specifies two RGBA values, using the eight values (v0, v1, v2,
+    v3, v4, v5, v6, v7). First, the RGB values are decoded from (v0..v5)
+    using the method from Mode 11. The alpha values are stored in values
+    v6 and v7 as a mode and two values which are interpreted according
+    to the mode:
+
+    Value   7   6   5   4   3   2   1   0
+    -----   ------------------------------
+    v6     |M0 |        A[6:0]            |
+    -----   ------------------------------
+    v7     |M1 |        B[6:0]            |
+    -----   ------------------------------
+    Table C.2.24 - HDR Mode 15 Alpha Value Layout
+
+    The alpha values are decoded from v6 and v7 as follows:
+
+        // Decode RGB as for mode 11
+        (e0,e1) = decode_mode_11(v0,v1,v2,v3,v4,v5)
+
+        // Extract mode bits
+        mode = ((v6 >> 7) & 1) | ((v7 >> 6) & 2);
+        v6 &= 0x7F;
+        v7 &= 0x7F;
+
+        if(mode==3)
+        {
+            // Directly specify alphas
+            e0.alpha = v6 << 5;
+            e1.alpha = v7 << 5;
+        }
+        else
+        {
+            // Transfer bits from v7 to v6 and sign extend v7.
+            v6 |= (v7 << (mode+1))) & 0x780;
+            v7 &= (0x3F >> mode);
+            v7 ^= 0x20 >> mode;
+            v7 -= 0x20 >> mode;
+            v6 <<= (4-mode);
+            v7 <<= (4-mode);
+        
+            // Add delta and clamp
+            v7 += v6;
+            v7 = clamp(v7, 0, 0xFFF);
+            e0.alpha = v6;
+            e1.alpha = v7;
+        }
+
+    Note that in this mode, the alpha values are interpreted (and
+    interpolated) as 12-bit HDR values, and are interpolated as
+    for any other HDR component.
 
     C.2.16  Weight Decoding
     -----------------------
@@ -1190,7 +1598,7 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     0..2    0   32  63  -   -
     0..4    0   16  32  47  63
     --------------------------
-        Table C.2.16 - Weight Unquantization Values
+    Table C.2.25 - Weight Unquantization Values
 
     For other values, we calculate the initial inputs to a bit manipulation
     procedure. These are denoted A (7 bits), B (7 bits), C (7 bits), and
@@ -1204,7 +1612,7 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     0..19     1 2   ba      aaaaaaa b0000b0 13  Quint value
     0..23   1   3   cba     aaaaaaa cb000cb 11  Trit value
     -------------------------------------------------------
-        Table C.2.17 - Weight Unquantization Parameters
+    Table C.2.26 - Weight Unquantization Parameters
 
     These are then processed as follows:
 
@@ -1217,7 +1625,7 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
 
     As a final step, for all types of value, the range is expanded from
     0..63 up to 0..64 as follows:
-        
+
         if (T > 32) { T += 1; }
 
     This allows the implementation to use 64 as a divisor during inter-
@@ -1314,7 +1722,31 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     by 65536 and the infinite-precision result of the division is converted
     to FP16 with round-to-zero semantics.
 
-    For HDR endpoint modes, the error color is returned.
+    For HDR endpoint modes, color values are represented in a 12-bit
+    pseudo-logarithmic representation, and interpolation occurs in a
+    piecewise-approximate logarithmic manner as follows:
+
+    In LDR mode, the error result is returned.
+
+    In HDR mode, the color components from each endpoint, C0 and C1, are
+    initially shifted left 4 bits to become 16-bit integer values and these
+    are interpolated in the same way as LDR. The 16-bit value C is then
+    decomposed into the top five bits, E, and the bottom 11 bits M, which
+    are then processed and recombined with E to form the final value Cf:
+
+        C = floor( (C0*(64-i) + C1*i + 32)/64 )
+        E = (C&0xF800) >> 11; M = C&0x7FF;
+        if (M < 512) { Mt = 3*M; }
+        else if (M >= 1536) { Mt = 5*M - 2048; }
+        else { Mt = 4*M - 512; }
+        Cf = (E<<10) + (Mt>>3)
+
+    This interpolation is a considerably closer approximation to a
+    logarithmic space than simple 16-bit interpolation.
+
+    This final value Cf is interpreted as an IEEE FP16 value. If the result
+    is +Inf or NaN, it is converted to the bit pattern 0x7BFF, which is the
+    largest representable finite value.
 
     C.2.20  Dual-Plane Decoding
     ---------------------------
@@ -1336,12 +1768,12 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     2         RGA        B
     3         RGB        A
     --------------------------
-        Table C.2.18 - Dual Plane Color Component Selector Values
+    Table C.2.28 -Dual Plane Color Component Selector Values
 
     The CCS bits are stored at a variable position directly below the weight
     bits and any additional CEM bits.
 
-    3.15    Partition Pattern Generation
+    C.2.21  Partition Pattern Generation
     ------------------------------------
 
     When multiple partitions are active, each texel position is assigned a
@@ -1352,7 +1784,7 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     otherwise it is set to 0.
 
     This function is specified in terms of x, y and z in order to support
-    the full profile of ASTC. For 2D textures, z will always be 0.
+    3D textures. For 2D textures and texture slices, z will always be 0.
 
     The full partition selection algorithm is as follows:
 
@@ -1438,9 +1870,9 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
                 config_bits = 29;
             else
                 config_bits = 25 + 3*num_partitions;
-
+        
         num_weights = M * N * Q; // size of weight grid
-
+        
         if(dual_plane)
             config_bits += 2;
             num_weights *= 2;
@@ -1462,13 +1894,13 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     An equivalent iterative algorithm would be:
 
         num_CEM_values = num_CEM_pairs*2;
-
+        
         for(range = each possible CEM range in descending order of size)
         {
             CEM_bits = ceil(num_CEM_values*8*trits_in_CEM_range/5) +
                        ceil(num_CEM_values*7*quints_in_CEM_range/3) +
                        num_CEM_values*bits_in_CEM_range;
-
+        
             if(CEM_bits <= remaining_bits)
                 break;
         }
@@ -1525,21 +1957,26 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     Min S coord    | 1 | 1 | D | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 0 |
      --------------------------------------------------------------
 
-        Table C.2.19 - 2D Void-Extent Block Layout Overview
+    Table C.2.29 - 2D Void-Extent Block Layout Overview
 
     Bit 9 is the Dynamic Range flag, which indicates the format in which
     colors are stored. A 0 value indicates LDR, in which case the color
-    components are stored as UNORM16 values. A 1 indicates HDR, which is
-    reserved.
-
-    If a void-extent block with HDR values is decoded in LDR mode, then
-    the result will be the error color for all texels within the block.
+    components are stored as UNORM16 values. A 1 indicates HDR, in which
+    case the color components are stored as FP16 values.
 
     The reason for the storage of UNORM16 values in the LDR case is due
     to the possibility that the value will need to be passed on to sRGB
     conversion. By storing the color value in the format which comes out
     of the interpolator, before the conversion to FP16, we avoid having
     to have separate versions for sRGB and linear modes.
+
+    If a void-extent block with HDR values is decoded in LDR mode, then
+    the result will be the error color, opaque magenta, for all texels
+    within the block.
+
+    In the HDR case, if the color component values are infinity or NaN, this
+    will result in undefined behavior. As usual, this must not lead to GL
+    interruption or termination.
 
     The minimum and maximum coordinate values are treated as unsigned
     integers and then normalized into the range 0..1 (by dividing by 2^13-1
@@ -1578,7 +2015,7 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     color value upon encountering an illegal block.
 
     Here is a comprehensive list of situations that represent illegal block
-    encodings in the LDR operation mode:
+    encodings:
 
     *   The block mode specified is one of the modes explicitly listed
         as Reserved.
@@ -1599,27 +2036,39 @@ R   Weight Range  Trits   Quints  Bits      Weight Range  Trits  Quints  Bits
     *   Dual weight mode is enabled for a block with 4 partitions.
     *   Void-Extent blocks where the low coordinate for some texture axis
         is greater than or equal to the high coordinate.
-    *   Void-Extent blocks where the constant color is defined as HDR.
 
-    Note also that, in LDR profile, a block which has both HDR and LDR endpoint
+    Note also that, in LDR mode, a block which has both HDR and LDR endpoint
     modes assigned to different partitions is not an error block. Only those
     texels which belong to the HDR partition will result in the error color.
     Texels belonging to a LDR partition will be decoded as normal.
 
     C.2.25  LDR PROFILE SUPPORT
     ---------------------------
-    In order to ease verification and accelerate adoption, the relationship of
-    this LDR-only subset to the full ASTC specification implies some properties
-    which must be respected.
+    In order to ease verification and accelerate adoption, an LDR-only
+    subset of the full ASTC specification has been made available.
 
     Implementations of this LDR Profile must satisfy the following requirements:
     *   All textures with valid encodings for LDR Profile must decode
-        identically using either a LDR Profile or Full Profile decoder.
-    *   All features included only in the Full Profile must be treated as
-        reserved in the LDR Profile, and return the error color on decoding.
+        identically using either a LDR Profile, HDR Profile, or Full Profile
+        decoder.
+    *   All features included only in the HDR Profile or Full Profile must be
+        treated as reserved in the LDR Profile, and return the error color on
+        decoding.
     *   Any sequence of API calls valid for the LDR Profile must also be valid
-        for the Full Profile and return identical results when given a texture
-        encoded for the LDR Profile.
+        for the HDR Profile or Full Profile and return identical results when
+        given a texture encoded for the LDR Profile.
+
+    The feature subset for the LDR profile is:
+    *   2D textures only.
+    *   Only those block sizes listed in Table C.2.2 are supported.
+    *   LDR operation mode only.
+    *   Only LDR endpoint formats must be supported, namely formats
+        0, 1, 4, 5, 6, 8, 9, 10, 12, 13.
+    *   Decoding from a HDR endpoint results in the error color.
+    *   Interpolation returns UNORM8 results when used in conjunction
+        with sRGB.
+    *   LDR void extent blocks must be supported, but void extents
+        may not be checked.
 
 
 Additions to Appendix D of the OpenGL ES 3.0 Specification (Shared

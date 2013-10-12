@@ -38,7 +38,7 @@ Status
 
 Version
 
-    DRAFT Version 11, June 26, 2013
+    Version 11, June 26, 2013
 
 Number
 
