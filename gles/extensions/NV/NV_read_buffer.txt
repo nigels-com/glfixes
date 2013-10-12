@@ -17,6 +17,8 @@ Contributors
     Koji Ashida, NVIDIA Corporation
     Gregory Prisament, NVIDIA Corporation
     Greg Roth, NVIDIA Corporation
+    James Helferty, NVIDIA Corporation
+    Antoine Chauveau, NVIDIA Corporation
 
 Status
 
@@ -24,8 +26,8 @@ Status
 
 Version
 
-    Last Modified Date: June 07, 2011
-    NVIDIA Revision: 4.0
+    Last Modified Date: September 27, 2013
+    NVIDIA Revision: 7.0
 
 Number
 
@@ -54,11 +56,10 @@ Overview
     used to select which color buffer of the currently-bound framebuffer
     to use as the source for subsequent calls to ReadPixels,
     CopyTexImage2D, and CopyTexSubImage2D. If the system-provided
-    framebuffer is bound, then ReadBufferNV accepts BACK if there's a
-    back buffer and FRONT if there's not. If a user-created FBO is
-    bound, then ReadBufferNV accepts COLOR_ATTACHMENT0. Additionally, if
-    the ARB_draw_buffers extension is supported, ReadBufferNV accepts
-    COLOR_ATTACHMENTn_NV (n is 0 to 15).
+    framebuffer is bound, then ReadBufferNV accepts value BACK. If a
+    user-created FBO is bound, then ReadBufferNV accepts COLOR_ATTACHMENT0.
+    Additionally, if the NV_draw_buffers extension is supported,
+    ReadBufferNV accepts COLOR_ATTACHMENTn_NV (n is 0 to 15).
 
     The NV_read_buffer_front extension requires NV_read_buffer and adds
     the ability to select the system-provided FRONT color buffer as the
@@ -95,9 +96,9 @@ Changes to Chapter 4 of the OpenGL ES 2.0 Specification
     error is generated. Further, the acceptable values for <src> depend
     on whether the GL is using the default framebuffer (i.e.
     FRAMEBUFFER_BINDING is zero), or a framebuffer object (i.e.
-    FRAMEBUFFER_BINDING is non-zero) and whether the context is single
-    or double buffered. For more information about framebuffer objects,
-    see section 4.4.
+    FRAMEBUFFER_BINDING is non-zero) and whether the default framebuffer
+    is single or double buffered. For more information about framebuffer
+    objects, see section 4.4.
 
     If the object bound to FRAMEBUFFER_BINDING is not framebuffer
     complete (as defined in section 4.4.5), then ReadPixels generates
@@ -108,9 +109,9 @@ Changes to Chapter 4 of the OpenGL ES 2.0 Specification
 
     When FRAMEBUFFER_BINDING is zero, i.e. the default framebuffer,
     <src> must be FRONT, BACK or NONE. If the requested buffer is
-    missing, the error INVALID_OPERATION is generated. For the default
-    framebuffer, the initial setting for READ_BUFFER_NV is FRONT if there
-    is no back buffer and BACK otherwise.
+    missing, the error INVALID_OPERATION is generated. If there is a default
+    framebuffer associated with the context, the initial setting for
+    READ_BUFFER_NV is BACK, otherwise it is NONE.
 
     When the GL is using a framebuffer object, <src> must be NONE,
     COLOR_ATTACHMENT0, or COLOR_ATTACHMENTi_NV, where <i> is the index
@@ -120,17 +121,16 @@ Changes to Chapter 4 of the OpenGL ES 2.0 Specification
     initial setting for READ_BUFFER_NV is COLOR_ATTACHMENT0.
 
     ReadPixels generates an INVALID_OPERATION error if it attempts to
-    select a color buffer while READ_BUFFER_NV is NONE.
+    select a color buffer while READ_BUFFER_NV is NONE or if the GL is
+    using a framebuffer object (i.e., READ_FRAMEBUFFER_BINDING is non-zero)
+    and the read buffer selects an attachment that has no image attached.
 
     Section 4.3.2 (Pixel Draw/Read State) Replace first paragraph:
 
     The state required for pixel operations consists of the parameters
     that are set with PixelStore. This state has been summarized in
     tables 3.1. Additional state includes an integer indicating the
-    current setting of ReadBuffer. For the default framebuffer, in the
-    initial state the read buffer is BACK if there is a back buffer;
-    FRONT if there is no back buffer; and NONE if no default framebuffer
-    is associated with the context. State set with PixelStore is GL
+    current setting of ReadBufferNV. State set with PixelStore is GL
     client state.
 
 
@@ -139,8 +139,7 @@ Dependencies on NV_read_buffer_front:
     If NV_read_buffer_front is not supported, add to the third paragraph
     describing ReadBufferNV:
 
-    If <src> is FRONT and the context is double buffered, the error
-    INVALID_OPERATION is generated.
+    If <src> is FRONT, the error INVALID_ENUM is generated.
 
 Dependencies on NV_draw_buffers:
 
@@ -193,20 +192,41 @@ Issues
 
     5. Should ReadBufferNV() pass if READ_BUFFER points to a non-
        existent buffer?
-       As specified in issue 55 of EXT_framebuffer_object spec,
-       ReadBufferNV() should throw an error if the buffer does not exist.
+       
+      Early drivers followed the precedent set by Issue 55 of the
+      EXT_framebuffer_object spec; ReadBufferNV() would cause an error if
+      a FBO was bound and the requested buffer did not exist.
+
+      OpenGL ES 3.0 and OpenGL 4.3 allow it to pass.
+
+      RESOLVED: Behavior should match OpenGL ES 3.0. Application developers
+      are cautioned that early Tegra drivers may exhibit the previous
+      behavior.
 
     6. What should happen if COLOR_ATTACHMENT0, the default ReadBufferNV
        is not bound and ReadBufferNV() gets called on this attachment?
 
-       For the same reason as described in issue 55 of EXT_framebuffer_-
-       object spec, if this happens ReadBufferNV() will fail with an
-       INVALID_OPERATION error.
+      Behavior matches the resolution of Issue 5.
+      
+    7. Version 6 of this specification isn't compatible with OpenGL ES 3.0.
+       For contexts without a back buffer, this extension makes FRONT the
+       default read buffer. ES 3.0 instead calls it BACK.
+       How can this be harmonized?
+       
+      RESOLVED: Update the specification to match ES 3.0 behavior. This
+      introduces a backwards incompatibility, but few applications are
+      expected to be affected. In the EGL ecosystem where ES 2.0 is
+      prevalent, only pixmaps have no backbuffer and their usage remains
+      limited.
+      
 
 Revision History
 
     Rev.    Date      Author       Changes
     ----   --------   ---------    -------------------------------------
+     7     09/27/13   achauveau    Harmonize BACK vs. FRONT selection
+                                   with GLES 3.0. 
+     6     07/11/13   jhelferty    Changes in behavior to match GLES 3.0
      5     06/07/11   groth        Responded to feedback. Clarified
                                    non-FBO behavior and state ownership.
                                    added a few issues.
@@ -216,7 +236,7 @@ Revision History
      3     03/22/09   gprisament   Split depth & stencil reading into
                                    separate document
                                    (NV_read_depth_stencil).
-                                   Inline depenencies on NV_draw_buffers
+                                   Inline dependencies on NV_draw_buffers
                                    Re-wrote overview section.
      2     07/03/08   kashida      Change to depend on
                                    NV_packed_depth_stencil2

@@ -14,7 +14,8 @@ Contributors
 
      Benj Lipchak, AMD
      Bill Licea-Kane, AMD
-     Rob Mace, NVIDIA
+     Rob Mace, NVIDIA Corporation
+     James Helferty, NVIDIA Corporation
 
 Status
 
@@ -22,8 +23,8 @@ Status
 
 Version
 
-    Last Modified Date: June 07, 2011
-    NVIDIA Revision: 2.0
+    Last Modified Date: July 11, 2013
+    NVIDIA Revision: 4.0
 
 Number
 
@@ -34,6 +35,8 @@ Dependencies
     Written against the OpenGL ES 2.0 Specification and the OpenGL ES
     Shader Language 1.0.14 Specification.
 
+    This extension interacts with the OpenGL ES 3.0 Specification
+
 Overview
 
     This extension extends OpenGL ES 2.0 to allow multiple output
@@ -42,6 +45,9 @@ Overview
 
     This extension serves a similar purpose to ARB_draw_buffers except
     that this is for OpenGL ES 2.0.
+
+    When OpenGL ES 3.0 is present, this extension relaxes the order
+    restriction on color attachments to draw framebuffer objects.
 
 IP Status
 
@@ -186,7 +192,9 @@ Operations and the Frame Buffer)
     MAX_COLOR_ATTACHMENTS_NV, then the error INVALID_OPERATION results.
 
     Indicating a buffer or buffers using DrawBuffersNV causes subsequent
-    pixel color value writes to affect the indicated buffers.
+    pixel color value writes to affect the indicated buffers. If the GL is
+    bound to a draw framebuffer object and a draw buffer selects an attachment
+    that has no image attached, then that fragment color is not written.
 
     Specifying NONE as the draw buffer for a fragment color will inhibit
     that fragment color from being written to any buffer.
@@ -213,6 +221,27 @@ Changes to Chapter 3 of the OpenGL Shading Language 1.0 Specification (Basics)
     The shading language preprocessor #define GL_NV_draw_buffers will be
     defined to 1, if the GL_NV_draw_buffers extension is supported.
 
+Interactions with OpenGL ES 3.0
+
+    Section 4.2.1 of OpenGL ES 3.0, (Selecting a Buffer for Writing). Replace
+    the eighth and ninth paragraph:
+
+    If the GL is bound to a draw framebuffer object, the ith buffer listed in
+    bufs must be COLOR_ATTACHMENTm or NONE, where m is less than the value of
+    MAX_COLOR_ATTACHMENTS. Specifying BACK or COLOR_ATTACHMENTm where m is
+    greater than or equal to MAX_COLOR_ATTACHMENTS will generate the error
+    INVALID_OPERATION.
+
+    If an OpenGL ES Shading Language 1.00 or 3.00 fragment shader writes a
+    user-defined varying out variable, DrawBuffers specifies a set of draw
+    buffers into which each of the multiple output colors defined by these
+    variables are separately written. If a fragment shader writes to none of
+    gl_FragColor, gl_FragData, nor any user-defined output variables, the
+    values of the fragment colors following shader execution are undefined, and
+    may differ for each fragment color. If some, but not all user-defined
+    output variables are written, the values of fragment colors corresponding
+    to unwritten variables are similarly undefined.
+
 New State
 
     Add Table 6.X Framebuffer (State per framebuffer object):
@@ -231,12 +260,28 @@ New State
 
 Issues
 
-    See ARB_draw_buffers for relevant issues.
+    1. What behavior should be expected if a draw buffer selects an attachment
+       for a draw framebuffer that has no image attached?
+
+      Early drivers considered this an INVALID_OPERATION and the DrawBuffersNV
+      operation did not succeed. (Following precedent set in Issue 55 of
+      EXT_framebuffer_object)
+
+      OpenGL ES 3.0 and Desktop GL 4.3 consider this legal, and the DrawBuffers
+      call succeeds. Missing attachments are simply not written to.
+
+      RESOLVED: Behavior should match OpenGL ES 3.0. Application developers are
+      cautioned that early Tegra drivers may exhibit the previous behavior.
+
+    See ARB_draw_buffers for additional relevant issues.
 
 Revision History
 
     Rev.    Date      Author       Changes
     ----   --------   ---------    ------------------------------------
+     4     07/11/13   jhelferty    Updated error behavior for missing
+                                   attachments to match ES 3.0.
+                                   Clarified ES 3.0 interactions.
      3     06/07/11   groth        Clarified default behavior, state tables.
      2     04/26/11   groth        Filled in many missing elements.
      1     03/03/08   kashida      First revision based on
