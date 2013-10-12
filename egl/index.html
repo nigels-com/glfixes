@@ -1,21 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-<title>Khronos EGL API Registry</title>
+	<title>Khronos EGL Registry</title>
 	<meta charset="utf-8" />
-	<link href="/assets/css/all.css" rel="stylesheet" type="text/css" media="all" />
-	<!--[if lt IE 9]><script type="text/javascript" src="/assets/js/html5.js"></script><![endif]-->
+	<meta name="MSSmartTagsPreventParsing" content="true" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="apple-touch-icon" href="/assets/images/129x129.png" />
+	<link rel="shortcut icon" href="/assets/images/129x129-white.png" />
+
+	<link type="text/css" rel="stylesheet" media="all" href="/assets/tools/min/?g=css_main&amp;1309b" />
+
 	<!--[if lt IE 9]><link href="/assets/css/ie.css" rel="stylesheet" type="text/css" media="all" /><![endif]-->
 	<!--[if lt IE 8]><link href="/assets/css/ie7.css" rel="stylesheet" type="text/css" media="all" /><![endif]-->
-</head>
-<body id="developers" class="registry">
-<div id="pagewrapper">
-<div id="header" class="clearfix">
-<a href="#nav" class="accessibility" accesskey="X">Skip to Navigation</a>
-<a href="#content" class="accessibility" accesskey="Y" title="Skip to content">Skip to Content</a>
+	<!--[if lt IE 9]><script type="text/javascript" src="/assets/js/html5.js"></script><![endif]-->
+	    <script type="text/javascript">
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1759693-1']);
+      _gaq.push(['_setLocalGifPath', '/assets/images/__utm.gif']);
+      _gaq.push(['_setLocalRemoteServerMode']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    </script>
 
-</div>
+</head>
+<body class="">
+
 <a href="#content" class="hidden" accesskey="Y" title="Skip to content">Skip to Content</a>
 <div id="top"></div>
 
@@ -25,14 +42,15 @@
         <li class="first-child"><b>English</b></li>
         <li><a href="http://cn.khronos.org/" title="View Khronos.org in Chinese">中文</a></li>
         <li><a href="http://jp.khronos.org/" title="View Khronos.org in Japanese">日本語</a></li>
-        <li class="last-child"><a href="http://kr.khronos.org/" title="View Khronos.org in Korean">한국인</a></li>
+        <li><a href="http://kr.khronos.org/" title="View Khronos.org in Korean">한국어</a></li>
+        <li><a href="http://kite.khronos.org/" title="Khronos Education">KITE</a></li>
+        <li class="last-child"><a href="http://www.khronos.org/chapters" title="Khronos Chapters">Chapters</a></li>
     </ul>
     <ul class="mts"> 
     	<li><b>Login</b></li>
-    	<li><a href="/members/login">Members</a></li>
-    	<li><a href="/conformance/adopters/login">Adopters</a></li>
-    	<li><a href="/conformance/implementers/collada/login">Implementers</a></li>
-    	<li class="last-child"><a href="/members/login/promoters">Promoters</a></li>
+    	<li><a href="https://www.khronos.org/members/login" title="Members Login" >Members</a></li>
+    	<li><a href="https://www.khronos.org/conformance/adopters/login" title="Adopters Login" >Adopters</a></li>
+    	<li class="last-child"><a href="https://www.khronos.org/conformance/implementers/collada/login" title="Implementers Login" >Implementers</a></li>
     	<li>
             <!-- Google CSE Search Box Begins -->
             <div id="searchbox_wrapper">
@@ -59,17 +77,71 @@
 		<h2 class="hidden">Connecting Software to Silicon</h2>
 		<a href="/" title="Open Standards for Media Authoring and Acceleration"><img src="/assets/images/khronos-group-logo.png" alt="Khronos Group Logo" width="300" height="80" /></a>
 	</div>
-	<nav class="sitenav">
-		<ul>
-			<li class="first-child"><a href="/developers">Developers</a></li>
-			<li><a href="/conformance">Conformance</a></li>
-			<li><a href="/members">Membership</a></li>
-			<li class="last-child"><a href="/news/">News &amp; Events</a></li>
-		</ul>
-	</nav>
+
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+    		<ul class="nav">
+    			<li class="dropdown">
+    			    <a class="dropdown-toggle" href="/developers" title="Khronos technology developer resources" data-toggle="dropdown">Developers <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/developers/">Overview</a></li>
+                        <li><a href="/registry">Registry</a></li>
+                        <li><a href="/bugzilla/">Bug Tracking</a></li>
+                        <li><a href="/developers/library/">Presentations</a></li>
+                        <li><a href="http://youtube.com/khronosgroup" rel="external">Videos</a></li>
+                        <li><a href="/blogs/">Blogs</a></li>
+                        <li><a href="/developers/books/">Books</a></li>
+                        <li><a href="/developers/jobs">Jobs</a></li>
+                    </ul>
+    			</li>
+    			<li class="dropdown">
+                    <a class="dropdown-toggle" href="/conformance" title="Khronos Conformance, Adopter and Implmenter Information"  data-toggle="dropdown">Conformance <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/conformance/">Overview</a></li>
+                        <li><a href="/conformance/adopters/">Adopters</a></li>
+                        <li><a href="/conformance/implementers/">Implementers</a></li>
+                        <li><a href="/conformance/adopters/adopter-companies">Adopter Companies</a></li>
+                        <li><a href="/conformance/adopters/conformant-companies">Conformant Companies</a></li>
+                        <li><a href="/conformance/adopters/conformant-products">Conformant Products</a></li>
+                        <li><a href="/members/ip-framework" title="">IP Framework</a></li>
+                    </ul>
+                </li>
+    			<li class="dropdown">
+        			<a class="dropdown-toggle" href="/members" title="Khronos Membership information" data-toggle="dropdown">Membership <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/members/">Overview</a></li>
+                        <li><a href="/members/benefits">Benefits</a></li>
+                        <li><a href="/members/join">Join</a></li>
+                        <li><a href="/members/signup">Signup</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/members/academic">Academic Members</a></li>
+                        <li><a href="/members/contributors">Contributor Members</a></li>
+                        <li><a href="/members/promoters">Promoter Members</a></li>
+                        <li><a href="/members/ip-framework">IP Framework</a></li>
+                    </ul>
+    			</li>
+    			<li class="dropdown">
+    			    <a class="dropdown-toggle" href="/news/" title="Khronos technology related news" data-toggle="dropdown">News <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/news/">Overview</a></li>
+                        <li><a href="/news/archives">News</a></li>
+                        <li><a href="/developers/library/">Presentations</a></li>
+                        <li><a href="/news/press">Press Releases</a></li>
+                        <li><a href="/news/press_kits/">Press Kits</a></li>
+                        <li><a href="/news/logos">Official API Logos</a></li>
+                        <li><a href="/news/newsletter-archives/">Newsletters</a></li>
+                    </ul>
+    			</li>
+    			<li><a href="/news/events" title="Khronos Events" >Events</a></li>
+    			<li><a href="http://www.khronos.org/message_boards" title="Khronos Education" >Forums</a></li>
+    		</ul>
+        </div>
+	</div>
+	
 </header>
 
-<section class="slider container shadow closed">
+
+<section id="khr_slider" class="slider container shadow closed">
 	<div class="slider_nav_block">
 		<ul class="slider_nav_ctrl">
 		    <li class="icon_25 home_icon"><a href="#slider_khronosgroup">Khronos Group homepage</a></li>
@@ -90,253 +162,11 @@
 			<li><a href="/egl" title="#slider_egl">EGL</a><a style="display: none;" href="/egl" title="EGL homepage"></a></li>
 			<li><a href="/streaminput" title="#slider_streaminput">StreamInput</a><a style="display: none;" href="/streaminput" title="StreamInput homepage"></a></li>
 			<li><a href="/openvx" title="#slider_openvx">OpenVX</a><a style="display: none;" href="/openvx" title="OpenVX homepage"></a></li>
-			<li><a href="/chapters" title="#slider_chapters">Chapters</a><a style="display: none;" href="/chapters" title="Chapters homepage"></a></li>
+			<li><a href="/camera" title="#slider_camera">Camera</a><a style="display: none;" href="/camera" title="Camera homepage"></a></li>
 			<li><a href="/other" title="#slider_other">Other</a><a style="display: none;" href="/other" title="Other Technologies homepage"></a></li>
 		</ul>
 	</div>
-	<div id="slider_khronosgroup" class="slider_content">
-		<div class="clearfix">
-			<h2>The Khronos Group - Connecting Software to Silicon</h2>
-			<div class="slidethumb carousel_devices"></div>
-			<p>The Khronos Group is a not for profit industry consortium creating open standards for the authoring and acceleration of parallel computing, graphics, dynamic media, computer vision and sensor processing on a wide variety of platforms and devices. All Khronos members are able to contribute to the development of Khronos API specifications, are empowered to vote at various stages before public deployment, and are able to accelerate the delivery of their cutting-edge 3D platforms and applications through early access to specification drafts and conformance tests.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/about" title="About the Khronos Group">About Khronos</a></li>
-			<li><a href="/members/signup">Member Company Employee Sign-Up</a></li>
-			<li class="last-child"><a href="/chapters">Khronos Chapters</a></li>
-		</ul></nav>
-	</div>
-	<div id="slider_opengl" class="slider_content" style="display: none;">
-		<div class="clearfix clearfix">
-			<h2>OpenGL - The Industry Standard for High Performance Graphics</h2>
-			<div class="slidethumb carousel_opengl"></div>
-			<p>OpenGL® is the most widely adopted 2D and 3D graphics API in the industry, bringing thousands of applications to a wide variety of computer platforms. It is window-system and operating-system independent as well as network-transparent. OpenGL enables developers of software for PC, workstation, and supercomputing hardware to create high-performance, visually compelling graphics software applications, in markets such as CAD, content creation, energy, entertainment, game development, manufacturing, medical, and virtual reality. OpenGL exposes all the features of the latest graphics hardware.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/opengl">API Overview</a></li>
-			<li><a href="http://www.opengl.org">OpenGL.org</a></li>
-			<li><a href="http://www.opengl.org/wiki">Wiki</a></li>
-			<li><a href="http://www.opengl.org/discussion_boards">Forums</a></li>
-			<li><a href="http://www.opengl.org/registry/">OpenGL &amp; GLSL Specs</a></li>
-			<li><a href="/files/opengl42-quick-reference-card.pdf">Reference Card</a></li>
-			<li class="last-child"><a href="http://www.opengl.org/sdk/">SDK</a></li>
-		</ul></nav>
-	</div>
-	<div id="slider_opencl" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>OpenCL - The open standard for parallel programming of heterogeneous systems</h2>
-			<div class="slidethumb carousel_opencl"></div>
-			<p>OpenCL™ is the first open, royalty-free standard for cross-platform, parallel programming of modern processors found in personal computers, servers and handheld/embedded devices. OpenCL (Open Computing Language) greatly improves speed and responsiveness for a wide spectrum of applications in numerous market categories from gaming and entertainment to scientific and medical software.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/opencl/">Overview</a></li>
-			<li><a href="/opencl/resources">Resources</a></li>
-			<li><a href="/registry/cl/">Specs &amp; Headers</a></li>
-			<li><a href="/registry/cl/sdk/1.2/docs/man/xhtml/">Reference Pages</a></li>
-			<li><a href="/files/opencl-1-2-quick-reference-card.pdf">Reference Card</a></li>
-			<li><a href="/assets/uploads/developers/library/overview/opencl_overview.pdf">Overview (PDF)</a></li>
-			<li class="last-child"><a href="/message_boards/viewforum.php?f=27">Forums</a></li>
-		</ul></nav>
-	</div>
-	<div id="slider_opengles" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>OpenGL ES - The Standard for Embedded 3D Graphics</h2>
-			<div class="slidethumb carousel_opengles"></div>
-			<p>OpenGL ES is a royalty-free, cross-platform API for full-function 2D and 3D graphics on embedded systems - including consoles, phones, appliances and vehicles. It consists of well-defined subsets of desktop OpenGL, creating a flexible and powerful low-level interface between software and graphics acceleration. OpenGL ES includes profiles for floating-point and fixed-point systems and the EGL specification for portably binding to native windowing systems. OpenGL ES 1.X: fixed function hardware offering acceleration, image quality and performance. OpenGL ES 2.X: enables full programmable 3D graphics.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/opengles">API Overview</a></li>
-			<li><a href="/registry/gles">Specs &amp; Headers</a></li>
-			<li><a href="/opengles/sdk/docs/">Man Pages</a></li>
-			<li class="last-child"><a href="/message_boards/viewforum.php?f=19">Forums</a></li>
-		</ul></nav>
-	</div>
-	<div id="slider_egl" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>EGL - Native Platform Interface</h2>
-			<div class="slidethumb carousel_egl"></div>
-			<p>EGL™ is an interface between Khronos rendering APIs such as OpenGL ES or OpenVG and the underlying native platform window system. It handles graphics context management, surface/buffer binding, and rendering synchronization and enables high-performance, accelerated, mixed-mode 2D and 3D rendering using other Khronos APIs.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/egl">API Overview</a></li>
-			<li><a href="/registry/egl">Specs &amp; Headers</a></li>
-			<li><a href="/files/egl-1-4-quick-reference-card.pdf">Reference Card</a></li>
-			<li class="last-child"><a href="/message_boards/viewforum.php?f=21">Forums</a></li>
-		</ul></nav>
-	</div>
-	<div id="slider_webgl" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>WebGL - OpenGL ES 2.0 for the Web</h2>
-			<div class="slidethumb carousel_webgl"></div>
-			<p>WebGL is a royalty-free, cross-platform API that brings OpenGL ES 2.0 to the web as a 3D drawing context within HTML, exposed as low-level Document Object Model interfaces. It uses the OpenGL shading language, GLSL ES, and can be cleanly combined with other web content that is layered on top or underneath the 3D content. It is ideally suited for dynamic 3D web applications in the JavaScript programming language, and will be fully integrated in leading web browsers.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/webgl/">API Overview</a></li>
-            <li> <a href="https://www.khronos.org/registry/webgl/specs/1.0/">WebGL 1.0 Specification</a></li>
-            <li> <a href="http://khronos.org/webgl/wiki/">Wiki</a></li>
-            <li> <a href="http://www.khronos.org/webgl/public-mailing-list/">Mailing List</a></li>
-            <li> <a href="http://www.khronos.org/files/webgl/webgl-reference-card-1_0.pdf">Reference Card</a></li>
-            <li> <a href="http://www.khronos.org/message_boards/viewforum.php?f=34">Forums</a></li>
-            <li class="last-child"><a href="http://www.khronos.org/webgl/security/">Security Whitepaper</a></li>
-		</ul></nav>
-	</div>
-	<div id="slider_webcl" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>WebCL - Heterogeneous parallel computing in HTML5 web browsers</h2>
-			<div class="slidethumb carousel_webcl"></div>
-			<p>The WebCL working group is working to define a JavaScript binding to the Khronos OpenCL standard for heterogeneous parallel computing.  WebCL will enable web applications to harness GPU and multi-core CPU parallel processing from within a Web browser, enabling significant acceleration of applications such as image and video processing and advanced physics for WebGL games.   WebCL is being developed in close cooperation with the Web community and has the potential to extend the capabilities of HTML5 browsers to accelerate computationally intensive and rich visual computing applications.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/webcl/">API Overview</a></li>
-			<li class=""><a href="/webcl/wiki">Wiki</a></li>
-			<li class=""><a href="/webcl/public-mailing-list/">Mailing List</a></li>
-			<li class="last-child"><a href="/message_boards/viewforum.php?f=52">Forums</a></li>
-		</ul></nav>
-	</div>
-	<div id="slider_collada" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>COLLADA - Digital Asset and FX Exchange Schema</h2>
-			<div class="slidethumb carousel_collada"></div>
-			<p>COLLADA™ defines an XML-based schema to make it easy to transport 3D assets between applications - enabling diverse 3D authoring and content processing tools be combined into a production pipeline. The intermediate language provides comprehensive encoding of visual scenes including: geometry, shaders and effects, physics, animation, kinematics, and even multiple version representations of the same asset.COLLADA FX enables leading 3D authoring tools to work effectively together to create shader and effects applications and assets to be authored and packaged using OpenGL&reg; Shading Language, Cg, CgFX, and DirectX&reg; FX </p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/collada/">Spec Overview</a></li>
-			<li><a href="http://collada.org/">Community</a></li>
-			<li><a href="http://www.khronos.org/conformance/implementers/collada/">Conformance Download</a></li>
-			<li class="last-child"><a href="/collada/public-mailing-list/">Public Mailing List</a></li>
-		</ul></nav>
-	</div>
-
-	<div id="slider_gltf" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>glTF - runtime asset format for WebGL, OpenGL ES, and OpenGL</h2>
-			<div class="slidethumb carousel_gltf"></div>
-			<p> The "glTF" project aims to define a final stage OpenGL Transmission Format to enable rapid delivery and loading of 3D content by WebGL, OpenGL, and OpenGL ES APIs. glTF together with COLLADA comprise a standards-based content pipeline for rich 3D web and mobile applications. glTF Specification is a work-in-progress from the COLLADA Working Group; it is not an official Khronos-ratified specification yet. It is incomplete and subject to change. The draft specification and related converters and loaders are available on <a href="https://github.com/KhronosGroup/glTF">github</a>.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/gltf/">Overview</a></li>
-			<li><a href="https://www.khronos.org/news/press/khronos-collada-now-recognized-as-iso-standard">Press Release</a></li>
-			<li class="last-child"><a href="https://github.com/KhronosGroup/glTF">glTF on Github</a></li>
-		</ul></nav>
-	</div>
-
-	<div id="slider_openvg" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>OpenVG - The Standard for Vector Graphics Acceleration</h2>
-			<div class="slidethumb carousel_openvg"></div>
-			<p>OpenVG™ is a royalty-free, cross-platform API that provides a low-level hardware acceleration interface for vector graphics libraries such as Flash and SVG. OpenVG is targeted primarily at handheld devices that require portable acceleration of high-quality vector graphics for compelling user interfaces and text on small screen devices - while enabling hardware acceleration to provide fluidly interactive performance at very low power levels. </p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/openvg/">API Overview</a></li>
-			<li><a href="/registry/vg">Specs &amp; Headers</a></li>
-			<li class="last-child"><a href="/message_boards/viewforum.php?f=20">Forums</a></li>
-		</ul></nav>
-	</div>
-	<div id="slider_opensles" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>OpenSL ES - The Standard for Embedded Audio Acceleration</h2>
-			<div class="slidethumb carousel_opensles"></div>
-			<p>OpenSL ES™ is a royalty-free, cross-platform, hardware-accelerated audio API tuned for embedded systems. It provides a standardized, high-performance, low-latency method to access audio functionality for developers of native applications on embedded mobile multimedia devices, enabling straightforward cross-platform deployment of hardware and software audio capabilities, reducing implementation effort, and promoting the market for advanced audio.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/opensles">API Overview</a></li>
-			<li><a href="/registry/sles">Specs &amp; Headers</a></li>
-			<li class="last-child"><a href="/message_boards/viewforum.php?f=23">Forums</a></li>
-		</ul></nav>
-    </div>
-	<div id="slider_openmaxil" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>OpenMAX IL - The Standard for Media Library Portability</h2>
-			<div class="slidethumb carousel_openmaxil"></div>
-			<p>OpenMAX™ is a royalty-free, cross-platform API that provides comprehensive streaming media codec and application portability by enabling accelerated multimedia components to be developed, integrated and programmed across multiple operating systems and silicon platforms. The OpenMAX API will be shipped with processors to enable library and codec implementers to rapidly and effectively make use of the full acceleration potential of new silicon - regardless of the underlying hardware architecture.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/openmax/il">API Overview</a></li>
-			<li><a href="/registry/omxil/">Specs &amp; Headers</a></li>
-			<li class="last-child"><a href="/message_boards/viewforum.php?f=22">Forums</a></li>
-		</ul></nav>
-	</div>
-	<div id="slider_openmaxal" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>OpenMAX AL - The Standard for Media Library Portability</h2>
-			<div class="slidethumb carousel_openmaxal"></div>
-			<p>OpenMAX™ is a royalty-free, cross-platform API that provides comprehensive streaming media codec and application portability by enabling accelerated multimedia components to be developed, integrated and programmed across multiple operating systems and silicon platforms. The OpenMAX API will be shipped with processors to enable library and codec implementers to rapidly and effectively make use of the full acceleration potential of new silicon - regardless of the underlying hardware architecture.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/openmax/al">API Overview</a></li>
-			<li><a href="/registry/omxal/">Specs &amp; Headers</a></li>
-			<li class="last-child"><a href="/message_boards/viewforum.php?f=22">Forums</a></li>
-		</ul></nav>
-	</div>
-	<div id="slider_streaminput" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>StreamInput - Cross-platform advanced sensor processing and user interaction</h2>
-			<p style="width: 95% !important;">The Khronos StreamInput working group is driving industry consensus to create a cross-platform API to enable applications to discover and use new generation sensors to create sophisticated user interactions.  The new API will support a general-purpose framework for consistently handling advanced sensors such as depth cameras, touch screens and motion and orientation sensors as well as traditional input devices.  StreamInput will provide flexible device discovery to enable an application to select and process high-level semantic input from low-level device capabilities, enabling significant innovations by sensor and device manufacturers while simplifying portable application development. The API will also provide system-wide sensor synchronization for advanced multi-sensor applications such as augmented reality, and will use Khronos’ proven extension mechanisms to enable new types of input devices to be easily added and supported.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/streaminput">API Overview</a></li>
-			<li class="last-child"><a href="/message_boards/viewforum.php?f=54">Forums</a></li>
-		</ul></nav>
-	</div>
-	<div id="slider_openvx" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>OpenVX - Hardware acceleration for Computer Vision applications &amp; libraries</h2>
-			<p style="width: 96% !important;">Computer vision has become an essential component of many modern applications including gesture tracking, smart video surveillance, automatic driver assistance, biometrics, computational photography, augmented reality, visual inspection, robotics and more. The OpenVX working group has been formed to drive industry consensus to create a cross-platform API standard to enable hardware vendors to implement and optimize accelerated computer vision algorithms. The OpenVX API can accelerate high-level libraries, such as OpenCV open source vision library, or be used by applications directly. A strong focus will be on providing computer vision on mobile and embedded systems and enabling acceleration on a wide variety of computing architectures including CPUs, GPUs and DSPs. OpenVX will explore interoperability with existing Khronos standards for camera control, video processing, compute acceleration and graphics rendering.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/openvx">API Overview</a></li>
-			<li class="last-child"><a href="/news/press/khronos-to-create-new-open-standard-for-computer-vision">Press Release</a></li>
-		</ul></nav>
-	</div>
-	<div id="slider_chapters" class="slider_content" style="display: none;">
-		<div class="clearfix">
-			<h2>Chapters - Community driven regional meetup groups</h2>
-			<p style="width: 95% !important;">Chapters host all kinds of Khronos technology-related events, from casual meet ups and socials to hack fests, fundraisers, guest lectures, community service and educational events.</p>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/chapters/">Overview</a></li>
-			<li><a href="/chapters/locations/">Locations</a></li>
-			<li class="last-child"><a href="/chapters/meetings/">Meetings</a></li>
-		</ul></nav>
-	</div>
-	<div id="slider_other" class="slider_content" style="display: none;">
-		<div class="clearfix entry">
-			<h2>Other Khronos Group APIs and Technologies</h2>
-			<div class="slidethumb carousel_khronos"></div>
-			<p>The Khronos Group manages other APIs and Technologies:</p>
-    		<ul>
-    			<li><a href="/openglsc">OpenGL SC</a> - Safety Critical Profile</li>
-    			<li><a href="/openmax/dl">OpenMAX DL</a> - The Standard for Media Library Portability </li>
-    			<li><a href="/openkode">OpenKODE</a> - Khronos Open Development Environment</li>
-    			<li><a href="/openwf">OpenWF</a> - The Standard for building composited windowing systems</li>
-    			<li><a href="/openml">OpenML</a> - The Standard for Dynamic Media Authoring</li>
-    		</ul>
-		</div>
-		<nav class="api_links clearfix">
-		<ul>
-			<li class="first-child"><a href="/openglsc">OpenGL SC</a></li>
-			<li><a href="/openmax/dl">OpenMAX DL</a></li>
-			<li><a href="/openwf">OpenWF</a></li>
-			<li class="last-child"><a href="/openml">OpenML</a></li>
-		</ul></nav>
-	</div>
-
+	<div id="slider_content"></div>
 </section><!-- slider -->
 
 
@@ -344,51 +174,23 @@
 	<div class="breadcrumb">
 		<ul>
 			<li><a href="/" title="Khronos Group homepage">Home</a></li>
-			<li></li>
-		</ul>
+<li><a href="/registry/egl">EGL Registry</a></li>		</ul>
 	</div>
 </section>
 
-<div class="quicklinks">
-<h4>Quick Links:</h4>
-<ul>
-<li><a href="/registry/">Overview</a></li>
-<li><a href="https://collada.org/mediawiki/index.php/Portal:Extensions_directory">COLLADA</a></li>
-<li><a href="/registry/egl">EGL</a></li>
-<li><a href="/registry/cl">CL</a></li>
-<li><a href="/registry/gles">GLES</a></li>
-<li><a href="/registry/glsc">SC</a></li>
-<li><a href="/registry/kode">KODE</a></li>
-<li><a href="/registry/omxal">OMXAL</a></li>
-<li><a href="/registry/omxil">OMXIL</a></li>
-<li><a href="/registry/sles">SLES</a></li>
-<li><a href="/registry/vg">VG</a></li>
-<li><a href="/registry/wf">WF</a></li>
-<li><a href="/registry/webgl">WebGL</a></li>
 
-</ul>
-<a class="return_to_top" href="#top">Return to Top</a>
-</div>
+<section id="maincontent" class="line clearfix">
+<div id="content" class="container mrm">
+<div class='row_entry'>
 
 
-        <section class="line clearfix">
-                <div id="content" class="size5of5 container mrm lastUnit">
-
-<div>
-
-
-</div><!-- end #header -->
-<div id="content" class="clearfix">
-<div id="content-body" class="clearfix">
-<div id="maincol">
-
-<h1 class="pagetitle">Khronos EGL API Registry</h1> <!--  top left shadow-->
+<h1 class="pagetitle">Khronos EGL Registry</h1>
 <div id="mainformat">
 
 
-<h1 style="text-align:center"> Khronos EGL API Registry </h1>
+<h1 style="text-align:center"> Khronos EGL Registry </h1>
 
-<p> The EGL API registry contains specifications of the core API;
+<p> The EGL registry contains specifications of the core API;
     specifications of Khronos- and vendor-approved EGL extensions;
     header files corresponding to the specifications; an enumerant and
     function registry; and other related documentation. </p>
@@ -557,24 +359,18 @@
      <br> <a href="extensions/KHR/EGL_KHR_get_all_proc_addresses.txt">EGL_KHR_client_get_all_proc_addresses</a>
 </li>
 </ol>
-</div> <!-- END mainformat -->
-</div> <!-- END maincol -->
-<div class="clearfix"></div>
-</div> <!-- END content-body -->
-</div> <!-- END content-body2 -->
+</div>
 </div>
 </section>
 
 	<footer class="footer line container shadow clearfix">
 		<div class="unit size1of4">
-			<div class="khronos_logo_m"></div>
-			<h2>Contact us</h2>
-			<p><strong>Khronos Group</strong><br />
-9450 SW Gemini Drive #45043<br>
-Beaverton, OR 97008-6018 USA<br />
+		    <h2></h2>
+			<div class="khr_logo" style="margin: 5px 0 0 16px;"></div>
+<p>9450 SW Gemini Drive #45043<br />
+Beaverton, OR 97008-6018  USA<br />
 Office: +1 (415) 869-8627<br />
 Fax: +1 (707) 202-0030</p>
-			
 		</div>
 		<div class="unit size1of4">
 			<h2>Our Newsletter</h2>
@@ -609,12 +405,11 @@ Fax: +1 (707) 202-0030</p>
 			<ul class="bookmark">
 				<li class="facebook"><a href="https://www.facebook.com/TheKhronosGroup" rel="external" title="Official Khronos Group Facebook page">Facebook</a></li>
 				<li class="twitter"><a href="http://twitter.com/thekhronosgroup" rel="external" title="Official Khronos Group Twitter page">Twitter</a></li>
-				<li class="rssfeeds"><a href="http://www.khronos.org/feeds/" title="">News feeds</a></li>
 				<li class="linkedin"><a href="http://www.linkedin.com/groups?gid=121429" rel="external" title="Official Khronos Group Linked page">LinkedIn</a></li>
+				<li class="rssfeeds"><a href="http://www.khronos.org/feeds/" title="">News feeds</a></li>
 				<li class="youtube"><a href="http://www.youtube.com/user/khronosgroup" title="Khronos Videos" rel="external">YouTube</a></li>
 				<li class="flickr"><a href="http://www.flickr.com/photos/khronos/" title="Khronos Photos" rel="external">Flickr</a></li>
 				<li class="slideshare"><a href="http://www.slideshare.net/Khronos_Group" title="Khronos presentations" rel="external">SlideShare</a></li>
-				<li class="podcasts"><a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=309868037" title="Khronos podcasts" rel="external">Podcasts</a></li>
 			</ul></p>
 		</div>
 	</footer>
@@ -626,10 +421,11 @@ Fax: +1 (707) 202-0030</p>
 	</address>
 </div>
 
-<script type="text/javascript" src="/assets/tools/min/?g=js_main&amp;234"></script>
+<script type="text/javascript" src="/assets/tools/min/?g=js_main&amp;1309a"></script>
 
-      
-</div>
 
-</body>  <!-- END pagewrapper -->
+<!-- <a href="http://www.khronos.org/assets/utilities/holder.php">safety</a> -->
+<div style="position: absolute; top: -250px; left: -250px;"><a href="http://www.khronos.org/assets/utilities/holder.php">safety</a></div>
+
+</body>
 </html>
