@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 23328 $ on $Date: 2013-10-02 02:28:28 -0700 (Wed, 02 Oct 2013) $
+** Khronos $Revision: 23535 $ on $Date: 2013-10-16 10:29:40 -0700 (Wed, 16 Oct 2013) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20130917
+#define EGL_EGLEXT_VERSION 20131016
 
 /* Generated C header for:
  * API: egl
@@ -442,6 +442,11 @@ EGLAPI EGLSurface EGLAPIENTRY eglCreatePlatformPixmapSurfaceEXT (EGLDisplay dpy,
 #endif
 #endif /* EGL_EXT_platform_base */
 
+#ifndef EGL_EXT_platform_wayland
+#define EGL_EXT_platform_wayland 1
+#define EGL_PLATFORM_WAYLAND_EXT          0x31D8
+#endif /* EGL_EXT_platform_wayland */
+
 #ifndef EGL_EXT_platform_x11
 #define EGL_EXT_platform_x11 1
 #define EGL_PLATFORM_X11_EXT              0x31D5
@@ -503,6 +508,11 @@ EGLAPI EGLImageKHR EGLAPIENTRY eglCreateDRMImageMESA (EGLDisplay dpy, const EGLi
 EGLAPI EGLBoolean EGLAPIENTRY eglExportDRMImageMESA (EGLDisplay dpy, EGLImageKHR image, EGLint *name, EGLint *handle, EGLint *stride);
 #endif
 #endif /* EGL_MESA_drm_image */
+
+#ifndef EGL_MESA_platform_gbm
+#define EGL_MESA_platform_gbm 1
+#define EGL_PLATFORM_GBM_MESA             0x31D7
+#endif /* EGL_MESA_platform_gbm */
 
 #ifndef EGL_NV_3dvision_surface
 #define EGL_NV_3dvision_surface 1
