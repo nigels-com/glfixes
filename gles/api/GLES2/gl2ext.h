@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 23422 $ on $Date: 2013-10-08 15:40:45 -0700 (Tue, 08 Oct 2013) $
+** Khronos $Revision: 23581 $ on $Date: 2013-10-18 03:28:51 -0700 (Fri, 18 Oct 2013) $
 */
 
 #ifndef GL_APIENTRYP
@@ -1109,6 +1109,70 @@ GL_APICALL void GL_APIENTRY glFramebufferTexture2DMultisampleIMG (GLenum target,
 #define GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG 0x9137
 #define GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG 0x9138
 #endif /* GL_IMG_texture_compression_pvrtc2 */
+
+#ifndef GL_NV_blend_equation_advanced
+#define GL_NV_blend_equation_advanced 1
+#define GL_BLUE_NV                        0x1905
+#define GL_GREEN_NV                       0x1904
+#define GL_RED_NV                         0x1903
+#define GL_XOR_NV                         0x1506
+#define GL_BLEND_OVERLAP_NV               0x9281
+#define GL_BLEND_PREMULTIPLIED_SRC_NV     0x9280
+#define GL_COLORBURN_NV                   0x929A
+#define GL_COLORDODGE_NV                  0x9299
+#define GL_CONJOINT_NV                    0x9284
+#define GL_CONTRAST_NV                    0x92A1
+#define GL_DARKEN_NV                      0x9297
+#define GL_DIFFERENCE_NV                  0x929E
+#define GL_DISJOINT_NV                    0x9283
+#define GL_DST_ATOP_NV                    0x928F
+#define GL_DST_IN_NV                      0x928B
+#define GL_DST_NV                         0x9287
+#define GL_DST_OUT_NV                     0x928D
+#define GL_DST_OVER_NV                    0x9289
+#define GL_EXCLUSION_NV                   0x92A0
+#define GL_HARDLIGHT_NV                   0x929B
+#define GL_HARDMIX_NV                     0x92A9
+#define GL_HSL_COLOR_NV                   0x92AF
+#define GL_HSL_HUE_NV                     0x92AD
+#define GL_HSL_LUMINOSITY_NV              0x92B0
+#define GL_HSL_SATURATION_NV              0x92AE
+#define GL_INVERT_OVG_NV                  0x92B4
+#define GL_INVERT_RGB_NV                  0x92A3
+#define GL_LIGHTEN_NV                     0x9298
+#define GL_LINEARBURN_NV                  0x92A5
+#define GL_LINEARDODGE_NV                 0x92A4
+#define GL_LINEARLIGHT_NV                 0x92A7
+#define GL_MINUS_CLAMPED_NV               0x92B3
+#define GL_MINUS_NV                       0x929F
+#define GL_MULTIPLY_NV                    0x9294
+#define GL_OVERLAY_NV                     0x9296
+#define GL_PINLIGHT_NV                    0x92A8
+#define GL_PLUS_CLAMPED_ALPHA_NV          0x92B2
+#define GL_PLUS_CLAMPED_NV                0x92B1
+#define GL_PLUS_DARKER_NV                 0x9292
+#define GL_PLUS_NV                        0x9291
+#define GL_SCREEN_NV                      0x9295
+#define GL_SOFTLIGHT_NV                   0x929C
+#define GL_SRC_ATOP_NV                    0x928E
+#define GL_SRC_IN_NV                      0x928A
+#define GL_SRC_NV                         0x9286
+#define GL_SRC_OUT_NV                     0x928C
+#define GL_SRC_OVER_NV                    0x9288
+#define GL_UNCORRELATED_NV                0x9282
+#define GL_VIVIDLIGHT_NV                  0x92A6
+typedef void (GL_APIENTRYP PFNGLBLENDPARAMETERINVPROC) (GLenum pname, GLint value);
+typedef void (GL_APIENTRYP PFNGLBLENDBARRIERNVPROC) (void);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glBlendParameteriNV (GLenum pname, GLint value);
+GL_APICALL void GL_APIENTRY glBlendBarrierNV (void);
+#endif
+#endif /* GL_NV_blend_equation_advanced */
+
+#ifndef GL_NV_blend_equation_advanced_coherent
+#define GL_NV_blend_equation_advanced_coherent 1
+#define GL_BLEND_ADVANCED_COHERENT_NV     0x9285
+#endif /* GL_NV_blend_equation_advanced_coherent */
 
 #ifndef GL_NV_copy_buffer
 #define GL_NV_copy_buffer 1

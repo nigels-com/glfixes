@@ -28,8 +28,8 @@ Status
 
 Version
 
-    Last Modified Date:         12/12/2010
-    NVIDIA Revision:            6
+    Last Modified Date:         10/16/2013
+    NVIDIA Revision:            7
 
 Number
 
@@ -2086,7 +2086,18 @@ Issues
     (20) What happens if a shader specifies an image store or atomic operation
          for killed/discarded pixels?
 
-      RESOLVED:  No stores occur when this happens.
+      RESOLVED:  For GLSL shaders that execute a "discard" instruction, any
+      image stores or atomics performed before executing the discard will
+      behave normally.  When the "discard" instruction is executed, the shader
+      invocation will be terminated and will perform no further image store or
+      atomic operations.
+
+      For assembly shaders (NV_gpu_program5) that execute a "KIL" instruction,
+      any image stores or atomics performed before executing the KIL will
+      behave normally.  Unlike GLSL's "discard", the "KIL" instruction does
+      not terminate program invocations.  However, any image store or atomic
+      operations performed after the KIL instruction do not update memory, and
+      the value returned by atomic operations is undefined.
 
     (21) When enabling early depth tests in a program, what happens if a
          fragment fails one of the tests (e.g., depth test)?
@@ -2102,8 +2113,42 @@ Issues
          covered by the primitive or fail early depth tests (e.g., "helper
          pixels"), how does that interact with stores and atomics?
 
-      RESOLVED:  Stores will have no effect.  Atomics will also not update
-      memory.  The values returned by atomics are undefined.
+      RESOLVED:  The current OpenGL specification has no formal notion of
+      "helper" pixels.  In practice, implementations may run fragment shaders
+      for pixels near the boundaries of rasterized primitives to allow
+      derivatives to be approximated by differencing.  Typically, these shader
+      invocations have no effect.  While they may produce outputs, the outputs
+      for these pixels will be discarded without affecting the framebuffer.
+      The spec basically treats these shader invocations as though they don't
+      exist.
+
+      If such a shader invocation performs store or atomic operations, we need
+      to define what happens.  In our definition, stores will have no effect,
+      atomics will not update memory, and the values returned by atomics will
+      be undefined.  The fact that these invocations don't affect memory is
+      consistent with the notion of helper pixel shader invocations not
+      existing.
+
+      However, it is possible to write a fragment shader where flow control
+      depends on the (undefined) values returned by the atomic.  In this case,
+      the undefined values returned for helper pixels could result in very
+      long execution time (appearing to be hang) or an infinite loop.  To
+      avoid hangs in such cases, it is possible to use the fragment shader
+      input sample mask to identify helper pixels:
+
+        // If the input sample mask is non-zero, at least one sample is
+        // covered and the invocation should be treated as a real invocation.
+        // If the sample mask is zero, nothing is covered and this should be
+        // treated as a helper pixel.  If more than 32 samples are supported,
+        // additional words of gl_SampleMaskIn would need to be checked.
+        if (gl_SampleMaskIn[0] != 0)  {
+          // "real" pixel, perform atomic operations
+        } else {
+          // "helper" pixel, skip atomics
+        }
+
+      It may be desirable to formalize the notion of helper pixels in a future
+      addition to the shading language.
 
     (23) What API should we use to specify early depth tests?
 
@@ -2323,6 +2368,15 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+     7    10/16/13  pbrown    Update issue (20) to clarify that any image
+                              stores and atomics issued before a "discard" do
+                              have an effect.  Update issue (22) to better
+                              define the behavior of stores and atomics on
+                              "helper" pixels and to suggest a workaround for
+                              shaders that need to use values returned by
+                              atomics (undefined for helper pixels) in flow
+                              control constructs.
+
      6    12/12/10  pbrown    Fix minor errata reported by spec reviewers
                               (bugs 6870 and 6991).
 
