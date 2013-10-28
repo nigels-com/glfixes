@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetTexLevelParameter - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glGetTexLevelParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetTexLevelParameter — return texture parameter values for a specific level of detail</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetTexLevelParameterfv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetTexLevelParameteriv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetTexLevelParameter - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetTexLevelParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetTexLevelParameter — return texture parameter values for a specific level of detail</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetTexLevelParameterfv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetTexLevelParameteriv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the symbolic name of the target texture,
                     one of
                     <code class="constant">GL_TEXTURE_1D</code>,
@@ -30,9 +31,9 @@
                 </p></dd><dt><span class="term"><em class="parameter"><code>level</code></em></span></dt><dd><p>
                     Specifies the level-of-detail number of the desired image.
                     Level 0 is the base image level.
-                    Level 
+                    Level
                     <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
-                    is the 
+                    is the
                     <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>th
                     mipmap reduction image.
                 </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
@@ -87,33 +88,36 @@
         </p><p>
             The accepted parameter names are as follows:
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_TEXTURE_WIDTH</code></span></dt><dd><p>
-                    </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value,
                         the width of the texture image.
                         The initial value is 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_HEIGHT</code></span></dt><dd><p>
-                    </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value,
                         the height of the texture image.
                         The initial value is 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_DEPTH</code></span></dt><dd><p>
-                    </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value,
                         the depth of the texture image.
                         The initial value is 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_INTERNAL_FORMAT</code></span></dt><dd><p>
-                    </p><p>
                         <em class="parameter"><code>params</code></em> returns a single value,
                         the internal format of the texture image.
-                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_RED_TYPE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_GREEN_TYPE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_BLUE_TYPE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_ALPHA_TYPE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_DEPTH_TYPE</code></span></dt><dd><p>
-                    </p><p>
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_RED_TYPE</code>,
+                      <code class="constant">GL_TEXTURE_GREEN_TYPE</code>,
+                      <code class="constant">GL_TEXTURE_BLUE_TYPE</code>,
+                      <code class="constant">GL_TEXTURE_ALPHA_TYPE</code>,
+                      <code class="constant">GL_TEXTURE_DEPTH_TYPE</code></span></dt><dd><p>
                         The data type used to store the component.
                         The types <code class="constant">GL_NONE</code>, <code class="constant">GL_SIGNED_NORMALIZED</code>,
                         <code class="constant">GL_UNSIGNED_NORMALIZED</code>, <code class="constant">GL_FLOAT</code>,
                         <code class="constant">GL_INT</code>, and <code class="constant">GL_UNSIGNED_INT</code> may be returned
                         to indicate signed normalized fixed-point, unsigned normalized fixed-point, floating-point, integer unnormalized, and
                         unsigned integer unnormalized components, respectively.
-                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_RED_SIZE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_GREEN_SIZE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_BLUE_SIZE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_ALPHA_SIZE</code>,</span></dt><dd></dd><dt><span class="term"><code class="constant">GL_TEXTURE_DEPTH_SIZE</code></span></dt><dd><p>
+                    </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_RED_SIZE</code>,
+                      <code class="constant">GL_TEXTURE_GREEN_SIZE</code>,
+                      <code class="constant">GL_TEXTURE_BLUE_SIZE</code>,
+                      <code class="constant">GL_TEXTURE_ALPHA_SIZE</code>,
+                      <code class="constant">GL_TEXTURE_DEPTH_SIZE</code></span></dt><dd><p>
                     </p><p>
                         The internal storage resolution of an individual component.
                         The resolution chosen by the GL will be a close match for the resolution
@@ -154,7 +158,7 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater
-            than 
+            than
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:msub><mml:mi mathvariant="italic">log</mml:mi>

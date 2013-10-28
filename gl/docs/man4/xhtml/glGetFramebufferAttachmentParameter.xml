@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetFramebufferAttachmentParameteriv - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glGetFramebufferAttachmentParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetFramebufferAttachmentParameteriv — retrieve information about attachments of a bound framebuffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetFramebufferAttachmentParameteriv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">attachment</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetFramebufferAttachmentParameteriv - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetFramebufferAttachmentParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetFramebufferAttachmentParameteriv — retrieve information about attachments of a bound framebuffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetFramebufferAttachmentParameteriv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">attachment</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target of the query operation.
                 </p></dd><dt><span class="term"><em class="parameter"><code>attachment</code></em></span></dt><dd><p>
                     Specifies the attachment within <em class="parameter"><code>target</code></em>
@@ -19,9 +20,9 @@
             <code class="constant">GL_BACK_RIGHT</code>, identifying a color buffer, <code class="constant">GL_DEPTH</code>, identifying the depth buffer,
             or <code class="constant">GL_STENCIL</code>, identifying the stencil buffer.
         </p><p>
-            If a framebuffer object is bound, then <em class="parameter"><code>attachment</code></em> must be one of <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>i</em></span></code>,
+            If a framebuffer object is bound, then <em class="parameter"><code>attachment</code></em> must be one of <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>,
             <code class="constant">GL_DEPTH_ATTACHMENT</code>, <code class="constant">GL_STENCIL_ATTACHMENT</code>, or <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>.
-            <span class="emphasis"><em>i</em></span> in <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>i</em></span></code> must be in the range zero to the value of
+            <span class="emphasis"><em>i</em></span> in <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span> must be in the range zero to the value of
             <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code> - 1.
         </p><p>
             If <em class="parameter"><code>attachment</code></em> is <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code> and different objects are bound
@@ -106,8 +107,8 @@
             <a class="citerefentry" href="glGenFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a>,
             <a class="citerefentry" href="glBindFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

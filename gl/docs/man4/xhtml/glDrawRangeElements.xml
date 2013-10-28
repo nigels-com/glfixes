@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glDrawRangeElements - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glDrawRangeElements"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDrawRangeElements — render primitives from array data</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glDrawRangeElements</strong>(</code></td><td>GLenum <var class="pdparam">mode</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">start</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">end</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">count</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">indices</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glDrawRangeElements - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glDrawRangeElements"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glDrawRangeElements — render primitives from array data</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glDrawRangeElements</strong>(</code></td><td>GLenum <var class="pdparam">mode</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">start</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">end</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">count</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">indices</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>mode</code></em></span></dt><dd><p>
                     Specifies what kind of primitives to render.
                     Symbolic constants
                     <code class="constant">GL_POINTS</code>,
@@ -37,7 +38,7 @@
             index data,
             which may be queried by calling <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument
             <code class="constant">GL_MAX_ELEMENTS_VERTICES</code> and <code class="constant">GL_MAX_ELEMENTS_INDICES</code>.
-            If 
+            If
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -67,7 +68,7 @@
             enabled array, starting at <em class="parameter"><code>start</code></em> to construct a sequence of
             geometric primitives. <em class="parameter"><code>mode</code></em> specifies what kind of primitives are
             constructed, and how the array elements construct these primitives. If
-            more than one array is enabled, each is used. 
+            more than one array is enabled, each is used.
         </p><p>
             Vertex attributes that are modified by <code class="function">glDrawRangeElements</code> have an
             unspecified value after <code class="function">glDrawRangeElements</code> returns. Attributes that aren't
@@ -79,7 +80,7 @@
             <code class="constant">GL_TRIANGLES_ADJACENCY</code>
             are available only if the GL version is 3.2 or greater.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
-            It is an error for indices to lie outside the range 
+            It is an error for indices to lie outside the range
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mfenced open="[" close="]">
@@ -94,7 +95,7 @@
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>count</code></em> is negative.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if 
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>

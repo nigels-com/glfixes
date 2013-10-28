@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glTexImage1D - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glTexImage1D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTexImage1D — specify a one-dimensional texture image</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexImage1D</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">internalFormat</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">border</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><p>
-    </p><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glTexImage1D - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glTexImage1D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTexImage1D — specify a one-dimensional texture image</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexImage1D</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">internalFormat</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">border</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target texture.
                     Must be <code class="constant">GL_TEXTURE_1D</code> or <code class="constant">GL_PROXY_TEXTURE_1D</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>level</code></em></span></dt><dd><p>
@@ -14,7 +14,7 @@
                     one of the sized internal formats given in Table 2, or one
                     of the compressed internal formats given in Table 3, below.
                 </p></dd><dt><span class="term"><em class="parameter"><code>width</code></em></span></dt><dd><p>
-                    Specifies the width of the texture image. 
+                    Specifies the width of the texture image.
                     All implementations support texture images that are at least 1024 texels
                     wide. The height of the 1D texture image is 1.
                 </p></dd><dt><span class="term"><em class="parameter"><code>border</code></em></span></dt><dd><p>
@@ -102,7 +102,7 @@
             with bit ordering determined by <code class="constant">GL_UNPACK_LSB_FIRST</code>
             (see <a class="citerefentry" href="glPixelStore.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a>).
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
@@ -123,12 +123,12 @@
                         The GL converts it to floating point and assembles it into an RGBA element
                         by attaching 0 for blue, and 1 for alpha.
                         Each component is clamped to the range [0,1].
-                    </p></dd><dt><span class="term"><code class="constant">GL_RGB</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_BGR</code></span></dt><dd><p>
+                    </p></dd><dt><span class="term"><code class="constant">GL_RGB</code>, </span><span class="term"><code class="constant">GL_BGR</code></span></dt><dd><p>
                         Each element is an RGB triple.
                         The GL converts it to floating point and assembles it into an RGBA element
                         by attaching 1 for alpha.
                         Each component is clamped to the range [0,1].
-                    </p></dd><dt><span class="term"><code class="constant">GL_RGBA</code></span></dt><dd></dd><dt><span class="term"><code class="constant">GL_BGRA</code></span></dt><dd><p>
+                    </p></dd><dt><span class="term"><code class="constant">GL_RGBA</code>, </span><span class="term"><code class="constant">GL_BGRA</code></span></dt><dd><p>
                         Each element contains all four components.
                         Each component clamped to the range [0,1].
                     </p></dd><dt><span class="term"><code class="constant">GL_DEPTH_COMPONENT</code></span></dt><dd><p>
@@ -146,7 +146,7 @@
             <em class="parameter"><code>internalFormat</code></em> may be one of the base internal formats shown in
             Table 1, below
         </p><p>
-            </p><div class="table"><a id="idp9517032"></a><p class="title"><strong>Table 1. Base Internal Formats</strong></p><div class="table-contents"><table summary="Base Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+            </p><div class="table"><a id="idp11932976"></a><p class="title"><strong>Table 1. Base Internal Formats</strong></p><div class="table-contents"><table summary="Base Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Base Internal Format
             </strong></span></th><th align="left"><span class="bold"><strong>
             RGBA, Depth and Stencil Values
@@ -157,7 +157,7 @@
             <em class="parameter"><code>internalFormat</code></em> may also be one of the sized internal formats
             shown in Table 2, below
         </p><p>
-            </p><div class="table"><a id="idp8593880"></a><p class="title"><strong>Table 2. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+            </p><div class="table"><a id="idp12916800"></a><p class="title"><strong>Table 2. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Sized Internal Format
             </strong></span></th><th align="left"><span class="bold"><strong>
             Base Internal Format
@@ -176,7 +176,7 @@
             Finally, <em class="parameter"><code>internalFormat</code></em> may also be one of the generic or compressed
             compressed texture formats shown in Table 3 below
         </p><p>
-            </p><div class="table"><a id="idp9269360"></a><p class="title"><strong>Table 3. Compressed Internal Formats</strong></p><div class="table-contents"><table summary="Compressed Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+            </p><div class="table"><a id="idp14030544"></a><p class="title"><strong>Table 3. Compressed Internal Formats</strong></p><div class="table-contents"><table summary="Compressed Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Compressed Internal Format
             </strong></span></th><th align="left"><span class="bold"><strong>
             Base Internal Format
@@ -184,111 +184,111 @@
             Type
             </strong></span></th></tr></thead><tbody><tr><td align="left"><code class="constant">GL_COMPRESSED_RED</code></td><td align="left"><code class="constant">GL_RED</code></td><td align="left">Generic</td></tr><tr><td align="left"><code class="constant">GL_COMPRESSED_RG</code></td><td align="left"><code class="constant">GL_RG</code></td><td align="left">Generic</td></tr><tr><td align="left"><code class="constant">GL_COMPRESSED_RGB</code></td><td align="left"><code class="constant">GL_RGB</code></td><td align="left">Generic</td></tr><tr><td align="left"><code class="constant">GL_COMPRESSED_RGBA</code></td><td align="left"><code class="constant">GL_RGBA</code></td><td align="left">Generic</td></tr><tr><td align="left"><code class="constant">GL_COMPRESSED_SRGB</code></td><td align="left"><code class="constant">GL_RGB</code></td><td align="left">Generic</td></tr><tr><td align="left"><code class="constant">GL_COMPRESSED_SRGB_ALPHA</code></td><td align="left"><code class="constant">GL_RGBA</code></td><td align="left">Generic</td></tr><tr><td align="left"><code class="constant">GL_COMPRESSED_RED_RGTC1</code></td><td align="left"><code class="constant">GL_RED</code></td><td align="left">Specific</td></tr><tr><td align="left"><code class="constant">GL_COMPRESSED_SIGNED_RED_RGTC1</code></td><td align="left"><code class="constant">GL_RED</code></td><td align="left">Specific</td></tr><tr><td align="left"><code class="constant">GL_COMPRESSED_RG_RGTC2</code></td><td align="left"><code class="constant">GL_RG</code></td><td align="left">Specific</td></tr><tr><td align="left"><code class="constant">GL_COMPRESSED_SIGNED_RG_RGTC2</code></td><td align="left"><code class="constant">GL_RG</code></td><td align="left">Specific</td></tr><tr><td align="left"><code class="constant">GL_COMPRESSED_RGBA_BPTC_UNORM</code></td><td align="left"><code class="constant">GL_RGBA</code></td><td align="left">Specific</td></tr><tr><td align="left"><code class="constant">GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM</code></td><td align="left"><code class="constant">GL_RGBA</code></td><td align="left">Specific</td></tr><tr><td align="left"><code class="constant">GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT</code></td><td align="left"><code class="constant">GL_RGB</code></td><td align="left">Specific</td></tr><tr><td align="left"><code class="constant">GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT</code></td><td align="left"><code class="constant">GL_RGB</code></td><td align="left">Specific</td></tr></tbody></table></div></div><p><br class="table-break" />
         </p><p>
-        	If the <em class="parameter"><code>internalFormat</code></em> parameter is one of the generic compressed formats,
-        	<code class="constant">GL_COMPRESSED_RED</code>, <code class="constant">GL_COMPRESSED_RG</code>,
-        	<code class="constant">GL_COMPRESSED_RGB</code>, or
-        	<code class="constant">GL_COMPRESSED_RGBA</code>, the GL will replace the internal format with the symbolic constant for a specific internal format and compress the texture before storage.  If no corresponding internal format is available, or the GL can not compress that image for any reason, the internal format is instead replaced with a corresponding base internal format.
+                If the <em class="parameter"><code>internalFormat</code></em> parameter is one of the generic compressed formats,
+                <code class="constant">GL_COMPRESSED_RED</code>, <code class="constant">GL_COMPRESSED_RG</code>,
+                <code class="constant">GL_COMPRESSED_RGB</code>, or
+                <code class="constant">GL_COMPRESSED_RGBA</code>, the GL will replace the internal format with the symbolic constant for a specific internal format and compress the texture before storage.  If no corresponding internal format is available, or the GL can not compress that image for any reason, the internal format is instead replaced with a corresponding base internal format.
         </p><p>
-            If the <em class="parameter"><code>internalFormat</code></em> parameter is 			
+            If the <em class="parameter"><code>internalFormat</code></em> parameter is
             <code class="constant">GL_SRGB</code>,
-			<code class="constant">GL_SRGB8</code>,
-			<code class="constant">GL_SRGB_ALPHA</code>or
-			<code class="constant">GL_SRGB8_ALPHA8</code>, the texture is treated as if the red, green, or blue components are encoded in the sRGB color space.    Any alpha component is left unchanged.  The conversion from the sRGB encoded component 
-			<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        <code class="constant">GL_SRGB8</code>,
+                        <code class="constant">GL_SRGB_ALPHA</code>or
+                        <code class="constant">GL_SRGB8_ALPHA8</code>, the texture is treated as if the red, green, or blue components are encoded in the sRGB color space.    Any alpha component is left unchanged.  The conversion from the sRGB encoded component
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                     <mml:msub><mml:mi mathvariant="italic">c</mml:mi>
                     <mml:mi mathvariant="italic">s</mml:mi>
                     </mml:msub>
             </mml:math>
-			to a linear component 
-			<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        to a linear component
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                     <mml:msub><mml:mi mathvariant="italic">c</mml:mi>
                     <mml:mi mathvariant="italic">l</mml:mi>
                     </mml:msub>
             </mml:math>
             is:
-		</p><p>
-			<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-			<mml:mrow>
-				<mml:msub>
-				  <mml:mi mathvariant="italic">c</mml:mi>
-				  <mml:mi mathvariant="italic">l</mml:mi>
-				</mml:msub>
-				<mml:mo>=</mml:mo>
-				<mml:mrow>
-				  <mml:mo>{</mml:mo>
-			
-				  <mml:mtable columnalign="left">
-					<mml:mtr>
-					  <mml:mtd columnalign="left">
-						<mml:mfrac>
-						  <mml:msub>
-							<mml:mi mathvariant="italic">c</mml:mi>
-							<mml:mi mathvariant="italic">s</mml:mi>
-						  </mml:msub>
-						  <mml:mn>12.92</mml:mn>
-						</mml:mfrac>
-					  </mml:mtd>
-					  <mml:mtd columnalign="left">
-						<mml:mrow>
-						  <mml:mspace width="1ex"></mml:mspace>
-						  <mml:mo>if</mml:mo>
-						  <mml:mspace width="1ex"></mml:mspace>
-						</mml:mrow>
-						<mml:msub>
-						  <mml:mi mathvariant="italic">c</mml:mi>
-						  <mml:mi mathvariant="italic">s</mml:mi>
-						</mml:msub>
-						<mml:mo>≤</mml:mo>
-						<mml:mn>0.04045</mml:mn>
-					  </mml:mtd>
-					</mml:mtr>
-					<mml:mtr>
-					<mml:mtd columnalign="left">
-					<mml:msup>
-					  <mml:mrow>
-						<mml:mo>(</mml:mo>
-						<mml:mfrac>
-						  <mml:mrow>
-							<mml:msub>
-							  <mml:mi>c</mml:mi>
-							  <mml:mi>s</mml:mi>
-							</mml:msub>
-							<mml:mo>+</mml:mo>
-							<mml:mn>0.055</mml:mn>
-						  </mml:mrow>
-						  <mml:mn>1.055</mml:mn>
-						</mml:mfrac>
-						<mml:mo>)</mml:mo>
-					  </mml:mrow>
-					  <mml:mn>2.4</mml:mn>
-					</mml:msup>
-					</mml:mtd>
-          			  <mml:mtd columnalign="left">
-						<mml:mrow>
-						  <mml:mspace width="1ex"></mml:mspace>
-						  <mml:mo>if</mml:mo>
-						  <mml:mspace width="1ex"></mml:mspace>
-						</mml:mrow>
-						<mml:msub>
-						  <mml:mi mathvariant="italic">c</mml:mi>
-						  <mml:mi mathvariant="italic">s</mml:mi>
-						</mml:msub>
-						<mml:mo>&gt;</mml:mo>
-						<mml:mn>0.04045</mml:mn>
-					  </mml:mtd>
-					</mml:mtr>
-				  </mml:mtable>
-				</mml:mrow>
-				</mml:mrow>
-			</mml:math>
-		</p><p>
-			Assume 		
-			<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-								<mml:msub><mml:mi mathvariant="italic">c</mml:mi>
-								<mml:mi mathvariant="italic">s</mml:mi>
-								</mml:msub>
-						</mml:math>
-			is the sRGB component in the range [0,1].
+                </p><p>
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        <mml:mrow>
+                                <mml:msub>
+                                  <mml:mi mathvariant="italic">c</mml:mi>
+                                  <mml:mi mathvariant="italic">l</mml:mi>
+                                </mml:msub>
+                                <mml:mo>=</mml:mo>
+                                <mml:mrow>
+                                  <mml:mo>{</mml:mo>
+
+                                  <mml:mtable columnalign="left">
+                                        <mml:mtr>
+                                          <mml:mtd columnalign="left">
+                                                <mml:mfrac>
+                                                  <mml:msub>
+                                                        <mml:mi mathvariant="italic">c</mml:mi>
+                                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                                  </mml:msub>
+                                                  <mml:mn>12.92</mml:mn>
+                                                </mml:mfrac>
+                                          </mml:mtd>
+                                          <mml:mtd columnalign="left">
+                                                <mml:mrow>
+                                                  <mml:mspace width="1ex"></mml:mspace>
+                                                  <mml:mo>if</mml:mo>
+                                                  <mml:mspace width="1ex"></mml:mspace>
+                                                </mml:mrow>
+                                                <mml:msub>
+                                                  <mml:mi mathvariant="italic">c</mml:mi>
+                                                  <mml:mi mathvariant="italic">s</mml:mi>
+                                                </mml:msub>
+                                                <mml:mo>≤</mml:mo>
+                                                <mml:mn>0.04045</mml:mn>
+                                          </mml:mtd>
+                                        </mml:mtr>
+                                        <mml:mtr>
+                                        <mml:mtd columnalign="left">
+                                        <mml:msup>
+                                          <mml:mrow>
+                                                <mml:mo>(</mml:mo>
+                                                <mml:mfrac>
+                                                  <mml:mrow>
+                                                        <mml:msub>
+                                                          <mml:mi>c</mml:mi>
+                                                          <mml:mi>s</mml:mi>
+                                                        </mml:msub>
+                                                        <mml:mo>+</mml:mo>
+                                                        <mml:mn>0.055</mml:mn>
+                                                  </mml:mrow>
+                                                  <mml:mn>1.055</mml:mn>
+                                                </mml:mfrac>
+                                                <mml:mo>)</mml:mo>
+                                          </mml:mrow>
+                                          <mml:mn>2.4</mml:mn>
+                                        </mml:msup>
+                                        </mml:mtd>
+                                  <mml:mtd columnalign="left">
+                                                <mml:mrow>
+                                                  <mml:mspace width="1ex"></mml:mspace>
+                                                  <mml:mo>if</mml:mo>
+                                                  <mml:mspace width="1ex"></mml:mspace>
+                                                </mml:mrow>
+                                                <mml:msub>
+                                                  <mml:mi mathvariant="italic">c</mml:mi>
+                                                  <mml:mi mathvariant="italic">s</mml:mi>
+                                                </mml:msub>
+                                                <mml:mo>&gt;</mml:mo>
+                                                <mml:mn>0.04045</mml:mn>
+                                          </mml:mtd>
+                                        </mml:mtr>
+                                  </mml:mtable>
+                                </mml:mrow>
+                                </mml:mrow>
+                        </mml:math>
+                </p><p>
+                        Assume
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                                                <mml:msub><mml:mi mathvariant="italic">c</mml:mi>
+                                                                <mml:mi mathvariant="italic">s</mml:mi>
+                                                                </mml:msub>
+                                                </mml:math>
+                        is the sRGB component in the range [0,1].
        </p><p>
             Use the <code class="constant">GL_PROXY_TEXTURE_1D</code> target to try out a resolution and
             format. The implementation will
@@ -329,7 +329,7 @@
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater than 
+            <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater than
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -344,7 +344,7 @@
             </mml:math>,
             where <span class="emphasis"><em>max</em></span> is the returned value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>internalFormat</code></em> is not 
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>internalFormat</code></em> is not
             one of the accepted resolution and format symbolic constants.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>width</code></em> is less than 0
@@ -384,11 +384,11 @@
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
             object such that the memory reads required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
             <a class="citerefentry" href="glGetTexImage.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexImage</span></span></a>
