@@ -372,6 +372,13 @@ Issues
        writing them out as texels and then copying them to a compressed
        texture so that it can in turn be used for sampling.
 
+    (10) Is copying from/to images with ETC2/EAC compressed texture formats
+         defined?
+
+    RESOLVED: Only when the source and destination formats are identical,
+    because texture view classes for ETC2/EAC are not defined (see issue 13
+    of the ARB_texture_view specification).
+
 Revision History
 
     Rev.    Date       Author    Changes
@@ -384,3 +391,7 @@ Revision History
      3    05/10/2012   dgkoch    Clarify dimensions refer to texels in the src image.
                                  Re-order/reflow text to make it read better.
                                  Add mention of TEXTURE_CUBE_MAP_ARRAY.
+     4    10/08/2013   Jon Leech Add issue 10 discussing why copying 
+                                 involving conversions between ETC2/EAC
+                                 compressed formats is not supported (Bug
+                                 11011).

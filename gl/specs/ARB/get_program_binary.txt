@@ -43,8 +43,8 @@ Status
 
 Version
     
-    Last Modified Date: June 14, 2012
-    Revision: #7
+    Last Modified Date: October 8, 2013
+    Revision: #8
 
 Number
 
@@ -296,7 +296,7 @@ Sample Usage
         GLint         success;
 
         GLint   binaryLength;
-        GLvoid* binary;
+        void*   binary;
         FILE*   outfile;
 
         //
@@ -341,7 +341,7 @@ Sample Usage
         //  Retrieve the binary from the program object
         //
         glGetProgramiv(newProgram, GL_PROGRAM_BINARY_LENGTH, &binaryLength);
-        binary = (GLvoid*)malloc(binaryLength);
+        binary = (void*)malloc(binaryLength);
         glGetProgramBinary(newProgram, binaryLength, NULL, binaryFormat, binary);
 
         //
@@ -364,7 +364,7 @@ Sample Usage
                            GLuint progObj)
     {
         GLint   binaryLength;
-        GLvoid* binary;
+        void*   binary;
         GLint   success;
         FILE*   infile;
 
@@ -374,7 +374,7 @@ Sample Usage
         infile = fopen(myBinaryFileName, "rb");
         fseek(infile, 0, SEEK_END);
         binaryLength = (GLint)ftell(infile);
-        binary = (GLvoid*)malloc(binaryLength);
+        binary = (void*)malloc(binaryLength);
         fseek(infile, 0, SEEK_SET);
         fread(binary, binaryLength, 1, infile);
         fclose(infile);
@@ -522,6 +522,8 @@ Issues
     being saved such that when it is loaded again a recompile can be avoided.
 
 Revision History
+    08 10/08/2013 Change GLvoid -> void (Bug 10412).
+
     07 06/14/2012 Clean up descriptions of "failed binary", add errors,
                   and move HINT description back to ProgramParameteri.
 

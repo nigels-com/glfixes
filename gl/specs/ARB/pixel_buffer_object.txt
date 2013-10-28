@@ -42,8 +42,8 @@ IP Status
 
 Version
 
-    Last Modified Date: August 16, 2012
-    Revision: 1.1
+    Last Modified Date: October 8, 2013
+    Revision: 1.2
 
 Number
 
@@ -1633,7 +1633,7 @@ Appendix on Pack/Unpack Range
                                          GLsizei width, GLsizei height,
                                          GLsizei depth,
                                          GLenum format, GLenum type,
-                                         const GLvoid *userdata,
+                                         const void *userdata,
                                          GLint skip_images)
     {
         const GLint line_length = pixelStoreMode->lineLength;
@@ -1726,7 +1726,7 @@ Appendix on Pack/Unpack Range
                                       GLsizei width, GLsizei height,
                                       GLsizei depth,
                                       GLenum format, GLenum type,
-                                      const GLvoid *userdata)
+                                      const void *userdata)
     {
         return OffsetLimitImage3D(pixelStoreMode,
                                   width, height, depth, format, type,
@@ -1737,7 +1737,7 @@ Appendix on Pack/Unpack Range
     GLsizeiptr __glOffsetLimitImage(__GLpixelStoreMode *pixelStoreMode,
                                     GLsizei width, GLsizei height,
                                     GLenum format, GLenum type,
-                                    const GLvoid *userdata)
+                                    const void *userdata)
     {
         /* NOTE: Non-3D image max offset computations ignore (treat as zero)
            the unpackModes.skipImages state! */
@@ -1819,3 +1819,7 @@ Revision History
    revision 1.1 srahman
 
        Add GLX protocol support. 
+
+   revision 1.2 Jon Leech
+
+       Change GLvoid -> void (Bug 10412).

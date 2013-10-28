@@ -44,8 +44,8 @@ Status
 
 Version
 
-    Last Modified Date:         07/29/2013
-    Author revision:            37
+    Last Modified Date:         10/22/2013
+    Author revision:            38
     Version                     1.2
 
     (version 1.0 lacked OpenGL 3.0 support)
@@ -1373,8 +1373,14 @@ Additions to Chapter 2 of the OpenGL 3.0 Specification (OpenGL Operation)
         void MatrixLoadfEXT(enum matrixMode, const float *m);
         void MatrixLoaddEXT(enum matrixMode, const double *m);
 
+        void MatrixLoadTransposefEXT(enum matrixMode, const float *m);
+        void MatrixLoadTransposedEXT(enum matrixMode, const double *m);
+
         void MatrixMultfEXT(enum matrixMode, const float *m);
         void MatrixMultdEXT(enum matrixMode, const double *m);
+
+        void MatrixMultTransposefEXT(enum matrixMode, const float *m);
+        void MatrixMultTransposedEXT(enum matrixMode, const double *m);
 
         void MatrixLoadIdentityEXT(enum matrixMode);
 
@@ -4282,3 +4288,5 @@ Revision History
                               GL_TEXTUREi tokens to be free of active
                               client texture selector (issue 32)
      37   07/29/13  mjk       document NVIDIA driver bugs
+     38   10/22/13  mjk       add Matrix*Transpose*EXT routines missing
+                              from section 2.12.2 list

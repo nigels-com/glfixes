@@ -44,8 +44,8 @@ Status
 
 Version
 
-    Last Modified Date: November 4, 2006
-    Revision: 27
+    Last Modified Date: October 8, 2013
+    Revision: 28
 
 Number
 
@@ -420,7 +420,7 @@ Issues
       query to guarantee a program is loaded natively (or not at all):
 
       GLboolean ProgramStringIsNative(GLenum target, GLenum format, 
-                                     GLsizei len, const GLvoid *string)
+                                     GLsizei len, const void *string)
       {
           GLint errorPos, isNative;
           glProgramStringARB(target, format, len, string);
@@ -4857,6 +4857,10 @@ Sample Usage
 
 
 Revision History
+
+   Date: 10/08/2013
+   Revision: 28
+      - Change GLvoid -> void (Bug 10412).
 
    Date: 11/04/2006
    Revision: 27

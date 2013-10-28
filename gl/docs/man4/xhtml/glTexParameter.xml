@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glTexParameter - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glTexParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTexParameter — set texture parameters</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexParameterf</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">param</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexParameteri</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">param</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glTexParameter - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glTexParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTexParameter — set texture parameters</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexParameterf</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">param</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexParameteri</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">param</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexParameterfv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexParameteriv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexParameterIiv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexParameterIuiv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLuint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target texture,
                     which must be either <code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_2D</code>,
                     <code class="constant">GL_TEXTURE_3D</code>, <code class="constant">GL_TEXTURE_1D_ARRAY</code>,
@@ -26,39 +27,19 @@
                     <code class="constant">GL_TEXTURE_WRAP_S</code>,
                     <code class="constant">GL_TEXTURE_WRAP_T</code>, or
                     <code class="constant">GL_TEXTURE_WRAP_R</code>.
+                </p><p>
+                    For the vector commands
+                    (<code class="function">glTexParameter*v</code>),
+                    <em class="parameter"><code>pname</code></em> can also be one of
+                    <code class="constant">GL_TEXTURE_BORDER_COLOR</code> or
+                    <code class="constant">GL_TEXTURE_SWIZZLE_RGBA</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>param</code></em></span></dt><dd><p>
-                    Specifies the value of <em class="parameter"><code>pname</code></em>.
-                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexParameterfv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexParameteriv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexParameterIiv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexParameterIuiv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLuint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters2"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
-                    Specifies the target texture,
-                    which must be either <code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_2D</code>,
-                    <code class="constant">GL_TEXTURE_3D</code>, <code class="constant">GL_TEXTURE_1D_ARRAY</code>,
-                    <code class="constant">GL_TEXTURE_2D_ARRAY</code>, <code class="constant">GL_TEXTURE_RECTANGLE</code>,
-                    or <code class="constant">GL_TEXTURE_CUBE_MAP</code>.
-                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
-                    Specifies the symbolic name of a texture parameter.
-                    <em class="parameter"><code>pname</code></em> can be one of the following:
-                    <code class="constant">GL_DEPTH_STENCIL_TEXTURE_MODE</code>,
-                    <code class="constant">GL_TEXTURE_BASE_LEVEL</code>,
-                    <code class="constant">GL_TEXTURE_BORDER_COLOR</code>,
-                    <code class="constant">GL_TEXTURE_COMPARE_FUNC</code>,
-                    <code class="constant">GL_TEXTURE_COMPARE_MODE</code>,
-                    <code class="constant">GL_TEXTURE_LOD_BIAS</code>,
-                    <code class="constant">GL_TEXTURE_MIN_FILTER</code>,
-                    <code class="constant">GL_TEXTURE_MAG_FILTER</code>,
-                    <code class="constant">GL_TEXTURE_MIN_LOD</code>,
-                    <code class="constant">GL_TEXTURE_MAX_LOD</code>,
-                    <code class="constant">GL_TEXTURE_MAX_LEVEL</code>,
-                    <code class="constant">GL_TEXTURE_SWIZZLE_R</code>,
-                    <code class="constant">GL_TEXTURE_SWIZZLE_G</code>,
-                    <code class="constant">GL_TEXTURE_SWIZZLE_B</code>,
-                    <code class="constant">GL_TEXTURE_SWIZZLE_A</code>,
-                    <code class="constant">GL_TEXTURE_SWIZZLE_RGBA</code>,
-                    <code class="constant">GL_TEXTURE_WRAP_S</code>,
-                    <code class="constant">GL_TEXTURE_WRAP_T</code>, or
-                    <code class="constant">GL_TEXTURE_WRAP_R</code>.
+                    For the scalar commands, specifies the value of
+                    <em class="parameter"><code>pname</code></em>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
-                    Specifies a pointer to an array where the value or values of <em class="parameter"><code>pname</code></em>
-                    are stored.
+                    For the vector commands, specifies a pointer to an array
+                    where the value or values of
+                    <em class="parameter"><code>pname</code></em> are stored.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glTexParameter</code> assigns the value or values in <em class="parameter"><code>params</code></em> to the texture parameter
             specified as <em class="parameter"><code>pname</code></em>.
@@ -90,7 +71,13 @@
                             <mml:mrow>
                                 <mml:mfenced open="(" close=")">
                                     <mml:mrow>
-                                        0.0, 0.0, 0.0, 0.0
+                                        <mml:mn>0.0</mml:mn>
+                                        <mml:mo>,</mml:mo>
+                                        <mml:mn>0.0</mml:mn>
+                                        <mml:mo>,</mml:mo>
+                                        <mml:mn>0.0</mml:mn>
+                                        <mml:mo>,</mml:mo>
+                                        <mml:mn>0.0</mml:mn>
                                     </mml:mrow>
                                 </mml:mfenced>
                             </mml:mrow>
@@ -106,15 +93,15 @@
                                 <mml:mo>=</mml:mo>
                                 <mml:mfrac>
                                     <mml:mrow>
-                                        <mml:msub><mml:mn>2</mml:mn>
+                                        <mml:mn>2</mml:mn>
                                         <mml:mi mathvariant="italic">c</mml:mi>
-                                        </mml:msub>
                                         <mml:mo>+</mml:mo>
                                         <mml:mn>1</mml:mn>
                                     </mml:mrow>
                                     <mml:mrow>
-                                        <mml:msup><mml:mn>2</mml:mn>
-                                        <mml:mi mathvariant="italic">b</mml:mi>
+                                        <mml:msup>
+                                            <mml:mn>2</mml:mn>
+                                            <mml:mi mathvariant="italic">b</mml:mi>
                                         </mml:msup>
                                         <mml:mo>-</mml:mo>
                                         <mml:mn>1</mml:mn>
@@ -129,11 +116,11 @@
                         </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
                                         Texture Comparison Function
                                         </strong></span></th><th align="left"><span class="bold"><strong>
-                                        Computed result 
+                                        Computed result
                                         </strong></span></th></tr></thead><tbody><tr><td align="left">
                                         <code class="constant">GL_LEQUAL</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
@@ -176,11 +163,11 @@
                                                         </mml:mrow>
                                                     </mml:mfenced>
                                                 </mml:mrow>
-                                            </mml:math></div>
+                                            </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_GEQUAL</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
@@ -223,11 +210,11 @@
                                                         </mml:mrow>
                                                     </mml:mfenced>
                                                 </mml:mrow>
-                                            </mml:math></div>
+                                            </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_LESS</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
@@ -270,11 +257,11 @@
                                                         </mml:mrow>
                                                     </mml:mfenced>
                                                 </mml:mrow>
-                                            </mml:math></div>
+                                            </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_GREATER</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
@@ -317,11 +304,11 @@
                                                         </mml:mrow>
                                                     </mml:mfenced>
                                                 </mml:mrow>
-                                            </mml:math></div>
+                                            </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_EQUAL</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
@@ -364,11 +351,11 @@
                                                         </mml:mrow>
                                                     </mml:mfenced>
                                                 </mml:mrow>
-                                            </mml:math></div>
+                                            </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_NOTEQUAL</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
@@ -411,30 +398,30 @@
                                                         </mml:mrow>
                                                     </mml:mfenced>
                                                 </mml:mrow>
-                                            </mml:math></div>
+                                            </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_ALWAYS</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
                                                     <mml:mo>=</mml:mo>
                                                     <mml:mi>1.0</mml:mi>
                                                 </mml:mrow>
-                                                </mml:math></div>
+                                                </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_NEVER</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
                                                     <mml:mo>=</mml:mo>
                                                     <mml:mi>0.0</mml:mi>
                                                 </mml:mrow>
-                                                </mml:math></div>
+                                                </mml:math>
                                         </td></tr></tbody></table></div><p>
                         where <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
-                        is the current interpolated texture coordinate, and 
+                        is the current interpolated texture coordinate, and
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
@@ -450,7 +437,7 @@
                         <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>)
                         Permissible values are:
                         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_COMPARE_REF_TO_TEXTURE</code></span></dt><dd><p>
-                                        Specifies that the interpolated and clamped 
+                                        Specifies that the interpolated and clamped
                                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
                                         texture coordinate should
                                         be compared to the value in the currently bound depth texture.  See the
@@ -468,17 +455,19 @@
                             <mml:mfenced open="[" close="]">
                                 <mml:mfenced open="" close="">
                                     <mml:mrow>
-                                        -
-                                        <mml:msub><mml:mi mathvariant="italic">bias</mml:mi>
-                                        <mml:mi mathvariant="italic">max</mml:mi>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:msub>
+                                            <mml:mi mathvariant="italic">bias</mml:mi>
+                                            <mml:mi mathvariant="italic">max</mml:mi>
                                         </mml:msub>
                                     </mml:mrow>
                                 </mml:mfenced>
                                 <mml:mrow>
                                     <mml:mfenced open="" close="">
                                     <mml:mrow>
-                                        <mml:msub><mml:mi mathvariant="italic">bias</mml:mi>
-                                        <mml:mi mathvariant="italic">max</mml:mi>
+                                        <mml:msub>
+                                            <mml:mi mathvariant="italic">bias</mml:mi>
+                                            <mml:mi mathvariant="italic">max</mml:mi>
                                         </mml:msub>
                                     </mml:mrow>
                                     </mml:mfenced>
@@ -504,7 +493,7 @@
                     </p><p>
                         A mipmap is an ordered set of arrays representing the same image
                         at progressively lower resolutions.
-                        If the texture has dimensions 
+                        If the texture has dimensions
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -535,7 +524,7 @@
                         </mml:math>
                         mipmaps.
                         The first mipmap is the original texture,
-                        with dimensions 
+                        with dimensions
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -548,7 +537,7 @@
                                 </mml:msup>
                             </mml:mrow>
                         </mml:math>.
-                        Each subsequent mipmap has dimensions 
+                        Each subsequent mipmap has dimensions
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -573,7 +562,7 @@
                                 </mml:msup>
                             </mml:mrow>
                         </mml:math>,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -587,7 +576,7 @@
                             </mml:mrow>
                         </mml:math>
                         are the dimensions of the previous mipmap,
-                        until either 
+                        until either
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -596,7 +585,7 @@
                                 <mml:mn>0</mml:mn>
                             </mml:mrow>
                         </mml:math>
-                        or 
+                        or
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -606,7 +595,7 @@
                             </mml:mrow>
                         </mml:math>.
                         At that point,
-                        subsequent mipmaps have dimension 
+                        subsequent mipmaps have dimension
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -623,7 +612,7 @@
                                 </mml:msup>
                             </mml:mrow>
                         </mml:math>
-                        or 
+                        or
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -641,7 +630,7 @@
                             </mml:mrow>
                         </mml:math>
                         until the final mipmap,
-                        which has dimension 
+                        which has dimension
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -655,7 +644,7 @@
                         <a class="citerefentry" href="glCopyTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>, or <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>
                         with the <span class="emphasis"><em>level</em></span> argument indicating the order of the mipmaps.
                         Level 0 is the original texture;
-                        level 
+                        level
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -667,7 +656,7 @@
                                 </mml:mfenced>
                             </mml:mrow>
                         </mml:math>
-                        is the final 
+                        is the final
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -744,8 +733,6 @@
                                         depending on the values of <code class="constant">GL_TEXTURE_WRAP_S</code> and <code class="constant">GL_TEXTURE_WRAP_T</code>,
                                         and on the exact mapping.
                                     </p></dd></dl></div><p>
-                        </p><p>
-                        </p><p>
                     </p></dd></dl></div><p>
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_TEXTURE_MIN_LOD</code></span></dt><dd><p>
                         Sets the minimum level-of-detail parameter.  This floating-point value
@@ -819,14 +806,14 @@
                         <code class="constant">GL_TEXTURE_SWIZZLE_A</code> successively.
                     </p></dd></dl></div><p>
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_S</code></span></dt><dd><p>
-                        Sets the wrap parameter for texture coordinate 
+                        Sets the wrap parameter for texture coordinate
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_CLAMP_TO_BORDER</code>,
                         <code class="constant">GL_MIRRORED_REPEAT</code>,
-                        <code class="constant">GL_REPEAT</code>, or <code class="constant">GL_MIRROR_CLAMP_TO_EDGE</code>. <code class="constant">GL_CLAMP_TO_EDGE</code> causes 
+                        <code class="constant">GL_REPEAT</code>, or <code class="constant">GL_MIRROR_CLAMP_TO_EDGE</code>. <code class="constant">GL_CLAMP_TO_EDGE</code> causes
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         coordinates to be clamped to the
-                        range 
+                        range
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close="]">
@@ -834,7 +821,9 @@
                                     <mml:mrow>
                                         <mml:mfrac>
                                             <mml:mn>1</mml:mn>
-                                            <mml:mn>2<mml:mi mathvariant="italic">N</mml:mi></mml:mn>
+                                            <mml:mrow>
+                                                <mml:mn>2</mml:mn><mml:mi mathvariant="italic">N</mml:mi>
+                                            </mml:mrow>
                                         </mml:mfrac>
                                     </mml:mrow>
                                 </mml:mfenced>
@@ -845,14 +834,16 @@
                                         <mml:mrow>
                                             <mml:mfrac>
                                                 <mml:mn>1</mml:mn>
-                                                <mml:mn>2<mml:mi mathvariant="italic">N</mml:mi></mml:mn>
+                                                <mml:mrow>
+                                                    <mml:mn>2</mml:mn><mml:mi mathvariant="italic">N</mml:mi>
+                                                </mml:mrow>
                                             </mml:mfrac>
                                         </mml:mrow>
                                     </mml:mfenced>
                                 </mml:mrow>
                             </mml:mfenced>
                         </mml:math>,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
                         is the size
                         of the texture in the direction of clamping.
@@ -860,22 +851,22 @@
                         However, in cases where clamping would have occurred in <code class="constant">GL_CLAMP_TO_EDGE</code> mode, the fetched texel data
                         is substituted with the values specified by <code class="constant">GL_TEXTURE_BORDER_COLOR</code>.
                         <code class="constant">GL_REPEAT</code> causes the
-                        integer part of the 
+                        integer part of the
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         coordinate to be ignored; the GL uses only the
                         fractional part, thereby creating a repeating pattern.
-                        <code class="constant">GL_MIRRORED_REPEAT</code> causes the 
+                        <code class="constant">GL_MIRRORED_REPEAT</code> causes the
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         coordinate to be set to the
-                        fractional part of the texture coordinate if the integer part of 
+                        fractional part of the texture coordinate if the integer part of
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         is
-                        even; if the integer part of 
+                        even; if the integer part of
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
-                        is odd, then the 
+                        is odd, then the
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         texture coordinate is
-                        set to 
+                        set to
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -890,7 +881,7 @@
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -909,7 +900,7 @@
                         Initially, <code class="constant">GL_TEXTURE_WRAP_S</code> is set to <code class="constant">GL_REPEAT</code>.
                     </p></dd></dl></div><p>
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_T</code></span></dt><dd><p>
-                        Sets the wrap parameter for texture coordinate 
+                        Sets the wrap parameter for texture coordinate
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">t</mml:mi></mml:math>
                         to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_CLAMP_TO_BORDER</code>,
                         <code class="constant">GL_MIRRORED_REPEAT</code>, <code class="constant">GL_REPEAT</code>, or
@@ -917,7 +908,7 @@
                         Initially, <code class="constant">GL_TEXTURE_WRAP_T</code> is set to <code class="constant">GL_REPEAT</code>.
                     </p></dd></dl></div><p>
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_R</code></span></dt><dd><p>
-                        Sets the wrap parameter for texture coordinate 
+                        Sets the wrap parameter for texture coordinate
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
                         to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_CLAMP_TO_BORDER</code>,
                         <code class="constant">GL_MIRRORED_REPEAT</code>, <code class="constant">GL_REPEAT</code>, or

@@ -29,8 +29,8 @@ Status
 
 Version
 
-    Last Modified Date:  May 15, 2012
-    Version:             9
+    Last Modified Date:  October 2, 2013
+    Version:             10
 
 Number
 
@@ -79,9 +79,7 @@ Specification (OpenGL Operation)
     lies outside the enabled attributes vertex buffer objects, result in
     reading zero. It is not possible to read vertex data from outside the
     enabled vertex buffer objects or from another GL context, and these
-    accesses do not result in abnormal program termination. In addition,
-    reading from disabled attributes results in reading zeros for all
-    components."
+    accesses do not result in abnormal program termination."
 
     Add to Section 2.9.4 (Effects of Accessing Outside Buffer Bounds) on
     page 65 the following:
@@ -190,6 +188,10 @@ Revision History
 
     Rev.    Date       Author     Changes
     ----  ------------ ---------  -------------------------------------------
+     10   02 Oct 2013  Jon Leech  Drop bogus clause about reading zero for
+                                  ``disabled attributes'' in section 2.8
+                                  (Bug 10695).
+
       9   15 May 2012  pdaniell   Specify that texel fetches are defined to
                                   return zero for the error cases only when
                                   robust buffer access is enabled.

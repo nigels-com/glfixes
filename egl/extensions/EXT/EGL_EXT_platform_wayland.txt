@@ -1,0 +1,130 @@
+Name
+
+    EXT_platform_wayland
+
+Name Strings
+
+    EGL_EXT_platform_wayland
+
+Contributors
+
+    Chad Versace <chad.versace@intel.com>
+
+Contacts
+
+    Chad Versace <chad.versace@intel.com>
+
+Status
+
+    Complete
+
+Version
+
+    Version 3, 2013-10-16
+
+Number
+
+    EGL Extension #63
+
+Extension Type
+
+    EGL client extension
+
+Dependencies
+
+    Requires EGL_EXT_client_extensions to query its existence without
+    a display.
+
+    Requires EGL_EXT_platform_base.
+
+    This extension is written against the wording of version 7 of the
+    EGL_EXT_platform_base specification.
+
+Overview
+
+    This extension defines how to create EGL resources from native Wayland
+    resources using the functions defined by EGL_EXT_platform_base.
+
+New Types
+
+    None
+
+New Procedures and Functions
+
+    None
+
+New Tokens
+
+    Accepted as the <platform> argument of eglGetPlatformDisplayEXT:
+
+        EGL_PLATFORM_WAYLAND_EXT                0x31D8
+
+Additions to the EGL Specification
+
+    None.
+
+New Behavior
+
+    To determine if the EGL implementation supports this extension, clients
+    should query the EGL_EXTENSIONS string of EGL_NO_DISPLAY.
+
+    To obtain an EGLDisplay backed by a Wayland display, call
+    eglGetPlatformDisplayEXT with <platform> set to EGL_PLATFORM_WAYLAND_EXT.
+    The <native_display> parameter specifies the Wayland display to use and
+    must point to a valid `struct wl_display` or be NULL. If NULL, then the
+    default Wayland display is used; that is, the one returned by
+    wl_display_connect(NULL).
+
+    To obtain an on-screen rendering surface from a Wayland window, call
+    eglCreatePlatformWindowSurfaceEXT with a <dpy> that belongs to Wayland and
+    a <native_window> that points to a `struct wl_egl_surface`.
+
+    It is not valid to call eglCreatePlatformPixmapSurfaceEXT with a <dpy>
+    that belongs to Wayland. Any such call fails and generates
+    EGL_BAD_PARAMETER.
+
+Issues
+
+    1. Should this extension permit EGL_DEFAULT_DISPLAY as input to
+       eglGetPlatformDisplayEXT()?
+
+       RESOLUTION: No, because the type of EGL_DEFAULT_DISPLAY, as defined by
+       eglplatform.h, likely differs from that of the <native_display>
+       parameter of eglGetPlatformDisplayEXT, which is void*.  Instead, this
+       specification states that eglGetPlatformDisplayEXT accepts NULL as
+       a Wayland native display.
+
+    2. Should this extension support creation EGLPixmap resources from Wayland
+       pixmaps?
+
+       RESOLVED. No. Wayland has no pixmap type.
+
+    3. Should the extension namespace be EXT or MESA?
+    
+       The only shipping EGL implementation today (2013-04-26) that supports
+       Wayland is Mesa. However, perhaps the extension should reside in the
+       EXT namespace in expectation that other vendors will also begin
+       supporting Wayland.
+    
+       RESOLVED. Use the EXT namespace because other vendors have expressed
+       interest in Wayland.
+
+Revision History
+
+    Version 3, 2013-10-16 (Chad Versace)
+        - Resolve issue #3 to use EXT namespace.
+
+    Version 2, 2013-09-12 (Chad Versace)
+        - Update to wording of version 7 of EGL_EXT_platform_base spec.
+        - Add section "Extension Type".
+        - Rephrase the discussion of how to create a Wayland EGLDisplay
+          to follow the analogous discussion in the published
+          EGL_EXT_platform_x11 spec.
+        - Change resolution of issue 1 from yes to no, because of likely type
+          mismatch between EGL_DEFAULT_DISPLAY_TYPE and void*.
+
+    Version 1, 2013-04-26 (Chad Versace)
+        - Initial draft
+
+# vim:ai:et:sw=4:ts=4:
+

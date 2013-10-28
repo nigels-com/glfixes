@@ -71,7 +71,7 @@ New Procedures and Functions
     void glMultiModeDrawElementsIBM(const GLenum *mode,
                                     const GLsizei *count,
                                     GLenum type,
-                                    const GLvoid * const *indices,
+                                    const void * const *indices,
                                     GLsizei primcount,
                                     GLint modestride)
 
@@ -133,7 +133,7 @@ Additions to Chapter 2 of the 1.2 Specification (OpenGL Operation)
         void glMultiModeDrawElementsIBM(const GLenum *mode,
                                         const GLsizei *count,
                                         GLenum type,
-                                        const GLvoid * const *indices,
+                                        const void * const *indices,
                                         GLsizei primcount,
                                         GLint modestride)
 

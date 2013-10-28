@@ -23,7 +23,7 @@ void glDrawRangeElementsEXT(
         GLuint end,
         GLsizei count,
         GLenum type,
-        const GLvoid *indices
+        const void *indices
 );
 
 Add two implementation-dependent limits for describing data size

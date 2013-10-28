@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"><!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetInternalformativ - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.77.1" /></head><body><div class="refentry"><a id="glGetInternalformativ"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetInternalformativ — retrieve information about implementation-dependent support for internal formats</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetInternalformativ</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">bufSize</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetInternalformati64v</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">bufSize</var>, </td></tr><tr><td> </td><td>GLint64 *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<!-- saved from url=(0013)about:internet -->
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetInternalformativ - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetInternalformativ"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetInternalformativ — retrieve information about implementation-dependent support for internal formats</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetInternalformativ</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">bufSize</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetInternalformati64v</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">bufSize</var>, </td></tr><tr><td> </td><td>GLint64 *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Indicates the usage of the internal format. <em class="parameter"><code>target</code></em> must be <code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_1D_ARRAY</code>,
                     <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_2D_ARRAY</code>, <code class="constant">GL_TEXTURE_3D</code>,
                     <code class="constant">GL_TEXTURE_CUBE_MAP</code>, <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>, <code class="constant">GL_TEXTURE_RECTANGLE</code>,
@@ -34,9 +35,28 @@
             and <em class="parameter"><code>target</code></em> are written into <em class="parameter"><code>params</code></em> in descending numeric order. Only positive values are returned.
             Querying <code class="constant">GL_SAMPLES</code> with <em class="parameter"><code>bufSize</code></em> of one will return just the maximum supported number of
             samples for this format. The maximum value in <code class="constant">GL_SAMPLES</code> is guaranteed to be at least the lowest of the following:
-            </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">The value of <code class="constant">GL_MAX_INTEGER_SAMPLES</code> if <em class="parameter"><code>internalformat</code></em> is a signed or unsigned integer format.</li><li class="listitem">The value of <code class="constant">GL_MAX_DEPTH_TEXTURE_SAMPLES</code> if <em class="parameter"><code>internalformat</code></em> is a depth- or stencil-renderable format and
-                <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>, <code class="constant">GL_TEXTURE_2D_MULTISAMPLE_ARRAY</code>.</li><li class="listitem">The value of <code class="constant">GL_MAX_COLOR_TEXTURE_SAMPLES</code> if <em class="parameter"><code>internalformat</code></em> is a color-renderable format and
-                <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code> or <code class="constant">GL_TEXTURE_2D_MULTISAMPLE_ARRAY</code>.</li><li class="listitem">The value of <code class="constant">GL_MAX_SAMPLES</code>.</li></ul></div><p>
+            </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+                        The value of
+                        <code class="constant">GL_MAX_INTEGER_SAMPLES</code> if
+                        <em class="parameter"><code>internalformat</code></em> is a signed or
+                        unsigned integer format.
+                    </p></li><li class="listitem"><p>
+                        The value of
+                        <code class="constant">GL_MAX_DEPTH_TEXTURE_SAMPLES</code> if
+                        <em class="parameter"><code>internalformat</code></em> is a depth- or
+                        stencil-renderable format and
+                        <em class="parameter"><code>target</code></em> is
+                        <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>,
+                        <code class="constant">GL_TEXTURE_2D_MULTISAMPLE_ARRAY</code>.
+                    </p></li><li class="listitem"><p>
+                        The value of
+                        <code class="constant">GL_MAX_COLOR_TEXTURE_SAMPLES</code> if
+                        <em class="parameter"><code>internalformat</code></em> is a
+                        color-renderable format and
+                        <em class="parameter"><code>target</code></em> is
+                        <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code> or
+                        <code class="constant">GL_TEXTURE_2D_MULTISAMPLE_ARRAY</code>.
+                    </p></li><li class="listitem"><p>The value of <code class="constant">GL_MAX_SAMPLES</code>.</p></li></ul></div><p>
         </p><p>
             If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_INTERNALFORMAT_SUPPORTED</code>, <em class="parameter"><code>params</code></em> is set to <code class="constant">GL_TRUE</code> if <em class="parameter"><code>internalFormat</code></em>
             is a supported internal format for <em class="parameter"><code>target</code></em> and to <code class="constant">GL_FALSE</code> otherwise.
@@ -164,7 +184,7 @@
             <code class="constant">GL_IMAGE_CLASS_4_X_8</code>, <code class="constant">GL_IMAGE_CLASS_2_X_8</code>, <code class="constant">GL_IMAGE_CLASS_1_X_8</code>,
             <code class="constant">GL_IMAGE_CLASS_11_11_10</code>, and <code class="constant">GL_IMAGE_CLASS_10_10_10_2</code>, which correspond to
             the 4x32, 2x32, 1x32, 4x16, 2x16, 1x16, 4x8, 2x8, 1x8, the class
-            (a) 11/11/10 packed floating-point format, and the class (b) 
+            (a) 11/11/10 packed floating-point format, and the class (b)
             10/10/10/2 packed formats, respectively.
             If the resource is not supported for image textures, <code class="constant">GL_NONE</code> is returned.
         </p><p>
@@ -313,8 +333,8 @@
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2011-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2011-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>
