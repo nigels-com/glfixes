@@ -23,7 +23,7 @@ Status
 
 Version
 
-    Version 10, 2013.07.03
+    Version 11, 2013.10.10
 
 Number
 
@@ -152,11 +152,10 @@ Conformance Tests
        that passing the uninitialized display to `eglQueryString(dpy,
        EGL_EXTENSIONS)` returns NULL and generates EGL_NOT_INITIALIZED.
 
-    3. Before any call to eglGetDisplay, call `eglQueryString(EGL_NO_DISPLAY,
-       EGL_EXTENSIONS)`. If that call succeeds, then initialize a display and
-       with it call `eglQueryString(dpy, EGL_EXTENSIONS)`.  Verify that the
-       set of extensions returned by the first call is a subset of that
-       returned by the second call.
+    3. Obtain a list of display extensions by calling `eglQueryString(dpy,
+       EGL_EXTENSIONS)` on an initialized display. Obtain the list of client
+       extensions by calling `eglQueryString(EGL_NO_DISPLAY, EGL_EXTENSIONS)`.
+       If both calls succeed, verify the two lists are disjoint.
 
 Issues
 
@@ -344,6 +343,15 @@ Issues
             EGL_EXT_client_extensions.
 
 Revision History
+
+    Version 11, 2013.10.10 (Chad Versace)
+        - Fix conformance test #3. It should require that the display extension
+          list be disjoint to rather than a superset of the client extension
+          list.  (The 'superset' requirement was changed pre-publication to
+          'disjoint' in version 8).
+
+    Version 10, 2013.07.03 (Chad Versace)
+        - Version 9 and 10 are identical due to a versioning error.
 
     Version 9, 2013.07.03 (Chad Versace)
         - Define the concept of *extension type*, require require that each EGL
