@@ -17,23 +17,17 @@ Contributors
     Mathias Heyer, NVIDIA Corporation
     Mark Kilgard, NVIDIA Corporation
     Daniel Koch, NVIDIA Corporation
+    Rik Cabanier, Adobe
 
 Status
 
     NV_blend_equation_advanced is released in NVIDIA Driver Release
     326.xx (June 2013).
 
-NVIDIA Implementation Details
-
-    Older versions of this extension specification and early shipping
-    implementations supported the COLORDODGE_NV and COLORBURN_NV equations
-    without the special case discussed in issue (34). This should be fixed for
-    newer driver releases.
-
 Version
 
-    Last Modified Date:         October 16, 2013
-    NVIDIA Revision:            4
+    Last Modified Date:         October 21, 2013
+    NVIDIA Revision:            6
 
 Number
 
@@ -189,7 +183,7 @@ New Tokens
         DST_OUT_NV                                      0x928D
         SRC_ATOP_NV                                     0x928E
         DST_ATOP_NV                                     0x928F
-        XOR                                             // reused from core
+        XOR_NV                                          0x1506
         MULTIPLY_NV                                     0x9294
         SCREEN_NV                                       0x9295
         OVERLAY_NV                                      0x9296
@@ -223,13 +217,17 @@ New Tokens
         MINUS_CLAMPED_NV                                0x92B3
         CONTRAST_NV                                     0x92A1
         INVERT_OVG_NV                                   0x92B4
-        RED                                             // reused from core
-        GREEN                                           // reused from core
-        BLUE                                            // reused from core
+        RED_NV                                          0x1903
+        GREEN_NV                                        0x1904
+        BLUE_NV                                         0x1905
 
     NOTE:  These enums are not accepted by the <modeRGB> or <modeAlpha>
     parameters of BlendEquationSeparate or BlendEquationSeparatei.
 
+    NOTE:  The tokens XOR_NV, RED_NV, GREEN_NV, and BLUE_NV have the same
+    values as core OpenGL API enumerants with names without the "_NV"
+    suffixes.  Either #define can be used, but the non-suffixed #defines are
+    not available in OpenGL ES 2.0 and XOR is not available in OpenGL ES 3.0.
 
 Additions to Chapter 2 of the OpenGL 4.1 Specification (OpenGL Operation)
 
@@ -378,7 +376,7 @@ Operations and the Frame Buffer)
       DST_ATOP_NV               (X,Y,Z)  = (1,1,0)
                                 f(Cs,Cd) =  Cd
 
-      XOR                       (X,Y,Z)  = (0,1,1)
+      XOR_NV                    (X,Y,Z)  = (0,1,1)
                                 f(Cs,Cd) =  0
 
       MULTIPLY_NV               (X,Y,Z)  = (1,1,1)
@@ -597,11 +595,11 @@ Operations and the Frame Buffer)
                                    As*(1-Bd)+(1-As)*Bd,
                                    As+Ad-As*Ad)
 
-      RED                       (R,G,B,A) = (Rs', Gd, Bd, Ad)
+      RED_NV                    (R,G,B,A) = (Rs', Gd, Bd, Ad)
 
-      GREEN                     (R,G,B,A) = (Rd, Gs', Bd, Ad)
+      GREEN_NV                  (R,G,B,A) = (Rd, Gs', Bd, Ad)
 
-      BLUE                      (R,G,B,A) = (Rd, Gd, Bs', Ad)
+      BLUE_NV                   (R,G,B,A) = (Rd, Gd, Bs', Ad)
 
       Table X.4, Additional RGB Blend Equations
 
@@ -698,10 +696,6 @@ Dependencies on OpenGL ES 2.0
     If unextended OpenGL ES 2.0 is supported, references to BlendEquationi,
     BlendEquationSeparatei, GetInteger64v, and GetDoublev should be ignored.
 
-    Tokens not present in unextended OpenGL ES 2.0 should have the _NV suffix
-    added to them, but they retain the same token value.  (Thus XOR, RED,
-    GREEN, and BLUE become XOR_NV, RED_NV, GREEN_NV, and BLUE_NV.)
-
     Ignore any references to multiple draw buffers if EXT_draw_buffers or
     NV_draw_buffers is not supported.
 
@@ -715,10 +709,6 @@ Dependencies on OpenGL ES 3.0
 
     If unextended OpenGL ES 3.0 is supported, references to BlendEquationi,
     BlendEquationSeparatei, and GetDoublev should be ignored.
-
-    Tokens not present in unextended OpenGL ES 3.0 should have the _NV suffix
-    added to them, but they retain the same token value.
-    (Thus XOR becomes XOR_NV.)
 
 Dependencies on NV_path_rendering
 
@@ -790,6 +780,13 @@ New State
 New Implementation Dependent State
 
     None.
+
+NVIDIA Implementation Details
+
+    Older versions of this extension specification and early shipping
+    implementations supported the COLORDODGE_NV and COLORBURN_NV equations
+    without the special case discussed in issue (34). This should be fixed for
+    newer driver releases.
 
 Issues
 
@@ -1391,7 +1388,7 @@ Issues
         DST_OUT_NV               E     X     -     X     -     X     X     XO
         SRC_ATOP_NV              E     X     -     -     X     X     X     XO
         DST_ATOP_NV              E     X     -     -     -     X     X     XO
-        XOR                      E     X     -     -     -     X     X     XO
+        XOR_NV                   E     X     -     -     -     X     X     XO
         MULTIPLY_NV              X     X     X     X     X     X     X     X
         SCREEN_NV                X     X     X     X     X     X     X     X
         OVERLAY_NV               E     X     X     X     X     X     X     X
@@ -1423,9 +1420,9 @@ Issues
         MINUS_CLAMPED_NV
         CONTRAST_NV              -     -     -     -     -     -     -     -
         INVERT_OVG_NV            E     -     -     -     -     -     -     -
-        RED                      -     -     -     -     X     -     -     -
-        GREEN                    -     -     -     -     X     -     -     -
-        BLUE                     -     -     -     -     X     -     -     -
+        RED_NV                   -     -     -     -     X     -     -     -
+        GREEN_NV                 -     -     -     -     X     -     -     -
+        BLUE_NV                  -     -     -     -     X     -     -     -
 
         OpenGL COLOR_LOGIC_OP    -     -     -     -     -     -     X     -
         (not in this extension)
@@ -1591,6 +1588,13 @@ Issues
         http://www.khronos.org/registry/vg/extensions/KHR/
           advanced_blending.txt
 
+      For the Adobe PDF specification, the corrected blend equations are
+      published in an Adobe supplement to ISO 32000-1 and are expected to be
+      accepted in a future version of the standard:
+
+        http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/
+          devnet/pdf/pdfs/adobe_supplement_iso32000_1.pdf
+
       The author's understanding is that multiple shipping implementations of
       these blending modes implement the special case for "Cd==1" above,
       including various Adobe products and the open-source Ghostscript
@@ -1627,6 +1631,20 @@ Revision History
     
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+     6    10/21/13  pbrown    Add NV-suffixed names for tokens reusing values
+                              from core OpenGL enums (XOR, RED, GREEN, BLUE)
+                              that are not in core OpenGL ES 2.0.  This allows
+                              code targeting both APIs to use the same
+                              NV-suffixed #defines.  Some older versions of
+                              the OpenGL "glext.h" header will not have the
+                              NV-suffixed names.
+
+     5    10/21/13  pbrown    Add a reference to the Adobe supplement to
+                              ISO 32000-1, which includes the corrected
+                              equations for COLORDODGE_NV and COLORBURN_NV.
+                              Move "NVIDIA Implementation Details" down
+                              a bit in the spec.
+
      4    10/16/13  pbrown    Modify the definition of COLORDODGE_NV and
                               COLORBURN_NV to match de facto standard
                               implemenations and new CSS/SVG compositing

@@ -21,11 +21,12 @@ Status
 
 Version
 
-    Date: July 22, 2011
-    Revision: 2
+    Date: October 7, 2013
+    Revision: 3
 
 Number
 
+    OpenGL Extension #440
     OpenGL ES Extension #99
 
 Dependencies
@@ -37,18 +38,18 @@ Dependencies
 
 Overview
 
-    This extension defines a mechanism for OpenGL ES applications to annotate 
-    their command stream with markers for discrete events and groups of 
-    commands using descriptive text markers. 
+    This extension defines a mechanism for OpenGL and OpenGL ES applications to
+    annotate their command stream with markers for discrete events and groups 
+    of commands using descriptive text markers. 
     
-    When profiling or debugging an OpenGL ES application within a debugger or 
+    When profiling or debugging such an application within a debugger or 
     profiler it is difficult to relate the commands within the command stream 
     to the elements of the scene or parts of the program code to which they 
     correspond. Markers help obviate this by allowing applications to specify 
     this link.
     
     The intended purpose of this is purely to improve the user experience 
-    within OpenGL ES development tools.
+    within OpenGL and OpenGL ES development tools.
     
 New Procedures and Functions
 
@@ -185,3 +186,7 @@ Revision History
     Date 07/22/2011
     Revision: 2
        - rename from APPLE to EXT
+
+    Date 10/07/2013
+    Revision: 3
+       - Add support for desktop OpenGL
