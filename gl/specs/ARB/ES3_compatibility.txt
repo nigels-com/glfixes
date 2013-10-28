@@ -30,8 +30,8 @@ Status
 
 Version
 
-    Last Modified Date:         March 12, 2013
-    Revision:                   9
+    Last Modified Date:         October 18, 2013
+    Revision:                   10
 
 Number
 
@@ -279,38 +279,14 @@ Image Formats)
     ETC2/EAC family of compression formats. It is not necessary for the
     GL to implement these compression formats in hardware and is acceptable
     for the decode to occur in software and be represented internally as
-    uncompressed images.
+    uncompressed images."
     
-    C.3.1 Format COMPRESSED_RGB8_ETC2
-        See OES_texture_compression_rgb8_etc2
-    
-    C.3.2 Format COMPRESSED_SRGB8_ETC2
-        See OES_texture_compression_srgb8_etc2
-    
-    C.3.3 Format COMPRESSED_RGBA8_ETC2_EAC
-        See OES_texture_compression_rgba8_etc2_eac
-    
-    C.3.4 Format COMPRESSED_SRGB8_ALPHA8_ETC2_EAC
-        See OES_texture_compression_srgb8_alpha8_etc2_eac
-    
-    C.3.5 Format COMPRESSED_R11_EAC
-        See OES_texture_compression_r11_eac
-    
-    C.3.6 Format COMPRESSED_RG11_EAC
-        See OES_texture_compression_rg11_eac
-    
-    C.3.7 Format COMPRESSED_SIGNED_R11_EAC
-        See OES_texture_compression_signed_r11_eac
-    
-    C.3.8 Format COMPRESSED_SIGNED_RG11_EAC
-        See OES_texture_compression_signed_rg11_eac 
+    Then copy in the body of the OpenGL ES 3.0 Specification, Appendix C.1
+    "ETC Compressed Texture Image Formats", which describes the details of
+    the ETC2 and EAC formats required by this extension. Change "OpenGL ES
+    implementations" to "OpenGL implementations" when performing this
+    copying.
 
-    C.3.9 Format COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2
-        See OES_texture_compression_rgb8_punchthrough_alpha1_etc2
-    
-    C.3.10 Format COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2
-        See OES_texture_compression_srgb8_punchthrough_alpha1_etc2
-    
 Additions to Chapter 3 of the OpenGL Shading Language 4.20.6 Specification
 (Basics)
 
@@ -435,6 +411,10 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------------
+    10    10/18/13  Jon Leech Refer to OpenGL ES 3.0 specification appendix
+                              C.1 for ETC2/EAC formats, instead of to OES
+                              extensions (Bug 7522).
+
     9     03/12/13  Jon Leech Update issue 2 resolution and fix typo.
 
     8     11/10/12  pdaniell  Add the missing token TEXTURE_IMMUTABLE_LEVELS
