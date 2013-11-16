@@ -10,9 +10,9 @@
             green,
             blue,
             and alpha values used by <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a> to clear fixed- and 
-			floating-point color buffers.
+                        floating-point color buffers.
             Unsigned normalized fixed point RGBA color buffers are cleared to color values derived by clamping each component of
-			the clear color to the range 
+                        the clear color to the range 
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mfenced open="[" close="]">
@@ -20,7 +20,7 @@
                     <mml:mn>1</mml:mn>
                 </mml:mfenced>
             </mml:math>,
-			then converting the (possibly sRGB converted and/or dithered) color to fixed-point.
+                        then converting the (possibly sRGB converted and/or dithered) color to fixed-point.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_COLOR_CLEAR_VALUE</code>
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>

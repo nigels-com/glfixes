@@ -18,8 +18,8 @@
             corresponding to the near and far clipping planes.
             <code class="function">glDepthRangef</code> specifies a linear mapping of the normalized depth coordinates
             in this range to window depth coordinates.
-			If a fixed-point depth representation is used, the parameters <em class="parameter"><code>n</code></em> and <em class="parameter"><code>f</code></em> 
-			are clamped to the range [0 to 1] when computing window z.
+                        If a fixed-point depth representation is used, the parameters <em class="parameter"><code>n</code></em> and <em class="parameter"><code>f</code></em> 
+                        are clamped to the range [0 to 1] when computing window z.
        </p><p>
             The setting of (0,1) maps the near plane to 0 and
             the far plane to 1.

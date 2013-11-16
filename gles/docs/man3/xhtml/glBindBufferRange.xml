@@ -31,26 +31,26 @@
             <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> or <code class="constant">GL_UNIFORM_BUFFER</code>.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>target</code></em> is 
-			<code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> and<em class="parameter"><code>index</code></em> is greater
+                        <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> and<em class="parameter"><code>index</code></em> is greater
             than or equal to  <code class="constant">GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS</code>.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>target</code></em> is 
-			<code class="constant">GL_UNIFORM_BUFFER</code> and<em class="parameter"><code>index</code></em> is greater
+                        <code class="constant">GL_UNIFORM_BUFFER</code> and<em class="parameter"><code>index</code></em> is greater
             than or equal to  <code class="constant">GL_MAX_UNIFORM_BUFFER_BINDINGS</code>.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>buffer</code></em> is not
             zero and <em class="parameter"><code>size</code></em> is less than or equal to zero.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>target</code></em> is 
-			<code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> and <em class="parameter"><code>size</code></em> or 
-			<em class="parameter"><code>offset</code></em> are not multiples of 4.
+                        <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> and <em class="parameter"><code>size</code></em> or 
+                        <em class="parameter"><code>offset</code></em> are not multiples of 4.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>target</code></em> is 
-			<code class="constant">GL_UNIFORM_BUFFER</code> and <em class="parameter"><code>offset</code></em> is not a multiple of 
-			<code class="constant">GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT</code>.
+                        <code class="constant">GL_UNIFORM_BUFFER</code> and <em class="parameter"><code>offset</code></em> is not a multiple of 
+                        <code class="constant">GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT</code>.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_UNIFORM_BUFFER_BINDINGS</code>, 
-			<code class="constant">GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS</code>, or <code class="constant">GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT</code>.
+                        <code class="constant">GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS</code>, or <code class="constant">GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT</code>.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glGenBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a>,
             <a class="citerefentry" href="glDeleteBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>,

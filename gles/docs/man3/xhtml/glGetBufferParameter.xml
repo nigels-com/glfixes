@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
 <!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetBufferParameter - OpenGL ES 3.0 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetBufferParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetBufferParameter — return parameters of a buffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetBufferParameteriv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">value</var>, </td></tr><tr><td> </td><td>GLint * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetBufferParameteri64v</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">value</var>, </td></tr><tr><td> </td><td>GLint64 * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetBufferParameter - OpenGL ES 3.0 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetBufferParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetBufferParameter — return parameters of a buffer object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetBufferParameteriv</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">value</var>, </td></tr><tr><td> </td><td>GLint * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetBufferParameteri64v</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">value</var>, </td></tr><tr><td> </td><td>GLint64 * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target buffer object.
                     The symbolic constant must be <code class="constant">GL_ARRAY_BUFFER</code>,
                     <code class="constant">GL_COPY_READ_BUFFER</code>,
@@ -15,12 +15,12 @@
                     Specifies the symbolic name of a buffer object parameter.
                     Accepted values are <code class="constant">GL_BUFFER_ACCESS_FLAGS</code>, <code class="constant">GL_BUFFER_MAPPED</code>, 
                     <code class="constant">GL_BUFFER_MAP_LENGTH</code>, <code class="constant">GL_BUFFER_MAP_OFFSET</code>, 
-					<code class="constant">GL_BUFFER_SIZE</code>, or <code class="constant">GL_BUFFER_USAGE</code>.
+                                        <code class="constant">GL_BUFFER_SIZE</code>, or <code class="constant">GL_BUFFER_USAGE</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
                     Returns the requested parameter.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glGetBufferParameteriv</code> and <code class="function">glGetBufferParameteri64v</code> 
-			return in <em class="parameter"><code>data</code></em> a selected parameter of the buffer object
+                        return in <em class="parameter"><code>data</code></em> a selected parameter of the buffer object
             specified by <em class="parameter"><code>target</code></em>.
         </p><p>
             <em class="parameter"><code>value</code></em> names a specific buffer object parameter, as follows:
@@ -31,12 +31,12 @@
                         mapped. The initial value is <code class="constant">GL_FALSE</code>.
                     </p></dd><dt><span class="term"><code class="constant">GL_BUFFER_MAP_LENGTH</code></span></dt><dd><p>
                         <em class="parameter"><code>params</code></em> returns the length of the buffer object mapping, 
-						measured in bytes. 
-						The initial value is 0.
+                                                measured in bytes. 
+                                                The initial value is 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_BUFFER_MAP_OFFSET</code></span></dt><dd><p>
                         <em class="parameter"><code>params</code></em> returns the offset (start) of the buffer object mapping, 
-						measured in bytes.
-						The initial value is 0.
+                                                measured in bytes.
+                                                The initial value is 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_BUFFER_SIZE</code></span></dt><dd><p>
                         <em class="parameter"><code>params</code></em> returns the size of the buffer object, measured in bytes.  
                         The initial value is 0.
@@ -47,30 +47,30 @@
             no change is made to the contents of <em class="parameter"><code>data</code></em>.
         </p><p>
             If <code class="function">glGetBufferParameteriv</code> is used to query a <em class="parameter"><code>value</code></em> of
-			<code class="constant">GL_BUFFER_SIZE</code>, values greater than or equal to 
-			<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-				
-				<mml:mrow>
-					<mml:msup><mml:mn>2</mml:mn>
-					<mml:mfenced open="" close="">
-						<mml:msub><mml:mi mathvariant="italic">31</mml:mi></mml:msub>
-					</mml:mfenced>
-					</mml:msup>
-				</mml:mrow>
-			</mml:math> 
-			will be clamped to 
-			<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-				
-				<mml:mrow>
-					<mml:msup><mml:mn>2</mml:mn>
-					<mml:mfenced open="" close="">
-						<mml:msub><mml:mi mathvariant="italic">31</mml:mi></mml:msub>
-					</mml:mfenced>
-					</mml:msup>
-					<mml:mo>-</mml:mo>
-					<mml:mn>1</mml:mn>
-				</mml:mrow>
-			</mml:math>.
+                        <code class="constant">GL_BUFFER_SIZE</code>, values greater than or equal to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                
+                                <mml:mrow>
+                                        <mml:msup><mml:mn>2</mml:mn>
+                                        <mml:mfenced open="" close="">
+                                                <mml:msub><mml:mi mathvariant="italic">31</mml:mi></mml:msub>
+                                        </mml:mfenced>
+                                        </mml:msup>
+                                </mml:mrow>
+                        </mml:math> 
+                        will be clamped to 
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                
+                                <mml:mrow>
+                                        <mml:msup><mml:mn>2</mml:mn>
+                                        <mml:mfenced open="" close="">
+                                                <mml:msub><mml:mi mathvariant="italic">31</mml:mi></mml:msub>
+                                        </mml:mfenced>
+                                        </mml:msup>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                </mml:mrow>
+                        </mml:math>.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> or <em class="parameter"><code>value</code></em> is not an
             accepted value.

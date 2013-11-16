@@ -98,7 +98,7 @@
             accepted value.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>,
-			<a class="citerefentry" href="glTexStorage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a>
+                        <a class="citerefentry" href="glTexStorage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. Copyright <span class="trademark"></span>© 2010

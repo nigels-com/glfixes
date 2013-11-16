@@ -54,7 +54,7 @@
             <code class="constant">GL_INVALID_OPERATION</code> is generated <em class="parameter"><code>program</code></em> has not been linked.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
             <a class="citerefentry" href="glGetProgramiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a> with argument <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH</code>
-			or <code class="constant">GL_TRANSFORM_FEEDBACK_VARYINGS</code>.
+                        or <code class="constant">GL_TRANSFORM_FEEDBACK_VARYINGS</code>.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glBeginTransformFeedback.xml"><span class="citerefentry"><span class="refentrytitle">glBeginTransformFeedback</span></span></a>,
             <a class="citerefentry" href="glEndTransformFeedback.xml"><span class="citerefentry"><span class="refentrytitle">glEndTransformFeedback</span></span></a>,

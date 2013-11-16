@@ -232,8 +232,8 @@
     element index used, plus one, as determined by the compiler
     and/or linker. Only one active uniform variable will be reported
     for a uniform array. If the active uniform is an array, the uniform 
-	name returned in <em class="parameter"><code>name</code></em> will always
-	be the name of the uniform array appended with "[0]".</p><p>Uniform variables that are declared as structures or
+        name returned in <em class="parameter"><code>name</code></em> will always
+        be the name of the uniform array appended with "[0]".</p><p>Uniform variables that are declared as structures or
     arrays of structures will not be returned directly by this
     function. Instead, each of these uniform variables will be
     reduced to its fundamental components containing the

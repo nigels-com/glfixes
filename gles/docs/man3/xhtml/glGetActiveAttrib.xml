@@ -22,7 +22,7 @@
     active attribute variable. Permissible values for
     <em class="parameter"><code>index</code></em> range from 0 to the number of
     active attribute variables minus 1.</p><p>Attribute variables have arbitrary names and obtain their values
-	through numbered generic vertex attributes. An attribute
+        through numbered generic vertex attributes. An attribute
     variable is considered active
     if it is determined during the link operation that it may be
     accessed during program execution. Therefore,

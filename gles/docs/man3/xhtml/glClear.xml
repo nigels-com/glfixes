@@ -16,7 +16,7 @@
         </p><p>
             The pixel ownership test,
             the scissor test,
-			sRGB conversion,
+                        sRGB conversion,
             dithering, and the buffer writemasks affect the operation of <code class="function">glClear</code>.
             The scissor box bounds the cleared region.
             Alpha function,

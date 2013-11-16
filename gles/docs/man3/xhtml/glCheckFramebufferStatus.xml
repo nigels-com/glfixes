@@ -18,11 +18,11 @@
                         <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT</code> is returned if the framebuffer does not have at least one image attached to it.
                     </p></li><li class="listitem"><p>
                         <code class="constant">GL_FRAMEBUFFER_UNSUPPORTED</code> is returned if depth and stencil attachments, if present, are not the same renderbuffer, or if 
-						the combination of internal formats of the attached images violates an implementation-dependent set of restrictions.
+                                                the combination of internal formats of the attached images violates an implementation-dependent set of restrictions.
                     </p></li><li class="listitem"><p>
                         <code class="constant">GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE</code> is returned if the value of <code class="constant">GL_RENDERBUFFER_SAMPLES</code> is not the same
                         for all attached renderbuffers or, if the attached images are a mix of renderbuffers and textures, the value of <code class="constant">GL_RENDERBUFFER_SAMPLES</code> 
-						is not zero.
+                                                is not zero.
                     </p></li></ul></div><p>
         </p><p>
             Additionally, if an error occurs, zero is returned.

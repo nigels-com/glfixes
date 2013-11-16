@@ -15,12 +15,12 @@
                     The value to clear a stencil render buffer to.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glClearBuffer*</code> clears the specified buffer to the specified value(s). If <em class="parameter"><code>buffer</code></em> is
-            <code class="constant">GL_COLOR</code>, a particular draw buffer <code class="constant">GL_DRAWBUFFER<em class="parameter"><code>i</code></em></code> is specified
+            <code class="constant">GL_COLOR</code>, a particular draw buffer <code class="constant">GL_DRAWBUFFER</code><em class="parameter"><code>i</code></em> is specified
             by passing <em class="parameter"><code>i</code></em> as <em class="parameter"><code>drawBuffer</code></em>. In this case, <em class="parameter"><code>value</code></em> points to
             a four-element vector specifying the R, G, B and A color to clear that draw buffer to. The <code class="function">glClearBufferfv</code>, 
-			<code class="function">glClearBufferiv</code>, and <code class="function">glClearBufferuiv</code> commands should be used to clear fixed-point, 
-			signed integer, and unsigned integer color buffers respectively. Clamping and conversion for fixed-point color 
-			buffers are performed in the same fashion as <a class="citerefentry" href="glClearColor.xml"><span class="citerefentry"><span class="refentrytitle">glClearColor</span></span></a>.
+            <code class="function">glClearBufferiv</code>, and <code class="function">glClearBufferuiv</code> commands should be used to clear fixed-point, 
+            signed integer, and unsigned integer color buffers respectively. Clamping and conversion for fixed-point color 
+            buffers are performed in the same fashion as <a class="citerefentry" href="glClearColor.xml"><span class="citerefentry"><span class="refentrytitle">glClearColor</span></span></a>.
         </p><p>
             If <em class="parameter"><code>buffer</code></em> is <code class="constant">GL_DEPTH</code>, <em class="parameter"><code>drawBuffer</code></em> must be zero, and <em class="parameter"><code>value</code></em>
             points to a single value to clear the depth buffer to. Only <code class="function">glClearBufferfv</code> should be used to clear

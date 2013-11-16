@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
 <!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glSamplerParameter - OpenGL ES 3.0 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glSamplerParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glSamplerParameter — set sampler parameters</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glSamplerParameterf</strong>(</code></td><td>GLuint <var class="pdparam">sampler</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">param</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glSamplerParameteri</strong>(</code></td><td>GLuint <var class="pdparam">sampler</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">param</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>sampler</code></em></span></dt><dd><p>
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glSamplerParameter - OpenGL ES 3.0 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glSamplerParameter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glSamplerParameter — set sampler parameters</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glSamplerParameterf</strong>(</code></td><td>GLuint <var class="pdparam">sampler</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLfloat <var class="pdparam">param</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glSamplerParameteri</strong>(</code></td><td>GLuint <var class="pdparam">sampler</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">param</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glSamplerParameterfv</strong>(</code></td><td>GLuint <var class="pdparam">sampler</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glSamplerParameteriv</strong>(</code></td><td>GLuint <var class="pdparam">sampler</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>sampler</code></em></span></dt><dd><p>
                     Specifies the sampler object whose parameter to modify.
                 </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
                     Specifies the symbolic name of a single-valued sampler parameter.
@@ -16,24 +16,13 @@
                     <code class="constant">GL_TEXTURE_COMPARE_MODE</code>, or
                     <code class="constant">GL_TEXTURE_COMPARE_FUNC</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>param</code></em></span></dt><dd><p>
-                    Specifies the value of <em class="parameter"><code>pname</code></em>.
-                </p></dd></dl></div></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glSamplerParameterfv</strong>(</code></td><td>GLuint <var class="pdparam">sampler</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLfloat * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glSamplerParameteriv</strong>(</code></td><td>GLuint <var class="pdparam">sampler</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>const GLint * <var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters2"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>sampler</code></em></span></dt><dd><p>
-                    Specifies the sampler object whose parameter to modify.
-                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
-                    Specifies the symbolic name of a sampler parameter.
-                    <em class="parameter"><code>pname</code></em> can be one of the following:
-                    <code class="constant">GL_TEXTURE_WRAP_S</code>,
-                    <code class="constant">GL_TEXTURE_WRAP_T</code>,
-                    <code class="constant">GL_TEXTURE_WRAP_R</code>,
-                    <code class="constant">GL_TEXTURE_MIN_FILTER</code>,
-                    <code class="constant">GL_TEXTURE_MAG_FILTER</code>,
-                    <code class="constant">GL_TEXTURE_MIN_LOD</code>,
-                    <code class="constant">GL_TEXTURE_MAX_LOD</code>,
-                    <code class="constant">GL_TEXTURE_COMPARE_MODE</code>, or
-                    <code class="constant">GL_TEXTURE_COMPARE_FUNC</code>.
+                    For the scalar commands, specifies the value of
+                    <em class="parameter"><code>pname</code></em>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
-                    Specifies a pointer to an array where the value or values of <em class="parameter"><code>pname</code></em>
-                    are stored.
+                    For the vector commands
+                    (<code class="function">glSamplerParameter*v</code>), specifies a
+                    pointer to an array where the value or values of
+                    <em class="parameter"><code>pname</code></em> are stored.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glSamplerParameter</code> assigns the value or values in <em class="parameter"><code>params</code></em> to the sampler parameter
             specified as <em class="parameter"><code>pname</code></em>.
@@ -285,8 +274,6 @@
                                         Returns the weighted average of the four texture elements
                                         that are closest to the center of the pixel being textured.
                                     </p></dd></dl></div><p>
-                        </p><p>
-                        </p><p>
                     </p></dd></dl></div><p>
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_TEXTURE_MIN_LOD</code></span></dt><dd><p>
                         Sets the minimum level-of-detail parameter.  This floating-point value
@@ -313,7 +300,9 @@
                                     <mml:mrow>
                                         <mml:mfrac>
                                             <mml:mn>1</mml:mn>
-                                            <mml:mn>2<mml:mi mathvariant="italic">N</mml:mi></mml:mn>
+                                            <mml:mrow>
+                                                <mml:mn>2</mml:mn><mml:mi mathvariant="italic">N</mml:mi>
+                                            </mml:mrow>
                                         </mml:mfrac>
                                     </mml:mrow>
                                 </mml:mfenced>
@@ -324,7 +313,9 @@
                                         <mml:mrow>
                                             <mml:mfrac>
                                                 <mml:mn>1</mml:mn>
-                                                <mml:mn>2<mml:mi mathvariant="italic">N</mml:mi></mml:mn>
+                                                <mml:mrow>
+                                                    <mml:mn>2</mml:mn><mml:mi mathvariant="italic">N</mml:mi>
+                                                </mml:mrow>
                                             </mml:mfrac>
                                         </mml:mrow>
                                     </mml:mfenced>
@@ -395,7 +386,7 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_COMPARE_MODE</code></span></dt><dd><p>
                         Specifies the texture comparison mode for currently bound textures.
                         That is, a texture whose base internal format is <code class="constant">GL_DEPTH_COMPONENT</code> or
-						<code class="constant">GL_DEPTH_STENCIL</code>; see
+                                                <code class="constant">GL_DEPTH_STENCIL</code>; see
                         <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>)
                         Permissible values are:
                         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_COMPARE_REF_TO_TEXTURE</code></span></dt><dd><p>
@@ -419,7 +410,7 @@
                                         </strong></span></th></tr></thead><tbody><tr><td align="left">
                                         <code class="constant">GL_LEQUAL</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
@@ -462,11 +453,11 @@
                                                         </mml:mrow>
                                                     </mml:mfenced>
                                                 </mml:mrow>
-                                            </mml:math></div>
+                                            </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_GEQUAL</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
@@ -509,11 +500,11 @@
                                                         </mml:mrow>
                                                     </mml:mfenced>
                                                 </mml:mrow>
-                                            </mml:math></div>
+                                            </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_LESS</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
@@ -556,11 +547,11 @@
                                                         </mml:mrow>
                                                     </mml:mfenced>
                                                 </mml:mrow>
-                                            </mml:math></div>
+                                            </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_GREATER</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
@@ -603,11 +594,11 @@
                                                         </mml:mrow>
                                                     </mml:mfenced>
                                                 </mml:mrow>
-                                            </mml:math></div>
+                                            </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_EQUAL</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
@@ -650,11 +641,11 @@
                                                         </mml:mrow>
                                                     </mml:mfenced>
                                                 </mml:mrow>
-                                            </mml:math></div>
+                                            </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_NOTEQUAL</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
@@ -697,27 +688,27 @@
                                                         </mml:mrow>
                                                     </mml:mfenced>
                                                 </mml:mrow>
-                                            </mml:math></div>
+                                            </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_ALWAYS</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
                                                     <mml:mo>=</mml:mo>
                                                     <mml:mi>1.0</mml:mi>
                                                 </mml:mrow>
-                                                </mml:math></div>
+                                                </mml:math>
                                         </td></tr><tr><td align="left">
                                         <code class="constant">GL_NEVER</code>
                                         </td><td align="left">
-                                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                                 <mml:mrow>
                                                     <mml:mi mathvariant="italic">result</mml:mi>
                                                     <mml:mo>=</mml:mo>
                                                     <mml:mi>0.0</mml:mi>
                                                 </mml:mrow>
-                                                </mml:math></div>
+                                                </mml:math>
                                         </td></tr></tbody></table></div><p>
                         where <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
                         is the current interpolated texture coordinate, and 
@@ -744,19 +735,19 @@
             another. Thus, completeness can be considered a function of a sampler object and a texture object bound to a single
             texture unit, rather than a property of the texture object itself.
         </p><p>
-			The results of a texture lookup are undefined if: 
-			</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
-				The sampler used in a texture lookup function is not one of the shadow sampler types, the texture object’s base 
-				internal format is <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>, and the 
-				<code class="constant">GL_TEXTURE_COMPARE_MODE</code> is not <code class="constant">GL_NONE</code>.
-			</li><li class="listitem">
-				The sampler used in a texture lookup function is one of the shadow sampler types, the texture object’s base internal format 
-				is <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>, and the 
-				<code class="constant">GL_TEXTURE_COMPARE_MODE</code> is <code class="constant">GL_NONE</code>.
-			</li><li class="listitem">
-				The sampler used in a texture lookup function is one of the shadow sampler types, and the texture object’s base 
-				internal format is not <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>.
-			</li></ul></div><p>
+            The results of a texture lookup are undefined if: 
+            </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+                    The sampler used in a texture lookup function is not one of the shadow sampler types, the texture object's base 
+                    internal format is <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>, and the 
+                    <code class="constant">GL_TEXTURE_COMPARE_MODE</code> is not <code class="constant">GL_NONE</code>.
+                </p></li><li class="listitem"><p>
+                    The sampler used in a texture lookup function is one of the shadow sampler types, the texture object's base internal format 
+                    is <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>, and the 
+                    <code class="constant">GL_TEXTURE_COMPARE_MODE</code> is <code class="constant">GL_NONE</code>.
+                </p></li><li class="listitem"><p>
+                    The sampler used in a texture lookup function is one of the shadow sampler types, and the texture object's base 
+                    internal format is not <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>.
+                </p></li></ul></div><p>
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>sampler</code></em> is not the name of a sampler object previously
             returned from a call to <a class="citerefentry" href="glGenSamplers.xml"><span class="citerefentry"><span class="refentrytitle">glGenSamplers</span></span></a>.

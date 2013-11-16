@@ -23,9 +23,9 @@
             <code class="function">glPixelStorei</code> sets pixel storage modes that affect the operation of subsequent
             <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a> as well as the unpacking of
             texture patterns (see <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>, 
-			<a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
+                        <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
             <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, 
-			<a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>).
+                        <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>).
         </p><p>
             <em class="parameter"><code>pname</code></em> is a symbolic constant indicating the parameter to be set, and
             <em class="parameter"><code>param</code></em> is the new value.  Six of the twelve storage parameters affect
@@ -701,7 +701,7 @@
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">k</mml:mi></mml:math>
                         is the number of components or indices per row,
                         as just computed in the <code class="constant">GL_UNPACK_ROW_LENGTH</code> section.
-						Setting <code class="constant">GL_UNPACK_SKIP_IMAGES</code> to 
+                                                Setting <code class="constant">GL_UNPACK_SKIP_IMAGES</code> to 
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">k</mml:mi></mml:math>
                         is equivalent to incrementing
                         the pointer by 
@@ -717,7 +717,7 @@
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
                         is the number of components or indices
                         per image, as computed in the <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code> section.                    
-						</p></dd><dt><span class="term"><code class="constant">GL_UNPACK_ALIGNMENT</code></span></dt><dd><p>
+                                                </p></dd><dt><span class="term"><code class="constant">GL_UNPACK_ALIGNMENT</code></span></dt><dd><p>
                         Specifies the alignment requirements for the start of each pixel row in memory.
                         The allowable values are
                         1 (byte-alignment),

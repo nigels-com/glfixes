@@ -33,13 +33,13 @@
             constructed and how the array elements construct these primitives. If
             more than one array is enabled, each is used.
         </p><p>
-			To enable and disable a generic vertex attribute array, call 
-			<a class="citerefentry" href="glEnableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a> and 
-			<a class="citerefentry" href="glDisableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>.
+                        To enable and disable a generic vertex attribute array, call 
+                        <a class="citerefentry" href="glEnableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a> and 
+                        <a class="citerefentry" href="glDisableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>.
         </p><p>
-			If an array corresponding to a generic attribute required by a vertex shader
-			is not enabled, then the corresponding element is taken from the current generic
-			attribute state.
+                        If an array corresponding to a generic attribute required by a vertex shader
+                        is not enabled, then the corresponding element is taken from the current generic
+                        attribute state.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not an accepted value.
         </p><p>
@@ -48,19 +48,19 @@
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to an
             enabled array or the element array and the buffer object's data store is currently mapped.
         </p><p>
-			<code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code> is generated if the currently bound framebuffer is not 
-			framebuffer complete (i.e. the return value from 
-			<a class="citerefentry" href="glCheckFramebufferStatus.xml"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a> is not <code class="constant">GL_FRAMEBUFFER_COMPLETE</code>).
+                        <code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code> is generated if the currently bound framebuffer is not 
+                        framebuffer complete (i.e. the return value from 
+                        <a class="citerefentry" href="glCheckFramebufferStatus.xml"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a> is not <code class="constant">GL_FRAMEBUFFER_COMPLETE</code>).
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if transform feedback is active and not paused.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glCheckFramebufferStatus.xml"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a>,
-			<a class="citerefentry" href="glDisableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>,
+                        <a class="citerefentry" href="glDisableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>,
             <a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>,
             <a class="citerefentry" href="glDrawArraysInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstanced</span></span></a>,
             <a class="citerefentry" href="glDrawElementsInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a>,
             <a class="citerefentry" href="glDrawRangeElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
-			<a class="citerefentry" href="glEnableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a> 
+                        <a class="citerefentry" href="glEnableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a> 
          </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI

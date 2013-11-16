@@ -13,7 +13,7 @@
             be returned.
         </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
             In OpenGL ES Shading Language version 3.00, output variables must be explicitly bound to fragment colors within 
-			the shader text. This query simply returns that binding information.
+                        the shader text. This query simply returns that binding information.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>program</code></em> is not the name of a program object.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>

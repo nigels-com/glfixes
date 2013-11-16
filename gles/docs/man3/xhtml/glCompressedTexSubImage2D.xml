@@ -90,11 +90,11 @@
             supported by the specific compressed internal format as specified in the
             specific texture compression extension. 
         </p><p>
-			For ETC2/EAC images <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>width</code></em> 
-			is not a multiple of four, and <em class="parameter"><code>width</code></em> + <em class="parameter"><code>xoffset</code></em> is not equal 
-			to the width of the texture level; if <em class="parameter"><code>height</code></em> is not a multiple of four, 
-			and <em class="parameter"><code>height</code></em> + <em class="parameter"><code>yoffset</code></em> is not equal to the height of the texture level;
-			or if <em class="parameter"><code>xoffset</code></em> or <em class="parameter"><code>yoffset</code></em> is not a multiple of four.
+                        For ETC2/EAC images <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>width</code></em> 
+                        is not a multiple of four, and <em class="parameter"><code>width</code></em> + <em class="parameter"><code>xoffset</code></em> is not equal 
+                        to the width of the texture level; if <em class="parameter"><code>height</code></em> is not a multiple of four, 
+                        and <em class="parameter"><code>height</code></em> + <em class="parameter"><code>yoffset</code></em> is not equal to the height of the texture level;
+                        or if <em class="parameter"><code>xoffset</code></em> or <em class="parameter"><code>yoffset</code></em> is not a multiple of four.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.

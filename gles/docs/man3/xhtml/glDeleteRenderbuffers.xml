@@ -8,8 +8,8 @@
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glDeleteRenderbuffers</code> deletes the <em class="parameter"><code>n</code></em> renderbuffer objects whose names are stored in
             the array addressed by <em class="parameter"><code>renderbuffers</code></em>. Unused names in <em class="parameter"><code>renderbuffers</code></em> 
-			that have been marked as used for the purposes of <a class="citerefentry" href="glGenRenderbuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenRenderbuffers</span></span></a>
-			are marked as unused again. The name zero is reserved by the GL and is silently ignored, should it
+                        that have been marked as used for the purposes of <a class="citerefentry" href="glGenRenderbuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenRenderbuffers</span></span></a>
+                        are marked as unused again. The name zero is reserved by the GL and is silently ignored, should it
             occur in <em class="parameter"><code>renderbuffers</code></em>, as are other unused names. Once a renderbuffer object is deleted, its name is again
             unused and it has no contents. If a renderbuffer that is currently bound to the target <code class="constant">GL_RENDERBUFFER</code>
             is deleted, it is as though <a class="citerefentry" href="glBindRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindRenderbuffer</span></span></a>

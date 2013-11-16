@@ -21,10 +21,10 @@
             number of indices that may be written to <em class="parameter"><code>uniformIndices</code></em>.
         </p><p>
             <em class="parameter"><code>uniformNames</code></em> contains a list of <em class="parameter"><code>uniformCount</code></em> nul-terminated name strings identifying the 
-			uniform names to be queried for indices. For each name string in <em class="parameter"><code>uniformNames</code></em>, the index assigned to the active
-			uniform of that name will be written to the corresponding element of <em class="parameter"><code>uniformIndices</code></em>. If a string in 
-			<em class="parameter"><code>uniformNames</code></em> is not the name of an active uniform, the special value <code class="constant">GL_INVALID_INDEX</code> will 
-			be written to the corresponding element of <em class="parameter"><code>uniformIndices</code></em>.
+                        uniform names to be queried for indices. For each name string in <em class="parameter"><code>uniformNames</code></em>, the index assigned to the active
+                        uniform of that name will be written to the corresponding element of <em class="parameter"><code>uniformIndices</code></em>. If a string in 
+                        <em class="parameter"><code>uniformNames</code></em> is not the name of an active uniform, the special value <code class="constant">GL_INVALID_INDEX</code> will 
+                        be written to the corresponding element of <em class="parameter"><code>uniformIndices</code></em>.
         </p><p>
             If an error occurs, nothing is written to <em class="parameter"><code>uniformIndices</code></em>.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>

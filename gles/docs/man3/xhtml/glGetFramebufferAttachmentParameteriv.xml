@@ -19,9 +19,9 @@
             <code class="constant">GL_BACK</code>, identifying a color buffer, <code class="constant">GL_DEPTH</code>, identifying the depth buffer,
             or <code class="constant">GL_STENCIL</code>, identifying the stencil buffer.
         </p><p>
-            If a framebuffer object is bound, then <em class="parameter"><code>attachment</code></em> must be one of <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>i</em></span></code>,
+            If a framebuffer object is bound, then <em class="parameter"><code>attachment</code></em> must be one of <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>,
             <code class="constant">GL_DEPTH_ATTACHMENT</code>, <code class="constant">GL_STENCIL_ATTACHMENT</code>, or <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>.
-            <span class="emphasis"><em>i</em></span> in <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>i</em></span></code> must be in the range zero to the value of
+            <span class="emphasis"><em>i</em></span> in <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span> must be in the range zero to the value of
             <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code> - 1.
         </p><p>
             If <em class="parameter"><code>attachment</code></em> is <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code> and different objects are bound
@@ -56,7 +56,7 @@
                     If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING</code>, <em class="parameter"><code>param</code></em> will
                     contain the encoding of components of the specified attachment, one of <code class="constant">GL_LINEAR</code> or <code class="constant">GL_SRGB</code>
                     for linear or sRGB-encoded components, respectively. Only color buffer components may be sRGB-encoded.  
-					For the default framebuffer, color encoding is determined by the implementation.
+                    For the default framebuffer, color encoding is determined by the implementation.
                     For framebuffer objects, components are sRGB-encoded if the internal format of a color attachment is one of the color-renderable SRGB
                     formats.
                 </p></li></ul></div><p>

@@ -14,7 +14,7 @@
             <code class="constant">GL_DELETE_STATUS</code>,
             <code class="constant">GL_INFO_LOG_LENGTH</code>,
             <code class="constant">GL_LINK_STATUS</code>,
-			<code class="constant">GL_PROGRAM_BINARY_RETRIEVABLE_HINT</code>,
+                        <code class="constant">GL_PROGRAM_BINARY_RETRIEVABLE_HINT</code>,
             <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER_MODE</code>,
             <code class="constant">GL_TRANSFORM_FEEDBACK_VARYINGS</code>, 
             <code class="constant">GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH</code> and
@@ -33,7 +33,7 @@
             returned.</p></dd><dt><span class="term"><code class="constant">GL_ACTIVE_UNIFORM_BLOCKS</code></span></dt><dd><p>
             </p><p> <em class="parameter"><code>params</code></em> returns the
             number of uniform blocks for <em class="parameter"><code>program</code></em> 
-			containing active uniforms.</p></dd><dt><span class="term"><code class="constant">GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH</code></span></dt><dd><p>
+                        containing active uniforms.</p></dd><dt><span class="term"><code class="constant">GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH</code></span></dt><dd><p>
             </p><p> <em class="parameter"><code>params</code></em> returns the
             length of the longest active uniform block name
             for <em class="parameter"><code>program</code></em>, including the
@@ -75,7 +75,7 @@
             </p><p> <em class="parameter"><code>params</code></em> returns the
             current value of whether the binary retrieval
             hint is enabled for <em class="parameter"><code>program</code></em>.
-			</p></dd><dt><span class="term"><code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER_MODE</code></span></dt><dd><p>
+                        </p></dd><dt><span class="term"><code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER_MODE</code></span></dt><dd><p>
             </p><p> <em class="parameter"><code>params</code></em> returns a symbolic constant
             indicating the buffer mode used when transform feedback is active.
             This may be <code class="constant">GL_SEPARATE_ATTRIBS</code> or

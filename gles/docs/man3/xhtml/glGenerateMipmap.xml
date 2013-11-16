@@ -84,7 +84,7 @@
             target of the active texture unit is not cube complete.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if the
-			<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
                     <mml:msub>
@@ -93,10 +93,10 @@
                     </mml:msub>
                 </mml:mrow>
             </mml:math>
-			array is stored in a compressed internal format.
+                        array is stored in a compressed internal format.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if the
-			<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
                     <mml:msub>
@@ -105,8 +105,8 @@
                     </mml:msub>
                 </mml:mrow>
             </mml:math>
-			array was not specified with an unsized internal format or a sized internal format that is both
-			color-renderable and texture-filterable.
+                        array was not specified with an unsized internal format or a sized internal format that is both
+                        color-renderable and texture-filterable.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
             <a class="citerefentry" href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,

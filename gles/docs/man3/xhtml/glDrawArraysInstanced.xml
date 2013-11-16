@@ -15,29 +15,29 @@
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glDrawArraysInstanced</code> behaves identically to <a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>
             except that <em class="parameter"><code>primcount</code></em> instances of the range of elements are executed. Those attributes
-			that have divisor N where N is other than zero 
-			(as specified by <a class="citerefentry" href="glVertexAttribDivisor.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribDivisor</span></span></a>)
-			advance once every N instances. Thus, the element transferred from instanced
-			vertex attributes is given by:
+                        that have divisor N where N is other than zero 
+                        (as specified by <a class="citerefentry" href="glVertexAttribDivisor.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribDivisor</span></span></a>)
+                        advance once every N instances. Thus, the element transferred from instanced
+                        vertex attributes is given by:
             </p><div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
-					<mml:mfrac>
-						<mml:mi mathvariant="italic">instance</mml:mi>
-						<mml:mn>divisor</mml:mn>
-					</mml:mfrac>
+                                        <mml:mfrac>
+                                                <mml:mi mathvariant="italic">instance</mml:mi>
+                                                <mml:mn>divisor</mml:mn>
+                                        </mml:mfrac>
                 </mml:mrow>
             </mml:math></div><p>
 
-			The value of <em class="parameter"><code>instance</code></em> may be read by a vertex shader as <code class="constant">gl_InstanceID</code>.
+                        The value of <em class="parameter"><code>instance</code></em> may be read by a vertex shader as <code class="constant">gl_InstanceID</code>.
         </p><p>
-			To enable and disable a generic vertex attribute array, call 
-			<a class="citerefentry" href="glEnableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a> and 
-			<a class="citerefentry" href="glDisableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>.
+                        To enable and disable a generic vertex attribute array, call 
+                        <a class="citerefentry" href="glEnableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a> and 
+                        <a class="citerefentry" href="glDisableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>.
         </p><p>
-			If an array corresponding to a generic attribute required by a vertex shader
-			is not enabled, then the corresponding element is taken from the current generic
-			attribute state.
+                        If an array corresponding to a generic attribute required by a vertex shader
+                        is not enabled, then the corresponding element is taken from the current generic
+                        attribute state.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not one of 
             the accepted values.
@@ -47,22 +47,22 @@
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to an
             enabled array and the buffer object's data store is currently mapped.
         </p><p>
-			<code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code> is generated if the currently bound framebuffer is not 
-			framebuffer complete (i.e. the return value from 
-			<a class="citerefentry" href="glCheckFramebufferStatus.xml"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a> is not <code class="constant">GL_FRAMEBUFFER_COMPLETE</code>).
+                        <code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code> is generated if the currently bound framebuffer is not 
+                        framebuffer complete (i.e. the return value from 
+                        <a class="citerefentry" href="glCheckFramebufferStatus.xml"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a> is not <code class="constant">GL_FRAMEBUFFER_COMPLETE</code>).
         </p><p>
-			<code class="constant">GL_INVALID_OPERATION</code> is generated if recording the vertices of a primitive to the buffer objects being
-			used for transform feedback purposes would result in either exceeding the limits of any buffer object’s size, 
-			or in exceeding the end position <em class="parameter"><code>offset</code></em> + <em class="parameter"><code>size</code></em> - 1, as set
-			by <a class="citerefentry" href="glBindBufferRange.xml"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a>.
-		</p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+                        <code class="constant">GL_INVALID_OPERATION</code> is generated if recording the vertices of a primitive to the buffer objects being
+                        used for transform feedback purposes would result in either exceeding the limits of any buffer object’s size, 
+                        or in exceeding the end position <em class="parameter"><code>offset</code></em> + <em class="parameter"><code>size</code></em> - 1, as set
+                        by <a class="citerefentry" href="glBindBufferRange.xml"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a>.
+                </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glCheckFramebufferStatus.xml"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a>,
-			<a class="citerefentry" href="glDisableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>,
+                        <a class="citerefentry" href="glDisableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>,
             <a class="citerefentry" href="glDrawArrays.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArrays</span></span></a>,
             <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
             <a class="citerefentry" href="glDrawElementsInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a>,
-			<a class="citerefentry" href="glEnableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a> ,
-			<a class="citerefentry" href="glVertexAttribDivisor.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribDivisor</span></span></a> 
+                        <a class="citerefentry" href="glEnableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a> ,
+                        <a class="citerefentry" href="glVertexAttribDivisor.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribDivisor</span></span></a> 
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2010-2012 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 

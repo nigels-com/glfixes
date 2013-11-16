@@ -14,7 +14,7 @@
                     <mml:mn>1</mml:mn>
                 </mml:mfenced>
             </mml:math>,
-			and converted to fixed-point. No clamping or conversion is applied when clearing a floating-point depth buffer.
+                        and converted to fixed-point. No clamping or conversion is applied when clearing a floating-point depth buffer.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_DEPTH_CLEAR_VALUE</code>
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>

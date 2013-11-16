@@ -8,7 +8,7 @@
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glVertexAttribDivisor</code> modifies the rate at which generic vertex attributes advance when rendering
             multiple instances of primitives in a single draw call (see  <a class="citerefentry" href="glDrawArraysInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstanced</span></span></a> and
-			 <a class="citerefentry" href="glDrawElementsInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a>). If <em class="parameter"><code>divisor</code></em> is zero, the attribute at slot
+                         <a class="citerefentry" href="glDrawElementsInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a>). If <em class="parameter"><code>divisor</code></em> is zero, the attribute at slot
             <em class="parameter"><code>index</code></em> advances once per vertex. If <em class="parameter"><code>divisor</code></em> is non-zero, the attribute advances
             once per <em class="parameter"><code>divisor</code></em> instances of the set(s) of vertices being rendered.  An attribute
             is referred to as instanced if its <code class="constant">GL_VERTEX_ATTRIB_ARRAY_DIVISOR</code> value is non-zero.
@@ -18,8 +18,8 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>index</code></em> is greater
             than or equal to the value of <code class="constant">GL_MAX_VERTEX_ATTRIBUTES</code>.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
-			<a class="citerefentry" href="glDrawArraysInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstanced</span></span></a>,
-			<a class="citerefentry" href="glDrawElementsInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a>,
+                        <a class="citerefentry" href="glDrawArraysInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawArraysInstanced</span></span></a>,
+                        <a class="citerefentry" href="glDrawElementsInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a>,
             <a class="citerefentry" href="glVertexAttribPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a>,
             <a class="citerefentry" href="glEnableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a>,
             <a class="citerefentry" href="glDisableVertexAttribArray.xml"><span class="citerefentry"><span class="refentrytitle">glDisableVertexAttribArray</span></span></a>

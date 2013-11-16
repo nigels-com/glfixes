@@ -132,7 +132,7 @@
                         </strong></span></th></tr></thead><tbody><tr><td align="left">
                         <code class="constant">GL_FUNC_ADD</code>
                         </td><td align="left">
-                        <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
                                 <mml:mi mathvariant="italic">Rr</mml:mi>
@@ -155,8 +155,8 @@
                                     </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
-                        </mml:math></div>
-                        <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        </mml:math>
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
                                 <mml:mi mathvariant="italic">Gr</mml:mi>
@@ -179,8 +179,8 @@
                                     </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
-                        </mml:math></div>
-                        <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        </mml:math>
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
                                 <mml:mi mathvariant="italic">Br</mml:mi>
@@ -203,9 +203,9 @@
                                     </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
-                        </mml:math></div>
+                        </mml:math>
                         </td><td align="left">
-                        <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
                                 <mml:mi mathvariant="italic">Ar</mml:mi>
@@ -228,11 +228,11 @@
                                     </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
-                        </mml:math></div>
+                        </mml:math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_FUNC_SUBTRACT</code>
                         </td><td align="left">
-                        <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
                                 <mml:mi mathvariant="italic">Rr</mml:mi>
@@ -255,8 +255,8 @@
                                     </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
-                        </mml:math></div>
-                        <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        </mml:math>
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
                                 <mml:mi mathvariant="italic">Gr</mml:mi>
@@ -279,8 +279,8 @@
                                     </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
-                        </mml:math></div>
-                        <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        </mml:math>
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
                                 <mml:mi mathvariant="italic">Br</mml:mi>
@@ -303,9 +303,9 @@
                                     </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
-                        </mml:math></div>
+                        </mml:math>
                         </td><td align="left">
-                        <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
                                 <mml:mi mathvariant="italic">Ar</mml:mi>
@@ -328,11 +328,11 @@
                                     </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
-                        </mml:math></div>
+                        </mml:math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_FUNC_REVERSE_SUBTRACT</code>
                         </td><td align="left">
-                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Rr</mml:mi>
@@ -355,8 +355,8 @@
                                         </mml:msub>
                                     </mml:mrow>
                                 </mml:mrow>
-                            </mml:math></div>
-                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            </mml:math>
+                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Gr</mml:mi>
@@ -379,8 +379,8 @@
                                         </mml:msub>
                                     </mml:mrow>
                                 </mml:mrow>
-                            </mml:math></div>
-                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            </mml:math>
+                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Br</mml:mi>
@@ -403,9 +403,9 @@
                                         </mml:msub>
                                     </mml:mrow>
                                 </mml:mrow>
-                            </mml:math></div>
+                            </mml:math>
                         </td><td align="left">
-                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Ar</mml:mi>
@@ -428,11 +428,11 @@
                                         </mml:msub>
                                     </mml:mrow>
                                 </mml:mrow>
-                            </mml:math></div>
+                            </mml:math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_MIN</code>
                         </td><td align="left">
-                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Rr</mml:mi>
@@ -454,8 +454,8 @@
                                         </mml:mfenced>
                                     </mml:mrow>
                                 </mml:mrow>
-                            </mml:math></div>
-                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            </mml:math>
+                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Gr</mml:mi>
@@ -477,8 +477,8 @@
                                         </mml:mfenced>
                                     </mml:mrow>
                                 </mml:mrow>
-                            </mml:math></div>
-                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            </mml:math>
+                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Br</mml:mi>
@@ -500,9 +500,9 @@
                                         </mml:mfenced>
                                     </mml:mrow>
                                 </mml:mrow>
-                            </mml:math></div>
+                            </mml:math>
                         </td><td align="left">
-                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Ar</mml:mi>
@@ -524,11 +524,11 @@
                                         </mml:mfenced>
                                     </mml:mrow>
                                 </mml:mrow>
-                            </mml:math></div>
+                            </mml:math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_MAX</code>
                         </td><td align="left">
-                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Rr</mml:mi>
@@ -550,8 +550,8 @@
                                         </mml:mfenced>
                                     </mml:mrow>
                                 </mml:mrow>
-                            </mml:math></div>
-                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            </mml:math>
+                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Gr</mml:mi>
@@ -573,8 +573,8 @@
                                         </mml:mfenced>
                                     </mml:mrow>
                                 </mml:mrow>
-                            </mml:math></div>
-                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            </mml:math>
+                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Br</mml:mi>
@@ -596,9 +596,9 @@
                                         </mml:mfenced>
                                     </mml:mrow>
                                 </mml:mrow>
-                            </mml:math></div>
+                            </mml:math>
                         </td><td align="left">
-                            <div class="informalequation"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
+                            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Ar</mml:mi>
@@ -620,7 +620,7 @@
                                         </mml:mfenced>
                                     </mml:mrow>
                                 </mml:mrow>
-                            </mml:math></div>
+                            </mml:math>
                         </td></tr></tbody></table></div><p>
         </p><p>
             The results of these equations are clamped to the range 

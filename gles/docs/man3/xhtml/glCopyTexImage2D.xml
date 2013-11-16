@@ -32,25 +32,25 @@
                     <code class="constant">GL_RGB10_A2</code>,
                     <code class="constant">GL_SRGB8</code>,
                     <code class="constant">GL_SRGB8_ALPHA8</code>,
-					<code class="constant">GL_R8I</code>,
-					<code class="constant">GL_R8UI</code>,
-					<code class="constant">GL_R16I</code>,
-					<code class="constant">GL_R16UI</code>,
-					<code class="constant">GL_R32I</code>,
-					<code class="constant">GL_R32UI</code>,
-					<code class="constant">GL_RG8I</code>,
-					<code class="constant">GL_RG8UI</code>,
-					<code class="constant">GL_RG16I</code>,
-					<code class="constant">GL_RG16UI</code>,
-					<code class="constant">GL_RG32I</code>,
-					<code class="constant">GL_RG32UI</code>,
-					<code class="constant">GL_RGBA8I</code>,
-					<code class="constant">GL_RGBA8UI</code>,
+                                        <code class="constant">GL_R8I</code>,
+                                        <code class="constant">GL_R8UI</code>,
+                                        <code class="constant">GL_R16I</code>,
+                                        <code class="constant">GL_R16UI</code>,
+                                        <code class="constant">GL_R32I</code>,
+                                        <code class="constant">GL_R32UI</code>,
+                                        <code class="constant">GL_RG8I</code>,
+                                        <code class="constant">GL_RG8UI</code>,
+                                        <code class="constant">GL_RG16I</code>,
+                                        <code class="constant">GL_RG16UI</code>,
+                                        <code class="constant">GL_RG32I</code>,
+                                        <code class="constant">GL_RG32UI</code>,
+                                        <code class="constant">GL_RGBA8I</code>,
+                                        <code class="constant">GL_RGBA8UI</code>,
                     <code class="constant">GL_RGB10_A2UI</code>,
-					<code class="constant">GL_RGBA16I</code>,
-					<code class="constant">GL_RGBA16UI</code>,
-					<code class="constant">GL_RGBA32I</code>,
-					<code class="constant">GL_RGBA32UI</code>.
+                                        <code class="constant">GL_RGBA16I</code>,
+                                        <code class="constant">GL_RGBA16UI</code>,
+                                        <code class="constant">GL_RGBA32I</code>,
+                                        <code class="constant">GL_RGBA32UI</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>x</code></em>, </span><span class="term"><em class="parameter"><code>y</code></em></span></dt><dd><p>
                     Specify the window coordinates of the lower left corner
                     of the rectangular region of pixels to be copied.
@@ -75,8 +75,8 @@
             The pixels in the rectangle are processed exactly as if
             <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a> had been called, but the process stops after
             conversion to RGBA values. The error <code class="constant">INVALID_OPERATION</code> is generated if integer RGBA data is 
-			required and the format of the current color buffer is not integer; or if floating- or fixed-point RGBA
-			data is required and the format of the current color buffer is integer.
+                        required and the format of the current color buffer is not integer; or if floating- or fixed-point RGBA
+                        data is required and the format of the current color buffer is integer.
         </p><p>
             Pixel ordering is such that lower 
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>
@@ -124,7 +124,7 @@
             is the returned value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>width</code></em> or
-			<em class="parameter"><code>height</code></em> is less than 0 or greater than <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
+                        <em class="parameter"><code>height</code></em> is less than 0 or greater than <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>border</code></em> is not 0.
         </p><p>

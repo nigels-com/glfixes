@@ -16,9 +16,9 @@
     to <code class="constant">GL_NONE</code> and any data written to such an output
     is discarded.</p><p>The symbolic constants contained in
     <em class="parameter"><code>bufs</code></em> must be one of the following, depending on
-	whether GL is bound to the default framebuffer or not:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_NONE</code></span></dt><dd><p>The fragment shader output value is not written into
+        whether GL is bound to the default framebuffer or not:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_NONE</code></span></dt><dd><p>The fragment shader output value is not written into
             any color buffer.</p></dd><dt><span class="term"><code class="constant">GL_BACK</code></span></dt><dd><p>The fragment shader output value is written into the
-            back color buffer.</p></dd><dt><span class="term"><code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>n</em></span></code></span></dt><dd><p>The fragment shader output value is written into the
+            back color buffer.</p></dd><dt><span class="term"><code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>n</em></span></span></dt><dd><p>The fragment shader output value is written into the
             <span class="emphasis"><em>n</em></span>th color attachment of the current framebuffer.
             <span class="emphasis"><em>n</em></span> may range from 0 to the value of
             <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>.</p></dd></dl></div><p>Except for <code class="constant">GL_NONE</code>, the preceding
@@ -36,17 +36,19 @@
     values in <em class="parameter"><code>bufs</code></em> is not an accepted
     value.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if the GL is bound
     to the default framebuffer and <em class="parameter"><code>n</code></em> is not 1, or if the value in
-    <em class="parameter"><code>bufs</code></em> is one of the <code class="constant">GL_COLOR_ATTACHMENT<span class="emphasis"><em>n</em></span></code>
+    <em class="parameter"><code>bufs</code></em> is one of the <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>n</em></span>
     tokens.</p><p><code class="constant">GL_INVALID_OPERATION</code> is generated if the GL is bound
     to a framebuffer object and the ith buffer listed in <em class="parameter"><code>bufs</code></em>
     is anything other than <code class="constant">GL_NONE</code> or 
-    <code class="constant">GL_COLOR_ATTACHMENTS<span class="emphasis"><em>i</em></span></code>.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
+    <code class="constant">GL_COLOR_ATTACHMENTS</code><span class="emphasis"><em>i</em></span>.</p><p><code class="constant">GL_INVALID_VALUE</code> is generated if
     <em class="parameter"><code>n</code></em> is less than 0 or greater than
     <code class="constant">GL_MAX_DRAW_BUFFERS</code>.</p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
     with argument <code class="constant">GL_MAX_DRAW_BUFFERS</code></p><p><a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
-    with argument <code class="constant">GL_DRAW_BUFFER<span class="emphasis"><em>i</em></span></code> where
-    <code class="code"><span class="emphasis"><em>i</em></span></code> indicates the number of the draw buffer
-    whose value is to be queried.</p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><a class="citerefentry" href="glReadBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+    with argument <code class="constant">GL_DRAW_BUFFER</code><span class="emphasis"><em>i</em></span> where
+    <span class="emphasis"><em>i</em></span> indicates the number of the draw buffer
+    whose value is to be queried.</p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glReadBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2003-2005 3Dlabs Inc. Ltd. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.

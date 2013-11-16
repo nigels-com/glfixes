@@ -14,7 +14,7 @@
                     <code class="constant">GL_ALWAYS</code>. The initial value is <code class="constant">GL_ALWAYS</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>ref</code></em></span></dt><dd><p>
                     Specifies the reference value for the stencil test.
-					Stencil comparison operations and queries of
+                                        Stencil comparison operations and queries of
                     <em class="parameter"><code>ref</code></em> clamp its value to the range 
                     <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                         
@@ -70,7 +70,7 @@
             It accepts one of eight values,
             shown in the following list.
             <em class="parameter"><code>ref</code></em> is an integer reference value that is used in the stencil comparison.
-			Stencil comparison operations and queries clamp the value to the range 
+                        Stencil comparison operations and queries clamp the value to the range 
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mfenced open="[" close="]">

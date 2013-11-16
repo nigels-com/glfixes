@@ -9,26 +9,26 @@
                     A list of <em class="parameter"><code>numAttachments</code></em> attachments to invalidate.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glInvalidateFramebuffer</code> signals to the GL that it need not preserve all pixels of a bound framebuffer
-			object. <em class="parameter"><code>attachments</code></em> contains a list of <em class="parameter"><code>numAttachments</code></em> to be invalidated.
-			If an attachment is specified that does not exist in the bound framebuffer, it is ignored. 
+                        object. <em class="parameter"><code>attachments</code></em> contains a list of <em class="parameter"><code>numAttachments</code></em> to be invalidated.
+                        If an attachment is specified that does not exist in the bound framebuffer, it is ignored. 
         </p><p>
-			If a framebuffer object is bound, then <em class="parameter"><code>attachments</code></em> may contain <code class="constant">GL_COLOR_ATTACHMENTi</code>, 
-			<code class="constant">GL_DEPTH_ATTACHMENT</code>, and/or <code class="constant">GL_STENCIL_ATTACHMENT</code>.
-			If the framebuffer object is not complete, <code class="function">glInvalidateFramebuffer</code> may be ignored.
+                        If a framebuffer object is bound, then <em class="parameter"><code>attachments</code></em> may contain <code class="constant">GL_COLOR_ATTACHMENTi</code>, 
+                        <code class="constant">GL_DEPTH_ATTACHMENT</code>, and/or <code class="constant">GL_STENCIL_ATTACHMENT</code>.
+                        If the framebuffer object is not complete, <code class="function">glInvalidateFramebuffer</code> may be ignored.
         </p><p>
-			If the default framebuffer is bound, then <em class="parameter"><code>attachments</code></em> may contain <code class="constant">GL_COLOR</code>,
-			identifying the color buffer; <code class="constant">GL_DEPTH</code>, identifying the depth buffer; and/or 
-			<code class="constant">GL_STENCIL</code>, identifying the stencil buffer.
+                        If the default framebuffer is bound, then <em class="parameter"><code>attachments</code></em> may contain <code class="constant">GL_COLOR</code>,
+                        identifying the color buffer; <code class="constant">GL_DEPTH</code>, identifying the depth buffer; and/or 
+                        <code class="constant">GL_STENCIL</code>, identifying the stencil buffer.
         </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
-			The intention of this function is to provide a hint to the GL implementation that there is no longer a need to preserve the
-			contents of particular attachments of a framebuffer object, or the default framebuffer. It is possible, for example, to 
-			signal the intention that depth and or stencil data is no longer needed at the end of a scene, or that multisample color 
-			buffer data is no longer needed after a resolve through <a class="citerefentry" href="glBlitFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBlitFramebuffer</span></span></a>.
+                        The intention of this function is to provide a hint to the GL implementation that there is no longer a need to preserve the
+                        contents of particular attachments of a framebuffer object, or the default framebuffer. It is possible, for example, to 
+                        signal the intention that depth and or stencil data is no longer needed at the end of a scene, or that multisample color 
+                        buffer data is no longer needed after a resolve through <a class="citerefentry" href="glBlitFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBlitFramebuffer</span></span></a>.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_FRAMEBUFFER</code>.
         </p><p>
-			<code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>attachments</code></em> contains 
-			<code class="constant">GL_COLOR_ATTACHMENTm</code> and m is greater than or equal to the value of <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>.
+                        <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>attachments</code></em> contains 
+                        <code class="constant">GL_COLOR_ATTACHMENTm</code> and m is greater than or equal to the value of <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glBindFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>,
             <a class="citerefentry" href="glBlitFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBlitFramebuffer</span></span></a>
