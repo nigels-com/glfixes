@@ -37,7 +37,7 @@ Status
 
 Version
 
-    Version 3, November 25, 2008
+    Version 4, October 16, 2013
 
 Number
 
@@ -53,7 +53,7 @@ Dependencies
     is not required either to export any EGLConfigs supporting rendering to
     native pixmaps, or to support eglCreatePixmapSurface).
 
-    This extension is written against the wording of the EGL 1.2
+    This extension is written against the wording of the EGL 1.4
     Specification.
 
 Overview
@@ -75,8 +75,17 @@ New Tokens
 
         EGL_NATIVE_PIXMAP_KHR                          0x30B0
 
-Additions to Chapter 2 of the EGL 1.2 Specification (EGL Operation)
+Additions to Chapter 2 of the EGL 1.4 Specification (EGL Operation)
 
+    Rename section 2.2.2.1 "Native Surface Coordinate Systems" to "Native
+    Surface and EGLImage Pixmap Coordinate Systems" and add to the end of
+    the section:
+
+   "EGLImages created with target EGL_NATIVE_PIXMAP_KHR share the same
+    coordinate system as native pixmap surfaces. When that coordinate system
+    is inverted, client APIs must invert their <y> coordinate when accessing
+    such images as described above."
+    
     Add to section 2.5.1 "EGLImage Specification" (as defined by the
     EGL_KHR_image_base specification), in the description of
     eglCreateImageKHR:
@@ -120,6 +129,10 @@ Issues
     None
 
 Revision History
+
+#4  (Jon Leech, October 16, 2013)
+    - Add language allowing native pixmap and client API image y coordinate
+      convention to differ. Re-base extension against EGL 1.4 (Bug 9701).
 
 #3  (Jon Leech, November 25, 2008)
     - Remove dependency on EGLConfig in error conditions.

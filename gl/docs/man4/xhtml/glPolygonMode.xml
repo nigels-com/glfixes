@@ -57,8 +57,9 @@ glPolygonMode(<code class="constant">GL_FRONT_AND_BACK</code>, <code class="cons
             <a class="citerefentry" href="glLineWidth.xml"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>,
             <a class="citerefentry" href="glPointSize.xml"><span class="citerefentry"><span class="refentrytitle">glPointSize</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
-            Silicon Graphics, Inc. This document is licensed under the SGI
-            Free Software B License. For details, see
+            Copyright <span class="trademark"></span>© 1991-2006 Silicon Graphics, Inc. 
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see 
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
         </p></div></div></body></html>
