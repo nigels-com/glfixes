@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
 <!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glBlendFuncSeparate - OpenGL ES 3.0 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div class="refentry" title="glBlendFuncSeparate"><a id="glBlendFuncSeparate"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBlendFuncSeparate — specify pixel arithmetic for RGB and alpha components separately</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glBlendFuncSeparate</b>(</code></td><td>GLenum <var class="pdparam">srcRGB</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">dstRGB</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">srcAlpha</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">dstAlpha</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>srcRGB</code></em></span></dt><dd><p>
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glBlendFuncSeparate - OpenGL ES 3.0 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glBlendFuncSeparate"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBlendFuncSeparate — specify pixel arithmetic for RGB and alpha components separately</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBlendFuncSeparate</strong>(</code></td><td>GLenum <var class="pdparam">srcRGB</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">dstRGB</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">srcAlpha</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">dstAlpha</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>srcRGB</code></em></span></dt><dd><p>
                     Specifies how the red, green, and blue blending factors are computed.
                     The initial value is <code class="constant">GL_ONE</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>dstRGB</code></em></span></dt><dd><p>
@@ -14,7 +14,7 @@
                 </p></dd><dt><span class="term"><em class="parameter"><code>dstAlpha</code></em></span></dt><dd><p>
                     Specified how the alpha destination blending factor is computed.
                     The initial value is <code class="constant">GL_ZERO</code>.
-                </p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p>
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             Pixels can be drawn using a function that blends
             the incoming (source) RGBA values with the RGBA values
             that are already in the frame buffer (the destination values).
@@ -910,7 +910,7 @@
 		The resulting cs values for R, G, and B, and the unmodified A form a new
 		RGBA color value. If the color buffer is fixed-point, each component is clamped
 		to the range [0; 1] and then converted to a fixed-point value using equation
-		</p></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p>
+		</p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
             Incoming (source) alpha is correctly thought of as a material opacity,
             ranging from 1.0 
             (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
@@ -927,10 +927,10 @@
             the GL performs blending separately for each enabled buffer,
             using the contents of that buffer for destination color.
             (See <a class="citerefentry" href="glDrawBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDrawBuffers</span></span></a>.)
-        </p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p>
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if either <em class="parameter"><code>srcRGB</code></em> or <em class="parameter"><code>dstRGB</code></em> is not an
             accepted value.
-        </p></div><div class="refsect1" title="Associated Gets"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+        </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_BLEND_SRC_RGB</code>
         </p><p>
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_BLEND_SRC_ALPHA</code>
@@ -941,7 +941,7 @@
         </p><p>
             <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_BLEND</code>
         </p><p>
-        </p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p>
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glBlendColor.xml"><span class="citerefentry"><span class="refentrytitle">glBlendColor</span></span></a>,
             <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
             <a class="citerefentry" href="glBlendEquation.xml"><span class="citerefentry"><span class="refentrytitle">glBlendEquation</span></span></a>,
@@ -949,7 +949,7 @@
             <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a>,
             <a class="citerefentry" href="glDrawBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDrawBuffers</span></span></a>,
             <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>,
-        </p></div><div class="refsect1" title="Copyright"><a id="Copyright"></a><h2>Copyright</h2><p>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 1991-2006
             Silicon Graphics, Inc. This document is licensed under the SGI
             Free Software B License. For details, see

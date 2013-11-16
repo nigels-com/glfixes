@@ -102,7 +102,7 @@
      * one format is compressed and the other is uncompressed and
        Table 4.X.1 lists the two formats in the same row.
     If the formats are not compatible INVALID_OPERATION is generated.
-        </p><div class="table"><a id="idp31999600"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+        </p><div class="table"><a id="idp2461664"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Texel / Block Size
             </strong></span></th><th align="left"><span class="bold"><strong>
             Uncompressed Internal Format

@@ -45,47 +45,47 @@
             rather than a pointer to client memory.
         </p><p>
             <code class="function">glReadPixels</code> returns values from each pixel with lower left corner at
-            <span style="color: red">&lt;math&gt;
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
-                <span style="color: red">&lt;mfenced&gt;
-                    <span style="color: red">&lt;mrow&gt;
-                        <span style="color: red">&lt;mi&gt;x&lt;/mi&gt;</span>
-                        <span style="color: red">&lt;mo&gt;+&lt;/mo&gt;</span>
-                        <span style="color: red">&lt;mi&gt;i&lt;/mi&gt;</span>
-                    &lt;/mrow&gt;</span>
-                    <span style="color: red">&lt;mrow&gt;
-                        <span style="color: red">&lt;mi&gt;y&lt;/mi&gt;</span>
-                        <span style="color: red">&lt;mo&gt;+&lt;/mo&gt;</span>
-                        <span style="color: red">&lt;mi&gt;j&lt;/mi&gt;</span>
-                    &lt;/mrow&gt;</span>
-                &lt;/mfenced&gt;</span>
-            &lt;/math&gt;</span>
+                <mml:mfenced open="(" close=")">
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">x</mml:mi>
+                        <mml:mo>+</mml:mo>
+                        <mml:mi mathvariant="italic">i</mml:mi>
+                    </mml:mrow>
+                    <mml:mrow>
+                        <mml:mi mathvariant="italic">y</mml:mi>
+                        <mml:mo>+</mml:mo>
+                        <mml:mi mathvariant="italic">j</mml:mi>
+                    </mml:mrow>
+                </mml:mfenced>
+            </mml:math>
             for 
-            <span style="color: red">&lt;math&gt;
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
-                <span style="color: red">&lt;mrow&gt;
-                    <span style="color: red">&lt;mn&gt;0&lt;/mn&gt;</span>
-                    <span style="color: red">&lt;mo&gt;&lt;=&lt;/mo&gt;</span>
-                    <span style="color: red">&lt;mi&gt;i&lt;/mi&gt;</span>
-                    <span style="color: red">&lt;mo&gt;&lt;&lt;/mo&gt;</span>
-                    <span style="color: red">&lt;mi&gt;width&lt;/mi&gt;</span>
-                &lt;/mrow&gt;</span>
-            &lt;/math&gt;</span>
+                <mml:mrow>
+                    <mml:mn>0</mml:mn>
+                    <mml:mo>&lt;=</mml:mo>
+                    <mml:mi mathvariant="italic">i</mml:mi>
+                    <mml:mo>&lt;</mml:mo>
+                    <mml:mi mathvariant="italic">width</mml:mi>
+                </mml:mrow>
+            </mml:math>
             and
-            <span style="color: red">&lt;math&gt;
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
-                <span style="color: red">&lt;mrow&gt;
-                    <span style="color: red">&lt;mn&gt;0&lt;/mn&gt;</span>
-                    <span style="color: red">&lt;mo&gt;&lt;=&lt;/mo&gt;</span>
-                    <span style="color: red">&lt;mi&gt;j&lt;/mi&gt;</span>
-                    <span style="color: red">&lt;mo&gt;&lt;&lt;/mo&gt;</span>
-                    <span style="color: red">&lt;mi&gt;height&lt;/mi&gt;</span>
-                &lt;/mrow&gt;</span>
-            &lt;/math&gt;</span>.
+                <mml:mrow>
+                    <mml:mn>0</mml:mn>
+                    <mml:mo>&lt;=</mml:mo>
+                    <mml:mi mathvariant="italic">j</mml:mi>
+                    <mml:mo>&lt;</mml:mo>
+                    <mml:mi mathvariant="italic">height</mml:mi>
+                </mml:mrow>
+            </mml:math>.
             This pixel is said to be the 
-            <span style="color: red">&lt;math&gt;<span style="color: red">&lt;mi&gt;i&lt;/mi&gt;</span>&lt;/math&gt;</span>th
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
             pixel in the 
-            <span style="color: red">&lt;math&gt;<span style="color: red">&lt;mi&gt;j&lt;/mi&gt;</span>&lt;/math&gt;</span>th
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
             row.
             Pixels are returned in row order from the lowest to the highest row,
             left to right in each row.
@@ -118,202 +118,202 @@
                         </strong></span></th></tr></thead><tbody><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_BYTE</code>
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
-                            <span style="color: red">&lt;mrow&gt;
-                                <span style="color: red">&lt;msup&gt;<span style="color: red">&lt;mn&gt;2&lt;/mn&gt;</span>
-                                <span style="color: red">&lt;mn&gt;8&lt;/mn&gt;</span>
-                                &lt;/msup&gt;</span>
-                                <span style="color: red">&lt;mo&gt;-&lt;/mo&gt;</span>
-                                <span style="color: red">&lt;mn&gt;1&lt;/mn&gt;</span>
-                            &lt;/mrow&gt;</span>
-                        &lt;/math&gt;</span>
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mn>8</mml:mn>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
-                            <span style="color: red">&lt;mrow&gt;
-                                <span style="color: red">&lt;mfenced&gt;
-                                    <span style="color: red">&lt;mrow&gt;
-                                        <span style="color: red">&lt;msup&gt;<span style="color: red">&lt;mn&gt;2&lt;/mn&gt;</span>
-                                        <span style="color: red">&lt;mn&gt;8&lt;/mn&gt;</span>
-                                        &lt;/msup&gt;</span>
-                                        <span style="color: red">&lt;mo&gt;-&lt;/mo&gt;</span>
-                                        <span style="color: red">&lt;mn&gt;1&lt;/mn&gt;</span>
-                                    &lt;/mrow&gt;</span>
-                                &lt;/mfenced&gt;</span>
-                                <span style="color: red">&lt;mo&gt;&lt;/mo&gt;</span>
-                                <span style="color: red">&lt;mi&gt;c&lt;/mi&gt;</span>
-                            &lt;/mrow&gt;</span>
-                        &lt;/math&gt;</span>
+                            <mml:mrow>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mrow>
+                                        <mml:msup><mml:mn>2</mml:mn>
+                                        <mml:mn>8</mml:mn>
+                                        </mml:msup>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_BYTE</code>
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
-                            <span style="color: red">&lt;mrow&gt;
-                                <span style="color: red">&lt;msup&gt;<span style="color: red">&lt;mn&gt;2&lt;/mn&gt;</span>
-                                <span style="color: red">&lt;mn&gt;7&lt;/mn&gt;</span>
-                                &lt;/msup&gt;</span>
-                                <span style="color: red">&lt;mo&gt;-&lt;/mo&gt;</span>
-                                <span style="color: red">&lt;mn&gt;1&lt;/mn&gt;</span>
-                            &lt;/mrow&gt;</span>
-                        &lt;/math&gt;</span>
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mn>7</mml:mn>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
-                            <span style="color: red">&lt;mfrac&gt;
-                                <span style="color: red">&lt;mfenced&gt;
-                                    <span style="color: red">&lt;mrow&gt;
-                                        <span style="color: red">&lt;mfenced&gt;
-                                            <span style="color: red">&lt;mrow&gt;
-                                                <span style="color: red">&lt;msup&gt;<span style="color: red">&lt;mn&gt;2&lt;/mn&gt;</span>
-                                                <span style="color: red">&lt;mn&gt;8&lt;/mn&gt;</span>
-                                                &lt;/msup&gt;</span>
-                                                <span style="color: red">&lt;mo&gt;-&lt;/mo&gt;</span>
-                                                <span style="color: red">&lt;mn&gt;1&lt;/mn&gt;</span>
-                                            &lt;/mrow&gt;</span>
-                                        &lt;/mfenced&gt;</span>
-                                        <span style="color: red">&lt;mo&gt;&lt;/mo&gt;</span>
-                                        <span style="color: red">&lt;mi&gt;c&lt;/mi&gt;</span>
-                                        <span style="color: red">&lt;mo&gt;-&lt;/mo&gt;</span>
-                                        <span style="color: red">&lt;mn&gt;1&lt;/mn&gt;</span>
-                                    &lt;/mrow&gt;</span>
-                                &lt;/mfenced&gt;</span>
-                                <span style="color: red">&lt;mn&gt;2&lt;/mn&gt;</span>
-                            &lt;/mfrac&gt;</span>
-                        &lt;/math&gt;</span>
+                            <mml:mfrac>
+                                <mml:mfenced open="" close="">
+                                    <mml:mrow>
+                                        <mml:mfenced open="(" close=")">
+                                            <mml:mrow>
+                                                <mml:msup><mml:mn>2</mml:mn>
+                                                <mml:mn>8</mml:mn>
+                                                </mml:msup>
+                                                <mml:mo>-</mml:mo>
+                                                <mml:mn>1</mml:mn>
+                                            </mml:mrow>
+                                        </mml:mfenced>
+                                        <mml:mo>⁢</mml:mo>
+                                        <mml:mi mathvariant="italic">c</mml:mi>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                                <mml:mn>2</mml:mn>
+                            </mml:mfrac>
+                        </mml:math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_HALF_FLOAT</code>
                         </td><td align="center">
                         none
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;<span style="color: red">&lt;mi&gt;c&lt;/mi&gt;</span>&lt;/math&gt;</span>
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">c</mml:mi></mml:math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_FLOAT</code>
                         </td><td align="center">
                         none
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;<span style="color: red">&lt;mi&gt;c&lt;/mi&gt;</span>&lt;/math&gt;</span>
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">c</mml:mi></mml:math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
-                            <span style="color: red">&lt;mrow&gt;
-                                <span style="color: red">&lt;msup&gt;<span style="color: red">&lt;mn&gt;2&lt;/mn&gt;</span>
-                                <span style="color: red">&lt;mn&gt;N&lt;/mn&gt;</span>
-                                &lt;/msup&gt;</span>
-                                <span style="color: red">&lt;mo&gt;-&lt;/mo&gt;</span>
-                                <span style="color: red">&lt;mn&gt;1&lt;/mn&gt;</span>
-                            &lt;/mrow&gt;</span>
-                        &lt;/math&gt;</span>
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mn>N</mml:mn>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
-                            <span style="color: red">&lt;mrow&gt;
-                                <span style="color: red">&lt;mfenced&gt;
-                                    <span style="color: red">&lt;mrow&gt;
-                                        <span style="color: red">&lt;msup&gt;<span style="color: red">&lt;mn&gt;2&lt;/mn&gt;</span>
-                                        <span style="color: red">&lt;mn&gt;N&lt;/mn&gt;</span>
-                                        &lt;/msup&gt;</span>
-                                        <span style="color: red">&lt;mo&gt;-&lt;/mo&gt;</span>
-                                        <span style="color: red">&lt;mn&gt;1&lt;/mn&gt;</span>
-                                    &lt;/mrow&gt;</span>
-                                &lt;/mfenced&gt;</span>
-                                <span style="color: red">&lt;mo&gt;&lt;/mo&gt;</span>
-                                <span style="color: red">&lt;mi&gt;c&lt;/mi&gt;</span>
-                            &lt;/mrow&gt;</span>
-                        &lt;/math&gt;</span>
+                            <mml:mrow>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mrow>
+                                        <mml:msup><mml:mn>2</mml:mn>
+                                        <mml:mn>N</mml:mn>
+                                        </mml:msup>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
-                            <span style="color: red">&lt;mrow&gt;
-                                <span style="color: red">&lt;msup&gt;<span style="color: red">&lt;mn&gt;2&lt;/mn&gt;</span>
-                                <span style="color: red">&lt;mn&gt;N&lt;/mn&gt;</span>
-                                &lt;/msup&gt;</span>
-                                <span style="color: red">&lt;mo&gt;-&lt;/mo&gt;</span>
-                                <span style="color: red">&lt;mn&gt;1&lt;/mn&gt;</span>
-                            &lt;/mrow&gt;</span>
-                        &lt;/math&gt;</span>
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mn>N</mml:mn>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
-                            <span style="color: red">&lt;mrow&gt;
-                                <span style="color: red">&lt;mfenced&gt;
-                                    <span style="color: red">&lt;mrow&gt;
-                                        <span style="color: red">&lt;msup&gt;<span style="color: red">&lt;mn&gt;2&lt;/mn&gt;</span>
-                                        <span style="color: red">&lt;mn&gt;N&lt;/mn&gt;</span>
-                                        &lt;/msup&gt;</span>
-                                        <span style="color: red">&lt;mo&gt;-&lt;/mo&gt;</span>
-                                        <span style="color: red">&lt;mn&gt;1&lt;/mn&gt;</span>
-                                    &lt;/mrow&gt;</span>
-                                &lt;/mfenced&gt;</span>
-                                <span style="color: red">&lt;mo&gt;&lt;/mo&gt;</span>
-                                <span style="color: red">&lt;mi&gt;c&lt;/mi&gt;</span>
-                            &lt;/mrow&gt;</span>
-                        &lt;/math&gt;</span>
+                            <mml:mrow>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mrow>
+                                        <mml:msup><mml:mn>2</mml:mn>
+                                        <mml:mn>N</mml:mn>
+                                        </mml:msup>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
-                            <span style="color: red">&lt;mrow&gt;
-                                <span style="color: red">&lt;msup&gt;<span style="color: red">&lt;mn&gt;2&lt;/mn&gt;</span>
-                                <span style="color: red">&lt;mn&gt;N&lt;/mn&gt;</span>
-                                &lt;/msup&gt;</span>
-                                <span style="color: red">&lt;mo&gt;-&lt;/mo&gt;</span>
-                                <span style="color: red">&lt;mn&gt;1&lt;/mn&gt;</span>
-                            &lt;/mrow&gt;</span>
-                        &lt;/math&gt;</span>
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mn>N</mml:mn>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
-                            <span style="color: red">&lt;mrow&gt;
-                                <span style="color: red">&lt;mfenced&gt;
-                                    <span style="color: red">&lt;mrow&gt;
-                                        <span style="color: red">&lt;msup&gt;<span style="color: red">&lt;mn&gt;2&lt;/mn&gt;</span>
-                                        <span style="color: red">&lt;mn&gt;N&lt;/mn&gt;</span>
-                                        &lt;/msup&gt;</span>
-                                        <span style="color: red">&lt;mo&gt;-&lt;/mo&gt;</span>
-                                        <span style="color: red">&lt;mn&gt;1&lt;/mn&gt;</span>
-                                    &lt;/mrow&gt;</span>
-                                &lt;/mfenced&gt;</span>
-                                <span style="color: red">&lt;mo&gt;&lt;/mo&gt;</span>
-                                <span style="color: red">&lt;mi&gt;c&lt;/mi&gt;</span>
-                            &lt;/mrow&gt;</span>
-                        &lt;/math&gt;</span>
+                            <mml:mrow>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mrow>
+                                        <mml:msup><mml:mn>2</mml:mn>
+                                        <mml:mn>N</mml:mn>
+                                        </mml:msup>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
-                            <span style="color: red">&lt;mrow&gt;
-                                <span style="color: red">&lt;msup&gt;<span style="color: red">&lt;mn&gt;2&lt;/mn&gt;</span>
-                                <span style="color: red">&lt;mn&gt;N&lt;/mn&gt;</span>
-                                &lt;/msup&gt;</span>
-                                <span style="color: red">&lt;mo&gt;-&lt;/mo&gt;</span>
-                                <span style="color: red">&lt;mn&gt;1&lt;/mn&gt;</span>
-                            &lt;/mrow&gt;</span>
-                        &lt;/math&gt;</span>
+                            <mml:mrow>
+                                <mml:msup><mml:mn>2</mml:mn>
+                                <mml:mn>N</mml:mn>
+                                </mml:msup>
+                                <mml:mo>-</mml:mo>
+                                <mml:mn>1</mml:mn>
+                            </mml:mrow>
+                        </mml:math>
                         </td><td align="center">
-                        <span style="color: red">&lt;math&gt;
+                        <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
-                            <span style="color: red">&lt;mrow&gt;
-                                <span style="color: red">&lt;mfenced&gt;
-                                    <span style="color: red">&lt;mrow&gt;
-                                        <span style="color: red">&lt;msup&gt;<span style="color: red">&lt;mn&gt;2&lt;/mn&gt;</span>
-                                        <span style="color: red">&lt;mn&gt;N&lt;/mn&gt;</span>
-                                        &lt;/msup&gt;</span>
-                                        <span style="color: red">&lt;mo&gt;-&lt;/mo&gt;</span>
-                                        <span style="color: red">&lt;mn&gt;1&lt;/mn&gt;</span>
-                                    &lt;/mrow&gt;</span>
-                                &lt;/mfenced&gt;</span>
-                                <span style="color: red">&lt;mo&gt;&lt;/mo&gt;</span>
-                                <span style="color: red">&lt;mi&gt;c&lt;/mi&gt;</span>
-                            &lt;/mrow&gt;</span>
-                        &lt;/math&gt;</span>
+                            <mml:mrow>
+                                <mml:mfenced open="(" close=")">
+                                    <mml:mrow>
+                                        <mml:msup><mml:mn>2</mml:mn>
+                                        <mml:mn>N</mml:mn>
+                                        </mml:msup>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:mn>1</mml:mn>
+                                    </mml:mrow>
+                                </mml:mfenced>
+                                <mml:mo>⁢</mml:mo>
+                                <mml:mi mathvariant="italic">c</mml:mi>
+                            </mml:mrow>
+                        </mml:math>
                         </td></tr><tr><td align="left">
                         <code class="constant">GL_UNSIGNED_INT_10F_11F_11F_REV</code>
                         </td><td align="center">
@@ -332,23 +332,23 @@
             <code class="constant">GL_RED</code>, or
             <code class="constant">GL_RED_INTEGER</code>,
             a single value is returned and the data for the 
-            <span style="color: red">&lt;math&gt;<span style="color: red">&lt;mi&gt;i&lt;/mi&gt;</span>&lt;/math&gt;</span>th
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>th
             pixel in the 
-            <span style="color: red">&lt;math&gt;<span style="color: red">&lt;mi&gt;j&lt;/mi&gt;</span>&lt;/math&gt;</span>th
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>th
             row
             is placed in location 
-            <span style="color: red">&lt;math&gt;
+            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
-                <span style="color: red">&lt;mrow&gt;
-                    <span style="color: red">&lt;mfenced&gt;
-                        <span style="color: red">&lt;mi&gt;j&lt;/mi&gt;</span>
-                    &lt;/mfenced&gt;</span>
-                    <span style="color: red">&lt;mo&gt;&lt;/mo&gt;</span>
-                    <span style="color: red">&lt;mi&gt;width&lt;/mi&gt;</span>
-                    <span style="color: red">&lt;mo&gt;+&lt;/mo&gt;</span>
-                    <span style="color: red">&lt;mi&gt;i&lt;/mi&gt;</span>
-                &lt;/mrow&gt;</span>
-            &lt;/math&gt;</span>.
+                <mml:mrow>
+                    <mml:mfenced open="(" close=")">
+                        <mml:mi mathvariant="italic">j</mml:mi>
+                    </mml:mfenced>
+                    <mml:mo>⁢</mml:mo>
+                    <mml:mi mathvariant="italic">width</mml:mi>
+                    <mml:mo>+</mml:mo>
+                    <mml:mi mathvariant="italic">i</mml:mi>
+                </mml:mrow>
+            </mml:math>.
             <code class="constant">GL_RG</code> and <code class="constant">GL_RG_INTEGER</code> return two values,
             <code class="constant">GL_RGB</code> and <code class="constant">GL_RGB_INTEGER</code> return three values,
             <code class="constant">GL_RGBA</code> and <code class="constant">GL_RGBA_INTEGER</code> return four values for each pixel,

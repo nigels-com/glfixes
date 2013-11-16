@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
 <!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glBlendEquationSeparate - OpenGL ES 3.0 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div class="refentry" title="glBlendEquationSeparate"><a id="glBlendEquationSeparate"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBlendEquationSeparate — set the RGB blend equation and the alpha blend equation separately</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glBlendEquationSeparate</b>(</code></td><td>GLenum <var class="pdparam">modeRGB</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">modeAlpha</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>modeRGB</code></em></span></dt><dd><p>
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glBlendEquationSeparate - OpenGL ES 3.0 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glBlendEquationSeparate"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glBlendEquationSeparate — set the RGB blend equation and the alpha blend equation separately</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glBlendEquationSeparate</strong>(</code></td><td>GLenum <var class="pdparam">modeRGB</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">modeAlpha</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>modeRGB</code></em></span></dt><dd><p>
                     specifies the RGB blend equation, how the red, green, and blue components of the source and destination colors are combined.
                     It must be <code class="constant">GL_FUNC_ADD</code>, <code class="constant">GL_FUNC_SUBTRACT</code>,
                     <code class="constant">GL_FUNC_REVERSE_SUBTRACT</code>, <code class="constant">GL_MIN</code>, <code class="constant">GL_MAX</code>.
@@ -9,7 +9,7 @@
                     specifies the alpha blend equation, how the alpha component of the source and destination colors are combined.
                     It must be <code class="constant">GL_FUNC_ADD</code>, <code class="constant">GL_FUNC_SUBTRACT</code>,
                     <code class="constant">GL_FUNC_REVERSE_SUBTRACT</code>, <code class="constant">GL_MIN</code>, <code class="constant">GL_MAX</code>.
-                </p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p>
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             The blend equations determines how a new pixel (the ''source'' color)
             is combined with a pixel already in the framebuffer (the ''destination''
             color).  This function specifies one blend equation for the RGB-color 
@@ -641,24 +641,24 @@
         </p><p>
             Initially, both the RGB blend equation and the alpha blend equation are set to <code class="constant">GL_FUNC_ADD</code>.
         </p><p>
-        </p></div><div class="refsect1" title="Notes"><a id="notes"></a><h2>Notes</h2><p>
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
             The <code class="constant">GL_MIN</code>, and <code class="constant">GL_MAX</code> equations do not use
             the source or destination factors, only the source and destination colors.
-        </p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p>
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if either <em class="parameter"><code>modeRGB</code></em> or <em class="parameter"><code>modeAlpha</code></em> is not one of
             <code class="constant">GL_FUNC_ADD</code>, <code class="constant">GL_FUNC_SUBTRACT</code>, <code class="constant">GL_FUNC_REVERSE_SUBTRACT</code>,
             <code class="constant">GL_MAX</code>, or <code class="constant">GL_MIN</code>.
-        </p></div><div class="refsect1" title="Associated Gets"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+        </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
                     <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with an argument of <code class="constant">GL_BLEND_EQUATION_RGB</code>
                 </p><p>
                     <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with an argument of <code class="constant">GL_BLEND_EQUATION_ALPHA</code>
-                </p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p>
+                </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glGetString.xml"><span class="citerefentry"><span class="refentrytitle">glGetString</span></span></a>,
             <a class="citerefentry" href="glBlendColor.xml"><span class="citerefentry"><span class="refentrytitle">glBlendColor</span></span></a>,
             <a class="citerefentry" href="glBlendEquation.xml"><span class="citerefentry"><span class="refentrytitle">glBlendEquation</span></span></a>,
             <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
             <a class="citerefentry" href="glBlendFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFuncSeparate</span></span></a>
-        </p></div><div class="refsect1" title="Copyright"><a id="Copyright"></a><h2>Copyright</h2><p>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2006-2012 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.

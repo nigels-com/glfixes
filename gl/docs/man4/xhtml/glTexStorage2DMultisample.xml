@@ -31,7 +31,7 @@
             the image will use identical sample locations and the same number of samples for all texels in the image,
             and the sample locations will not depend on the internal format or size of the image.
         </p><p>
-            </p><div class="table"><a id="idp11462720"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+            </p><div class="table"><a id="idp10628864"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Sized Internal Format
             </strong></span></th><th align="left"><span class="bold"><strong>
             Base Internal Format

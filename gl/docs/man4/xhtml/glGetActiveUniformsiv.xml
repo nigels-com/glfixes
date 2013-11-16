@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
 <!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetActiveUniformsiv - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetActiveUniformsiv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetActiveUniformsiv — Returns information about several active uniform variables for the specified program object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetActiveUniformsiv</strong>(</code></td><td>GLuint <var class="pdparam">program</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">uniformCount</var>, </td></tr><tr><td> </td><td>const GLuint *<var class="pdparam">uniformIndices</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>program</code></em></span></dt><dd><p>Specifies the program object to be queried.</p></dd><dt><span class="term"><em class="parameter"><code>uniformCount</code></em></span></dt><dd><p>Specifies both the number of elements in the array of indices <em class="parameter"><code>uniformIndices</code></em> and the
-            number of parameters written to <em class="parameter"><code>params</code></em> upon successful return.</p></dd><dt><span class="term"><em class="parameter"><code>uniformIndices</code></em></span></dt><dd><p>Specifies the address of an array of <em class="parameter"><code>uniformCount</code></em> integers containing the indices of
-            uniforms within <em class="parameter"><code>program</code></em> whose parameter <em class="parameter"><code>pname</code></em> pname.</p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>Specifies the property of the each uniform in <em class="parameter"><code>uniformIndices</code></em> that should be
-            written into the corresponding element of <em class="parameter"><code>params</code></em>.</p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>Specifies the address of an array of <em class="parameter"><code>uniformCount</code></em> integers which are to
-            receive the value of <em class="parameter"><code>pname</code></em> for each uniform in <em class="parameter"><code>uniformIndices</code></em>.</p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">glGetActiveUniformsiv</code> queries the value of the parameter named <em class="parameter"><code>pname</code></em>
-            for each of the uniforms within <em class="parameter"><code>program</code></em> whose indices are specified in the array of
-            <em class="parameter"><code>uniformCount</code></em> unsigned integers <em class="parameter"><code>uniformIndices</code></em>. Upon success,
-            the value of the parameter for each uniform is written into the corresponding entry in the array whose
-            address is given in <em class="parameter"><code>params</code></em>. If an error is generated, nothing is written into
-            <em class="parameter"><code>params</code></em>.
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetActiveUniformsiv - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetActiveUniformsiv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetActiveUniformsiv — Returns information about several active uniform variables for the specified program object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetActiveUniformsiv</strong>(</code></td><td>GLuint <var class="pdparam">program</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">uniformCount</var>, </td></tr><tr><td> </td><td>const GLuint *<var class="pdparam">uniformIndices</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>program</code></em></span></dt><dd><p>Specifies the program object to be queried.</p></dd><dt><span class="term"><em class="parameter"><code>uniformCount</code></em></span></dt><dd><p>Specifies both the number of elements in the array of
+            indices <em class="parameter"><code>uniformIndices</code></em> and the number of
+            parameters written to <em class="parameter"><code>params</code></em> upon
+            successful return.</p></dd><dt><span class="term"><em class="parameter"><code>uniformIndices</code></em></span></dt><dd><p>Specifies the address of an array of
+            <em class="parameter"><code>uniformCount</code></em> integers containing the
+            indices of uniforms within <em class="parameter"><code>program</code></em> whose
+            parameter <em class="parameter"><code>pname</code></em> should be queried.</p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>Specifies the property of each uniform in
+            <em class="parameter"><code>uniformIndices</code></em> that should be written
+            into the corresponding element of
+            <em class="parameter"><code>params</code></em>.</p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>Specifies the address of an array of
+            <em class="parameter"><code>uniformCount</code></em> integers which are to
+            receive the value of <em class="parameter"><code>pname</code></em> for each
+            uniform in <em class="parameter"><code>uniformIndices</code></em>.</p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetActiveUniformsiv</code> queries the value of
+            the parameter named <em class="parameter"><code>pname</code></em> for each of the
+            uniforms within <em class="parameter"><code>program</code></em> whose indices are
+            specified in the array of <em class="parameter"><code>uniformCount</code></em>
+            unsigned integers <em class="parameter"><code>uniformIndices</code></em>. Upon
+            success, the value of the parameter for each uniform is written
+            into the corresponding entry in the array whose address is given
+            in <em class="parameter"><code>params</code></em>. If an error is generated,
+            nothing is written into <em class="parameter"><code>params</code></em>.
         </p><p>
-            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_UNIFORM_TYPE</code>, then an array identifying the types
-            of uniforms specified by the corresponding array of <em class="parameter"><code>uniformIndices</code></em> is returned. The
-            returned types can be any of the values from the following table:
+            If <em class="parameter"><code>pname</code></em> is
+            <code class="constant">GL_UNIFORM_TYPE</code>, then an array identifying
+            the types of uniforms specified by the corresponding array of
+            <em class="parameter"><code>uniformIndices</code></em> is returned. The returned
+            types can be any of the values from the following table:
         </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
                         Returned Symbolic Contant
                         </strong></span></th><th align="left"><span class="bold"><strong>
