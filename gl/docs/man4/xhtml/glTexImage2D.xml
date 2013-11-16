@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<!-- saved from url=(0013)about:internet -->
 <?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glTexImage2D - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glTexImage2D"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glTexImage2D — specify a two-dimensional texture image</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glTexImage2D</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">level</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">internalFormat</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">width</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">height</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">border</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">format</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">type</var>, </td></tr><tr><td> </td><td>const GLvoid * <var class="pdparam">data</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
                     Specifies the target texture.
                     Must be <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_PROXY_TEXTURE_2D</code>,
@@ -163,7 +162,7 @@
             <em class="parameter"><code>internalFormat</code></em> may be one of the base internal formats shown in
             Table 1, below
         </p><p>
-            </p><div class="table"><a id="idp13587984"></a><p class="title"><strong>Table 1. Base Internal Formats</strong></p><div class="table-contents"><table summary="Base Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+            </p><div class="table"><a id="idp11252320"></a><p class="title"><strong>Table 1. Base Internal Formats</strong></p><div class="table-contents"><table summary="Base Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Base Internal Format
             </strong></span></th><th align="left"><span class="bold"><strong>
             RGBA, Depth and Stencil Values
@@ -174,7 +173,7 @@
             <em class="parameter"><code>internalFormat</code></em> may also be one of the sized internal formats
             shown in Table 2, below
         </p><p>
-            </p><div class="table"><a id="idp10629520"></a><p class="title"><strong>Table 2. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+            </p><div class="table"><a id="idp10299568"></a><p class="title"><strong>Table 2. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Sized Internal Format
             </strong></span></th><th align="left"><span class="bold"><strong>
             Base Internal Format
@@ -193,7 +192,7 @@
             Finally, <em class="parameter"><code>internalFormat</code></em> may also be one of the generic or compressed
             compressed texture formats shown in Table 3 below
         </p><p>
-            </p><div class="table"><a id="idp16568640"></a><p class="title"><strong>Table 3. Compressed Internal Formats</strong></p><div class="table-contents"><table summary="Compressed Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+            </p><div class="table"><a id="idp14749232"></a><p class="title"><strong>Table 3. Compressed Internal Formats</strong></p><div class="table-contents"><table summary="Compressed Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Compressed Internal Format
             </strong></span></th><th align="left"><span class="bold"><strong>
             Base Internal Format

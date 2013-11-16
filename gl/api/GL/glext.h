@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 23728 $ on $Date: 2013-10-28 14:53:57 -0700 (Mon, 28 Oct 2013) $
+** Khronos $Revision: 23842 $ on $Date: 2013-10-31 18:08:28 -0700 (Thu, 31 Oct 2013) $
 */
 
 #if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
@@ -53,7 +53,7 @@ extern "C" {
 #define GLAPI extern
 #endif
 
-#define GL_GLEXT_VERSION 20131028
+#define GL_GLEXT_VERSION 20131031
 
 /* Generated C header for:
  * API: gl
@@ -8068,6 +8068,10 @@ GLAPI void APIENTRY glBlendFuncSeparateINGR (GLenum sfactorRGB, GLenum dfactorRG
 #define GL_INGR_interlace_read 1
 #define GL_INTERLACE_READ_INGR            0x8568
 #endif /* GL_INGR_interlace_read */
+
+#ifndef GL_INTEL_fragment_ordering
+#define GL_INTEL_fragment_ordering 1
+#endif /* GL_INTEL_fragment_ordering */
 
 #ifndef GL_INTEL_map_texture
 #define GL_INTEL_map_texture 1

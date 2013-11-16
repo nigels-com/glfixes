@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_PatchVerticesIn</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_PatchVerticesIn"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_PatchVerticesIn — contains the number of vertices in the current patch</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_PatchVerticesIn - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_PatchVerticesIn"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_PatchVerticesIn — contains the number of vertices in the current patch</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><p>
             <code class="function">in int gl_PatchVerticesIn;</code>
         </p></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             Available only in the tessellation control and evaluation languages, <code class="function">gl_PatchVerticesIn</code>
             contains the number of vertices in the input being processed by the shader. A single tessellation control or
             evaluation shader can read patches of differing sizes, and so th value of <code class="function">gl_PatchVertexIn</code>
             may differ between patches.
-        </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left">
-            <span class="bold"><strong>Variable</strong></span>
-        </th><th align="left">
-            <span class="bold"><strong>Version 1.10</strong></span>
-        </th><th align="left">
-            <span class="bold"><strong>Version 1.20</strong></span>
-        </th><th align="left">
-            <span class="bold"><strong>Version 1.30</strong></span>
-        </th><th align="left">
-            <span class="bold"><strong>Version 1.40</strong></span>
-        </th><th align="left">
-            <span class="bold"><strong>Version 1.50</strong></span>
-        </th><th align="left">
-            <span class="bold"><strong>Version 3.30</strong></span>
-        </th><th align="left">
-            <span class="bold"><strong>Version 4.00</strong></span>
-        </th><th align="left">
-            <span class="bold"><strong>Version 4.10</strong></span>
-        </th><th align="left">
-            <span class="bold"><strong>Version 4.20</strong></span>
-        </th><th align="center">
-            <span class="bold"><strong>Version 4.30</strong></span>
-        </th></tr></thead><tbody><tr><td align="left">gl_PatchVerticesIn</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td></tr></tbody></table></div></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+        </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th rowspan="2" align="left">
+                <span class="bold"><strong>Variable Name</strong></span>
+            </th><th colspan="10" align="center">
+                <span class="bold"><strong>OpenGL Shading Language Version</strong></span>
+            </th></tr><tr><th align="left">
+                <span class="bold"><strong>1.10</strong></span>
+            </th><th align="left">
+                <span class="bold"><strong>1.20</strong></span>
+            </th><th align="left">
+                <span class="bold"><strong>1.30</strong></span>
+            </th><th align="left">
+                <span class="bold"><strong>1.40</strong></span>
+            </th><th align="left">
+                <span class="bold"><strong>1.50</strong></span>
+            </th><th align="left">
+                <span class="bold"><strong>3.30</strong></span>
+            </th><th align="left">
+                <span class="bold"><strong>4.00</strong></span>
+            </th><th align="left">
+                <span class="bold"><strong>4.10</strong></span>
+            </th><th align="left">
+                <span class="bold"><strong>4.20</strong></span>
+            </th><th align="center">
+                <span class="bold"><strong>4.30</strong></span>
+            </th></tr></thead><tbody><tr><td align="left">gl_PatchVerticesIn</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td></tr></tbody></table></div></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="gl_TessLevelOuter.xml"><span class="citerefentry"><span class="refentrytitle">gl_TessLevelOuter</span></span></a>,
             <a class="citerefentry" href="gl_TessLevelInner.xml"><span class="citerefentry"><span class="refentrytitle">gl_TessLevelInner</span></span></a>,
             <a class="citerefentry" href="gl_TessCoord.xml"><span class="citerefentry"><span class="refentrytitle">gl_TessCoord</span></span></a>

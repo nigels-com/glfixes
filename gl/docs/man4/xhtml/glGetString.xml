@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<!-- saved from url=(0013)about:internet -->
 <?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetString - OpenGL 4 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetString"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetString — return a string describing the current GL connection</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">const GLubyte* <strong class="fsfunc">glGetString</strong>(</code></td><td>GLenum <var class="pdparam">name</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">const GLubyte* <strong class="fsfunc">glGetStringi</strong>(</code></td><td>GLenum <var class="pdparam">name</var>, </td></tr><tr><td> </td><td>GLuint <var class="pdparam">index</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>name</code></em></span></dt><dd><p>
                     Specifies a symbolic constant, one of
                     <code class="constant">GL_VENDOR</code>, <code class="constant">GL_RENDERER</code>,
@@ -13,27 +12,22 @@
             describing some aspect of the current GL connection.
             <em class="parameter"><code>name</code></em> can be one of the following:
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_VENDOR</code></span></dt><dd><p>
-                    </p><p>
                         Returns the company responsible for this GL implementation.
                         This name does not change from release to release.
                     </p></dd><dt><span class="term"><code class="constant">GL_RENDERER</code></span></dt><dd><p>
-                    </p><p>
                         Returns the name of the renderer.
                         This name is typically specific to a particular configuration of a hardware
                         platform.
                         It does not change from release to release.
                     </p></dd><dt><span class="term"><code class="constant">GL_VERSION</code></span></dt><dd><p>
-                    </p><p>
                         Returns a version or release number.
                     </p></dd><dt><span class="term"><code class="constant">GL_SHADING_LANGUAGE_VERSION</code></span></dt><dd><p>
-                    </p><p>
                         Returns a version or release number for the shading language.
                     </p></dd></dl></div><p>
             <code class="function">glGetStringi</code> returns a pointer to a static string
             indexed by <em class="parameter"><code>index</code></em>.
             <em class="parameter"><code>name</code></em> can be one of the following:
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_EXTENSIONS</code></span></dt><dd><p>
-                    </p><p>
                         For <code class="function">glGetStringi</code> only, returns the extension string
                         supported by the implementation at <em class="parameter"><code>index</code></em>.
                     </p></dd></dl></div><p>
