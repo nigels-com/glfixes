@@ -39,7 +39,7 @@
             image from shaders. <em class="parameter"><code>format</code></em> must be compatible with the texture's internal format and must
             be one of the formats listed in the following table.
         </p><p>
-            </p><div class="table"><a id="idp162128"></a><p class="title"><strong>Table 1. Internal Image Formats</strong></p><div class="table-contents"><table summary="Internal Image Formats" border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+            </p><div class="table"><a id="idp6684768"></a><p class="title"><strong>Table 1. Internal Image Formats</strong></p><div class="table-contents"><table summary="Internal Image Formats" border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
                         Image Unit Format
                         </strong></span></th><th align="left"><span class="bold"><strong>
                         Format Qualifier
@@ -88,7 +88,7 @@
             <a class="citerefentry" href="glTexStorage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a>,
             <a class="citerefentry" href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2011 Khronos Group.
+            Copyright <span class="trademark"></span>© 2011-2013 Khronos Group.
             This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
