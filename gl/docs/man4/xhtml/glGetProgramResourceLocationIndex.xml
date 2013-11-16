@@ -11,7 +11,7 @@
             to the variable named <em class="parameter"><code>name</code></em> in interface <em class="parameter"><code>programInterface</code></em> of program
             object <em class="parameter"><code>program</code></em>.  <em class="parameter"><code>program</code></em> must be the name of a program that has been
             linked successfully. <em class="parameter"><code>programInterface</code></em> must
-            be <code class="constant">PROGRAM_OUTPUT</code>.
+            be <code class="constant">GL_PROGRAM_OUTPUT</code>.
         </p><p>
             The value -1 will be returned if an error occurs, if <em class="parameter"><code>name</code></em> does not identify an active variable on
             <em class="parameter"><code>programInterface</code></em>, or if <em class="parameter"><code>name</code></em> identifies an active variable that does

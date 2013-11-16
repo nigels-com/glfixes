@@ -73,7 +73,7 @@
         </p><p>
             The pixels in the rectangle are processed exactly as if
             <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a> had been called, but the process stops after
-            conversion to RGBA values. The error <code class="constant">INVALID_OPERATION</code> is generated if integer RGBA data is 
+            conversion to RGBA values. The error <code class="constant">GL_INVALID_OPERATION</code> is generated if integer RGBA data is 
                         required and the format of the current color buffer is not integer; or if floating- or fixed-point RGBA
                         data is required and the format of the current color buffer is integer.
         </p><p>

@@ -54,9 +54,9 @@
                                 <mml:mn>1</mml:mn>
                             </mml:math>
                         where <span class="emphasis"><em>n</em></span> is 8, 16 or 32 if the type is
-                        <code class="constant">UNSIGNED_BYTE</code>,
-                        <code class="constant">UNSIGNED_SHORT</code>, or
-                        <code class="constant">UNSIGNED_INT</code>, respectively.
+                        <code class="constant">GL_UNSIGNED_BYTE</code>,
+                        <code class="constant">GL_UNSIGNED_SHORT</code>, or
+                        <code class="constant">GL_UNSIGNED_INT</code>, respectively.
                     </p></dd><dt><span class="term"><code class="constant">GL_RASTERIZER_DISCARD</code></span></dt><dd><p>
                         If enabled, primitives are discarded immediately before the rasterization stage, 
                         but after the optional transform feedback stage. 
