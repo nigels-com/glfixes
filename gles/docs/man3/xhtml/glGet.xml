@@ -212,7 +212,7 @@
                         See <a class="citerefentry" href="glDrawBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDrawBuffers</span></span></a>. 
                         The initial value of <code class="constant">GL_DRAW_BUFFER0</code> is <code class="constant">GL_BACK</code>.  The
                         initial values of draw buffers for all other output colors is <code class="constant">GL_NONE</code>.
-                    </p></dd><dt><span class="term"><code class="constant">GL_DRAW_FRAMEBFUFER_BINDING</code></span></dt><dd><p>
+                    </p></dd><dt><span class="term"><code class="constant">GL_DRAW_FRAMEBUFFER_BINDING</code></span></dt><dd><p>
                         <em class="parameter"><code>params</code></em> returns one value,
                         the name of the framebuffer object currently bound to the <code class="constant">GL_DRAW_FRAMEBUFFER</code> target.
                         If the default framebuffer is bound, this value will be zero. The initial value is zero.
@@ -487,23 +487,11 @@
                         the byte alignment used for writing pixel data to memory. The initial
                         value is 4.
                         See <a class="citerefentry" href="glPixelStorei.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>.
-                    </p></dd><dt><span class="term"><code class="constant">GL_PACK_IMAGE_HEIGHT</code></span></dt><dd><p>
-              </p><p>
-                        <em class="parameter"><code>params</code></em> returns one value,
-                        the image height used for writing pixel data to memory.  The initial
-                        value is 0.
-                        See <a class="citerefentry" href="glPixelStorei.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_PACK_ROW_LENGTH</code></span></dt><dd><p>
               </p><p>
                         <em class="parameter"><code>params</code></em> returns one value,
                         the row length used for writing pixel data to memory. The initial value is
                         0.
-                        See <a class="citerefentry" href="glPixelStorei.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>.
-                    </p></dd><dt><span class="term"><code class="constant">GL_PACK_SKIP_IMAGES</code></span></dt><dd><p>
-              </p><p>
-                        <em class="parameter"><code>params</code></em> returns one value,
-                        the number of pixel images skipped before the first pixel is written
-                        into memory. The initial value is 0.
                         See <a class="citerefentry" href="glPixelStorei.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_PACK_SKIP_PIXELS</code></span></dt><dd><p>
               </p><p>
@@ -557,7 +545,7 @@
                         reading. The initial value is <code class="constant">GL_BACK</code>.
                         See
                         <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>.
-                    </p></dd><dt><span class="term"><code class="constant">GL_READ_FRAMEBFUFER_BINDING</code></span></dt><dd><p>
+                    </p></dd><dt><span class="term"><code class="constant">GL_READ_FRAMEBUFFER_BINDING</code></span></dt><dd><p>
                         <em class="parameter"><code>params</code></em> returns one value,
                         the name of the framebuffer object currently bound to the <code class="constant">GL_READ_FRAMEBUFFER</code> target.
                         If the default framebuffer is bound, this value will be zero. The initial value is zero.
