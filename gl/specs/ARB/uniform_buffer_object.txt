@@ -596,7 +596,7 @@ Additions to Chapter 2 - OpenGL Operation
     by <index> or <uniformIndices>, respectively. In GetActiveUniform, an
     <index> of 0 selects the first active uniform, and an <index> of the value
     of ACTIVE_UNIFORMS - 1 selects the last active uniform. In 
-    GetActiveUniformsiv, <uninformIndices> is an array of such active uniform
+    GetActiveUniformsiv, <uniformIndices> is an array of such active uniform
     indices. If any index is greater than or equal to the value of
     ACTIVE_UNIFORMS, the error INVALID_VALUE is generated.
 

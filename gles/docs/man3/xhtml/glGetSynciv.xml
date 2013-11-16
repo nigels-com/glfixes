@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<!-- saved from url=(0013)about:internet -->
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetSynciv - OpenGL ES 3.0 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div class="refentry" title="glGetSynciv"><a id="glGetSynciv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetSynciv — query the properties of a sync object</p></div><div class="refsynopsisdiv" title="C Specification"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <b class="fsfunc">glGetSynciv</b>(</code></td><td>GLsync <var class="pdparam">sync</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">bufSize</var>, </td></tr><tr><td> </td><td>GLsizei *<var class="pdparam">length</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">values</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1" title="Parameters"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>sync</code></em></span></dt><dd><p>
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetSynciv - OpenGL ES 3.0 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetSynciv"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetSynciv — query the properties of a sync object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetSynciv</strong>(</code></td><td>GLsync <var class="pdparam">sync</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">bufSize</var>, </td></tr><tr><td> </td><td>GLsizei *<var class="pdparam">length</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">values</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>sync</code></em></span></dt><dd><p>
                     Specifies the sync object whose properties to query.
                 </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
                     Specifies the parameter whose value to retrieve from the sync object specified in <em class="parameter"><code>sync</code></em>.
@@ -11,7 +10,7 @@
                     Specifies the address of an variable to receive the number of integers placed in <em class="parameter"><code>values</code></em>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>values</code></em></span></dt><dd><p>
                     Specifies the address of an array to receive the values of the queried parameter.
-                </p></dd></dl></div></div><div class="refsect1" title="Description"><a id="description"></a><h2>Description</h2><p>
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glGetSynciv</code> retrieves properties of a sync object. <em class="parameter"><code>sync</code></em> specifies the name of the sync
             object whose properties to retrieve.
         </p><p>
@@ -29,21 +28,21 @@
             is placed in <em class="parameter"><code>values</code></em>. The only condition supported is <code class="constant">GL_SYNC_GPU_COMMANDS_COMPLETE</code>.
         </p><p>
             If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_SYNC_FLAGS</code>, a single value representing the flags with which the sync object
-            was created is placed in <em class="parameter"><code>values</code></em>. No flags are currently supported<sup>[<a id="idp6662512" href="#ftn.idp6662512" class="footnote">1</a>]</sup>.
+            was created is placed in <em class="parameter"><code>values</code></em>. No flags are currently supported<a href="#ftn.idp4518320" class="footnote" id="idp4518320"><sup class="footnote">[1]</sup></a>.
         </p><p>
             If an error occurs, nothing will be written to <em class="parameter"><code>values</code></em> or <em class="parameter"><code>length</code></em>.
-        </p></div><div class="refsect1" title="Errors"><a id="errors"></a><h2>Errors</h2><p>
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>sync</code></em> is not the name of a sync object.
         </p><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not one of the accepted tokens.
-        </p></div><div class="refsect1" title="See Also"><a id="seealso"></a><h2>See Also</h2><p>
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glFenceSync.xml"><span class="citerefentry"><span class="refentrytitle">glFenceSync</span></span></a>,
             <a class="citerefentry" href="glWaitSync.xml"><span class="citerefentry"><span class="refentrytitle">glWaitSync</span></span></a>,
             <a class="citerefentry" href="glClientWaitSync.xml"><span class="citerefentry"><span class="refentrytitle">glClientWaitSync</span></span></a>
-        </p></div><div class="refsect1" title="Copyright"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2010-2012 Khronos Group. 
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group. 
             This material may be distributed subject to the terms and conditions set forth in 
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
-        </p></div><div class="footnotes"><br /><hr width="100" align="left" /><div class="footnote"><p><sup>[<a id="ftn.idp6662512" href="#idp6662512" class="para">1</a>] </sup><em class="parameter"><code>flags</code></em> is
+        </p></div><div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.idp4518320" class="footnote"><p><a href="#idp4518320" class="para"><sup class="para">[1] </sup></a><em class="parameter"><code>flags</code></em> is
             expected to be used in future extensions to the sync objects.</p></div></div></div></body></html>
