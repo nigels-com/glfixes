@@ -16,6 +16,7 @@ Contributors
     Aaftab Munshi
     Acorn Pooley
     Chris Wynn
+    Ray Smith
 
 Contacts
 
@@ -37,7 +38,7 @@ Status
 
 Version
 
-    Version 4, October 16, 2013
+    Version 5, November 13, 2013
 
 Number
 
@@ -126,9 +127,19 @@ Additions to Chapter 2 of the EGL 1.4 Specification (EGL Operation)
 
 Issues
 
-    None
+    1) Should this specification allow EGLImages to be created from native
+       pixmaps which already have a pixmap surface associated with them, and
+       vice versa?
+
+       RESOLVED: Yes. There are practical usecases for this, and it is
+       already the application's responsibility to handle any format
+       mismatch or synchronization issues that this may allow.
 
 Revision History
+
+#5  (Jon Leech, November 13, 2013)
+    - Add Issue #1 regarding use cases for multiple EGL consumer/producers
+      of a native pixmap (Bug 7779).
 
 #4  (Jon Leech, October 16, 2013)
     - Add language allowing native pixmap and client API image y coordinate
