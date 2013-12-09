@@ -217,10 +217,10 @@ New Procedures and Functions
     void GetObjectLabel(enum identifier, uint name, sizei bufSize, 
         sizei *length, char *label);
 
-    void ObjectPtrLabel(void* ptr, sizei length, 
+    void ObjectPtrLabel(const void* ptr, sizei length, 
         const char *label);
 
-    void GetObjectPtrLabel(void* ptr, sizei bufSize, 
+    void GetObjectPtrLabel(const void* ptr, sizei bufSize, 
         sizei *length, char *label);
                    
 
