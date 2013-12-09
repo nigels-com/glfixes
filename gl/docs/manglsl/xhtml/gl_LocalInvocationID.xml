@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_LocalInvocationID - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_LocalInvocationID"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_LocalInvocationID — contains the index of work item currently being operated on by a compute shader</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><p>
-            <code class="function">in uvec3 gl_LocalInvocationID</code>
-        </p></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            In the compute language, <code class="function">gl_LocalInvocationID</code>
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_LocalInvocationID - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_LocalInvocationID"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_LocalInvocationID — contains the index of work item currently being operated on by a compute shader</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><code class="fieldsynopsis"><span class="modifier">in </span><span class="type">uvec3 </span><span class="varname">gl_LocalInvocationID </span>;</code></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            In the compute language, <code class="varname">gl_LocalInvocationID</code>
             is an input variable containing the n-dimensional index of the local
             work invocation within the work group that the current shader is
             executing in. The possible values for this variable range across
-            the local work group size, i.e., (0,0,0) to (<code class="function">gl_WorkGroupSize.x</code> - 1,
-            <code class="function">gl_WorkGroupSize.y</code> - 1, <code class="function">gl_WorkGroupSize.z</code> - 1).
+            the local work group size, i.e., (0,0,0) to (<code class="varname">gl_WorkGroupSize.x</code> - 1,
+            <code class="varname">gl_WorkGroupSize.y</code> - 1, <code class="varname">gl_WorkGroupSize.z</code> - 1).
         </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th style="border-right: 2px solid ; " align="left">
                  
             </th><th style="border-bottom: 2px solid ; " colspan="10" align="center">

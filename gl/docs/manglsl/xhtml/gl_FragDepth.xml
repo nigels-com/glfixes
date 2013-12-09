@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_FragDepth - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_FragDepth"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_FragDepth — establishes a depth value for the current fragment</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><p>
-            <code class="function">out float gl_FragDepth;</code>
-        </p></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            Available only in the fragment language, <code class="function">gl_FragDepth</code> is an output variable
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_FragDepth - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_FragDepth"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_FragDepth — establishes a depth value for the current fragment</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><code class="fieldsynopsis"><span class="modifier">out </span><span class="type">float </span><span class="varname">gl_FragDepth </span>;</code></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            Available only in the fragment language, <code class="varname">gl_FragDepth</code> is an output variable
             that is used to establish the depth value for the current fragment. If depth buffering is enabled
-            and no shader writes to <code class="function">gl_FragDepth</code>, then the fixed function value for
+            and no shader writes to <code class="varname">gl_FragDepth</code>, then the fixed function value for
             depth will be used (this value is contained in the z component of <a class="citerefentry" href="gl_FragCoord.xml"><span class="citerefentry"><span class="refentrytitle">gl_FragCoord</span></span></a>)
-            otherwise, the value written to <code class="function">gl_FragDepth</code> is used.
-            If a shader statically assigns to <code class="function">gl_FragDepth</code>, then the value of the fragment's depth
+            otherwise, the value written to <code class="varname">gl_FragDepth</code> is used.
+            If a shader statically assigns to <code class="varname">gl_FragDepth</code>, then the value of the fragment's depth
             may be undefined for executions of the shader that take that path. That is, if the set of linked fragment
-            shaders statically contain a write to <code class="function">gl_FragDepth</code>, then it is responsible for always
+            shaders statically contain a write to <code class="varname">gl_FragDepth</code>, then it is responsible for always
             writing it.
         </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th style="border-right: 2px solid ; " align="left">
                  

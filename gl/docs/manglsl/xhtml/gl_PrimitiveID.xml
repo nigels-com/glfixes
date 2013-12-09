@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
 <?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_PrimitiveID - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_PrimitiveID"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_PrimitiveID — contains the index of the current primitive</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><p>
-            <code class="function">in int gl_PrimitiveID;</code> (Tessellation control, tessellation evaluation and fragment languages)
+            </p><pre class="programlisting">// In tessellation control, tessellation evaluation, and
+// fragment shaders</pre><p>
+            <code class="fieldsynopsis"><span class="modifier">in </span><span class="type">int </span><span class="varname">gl_PrimitiveID </span>;</code>
         </p><p>
-            <code class="function">out int gl_PrimitiveID;</code> (Geometry language)
+            </p><pre class="programlisting">// In geometry shaders</pre><p>
+            <code class="fieldsynopsis"><span class="modifier">out </span><span class="type">int </span><span class="varname">gl_PrimitiveID </span>;</code>
         </p></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">gl_PrimitiveID</code> is a tessellation control, tessellation evaluation
+            <code class="varname">gl_PrimitiveID</code> is a tessellation control, tessellation evaluation
             and fragment language input variable. For the tessellation control and tessellation
             evaluation languages, it holds the number of primitives processed by
             the shader since the current set of rendering primitives was started. The first
@@ -15,12 +18,12 @@
             may actually be drawn. Restarting a primitive topology using the primitive restart
             index has no effect on the primitive ID counter.
         </p><p>
-            In the geometry language, <code class="function">gl_PrimitiveID</code> is an output
-            variable that is passed to the corresponding <code class="function">gl_PrimitiveID</code> input
-            variable in the fragment shader. If no geomery shader is present then <code class="function">gl_PrimitiveID</code>
+            In the geometry language, <code class="varname">gl_PrimitiveID</code> is an output
+            variable that is passed to the corresponding <code class="varname">gl_PrimitiveID</code> input
+            variable in the fragment shader. If no geomery shader is present then <code class="varname">gl_PrimitiveID</code>
             in the fragment language behaves identically as it would in the tessellation control and evaluation
-            languages. If a geometry shader is present but does not write to <code class="function">gl_PrimitiveID</code>,
-            the value of <code class="function">gl_PrimitiveID</code> in the fragment shader is undefined.
+            languages. If a geometry shader is present but does not write to <code class="varname">gl_PrimitiveID</code>,
+            the value of <code class="varname">gl_PrimitiveID</code> in the fragment shader is undefined.
         </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th style="border-right: 2px solid ; " align="left">
                  
             </th><th style="border-bottom: 2px solid ; " colspan="10" align="center">
@@ -47,7 +50,7 @@
                 <span class="bold"><strong>4.20</strong></span>
             </th><th style="border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.30</strong></span>
-            </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"><code class="function">gl_PrimitiveID</code> (Fragment and Geometry Languages)</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-bottom: 2px solid ; " align="center">✔</td></tr><tr><td style="border-right: 2px solid ; " align="left"><code class="function">gl_PrimitiveID</code> (Tessellation Control and Evaluation Languages)</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="" align="center">✔</td></tr></tbody></table></div></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"><code class="varname">gl_PrimitiveID</code> (Fragment and Geometry Languages)</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-bottom: 2px solid ; " align="center">✔</td></tr><tr><td style="border-right: 2px solid ; " align="left"><code class="varname">gl_PrimitiveID</code> (Tessellation Control and Evaluation Languages)</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="" align="center">✔</td></tr></tbody></table></div></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="gl_InstanceID.xml"><span class="citerefentry"><span class="refentrytitle">gl_InstanceID</span></span></a>,
             <a class="citerefentry" href="gl_VertexID.xml"><span class="citerefentry"><span class="refentrytitle">gl_VertexID</span></span></a>,
             <a class="citerefentry" href="gl_PrimitiveIDIn.xml"><span class="citerefentry"><span class="refentrytitle">gl_PrimitiveIDIn</span></span></a>

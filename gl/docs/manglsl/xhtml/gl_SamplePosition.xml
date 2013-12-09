@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_SamplePosition - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_SamplePosition"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_SamplePosition — contains the location of the current sample within the current fragment</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><p>
-            <code class="function">in vec2 gl_SamplePosition;</code>
-        </p></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">gl_SamplePosition</code> is a fragment language input variable that contains
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_SamplePosition - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_SamplePosition"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_SamplePosition — contains the location of the current sample within the current fragment</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><code class="fieldsynopsis"><span class="modifier">in </span><span class="type">vec2 </span><span class="varname">gl_SamplePosition </span>;</code></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="varname">gl_SamplePosition</code> is a fragment language input variable that contains
             the location within a fragment of the sample currently being processed. The x and y components
-            of <code class="function">gl_SamplePosition</code> contain the sub-pixel coordinate of the current
+            of <code class="varname">gl_SamplePosition</code> contain the sub-pixel coordinate of the current
             sample and will have values in the range 0.0 to 1.0. The sub-pixel coordinates of the center
-            of the pixel are always (0.5, 0.5). Any static use of <code class="function">gl_SamplePosition</code>
+            of the pixel are always (0.5, 0.5). Any static use of <code class="varname">gl_SamplePosition</code>
             causes the entire fragment shader to be evaluated per-sample rather than per-fragment. When rendering
-            to a non-multisample buffer, or if multisample rasterization is disabled, <code class="function">gl_SamplePosition</code>
+            to a non-multisample buffer, or if multisample rasterization is disabled, <code class="varname">gl_SamplePosition</code>
             will be (0.5, 0.5).
         </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th style="border-right: 2px solid ; " align="left">
                  

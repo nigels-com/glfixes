@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_SampleMask - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_SampleMask"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_SampleMask — specifies the sample coverage mask for the current fragment</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><p>
-            <code class="function">out int gl_SampleMask[];</code>
-        </p></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">gl_SampleMask</code> is a fragment language output array that may be
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_SampleMask - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_SampleMask"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_SampleMask — specifies the sample coverage mask for the current fragment</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><code class="fieldsynopsis"><span class="modifier">out </span><span class="type">int </span><span class="varname">gl_SampleMask[] </span>;</code></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="varname">gl_SampleMask</code> is a fragment language output array that may be
             used to set the sample mask for the fragment being processed. Coverage for the current
-            fragment will become the logical AND of the coverage mask and the output <code class="function">gl_SampleMask</code>.
-            That is, setting a bit in <code class="function">gl_SampleMask</code> to zero will cause the
+            fragment will become the logical AND of the coverage mask and the output <code class="varname">gl_SampleMask</code>.
+            That is, setting a bit in <code class="varname">gl_SampleMask</code> to zero will cause the
             corresponding sample to be considered uncovered for the purposes of multisample fragment operations. However,
             setting sample mask bits back to one will never enable samples not covered by the original primitive.
-            Bit <span class="emphasis"><em>B</em></span> of mask <code class="function">gl_SampleMask[M]</code> corresponds to sample
+            Bit <span class="emphasis"><em>B</em></span> of mask <code class="varname">gl_SampleMask[M]</code> corresponds to sample
             32 * <span class="emphasis"><em>M</em></span> + <span class="emphasis"><em>B</em></span>. This array must be sized in the fragment shader
             either implicitly or explicitly to be the same size as the implementation-dependent maximum
             sample-mask (as an array of 32-bit elements), determined by the maximum number of samples.
-            If the fragment shader statically assigns a value to <code class="function">gl_SampleMask</code>, the
+            If the fragment shader statically assigns a value to <code class="varname">gl_SampleMask</code>, the
             sample mask will be undefined for any array elements of any fragment shader invocation that
-            fails to assign a value. If a shader does not statically assign a value to <code class="function">gl_SampleMask</code>,
+            fails to assign a value. If a shader does not statically assign a value to <code class="varname">gl_SampleMask</code>,
             the sample mask has no effect on the processing of a fragment.
             If the fragment shader is being evaluated at any  frequency other than per-fragment, bits within
             the sample mask not corresponding to the current fragment shader invocation are ignored.

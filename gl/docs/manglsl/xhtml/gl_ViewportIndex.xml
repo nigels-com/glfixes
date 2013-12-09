@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
 <?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_ViewportIndex - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_ViewportIndex"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_ViewportIndex — contains the index of the viewport to be used in viewport transformation and scissoring</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><p>
-            <code class="function">out int gl_ViewportIndex; // Geometry stage</code>
+            </p><pre class="programlisting">// In geometry shaders</pre><p>
+            <code class="fieldsynopsis"><span class="modifier">out </span><span class="type">int </span><span class="varname">gl_ViewportIndex </span>;</code>
         </p><p>
-            <code class="function">in  int gl_ViewportIndex; // Fragment stage</code>
+            </p><pre class="programlisting">// In fragment shaders</pre><p>
+            <code class="fieldsynopsis"><span class="modifier">in </span><span class="type">int </span><span class="varname">gl_ViewportIndex </span>;</code>
         </p></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            In the geometry language, <code class="function">gl_ViewportIndex</code> is used to specify the index
+            In the geometry language, <code class="varname">gl_ViewportIndex</code> is used to specify the index
             of the viewport to which the next primitive emitted from the shader should be drawn. Primitives generated
             by the geometry shader will undergo viewport transformation and scissor testing using the viewport
-            transformation and scissor rectangle selected by the value of <code class="function">gl_ViewportIndex</code>.
+            transformation and scissor rectangle selected by the value of <code class="varname">gl_ViewportIndex</code>.
             The viewport index used will come from one of the vertices in the primitive being shaded. However, which
             vertex the viewport index comes from is implementation-defined, and so it is recommended to use the same
             viewport index for all vertices of a primitive. If a geometry shader does not assign a value to
-            <code class="function">gl_ViewportIndex</code>, viewport transform and scissor rectangle zero will be used.
-            If a geometry shader statically assigns a value to <code class="function">gl_ViewportIndex</code> and there
-            is a path through the shader that does not assign a value to <code class="function">gl_ViewportIndex</code>,
-            the value of <code class="function">gl_ViewportIndex</code> is undefined for executions of the shader that take
+            <code class="varname">gl_ViewportIndex</code>, viewport transform and scissor rectangle zero will be used.
+            If a geometry shader statically assigns a value to <code class="varname">gl_ViewportIndex</code> and there
+            is a path through the shader that does not assign a value to <code class="varname">gl_ViewportIndex</code>,
+            the value of <code class="varname">gl_ViewportIndex</code> is undefined for executions of the shader that take
             that path.
         </p><p>
-            In the fragment language, <code class="function">gl_ViewportIndex</code> will have the same value that was written to the
-            output variable <code class="function">gl_ViewportIndex</code> in the geometry stage.  If the geometry stage does not dynamically
-            assign to <code class="function">gl_ViewportIndex</code>, the value of <code class="function">gl_ViewportIndex</code> in the fragment shader will be undefined. If
-            the geometry stage makes no static assignment to <code class="function">gl_ViewportIndex</code>, the fragment stage will read zero.
+            In the fragment language, <code class="varname">gl_ViewportIndex</code> will have the same value that was written to the
+            output variable <code class="varname">gl_ViewportIndex</code> in the geometry stage.  If the geometry stage does not dynamically
+            assign to <code class="varname">gl_ViewportIndex</code>, the value of <code class="varname">gl_ViewportIndex</code> in the fragment shader will be undefined. If
+            the geometry stage makes no static assignment to <code class="varname">gl_ViewportIndex</code>, the fragment stage will read zero.
             Otherwise, the fragment stage will read the same value written by the geometry stage, even if that value is
-            out of range. If a fragment shader contains a static access to <code class="function">gl_ViewportIndex</code>, it will count against the
+            out of range. If a fragment shader contains a static access to <code class="varname">gl_ViewportIndex</code>, it will count against the
             implementation defined limit for the maximum number of inputs to the fragment stage.
         </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th style="border-right: 2px solid ; " align="left">
                  

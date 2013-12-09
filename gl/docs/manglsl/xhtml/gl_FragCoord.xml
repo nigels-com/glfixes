@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
-<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_FragCoord - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_FragCoord"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_FragCoord — contains the window-relative coordinates of the current fragment</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><p>
-            <code class="function">in vec4 gl_FragCoord;</code>
-        </p></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            Available only in the fragment language, <code class="function">gl_FragCoord</code> is an input variable that contains the
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_FragCoord - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_FragCoord"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_FragCoord — contains the window-relative coordinates of the current fragment</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><code class="fieldsynopsis"><span class="modifier">in </span><span class="type">vec4 </span><span class="varname">gl_FragCoord </span>;</code></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            Available only in the fragment language, <code class="varname">gl_FragCoord</code> is an input variable that contains the
             window relative coordinate (x, y, z, 1/w) values for the fragment. If multi-sampling,
             this value can be for any location within the pixel, or one of the fragment samples.
             This value is the result of fixed functionality that interpolates primitives after vertex
             processing to generate fragments. The z component is the depth value that would be used for the
             fragment's depth if no shader contained any writes to <a class="citerefentry" href="gl_FragDepth.xml"><span class="citerefentry"><span class="refentrytitle">gl_FragDepth</span></span></a>.
         </p><p>
-            <code class="function">gl_FragCoord</code> may be redeclared with the additional layout qualifier identifiers
+            <code class="varname">gl_FragCoord</code> may be redeclared with the additional layout qualifier identifiers
             <code class="function">origin_upper_left</code> or <code class="function">pixel_center_integer</code>. By
-            default, <code class="function">gl_FragCoord</code> assumes a lower-left origin for window coordinates
+            default, <code class="varname">gl_FragCoord</code> assumes a lower-left origin for window coordinates
             and assumes pixel centers are located at half-pixel centers. For example, the (x, y) location
             (0.5, 0.5) is returned for the lower-left-most pixel in a window. The origin of
-            <code class="function">gl_FragCoord</code> may be changed by redeclaring <code class="function">gl_FragCoord</code>
+            <code class="varname">gl_FragCoord</code> may be changed by redeclaring <code class="varname">gl_FragCoord</code>
             with the <code class="function">origin_upper_left</code> identifier. The values returned can also be
             shifted by half a pixel in both x and y by <code class="function">pixel_center_integer</code> so it
             appears the pixels are centered at whole number pixel offsets. This moves the (x, y) value returned by
-            <code class="function">gl_FragCoord</code> of (0.5, 0.5) by default to (0.0, 0.0) with
+            <code class="varname">gl_FragCoord</code> of (0.5, 0.5) by default to (0.0, 0.0) with
             <code class="function">pixel_center_integer</code>.
         </p><p>
-            If <code class="function">gl_FragCoord</code> is redeclared in any fragment shader in a program, it must be redeclared
-            in all fragment shaders in that program that have static use of <code class="function">gl_FragCoord</code>. Redeclaring
-            <code class="function">gl_FragCoord</code> with any accepted qualifier affects only <code class="function">gl_FragCoord.x</code>
-            and <code class="function">gl_FragCoord.y</code>. It has no affect on rasterization, transformation or any other part
+            If <code class="varname">gl_FragCoord</code> is redeclared in any fragment shader in a program, it must be redeclared
+            in all fragment shaders in that program that have static use of <code class="varname">gl_FragCoord</code>. Redeclaring
+            <code class="varname">gl_FragCoord</code> with any accepted qualifier affects only <code class="varname">gl_FragCoord.x</code>
+            and <code class="varname">gl_FragCoord.y</code>. It has no affect on rasterization, transformation or any other part
             of the OpenGL pipline or language features.
         </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th style="border-right: 2px solid ; " align="left">
                  

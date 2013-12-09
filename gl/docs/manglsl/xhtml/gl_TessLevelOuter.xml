@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
 <?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_TessLevelOuter - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_TessLevelOuter"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_TessLevelOuter — contains the outer tessellation levels for the current patch</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><p>
-            <code class="function">patch out float gl_TessLevelOuter[4];</code> (tessellation control language)
+            </p><pre class="programlisting">// In tessellation control shaders</pre><p>
+            <code class="fieldsynopsis"><span class="modifier">out </span><span class="type">float </span><span class="varname">gl_TessLevelOuter[4] </span>;</code>
         </p><p>
-            <code class="function">patch in float gl_TessLevelInner[4];</code> (tessellation evaluation languge)
+            </p><pre class="programlisting">// In tessellation evaluation shaders</pre><p>
+            <code class="fieldsynopsis"><span class="modifier">in </span><span class="type">float </span><span class="varname">gl_TessLevelOuter[4] </span>;</code>
         </p></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            Available only in the tessellation control and evaluation languages, <code class="function">gl_TessLevelOuter</code>
+            Available only in the tessellation control and evaluation languages, <code class="varname">gl_TessLevelOuter</code>
             is used to assign values to the corresponding outer tesellation levels of the current patch. The values written
-            into <code class="function">gl_TessLevelOuter</code> by the tessellation control shader are used by the tessellation
+            into <code class="varname">gl_TessLevelOuter</code> by the tessellation control shader are used by the tessellation
             primitive generator to control primitive tessellation and may be read by the subsequent tessellation evaluation shader.
         </p><p>
-            As inputs to the tessellation evaluation shader, <code class="function">gl_TessLevelOuter</code> contains the values
+            As inputs to the tessellation evaluation shader, <code class="varname">gl_TessLevelOuter</code> contains the values
             written by the tessellation control shader, if present. If no tessellation control shader is present, it
             contains the default tessellation level.
         </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th style="border-right: 2px solid ; " align="left">

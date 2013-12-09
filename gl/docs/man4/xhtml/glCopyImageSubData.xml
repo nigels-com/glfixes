@@ -109,7 +109,7 @@
                     </p></li></ul></div><p>
 
             If the formats are not compatible, an INVALID_OPERATION error is generated.
-        </p><div class="table"><a id="idp307168"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+        </p><div class="table"><a id="idp16160"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                 <span class="bold"><strong> Texel / Block Size </strong></span>
             </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                 <span class="bold"><strong> Uncompressed Internal Format </strong></span>

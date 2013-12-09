@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
 <?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>gl_Position - OpenGL 4 Shading Language Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="gl_Position"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>gl_Position — contains the position of the current vertex</p></div><div class="refsynopsisdiv"><h2>Declaration</h2><p>
-            <code class="function">gl_Position</code> is a member of the <code class="function">gl_PerVertex</code>
-            named block:
-        </p><p>
+            <code class="varname">gl_Position</code> is a member of the
+            <code class="varname">gl_PerVertex</code> named block:
 </p><pre class="programlisting">    out gl_PerVertex {
         vec4 gl_Position;
         float gl_PointSize;
         float gl_ClipDistance[];
     };</pre><p>
         </p></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            In the vertex, tessellation evaluation and geoemtry languages, a single
-            global instance of the <code class="function">gl_PerVertex</code> named block is available and
-            its <code class="function">gl_Position</code> member is an output that receives the
+            In the vertex, tessellation evaluation and geometry languages, a single
+            global instance of the <code class="varname">gl_PerVertex</code> named block is available and
+            its <code class="varname">gl_Position</code> member is an output that receives the
             homogeneous vertex position. It may be written at any time during shader execution.
-            The value written to <code class="function">gl_Position</code> will be used by primitive assembly,
+            The value written to <code class="varname">gl_Position</code> will be used by primitive assembly,
             clipping, culling and other fixed functionality operations, if present, that operate on
             primitives after vertex processing has occurred.
         </p><p>
-            In the tessellation control language, the <code class="function">gl_PerVertex</code> named block
-            is used to construct an array, <code class="function">gl_out[]</code>, whose <code class="function">gl_Position</code>
+            In the tessellation control language, the <code class="varname">gl_PerVertex</code> named block
+            is used to construct an array, <code class="varname">gl_out[]</code>, whose <code class="varname">gl_Position</code>
             members hold the homogeneous control point position, which become available as inputs to the subsequent
             tessellation evaluation shader.
         </p><p>
-            The value of <code class="function">gl_Position</code> (or the <code class="function">gl_Position</code> member of the <code class="function">gl_out[]</code>
+            The value of <code class="varname">gl_Position</code> (or the <code class="varname">gl_Position</code> member of the <code class="varname">gl_out[]</code>
             array, in the case of the tessellation control shader)
             is undefined after the vertex, tessellation control, and tessellation evaluation
             shading stages if the corresponding shader executable does
             not write to gl_Position. It is also undefined after the geometry processing stage if the geometry shader executable calls
             <a class="citerefentry" href="EmitVertex.xml"><span class="citerefentry"><span class="refentrytitle">EmitVertex</span></span></a> without having
-            written <code class="function">gl_Position</code> since the last call to <a class="citerefentry" href="EmitVertex.xml"><span class="citerefentry"><span class="refentrytitle">EmitVertex</span></span></a>
+            written <code class="varname">gl_Position</code> since the last call to <a class="citerefentry" href="EmitVertex.xml"><span class="citerefentry"><span class="refentrytitle">EmitVertex</span></span></a>
             (or hasn't written it at all).
         </p><p>
-            In the tessellation control, tessellation evaluation and geoemetry languages,
-            the <code class="function">gl_PerVertex</code> named block is used to construct an array, <code class="function">gl_in[]</code>
+            In the tessellation control, tessellation evaluation and geometry languages,
+            the <code class="varname">gl_PerVertex</code> named block is used to construct an array, <code class="varname">gl_in[]</code>
             of per-vertex or per-control point inputs whose content represents the corresponding
             outputs written by the previous stage.
          </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th style="border-right: 2px solid ; " align="left">
