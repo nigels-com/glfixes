@@ -119,15 +119,15 @@
             (or converted to the client's single-precision floating-point format if
             it is different from the one used by the GL).
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left">
-                        <em class="parameter"><code>type</code></em>
-                        </th><th align="center"><span class="bold"><strong>
-                        Index Mask
-                        </strong></span></th><th align="center"><span class="bold"><strong>
-                        Component Conversion
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+        </p><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" /><col align="center" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <em class="parameter"><code>type</code></em>
+                        </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
+                            <span class="bold"><strong> Index Mask </strong></span>
+                        </th><th style="border-bottom: 2px solid ; " align="center">
+                            <span class="bold"><strong> Component Conversion </strong></span>
+                        </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNSIGNED_BYTE</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -138,7 +138,7 @@
                                 <mml:mn>1</mml:mn>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -155,9 +155,9 @@
                                 <mml:mi mathvariant="italic">c</mml:mi>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_BYTE</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -168,7 +168,7 @@
                                 <mml:mn>1</mml:mn>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfrac>
@@ -192,21 +192,21 @@
                                 <mml:mn>2</mml:mn>
                             </mml:mfrac>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_HALF_FLOAT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         none
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">c</mml:mi></mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_FLOAT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         none
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">c</mml:mi></mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNSIGNED_SHORT_5_6_5</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -217,7 +217,7 @@
                                 <mml:mn>1</mml:mn>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -234,9 +234,9 @@
                                 <mml:mi mathvariant="italic">c</mml:mi>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNSIGNED_SHORT_4_4_4_4</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -247,7 +247,7 @@
                                 <mml:mn>1</mml:mn>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -264,9 +264,9 @@
                                 <mml:mi mathvariant="italic">c</mml:mi>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNSIGNED_SHORT_5_5_5_1</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -277,7 +277,7 @@
                                 <mml:mn>1</mml:mn>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -294,9 +294,9 @@
                                 <mml:mi mathvariant="italic">c</mml:mi>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -307,7 +307,7 @@
                                 <mml:mn>1</mml:mn>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -324,17 +324,17 @@
                                 <mml:mi mathvariant="italic">c</mml:mi>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNSIGNED_INT_10F_11F_11F_REV</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         --
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         Special
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; " align="left">
                         <code class="constant">GL_UNSIGNED_INT_5_9_9_9_REV</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; " align="center">
                         --
-                        </td><td align="left">
+                        </td><td style="" align="center">
                         Special
                         </td></tr></tbody></table></div><p>
             Return values are placed in memory as follows.
@@ -439,8 +439,9 @@
             <a class="citerefentry" href="glPixelStorei.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a>,
             <a class="citerefentry" href="glReadBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glReadBuffer</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
-            Silicon Graphics, Inc. This document is licensed under the SGI
-            Free Software B License. For details, see
+            Copyright <span class="trademark"></span>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
         </p></div></div></body></html>

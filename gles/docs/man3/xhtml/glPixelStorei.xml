@@ -729,21 +729,21 @@
             and range of valid values for each storage parameter
             that can be set with <code class="function">glPixelStorei</code>.
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
-                        <em class="parameter"><code>pname</code></em>
-                        </strong></span></th><th align="center"><span class="bold"><strong>
-                        Type
-                        </strong></span></th><th align="center"><span class="bold"><strong>
-                        Initial Value
-                        </strong></span></th><th align="center"><span class="bold"><strong>
-                        Valid Range
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+        </p><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> <em class="parameter"><code>pname</code></em> </strong></span>
+                        </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
+                            <span class="bold"><strong> Type </strong></span>
+                        </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
+                            <span class="bold"><strong> Initial Value </strong></span>
+                        </th><th style="border-bottom: 2px solid ; " align="center">
+                            <span class="bold"><strong> Valid Range </strong></span>
+                        </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_ROW_LENGTH</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -751,13 +751,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_IMAGE_HEIGHT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -765,13 +765,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_SKIP_ROWS</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -779,13 +779,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_SKIP_PIXELS</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -793,13 +793,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_SKIP_IMAGES</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -807,21 +807,21 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_ALIGNMENT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         4
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         1, 2, 4, or 8
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_ROW_LENGTH</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -829,13 +829,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -843,13 +843,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_SKIP_ROWS</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -857,13 +857,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_SKIP_PIXELS</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -871,13 +871,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_SKIP_IMAGES</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -885,13 +885,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_ALIGNMENT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; " align="center">
                         4
-                        </td><td align="center">
+                        </td><td style="" align="center">
                         1, 2, 4, or 8
                         </td></tr></tbody></table></div></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not an accepted value.
@@ -931,8 +931,9 @@
             <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
             <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
-            Silicon Graphics, Inc. This document is licensed under the SGI
-            Free Software B License. For details, see
+            Copyright <span class="trademark"></span>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
         </p></div></div></body></html>

@@ -219,15 +219,13 @@
                 </mml:mfenced>
             </mml:math>.
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
-                        Parameter
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        RGB Factor
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        Alpha Factor
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
-                        <code class="constant">GL_ZERO</code>
-                        </td><td align="left">
+        </p><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> Parameter </strong></span>
+                        </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> RGB Factor </strong></span>
+                        </th><th style="border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> Alpha Factor </strong></span>
+                        </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_ZERO</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="(" close=")">
@@ -236,14 +234,12 @@
                                 <mml:mn>0</mml:mn>
                             </mml:mfenced>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mn>0</mml:mn>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_ONE</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_ONE</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="(" close=")">
@@ -252,14 +248,12 @@
                                 <mml:mn>1</mml:mn>
                             </mml:mfenced>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mn>1</mml:mn>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_SRC_COLOR</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_SRC_COLOR</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="(" close=")">
@@ -289,7 +283,7 @@
                                 </mml:mfrac>
                             </mml:mfenced>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfrac>
@@ -301,9 +295,7 @@
                                 </mml:msub>
                             </mml:mfrac>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_ONE_MINUS_SRC_COLOR</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_ONE_MINUS_SRC_COLOR</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -342,7 +334,7 @@
                                 </mml:mfenced>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -358,9 +350,7 @@
                                 </mml:mfrac>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_DST_COLOR</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_DST_COLOR</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="(" close=")">
@@ -390,7 +380,7 @@
                                 </mml:mfrac>
                             </mml:mfenced>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfrac>
@@ -402,9 +392,7 @@
                                 </mml:msub>
                             </mml:mfrac>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_ONE_MINUS_DST_COLOR</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_ONE_MINUS_DST_COLOR</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> 
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -442,7 +430,7 @@
                                 </mml:mfenced>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -458,9 +446,7 @@
                                 </mml:mfrac>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_SRC_ALPHA</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_SRC_ALPHA</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="(" close=")">
@@ -490,7 +476,7 @@
                                 </mml:mfrac>
                             </mml:mfenced>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfrac>
@@ -502,9 +488,7 @@
                                 </mml:msub>
                             </mml:mfrac>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_ONE_MINUS_SRC_ALPHA</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_ONE_MINUS_SRC_ALPHA</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -542,7 +526,7 @@
                                 </mml:mfenced>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -558,9 +542,7 @@
                                 </mml:mfrac>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_DST_ALPHA</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_DST_ALPHA</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="(" close=")">
@@ -590,7 +572,7 @@
                                 </mml:mfrac>
                             </mml:mfenced>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfrac>
@@ -602,9 +584,7 @@
                                 </mml:msub>
                             </mml:mfrac>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_ONE_MINUS_DST_ALPHA</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_ONE_MINUS_DST_ALPHA</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -642,7 +622,7 @@
                                 </mml:mfenced>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -658,9 +638,7 @@
                                 </mml:mfrac>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_CONSTANT_COLOR</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_CONSTANT_COLOR</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="(" close=")">
@@ -675,16 +653,14 @@
                                 </mml:msub>
                             </mml:mfenced>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
                             <mml:mi mathvariant="italic">c</mml:mi>
                             </mml:msub>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_ONE_MINUS_CONSTANT_COLOR</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_ONE_MINUS_CONSTANT_COLOR</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -707,7 +683,7 @@
                                 </mml:mfenced>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -718,9 +694,7 @@
                                 </mml:msub>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_CONSTANT_ALPHA</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_CONSTANT_ALPHA</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="(" close=")">
@@ -735,16 +709,14 @@
                                 </mml:msub>
                             </mml:mfenced>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
                             <mml:mi mathvariant="italic">c</mml:mi>
                             </mml:msub>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_ONE_MINUS_CONSTANT_ALPHA</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_ONE_MINUS_CONSTANT_ALPHA</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -767,7 +739,7 @@
                                 </mml:mfenced>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -778,9 +750,7 @@
                                 </mml:msub>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_SRC_ALPHA_SATURATE</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_SRC_ALPHA_SATURATE</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="(" close=")">
@@ -789,14 +759,12 @@
                                 <mml:mi mathvariant="italic">i</mml:mi>
                             </mml:mfenced>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mn>1</mml:mn>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_SRC1_COLOR</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_SRC1_COLOR</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="(" close=")">
@@ -826,7 +794,7 @@
                                 </mml:mfrac>
                             </mml:mfenced>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfrac>
@@ -838,9 +806,7 @@
                                 </mml:msub>
                             </mml:mfrac>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_ONE_MINUS_SRC_COLOR</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_ONE_MINUS_SRC_COLOR</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -879,7 +845,7 @@
                                 </mml:mfenced>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -895,9 +861,7 @@
                                 </mml:mfrac>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_SRC1_ALPHA</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"> <code class="constant">GL_SRC1_ALPHA</code> </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="(" close=")">
@@ -927,7 +891,7 @@
                                 </mml:mfrac>
                             </mml:mfenced>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfrac>
@@ -939,9 +903,7 @@
                                 </mml:msub>
                             </mml:mfrac>
                         </mml:math>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_ONE_MINUS_SRC_ALPHA</code>
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; " align="left"> <code class="constant">GL_ONE_MINUS_SRC_ALPHA</code> </td><td style="border-right: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -979,7 +941,7 @@
                                 </mml:mfenced>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="" align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>

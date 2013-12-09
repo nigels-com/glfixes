@@ -128,36 +128,36 @@
                 </mml:mfenced>
             </mml:math>.
 
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
-                        Mode
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        RGB Components
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        Alpha Component
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+        </p><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> Mode </strong></span>
+                        </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> RGB Components </strong></span>
+                        </th><th style="border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> Alpha Component </strong></span>
+                        </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_FUNC_ADD</code>
-                        </td><td align="left">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
                                 <mml:mi mathvariant="italic">Rr</mml:mi>
                                 <mml:mo>=</mml:mo>
                                 <mml:mrow>
-                                                                        <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
-                                                                        <mml:mi mathvariant="italic">s</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
-                                                                        <mml:mi mathvariant="italic">R</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>+</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
-                                                                        <mml:mi mathvariant="italic">d</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
-                                                                        <mml:mi mathvariant="italic">R</mml:mi>
-                                                                        </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                    <mml:mi mathvariant="italic">R</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                    <mml:mi mathvariant="italic">R</mml:mi>
+                                    </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>
@@ -167,21 +167,21 @@
                                 <mml:mi mathvariant="italic">Gr</mml:mi>
                                 <mml:mo>=</mml:mo>
                                 <mml:mrow>
-                                                                        <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
-                                                                        <mml:mi mathvariant="italic">s</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
-                                                                        <mml:mi mathvariant="italic">G</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>+</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
-                                                                        <mml:mi mathvariant="italic">d</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
-                                                                        <mml:mi mathvariant="italic">G</mml:mi>
-                                                                        </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                    <mml:mi mathvariant="italic">G</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                    <mml:mi mathvariant="italic">G</mml:mi>
+                                    </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>
@@ -191,73 +191,73 @@
                                 <mml:mi mathvariant="italic">Br</mml:mi>
                                 <mml:mo>=</mml:mo>
                                 <mml:mrow>
-                                                                        <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
-                                                                        <mml:mi mathvariant="italic">s</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
-                                                                        <mml:mi mathvariant="italic">B</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>+</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
-                                                                        <mml:mi mathvariant="italic">d</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
-                                                                        <mml:mi mathvariant="italic">B</mml:mi>
-                                                                        </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                    <mml:mi mathvariant="italic">B</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                    <mml:mi mathvariant="italic">B</mml:mi>
+                                    </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
                                 <mml:mi mathvariant="italic">Ar</mml:mi>
                                 <mml:mo>=</mml:mo>
                                 <mml:mrow>
-                                                                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
-                                                                        <mml:mi mathvariant="italic">s</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
-                                                                        <mml:mi mathvariant="italic">A</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>+</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
-                                                                        <mml:mi mathvariant="italic">d</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
-                                                                        <mml:mi mathvariant="italic">A</mml:mi>
-                                                                        </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>+</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_FUNC_SUBTRACT</code>
-                        </td><td align="left">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
                                 <mml:mi mathvariant="italic">Rr</mml:mi>
                                 <mml:mo>=</mml:mo>
                                 <mml:mrow>
-                                                                        <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
-                                                                        <mml:mi mathvariant="italic">s</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
-                                                                        <mml:mi mathvariant="italic">R</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>-</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
-                                                                        <mml:mi mathvariant="italic">d</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
-                                                                        <mml:mi mathvariant="italic">R</mml:mi>
-                                                                        </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                    <mml:mi mathvariant="italic">R</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                    <mml:mi mathvariant="italic">R</mml:mi>
+                                    </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>
@@ -267,21 +267,21 @@
                                 <mml:mi mathvariant="italic">Gr</mml:mi>
                                 <mml:mo>=</mml:mo>
                                 <mml:mrow>
-                                                                        <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
-                                                                        <mml:mi mathvariant="italic">s</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
-                                                                        <mml:mi mathvariant="italic">G</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>-</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
-                                                                        <mml:mi mathvariant="italic">d</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
-                                                                        <mml:mi mathvariant="italic">G</mml:mi>
-                                                                        </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                    <mml:mi mathvariant="italic">G</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                    <mml:mi mathvariant="italic">G</mml:mi>
+                                    </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>
@@ -291,73 +291,73 @@
                                 <mml:mi mathvariant="italic">Br</mml:mi>
                                 <mml:mo>=</mml:mo>
                                 <mml:mrow>
-                                                                        <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
-                                                                        <mml:mi mathvariant="italic">s</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
-                                                                        <mml:mi mathvariant="italic">B</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>-</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
-                                                                        <mml:mi mathvariant="italic">d</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
-                                                                        <mml:mi mathvariant="italic">B</mml:mi>
-                                                                        </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                    <mml:mi mathvariant="italic">B</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                    <mml:mi mathvariant="italic">B</mml:mi>
+                                    </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
                                 <mml:mi mathvariant="italic">Ar</mml:mi>
                                 <mml:mo>=</mml:mo>
                                 <mml:mrow>
-                                                                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
-                                                                        <mml:mi mathvariant="italic">s</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
-                                                                        <mml:mi mathvariant="italic">A</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>-</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
-                                                                        <mml:mi mathvariant="italic">d</mml:mi>
-                                                                        </mml:msub>
-                                                                        <mml:mo>⁢</mml:mo>
-                                                                        <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
-                                                                        <mml:mi mathvariant="italic">A</mml:mi>
-                                                                        </mml:msub>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">s</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>-</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                    <mml:mi mathvariant="italic">d</mml:mi>
+                                    </mml:msub>
+                                    <mml:mo>⁢</mml:mo>
+                                    <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                    <mml:mi mathvariant="italic">A</mml:mi>
+                                    </mml:msub>
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_FUNC_REVERSE_SUBTRACT</code>
-                        </td><td align="left">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Rr</mml:mi>
                                     <mml:mo>=</mml:mo>
                                     <mml:mrow>
-                                                                                <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
-                                                                                <mml:mi mathvariant="italic">d</mml:mi>
-                                                                                </mml:msub>
-                                                                                <mml:mo>⁢</mml:mo>
-                                                                                <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
-                                                                                <mml:mi mathvariant="italic">R</mml:mi>
-                                                                                </mml:msub>
-                                                                                <mml:mo>-</mml:mo>
-                                                                                <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
-                                                                                <mml:mi mathvariant="italic">s</mml:mi>
-                                                                                </mml:msub>
-                                                                                <mml:mo>⁢</mml:mo>
-                                                                                <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
-                                                                                <mml:mi mathvariant="italic">R</mml:mi>
-                                                                                </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                        <mml:mi mathvariant="italic">d</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>⁢</mml:mo>
+                                        <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                        <mml:mi mathvariant="italic">R</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:msub><mml:mi mathvariant="italic">R</mml:mi>
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>⁢</mml:mo>
+                                        <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                        <mml:mi mathvariant="italic">R</mml:mi>
+                                        </mml:msub>
                                     </mml:mrow>
                                 </mml:mrow>
                             </mml:math>
@@ -367,21 +367,21 @@
                                     <mml:mi mathvariant="italic">Gr</mml:mi>
                                     <mml:mo>=</mml:mo>
                                     <mml:mrow>
-                                                                                <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
-                                                                                <mml:mi mathvariant="italic">d</mml:mi>
-                                                                                </mml:msub>
-                                                                                <mml:mo>⁢</mml:mo>
-                                                                                <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
-                                                                                <mml:mi mathvariant="italic">G</mml:mi>
-                                                                                </mml:msub>
-                                                                                <mml:mo>-</mml:mo>
-                                                                                <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
-                                                                                <mml:mi mathvariant="italic">s</mml:mi>
-                                                                                </mml:msub>
-                                                                                <mml:mo>⁢</mml:mo>
-                                                                                <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
-                                                                                <mml:mi mathvariant="italic">G</mml:mi>
-                                                                                </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                        <mml:mi mathvariant="italic">d</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>⁢</mml:mo>
+                                        <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                        <mml:mi mathvariant="italic">G</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:msub><mml:mi mathvariant="italic">G</mml:mi>
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>⁢</mml:mo>
+                                        <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                        <mml:mi mathvariant="italic">G</mml:mi>
+                                        </mml:msub>
                                     </mml:mrow>
                                 </mml:mrow>
                             </mml:math>
@@ -391,52 +391,52 @@
                                     <mml:mi mathvariant="italic">Br</mml:mi>
                                     <mml:mo>=</mml:mo>
                                     <mml:mrow>
-                                                                                <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
-                                                                                <mml:mi mathvariant="italic">d</mml:mi>
-                                                                                </mml:msub>
-                                                                                <mml:mo>⁢</mml:mo>
-                                                                                <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
-                                                                                <mml:mi mathvariant="italic">B</mml:mi>
-                                                                                </mml:msub>
-                                                                                <mml:mo>-</mml:mo>
-                                                                                <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
-                                                                                <mml:mi mathvariant="italic">s</mml:mi>
-                                                                                </mml:msub>
-                                                                                <mml:mo>⁢</mml:mo>
-                                                                                <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
-                                                                                <mml:mi mathvariant="italic">B</mml:mi>
-                                                                                </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                        <mml:mi mathvariant="italic">d</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>⁢</mml:mo>
+                                        <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                        <mml:mi mathvariant="italic">B</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:msub><mml:mi mathvariant="italic">B</mml:mi>
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>⁢</mml:mo>
+                                        <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                        <mml:mi mathvariant="italic">B</mml:mi>
+                                        </mml:msub>
                                     </mml:mrow>
                                 </mml:mrow>
                             </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
                                     <mml:mi mathvariant="italic">Ar</mml:mi>
                                     <mml:mo>=</mml:mo>
                                     <mml:mrow>
-                                                                                <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
-                                                                                <mml:mi mathvariant="italic">d</mml:mi>
-                                                                                </mml:msub>
-                                                                                <mml:mo>⁢</mml:mo>
-                                                                                <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
-                                                                                <mml:mi mathvariant="italic">A</mml:mi>
-                                                                                </mml:msub>
-                                                                                <mml:mo>-</mml:mo>
-                                                                                <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
-                                                                                <mml:mi mathvariant="italic">s</mml:mi>
-                                                                                </mml:msub>
-                                                                                <mml:mo>⁢</mml:mo>
-                                                                                <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
-                                                                                <mml:mi mathvariant="italic">A</mml:mi>
-                                                                                </mml:msub>
+                                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                        <mml:mi mathvariant="italic">d</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>⁢</mml:mo>
+                                        <mml:msub><mml:mi mathvariant="italic">d</mml:mi>
+                                        <mml:mi mathvariant="italic">A</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>-</mml:mo>
+                                        <mml:msub><mml:mi mathvariant="italic">A</mml:mi>
+                                        <mml:mi mathvariant="italic">s</mml:mi>
+                                        </mml:msub>
+                                        <mml:mo>⁢</mml:mo>
+                                        <mml:msub><mml:mi mathvariant="italic">s</mml:mi>
+                                        <mml:mi mathvariant="italic">A</mml:mi>
+                                        </mml:msub>
                                     </mml:mrow>
                                 </mml:mrow>
                             </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_MIN</code>
-                        </td><td align="left">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
@@ -506,7 +506,7 @@
                                     </mml:mrow>
                                 </mml:mrow>
                             </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
@@ -530,9 +530,9 @@
                                     </mml:mrow>
                                 </mml:mrow>
                             </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; " align="left">
                         <code class="constant">GL_MAX</code>
-                        </td><td align="left">
+                        </td><td style="border-right: 2px solid ; " align="left">
                             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
@@ -602,7 +602,7 @@
                                     </mml:mrow>
                                 </mml:mrow>
                             </mml:math>
-                        </td><td align="left">
+                        </td><td style="" align="left">
                             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>

@@ -124,15 +124,15 @@
                 </mml:mfenced>
             </mml:math>.
 
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
-                        Mode
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        RGB Components
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        Alpha Component
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+        </p><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> Mode </strong></span>
+                        </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> RGB Components </strong></span>
+                        </th><th style="border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> Alpha Component </strong></span>
+                        </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_FUNC_ADD</code>
-                        </td><td align="left">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -205,7 +205,7 @@
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -230,9 +230,9 @@
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_FUNC_SUBTRACT</code>
-                        </td><td align="left">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -305,7 +305,7 @@
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -330,9 +330,9 @@
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_FUNC_REVERSE_SUBTRACT</code>
-                        </td><td align="left">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
@@ -405,7 +405,7 @@
                                     </mml:mrow>
                                 </mml:mrow>
                             </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
@@ -430,9 +430,9 @@
                                     </mml:mrow>
                                 </mml:mrow>
                             </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_MIN</code>
-                        </td><td align="left">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
@@ -502,7 +502,7 @@
                                     </mml:mrow>
                                 </mml:mrow>
                             </mml:math>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
@@ -526,9 +526,9 @@
                                     </mml:mrow>
                                 </mml:mrow>
                             </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; " align="left">
                         <code class="constant">GL_MAX</code>
-                        </td><td align="left">
+                        </td><td style="border-right: 2px solid ; " align="left">
                             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
@@ -598,7 +598,7 @@
                                     </mml:mrow>
                                 </mml:mrow>
                             </mml:math>
-                        </td><td align="left">
+                        </td><td style="" align="left">
                             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>

@@ -22,33 +22,33 @@
             will render to <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi>face</mml:mi></mml:math>
             of the cube defined in <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi>layer</mml:mi></mml:math>.
             The face values are as follows:
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
-                        Face Value
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        Resulting Target
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+        </p><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> Face Value </strong></span>
+                        </th><th style="border-bottom: 2px solid ; " align="center">
+                            <span class="bold"><strong> Resulting Target </strong></span>
+                        </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                             0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                             <code class="constant">GL_TEXTURE_CUBEMAP_POSITIVE_X</code>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                             1
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                             <code class="constant">GL_TEXTURE_CUBEMAP_NEGATIVE_X</code>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                             2
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                             <code class="constant">GL_TEXTURE_CUBEMAP_POSITIVE_Y</code>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                             3
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                             <code class="constant">GL_TEXTURE_CUBEMAP_NEGATIVE_Y</code>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                             4
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                             <code class="constant">GL_TEXTURE_CUBEMAP_POSITIVE_Z</code>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; " align="left">
                             5
-                        </td><td align="center">
+                        </td><td style="" align="center">
                             <code class="constant">GL_TEXTURE_CUBEMAP_NEGATIVE_Z</code>
                         </td></tr></tbody></table></div><p>
         </p><p>
@@ -63,31 +63,33 @@
             the fragment stage will read the same value written by the geometry stage, even if that value is out of
             range.  If a fragment shader contains a static access to <code class="function">gl_Layer</code>, it will count against the implementation
             defined limit for the maximum number of inputs to the fragment stage.
-        </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th rowspan="2" align="left">
-                <span class="bold"><strong>Function Name</strong></span>
-            </th><th colspan="10" align="center">
+        </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th style="border-right: 2px solid ; " align="left">
+                 
+            </th><th style="border-bottom: 2px solid ; " colspan="10" align="center">
                 <span class="bold"><strong>OpenGL Shading Language Version</strong></span>
-            </th></tr><tr><th align="left">
+            </th></tr><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.10</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.20</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.30</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.40</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.50</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>3.30</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.00</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.10</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.20</strong></span>
-            </th><th align="center">
+            </th><th style="border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.30</strong></span>
-            </th></tr></thead><tbody><tr><td align="left">gl_Layer (geometry stage)</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td></tr><tr><td align="left">gl_Layer (fragment stage)</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">✔</td></tr></tbody></table></div></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">gl_Layer (geometry stage)</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">✔</td><td style="border-bottom: 2px solid ; " align="center">✔</td></tr><tr><td style="border-right: 2px solid ; " align="left">gl_Layer (fragment stage)</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="" align="center">✔</td></tr></tbody></table></div></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="gl_ViewportIndex.xml"><span class="citerefentry"><span class="refentrytitle">gl_ViewportIndex</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2011-2013 Khronos Group.

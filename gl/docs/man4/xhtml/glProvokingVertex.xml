@@ -10,82 +10,81 @@
             <em class="parameter"><code>provokeMode</code></em> must be either <code class="constant">GL_FIRST_VERTEX_CONVENTION</code> or
             <code class="constant">GL_LAST_VERTEX_CONVENTION</code>, and controls the selection of the vertex whose values are assigned to flatshaded
             varying outputs. The interpretation of these values for the supported primitive types is:
-            </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
-                            Primitive Type of Polygon <span class="emphasis"><em>i</em></span>
-                            </strong></span></th><th align="left"><span class="bold"><strong>
-                            First Vertex Convention
-                            </strong></span></th><th align="left"><span class="bold"><strong>
-                            Last Vertex Convention
-                            </strong></span></th></tr></thead><tbody><tr><td align="left">
+            </p><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                                <span class="bold"><strong> Primitive Type of Polygon <span class="emphasis"><em>i</em></span> </strong></span>
+                            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"><span class="bold"><strong> First Vertex Convention </strong></span>
+                            </th><th style="border-bottom: 2px solid ; " align="left">
+                                <span class="bold"><strong> Last Vertex Convention </strong></span>
+                            </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 point
-                            </td><td align="left">
+                            </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 <span class="emphasis"><em>i</em></span>
-                            </td><td align="left">
+                            </td><td style="border-bottom: 2px solid ; " align="left">
                                 <span class="emphasis"><em>i</em></span>
-                            </td></tr><tr><td align="left">
+                            </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 independent line
-                            </td><td align="left">
+                            </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 2<span class="emphasis"><em>i</em></span> - 1
-                            </td><td align="left">
+                            </td><td style="border-bottom: 2px solid ; " align="left">
                                 2<span class="emphasis"><em>i</em></span>
-                            </td></tr><tr><td align="left">
+                            </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 line loop
-                            </td><td align="left">
+                            </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 <span class="emphasis"><em>i</em></span>
-                            </td><td align="left">
+                            </td><td style="border-bottom: 2px solid ; " align="left">
                                 <p>
                                 <span class="emphasis"><em>i</em></span> + 1, if <span class="emphasis"><em>i</em></span> &lt; <span class="emphasis"><em>n</em></span>
                                 </p>
                                 <p>
                                 1, if <span class="emphasis"><em>i</em></span> = <span class="emphasis"><em>n</em></span>
                                 </p>
-                            </td></tr><tr><td align="left">
+                            </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 line strip
-                            </td><td align="left">
+                            </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 <span class="emphasis"><em>i</em></span>
-                            </td><td align="left">
+                            </td><td style="border-bottom: 2px solid ; " align="left">
                                 <span class="emphasis"><em>i</em></span> + 1
-                            </td></tr><tr><td align="left">
+                            </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 independent triangle
-                            </td><td align="left">
+                            </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 3<span class="emphasis"><em>i</em></span> - 2
-                            </td><td align="left">
+                            </td><td style="border-bottom: 2px solid ; " align="left">
                                 3<span class="emphasis"><em>i</em></span>
-                            </td></tr><tr><td align="left">
+                            </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 triangle strip
-                            </td><td align="left">
+                            </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 <span class="emphasis"><em>i</em></span>
-                            </td><td align="left">
+                            </td><td style="border-bottom: 2px solid ; " align="left">
                                 <span class="emphasis"><em>i</em></span> + 2
-                            </td></tr><tr><td align="left">
+                            </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 triangle fan
-                            </td><td align="left">
+                            </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 <span class="emphasis"><em>i</em></span> + 1
-                            </td><td align="left">
+                            </td><td style="border-bottom: 2px solid ; " align="left">
                                 <span class="emphasis"><em>i</em></span> + 2
-                            </td></tr><tr><td align="left">
+                            </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 line adjacency
-                            </td><td align="left">
+                            </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 4<span class="emphasis"><em>i</em></span> - 2
-                            </td><td align="left">
+                            </td><td style="border-bottom: 2px solid ; " align="left">
                                 4<span class="emphasis"><em>i</em></span> - 1
-                            </td></tr><tr><td align="left">
+                            </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 line strip adjacency
-                            </td><td align="left">
+                            </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 <span class="emphasis"><em>i</em></span> + 1
-                            </td><td align="left">
+                            </td><td style="border-bottom: 2px solid ; " align="left">
                                 <span class="emphasis"><em>i</em></span> + 2
-                            </td></tr><tr><td align="left">
+                            </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 triangle adjacency
-                            </td><td align="left">
+                            </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                                 6<span class="emphasis"><em>i</em></span> - 5
-                            </td><td align="left">
+                            </td><td style="border-bottom: 2px solid ; " align="left">
                                 6<span class="emphasis"><em>i</em></span> - 1
-                            </td></tr><tr><td align="left">
+                            </td></tr><tr><td style="border-right: 2px solid ; " align="left">
                                 triangle strip adjacency
-                            </td><td align="left">
+                            </td><td style="border-right: 2px solid ; " align="left">
                                 2<span class="emphasis"><em>i</em></span> - 1
-                            </td><td align="left">
+                            </td><td style="" align="left">
                                 2<span class="emphasis"><em>i</em></span> + 3
                             </td></tr></tbody></table></div><p>
         </p><p>

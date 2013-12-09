@@ -75,7 +75,7 @@
             but will not directly affect transform feedback state. Instead, the indexed <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>
             bindings must be used through a call to <a class="citerefentry" href="glBindBufferBase.xml"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>
             or <a class="citerefentry" href="glBindBufferRange.xml"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a>. This will affect the generic
-            <code class="constant">GL_TRANSFORM_FEEDABCK_BUFFER</code> binding.
+            <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> binding.
         </p><p>
             Likewise, the <code class="constant">GL_UNIFORM_BUFFER</code> buffer binding point may be used, but does not directly affect
             uniform buffer state. <a class="citerefentry" href="glBindBufferBase.xml"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>
@@ -119,6 +119,7 @@
             <a class="citerefentry" href="glIsBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glIsBuffer</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2005 Addison-Wesley.
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
             This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.

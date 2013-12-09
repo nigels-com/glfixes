@@ -16,31 +16,33 @@
             shared variable.  It is acceptable to pass an element of an array or a single component of a vector to the
             mem argument of an atomic memory function, as long as the underlying array or vector is a buffer or
             shared variable.
-        </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th rowspan="2" align="left">
-                <span class="bold"><strong>Function Name</strong></span>
-            </th><th colspan="10" align="center">
+        </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th style="border-right: 2px solid ; " align="left">
+                 
+            </th><th style="border-bottom: 2px solid ; " colspan="10" align="center">
                 <span class="bold"><strong>OpenGL Shading Language Version</strong></span>
-            </th></tr><tr><th align="left">
+            </th></tr><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.10</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.20</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.30</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.40</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.50</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>3.30</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.00</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.10</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.20</strong></span>
-            </th><th align="center">
+            </th><th style="border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.30</strong></span>
-            </th></tr></thead><tbody><tr><td align="left">atomicMin</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">✔</td></tr></tbody></table></div></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; " align="left">atomicMin</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="" align="center">✔</td></tr></tbody></table></div></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="atomicAdd.xml"><span class="citerefentry"><span class="refentrytitle">atomicAdd</span></span></a>,
             <a class="citerefentry" href="atomicAnd.xml"><span class="citerefentry"><span class="refentrytitle">atomicAnd</span></span></a>,
             <a class="citerefentry" href="atomicOr.xml"><span class="citerefentry"><span class="refentrytitle">atomicOr</span></span></a>,

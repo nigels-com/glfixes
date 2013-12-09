@@ -12,31 +12,33 @@
             <em class="parameter"><code>y</code></em> if non-negative, or <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:msup><mml:mn>2</mml:mn><mml:mn>32</mml:mn></mml:msup></mml:math>
             plus that difference otherwise.
             The value <em class="parameter"><code>borrow</code></em> is set to 0 if <em class="parameter"><code>x</code></em> ≥ <em class="parameter"><code>y</code></em> and to 1 otherwise.
-        </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th rowspan="2" align="left">
-                <span class="bold"><strong>Function Name</strong></span>
-            </th><th colspan="10" align="center">
+        </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th style="border-right: 2px solid ; " align="left">
+                 
+            </th><th style="border-bottom: 2px solid ; " colspan="10" align="center">
                 <span class="bold"><strong>OpenGL Shading Language Version</strong></span>
-            </th></tr><tr><th align="left">
+            </th></tr><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.10</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.20</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.30</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.40</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.50</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>3.30</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.00</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.10</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.20</strong></span>
-            </th><th align="center">
+            </th><th style="border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.30</strong></span>
-            </th></tr></thead><tbody><tr><td align="left">usubBorrow</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">-</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td></tr></tbody></table></div></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; " align="left">usubBorrow</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">-</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="" align="center">✔</td></tr></tbody></table></div></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="uaddCarry.xml"><span class="citerefentry"><span class="refentrytitle">uaddCarry</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2011-2013 Khronos Group.

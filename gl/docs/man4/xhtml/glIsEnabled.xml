@@ -14,110 +14,114 @@
         </p><p>
             The following capabilities are accepted for <em class="parameter"><code>cap</code></em>:
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
-                        Constant
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        See
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
-                        <code class="constant">GL_BLEND</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>, <a class="citerefentry" href="glLogicOp.xml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_CLIP_DISTANCE</code><span class="emphasis"><em>i</em></span>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_COLOR_LOGIC_OP</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glLogicOp.xml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_CULL_FACE</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glCullFace.xml"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_DEPTH_CLAMP</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_DEBUG_OUTPUT</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_DEBUG_OUTPUT_SYNCHRONOUS</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_DEPTH_TEST</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>, <a class="citerefentry" href="glDepthRange.xml"><span class="citerefentry"><span class="refentrytitle">glDepthRange</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_DITHER</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_FRAMEBUFFER_SRGB</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_LINE_SMOOTH</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glLineWidth.xml"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_MULTISAMPLE</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_POLYGON_SMOOTH</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glPolygonMode.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonMode</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_POLYGON_OFFSET_FILL</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_POLYGON_OFFSET_LINE</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_POLYGON_OFFSET_POINT</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_PROGRAM_POINT_SIZE</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_PRIMITIVE_RESTART</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>, <a class="citerefentry" href="glPrimitiveRestartIndex.xml"><span class="citerefentry"><span class="refentrytitle">glPrimitiveRestartIndex</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_SAMPLE_ALPHA_TO_COVERAGE</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_SAMPLE_ALPHA_TO_ONE</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_SAMPLE_COVERAGE</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_SAMPLE_MASK</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_SCISSOR_TEST</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glScissor.xml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_STENCIL_TEST</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>, <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_TEXTURE_CUBE_MAP_SEAMLESS</code>
-                        </td><td align="left">
-                        <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+        </p><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> Constant </strong></span>
+                        </th><th style="border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> See </strong></span>
+                        </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_BLEND</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>, 
+                            <a class="citerefentry" href="glLogicOp.xml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_CLIP_DISTANCE</code><span class="emphasis"><em>i</em></span>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_COLOR_LOGIC_OP</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glLogicOp.xml"><span class="citerefentry"><span class="refentrytitle">glLogicOp</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_CULL_FACE</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glCullFace.xml"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_DEPTH_CLAMP</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_DEBUG_OUTPUT</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_DEBUG_OUTPUT_SYNCHRONOUS</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_DEPTH_TEST</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>, 
+                            <a class="citerefentry" href="glDepthRange.xml"><span class="citerefentry"><span class="refentrytitle">glDepthRange</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_DITHER</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_FRAMEBUFFER_SRGB</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_LINE_SMOOTH</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glLineWidth.xml"><span class="citerefentry"><span class="refentrytitle">glLineWidth</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_MULTISAMPLE</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_POLYGON_SMOOTH</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glPolygonMode.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonMode</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_POLYGON_OFFSET_FILL</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_POLYGON_OFFSET_LINE</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_POLYGON_OFFSET_POINT</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_PROGRAM_POINT_SIZE</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_PRIMITIVE_RESTART</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>, 
+                            <a class="citerefentry" href="glPrimitiveRestartIndex.xml"><span class="citerefentry"><span class="refentrytitle">glPrimitiveRestartIndex</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_SAMPLE_ALPHA_TO_COVERAGE</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_SAMPLE_ALPHA_TO_ONE</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_SAMPLE_COVERAGE</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_SAMPLE_MASK</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_SCISSOR_TEST</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glScissor.xml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <code class="constant">GL_STENCIL_TEST</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
+                            <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>, 
+                            <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>
+                        </td></tr><tr><td style="border-right: 2px solid ; " align="left">
+                            <code class="constant">GL_TEXTURE_CUBE_MAP_SEAMLESS</code>
+                        </td><td style="" align="left">
+                            <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
                         </td></tr></tbody></table></div><p>
         </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
             If an error is generated,

@@ -865,37 +865,37 @@
             and range of valid values for each storage parameter
             that can be set with <code class="function">glPixelStore</code>.
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
-                        <em class="parameter"><code>pname</code></em>
-                        </strong></span></th><th align="center"><span class="bold"><strong>
-                        Type
-                        </strong></span></th><th align="center"><span class="bold"><strong>
-                        Initial Value
-                        </strong></span></th><th align="center"><span class="bold"><strong>
-                        Valid Range
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+        </p><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> <em class="parameter"><code>pname</code></em> </strong></span>
+                        </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
+                            <span class="bold"><strong> Type </strong></span>
+                        </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
+                            <span class="bold"><strong> Initial Value </strong></span>
+                        </th><th style="border-bottom: 2px solid ; " align="center">
+                            <span class="bold"><strong> Valid Range </strong></span>
+                        </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_SWAP_BYTES</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         boolean
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         false
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         true or false
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_LSB_FIRST</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         boolean
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         false
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         true or false
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_ROW_LENGTH</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -903,13 +903,13 @@
                                 <mml:mn>∞</mml:mn>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_IMAGE_HEIGHT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -917,13 +917,13 @@
                                 <mml:mn>∞</mml:mn>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_SKIP_ROWS</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -931,13 +931,13 @@
                                 <mml:mn>∞</mml:mn>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_SKIP_PIXELS</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -945,13 +945,13 @@
                                 <mml:mn>∞</mml:mn>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_SKIP_IMAGES</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -959,37 +959,37 @@
                                 <mml:mn>∞</mml:mn>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_ALIGNMENT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         4
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         1, 2, 4, or 8
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_SWAP_BYTES</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         boolean
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         false
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         true or false
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_LSB_FIRST</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         boolean
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         false
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         true or false
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_ROW_LENGTH</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -997,13 +997,13 @@
                                 <mml:mn>∞</mml:mn>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -1011,13 +1011,13 @@
                                 <mml:mn>∞</mml:mn>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_SKIP_ROWS</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -1025,13 +1025,13 @@
                                 <mml:mn>∞</mml:mn>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_SKIP_PIXELS</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -1039,13 +1039,13 @@
                                 <mml:mn>∞</mml:mn>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_SKIP_IMAGES</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -1053,13 +1053,13 @@
                                 <mml:mn>∞</mml:mn>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_ALIGNMENT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; " align="center">
                         4
-                        </td><td align="center">
+                        </td><td style="" align="center">
                         1, 2, 4, or 8
                         </td></tr></tbody></table></div><p>
             <code class="function">glPixelStoref</code> can be used to set any pixel store parameter.

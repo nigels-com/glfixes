@@ -90,24 +90,32 @@
             be copied with <em class="parameter"><code>srcDepth</code></em>.  Cubemap textures always have six faces
             which are selected by a zero-based face index.
         </p><p>
-            For the purposes of CopyImageSubData, two internal formats
-    are considered compatible if any of the following conditions are
-    met:
-     * the formats are the same,
-     * the formats are considered compatible according to the
-       compatibility rules used for texture views as defined in
-       section 3.9.X. In particular, if both internal formats are listed
-       in the same entry of Table 3.X.2, they are considered compatible, or
-     * one format is compressed and the other is uncompressed and
-       Table 4.X.1 lists the two formats in the same row.
-    If the formats are not compatible INVALID_OPERATION is generated.
-        </p><div class="table"><a id="idp6957216"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
-            Texel / Block Size
-            </strong></span></th><th align="left"><span class="bold"><strong>
-            Uncompressed Internal Format
-            </strong></span></th><th align="left"><span class="bold"><strong>
-            Compressed Internal Format(s)
-            </strong></span></th></tr></thead><tbody><tr><td align="left">64-bit</td><td align="left"><code class="constant">GL_RGBA32UI</code>, <code class="constant">GL_RGBA32I</code>, <code class="constant">GL_RGBA32F</code></td><td align="left"><code class="constant">GL_COMPRESSED_RGBA_S3TC_DXT3_EXT</code>,
+            For the purposes of CopyImageSubData, two internal formats are considered compatible if
+            any of the following conditions are met:
+
+            </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p> 
+                        the formats are the same, 
+                    </p></li><li class="listitem"><p> 
+                        the formats are considered compatible according
+                        to the compatibility rules used for texture
+                        views as defined in section 3.9.X. In
+                        particular, if both internal formats are listed
+                        in the same entry of Table 3.X.2, they are
+                        considered compatible, or
+                    </p></li><li class="listitem"><p> 
+                        one format is compressed and the other is
+                        uncompressed and Table 4.X.1 lists the two
+                        formats in the same row.
+                    </p></li></ul></div><p>
+
+            If the formats are not compatible, an INVALID_OPERATION error is generated.
+        </p><div class="table"><a id="idp307168"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                <span class="bold"><strong> Texel / Block Size </strong></span>
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                <span class="bold"><strong> Uncompressed Internal Format </strong></span>
+            </th><th style="border-bottom: 2px solid ; " align="left">
+                <span class="bold"><strong> Compressed Internal Format(s) </strong></span>
+            </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">64-bit</td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left"><code class="constant">GL_RGBA32UI</code>, <code class="constant">GL_RGBA32I</code>, <code class="constant">GL_RGBA32F</code></td><td style="border-bottom: 2px solid ; " align="left"><code class="constant">GL_COMPRESSED_RGBA_S3TC_DXT3_EXT</code>,
                    <code class="constant">GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT</code>,
                    <code class="constant">GL_COMPRESSED_RGBA_S3TC_DXT5_EXT</code>,
                    <code class="constant">GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT</code>,
@@ -116,14 +124,14 @@
                    <code class="constant">GL_COMPRESSED_RGBA_BPTC_UNORM</code>,
                    <code class="constant">GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM</code>,
                    <code class="constant">GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT</code>,
-                   <code class="constant">GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT</code></td></tr><tr><td align="left">128-bit</td><td align="left"><code class="constant">GL_RGBA16UI</code>,
+                   <code class="constant">GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT</code></td></tr><tr><td style="border-right: 2px solid ; " align="left">128-bit</td><td style="border-right: 2px solid ; " align="left"><code class="constant">GL_RGBA16UI</code>,
                    <code class="constant">GL_RGBA16I</code>,
                    <code class="constant">GL_RGBA16F</code>,
                    <code class="constant">GL_RG32F</code>,
                    <code class="constant">GL_RG32UI</code>,
                    <code class="constant">GL_RG32I</code>,
                    <code class="constant">GL_RGBA16</code>,
-                   <code class="constant">GL_RGBA16_SNORM</code></td><td align="left"><code class="constant">GL_COMPRESSED_RGB_S3TC_DXT1_EXT</code>,
+                   <code class="constant">GL_RGBA16_SNORM</code></td><td style="" align="left"><code class="constant">GL_COMPRESSED_RGB_S3TC_DXT1_EXT</code>,
                    <code class="constant">GL_COMPRESSED_SRGB_S3TC_DXT1_EXT</code>,
                    <code class="constant">GL_COMPRESSED_RGBA_S3TC_DXT1_EXT</code>,
                    <code class="constant">GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT</code>,

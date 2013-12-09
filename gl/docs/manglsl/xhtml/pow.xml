@@ -10,31 +10,33 @@
             Results are undefined if <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:apply><mml:lt definitionURL="" encoding=""></mml:lt><mml:mi>x</mml:mi><mml:mn>0</mml:mn></mml:apply></mml:math>
             or if <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:apply><mml:eq definitionURL="" encoding=""></mml:eq><mml:mi>x</mml:mi><mml:mn>0</mml:mn></mml:apply></mml:math> and
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:apply><mml:eq definitionURL="" encoding=""></mml:eq><mml:mi>y</mml:mi><mml:mn>0</mml:mn></mml:apply></mml:math>.
-        </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th rowspan="2" align="left">
-                <span class="bold"><strong>Function Name</strong></span>
-            </th><th colspan="10" align="center">
+        </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th style="border-right: 2px solid ; " align="left">
+                 
+            </th><th style="border-bottom: 2px solid ; " colspan="10" align="center">
                 <span class="bold"><strong>OpenGL Shading Language Version</strong></span>
-            </th></tr><tr><th align="left">
+            </th></tr><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                <span class="bold"><strong>Function Name</strong></span>
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.10</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.20</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.30</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.40</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>1.50</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>3.30</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.00</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.10</strong></span>
-            </th><th align="left">
+            </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.20</strong></span>
-            </th><th align="center">
+            </th><th style="border-bottom: 2px solid ; " align="center">
                 <span class="bold"><strong>4.30</strong></span>
-            </th></tr></thead><tbody><tr><td align="left">pow</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td><td align="center">✔</td></tr></tbody></table></div></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; " align="left">pow</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="border-right: 2px solid ; " align="center">✔</td><td style="" align="center">✔</td></tr></tbody></table></div></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="sin.xml"><span class="citerefentry"><span class="refentrytitle">sin</span></span></a>,
             <a class="citerefentry" href="cos.xml"><span class="citerefentry"><span class="refentrytitle">cos</span></span></a>,
             <a class="citerefentry" href="sinh.xml"><span class="citerefentry"><span class="refentrytitle">sinh</span></span></a>,
