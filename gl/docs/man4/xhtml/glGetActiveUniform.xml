@@ -19,8 +19,8 @@
     with the value <code class="constant">GL_ACTIVE_UNIFORMS</code>. A value
     of 0 for <em class="parameter"><code>index</code></em> selects the first active
     uniform variable. Permissible values for
-    <em class="parameter"><code>index</code></em> range from 0 to the number of
-    active uniform variables minus 1.</p><p>Shaders may use either built-in uniform variables,
+    <em class="parameter"><code>index</code></em> range from zero to the number of
+    active uniform variables minus one.</p><p>Shaders may use either built-in uniform variables,
     user-defined uniform variables, or both. Built-in uniform
     variables have a prefix of "gl_" and reference
     existing OpenGL state or values derived from such state (e.g.,

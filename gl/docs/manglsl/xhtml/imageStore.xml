@@ -9,10 +9,10 @@
                 </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
                     Specifies the data to store into the image.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">imageStore</code> stores <em class="parameter"><code>data</code></em> into the texel at the coordinate <em class="parameter"><code>P</code></em> from 
-            the image specified by <em class="parameter"><code>image</code></em>.  For multi-sample stores, the sample number is given by <em class="parameter"><code>sample</code></em>.  When 
-            <em class="parameter"><code>image</code></em>, <em class="parameter"><code>P</code></em>, and <em class="parameter"><code>sample</code></em> identify a valid texel, the bits 
-            used to represent data are converted to the format of the image unit in the manner described in of the OpenGL Specification and stored to 
+            <code class="function">imageStore</code> stores <em class="parameter"><code>data</code></em> into the texel at the coordinate <em class="parameter"><code>P</code></em> from
+            the image specified by <em class="parameter"><code>image</code></em>.  For multi-sample stores, the sample number is given by <em class="parameter"><code>sample</code></em>.  When
+            <em class="parameter"><code>image</code></em>, <em class="parameter"><code>P</code></em>, and <em class="parameter"><code>sample</code></em> identify a valid texel, the bits
+            used to represent data are converted to the format of the image unit in the manner described in of the OpenGL Specification and stored to
             the specified texel.
         </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th rowspan="2" align="left">
                 <span class="bold"><strong>Function Name</strong></span>
@@ -49,8 +49,8 @@
             <a class="citerefentry" href="imageAtomicExchange.xml"><span class="citerefentry"><span class="refentrytitle">imageAtomicExchange</span></span></a>,
             <a class="citerefentry" href="imageAtomicCompSwap.xml"><span class="citerefentry"><span class="refentrytitle">imageAtomicCompSwap</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2011-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2011-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

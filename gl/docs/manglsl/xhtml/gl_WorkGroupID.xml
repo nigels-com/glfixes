@@ -4,7 +4,7 @@
             <code class="function">in uvec3 gl_WorkGroupID</code>
         </p></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             In the compute language, <code class="function">gl_WorkGroupID</code>
-            contains the 3-dimensional index of the global work group 
+            contains the 3-dimensional index of the global work group
             that the current compute shader invocation is executing within. The possible values range
             across the parameters passed into <code class="function">glDispatchCompute</code>, i.e., from (0, 0, 0) to
             (<code class="function">gl_NumWorkGroups.x</code> - 1, <code class="function">gl_NumWorkGroups.y</code> - 1, <code class="function">gl_NumWorkGroups.z</code> - 1).
@@ -37,8 +37,8 @@
             <a class="citerefentry" href="gl_WorkGroupID.xml"><span class="citerefentry"><span class="refentrytitle">gl_WorkGroupID</span></span></a>,
             <a class="citerefentry" href="gl_LocalInvocationID.xml"><span class="citerefentry"><span class="refentrytitle">gl_LocalInvocationID</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2011-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2011-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

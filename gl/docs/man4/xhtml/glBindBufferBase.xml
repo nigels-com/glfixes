@@ -23,7 +23,7 @@
             <a class="citerefentry" href="glBindBufferRange.xml"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a> with <em class="parameter"><code>offset</code></em>
             zero and <em class="parameter"><code>size</code></em> equal to the size of the buffer.
         </p><p>
-            The <code class="constant">GL_ATOMIC_COUNTER_BUFER</code> target is available only if the GL version is 4.2 or greater.
+            The <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> target is available only if the GL version is 4.2 or greater.
         </p><p>
             The <code class="constant">GL_SHADER_STORAGE_BUFFER</code> target is available only if the GL version is 4.3 or greater.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>

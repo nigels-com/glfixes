@@ -26,7 +26,7 @@
             <code class="code">GLint</code>, <code class="code">GLfixed</code>, <code class="code">GLfloat</code>, <code class="code">GLhalf</code>, and
             <code class="code">GLdouble</code>, respectively; the values <code class="constant">GL_UNSIGNED_BYTE</code>,
             <code class="constant">GL_UNSIGNED_SHORT</code>, and <code class="constant">GL_UNSIGNED_INT</code> indicate types
-            <code class="code">GLubyte</code>, <code class="code">GLushort</code>, and <code class="code">GLuint</code>, 
+            <code class="code">GLubyte</code>, <code class="code">GLushort</code>, and <code class="code">GLuint</code>,
             respectively; the values <code class="constant">GL_INT_2_10_10_10_REV</code> and
             <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code> indicating respectively four signed or
             unsigned elements packed into a single <code class="code">GLuint</code>; and the value
@@ -54,7 +54,7 @@
             layout for floating-point vertex attributes, <code class="function">glVertexAttribIFormat</code>
             should be used to describe vertex attribute layout for integer vertex attribute
             and <code class="function">glVertexAttribLFormat</code> should be used to describe the layout
-            for 64-bit vertex attributes. Data for an array specified by 
+            for 64-bit vertex attributes. Data for an array specified by
             <code class="function">glVertexAttribIFormat</code> will always be left as integer values;
             such data are referred to as pure integers.
         </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
@@ -86,8 +86,8 @@
             <a class="citerefentry" href="glVertexBindingDivisor.xml"><span class="citerefentry"><span class="refentrytitle">glVertexBindingDivisor</span></span></a>,
             <a class="citerefentry" href="glVertexAttribPointer.xml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a>.
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

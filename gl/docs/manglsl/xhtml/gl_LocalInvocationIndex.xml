@@ -7,8 +7,8 @@
             is a derived input variable containing the 1-dimensional linearized index of the
             work invocation within the work group that the current shader is
             executing on. The value of <code class="function">gl_LocalInvocationIndex</code> is equal to
-            <code class="function">gl_LocalInvocationID.z</code> * <code class="function">gl_WorkGroupSize.x</code> * <code class="function">gl_WorkGroupSize.y</code> + 
-            <code class="function">gl_LocalInvocationID.y</code> * <code class="function">gl_WorkGroupSize.x</code> + 
+            <code class="function">gl_LocalInvocationID.z</code> * <code class="function">gl_WorkGroupSize.x</code> * <code class="function">gl_WorkGroupSize.y</code> +
+            <code class="function">gl_LocalInvocationID.y</code> * <code class="function">gl_WorkGroupSize.x</code> +
             <code class="function">gl_LocalInvocationID.x</code>.
         </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th rowspan="2" align="left">
                 <span class="bold"><strong>Variable Name</strong></span>
@@ -40,8 +40,8 @@
             <a class="citerefentry" href="gl_WorkGroupSize.xml"><span class="citerefentry"><span class="refentrytitle">gl_WorkGroupSize</span></span></a>,
             <a class="citerefentry" href="gl_LocalInvocationID.xml"><span class="citerefentry"><span class="refentrytitle">gl_LocalInvocationID</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2011-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2011-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

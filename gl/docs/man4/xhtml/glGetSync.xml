@@ -28,7 +28,7 @@
             is placed in <em class="parameter"><code>values</code></em>. The only condition supported is <code class="constant">GL_SYNC_GPU_COMMANDS_COMPLETE</code>.
         </p><p>
             If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_SYNC_FLAGS</code>, a single value representing the flags with which the sync object
-            was created is placed in <em class="parameter"><code>values</code></em>. No flags are currently supported<a href="#ftn.idp4976896" class="footnote" id="idp4976896"><sup class="footnote">[1]</sup></a>.
+            was created is placed in <em class="parameter"><code>values</code></em>. No flags are currently supported<a href="#ftn.idp2551408" class="footnote" id="idp2551408"><sup class="footnote">[1]</sup></a>.
         </p><p>
             If an error occurs, nothing will be written to <em class="parameter"><code>values</code></em> or <em class="parameter"><code>length</code></em>.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
@@ -44,5 +44,5 @@
             This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
-        </p></div><div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.idp4976896" class="footnote"><p><a href="#idp4976896" class="para"><sup class="para">[1] </sup></a><em class="parameter"><code>flags</code></em> is
+        </p></div><div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.idp2551408" class="footnote"><p><a href="#idp2551408" class="para"><sup class="para">[1] </sup></a><em class="parameter"><code>flags</code></em> is
             expected to be used in future extensions to the sync objects.</p></div></div></div></body></html>

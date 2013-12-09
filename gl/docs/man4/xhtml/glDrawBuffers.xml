@@ -21,7 +21,7 @@
             back left color buffer.</p></dd><dt><span class="term"><code class="constant">GL_BACK_RIGHT</code></span></dt><dd><p>The fragment shader output value is written into the
             back right color buffer.</p></dd><dt><span class="term"><code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>n</em></span></span></dt><dd><p>The fragment shader output value is written into the
             <span class="emphasis"><em>n</em></span>th color attachment of the current framebuffer.
-            <span class="emphasis"><em>n</em></span> may range from 0 to the value of
+            <span class="emphasis"><em>n</em></span> may range from zero to the value of
             <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>.</p></dd></dl></div><p>Except for <code class="constant">GL_NONE</code>, the preceding
     symbolic constants may not appear more than once in
     <em class="parameter"><code>bufs</code></em>. The maximum number of draw buffers

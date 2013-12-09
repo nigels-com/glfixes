@@ -11,10 +11,10 @@
             guaranteed not to be modified by any other assignment or atomic memory function in any shader
             invocation between the time the original value is read and the time the new value is written.
         </p><p>
-            Atomic memory functions are supported only for a limited set of variables.  A shader will fail to compile 
-            if the value passed to the mem argument of  an atomic memory function does not correspond to a buffer or 
-            shared variable.  It is acceptable to pass an element of an array or a single component of a vector to the 
-            mem argument of an atomic memory function, as long as the underlying array or vector is a buffer or 
+            Atomic memory functions are supported only for a limited set of variables.  A shader will fail to compile
+            if the value passed to the mem argument of  an atomic memory function does not correspond to a buffer or
+            shared variable.  It is acceptable to pass an element of an array or a single component of a vector to the
+            mem argument of an atomic memory function, as long as the underlying array or vector is a buffer or
             shared variable.
         </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th rowspan="2" align="left">
                 <span class="bold"><strong>Function Name</strong></span>

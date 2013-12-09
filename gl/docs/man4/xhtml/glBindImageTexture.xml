@@ -39,7 +39,7 @@
             image from shaders. <em class="parameter"><code>format</code></em> must be compatible with the texture's internal format and must
             be one of the formats listed in the following table.
         </p><p>
-            </p><div class="table"><a id="idp6684768"></a><p class="title"><strong>Table 1. Internal Image Formats</strong></p><div class="table-contents"><table summary="Internal Image Formats" border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+            </p><div class="table"><a id="idp7256000"></a><p class="title"><strong>Table 1. Internal Image Formats</strong></p><div class="table-contents"><table summary="Internal Image Formats" border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
                         Image Unit Format
                         </strong></span></th><th align="left"><span class="bold"><strong>
                         Format Qualifier

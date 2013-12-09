@@ -53,26 +53,26 @@
             must be equal to 6. If the new texture's target is <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>,
             then <em class="parameter"><code>numlayers</code></em> counts layer-faces rather than layers, and the clamped
             <em class="parameter"><code>numlayers</code></em> must be a multiple of 6. If the new texture's target is <code class="constant">GL_TEXTURE_CUBE_MAP</code> or
-            <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>, the width and height of the original texture's 
+            <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>, the width and height of the original texture's
             levels must be equal.
         </p><p>
             When the original texture's target is <code class="constant">GL_TEXTURE_CUBE_MAP</code>, the layer
             parameters are interpreted in the same order as if it were a
             <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code> with 6 layer-faces.
         </p><p>
-            If <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_3D</code>, <code class="constant">GL_TEXTURE_RECTANGLE</code>, or 
+            If <em class="parameter"><code>target</code></em> is <code class="constant">GL_TEXTURE_1D</code>, <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_3D</code>, <code class="constant">GL_TEXTURE_RECTANGLE</code>, or
             <code class="constant">GL_TEXTURE_2D_MULTISAMPLE</code>, <em class="parameter"><code>numlayers</code></em> must equal 1.
         </p><p>
-            The dimensions of the original texture must be less than or equal to the maximum 
+            The dimensions of the original texture must be less than or equal to the maximum
             supported dimensions of the new target. For example, if the original texture has a <code class="constant">GL_TEXTURE_2D_ARRAY</code>
             target and its width is greater than <code class="constant">GL_MAX_CUBE_MAP_TEXTURE_SIZE</code>, an error
             will be generated if <code class="function">glTextureView</code> is called to create a <code class="constant">GL_TEXTURE_CUBE_MAP</code>
             view.
         </p><p>
-            Texture commands that take a <em class="parameter"><code>level</code></em> or <em class="parameter"><code>layer</code></em> parameter, such as 
-            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, interpret that parameter to be relative to the view of the 
-            texture. i.e. the mipmap level of the data store that would be updated via 
-            <a class="citerefentry" href="TexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">TexSubImage2D</span></span></a> would be the sum of <em class="parameter"><code>level</code></em> and the value of 
+            Texture commands that take a <em class="parameter"><code>level</code></em> or <em class="parameter"><code>layer</code></em> parameter, such as
+            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, interpret that parameter to be relative to the view of the
+            texture. i.e. the mipmap level of the data store that would be updated via
+            <a class="citerefentry" href="TexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">TexSubImage2D</span></span></a> would be the sum of <em class="parameter"><code>level</code></em> and the value of
             <code class="constant">GL_TEXTURE_VIEW_MIN_LEVEL</code>.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>minlayer</code></em> or <em class="parameter"><code>minlevel</code></em>
@@ -116,8 +116,8 @@
             <a class="citerefentry" href="glTexStorage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a>,
             <a class="citerefentry" href="glGetTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexParameter</span></span></a>.
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

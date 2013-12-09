@@ -12,7 +12,7 @@
             objects whose names are stored in the array <em class="parameter"><code>textures</code></em>. That number
             of texture names are read from the array and bound to the <em class="parameter"><code>count</code></em> consecutive
             texture units starting from <em class="parameter"><code>first</code></em>.
-            
+
             If the name zero appears in the <em class="parameter"><code>textures</code></em> array, any existing binding
             to the image unit is reset. Any non-zero entry in <em class="parameter"><code>textures</code></em> must be the
             name of an existing texture object. When a non-zero entry in <em class="parameter"><code>textures</code></em> is
@@ -20,8 +20,8 @@
             layer set to zero, and the image is bound for read-write access. The image unit format
             parameter is taken from the internal format of the image at level zero of the texture object.
             For cube map textures, the internal format of the positive X image of level zero is used.
-            
-            
+
+
             If <em class="parameter"><code>textures</code></em> is <code class="constant">NULL</code> then it is as
             if an appropriately sized array containing only zeros had been specified.
         </p><p>
@@ -81,7 +81,7 @@
             <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
             Copyright <span class="trademark"></span>© 2013 Khronos Group.
-            This material may be distributed subject to the terms and conditions set forth in 
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

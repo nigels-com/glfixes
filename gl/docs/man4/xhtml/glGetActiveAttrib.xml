@@ -19,8 +19,8 @@
     with the value <code class="constant">GL_ACTIVE_ATTRIBUTES</code>. A
     value of 0 for <em class="parameter"><code>index</code></em> selects the first
     active attribute variable. Permissible values for
-    <em class="parameter"><code>index</code></em> range from 0 to the number of
-    active attribute variables minus 1.</p><p>A vertex shader may use either built-in attribute
+    <em class="parameter"><code>index</code></em> range from zero to the number of
+    active attribute variables minus one.</p><p>A vertex shader may use either built-in attribute
     variables, user-defined attribute variables, or both. Built-in
     attribute variables have a prefix of "gl_" and
     reference conventional OpenGL vertex attribtes (e.g.,

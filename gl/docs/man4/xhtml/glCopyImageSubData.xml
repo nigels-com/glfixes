@@ -38,7 +38,7 @@
             images with different internal formats, provided
             the formats are compatible.
         </p><p>
-            <code class="function">glCopyImageSubData</code> also allows copying between certain 
+            <code class="function">glCopyImageSubData</code> also allows copying between certain
             types of compressed and uncompressed internal formats. This copy does not perform on-the-fly compression
             or decompression. When copying from an uncompressed internal format
             to a compressed internal format, each texel of uncompressed data
@@ -69,8 +69,8 @@
             be zero.
         </p><p>
             <em class="parameter"><code>srcX</code></em>, <em class="parameter"><code>srcY</code></em>, and <em class="parameter"><code>srcZ</code></em> specify the lower left texel
-            coordinates of a <em class="parameter"><code>srcWidth</code></em>-wide by <em class="parameter"><code>srcHeight</code></em>-high by 
-            <em class="parameter"><code>srcDepth</code></em>-deep rectangular subregion of the source texel array.  
+            coordinates of a <em class="parameter"><code>srcWidth</code></em>-wide by <em class="parameter"><code>srcHeight</code></em>-high by
+            <em class="parameter"><code>srcDepth</code></em>-deep rectangular subregion of the source texel array.
             Similarly, <em class="parameter"><code>dstX</code></em>, <em class="parameter"><code>dstY</code></em> and <em class="parameter"><code>dstZ</code></em> specify the coordinates of a subregion of the
             destination texel array.  The source and destination subregions
             must be contained entirely within the specified level of the
@@ -83,7 +83,7 @@
             block size larger than in the uncompressed image.
         </p><p>
             Slices of a <code class="constant">GL_TEXTURE_1D_ARRAY</code>, <code class="constant">GL_TEXTURE_2D_ARRAY</code>, <code class="constant">GL_TEXTURE_CUBE_MAP_ARRAY</code>
-            <code class="constant">GL_TEXTURE_3D</code> and faces of <code class="constant">GL_TEXTURE_CUBE_MAP</code> are all compatible provided 
+            <code class="constant">GL_TEXTURE_3D</code> and faces of <code class="constant">GL_TEXTURE_CUBE_MAP</code> are all compatible provided
             they share a compatible internal format, and multiple slices or faces
             may be copied between these objects with a single call by specifying the
             starting slice with <em class="parameter"><code>srcZ</code></em> and <em class="parameter"><code>dstZ</code></em>, and the number of slices to
@@ -94,14 +94,14 @@
     are considered compatible if any of the following conditions are
     met:
      * the formats are the same,
-     * the formats are considered compatible according to the 
-       compatibility rules used for texture views as defined in 
+     * the formats are considered compatible according to the
+       compatibility rules used for texture views as defined in
        section 3.9.X. In particular, if both internal formats are listed
        in the same entry of Table 3.X.2, they are considered compatible, or
      * one format is compressed and the other is uncompressed and
        Table 4.X.1 lists the two formats in the same row.
     If the formats are not compatible INVALID_OPERATION is generated.
-        </p><div class="table"><a id="idp38960"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+        </p><div class="table"><a id="idp6957216"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Texel / Block Size
             </strong></span></th><th align="left"><span class="bold"><strong>
             Uncompressed Internal Format
@@ -142,7 +142,7 @@
             <code class="constant">GL_INVALID_OPERATION</code> is generated if either object is a texture and the texture is
             not complete.
         </p><p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if the source and 
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the source and
             destination internal formats are not compatible, or if the number of samples do not match.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if either name does not correspond to a
@@ -162,8 +162,8 @@
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glDispatchComputeIndirect.xml"><span class="citerefentry"><span class="refentrytitle">glDispatchComputeIndirect</span></span></a>.
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>
