@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 24264 $ on $Date: 2013-12-02 03:42:47 -0800 (Mon, 02 Dec 2013) $
+** Khronos $Revision: 24370 $ on $Date: 2013-12-05 03:51:29 -0800 (Thu, 05 Dec 2013) $
 */
 
 #if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
@@ -53,7 +53,7 @@ extern "C" {
 #define GLAPI extern
 #endif
 
-#define GL_GLEXT_VERSION 20131202
+#define GL_GLEXT_VERSION 20131205
 
 /* Generated C header for:
  * API: gl
@@ -2144,6 +2144,10 @@ GLAPI void APIENTRY glGetDoublei_v (GLenum target, GLuint index, GLdouble *data)
 #define GL_MAX_GEOMETRY_IMAGE_UNIFORMS    0x90CD
 #define GL_MAX_FRAGMENT_IMAGE_UNIFORMS    0x90CE
 #define GL_MAX_COMBINED_IMAGE_UNIFORMS    0x90CF
+#define GL_COMPRESSED_RGBA_BPTC_UNORM     0x8E8C
+#define GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM 0x8E8D
+#define GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT 0x8E8E
+#define GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT 0x8E8F
 #define GL_TEXTURE_IMMUTABLE_FORMAT       0x912F
 typedef void (APIENTRYP PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC) (GLenum mode, GLint first, GLsizei count, GLsizei instancecount, GLuint baseinstance);
 typedef void (APIENTRYP PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei instancecount, GLuint baseinstance);

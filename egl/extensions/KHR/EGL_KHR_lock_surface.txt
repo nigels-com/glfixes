@@ -24,13 +24,19 @@ Notice
 
 Status
 
+    This extension, as well as the layered EGL_KHR_lock_surface2, are
+    obsolete and have been replaced by EGL_KHR_lock_surface3. Khronos
+    recommends implementers who support this extension and lock_surface2
+    also implement lock_surface3, and begin transitioning developers to
+    using that extension. See issue 17 for the reason.
+
     Complete.
     Version 17 approved by the Khronos Board of Promoters on
     February 11, 2008.
 
 Version
 
-    Version 18, March 23, 2010
+    Version 19, October 15, 2013
 
 Number
 
@@ -62,9 +68,9 @@ New Types
 
 New Procedures and Functions
 
-    EGLBoolean eglLockSurfaceKHR(EGLDisplay display, EGLSurface surface,
+    EGLBoolean eglLockSurfaceKHR(EGLDisplay dpy, EGLSurface surface,
                                  const EGLint *attrib_list);
-    EGLBoolean eglUnlockSurfaceKHR(EGLDisplay display,
+    EGLBoolean eglUnlockSurfaceKHR(EGLDisplay dpy,
                                    EGLSurface surface);
 
 New Tokens
@@ -226,7 +232,7 @@ Additions to Chapter 3 of the EGL 1.3 Specification (EGL Functions and Errors)
 
         A rendering surface may be <locked> by calling
 
-            EGLBoolean eglLockSurfaceKHR(EGLDisplay display,
+            EGLBoolean eglLockSurfaceKHR(EGLDisplay dpy,
                                          EGLSurface surface,
                                          const EGLint *attrib_list);
 
@@ -340,7 +346,7 @@ Additions to Chapter 3 of the EGL 1.3 Specification (EGL Functions and Errors)
 
         A rendering surface may be <unlocked> by calling
 
-            EGLBoolean eglUnlockSurfaceKHR(EGLDisplay display,
+            EGLBoolean eglUnlockSurfaceKHR(EGLDisplay dpy,
                                            EGLSurface surface);
 
         Any mapped buffers of <surface> become unmapped following
@@ -640,8 +646,23 @@ Issues
     indicated by queries of EGL_BITMAP_POINTER_KHR and
     EGL_BITMAP_PITCH_KHR failing and generating an EGL_BAD_ACCESS error.
 
+17) Why has this extension been obsoleted and replaced by
+    EGL_KHR_lock_surface3?
+
+    RESOLVED: Starting with the December 4, 2013 release of EGL 1.4, EGLint
+    is defined to be the same size as the native platform "int" type. Handle
+    and pointer attribute values *cannot* be represented in attribute lists
+    on platforms where sizeof(handle/pointer) > sizeof(int). Existing
+    extensions which assume this functionality are being replaced with new
+    extensions specifying new entry points to work around this issue. See
+    the latest EGL 1.4 Specification for more details.
+
 Revision History
 
+    Version 19, 2013/10/15 - Add issue 17 explaining that the bitmap pointer
+        cannot be safely queried using this extension on 64-bit platforms,
+        and suggest EGL_KHR_lock_surface3 instead. Change formal parameter
+        names from 'display' to 'dpy' to match other EGL APIs.
     Version 18, 2010/03/23 - Added introductory remark referring to the
         EGL_KHR_lock_surface2 extension. Clarified that it is the back
         buffer of a back-buffered surface that is mapped.

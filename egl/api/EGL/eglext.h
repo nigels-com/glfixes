@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 23730 $ on $Date: 2013-10-28 15:16:34 -0700 (Mon, 28 Oct 2013) $
+** Khronos $Revision: 24350 $ on $Date: 2013-12-04 12:46:23 -0800 (Wed, 04 Dec 2013) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20131028
+#define EGL_EGLEXT_VERSION 20131204
 
 /* Generated C header for:
  * API: egl
@@ -55,6 +55,16 @@ extern "C" {
 #define EGL_SYNC_CL_EVENT_KHR             0x30FE
 #define EGL_SYNC_CL_EVENT_COMPLETE_KHR    0x30FF
 #endif /* EGL_KHR_cl_event */
+
+#ifndef EGL_KHR_cl_event2
+#define EGL_KHR_cl_event2 1
+typedef void *EGLSyncKHR;
+typedef intptr_t EGLAttribKHR;
+typedef EGLSyncKHR (EGLAPIENTRYP PFNEGLCREATESYNC64KHRPROC) (EGLDisplay dpy, EGLenum type, const EGLAttribKHR *attrib_list);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLSyncKHR EGLAPIENTRY eglCreateSync64KHR (EGLDisplay dpy, EGLenum type, const EGLAttribKHR *attrib_list);
+#endif
+#endif /* EGL_KHR_cl_event2 */
 
 #ifndef EGL_KHR_client_get_all_proc_addresses
 #define EGL_KHR_client_get_all_proc_addresses 1
@@ -169,11 +179,11 @@ EGLAPI EGLBoolean EGLAPIENTRY eglDestroyImageKHR (EGLDisplay dpy, EGLImageKHR im
 #define EGL_BITMAP_PIXEL_LUMINANCE_OFFSET_KHR 0x30CD
 #define EGL_LOWER_LEFT_KHR                0x30CE
 #define EGL_UPPER_LEFT_KHR                0x30CF
-typedef EGLBoolean (EGLAPIENTRYP PFNEGLLOCKSURFACEKHRPROC) (EGLDisplay display, EGLSurface surface, const EGLint *attrib_list);
-typedef EGLBoolean (EGLAPIENTRYP PFNEGLUNLOCKSURFACEKHRPROC) (EGLDisplay display, EGLSurface surface);
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLLOCKSURFACEKHRPROC) (EGLDisplay dpy, EGLSurface surface, const EGLint *attrib_list);
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLUNLOCKSURFACEKHRPROC) (EGLDisplay dpy, EGLSurface surface);
 #ifdef EGL_EGLEXT_PROTOTYPES
-EGLAPI EGLBoolean EGLAPIENTRY eglLockSurfaceKHR (EGLDisplay display, EGLSurface surface, const EGLint *attrib_list);
-EGLAPI EGLBoolean EGLAPIENTRY eglUnlockSurfaceKHR (EGLDisplay display, EGLSurface surface);
+EGLAPI EGLBoolean EGLAPIENTRY eglLockSurfaceKHR (EGLDisplay dpy, EGLSurface surface, const EGLint *attrib_list);
+EGLAPI EGLBoolean EGLAPIENTRY eglUnlockSurfaceKHR (EGLDisplay dpy, EGLSurface surface);
 #endif
 #endif /* EGL_KHR_lock_surface */
 
@@ -182,9 +192,16 @@ EGLAPI EGLBoolean EGLAPIENTRY eglUnlockSurfaceKHR (EGLDisplay display, EGLSurfac
 #define EGL_BITMAP_PIXEL_SIZE_KHR         0x3110
 #endif /* EGL_KHR_lock_surface2 */
 
+#ifndef EGL_KHR_lock_surface3
+#define EGL_KHR_lock_surface3 1
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLQUERYSURFACE64KHRPROC) (EGLDisplay dpy, EGLSurface surface, EGLint attribute, EGLAttribKHR *value);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglQuerySurface64KHR (EGLDisplay dpy, EGLSurface surface, EGLint attribute, EGLAttribKHR *value);
+#endif
+#endif /* EGL_KHR_lock_surface3 */
+
 #ifndef EGL_KHR_reusable_sync
 #define EGL_KHR_reusable_sync 1
-typedef void *EGLSyncKHR;
 typedef khronos_utime_nanoseconds_t EGLTimeKHR;
 #ifdef KHRONOS_SUPPORT_INT64
 #define EGL_SYNC_STATUS_KHR               0x30F1
