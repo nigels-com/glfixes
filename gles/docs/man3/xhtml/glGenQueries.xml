@@ -12,9 +12,9 @@
         </p><p>
             Query object names returned by a call to <code class="function">glGenQueries</code> are not returned by
             subsequent calls, unless they are first deleted with
-            <a class="citerefentry" href="glDeleteQueries.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteQueries</span></span></a>.  
+            <a class="citerefentry" href="glDeleteQueries.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteQueries</span></span></a>.
         </p><p>
-            The names returned in <em class="parameter"><code>ids</code></em> are marked as used, for the purposes of <code class="function">glGenQueries</code> only, 
+            The names returned in <em class="parameter"><code>ids</code></em> are marked as used, for the purposes of <code class="function">glGenQueries</code> only,
                         but no query objects are associated with the returned query object names until they are first used by calling
             <a class="citerefentry" href="glBeginQuery.xml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a>.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
@@ -27,8 +27,8 @@
             <a class="citerefentry" href="glEndQuery.xml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a>,
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

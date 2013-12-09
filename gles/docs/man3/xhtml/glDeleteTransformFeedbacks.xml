@@ -6,7 +6,7 @@
                     Specifies an array of names of transform feedback objects to delete.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glDeleteTransformFeedbacks</code> deletes the <em class="parameter"><code>n</code></em> transform feedback objects
-            whose names are stored in the array <em class="parameter"><code>ids</code></em>. Unused names in <em class="parameter"><code>ids</code></em> 
+            whose names are stored in the array <em class="parameter"><code>ids</code></em>. Unused names in <em class="parameter"><code>ids</code></em>
                         that have been marked as used for the purposes of <a class="citerefentry" href="glGenTransformFeedbacks.xml"><span class="citerefentry"><span class="refentrytitle">glGenTransformFeedbacks</span></span></a>,
                         are marked as unused again. Unused names in <em class="parameter"><code>ids</code></em> are
             ignored, as is the name zero. After a transform feedback object is deleted, its name is again unused and it
@@ -23,8 +23,8 @@
             <a class="citerefentry" href="glResumeTransformFeedback.xml"><span class="citerefentry"><span class="refentrytitle">glResumeTransformFeedback</span></span></a>,
             <a class="citerefentry" href="glEndTransformFeedback.xml"><span class="citerefentry"><span class="refentrytitle">glEndTransformFeedback</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

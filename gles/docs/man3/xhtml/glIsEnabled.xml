@@ -32,11 +32,11 @@
                         </td><td align="left">
                         <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
                         </td></tr><tr><td align="left">
-                        <code class="constant">GL_POLYGON_OFFSET_FILL</code> 
+                        <code class="constant">GL_POLYGON_OFFSET_FILL</code>
                         </td><td align="left">
                         <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>
                         </td></tr><tr><td align="left">
-                        <code class="constant">GL_PRIMITIVE_RESTART_FIXED_INDEX</code> 
+                        <code class="constant">GL_PRIMITIVE_RESTART_FIXED_INDEX</code>
                         </td><td align="left">
                         <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
                         </td></tr><tr><td align="left">

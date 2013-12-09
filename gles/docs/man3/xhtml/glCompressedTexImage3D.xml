@@ -32,17 +32,17 @@
             treated as an array of compressed 2D textures.
         </p><p>
             <em class="parameter"><code>internalformat</code></em> must be a compressed image format from Table 1 below,
-            or an extension-specified compressed-texture format. 
+            or an extension-specified compressed-texture format.
         </p><p>
                         <em class="parameter"><code>imageSize</code></em> must be appropriate for the <em class="parameter"><code>width</code></em>, <em class="parameter"><code>height</code></em> and
                         <em class="parameter"><code>depth</code></em> of the <em class="parameter"><code>internalformat</code></em> specified. The size for a single slice of ETC/EAC
                         is given in Table 1 below.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
-            </p><div class="table"><a id="idp11131568"></a><p class="title"><strong>Table 1. Compressed Internal Formats</strong></p><div class="table-contents"><table summary="Compressed Internal Formats" border="1"><colgroup><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="center"><span class="bold"><strong>
+            </p><div class="table"><a id="idp10715200"></a><p class="title"><strong>Table 1. Compressed Internal Formats</strong></p><div class="table-contents"><table summary="Compressed Internal Formats" border="1"><colgroup><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="center"><span class="bold"><strong>
             Compressed Internal Format
             </strong></span></th><th align="center"><span class="bold"><strong>
             Base Internal Format
@@ -78,7 +78,7 @@
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
             object such that the memory reads required would exceed the data store size.
         </p><p>
             Undefined results, including abnormal program termination, are generated if <em class="parameter"><code>data</code></em> is not encoded in a manner consistent with the extension specification defining the internal compression format.

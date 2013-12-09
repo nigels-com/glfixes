@@ -42,9 +42,9 @@
                         fragments before the depth comparison is performed.
                         See <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>.
                     </p></dd><dt><span class="term"><code class="constant">GL_PRIMITIVE_RESTART_FIXED_INDEX</code></span></dt><dd><p>
-                        Enables primitive restarting.  If enabled, any one of the draw commands 
-                        which transfers a set of generic attribute array elements to the GL will restart 
-                        the primitive when the index of the vertex is equal to   
+                        Enables primitive restarting.  If enabled, any one of the draw commands
+                        which transfers a set of generic attribute array elements to the GL will restart
+                        the primitive when the index of the vertex is equal to
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 <mml:msup>
                                     <mml:mn>2</mml:mn>
@@ -58,9 +58,9 @@
                         <code class="constant">GL_UNSIGNED_SHORT</code>, or
                         <code class="constant">GL_UNSIGNED_INT</code>, respectively.
                     </p></dd><dt><span class="term"><code class="constant">GL_RASTERIZER_DISCARD</code></span></dt><dd><p>
-                        If enabled, primitives are discarded immediately before the rasterization stage, 
-                        but after the optional transform feedback stage. 
-                        <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a> and 
+                        If enabled, primitives are discarded immediately before the rasterization stage,
+                        but after the optional transform feedback stage.
+                        <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a> and
                         <a class="citerefentry" href="glClearBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glClearBuffer</span></span></a>* commands
                         are also ignored.
                     </p></dd><dt><span class="term"><code class="constant">GL_SAMPLE_ALPHA_TO_COVERAGE</code></span></dt><dd><p>

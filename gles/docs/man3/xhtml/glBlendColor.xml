@@ -4,7 +4,7 @@
                     specify the components of <code class="constant">GL_BLEND_COLOR</code>
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             The <code class="constant">GL_BLEND_COLOR</code> may be used to calculate the source and destination
-            blending factors. If destination framebuffer components use an unsigned normalized 
+            blending factors. If destination framebuffer components use an unsigned normalized
             fixed-point representation, the constant color components are clamped to the range
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 

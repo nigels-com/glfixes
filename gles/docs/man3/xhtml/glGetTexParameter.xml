@@ -64,7 +64,7 @@
                         a symbolic constant. The initial value is <code class="constant">GL_NEAREST_MIPMAP_LINEAR</code>.
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_MIN_LOD</code></span></dt><dd><p>
                         Returns the single-valued texture minimum level-of-detail value.  The
-                        initial value is 
+                        initial value is
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mn>-1000</mml:mn>
@@ -78,15 +78,15 @@
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_SWIZZLE_A</code></span></dt><dd><p>
                         Returns the alpha component swizzle. The initial value is <code class="constant">GL_ALPHA</code>.
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_S</code></span></dt><dd><p>
-                        Returns the single-valued wrapping function for texture coordinate 
+                        Returns the single-valued wrapping function for texture coordinate
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>,
                         a symbolic constant. The initial value is <code class="constant">GL_REPEAT</code>.
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_T</code></span></dt><dd><p>
-                        Returns the single-valued wrapping function for texture coordinate 
+                        Returns the single-valued wrapping function for texture coordinate
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">t</mml:mi></mml:math>,
                         a symbolic constant. The initial value is <code class="constant">GL_REPEAT</code>.
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_R</code></span></dt><dd><p>
-                        Returns the single-valued wrapping function for texture coordinate 
+                        Returns the single-valued wrapping function for texture coordinate
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>,
                         a symbolic constant. The initial value is <code class="constant">GL_REPEAT</code>.
                     </p></dd></dl></div></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>

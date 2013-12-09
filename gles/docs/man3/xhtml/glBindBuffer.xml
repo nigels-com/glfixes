@@ -35,35 +35,35 @@
             <code class="constant">GL_READ_WRITE</code> access and <code class="constant">GL_STATIC_DRAW</code> usage.
         </p><p>
             While a non-zero buffer object name is bound, GL operations on the target to which it is
-            bound affect the bound buffer object, and queries of the target to which it is bound return state 
+            bound affect the bound buffer object, and queries of the target to which it is bound return state
             from the bound buffer object. While buffer object name zero is bound, as in the initial state,
-            attempts to modify or query state on the target to which it is bound generates an 
+            attempts to modify or query state on the target to which it is bound generates an
             <code class="constant">GL_INVALID_OPERATION</code> error.
         </p><p>
-            When a non-zero buffer object is bound to the <code class="constant">GL_ARRAY_BUFFER</code> target, 
+            When a non-zero buffer object is bound to the <code class="constant">GL_ARRAY_BUFFER</code> target,
             the vertex array pointer parameter is interpreted as an offset within the
             buffer object measured in basic machine units.
         </p><p>
-            While a non-zero buffer object is bound to the <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code> target, 
-            the indices parameter of <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>, 
+            While a non-zero buffer object is bound to the <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code> target,
+            the indices parameter of <a class="citerefentry" href="glDrawElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElements</span></span></a>,
             <a class="citerefentry" href="glDrawElementsInstanced.xml"><span class="citerefentry"><span class="refentrytitle">glDrawElementsInstanced</span></span></a>,
-            <a class="citerefentry" href="glDrawRangeElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>, 
+            <a class="citerefentry" href="glDrawRangeElements.xml"><span class="citerefentry"><span class="refentrytitle">glDrawRangeElements</span></span></a>,
             offset within the buffer object measured in basic machine units.
         </p><p>
-            While a non-zero buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target, 
-            the following commands are affected: <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>. 
+            While a non-zero buffer object is bound to the <code class="constant">GL_PIXEL_PACK_BUFFER</code> target,
+            the following commands are affected: <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>.
             The pointer parameter is interpreted as an offset within the buffer object measured in basic machine units.
         </p><p>
-            While a non-zero buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target, 
-            the following commands are affected: 
+            While a non-zero buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target,
+            the following commands are affected:
             <a class="citerefentry" href="glCompressedTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage2D</span></span></a>,
             <a class="citerefentry" href="glCompressedTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexImage3D</span></span></a>,
             <a class="citerefentry" href="glCompressedTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage2D</span></span></a>,
             <a class="citerefentry" href="glCompressedTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glCompressedTexSubImage3D</span></span></a>,
             <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
             <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, and 
-            <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>. The pointer parameter is 
+            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, and
+            <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>. The pointer parameter is
             interpreted as an offset within the buffer object measured in basic machine units.
         </p><p>
             The buffer targets <code class="constant">GL_COPY_READ_BUFFER</code> and <code class="constant">GL_COPY_WRITE_BUFFER</code>
@@ -118,8 +118,8 @@
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
             <a class="citerefentry" href="glIsBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glIsBuffer</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

@@ -39,7 +39,7 @@
             </mml:math>
             and with
             width <em class="parameter"><code>width</code></em> and height <em class="parameter"><code>height</code></em> replaces the portion of the
-            texture array with x indices <em class="parameter"><code>xoffset</code></em> through 
+            texture array with x indices <em class="parameter"><code>xoffset</code></em> through
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -50,7 +50,7 @@
                     <mml:mn>1</mml:mn>
                 </mml:mrow>
             </mml:math>,
-            inclusive, and y indices <em class="parameter"><code>yoffset</code></em> through 
+            inclusive, and y indices <em class="parameter"><code>yoffset</code></em> through
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -65,7 +65,7 @@
         </p><p>
             The pixels in the rectangle are processed exactly as if
             <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a> had been called, but the process stops after
-            conversion to RGBA values. The error <code class="constant">GL_INVALID_OPERATION</code> is generated if integer RGBA data is 
+            conversion to RGBA values. The error <code class="constant">GL_INVALID_OPERATION</code> is generated if integer RGBA data is
                         required and the format of the current color buffer is not integer; or if floating- or fixed-point RGBA
                         data is required and the format of the current color buffer is integer.
         </p><p>
@@ -93,13 +93,13 @@
             <code class="constant">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</code>.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if the texture array has not been
-            defined by a previous <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>, 
-                        <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>, or 
+            defined by a previous <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
+                        <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>, or
                         <a class="citerefentry" href="glTexStorage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexStorage2D</span></span></a> operation.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> may be generated if 
+            <code class="constant">GL_INVALID_VALUE</code> may be generated if
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -116,11 +116,11 @@
                     </mml:mrow>
                 </mml:mrow>
             </mml:math>,
-            where 
+            where
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">max</mml:mi></mml:math>
             is the returned value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if 
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -150,7 +150,7 @@
                     <mml:mi mathvariant="italic">h</mml:mi>
                 </mml:mrow>
             </mml:math>,
-            where 
+            where
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math>
             is the <code class="constant">GL_TEXTURE_WIDTH</code>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>

@@ -34,7 +34,7 @@
                             </mml:mrow>
                         </mml:mfenced>
                     </mml:math>,
-                    where 
+                    where
                     <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
                     is the number of bitplanes in the stencil buffer. The
                     initial value is 0.
@@ -61,14 +61,14 @@
             To enable and disable the test, call <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a> and <a class="citerefentry" href="glDisable.xml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a>
             with argument <code class="constant">GL_STENCIL_TEST</code>.
             To specify actions based on the outcome of the stencil test, call
-            <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a> or 
+            <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a> or
             <a class="citerefentry" href="glStencilOpSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOpSeparate</span></span></a>.
         </p><p>
-            There can be two separate sets of <em class="parameter"><code>func</code></em>, <em class="parameter"><code>ref</code></em>, and 
+            There can be two separate sets of <em class="parameter"><code>func</code></em>, <em class="parameter"><code>ref</code></em>, and
             <em class="parameter"><code>mask</code></em> parameters; one affects back-facing polygons, and the other
-            affects front-facing polygons as well as other non-polygon primitives. 
+            affects front-facing polygons as well as other non-polygon primitives.
             <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a> sets both front
-            and back stencil state to the same values, as if 
+            and back stencil state to the same values, as if
             <code class="function">glStencilFuncSeparate</code> were called
             with <em class="parameter"><code>face</code></em> set to <code class="constant">GL_FRONT_AND_BACK</code>.
         </p><p>
@@ -76,7 +76,7 @@
             It accepts one of eight values,
             shown in the following list.
             <em class="parameter"><code>ref</code></em> is an integer reference value that is used in the stencil comparison.
-            Stencil comparison operations and queries clamp the value to the range  
+            Stencil comparison operations and queries clamp the value to the range
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mfenced open="[" close="]">
@@ -90,7 +90,7 @@
                     </mml:mrow>
                 </mml:mfenced>
             </mml:math>,
-            where 
+            where
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
             is the number of bitplanes in the stencil buffer.
             <em class="parameter"><code>mask</code></em> is bitwise ANDed with both the reference value
@@ -118,7 +118,7 @@
                     </mml:mrow>
                 </mml:mfenced>
             </mml:math>,
-            where 
+            where
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
             is the number of bitplanes in the stencil buffer.
         </p><p>
@@ -148,10 +148,10 @@
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>func</code></em> is not one of the eight
             accepted values.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument 
-            <code class="constant">GL_STENCIL_FUNC</code>, <code class="constant">GL_STENCIL_VALUE_MASK</code>, 
-            <code class="constant">GL_STENCIL_REF</code>, <code class="constant">GL_STENCIL_BACK_FUNC</code>, 
-            <code class="constant">GL_STENCIL_BACK_VALUE_MASK</code>, <code class="constant">GL_STENCIL_BACK_REF</code>, 
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument
+            <code class="constant">GL_STENCIL_FUNC</code>, <code class="constant">GL_STENCIL_VALUE_MASK</code>,
+            <code class="constant">GL_STENCIL_REF</code>, <code class="constant">GL_STENCIL_BACK_FUNC</code>,
+            <code class="constant">GL_STENCIL_BACK_VALUE_MASK</code>, <code class="constant">GL_STENCIL_BACK_REF</code>,
             or <code class="constant">GL_STENCIL_BITS</code>
         </p><p>
             <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a> with argument <code class="constant">GL_STENCIL_TEST</code>
@@ -164,8 +164,8 @@
             <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>,
             <a class="citerefentry" href="glStencilOpSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOpSeparate</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2006-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2006-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

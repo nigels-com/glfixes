@@ -4,7 +4,7 @@
                     Specifies the target to which the texture is bound.
                     Must be either
                     <code class="constant">GL_TEXTURE_2D</code>,
-                    <code class="constant">GL_TEXTURE_3D</code>, 
+                    <code class="constant">GL_TEXTURE_3D</code>,
                     <code class="constant">GL_TEXTURE_2D_ARRAY</code>, or
                     <code class="constant">GL_TEXTURE_CUBE_MAP</code>,
                 </p></dd><dt><span class="term"><em class="parameter"><code>texture</code></em></span></dt><dd><p>
@@ -14,7 +14,7 @@
             by <em class="parameter"><code>target</code></em>. Calling <code class="function">glBindTexture</code> with
             <em class="parameter"><code>target</code></em> set to
             <code class="constant">GL_TEXTURE_2D</code>, <code class="constant">GL_TEXTURE_3D</code>, <code class="constant">GL_TEXTURE_2D_ARRAY</code>, or
-            <code class="constant">GL_TEXTURE_CUBE_MAP</code> and <em class="parameter"><code>texture</code></em> set to the name of the new texture binds the 
+            <code class="constant">GL_TEXTURE_CUBE_MAP</code> and <em class="parameter"><code>texture</code></em> set to the name of the new texture binds the
             texture name to that target. When a texture is bound to a target, the previous binding for that target is automatically broken.
         </p><p>
             Texture names are unsigned integers. The value zero is reserved to
@@ -36,7 +36,7 @@
         </p><p>
             While a texture is bound, GL operations on the target to which it is
             bound affect the bound texture, and queries of the target to which it
-            is bound return state from the bound texture. 
+            is bound return state from the bound texture.
             In effect, the texture targets become aliases for the textures currently
             bound to them, and the texture name zero refers to the default textures
             that were bound to them at initialization.
@@ -51,7 +51,7 @@
             using <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
             <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> or another similar function.
         </p><p>
-                        Texture binding is affected by the setting of the state <code class="constant">GL_ACTIVE_TEXTURE</code> (see 
+                        Texture binding is affected by the setting of the state <code class="constant">GL_ACTIVE_TEXTURE</code> (see
                         <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>).
                         A texture object may be bound to more than one texture unit simultaneously.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
@@ -61,7 +61,7 @@
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>texture</code></em> was previously created with a target
             that doesn't match that of <em class="parameter"><code>target</code></em>.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
-            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_BINDING_2D</code>, 
+            <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_TEXTURE_BINDING_2D</code>,
             <code class="constant">GL_TEXTURE_BINDING_3D</code>, <code class="constant">GL_TEXTURE_BINDING_2D_ARRAY</code>, or <code class="constant">GL_TEXTURE_BINDING_CUBE_MAP</code>.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glDeleteTextures.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteTextures</span></span></a>,

@@ -11,7 +11,7 @@
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             The blend equations determines how a new pixel (the ''source'' color)
             is combined with a pixel already in the framebuffer (the ''destination''
-            color).  This function specifies one blend equation for the RGB-color 
+            color).  This function specifies one blend equation for the RGB-color
             components and one blend equation for the alpha component.
         </p><p>
             The blend equations use the source and destination blend factors
@@ -114,7 +114,7 @@
             </mml:math>,
             respectively.
             For these equations all color components are understood to have values
-            in the range 
+            in the range
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mfenced open="[" close="]">
@@ -623,7 +623,7 @@
                             </mml:math>
                         </td></tr></tbody></table></div><p>
         </p><p>
-            The results of these equations are clamped to the range 
+            The results of these equations are clamped to the range
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close="]">
@@ -658,8 +658,8 @@
             <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>,
             <a class="citerefentry" href="glBlendFuncSeparate.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFuncSeparate</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2006-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2006-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

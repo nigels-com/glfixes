@@ -6,10 +6,10 @@
                     Specifies an array of query objects to be deleted.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glDeleteQueries</code> deletes <em class="parameter"><code>n</code></em> query objects named by the elements of the array <em class="parameter"><code>ids</code></em>.
-                        After a query object is deleted, its name is again unused. Unused names in <em class="parameter"><code>ids</code></em> 
-                        that have been marked as used for the purposes of 
-                        <a class="citerefentry" href="glGenQueries.xml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a> are marked as unused again. 
-                        If an active query object is deleted its name immediately becomes unused, but the underlying object 
+                        After a query object is deleted, its name is again unused. Unused names in <em class="parameter"><code>ids</code></em>
+                        that have been marked as used for the purposes of
+                        <a class="citerefentry" href="glGenQueries.xml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a> are marked as unused again.
+                        If an active query object is deleted its name immediately becomes unused, but the underlying object
                         is not deleted until it is no longer active.
         </p><p>
             <code class="function">glDeleteQueries</code> silently ignores 0's and names that do not correspond to
@@ -25,8 +25,8 @@
             <a class="citerefentry" href="glGetQueryiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a>,
             <a class="citerefentry" href="glGetQueryObjectuiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObjectuiv</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

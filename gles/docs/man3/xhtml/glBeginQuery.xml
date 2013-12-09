@@ -33,8 +33,8 @@
             When <code class="function">glBeginQuery</code> is executed, the query object's samples-passed flag is reset to <code class="constant">GL_FALSE</code>.
             Subsequent rendering causes the flag to be set to <code class="constant">GL_TRUE</code> if any sample passes the depth test.  The implementation
             may choose to use a less precision version of the test, which can additionally set the samples-passed flag to <code class="constant">GL_TRUE</code>
-            in some other implementation-dependent cases. When <code class="function">glEndQuery</code> is executed, the samples-passed flag is assigned to 
-            the query object's result value.  This value can be queried by calling <a class="citerefentry" href="glGetQueryObjectuiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObjectuiv</span></span></a> 
+            in some other implementation-dependent cases. When <code class="function">glEndQuery</code> is executed, the samples-passed flag is assigned to
+            the query object's result value.  This value can be queried by calling <a class="citerefentry" href="glGetQueryObjectuiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObjectuiv</span></span></a>
             with <em class="parameter"><code>pname</code></em> <code class="constant">GL_QUERY_RESULT</code>.
         </p><p>
             If <em class="parameter"><code>target</code></em> is <code class="constant">GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN</code>, <em class="parameter"><code>id</code></em> must be
@@ -71,8 +71,8 @@
             <a class="citerefentry" href="glGetQueryObjectuiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObjectuiv</span></span></a>,
             <a class="citerefentry" href="glIsQuery.xml"><span class="citerefentry"><span class="refentrytitle">glIsQuery</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

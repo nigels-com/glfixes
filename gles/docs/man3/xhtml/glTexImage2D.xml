@@ -36,8 +36,8 @@
                     <code class="constant">GL_RG_INTEGER</code>,
                     <code class="constant">GL_RGB</code>,
                     <code class="constant">GL_RGB_INTEGER</code>,
-                    <code class="constant">GL_RGBA</code>, 
-                    <code class="constant">GL_RGBA_INTEGER</code>, 
+                    <code class="constant">GL_RGBA</code>,
+                    <code class="constant">GL_RGBA_INTEGER</code>,
                     <code class="constant">GL_DEPTH_COMPONENT</code>,
                     <code class="constant">GL_DEPTH_STENCIL</code>,
                     <code class="constant">GL_LUMINANCE_ALPHA</code>,
@@ -81,7 +81,7 @@
             depending on <em class="parameter"><code>type</code></em>.  These values are grouped into sets of one, two,
             three, or four values, depending on <em class="parameter"><code>format</code></em>, to form elements.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
@@ -96,28 +96,28 @@
             It can assume one of these symbolic values:
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_RED</code></span></dt><dd><p>
                         Each element is a single red component.
-                        For fixed point normalized components, the GL converts it to floating point, clamps to the range [0,1], 
+                        For fixed point normalized components, the GL converts it to floating point, clamps to the range [0,1],
                                                 and assembles it into an RGBA element by attaching 0.0 for green and blue, and 1.0 for alpha.
                     </p></dd><dt><span class="term"><code class="constant">GL_RED_INTEGER</code></span></dt><dd><p>
-                        Each element is a single red component. 
+                        Each element is a single red component.
                         The GL performs assembles it into an RGBA element by attaching 0 for green and blue, and 1 for alpha.
                     </p></dd><dt><span class="term"><code class="constant">GL_RG</code></span></dt><dd><p>
                         Each element is a red/green double.
-                        For fixed point normalized components, the GL converts each component to floating point, clamps to the range [0,1], 
+                        For fixed point normalized components, the GL converts each component to floating point, clamps to the range [0,1],
                                                 and assembles them into an RGBA element by attaching 0.0 for blue, and 1.0 for alpha.
                     </p></dd><dt><span class="term"><code class="constant">GL_RG</code></span></dt><dd><p>
                         Each element is a red/green double.
                         The GL assembles them into an RGBA element by attaching 0 for blue, and 1 for alpha.
                     </p></dd><dt><span class="term"><code class="constant">GL_RGB</code></span></dt><dd><p>
                         Each element is an RGB triple.
-                        For fixed point normalized components, the GL converts each component to floating point, clamps to the range [0,1], 
+                        For fixed point normalized components, the GL converts each component to floating point, clamps to the range [0,1],
                                                 and assembles them into an RGBA element by attaching 1.0 for alpha.
                     </p></dd><dt><span class="term"><code class="constant">GL_RGB_INTEGER</code></span></dt><dd><p>
                         Each element is an RGB triple.
                                                 The GL assembles them into an RGBA element by attaching 1 for alpha.
                     </p></dd><dt><span class="term"><code class="constant">GL_RGBA</code></span></dt><dd><p>
                         Each element contains all four components.
-                        For fixed point normalized components, the GL converts each component to floating point and 
+                        For fixed point normalized components, the GL converts each component to floating point and
                                                 clamps them to the range [0,1].
                     </p></dd><dt><span class="term"><code class="constant">GL_RGBA_INTEGER</code></span></dt><dd><p>
                         Each element contains all four components.
@@ -130,16 +130,16 @@
                         component is interpreted based on specified the depth + stencil internal format.
                      </p></dd><dt><span class="term"><code class="constant">GL_LUMINANCE_ALPHA</code></span></dt><dd><p>
                         Each element is an luminance/alpha double.
-                        The GL converts each component to floating point, clamps to the range [0,1], 
+                        The GL converts each component to floating point, clamps to the range [0,1],
                                                 and assembles them into an RGBA element by placing the luminance value in the red, green and blue channels.
                     </p></dd><dt><span class="term"><code class="constant">GL_LUMINANCE</code></span></dt><dd><p>
                         Each element is a single luminance component.
-                        The GL converts it to floating point, clamps to the range [0,1], 
+                        The GL converts it to floating point, clamps to the range [0,1],
                                                 and assembles it into an RGBA element by placing the luminance value in the red, green and blue channels,
                                                 and attaching 1.0 to the alpha channel.
                     </p></dd><dt><span class="term"><code class="constant">GL_ALPHA</code></span></dt><dd><p>
                         Each element is a single alpha component.
-                        The GL converts it to floating point, clamps to the range [0,1], 
+                        The GL converts it to floating point, clamps to the range [0,1],
                                                 and assembles it into an RGBA element by placing attaching 0.0 to the red, green and blue channels.
                     </p></dd></dl></div><p>
             If an application wants to store the texture at a certain
@@ -151,7 +151,7 @@
             <em class="parameter"><code>internalFormat</code></em> may be one of the unsized (base) internal formats shown, together with valid
                         <em class="parameter"><code>format</code></em> and <em class="parameter"><code>type</code></em> combinations, in Table 1, below
         </p><p>
-            </p><div class="table"><a id="idp13945152"></a><p class="title"><strong>Table 1. Unsized Internal Formats</strong></p><div class="table-contents"><table summary="Unsized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
+            </p><div class="table"><a id="idp14521312"></a><p class="title"><strong>Table 1. Unsized Internal Formats</strong></p><div class="table-contents"><table summary="Unsized Internal Formats" border="1"><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
             Unsized Internal Format
             </strong></span></th><th align="left"><span class="bold"><strong>
             Format
@@ -167,7 +167,7 @@
             <em class="parameter"><code>internalFormat</code></em> may also be one of the sized internal formats shown, together with valid
             <em class="parameter"><code>format</code></em> and <em class="parameter"><code>type</code></em> combinations, in Table 2, below
         </p><p>
-            </p><div class="table"><a id="idp13330896"></a><p class="title"><strong>Table 2. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="center"><span class="bold"><strong>
+            </p><div class="table"><a id="idp10171696"></a><p class="title"><strong>Table 2. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="center"><span class="bold"><strong>
             Sized Internal Format
             </strong></span></th><th align="center"><span class="bold"><strong>
             Format
@@ -202,15 +202,15 @@
             Stencil Bits
             </strong></span></th></tr></thead><tbody><tr><td align="center"><code class="constant">GL_DEPTH_COMPONENT16</code></td><td align="center"><code class="constant">GL_DEPTH_COMPONENT</code></td><td align="center"><code class="constant">GL_UNSIGNED_SHORT</code>,<p><code class="constant">GL_UNSIGNED_INT</code></p></td><td align="center">16</td><td align="center"> </td></tr><tr><td align="center"><code class="constant">GL_DEPTH_COMPONENT24</code></td><td align="center"><code class="constant">GL_DEPTH_COMPONENT</code></td><td align="center"><code class="constant">GL_UNSIGNED_INT</code></td><td align="center">24</td><td align="center"> </td></tr><tr><td align="center"><code class="constant">GL_DEPTH_COMPONENT32F</code></td><td align="center"><code class="constant">GL_DEPTH_COMPONENT</code></td><td align="center"><code class="constant">GL_FLOAT</code></td><td align="center">f32</td><td align="center"> </td></tr><tr><td align="center"><code class="constant">GL_DEPTH24_STENCIL8</code></td><td align="center"><code class="constant">GL_DEPTH_STENCIL</code></td><td align="center"><code class="constant">GL_UNSIGNED_INT_24_8</code></td><td align="center">24</td><td align="center">8</td></tr><tr><td align="center"><code class="constant">GL_DEPTH32F_STENCIL8</code></td><td align="center"><code class="constant">GL_DEPTH_STENCIL</code></td><td align="center"><code class="constant">GL_FLOAT_32_UNSIGNED_INT_24_8_REV</code></td><td align="center">f32</td><td align="center">8</td></tr></tbody></table></div></div><p><br class="table-break" />
         </p><p>
-            If the <em class="parameter"><code>internalFormat</code></em> parameter is             
+            If the <em class="parameter"><code>internalFormat</code></em> parameter is
             <code class="constant">GL_SRGB8</code>, or
-            <code class="constant">GL_SRGB8_ALPHA8</code>, the texture is treated as if the red, green, or blue components are encoded in the sRGB color space.    Any alpha component is left unchanged.  The conversion from the sRGB encoded component 
+            <code class="constant">GL_SRGB8_ALPHA8</code>, the texture is treated as if the red, green, or blue components are encoded in the sRGB color space.    Any alpha component is left unchanged.  The conversion from the sRGB encoded component
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 <mml:msub><mml:mi mathvariant="italic">c</mml:mi>
                 <mml:mi mathvariant="italic">s</mml:mi>
                 </mml:msub>
             </mml:math>
-            to a linear component 
+            to a linear component
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 <mml:msub><mml:mi mathvariant="italic">c</mml:mi>
                 <mml:mi mathvariant="italic">l</mml:mi>
@@ -227,7 +227,7 @@
                 <mml:mo>=</mml:mo>
                 <mml:mrow>
                   <mml:mo>{</mml:mo>
-            
+
                   <mml:mtable columnalign="left">
                     <mml:mtr>
                       <mml:mtd columnalign="left">
@@ -293,7 +293,7 @@
                 </mml:mrow>
             </mml:math>
         </p><p>
-            Assume         
+            Assume
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 <mml:msub><mml:mi mathvariant="italic">c</mml:mi>
                 <mml:mi mathvariant="italic">s</mml:mi>
@@ -343,7 +343,7 @@
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater than 
+            <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater than
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -373,11 +373,11 @@
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
             object such that the memory reads required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>

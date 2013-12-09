@@ -23,7 +23,7 @@
             Upon success, <code class="function">glRenderbufferStorage</code> deletes any existing data store for the renderbuffer
             image and the contents of the data store after calling <code class="function">glRenderbufferStorage</code> are undefined.
         </p><p>
-            </p><div class="table"><a id="idp12098704"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="center"><span class="bold"><strong>
+            </p><div class="table"><a id="idp10421696"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" border="1"><colgroup><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="center"><span class="bold"><strong>
             Sized Internal Format
             </strong></span></th><th align="center"><span class="bold"><strong>
             Base Format
@@ -61,8 +61,8 @@
             <a class="citerefentry" href="glFramebufferRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFramebufferRenderbuffer</span></span></a>,
             <a class="citerefentry" href="glDeleteRenderbuffers.xml"><span class="citerefentry"><span class="refentrytitle">glDeleteRenderbuffers</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

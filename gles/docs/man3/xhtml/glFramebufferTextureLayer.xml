@@ -18,12 +18,12 @@
             <code class="function">glFramebufferTextureLayer</code> operates like <a class="citerefentry" href="glFramebufferTexture2D.xml"><span class="citerefentry"><span class="refentrytitle">glFramebufferTexture2D</span></span></a>,
             except that only a single layer of the texture level, given by <em class="parameter"><code>layer</code></em>, is attached to the attachment point.
             If <em class="parameter"><code>texture</code></em> is not zero, <em class="parameter"><code>layer</code></em> must be greater than or equal to zero.
-            <em class="parameter"><code>texture</code></em> must either be zero or the name of an existing three-dimensional texture, or a two-dimensional 
+            <em class="parameter"><code>texture</code></em> must either be zero or the name of an existing three-dimensional texture, or a two-dimensional
                         array texture.
         </p><p>
                         If <em class="parameter"><code>texture</code></em> is a 3D texture, then <em class="parameter"><code>level</code></em> must be greater
-            than or equal to zero and less than or equal to log<sub>2</sub> of the value of 
-                        <code class="constant">GL_MAX_3D_TEXTURE_SIZE</code>. If <em class="parameter"><code>texture</code></em> is a 2D array texture, 
+            than or equal to zero and less than or equal to log<sub>2</sub> of the value of
+                        <code class="constant">GL_MAX_3D_TEXTURE_SIZE</code>. If <em class="parameter"><code>texture</code></em> is a 2D array texture,
                         <em class="parameter"><code>level</code></em> must be greater than or equal to zero and no larger than log<sub>2</sub>
             of the value of <code class="constant">GL_MAX_TEXTURE_SIZE</code>.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
@@ -37,13 +37,17 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>texture</code></em> is not zero and <em class="parameter"><code>layer</code></em>
             is negative.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>texture</code></em> is not zero and <em class="parameter"><code>layer</code></em>
-            is greater than <code class="constant">GL_MAX_3D_TEXTURE_SIZE</code>-1 for a 3D texture or greater than 
-                        <code class="constant">GL_MAX_ARRAY_TEXTURE_LAYERS</code>-1 for a 2D array texture.
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
+            <em class="parameter"><code>texture</code></em> is not zero and
+            <em class="parameter"><code>layer</code></em> is greater than the value of
+            <code class="constant">GL_MAX_3D_TEXTURE_SIZE</code> minus one for a 3D
+            texture or greater than the value of
+            <code class="constant">GL_MAX_ARRAY_TEXTURE_LAYERS</code> minus one for a
+            2D array texture.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if zero is bound to <em class="parameter"><code>target</code></em>.
         </p><p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>texture</code></em> is not zero or the name of an existing 
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>texture</code></em> is not zero or the name of an existing
                         three-dimensional texture, or a two-dimensional array texture.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glGenFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a>,
@@ -52,8 +56,8 @@
             <a class="citerefentry" href="glFramebufferRenderbuffer.xml"><span class="citerefentry"><span class="refentrytitle">glFramebufferRenderbuffer</span></span></a>,
             <a class="citerefentry" href="glFramebufferTexture2D.xml"><span class="citerefentry"><span class="refentrytitle">glFramebufferTexture2D</span></span></a>,
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

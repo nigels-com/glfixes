@@ -7,9 +7,9 @@
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glDeleteBuffers</code> deletes <em class="parameter"><code>n</code></em> buffer objects named by the elements of the array <em class="parameter"><code>buffers</code></em>.
                         After a buffer object is deleted it has no contents, and its name is again unused. Unused names in
-                        <em class="parameter"><code>buffers</code></em> that have been marked as used for the purposes of 
-                        <a class="citerefentry" href="glGenBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a> are marked as unused again. 
-                        Unused names in buffers are silently ignored, as is the value zero.  If a buffer object is deleted while it is bound, 
+                        <em class="parameter"><code>buffers</code></em> that have been marked as used for the purposes of
+                        <a class="citerefentry" href="glGenBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a> are marked as unused again.
+                        Unused names in buffers are silently ignored, as is the value zero.  If a buffer object is deleted while it is bound,
                         all bindings to that object in the current context are reset to zero. Bindings to that buffer in other contexts are not affected.
         </p><p>
             <code class="function">glDeleteBuffers</code> silently ignores 0's and names that do not correspond to
@@ -23,8 +23,8 @@
             <a class="citerefentry" href="glGenBuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenBuffers</span></span></a>,
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

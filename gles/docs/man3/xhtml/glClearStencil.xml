@@ -5,7 +5,7 @@
                     The initial value is 0.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glClearStencil</code> specifies the index used by <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a> to clear the stencil buffer.
-            When clearing a stencil buffer, <em class="parameter"><code>s</code></em> is masked with 
+            When clearing a stencil buffer, <em class="parameter"><code>s</code></em> is masked with
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -16,7 +16,7 @@
                     <mml:mn>1</mml:mn>
                 </mml:mrow>
             </mml:math>,
-            where 
+            where
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">m</mml:mi></mml:math>
             is the number of bits in the stencil buffer.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>

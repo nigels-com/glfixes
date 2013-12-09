@@ -40,7 +40,7 @@
             If the source and destination rectangles overlap or are the same, and the read and draw buffers are the same, the result of the operation
             is undefined.
         </p><p>
-            If <em class="parameter"><code>SAMPLE_BUFFERS</code></em> for the read framebuffer is greater than zero and <em class="parameter"><code>SAMPLE_BUFFERS</code></em> for the 
+            If <em class="parameter"><code>SAMPLE_BUFFERS</code></em> for the read framebuffer is greater than zero and <em class="parameter"><code>SAMPLE_BUFFERS</code></em> for the
             draw framebuffer is zero, the samples corresponding to each pixel location in the source are converted to a single sample before being
             written to the destination.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
@@ -63,7 +63,7 @@
             greater than zero.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>GL_SAMPLE_BUFFERS</code></em> for the read buffer is greater than
-            zero and the formats of draw and read buffers are not identical, or the source and destination rectangles are not defined with the same 
+            zero and the formats of draw and read buffers are not identical, or the source and destination rectangles are not defined with the same
             (X0, Y0) and (X1, Y1) bounds.
         </p><p>
             <code class="constant">GL_INVALID_FRAMEBUFFER_OPERATION</code> is generated if the objects bound to <code class="constant">GL_DRAW_FRAMEBUFFER_BINDING</code>

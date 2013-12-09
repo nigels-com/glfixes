@@ -18,10 +18,16 @@
             <code class="constant">GL_BACK</code>, identifying a color buffer, <code class="constant">GL_DEPTH</code>, identifying the depth buffer,
             or <code class="constant">GL_STENCIL</code>, identifying the stencil buffer.
         </p><p>
-            If a framebuffer object is bound, then <em class="parameter"><code>attachment</code></em> must be one of <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>,
-            <code class="constant">GL_DEPTH_ATTACHMENT</code>, <code class="constant">GL_STENCIL_ATTACHMENT</code>, or <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>.
-            <span class="emphasis"><em>i</em></span> in <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span> must be in the range zero to the value of
-            <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code> - 1.
+            If a framebuffer object is bound, then
+            <em class="parameter"><code>attachment</code></em> must be one of
+            <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>,
+            <code class="constant">GL_DEPTH_ATTACHMENT</code>,
+            <code class="constant">GL_STENCIL_ATTACHMENT</code>, or
+            <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>.
+            <span class="emphasis"><em>i</em></span> in
+            <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>
+            must be in the range zero to the value of
+            <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code> minus one.
         </p><p>
             If <em class="parameter"><code>attachment</code></em> is <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code> and different objects are bound
             to the depth and stencil attachment points of <em class="parameter"><code>target</code></em> the query will fail. If the same object
@@ -54,7 +60,7 @@
                 </p></li><li class="listitem"><p>
                     If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING</code>, <em class="parameter"><code>param</code></em> will
                     contain the encoding of components of the specified attachment, one of <code class="constant">GL_LINEAR</code> or <code class="constant">GL_SRGB</code>
-                    for linear or sRGB-encoded components, respectively. Only color buffer components may be sRGB-encoded.  
+                    for linear or sRGB-encoded components, respectively. Only color buffer components may be sRGB-encoded.
                     For the default framebuffer, color encoding is determined by the implementation.
                     For framebuffer objects, components are sRGB-encoded if the internal format of a color attachment is one of the color-renderable SRGB
                     formats.
@@ -101,8 +107,8 @@
             <a class="citerefentry" href="glGenFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a>,
             <a class="citerefentry" href="glBindFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

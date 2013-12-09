@@ -17,10 +17,10 @@
     active attributes can be obtained by calling
     <a class="citerefentry" href="glGetProgramiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>
     with the value <code class="constant">GL_ACTIVE_ATTRIBUTES</code>. A
-    value of 0 for <em class="parameter"><code>index</code></em> selects the first
+    value of zero for <em class="parameter"><code>index</code></em> selects the first
     active attribute variable. Permissible values for
-    <em class="parameter"><code>index</code></em> range from 0 to the number of
-    active attribute variables minus 1.</p><p>Attribute variables have arbitrary names and obtain their values
+    <em class="parameter"><code>index</code></em> range from zero to the number of
+    active attribute variables minus one.</p><p>Attribute variables have arbitrary names and obtain their values
         through numbered generic vertex attributes. An attribute
     variable is considered active
     if it is determined during the link operation that it may be

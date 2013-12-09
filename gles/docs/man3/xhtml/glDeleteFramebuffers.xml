@@ -6,9 +6,9 @@
                     A pointer to an array containing <em class="parameter"><code>n</code></em> framebuffer objects to be deleted.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glDeleteFramebuffers</code> deletes the <em class="parameter"><code>n</code></em> framebuffer objects whose names are stored in
-            the array addressed by <em class="parameter"><code>framebuffers</code></em>. Unused names in <em class="parameter"><code>framebuffers</code></em> 
-                        that have been marked as used for the purposes of 
-                        <a class="citerefentry" href="glGenFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a> are marked as unused again. 
+            the array addressed by <em class="parameter"><code>framebuffers</code></em>. Unused names in <em class="parameter"><code>framebuffers</code></em>
+                        that have been marked as used for the purposes of
+                        <a class="citerefentry" href="glGenFramebuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenFramebuffers</span></span></a> are marked as unused again.
                         The name zero is reserved by the GL and is silently ignored, should it
             occur in <em class="parameter"><code>framebuffers</code></em>, as are other unused names. Once a framebuffer object is deleted, its name is again
             unused and it has no attachments. If a framebuffer that is currently bound to one or more of the targets <code class="constant">GL_DRAW_FRAMEBUFFER</code>
@@ -21,8 +21,8 @@
             <a class="citerefentry" href="glBindFramebuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindFramebuffer</span></span></a>,
             <a class="citerefentry" href="glCheckFramebufferStatus.xml"><span class="citerefentry"><span class="refentrytitle">glCheckFramebufferStatus</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

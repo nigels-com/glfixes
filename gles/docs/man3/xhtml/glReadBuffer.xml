@@ -17,13 +17,13 @@
             <code class="constant">GL_COLOR_ATTACHMENTi</code> names a color attachment of the current framebuffer,
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not <code class="constant">GL_BACK</code>,
-                    <code class="constant">GL_NONE</code>, or <code class="constant">GL_COLOR_ATTACHMENTi</code>, where i is less than 
+                    <code class="constant">GL_NONE</code>, or <code class="constant">GL_COLOR_ATTACHMENTi</code>, where i is less than
                                         <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>.
         </p><p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if the current framebuffer is the default framebufer and 
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the current framebuffer is the default framebufer and
                         <em class="parameter"><code>mode</code></em> is not <code class="constant">GL_NONE</code> or <code class="constant">GL_BACK</code>.
         </p><p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if the current framebuffer is a named framebufer and 
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the current framebuffer is a named framebufer and
                         <em class="parameter"><code>mode</code></em> is not <code class="constant">GL_NONE</code> or <code class="constant">GL_COLOR_ATTACHMENTi</code>.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_READ_BUFFER</code>

@@ -148,7 +148,7 @@
                 </mml:mfenced>
             </mml:math>.
             The scale factors described in the table,
-            denoted 
+            denoted
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mfenced open="(" close=")">
@@ -167,7 +167,7 @@
                 </mml:mfenced>
             </mml:math>,
             represent either source or destination factors.
-            All scale factors have range 
+            All scale factors have range
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mfenced open="[" close="]">
@@ -182,11 +182,11 @@
                 out in floating-point and will be performed with a precision and dynamic range no
                 lower than that used to represent destination components.
                 If the value of <code class="constant">GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING</code> for the
-                framebuffer attachment corresponding to the destination buffer is <code class="constant">GL_SRGB</code>, 
+                framebuffer attachment corresponding to the destination buffer is <code class="constant">GL_SRGB</code>,
                 the R, G, and B destination color values (after conversion from fixed-point
                 to floating-point) are considered to be encoded for the sRGB color space and
                 hence must be linearized prior to their use in blending. Each R, G, and B component
-                is converted in the same fashion described for sRGB texture components.                 
+                is converted in the same fashion described for sRGB texture components.
         </p><p>
         </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
                         Parameter
@@ -901,7 +901,7 @@
             in arbitrary order.
         </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
             Incoming (source) alpha is correctly thought of as a material opacity,
-            ranging from 1.0 
+            ranging from 1.0
             (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:msub><mml:mi mathvariant="italic">K</mml:mi>

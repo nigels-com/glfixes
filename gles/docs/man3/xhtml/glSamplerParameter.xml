@@ -38,7 +38,7 @@
                     </p><p>
                         A mipmap is an ordered set of arrays representing the same image
                         at progressively lower resolutions.
-                        If the texture has dimensions 
+                        If the texture has dimensions
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -69,7 +69,7 @@
                         </mml:math>
                         mipmaps.
                         The first mipmap is the original texture,
-                        with dimensions 
+                        with dimensions
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -82,7 +82,7 @@
                                 </mml:msup>
                             </mml:mrow>
                         </mml:math>.
-                        Each subsequent mipmap has dimensions 
+                        Each subsequent mipmap has dimensions
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -107,7 +107,7 @@
                                 </mml:msup>
                             </mml:mrow>
                         </mml:math>,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -121,7 +121,7 @@
                             </mml:mrow>
                         </mml:math>
                         are the dimensions of the previous mipmap,
-                        until either 
+                        until either
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -130,7 +130,7 @@
                                 <mml:mn>0</mml:mn>
                             </mml:mrow>
                         </mml:math>
-                        or 
+                        or
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -140,7 +140,7 @@
                             </mml:mrow>
                         </mml:math>.
                         At that point,
-                        subsequent mipmaps have dimension 
+                        subsequent mipmaps have dimension
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -157,7 +157,7 @@
                                 </mml:msup>
                             </mml:mrow>
                         </mml:math>
-                        or 
+                        or
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -175,7 +175,7 @@
                             </mml:mrow>
                         </mml:math>
                         until the final mipmap,
-                        which has dimension 
+                        which has dimension
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -189,7 +189,7 @@
                         or <a class="citerefentry" href="glCopyTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>
                         with the <span class="emphasis"><em>level</em></span> argument indicating the order of the mipmaps.
                         Level 0 is the original texture;
-                        level 
+                        level
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -201,7 +201,7 @@
                                 </mml:mfenced>
                             </mml:mrow>
                         </mml:math>
-                        is the final 
+                        is the final
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -285,13 +285,13 @@
                         level). The initial value is 1000.
                     </p></dd></dl></div><p>
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_S</code></span></dt><dd><p>
-                        Sets the wrap parameter for texture coordinate 
+                        Sets the wrap parameter for texture coordinate
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_MIRRORED_REPEAT</code>, or
-                        <code class="constant">GL_REPEAT</code>. <code class="constant">GL_CLAMP_TO_EDGE</code> causes 
+                        <code class="constant">GL_REPEAT</code>. <code class="constant">GL_CLAMP_TO_EDGE</code> causes
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         coordinates to be clamped to the
-                        range 
+                        range
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close="]">
@@ -321,26 +321,26 @@
                                 </mml:mrow>
                             </mml:mfenced>
                         </mml:math>,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">N</mml:mi></mml:math>
                         is the size
                         of the texture in the direction of clamping.  <code class="constant">GL_REPEAT</code> causes the
-                        integer part of the 
+                        integer part of the
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         coordinate to be ignored; the GL uses only the
                         fractional part, thereby creating a repeating pattern.
-                        <code class="constant">GL_MIRRORED_REPEAT</code> causes the 
+                        <code class="constant">GL_MIRRORED_REPEAT</code> causes the
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         coordinate to be set to the
-                        fractional part of the texture coordinate if the integer part of 
+                        fractional part of the texture coordinate if the integer part of
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         is
-                        even; if the integer part of 
+                        even; if the integer part of
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
-                        is odd, then the 
+                        is odd, then the
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         texture coordinate is
-                        set to 
+                        set to
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -355,7 +355,7 @@
                                 </mml:mrow>
                             </mml:mrow>
                         </mml:math>,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -371,13 +371,13 @@
                         Initially, <code class="constant">GL_TEXTURE_WRAP_S</code> is set to <code class="constant">GL_REPEAT</code>.
                     </p></dd></dl></div><p>
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_T</code></span></dt><dd><p>
-                        Sets the wrap parameter for texture coordinate 
+                        Sets the wrap parameter for texture coordinate
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">t</mml:mi></mml:math>
                         to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_MIRRORED_REPEAT</code>, or
                         <code class="constant">GL_REPEAT</code>.  See the discussion under <code class="constant">GL_TEXTURE_WRAP_S</code>.
                         Initially, <code class="constant">GL_TEXTURE_WRAP_T</code> is set to <code class="constant">GL_REPEAT</code>.
                     </p></dd><dt><span class="term"><code class="constant">GL_TEXTURE_WRAP_R</code></span></dt><dd><p>
-                        Sets the wrap parameter for texture coordinate 
+                        Sets the wrap parameter for texture coordinate
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
                         to either <code class="constant">GL_CLAMP_TO_EDGE</code>, <code class="constant">GL_MIRRORED_REPEAT</code>, or
                         <code class="constant">GL_REPEAT</code>.  See the discussion under <code class="constant">GL_TEXTURE_WRAP_S</code>.
@@ -389,7 +389,7 @@
                         <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>)
                         Permissible values are:
                         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_COMPARE_REF_TO_TEXTURE</code></span></dt><dd><p>
-                                        Specifies that the interpolated and clamped 
+                                        Specifies that the interpolated and clamped
                                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
                                         texture coordinate should
                                         be compared to the value in the currently bound texture.  See the
@@ -405,7 +405,7 @@
                         </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
                                         Texture Comparison Function
                                         </strong></span></th><th align="left"><span class="bold"><strong>
-                                        Computed result 
+                                        Computed result
                                         </strong></span></th></tr></thead><tbody><tr><td align="left">
                                         <code class="constant">GL_LEQUAL</code>
                                         </td><td align="left">
@@ -710,7 +710,7 @@
                                                 </mml:math>
                                         </td></tr></tbody></table></div><p>
                         where <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
-                        is the current interpolated texture coordinate, and 
+                        is the current interpolated texture coordinate, and
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:msub><mml:mi mathvariant="italic">D</mml:mi>
@@ -734,17 +734,17 @@
             another. Thus, completeness can be considered a function of a sampler object and a texture object bound to a single
             texture unit, rather than a property of the texture object itself.
         </p><p>
-            The results of a texture lookup are undefined if: 
+            The results of a texture lookup are undefined if:
             </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
-                    The sampler used in a texture lookup function is not one of the shadow sampler types, the texture object's base 
-                    internal format is <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>, and the 
+                    The sampler used in a texture lookup function is not one of the shadow sampler types, the texture object's base
+                    internal format is <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>, and the
                     <code class="constant">GL_TEXTURE_COMPARE_MODE</code> is not <code class="constant">GL_NONE</code>.
                 </p></li><li class="listitem"><p>
-                    The sampler used in a texture lookup function is one of the shadow sampler types, the texture object's base internal format 
-                    is <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>, and the 
+                    The sampler used in a texture lookup function is one of the shadow sampler types, the texture object's base internal format
+                    is <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>, and the
                     <code class="constant">GL_TEXTURE_COMPARE_MODE</code> is <code class="constant">GL_NONE</code>.
                 </p></li><li class="listitem"><p>
-                    The sampler used in a texture lookup function is one of the shadow sampler types, and the texture object's base 
+                    The sampler used in a texture lookup function is one of the shadow sampler types, and the texture object's base
                     internal format is not <code class="constant">GL_DEPTH_COMPONENT</code> or <code class="constant">GL_DEPTH_STENCIL</code>.
                 </p></li></ul></div><p>
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
@@ -763,8 +763,8 @@
             <a class="citerefentry" href="glBindTexture.xml"><span class="citerefentry"><span class="refentrytitle">glBindTexture</span></span></a>,
             <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>
