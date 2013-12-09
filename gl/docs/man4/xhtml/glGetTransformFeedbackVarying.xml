@@ -22,7 +22,8 @@
             variable selected by <em class="parameter"><code>index</code></em>. An <em class="parameter"><code>index</code></em> of 0 selects
             the first varying variable specified in the <em class="parameter"><code>varyings</code></em> array passed
             to <a class="citerefentry" href="glTransformFeedbackVaryings.xml"><span class="citerefentry"><span class="refentrytitle">glTransformFeedbackVaryings</span></span></a>, and
-            an <em class="parameter"><code>index</code></em> of <code class="constant">GL_TRANSFORM_FEEDBACK_VARYINGS</code> - 1 selects
+            an <em class="parameter"><code>index</code></em> of the value of
+            <code class="constant">GL_TRANSFORM_FEEDBACK_VARYINGS</code> minus one selects
             the last such variable.
         </p><p>
             The name of the selected varying is returned as a null-terminated string in

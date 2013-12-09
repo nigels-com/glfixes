@@ -36,7 +36,7 @@
             <span class="emphasis"><em>i</em></span> pixels are filled in each row that is rasterized.
         </p><p>
             There is a range of supported line widths.  Only width 1 is guaranteed to be supported; others depend on the
-            implementation.  
+            implementation.
             To query the range of supported widths, call <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
             with argument <code class="constant">GL_ALIASED_LINE_WIDTH_RANGE</code>.
         </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
@@ -53,9 +53,10 @@
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_ALIASED_LINE_WIDTH_RANGE</code>
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
-        </p></div><div class="refsect1"><a id="copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
-            Silicon Graphics, Inc. This document is licensed under the SGI
-            Free Software B License. For details, see
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
         </p></div></div></body></html>

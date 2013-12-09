@@ -33,12 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision$ on $Date$
+** Khronos $Revision: 24263 $ on $Date: 2013-12-02 03:42:02 -0800 (Mon, 02 Dec 2013) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
+
+/* Generated on date 20131202 */
 
 /* Generated C header for:
  * API: gles2
@@ -321,6 +323,26 @@ GL_APICALL void GL_APIENTRY glFramebufferTexture3DOES (GLenum target, GLenum att
 
 #ifndef GL_OES_texture_compression_astc
 #define GL_OES_texture_compression_astc 1
+#define GL_COMPRESSED_RGBA_ASTC_3x3x3_OES 0x93C0
+#define GL_COMPRESSED_RGBA_ASTC_4x3x3_OES 0x93C1
+#define GL_COMPRESSED_RGBA_ASTC_4x4x3_OES 0x93C2
+#define GL_COMPRESSED_RGBA_ASTC_4x4x4_OES 0x93C3
+#define GL_COMPRESSED_RGBA_ASTC_5x4x4_OES 0x93C4
+#define GL_COMPRESSED_RGBA_ASTC_5x5x4_OES 0x93C5
+#define GL_COMPRESSED_RGBA_ASTC_5x5x5_OES 0x93C6
+#define GL_COMPRESSED_RGBA_ASTC_6x5x5_OES 0x93C7
+#define GL_COMPRESSED_RGBA_ASTC_6x6x5_OES 0x93C8
+#define GL_COMPRESSED_RGBA_ASTC_6x6x6_OES 0x93C9
+#define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_3x3x3_OES 0x93E0
+#define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x3x3_OES 0x93E1
+#define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x3_OES 0x93E2
+#define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x4_OES 0x93E3
+#define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4x4_OES 0x93E4
+#define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x4_OES 0x93E5
+#define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x5_OES 0x93E6
+#define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5x5_OES 0x93E7
+#define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x5_OES 0x93E8
+#define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x6_OES 0x93E9
 #endif /* GL_OES_texture_compression_astc */
 
 #ifndef GL_OES_texture_float

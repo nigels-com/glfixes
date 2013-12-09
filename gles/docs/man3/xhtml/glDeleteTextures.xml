@@ -12,7 +12,7 @@
             to 0 (the default texture).
         </p><p>
                         Unused names in <em class="parameter"><code>textures</code></em> that have been marked as used for the purposes of
-                        <a class="citerefentry" href="glGenTextures.xml"><span class="citerefentry"><span class="refentrytitle">glGenTextures</span></span></a> are marked as unused again.            
+                        <a class="citerefentry" href="glGenTextures.xml"><span class="citerefentry"><span class="refentrytitle">glGenTextures</span></span></a> are marked as unused again.
                         <code class="function">glDeleteTextures</code> silently ignores 0's and names that do not correspond to
             existing textures.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
@@ -31,8 +31,9 @@
             <a class="citerefentry" href="glTexStorage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a>,
             <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
-            Silicon Graphics, Inc. This document is licensed under the SGI
-            Free Software B License. For details, see
+            Copyright <span class="trademark"></span>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
         </p></div></div></body></html>

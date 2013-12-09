@@ -23,14 +23,23 @@
             be <code class="constant">GL_DRAW_FRAMEBUFFER</code>, <code class="constant">GL_READ_FRAMEBUFFER</code>, or <code class="constant">GL_FRAMEBUFFER</code>.
             <code class="constant">GL_FRAMEBUFFER</code> is equivalent to <code class="constant">GL_DRAW_FRAMEBUFFER</code>.
         </p><p>
-            <em class="parameter"><code>attachment</code></em> specifies the logical attachment of the framebuffer and must be
-            <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>, <code class="constant">GL_DEPTH_ATTACHMENT</code>,
-            <code class="constant">GL_STENCIL_ATTACHMENT</code> or <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>.
-            <span class="emphasis"><em>i</em></span> in <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span> may range from zero to
-            the value of <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code> - 1. Attaching a level of a texture to
-            <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code> is equivalent to attaching that level to both the
-            <code class="constant">GL_DEPTH_ATTACHMENT</code> <span class="emphasis"><em>and</em></span> the <code class="constant">GL_STENCIL_ATTACHMENT</code>
-            attachment points simultaneously.
+            <em class="parameter"><code>attachment</code></em> specifies the logical
+            attachment of the framebuffer and must be
+            <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>,
+            <code class="constant">GL_DEPTH_ATTACHMENT</code>,
+            <code class="constant">GL_STENCIL_ATTACHMENT</code> or
+            <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>.
+            <span class="emphasis"><em>i</em></span> in
+            <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>
+            may range from zero to the value of
+            <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code> minus one.
+            Attaching a level of a texture to
+            <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code> is equivalent
+            to attaching that level to both the
+            <code class="constant">GL_DEPTH_ATTACHMENT</code>
+            <span class="emphasis"><em>and</em></span> the
+            <code class="constant">GL_STENCIL_ATTACHMENT</code> attachment points
+            simultaneously.
         </p><p>
             <em class="parameter"><code>textarget</code></em> specifies what type of texture is named by <em class="parameter"><code>texture</code></em>, and for
             cube map textures, specifies the face that is to be attached. If <em class="parameter"><code>texture</code></em> is not zero, it

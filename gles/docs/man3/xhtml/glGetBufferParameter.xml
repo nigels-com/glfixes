@@ -12,32 +12,32 @@
                     <code class="constant">GL_UNIFORM_BUFFER</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>value</code></em></span></dt><dd><p>
                     Specifies the symbolic name of a buffer object parameter.
-                    Accepted values are <code class="constant">GL_BUFFER_ACCESS_FLAGS</code>, <code class="constant">GL_BUFFER_MAPPED</code>, 
-                    <code class="constant">GL_BUFFER_MAP_LENGTH</code>, <code class="constant">GL_BUFFER_MAP_OFFSET</code>, 
+                    Accepted values are <code class="constant">GL_BUFFER_ACCESS_FLAGS</code>, <code class="constant">GL_BUFFER_MAPPED</code>,
+                    <code class="constant">GL_BUFFER_MAP_LENGTH</code>, <code class="constant">GL_BUFFER_MAP_OFFSET</code>,
                                         <code class="constant">GL_BUFFER_SIZE</code>, or <code class="constant">GL_BUFFER_USAGE</code>.
                 </p></dd><dt><span class="term"><em class="parameter"><code>data</code></em></span></dt><dd><p>
                     Returns the requested parameter.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
-            <code class="function">glGetBufferParameteriv</code> and <code class="function">glGetBufferParameteri64v</code> 
+            <code class="function">glGetBufferParameteriv</code> and <code class="function">glGetBufferParameteri64v</code>
                         return in <em class="parameter"><code>data</code></em> a selected parameter of the buffer object
             specified by <em class="parameter"><code>target</code></em>.
         </p><p>
             <em class="parameter"><code>value</code></em> names a specific buffer object parameter, as follows:
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_BUFFER_ACCESS_FLAGS</code></span></dt><dd><p>
-                        <em class="parameter"><code>params</code></em> returns the access policy set while mapping the buffer object.  
+                        <em class="parameter"><code>params</code></em> returns the access policy set while mapping the buffer object.
                     </p></dd><dt><span class="term"><code class="constant">GL_BUFFER_MAPPED</code></span></dt><dd><p>
-                        <em class="parameter"><code>params</code></em> returns a flag indicating whether the buffer object is currently 
+                        <em class="parameter"><code>params</code></em> returns a flag indicating whether the buffer object is currently
                         mapped. The initial value is <code class="constant">GL_FALSE</code>.
                     </p></dd><dt><span class="term"><code class="constant">GL_BUFFER_MAP_LENGTH</code></span></dt><dd><p>
-                        <em class="parameter"><code>params</code></em> returns the length of the buffer object mapping, 
-                                                measured in bytes. 
+                        <em class="parameter"><code>params</code></em> returns the length of the buffer object mapping,
+                                                measured in bytes.
                                                 The initial value is 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_BUFFER_MAP_OFFSET</code></span></dt><dd><p>
-                        <em class="parameter"><code>params</code></em> returns the offset (start) of the buffer object mapping, 
+                        <em class="parameter"><code>params</code></em> returns the offset (start) of the buffer object mapping,
                                                 measured in bytes.
                                                 The initial value is 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_BUFFER_SIZE</code></span></dt><dd><p>
-                        <em class="parameter"><code>params</code></em> returns the size of the buffer object, measured in bytes.  
+                        <em class="parameter"><code>params</code></em> returns the size of the buffer object, measured in bytes.
                         The initial value is 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_BUFFER_USAGE</code></span></dt><dd><p>
                         <em class="parameter"><code>params</code></em> returns the buffer object's usage pattern.
@@ -46,7 +46,7 @@
             no change is made to the contents of <em class="parameter"><code>data</code></em>.
         </p><p>
             If <code class="function">glGetBufferParameteriv</code> is used to query a <em class="parameter"><code>value</code></em> of
-                        <code class="constant">GL_BUFFER_SIZE</code>, values greater than or equal to 
+                        <code class="constant">GL_BUFFER_SIZE</code>, values greater than or equal to
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
@@ -56,8 +56,8 @@
                                         </mml:mfenced>
                                         </mml:msup>
                                 </mml:mrow>
-                        </mml:math> 
-                        will be clamped to 
+                        </mml:math>
+                        will be clamped to
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                                 
                                 <mml:mrow>
@@ -87,8 +87,9 @@
             <a class="citerefentry" href="glMapBufferRange.xml"><span class="citerefentry"><span class="refentrytitle">glMapBufferRange</span></span></a>,
             <a class="citerefentry" href="glUnmapBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley.
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

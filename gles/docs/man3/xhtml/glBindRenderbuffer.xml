@@ -6,8 +6,8 @@
                     Specifies the name of the renderbuffer object to bind.
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glBindRenderbuffer</code> binds the renderbuffer object with name <em class="parameter"><code>renderbuffer</code></em> to the renderbuffer target specified
-            by <em class="parameter"><code>target</code></em>. <em class="parameter"><code>target</code></em> must be <code class="constant">GL_RENDERBUFFER</code>. Calling 
-            <code class="function">glBindRenderbuffer</code> with <em class="parameter"><code>renderbuffer</code></em> set to a value of zero breaks the 
+            by <em class="parameter"><code>target</code></em>. <em class="parameter"><code>target</code></em> must be <code class="constant">GL_RENDERBUFFER</code>. Calling
+            <code class="function">glBindRenderbuffer</code> with <em class="parameter"><code>renderbuffer</code></em> set to a value of zero breaks the
             existing binding of a renderbuffer object to <em class="parameter"><code>target</code></em>.
         </p><p>
             <a class="citerefentry" href="glGenRenderbuffers.xml"><span class="citerefentry"><span class="refentrytitle">glGenRenderbuffers</span></span></a> may be used to generate a set of unused renderbuffer object names.

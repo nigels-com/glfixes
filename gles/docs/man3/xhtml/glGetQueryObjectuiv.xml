@@ -13,11 +13,11 @@
         </p><p>
             <em class="parameter"><code>pname</code></em> names a specific query object parameter.  <em class="parameter"><code>pname</code></em> can be as follows:
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_QUERY_RESULT</code></span></dt><dd><p>
-                        <em class="parameter"><code>params</code></em> returns the value of the query object's passed samples counter.  
+                        <em class="parameter"><code>params</code></em> returns the value of the query object's passed samples counter.
                         The initial value is 0.
                     </p></dd><dt><span class="term"><code class="constant">GL_QUERY_RESULT_AVAILABLE</code></span></dt><dd><p>
                         <em class="parameter"><code>params</code></em> returns whether the passed samples counter is immediately available.
-                        If a delay would occur waiting for the query result, <code class="constant">GL_FALSE</code> is returned.  
+                        If a delay would occur waiting for the query result, <code class="constant">GL_FALSE</code> is returned.
                         Otherwise, <code class="constant">GL_TRUE</code> is returned, which also indicates that the results of all
                         previous queries of the same type are available as well.
                     </p></dd></dl></div></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
@@ -27,12 +27,12 @@
             <code class="function">glGetQueryObjectuiv</code> implicitly flushes the GL pipeline so that any incomplete rendering
             delimited by the occlusion query completes in finite time.
         </p><p>
-                        Repeatedly querying the <code class="constant">GL_QUERY_RESULT_AVAILABLE</code> state for any given query object is 
+                        Repeatedly querying the <code class="constant">GL_QUERY_RESULT_AVAILABLE</code> state for any given query object is
                         guaranteed to return true eventually. Note that multiple queries to the same occlusion object may result in a
-                        significant performance loss. For better performance it is recommended to wait N frames before querying this 
-                        state. N is implementation-dependent but is generally between one and three.        
+                        significant performance loss. For better performance it is recommended to wait N frames before querying this
+                        state. N is implementation-dependent but is generally between one and three.
         </p><p>
-            If multiple queries are issued using the same query object <em class="parameter"><code>id</code></em> before calling 
+            If multiple queries are issued using the same query object <em class="parameter"><code>id</code></em> before calling
             <code class="function">glGetQueryObjectuiv</code>, the results of the most recent query will be returned.  In this case,
             when issuing a new query, the results of the previous query are discarded.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
@@ -40,7 +40,7 @@
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is not the name of a query object.
         </p><p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is the name of a currently active 
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is the name of a currently active
             query object.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glBeginQuery.xml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a>,
@@ -48,8 +48,9 @@
             <a class="citerefentry" href="glGetQueryiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a>,
             <a class="citerefentry" href="glIsQuery.xml"><span class="citerefentry"><span class="refentrytitle">glIsQuery</span></span></a>,
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2005 Addison-Wesley. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2005 Addison-Wesley.
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

@@ -28,7 +28,7 @@
             <em class="parameter"><code>buffer</code></em> and <em class="parameter"><code>size</code></em> specifies the amount of data that
             can be read from the buffer object while used as an indexed target.
         </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
-            The <code class="constant">GL_ATOMIC_COUNTER_BUFER</code> target is available only if the GL version is 4.2 or greater.
+            The <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> target is available only if the GL version is 4.2 or greater.
         </p><p>
             The <code class="constant">GL_SHADER_STORAGE_BUFFER</code> target is available only if the GL version is 4.3 or greater.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>

@@ -27,8 +27,8 @@
     and <em class="parameter"><code>index+3</code></em> for a matrix of type
     <code class="function">mat4</code>.</p><p>This command makes it possible for vertex shaders to use
     descriptive names for attribute variables rather than generic
-    variables that are numbered from 0 to
-    <code class="constant">GL_MAX_VERTEX_ATTRIBS</code> -1. The values sent
+    variables that are numbered from zero to the value of
+    <code class="constant">GL_MAX_VERTEX_ATTRIBS</code> minus one. The values sent
     to each generic attribute index are part of current state.
     If a different program object is made current by calling
     <a class="citerefentry" href="glUseProgram.xml"><span class="citerefentry"><span class="refentrytitle">glUseProgram</span></span></a>,

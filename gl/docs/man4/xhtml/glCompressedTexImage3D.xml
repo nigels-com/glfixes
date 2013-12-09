@@ -54,14 +54,14 @@
             compressed texture image using <code class="function">glCompressedTexImage3D</code>, query the compressed texture image's
             size and format using <a class="citerefentry" href="glGetTexLevelParameter.xml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a>.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p><p>
             If the compressed data are arranged into fixed-size blocks of texels, the pixel
             storage modes can be used to select a sub-rectangle from a larger containing rectangle.
             These pixel storage modes operate in the same way as they do for <a class="citerefentry" href="glTexImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage1D</span></span></a>.
-            In the following description, denote by 
+            In the following description, denote by
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>s</mml:mi></mml:msub></mml:mrow></mml:math>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>w</mml:mi></mml:msub></mml:mrow></mml:math>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>h</mml:mi></mml:msub></mml:mrow></mml:math>, and
@@ -73,7 +73,7 @@
             is the compressed block size in bytes;
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>w</mml:mi></mml:msub></mml:mrow></mml:math>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>h</mml:mi></mml:msub></mml:mrow></mml:math>,
-            and 
+            and
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>d</mml:mi></mml:msub></mml:mrow></mml:math>
             are the compressed block width, height, and depth in pixels.
         </p><p>
@@ -81,27 +81,27 @@
             <code class="constant">GL_UNPACK_SKIP_ROWS</code>, <code class="constant">GL_UNPACK_SKIP_PIXELS</code>,
             <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code> and <code class="constant">GL_UNPACK_SKIP_IMAGES</code>
             are ignored for compressed images. To enable <code class="constant">GL_UNPACK_SKIP_PIXELS</code>
-            and <code class="constant">GL_UNPACK_ROW_LENGTH</code>, 
+            and <code class="constant">GL_UNPACK_ROW_LENGTH</code>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>s</mml:mi></mml:msub></mml:mrow></mml:math>
-            and 
+            and
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>w</mml:mi></mml:msub></mml:mrow></mml:math>
             must both be non-zero.
             To also enable <code class="constant">GL_UNPACK_SKIP_ROWS</code> and <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>h</mml:mi></mml:msub></mml:mrow></mml:math>
             must be non-zero.
-            To also enable <code class="constant">GL_UNPACK_SKIP_IMAGES</code>, 
+            To also enable <code class="constant">GL_UNPACK_SKIP_IMAGES</code>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>d</mml:mi></mml:msub></mml:mrow></mml:math>
             must be non-zero. All parameters must be consistent with the compressed format to produce the desired results.
         </p><p>
             When selecting a sub-rectangle from a compressed image:
             </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
-                        the value of <code class="constant">GL_UNPACK_SKIP_PIXELS</code> must be a multiple of 
+                        the value of <code class="constant">GL_UNPACK_SKIP_PIXELS</code> must be a multiple of
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>w</mml:mi></mml:msub></mml:mrow></mml:math>;
                     </p></li><li class="listitem"><p>
-                        the value of <code class="constant">GL_UNPACK_SKIP_ROWS</code> must be a multiple of 
+                        the value of <code class="constant">GL_UNPACK_SKIP_ROWS</code> must be a multiple of
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>w</mml:mi></mml:msub></mml:mrow></mml:math>;
                     </p></li><li class="listitem"><p>
-                        the value of <code class="constant">GL_UNPACK_SKIP_IMAGES</code> must be a multiple of 
+                        the value of <code class="constant">GL_UNPACK_SKIP_IMAGES</code> must be a multiple of
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mrow><mml:msub><mml:mi>b</mml:mi><mml:mi>w</mml:mi></mml:msub></mml:mrow></mml:math>.
                     </p></li></ul></div><p>
         </p><p>
@@ -168,7 +168,7 @@
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
             object such that the memory reads required would exceed the data store size.
         </p><p>
             Undefined results, including abnormal program termination, are generated if <em class="parameter"><code>data</code></em> is not encoded in a manner consistent with the extension specification defining the internal compression format.
@@ -200,8 +200,8 @@
             <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>,
             <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006 Silicon Graphics, Inc. 
-            Copyright <span class="trademark"></span>© 2011-2013 Khronos Group. 
+            Copyright <span class="trademark"></span>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"></span>© 2011-2013 Khronos Group.
             This document is licensed under the SGI
             Free Software B License. For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.

@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 23855 $ on $Date: 2013-11-02 22:54:48 -0700 (Sat, 02 Nov 2013) $
+** Khronos $Revision: 24370 $ on $Date: 2013-12-05 03:51:29 -0800 (Thu, 05 Dec 2013) $
 */
 
 #if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
@@ -53,7 +53,7 @@ extern "C" {
 #define GLAPI extern
 #endif
 
-#define GL_GLEXT_VERSION 20131102
+#define GL_GLEXT_VERSION 20131205
 
 /* Generated C header for:
  * API: gl
@@ -2144,6 +2144,10 @@ GLAPI void APIENTRY glGetDoublei_v (GLenum target, GLuint index, GLdouble *data)
 #define GL_MAX_GEOMETRY_IMAGE_UNIFORMS    0x90CD
 #define GL_MAX_FRAGMENT_IMAGE_UNIFORMS    0x90CE
 #define GL_MAX_COMBINED_IMAGE_UNIFORMS    0x90CF
+#define GL_COMPRESSED_RGBA_BPTC_UNORM     0x8E8C
+#define GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM 0x8E8D
+#define GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT 0x8E8E
+#define GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT 0x8E8F
 #define GL_TEXTURE_IMMUTABLE_FORMAT       0x912F
 typedef void (APIENTRYP PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC) (GLenum mode, GLint first, GLsizei count, GLsizei instancecount, GLuint baseinstance);
 typedef void (APIENTRYP PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei instancecount, GLuint baseinstance);
@@ -4835,6 +4839,20 @@ GLAPI void APIENTRY glDeleteNamesAMD (GLenum identifier, GLuint num, const GLuin
 GLAPI GLboolean APIENTRY glIsNameAMD (GLenum identifier, GLuint name);
 #endif
 #endif /* GL_AMD_name_gen_delete */
+
+#ifndef GL_AMD_occlusion_query_event
+#define GL_AMD_occlusion_query_event 1
+#define GL_OCCLUSION_QUERY_EVENT_MASK_AMD 0x874F
+#define GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD 0x00000001
+#define GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD 0x00000002
+#define GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD 0x00000004
+#define GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD 0x00000008
+#define GL_QUERY_ALL_EVENT_BITS_AMD       0xFFFFFFFF
+typedef void (APIENTRYP PFNGLQUERYOBJECTPARAMETERUIAMDPROC) (GLenum target, GLuint id, GLenum pname, GLuint param);
+#ifdef GL_GLEXT_PROTOTYPES
+GLAPI void APIENTRY glQueryObjectParameteruiAMD (GLenum target, GLuint id, GLenum pname, GLuint param);
+#endif
+#endif /* GL_AMD_occlusion_query_event */
 
 #ifndef GL_AMD_performance_monitor
 #define GL_AMD_performance_monitor 1
@@ -8248,6 +8266,7 @@ GLAPI GLboolean APIENTRY glIsImageHandleResidentNV (GLuint64 handle);
 #define GL_NV_blend_equation_advanced 1
 #define GL_BLEND_OVERLAP_NV               0x9281
 #define GL_BLEND_PREMULTIPLIED_SRC_NV     0x9280
+#define GL_BLUE_NV                        0x1905
 #define GL_COLORBURN_NV                   0x929A
 #define GL_COLORDODGE_NV                  0x9299
 #define GL_CONJOINT_NV                    0x9284
@@ -8261,6 +8280,7 @@ GLAPI GLboolean APIENTRY glIsImageHandleResidentNV (GLuint64 handle);
 #define GL_DST_OUT_NV                     0x928D
 #define GL_DST_OVER_NV                    0x9289
 #define GL_EXCLUSION_NV                   0x92A0
+#define GL_GREEN_NV                       0x1904
 #define GL_HARDLIGHT_NV                   0x929B
 #define GL_HARDMIX_NV                     0x92A9
 #define GL_HSL_COLOR_NV                   0x92AF
@@ -8282,6 +8302,7 @@ GLAPI GLboolean APIENTRY glIsImageHandleResidentNV (GLuint64 handle);
 #define GL_PLUS_CLAMPED_NV                0x92B1
 #define GL_PLUS_DARKER_NV                 0x9292
 #define GL_PLUS_NV                        0x9291
+#define GL_RED_NV                         0x1903
 #define GL_SCREEN_NV                      0x9295
 #define GL_SOFTLIGHT_NV                   0x929C
 #define GL_SRC_ATOP_NV                    0x928E
@@ -8291,6 +8312,7 @@ GLAPI GLboolean APIENTRY glIsImageHandleResidentNV (GLuint64 handle);
 #define GL_SRC_OVER_NV                    0x9288
 #define GL_UNCORRELATED_NV                0x9282
 #define GL_VIVIDLIGHT_NV                  0x92A6
+#define GL_XOR_NV                         0x1506
 typedef void (APIENTRYP PFNGLBLENDPARAMETERINVPROC) (GLenum pname, GLint value);
 typedef void (APIENTRYP PFNGLBLENDBARRIERNVPROC) (void);
 #ifdef GL_GLEXT_PROTOTYPES

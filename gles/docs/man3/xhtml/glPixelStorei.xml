@@ -21,9 +21,9 @@
                 </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
             <code class="function">glPixelStorei</code> sets pixel storage modes that affect the operation of subsequent
             <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a> as well as the unpacking of
-            texture patterns (see <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>, 
+            texture patterns (see <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
                         <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a>,
-            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>, 
+            <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
                         <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>).
         </p><p>
             <em class="parameter"><code>pname</code></em> is a symbolic constant indicating the parameter to be set, and
@@ -33,7 +33,7 @@
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_PACK_ROW_LENGTH</code></span></dt><dd><p>
                         If greater than 0,
                         <code class="constant">GL_PACK_ROW_LENGTH</code> defines the number of pixels in a row.
-                        If the first pixel of a row is placed at location 
+                        If the first pixel of a row is placed at location
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
                         in memory,
                         then the location of the first pixel of the next row is obtained by skipping
@@ -102,20 +102,20 @@
                         </mml:math></div><p>
                     </p><p>
                         components or indices,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
                         is the number of components or indices in a pixel,
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">l</mml:mi></mml:math>
                         is the number of pixels in a row
                         (<code class="constant">GL_PACK_ROW_LENGTH</code> if it is greater than 0,
-                        the 
+                        the
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
                         argument to the pixel routine otherwise),
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
                         is the value of <code class="constant">GL_PACK_ALIGNMENT</code>, and
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         is the size, in bytes, of a single component
-                        (if 
+                        (if
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -124,7 +124,7 @@
                                 <mml:mi mathvariant="italic">s</mml:mi>
                             </mml:mrow>
                         </mml:math>,
-                        then it is as if 
+                        then it is as if
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -187,7 +187,7 @@
                         <code class="constant">GL_PACK_IMAGE_HEIGHT</code> defines the number of pixels in an image
                         three-dimensional texture volume, where ``image'' is defined by all pixels
                         sharing the same third dimension index.
-                        If the first pixel of a row is placed at location 
+                        If the first pixel of a row is placed at location
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
                         in memory,
                         then the location of the first pixel of the next row is obtained by skipping
@@ -259,27 +259,27 @@
                             </mml:mrow>
                         </mml:math></div><p>
                     </p><p>
-                        components or indices, where 
+                        components or indices, where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
                         is the number of components or indices
-                        in a pixel, 
+                        in a pixel,
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">l</mml:mi></mml:math>
                         is the number of pixels in a row
                         (<code class="constant">GL_PACK_ROW_LENGTH</code> if it is greater than 0, the
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
-                        argument to <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> otherwise), 
+                        argument to <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> otherwise),
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
                         is the number of
                         rows in a pixel image (<code class="constant">GL_PACK_IMAGE_HEIGHT</code> if it is greater than
-                        0, the 
+                        0, the
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">height</mml:mi></mml:math>
                         argument to the <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> routine otherwise),
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
                         is the value of
-                        <code class="constant">GL_PACK_ALIGNMENT</code>, and 
+                        <code class="constant">GL_PACK_ALIGNMENT</code>, and
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         is the size, in bytes, of a single
-                        component (if 
+                        component (if
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -288,7 +288,7 @@
                                 <mml:mi mathvariant="italic">s</mml:mi>
                             </mml:mrow>
                         </mml:math>,
-                        then it is as if 
+                        then it is as if
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -314,10 +314,10 @@
                         These values are provided as a convenience to the programmer;
                         they provide no functionality that cannot be duplicated simply by
                         incrementing the pointer passed to <a class="citerefentry" href="glReadPixels.xml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>.
-                        Setting <code class="constant">GL_PACK_SKIP_PIXELS</code> to 
+                        Setting <code class="constant">GL_PACK_SKIP_PIXELS</code> to
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
                         is equivalent to incrementing
-                        the pointer by 
+                        the pointer by
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -327,13 +327,13 @@
                             </mml:mrow>
                         </mml:math>
                         components or indices,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
                         is the number of components or indices in each pixel.
-                        Setting <code class="constant">GL_PACK_SKIP_ROWS</code> to 
+                        Setting <code class="constant">GL_PACK_SKIP_ROWS</code> to
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>
                         is equivalent to incrementing
-                        the pointer by 
+                        the pointer by
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -343,14 +343,14 @@
                             </mml:mrow>
                         </mml:math>
                         components or indices,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">m</mml:mi></mml:math>
                         is the number of components or indices per row,
                         as just computed in the <code class="constant">GL_PACK_ROW_LENGTH</code> section.
-                        Setting <code class="constant">GL_PACK_SKIP_IMAGES</code> to 
+                        Setting <code class="constant">GL_PACK_SKIP_IMAGES</code> to
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">k</mml:mi></mml:math>
                         is equivalent to incrementing
-                        the pointer by 
+                        the pointer by
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -359,7 +359,7 @@
                                 <mml:mi mathvariant="italic">p</mml:mi>
                             </mml:mrow>
                         </mml:math>,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
                         is the number of components or indices
                         per image, as computed in the <code class="constant">GL_PACK_IMAGE_HEIGHT</code> section.
@@ -383,7 +383,7 @@
         </p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="constant">GL_UNPACK_ROW_LENGTH</code></span></dt><dd><p>
                         If greater than 0,
                         <code class="constant">GL_UNPACK_ROW_LENGTH</code> defines the number of pixels in a row.
-                        If the first pixel of a row is placed at location 
+                        If the first pixel of a row is placed at location
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
                         in memory,
                         then the location of the first pixel of the next row is obtained by skipping
@@ -452,20 +452,20 @@
                         </mml:math></div><p>
                     </p><p>
                         components or indices,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
                         is the number of components or indices in a pixel,
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">l</mml:mi></mml:math>
                         is the number of pixels in a row
                         (<code class="constant">GL_UNPACK_ROW_LENGTH</code> if it is greater than 0,
-                        the 
+                        the
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
                         argument to the pixel routine otherwise),
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
                         is the value of <code class="constant">GL_UNPACK_ALIGNMENT</code>, and
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         is the size, in bytes, of a single component
-                        (if 
+                        (if
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -474,7 +474,7 @@
                                 <mml:mi mathvariant="italic">s</mml:mi>
                             </mml:mrow>
                         </mml:math>,
-                        then it is as if 
+                        then it is as if
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -537,7 +537,7 @@
                         <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code> defines the number of pixels in an image of
                         a three-dimensional texture volume.  Where ``image'' is defined by all
                         pixel sharing the same third dimension index.
-                        If the first pixel of a row is placed at location 
+                        If the first pixel of a row is placed at location
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
                         in memory,
                         then the location of the first pixel of the next row is obtained by skipping
@@ -610,25 +610,25 @@
                         </mml:math></div><p>
                     </p><p>
                         components or indices,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
                         is the number of components or indices in a pixel,
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">l</mml:mi></mml:math>
                         is the number of pixels in a row
                         (<code class="constant">GL_UNPACK_ROW_LENGTH</code> if it is greater than 0,
-                        the 
+                        the
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">width</mml:mi></mml:math>
                         argument to <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> otherwise),
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
                         is the number of rows in an image (<code class="constant">GL_UNPACK_IMAGE_HEIGHT</code> if
-                        it is greater than 0, the 
+                        it is greater than 0, the
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">height</mml:mi></mml:math>
                         argument to <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> otherwise),
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">a</mml:mi></mml:math>
                         is the value of <code class="constant">GL_UNPACK_ALIGNMENT</code>, and
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">s</mml:mi></mml:math>
                         is the size, in bytes, of a single component
-                        (if 
+                        (if
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -637,7 +637,7 @@
                                 <mml:mi mathvariant="italic">s</mml:mi>
                             </mml:mrow>
                         </mml:math>,
-                        then it is as if 
+                        then it is as if
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -667,10 +667,10 @@
                         <a class="citerefentry" href="glTexImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>,
                         <a class="citerefentry" href="glTexSubImage1D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage1D</span></span></a> or
                         <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>.
-                        Setting <code class="constant">GL_UNPACK_SKIP_PIXELS</code> to 
+                        Setting <code class="constant">GL_UNPACK_SKIP_PIXELS</code> to
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">i</mml:mi></mml:math>
                         is equivalent to incrementing
-                        the pointer by 
+                        the pointer by
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -680,13 +680,13 @@
                             </mml:mrow>
                         </mml:math>
                         components or indices,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">n</mml:mi></mml:math>
                         is the number of components or indices in each pixel.
-                        Setting <code class="constant">GL_UNPACK_SKIP_ROWS</code> to 
+                        Setting <code class="constant">GL_UNPACK_SKIP_ROWS</code> to
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">j</mml:mi></mml:math>
                         is equivalent to incrementing
-                        the pointer by 
+                        the pointer by
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -696,14 +696,14 @@
                             </mml:mrow>
                         </mml:math>
                         components or indices,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">k</mml:mi></mml:math>
                         is the number of components or indices per row,
                         as just computed in the <code class="constant">GL_UNPACK_ROW_LENGTH</code> section.
-                                                Setting <code class="constant">GL_UNPACK_SKIP_IMAGES</code> to 
+                                                Setting <code class="constant">GL_UNPACK_SKIP_IMAGES</code> to
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">k</mml:mi></mml:math>
                         is equivalent to incrementing
-                        the pointer by 
+                        the pointer by
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mrow>
@@ -712,10 +712,10 @@
                                 <mml:mi mathvariant="italic">p</mml:mi>
                             </mml:mrow>
                         </mml:math>,
-                        where 
+                        where
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">p</mml:mi></mml:math>
                         is the number of components or indices
-                        per image, as computed in the <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code> section.                    
+                        per image, as computed in the <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code> section.
                                                 </p></dd><dt><span class="term"><code class="constant">GL_UNPACK_ALIGNMENT</code></span></dt><dd><p>
                         Specifies the alignment requirements for the start of each pixel row in memory.
                         The allowable values are
@@ -729,21 +729,21 @@
             and range of valid values for each storage parameter
             that can be set with <code class="function">glPixelStorei</code>.
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
-                        <em class="parameter"><code>pname</code></em>
-                        </strong></span></th><th align="center"><span class="bold"><strong>
-                        Type
-                        </strong></span></th><th align="center"><span class="bold"><strong>
-                        Initial Value
-                        </strong></span></th><th align="center"><span class="bold"><strong>
-                        Valid Range
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+        </p><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> <em class="parameter"><code>pname</code></em> </strong></span>
+                        </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
+                            <span class="bold"><strong> Type </strong></span>
+                        </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
+                            <span class="bold"><strong> Initial Value </strong></span>
+                        </th><th style="border-bottom: 2px solid ; " align="center">
+                            <span class="bold"><strong> Valid Range </strong></span>
+                        </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_ROW_LENGTH</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -751,13 +751,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_IMAGE_HEIGHT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -765,13 +765,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_SKIP_ROWS</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -779,13 +779,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_SKIP_PIXELS</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -793,13 +793,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_SKIP_IMAGES</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -807,21 +807,21 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_PACK_ALIGNMENT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         4
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         1, 2, 4, or 8
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_ROW_LENGTH</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -829,13 +829,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_IMAGE_HEIGHT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -843,13 +843,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_SKIP_ROWS</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -857,13 +857,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_SKIP_PIXELS</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -871,13 +871,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_SKIP_IMAGES</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="center">
                         0
-                        </td><td align="center">
+                        </td><td style="border-bottom: 2px solid ; " align="center">
                         <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                             
                             <mml:mfenced open="[" close=")">
@@ -885,13 +885,13 @@
                                 <mml:infinity definitionURL="" encoding=""></mml:infinity>
                             </mml:mfenced>
                         </mml:math>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; " align="left">
                         <code class="constant">GL_UNPACK_ALIGNMENT</code>
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; " align="center">
                         integer
-                        </td><td align="center">
+                        </td><td style="border-right: 2px solid ; " align="center">
                         4
-                        </td><td align="center">
+                        </td><td style="" align="center">
                         1, 2, 4, or 8
                         </td></tr></tbody></table></div></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not an accepted value.
@@ -931,8 +931,9 @@
             <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
             <a class="citerefentry" href="glTexSubImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage3D</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
-            Silicon Graphics, Inc. This document is licensed under the SGI
-            Free Software B License. For details, see
+            Copyright <span class="trademark"></span>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
         </p></div></div></body></html>

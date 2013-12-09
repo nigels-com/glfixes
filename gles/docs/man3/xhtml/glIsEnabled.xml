@@ -11,49 +11,49 @@
         </p><p>
             The following capabilities are accepted for <em class="parameter"><code>cap</code></em>:
         </p><p>
-        </p><div class="informaltable"><table border="1"><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th align="left"><span class="bold"><strong>
-                        Constant
-                        </strong></span></th><th align="left"><span class="bold"><strong>
-                        See
-                        </strong></span></th></tr></thead><tbody><tr><td align="left">
+        </p><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> Constant </strong></span>
+                        </th><th style="border-bottom: 2px solid ; " align="left">
+                            <span class="bold"><strong> See </strong></span>
+                        </th></tr></thead><tbody><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_BLEND</code>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <a class="citerefentry" href="glBlendFunc.xml"><span class="citerefentry"><span class="refentrytitle">glBlendFunc</span></span></a>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_CULL_FACE</code>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <a class="citerefentry" href="glCullFace.xml"><span class="citerefentry"><span class="refentrytitle">glCullFace</span></span></a>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_DEPTH_TEST</code>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <a class="citerefentry" href="glDepthFunc.xml"><span class="citerefentry"><span class="refentrytitle">glDepthFunc</span></span></a>, <a class="citerefentry" href="glDepthRangef.xml"><span class="citerefentry"><span class="refentrytitle">glDepthRangef</span></span></a>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_DITHER</code>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_POLYGON_OFFSET_FILL</code> 
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                        <code class="constant">GL_POLYGON_OFFSET_FILL</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <a class="citerefentry" href="glPolygonOffset.xml"><span class="citerefentry"><span class="refentrytitle">glPolygonOffset</span></span></a>
-                        </td></tr><tr><td align="left">
-                        <code class="constant">GL_PRIMITIVE_RESTART_FIXED_INDEX</code> 
-                        </td><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+                        <code class="constant">GL_PRIMITIVE_RESTART_FIXED_INDEX</code>
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <a class="citerefentry" href="glEnable.xml"><span class="citerefentry"><span class="refentrytitle">glEnable</span></span></a>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_SAMPLE_ALPHA_TO_COVERAGE</code>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_SAMPLE_COVERAGE</code>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <a class="citerefentry" href="glSampleCoverage.xml"><span class="citerefentry"><span class="refentrytitle">glSampleCoverage</span></span></a>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                         <code class="constant">GL_SCISSOR_TEST</code>
-                        </td><td align="left">
+                        </td><td style="border-bottom: 2px solid ; " align="left">
                         <a class="citerefentry" href="glScissor.xml"><span class="citerefentry"><span class="refentrytitle">glScissor</span></span></a>
-                        </td></tr><tr><td align="left">
+                        </td></tr><tr><td style="border-right: 2px solid ; " align="left">
                         <code class="constant">GL_STENCIL_TEST</code>
-                        </td><td align="left">
+                        </td><td style="" align="left">
                         <a class="citerefentry" href="glStencilFunc.xml"><span class="citerefentry"><span class="refentrytitle">glStencilFunc</span></span></a>, <a class="citerefentry" href="glStencilOp.xml"><span class="citerefentry"><span class="refentrytitle">glStencilOp</span></span></a>
                         </td></tr></tbody></table></div><p>
         </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
@@ -66,9 +66,9 @@
             <a class="citerefentry" href="glDisable.xml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a>,
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
-            Silicon Graphics, Inc. Copyright <span class="trademark"></span>© 2010-2011
-            Khronos Group. This document is licensed under the SGI
-            Free Software B License. For details, see
+            Copyright <span class="trademark"></span>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
         </p></div></div></body></html>

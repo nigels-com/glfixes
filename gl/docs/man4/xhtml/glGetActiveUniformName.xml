@@ -25,8 +25,11 @@
             has been issued in the past. It is not necessary for <em class="parameter"><code>program</code></em> to have been linked successfully. The link could have failed because
             the number of active uniforms exceeded the limit.
         </p><p>
-            <em class="parameter"><code>uniformIndex</code></em> must be an active uniform index of the program <em class="parameter"><code>program</code></em>, in the range zero to
-            <code class="constant">GL_ACTIVE_UNIFORMS</code> - 1. The value of <code class="constant">GL_ACTIVE_UNIFORMS</code> can be queried with
+            <em class="parameter"><code>uniformIndex</code></em> must be an active uniform
+            index of the program <em class="parameter"><code>program</code></em>, in the
+            range zero to the value of
+            <code class="constant">GL_ACTIVE_UNIFORMS</code> minus one. The value of
+            <code class="constant">GL_ACTIVE_UNIFORMS</code> can be queried with
             <a class="citerefentry" href="glGetProgram.xml"><span class="citerefentry"><span class="refentrytitle">glGetProgram</span></span></a>.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>uniformIndex</code></em> is greater than or equal to the value

@@ -43,8 +43,8 @@ Status
         
 Version
     
-    Last Modified Date: June 24, 2013
-    Author Revision: 13
+    Last Modified Date: November 5, 2013
+    Author Revision: 14
 
 Number
 
@@ -1138,95 +1138,95 @@ New State
 
     Add the following to Table 6.14 Buffer Object State:
     
-                                      Initial
-    Get Value  Type  Get Command      Value    Description  Sec
-    ---------  ----  --------------   -------  -----------  ---
-    LABEL      S     GetObjectLabel   empty    Debug label  6.2
+                                       Initial
+    Get Value  Type  Get Command       Value    Description  Sec
+    ---------  ----  --------------    -------  -----------  ---
+    -          S     GetObjectLabel    empty    Debug label  6.2
 
     Add the following to Table 6.24 Textures (state per texture object):
     
-                                     Initial
-    Get Value  Type  Get Command     Value    Description  Sec
-    ---------  ----  --------------  -------  -----------  ---
-    LABEL      S     GetObjectLabel  empty    Debug label  6.2
+                                       Initial
+    Get Value  Type  Get Command       Value    Description  Sec
+    ---------  ----  --------------    -------  -----------  ---
+    -          S     GetObjectLabel    empty    Debug label  6.2
 
     Add the following to Table 6.44 Shader Object State:
     
-                                      Initial
-    Get Value  Type  Get Command      Value    Description  Sec
-    ---------  ----  ---------------  -------  -----------  ---
-    LABEL      S     GetObjectLabel   empty    Debug label  6.2
+                                       Initial
+    Get Value  Type  Get Command       Value    Description  Sec
+    ---------  ----  --------------    -------  -----------  ---
+    -          S     GetObjectLabel    empty    Debug label  6.2
 
     Add the following to Table 6.46 Program Object State:
     
-                                     Initial
-    Get Value  Type  Get Command     Value    Description  Sec
-    ---------  ----  --------------  -------  -----------  ---
-    LABEL      S     GetObjectLabel  empty    Debug label  6.2
+                                       Initial
+    Get Value  Type  Get Command       Value    Description  Sec
+    ---------  ----  --------------    -------  -----------  ---
+    -          S     GetObjectLabel    empty    Debug label  6.2
 
     Add the following to Table 6.36 Renderbuffer  (state per renderbuffer object):
     
-                                     Initial
-    Get Value  Type  Get Command     Value    Description  Sec
-    ---------  ----  --------------  -------  -----------  ---
-    LABEL      S     GetObjectLabel  empty    Debug label  6.2
+                                       Initial
+    Get Value  Type  Get Command       Value    Description  Sec
+    ---------  ----  --------------    -------  -----------  ---
+    -          S     GetObjectLabel    empty    Debug label  6.2
 
     Add the following to Table 6.33 Framebuffer (state per framebuffer object):
     
-                                     Initial
-    Get Value  Type  Get Command     Value    Description  Sec
-    ---------  ----  --------------  -------  -----------  ---
-    LABEL      S     GetObjectLabel  empty    Debug label  6.2
+                                       Initial
+    Get Value  Type  Get Command       Value    Description  Sec
+    ---------  ----  --------------    -------  -----------  ---
+    -          S     GetObjectLabel    empty    Debug label  6.2
 
     Add the following to Table 6.9 Vertex Array Object State:
     
-                                     Initial
-    Get Value  Type  Get Command     Value    Description  Sec
-    ---------  ----  --------------  -------  -----------  ---
-    LABEL      S     GetObjectLabel  empty    Debug label  6.2
+                                       Initial
+    Get Value  Type  Get Command       Value    Description  Sec
+    ---------  ----  --------------    -------  -----------  ---
+    -          S     GetObjectLabel    empty    Debug label  6.2
 
     Add the following to Table 6.54 Query Object State:
     
-                                     Initial
-    Get Value  Type  Get Command     Value    Description  Sec
-    ---------  ----  --------------  -------  -----------  ---
-    LABEL      S     GetObjectLabel  empty    Debug label  6.2
+                                       Initial
+    Get Value  Type  Get Command       Value    Description  Sec
+    ---------  ----  --------------    -------  -----------  ---
+    -          S     GetObjectLabel    empty    Debug label  6.2
 
     Add the following to Table 6.45 Program Pipeline Object State:
     
-                                     Initial
-    Get Value  Type  Get Command     Value    Description  Sec
-    ---------  ----  --------------  -------  -----------  ---
-    LABEL      S     GetObjectLabel  empty    Debug label  6.2
+                                       Initial
+    Get Value  Type  Get Command       Value    Description  Sec
+    ---------  ----  --------------    -------  -----------  ---
+    -          S     GetObjectLabel    empty    Debug label  6.2
 
     Add the following to Table 6.26 Textures (state per sampler object):
      
-                                     Initial
-    Get Value  Type  Get Command     Value    Description  Sec
-    ---------  ----  --------------  -------  -----------  ---
-    LABEL      S     GetObjectLabel  empty    Debug label  6.2
+                                       Initial
+    Get Value  Type  Get Command       Value    Description  Sec
+    ---------  ----  --------------    -------  -----------  ---
+    -          S     GetObjectLabel    empty    Debug label  6.2
 
     Add the following to Table 6.56 Transform Feedback State:
     
-                                     Initial
-    Get Value  Type  Get Command     Value    Description  Sec
-    ---------  ----  --------------  -------  -----------  ---
-    LABEL      S     GetObjectLabel  empty    Debug label  6.2
+                                       Initial
+    Get Value  Type  Get Command       Value    Description  Sec
+    ---------  ----  --------------    -------  -----------  ---
+    -          S     GetObjectLabel    empty    Debug label  6.2
 
     Add the following to Table 6.57 Sync (state per sync object):
     
-                                             Initial
-    Get Value  Type  Get Command             Value    Description  Sec
-    ---------  ----  ----------------------  -------  -----------  ---
-    LABEL      S     GetObjectPtrLabel       empty    Debug label  6.2
+                                       Initial
+    Get Value  Type  Get Command       Value    Description  Sec
+    ---------  ----  ----------------- -------  -----------  ---
+    -          S     GetObjectPtrLabel empty    Debug label  6.2
 
       [[ Compatibility Profile ]] 
     Add Table 6.60 Display List State:
     
-                                             Initial
-    Get Value  Type  Get Command             Value    Description  Sec
-    ---------  ----  ----------------------  -------  -----------  ---
-    LABEL      S     GetObjectLabel          empty    Debug label  6.2
+                                       Initial
+    Get Value  Type  Get Command       Value    Description  Sec
+    ---------  ----  ----------------- -------  -----------  ---
+    -          S     GetObjectLabel    empty    Debug label  6.2
       [[ End Profile-Specific Language ]]
 
 
@@ -1557,6 +1557,12 @@ Issues
     to be resolved.
 
 Revision History
+
+    Revision 14, 2013/11/05 (Jon Leech)
+      - Edit state tables to replace the "Get Value" of LABEL with "-",
+        indicating unnamed state. There is no token LABEL in the extension,
+        and the GetObject*Label commands do not take <pname> parameters (Bug
+        11131).
 
     Revision 13, 2013/06/24 (Jon Leech)
       - Add 'const' attribute to <userParam> for DebugMessageCallback and

@@ -19,10 +19,10 @@
             <em class="parameter"><code>uniformCount</code></em> indicates both the number of elements in the array of names <em class="parameter"><code>uniformNames</code></em> and the
             number of indices that may be written to <em class="parameter"><code>uniformIndices</code></em>.
         </p><p>
-            <em class="parameter"><code>uniformNames</code></em> contains a list of <em class="parameter"><code>uniformCount</code></em> nul-terminated name strings identifying the 
+            <em class="parameter"><code>uniformNames</code></em> contains a list of <em class="parameter"><code>uniformCount</code></em> nul-terminated name strings identifying the
                         uniform names to be queried for indices. For each name string in <em class="parameter"><code>uniformNames</code></em>, the index assigned to the active
-                        uniform of that name will be written to the corresponding element of <em class="parameter"><code>uniformIndices</code></em>. If a string in 
-                        <em class="parameter"><code>uniformNames</code></em> is not the name of an active uniform, the special value <code class="constant">GL_INVALID_INDEX</code> will 
+                        uniform of that name will be written to the corresponding element of <em class="parameter"><code>uniformIndices</code></em>. If a string in
+                        <em class="parameter"><code>uniformNames</code></em> is not the name of an active uniform, the special value <code class="constant">GL_INVALID_INDEX</code> will
                         be written to the corresponding element of <em class="parameter"><code>uniformIndices</code></em>.
         </p><p>
             If an error occurs, nothing is written to <em class="parameter"><code>uniformIndices</code></em>.
@@ -34,8 +34,8 @@
             <a class="citerefentry" href="glGetActiveUniformsiv.xml"><span class="citerefentry"><span class="refentrytitle">glGetActiveUniformsiv</span></span></a>,
             <a class="citerefentry" href="glLinkProgram.xml"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group. 
-            This material may be distributed subject to the terms and conditions set forth in 
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
         </p></div></div></body></html>

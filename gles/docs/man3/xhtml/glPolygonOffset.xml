@@ -10,7 +10,7 @@
             When <code class="constant">GL_POLYGON_OFFSET_FILL</code> is enabled, each
             fragment's <span class="emphasis"><em>depth</em></span> value will be offset after it is interpolated
             from the <span class="emphasis"><em>depth</em></span> values of the appropriate vertices.
-            The value of the offset is 
+            The value of the offset is
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -27,13 +27,13 @@
                     </mml:mrow>
                 </mml:mrow>
             </mml:math>,
-            where 
+            where
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mi mathvariant="italic">DZ</mml:mi>
             </mml:math>
             is a measurement of the change in depth relative to the screen
-            area of the polygon, and 
+            area of the polygon, and
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">r</mml:mi></mml:math>
             is the smallest value that is guaranteed to
             produce a resolvable offset for a given implementation.
@@ -53,8 +53,9 @@
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>,
             <a class="citerefentry" href="glIsEnabled.xml"><span class="citerefentry"><span class="refentrytitle">glIsEnabled</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
-            Silicon Graphics, Inc. This document is licensed under the SGI
-            Free Software B License. For details, see
+            Copyright <span class="trademark"></span>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
         </p></div></div></body></html>

@@ -34,7 +34,7 @@
             If an error is generated,
             no change is made to the contents of <em class="parameter"><code>data</code></em>.
         </p><p>
-            The <code class="constant">GL_ATOMIC_COUNTER_BUFER</code> target is available only if the GL version is 4.2 or greater.
+            The <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> target is available only if the GL version is 4.2 or greater.
         </p><p>
             The <code class="constant">GL_DISPATCH_INDIRECT_BUFFER</code> target is available only if the GL version is 4.3 or greater.
         </p><p>

@@ -19,10 +19,16 @@
             <code class="constant">GL_BACK_RIGHT</code>, identifying a color buffer, <code class="constant">GL_DEPTH</code>, identifying the depth buffer,
             or <code class="constant">GL_STENCIL</code>, identifying the stencil buffer.
         </p><p>
-            If a framebuffer object is bound, then <em class="parameter"><code>attachment</code></em> must be one of <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>,
-            <code class="constant">GL_DEPTH_ATTACHMENT</code>, <code class="constant">GL_STENCIL_ATTACHMENT</code>, or <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>.
-            <span class="emphasis"><em>i</em></span> in <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span> must be in the range zero to the value of
-            <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code> - 1.
+            If a framebuffer object is bound, then
+            <em class="parameter"><code>attachment</code></em> must be one of
+            <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>,
+            <code class="constant">GL_DEPTH_ATTACHMENT</code>,
+            <code class="constant">GL_STENCIL_ATTACHMENT</code>, or
+            <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code>.
+            <span class="emphasis"><em>i</em></span> in
+            <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>
+            must be in the range zero to the value of
+            <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code> minus one.
         </p><p>
             If <em class="parameter"><code>attachment</code></em> is <code class="constant">GL_DEPTH_STENCIL_ATTACHMENT</code> and different objects are bound
             to the depth and stencil attachment points of <em class="parameter"><code>target</code></em> the query will fail. If the same object

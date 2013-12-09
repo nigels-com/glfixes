@@ -28,8 +28,8 @@
                     <code class="constant">GL_RG_INTEGER</code>,
                     <code class="constant">GL_RGB</code>,
                     <code class="constant">GL_RGB_INTEGER</code>,
-                    <code class="constant">GL_RGBA</code>, 
-                    <code class="constant">GL_RGBA_INTEGER</code>, 
+                    <code class="constant">GL_RGBA</code>,
+                    <code class="constant">GL_RGBA_INTEGER</code>,
                     <code class="constant">GL_DEPTH_COMPONENT</code>,
                     <code class="constant">GL_DEPTH_STENCIL</code>,
                     <code class="constant">GL_LUMINANCE_ALPHA</code>,
@@ -74,7 +74,7 @@
                 </mml:mrow>
             </mml:math>,
             inclusive,
-            y indices <em class="parameter"><code>yoffset</code></em> and 
+            y indices <em class="parameter"><code>yoffset</code></em> and
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -86,7 +86,7 @@
                 </mml:mrow>
             </mml:math>,
             inclusive,
-            and z indices <em class="parameter"><code>zoffset</code></em> and 
+            and z indices <em class="parameter"><code>zoffset</code></em> and
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -103,13 +103,13 @@
             It is not an error to specify a subtexture with zero width, height, or
             depth but such a specification has no effect.
         </p><p>
-            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target 
+            If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer.xml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
             specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
         </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
             The <a class="citerefentry" href="glPixelStorei.xml"><span class="citerefentry"><span class="refentrytitle">glPixelStorei</span></span></a> modes affect texture images.
         </p><p>
-            <code class="function">glTexSubImage3D</code> specifies a three-dimensional subtexture for the  texture object bound to the 
+            <code class="function">glTexSubImage3D</code> specifies a three-dimensional subtexture for the  texture object bound to the
                         current texture unit, specified with <a class="citerefentry" href="glActiveTexture.xml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
         </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_TEXTURE_3D</code> or
@@ -123,7 +123,7 @@
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>level</code></em> is less than 0.
         </p><p>
             <code class="constant">GL_INVALID_VALUE</code> may be generated if <em class="parameter"><code>level</code></em> is greater
-            than 
+            than
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:msub><mml:mi mathvariant="italic">log</mml:mi>
@@ -133,7 +133,7 @@
             <span class="emphasis"><em>max</em></span>,
             where <span class="emphasis"><em>max</em></span> is the returned value of <code class="constant">GL_MAX_3D_TEXTURE_SIZE</code>.
         </p><p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if 
+            <code class="constant">GL_INVALID_VALUE</code> is generated if
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -170,7 +170,7 @@
                     </mml:mrow>
                 </mml:mrow>
             </mml:math>,
-            or 
+            or
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -187,7 +187,7 @@
                                         </mml:mrow>
                 </mml:mrow>
             </mml:math>,
-            or 
+            or
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -198,7 +198,7 @@
                     </mml:mrow>
                 </mml:mrow>
             </mml:math>,
-            or 
+            or
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
@@ -215,11 +215,11 @@
                                         </mml:mrow>
                 </mml:mrow>
             </mml:math>,
-            where 
+            where
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">w</mml:mi></mml:math>
             is the <code class="constant">GL_TEXTURE_WIDTH</code>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">h</mml:mi></mml:math>
-            is the <code class="constant">GL_TEXTURE_HEIGHT</code>, 
+            is the <code class="constant">GL_TEXTURE_HEIGHT</code>,
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">d</mml:mi></mml:math>
             is the <code class="constant">GL_TEXTURE_DEPTH</code> of the texture image being modified.
         </p><p>
@@ -227,7 +227,7 @@
             is less than 0.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if the texture array has not
-            been defined by a previous <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> or 
+            been defined by a previous <a class="citerefentry" href="glTexImage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexImage3D</span></span></a> or
                         <a class="citerefentry" href="glTexStorage3D.xml"><span class="citerefentry"><span class="refentrytitle">glTexStorage3D</span></span></a> operation.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if the combination of  <em class="parameter"><code>internalFormat</code></em> of the
@@ -238,11 +238,11 @@
             <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the buffer object's data store is currently mapped.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and the data would be unpacked from the buffer
             object such that the memory reads required would exceed the data store size.
         </p><p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible 
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
             <a class="citerefentry" href="glGet.xml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
@@ -259,8 +259,9 @@
             <a class="citerefentry" href="glTexSubImage2D.xml"><span class="citerefentry"><span class="refentrytitle">glTexSubImage2D</span></span></a>,
             <a class="citerefentry" href="glTexParameter.xml"><span class="citerefentry"><span class="refentrytitle">glTexParameter</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
-            Copyright <span class="trademark"></span>© 1991-2006
-            Silicon Graphics, Inc. This document is licensed under the SGI
-            Free Software B License. For details, see
+            Copyright <span class="trademark"></span>© 1991-2006 Silicon Graphics, Inc.
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This document is licensed under the SGI Free Software B License.
+            For details, see
             <a class="ulink" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
         </p></div></div></body></html>
