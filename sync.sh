@@ -23,6 +23,10 @@ wget -P gl --mirror --no-parent --no-host-directories --cut-dirs=1 --accept=html
 
 rm gl/robots.txt
 
+# Leave out the old specs
+
+rm gl/api/*.h
+
 #
 # OpenGL ES
 #
