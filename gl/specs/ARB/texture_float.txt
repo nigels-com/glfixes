@@ -238,7 +238,7 @@ Additions to Chapter 3 of the OpenGL 2.0 Specification (Rasterization)
     the resulting texture with internal component resolutions of its own
     choosing.  If a sized internal format is specified, the mapping of the
     R, G, B, A, and depth values to texture components is equivalent to the
-    mapping of the corresponding base internal format’s components, as
+    mapping of the corresponding base internal format's components, as
     specified in table 3.15, the type (unsigned int, float, etc.) is
     assigned the same type specified by <internalFormat>, and the memory
     allocation per texture component is assigned by the GL to match the
@@ -248,7 +248,7 @@ Additions to Chapter 3 of the OpenGL 2.0 Specification (Rasterization)
     float, etc.) for each base internal format.) If a compressed internal
     format is specified, the mapping of the R, G, B, A, and depth values to
     texture components is equivalent to the mapping of the corresponding
-    base internal format’s components, as specified in table 3.15. The
+    base internal format's components, as specified in table 3.15. The
     specified image is compressed using a (possibly lossy) compression
     algorithm chosen by the GL.
 

@@ -1318,7 +1318,7 @@ Modifications to the OpenGL Shading Language Specification, Version 1.50
     Section 4.3.8.X, Image Layout Qualifiers
 
     Format layout qualifiers can be used on image variable declarations (those
-    declared with a basic type having “image” in its keyword). The format 
+    declared with a basic type having 'image' in its keyword). The format 
     layout qualifier identifiers for image variable declarations are
 
       <layout-qualifier-id>:
@@ -1466,8 +1466,8 @@ Modifications to the OpenGL Shading Language Specification, Version 1.50
 
     The values of image variables qualified with "coherent", "volatile", 
     "restrict", "readonly", or "writeonly" may not be passed to functions 
-    whose formal parameters lack such qualifiers. (See section 6.1 “Function
-    Definitions” for more detail on function calling.) It is legal to have 
+    whose formal parameters lack such qualifiers. (See section 6.1 'Function
+    Definitions' for more detail on function calling.) It is legal to have 
     additional qualifiers on a formal parameter, but not to have fewer.
 
       vec4 funcA(layout(rgba32f) image2D restrict a)   { ... }

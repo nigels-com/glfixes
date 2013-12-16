@@ -162,10 +162,10 @@ Append to the end of Section 2.9.2, "Creating Buffer Object Stores"
 
         void ClearNamedBufferSubDataEXT(uint buffer,
                                         enum internalformat,
-                                        enum format,
-                                        enum type,
                                         sizeiptr offset,
                                         sizeiptr size,
+                                        enum format,
+                                        enum type,
                                         const void * data);
 
     are equivalent to calling ClearBufferData and ClearBufferSubData,
@@ -280,6 +280,12 @@ Revision History
 
     Rev.  Date        Author    Changes
     ----  ----------  --------  ---------------------------------------------
+    12    12/12/2013  Jon Leech Change order of ClearNamedBufferSubDataEXT
+                                arguments in spec body to be consistent with
+                                New Procedures declaration ((offset,
+                                size,format,type) instead of the erroneous
+                                (format,type,offset,size)) (Bug 11378).
+
     11    08/07/2013  mjk       Better indicate DSA entrypoints
 
     10    09/12/2012  Jon Leech Modify error condition when the target buffer

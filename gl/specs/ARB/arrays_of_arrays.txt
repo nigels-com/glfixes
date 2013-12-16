@@ -124,7 +124,7 @@ Overview
         vec4 a[3][2] = {{ vec4(0.0), vec4(1.0) },   
                         { vec4(0.0), vec4(1.0) },   
                         { vec4(0.0), vec4(1.0) }  };  // requires matching nesting of 
-                                                      // {} with object’s hierarchy
+                                                      // {} with object's hierarchy
 
 
     Note that all the above is naturally already specified in the core 
@@ -173,7 +173,7 @@ Additions to Chapter 4 of the OpenGL Shading Language Specification, Version
      structures, arrays) can be formed into an array."
 
     "When in transparent memory (like in a uniform block), the layout is that 
-     the “inner” (right-most in declaration) dimensions iterate faster than the 
+     the 'inner' (right-most in declaration) dimensions iterate faster than the 
      out dimensions.  That is, for the above, the order in memory would be:
 
          low address...a[0][0] a[0][1] a[1][0] a[1][1] a[2][0] a[2][1]...high address"
@@ -256,7 +256,7 @@ Additions to Chapter 4 of the OpenGL Shading Language Specification, Version
 
     Remove the following paragraph
 
-    "As described under the section 4.3.4 “Input Variables” above, if a 
+    "As described under the section 4.3.4 'Input Variables' above, if a 
     per-vertex output of the tessellation control shader is itself an array 
     with multiple values per vertex, it must appear in an output block (see 
     interface blocks below) in the tessellation control shader with a block 
@@ -336,7 +336,7 @@ Issues
 
     RESOLUTION: Yes, allow this syntax.
     
-2.  What does the enumeration API look like?  Don’t want to enumerate down to 
+2.  What does the enumeration API look like?  Don't want to enumerate down to 
     10,000 little individual elements, want something more hierarchical instead.
 
     This will significantly effect this extension if this extension turns into

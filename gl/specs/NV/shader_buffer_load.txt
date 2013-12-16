@@ -1064,8 +1064,8 @@ Issues
 
     RESOLVED: No. The existing language is:
     
-        "If the GL is able to map the buffer object’s data store into the 
-         client’s address space, MapBuffer returns the pointer value to 
+        "If the GL is able to map the buffer object's data store into the 
+         client's address space, MapBuffer returns the pointer value to 
          the data store once all pending operations on that buffer have
          completed."
 

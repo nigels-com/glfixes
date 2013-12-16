@@ -16,7 +16,7 @@ Contributors
 
 Contact
 
-    Dan Ginsburg (dan.ginsburg ‘at’ amd.com)
+    Dan Ginsburg (dan.ginsburg 'at' amd.com)
 
 Status
 
@@ -106,7 +106,7 @@ New Procedures and Functions
                                       uint *counterList)
 
     void BeginPerfMonitorAMD(uint monitor)
-	
+        
     void EndPerfMonitorAMD(uint monitor)
 
     void GetPerfMonitorCounterDataAMD(uint monitor, enum pname, sizei dataSize, 
@@ -119,17 +119,17 @@ New Tokens
     
         COUNTER_TYPE_AMD                           0x8BC0
         COUNTER_RANGE_AMD                          0x8BC1
-	
+        
     Returned as a valid value in <data> parameter of
     GetPerfMonitorCounterInfoAMD if <pname> = COUNTER_TYPE_AMD
-	
+        
         UNSIGNED_INT                               0x1405
         FLOAT                                      0x1406
         UNSIGNED_INT64_AMD                         0x8BC2
         PERCENTAGE_AMD                             0x8BC3
         
     Accepted by the <pname> parameter of GetPerfMonitorCounterDataAMD
-	
+        
         PERFMON_RESULT_AVAILABLE_AMD               0x8BC4
         PERFMON_RESULT_SIZE_AMD                    0x8BC5
         PERFMON_RESULT_AMD                         0x8BC6
@@ -409,8 +409,8 @@ Sample Usage
         *counterInfo = counters;
     }
     
-    static int	countersInitialized = 0;
-	
+    static int  countersInitialized = 0;
+        
     int
     getCounterByName(char *groupName, char *counterName, GLuint *groupID, 
                      GLuint *counterID)
@@ -438,7 +438,7 @@ Sample Usage
         }
 
         if ( i == numGroups )
-            return -1;           // error – could not find the group name
+            return -1;           // error - could not find the group name
 
         for ( int j = 0; j < counters[i].numCounters; j++ )
         {
@@ -454,7 +454,7 @@ Sample Usage
             }
         }
 
-        return -1;           // error – could not find the counter name
+        return -1;           // error - could not find the counter name
     }
 
     void
@@ -474,7 +474,7 @@ Sample Usage
                          &counter[0]);
         getCounterByName("API", "Draw Calls", &group[1], 
                          &counter[1]);
-		
+                
         // create perf monitor ID
         glGenPerfMonitorsAMD(1, &monitor);
 
@@ -502,7 +502,7 @@ Sample Usage
         glGetPerfMonitorCounterDataAMD(monitor, GL_PERFMON_RESULT_AMD,  
                                        resultSize, counterData, &bytesWritten);
 
-        // display or log counter info…
+        // display or log counter info
         GLsizei wordCount = 0;
 
         while ( (4 * wordCount) < bytesWritten )
@@ -538,16 +538,16 @@ Sample Usage
     }
  
 Revision History
-    11/29/2007 – dginsburg
+    11/29/2007 - dginsburg
        + Clarified the default state of a performance monitor object on creation
 
-    11/09/2007 – dginsbur
+    11/09/2007 - dginsbur
        + Clarify what happens if SelectPerfMonitorCountersAMD is called on
          a monitor with outstanding query results.
        + Rename counterSize to countersSize
-       + Remove some “;” typos
+       + Remove some ';' typos
 
-    06/13/2007 – dginsbur
+    06/13/2007 - dginsbur
        + Add language on the asynchronous nature of the API and 
          counter accuracy/performance distortion.
        + Add myself as the contact
@@ -557,22 +557,22 @@ Revision History
        + Clarify accuracy distortion on variant counters only
        + Tweak to overview language
 
-    06/09/2007 – dginsbur
+    06/09/2007 - dginsbur
        + Fill in errors section and make many more errors explicit
        + Fix the example code so it compiles
 
-    06/08/2007 – dginsbur
+    06/08/2007 - dginsbur
        + Modified GetPerfMonitorGroupString and GetPerfMonitorCounterString to
          be more client/server friendly.  
        + Modified example.
        + Renamed parameters/variables to follow GL conventions.
-       + Modified several “int” param types to “sizei”
-       + Modifid counters type from “int” to “uint”
-       + Renamed argument “cb” and “cbret”
+       + Modified several 'int' param types to 'sizei'
+       + Modifid counters type from 'int' to 'uint'
+       + Renamed argument 'cb' and 'cbret'
        + Better documented GetPerfMonitorCounterData 
        + Add AMD adornment in many places that were missing it
  
-    06/07/2007 – dginsbur
+    06/07/2007 - dginsbur
        + Cleanup formatting, remove tabs, make fit in proper page width
        + Add FLOAT and UNSIGNED_INT to list of COUNTER_TYPEs
        + Fix some bugs in the example code
@@ -581,6 +581,6 @@ Revision History
        + Added Issue 3 regarding use of 64-bit data types
        + Added revision history
 
-    03/21/2007 – Initial version written.  Written by amunshi.
+    03/21/2007 - Initial version written.  Written by amunshi.
 
         

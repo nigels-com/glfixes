@@ -84,8 +84,8 @@ Additions to Chapter 2 of the OpenGL 4.2 (Core Profile) Specification
     the size of the data store in basic machine units, and data pointing to the
     source data in client memory. If <target> is not
     EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, then if <data> is non-null, the source
-    data is copied to the buffer object’s data store. If <data> is null, then
-    the contents of the buffer object’s data store are undefined. If <target>
+    data is copied to the buffer object's data store. If <data> is null, then
+    the contents of the buffer object's data store are undefined. If <target>
     is EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD, then the client's memory is used
     directly by the GL for all subsequent operations on the buffer object's
     data store. In this case, the application must guarantee the existence of
