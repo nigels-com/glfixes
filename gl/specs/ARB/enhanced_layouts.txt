@@ -816,7 +816,7 @@ Additions to Chapter 4 "Variables and Types" of the OpenGL Shading Language
             layout(location = 2, component = 3) float d[6];
 
         "That is, location 2 component 3 will hold d[0], location 3 component 3
-        will hold d[1], …, up through location 7 component 3 holding d[5].
+        will hold d[1], ..., up through location 7 component 3 holding d[5].
 
         "This allows packing of two arrays into the same set of locations:
 
@@ -1110,8 +1110,8 @@ Additions to Chapter 4 "Variables and Types" of the OpenGL Shading Language
     Modify the paragraph starting "Ideally, these are redeclared..." to read
 
     "Ideally, these are redeclared as part of the redeclaration of an interface 
-    block, as described in section 7.1.1 “Compatibility Profile Built-In Language 
-    Variables”.  However, for the above purpose, they can be redeclared as
+    block, as described in section 7.1.1 `Compatibility Profile Built-In Language 
+    Variables'.  However, for the above purpose, they can be redeclared as
     individual variables at global scope, outside an interface block.  Such 
     redeclarations also allow adding the transform-feedback qualifiers 
     xfb_buffer, xfb_stride, and xfb_offset to output variables.  (Using 

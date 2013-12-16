@@ -500,7 +500,7 @@ Additions to Chapter 4 of the OpenGL Shading Language
     greater than or equal to the implementation-dependent maximum number of 
     uniform buffer bindings, a compilation error will occur.  When the binding 
     identifier is used with a uniform block instanced as an array of size N, 
-    all elements of the array from binding through binding + N – 1 must be 
+    all elements of the array from binding through binding + N ... 1 must be 
     within this range."
 
     Add for sampler and image layout qualifiers:

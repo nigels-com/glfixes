@@ -169,7 +169,7 @@ Issues
 
     RESOLVED: Any attachment to the bound FBO will have the index 3
     position updated. All the rest of the positions will keep their
-    original values. Any other fbo’s will not be affected by this change.
+    original values. Any other fbos will not be affected by this change.
 
     (2) How does an app get back to the default state after setting 
         sample positions? 

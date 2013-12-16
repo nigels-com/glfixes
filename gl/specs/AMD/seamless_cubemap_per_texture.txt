@@ -103,7 +103,7 @@ Additions to Chapter 3 of the 1.5 Specification (Rasterization)
     Section 3.8.6, Cube Map Texture Selection, p. 145, change the last
     paragraph from
 
-    "This new ( s t ) is used to find a texture value in the determined face’s
+    "This new ( s t ) is used to find a texture value in the determined face's
      two-dimensional texture image using the rules given in sections 3.8.7
      through 3.8.9."
 

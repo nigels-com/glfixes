@@ -220,7 +220,7 @@ Addition to Chapter 3 of OpenGL 3.0 Specification (Rasterization)
     two-dimensional texture or one-dimensional array texture, k is
     irrelevant; for a one-dimensional texture, j and k are both
     irrelevant). If target is TEXTURE_2D_ARRAY or TEXTURE_3D, the
-    texture value for a fragment is determined by that fragment’s
+    texture value for a fragment is determined by that fragment's
     associated (s, t, r) coordinates, but may not correspond to any
     actual texel. See figure 3.10. If target is
     TEXTURE_CUBE_MAP_ARRAY_ARB, the texture value is determined by (s,
