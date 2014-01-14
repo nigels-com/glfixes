@@ -21,7 +21,7 @@ Status
 
 Version
 
-    Version 8, 2013.07.03
+    Version 9, 2014.01.09
 
 Number
 
@@ -145,7 +145,7 @@ Additions to the EGL 1.4 Specification
     its first element is EGL_NONE. This specification defines no valid
     attribute names for <attrib_list>.
 
-    Multiple calls made to eglGetDisplayPlatformEXT with the same <platform>
+    Multiple calls made to eglGetPlatformDisplayEXT with the same <platform>
     and <native_display> will return the same EGLDisplay handle.
 
     An EGL_BAD_PARAMETER error is generated if <platform> has an invalid value.
@@ -331,6 +331,9 @@ Issues
        burden to developers and Linux package maintainers.
 
 Revision History
+
+    Version 9, 2014.01.09 (Jon Leech)
+        - Fix typo eglGetDisplayPlatformEXT -> eglGetPlatformDisplayEXT
 
     Version 8, 2013.07.03 (Chad Versace)
         - Add "Extension Type" section, required by EGL_EXT_client_extensions v9.
