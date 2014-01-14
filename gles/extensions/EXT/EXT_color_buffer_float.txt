@@ -42,7 +42,7 @@ IP Status
 
 Version
 
-    Date: December 17th, 2013
+    Date: December 18th, 2013
     Revision: 6
 
 Number
@@ -54,7 +54,7 @@ Dependencies
     Requires OpenGL ES 3.0.
 
     Written based on the wording of the OpenGL ES 3.0.3 Specification
-    (December 11th, 2013).
+    (December 18th, 2013).
 
 Overview
 
@@ -269,7 +269,7 @@ Revision History
                               OpenGL ES 3.0.1 specification.
                               Clarified change to "Required
                               renderbuffer formats" section.
-      6   12/17/13 markc      Update to match the substantial
+      6   12/18/13 markc      Update to match the substantial
                               clarifications regarding "effective
                               internal format" in OpenGL ES 3.0.3
 

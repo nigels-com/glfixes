@@ -33,10 +33,10 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 24369 $ on $Date: 2013-12-05 03:43:41 -0800 (Thu, 05 Dec 2013) $
+** Khronos $Revision: 24757 $ on $Date: 2014-01-14 03:59:51 -0800 (Tue, 14 Jan 2014) $
 */
 
-#define GLX_GLXEXT_VERSION 20131204
+#define GLX_GLXEXT_VERSION 20140114
 
 /* Generated C header for:
  * API: glx
@@ -272,7 +272,6 @@ __GLXextFuncPtr glXGetProcAddressARB (const GLubyte *procName);
 
 #ifndef GLX_EXT_import_context
 #define GLX_EXT_import_context 1
-typedef XID GLXContextID;
 #define GLX_SHARE_CONTEXT_EXT             0x800A
 #define GLX_VISUAL_ID_EXT                 0x800B
 #define GLX_SCREEN_EXT                    0x800C

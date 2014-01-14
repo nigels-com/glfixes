@@ -21,7 +21,7 @@ Status
 
 Version
 
-    10 (16 Jun 2010)
+    11 (2 Jan 2014)
 
 Number
 
@@ -78,7 +78,7 @@ New Procedures and Functions
                                                  sizei      numTextureNames,
                                                  const uint *textureNames);
 
-    void VDPAUIsSurfaceNV (vdpauSurfaceNV surface);
+    boolean VDPAUIsSurfaceNV (vdpauSurfaceNV surface);
 
     void VDPAUUnregisterSurfaceNV (vdpauSurfaceNV surface);
 
@@ -370,7 +370,7 @@ Additions to Chapter 6 of the OpenGL 3.2 (unabridged) Specification
 
     The command
 
-        void VDPAUIsSurfaceNV (vdpauSurfaceNV surface);
+        boolean VDPAUIsSurfaceNV (vdpauSurfaceNV surface);
 
     returns TRUE if <surface> is the name of a VDPAU surface object. If
     <surface> is not the name of a VDPAU surface object, or if an error
@@ -439,9 +439,8 @@ Errors
     see tables 3.8.3.1 and 3.8.3.2.
 
     INVALID_VALUE is generated if the <surface> parameter of
-    VDPAUIsSurfaceNV, VDPAUGetSurfaceivNV, VDPAUSurfaceAccessNV,
-    VDPAUMapSurfacesNV, VDPAUUnmapSurfacesNV is not the name of a VDPAU
-    surface object.
+    VDPAUGetSurfaceivNV, VDPAUSurfaceAccessNV, VDPAUMapSurfacesNV,
+    VDPAUUnmapSurfacesNV is not the name of a VDPAU surface object.
 
     INVALID_VALUE is generated if the <surface> parameter of
     VDPAUUnregisterSurfaceNV is neither zero nor the name of a VDPAU
@@ -619,4 +618,8 @@ Revision History
 
     10. 16 Jun 2010
         - Added "New Types" section
+
+    11.  2 Jan 2014
+        - Fixed return type of VDPAUIsSurfaceNV and remove it from the
+          list of commands that generate INVALID_VALUE.
 

@@ -40,7 +40,9 @@ Dependencies
 
     EGL 1.0 is required.
 
-    EXT_surfaceless_context is required.
+    The functionality of this extension is not supported by client OpenGL ES
+    contexts unless the GL_OES_surfaceless_context extension is supported by
+    those contexts.
 
     Written against wording of EGL 1.4 specification.
 
@@ -98,7 +100,7 @@ Drawables"
     is generated and the context is made current without a
     <default framebuffer>.  The meaning of this is defined by the API of the
     supporting context.  (See chapter 4 of the OpenGL 3.0 Specification, and
-    the GL_EXT_surfaceless_context OpenGL ES extension.)"
+    the GL_OES_surfaceless_context OpenGL ES extension.)"
 
     Append to the paragraph starting "The first time an OpenGL or OpenGL
     ES context is made current..." with
@@ -111,7 +113,7 @@ Drawables"
 Interactions with other extensions
 
     The semantics of having a current context with no surface for OpenGL ES
-    1.x and OpenGL ES 2.x are specified by the GL_EXT_surfaceless_context
+    1.x and OpenGL ES 2.x are specified by the GL_OES_surfaceless_context
     extension.
 
 Issues
@@ -121,25 +123,25 @@ Issues
     extension is supported then any context of the particular API may be
     made current with no surfaces?
 
-    RESOLVED. Because multiple API implementations may be available as contexts
-    we cannot gaurantee that all OpenGL ES 1.x or OpenGL ES 2.x contexts will
-    support GL_EXT_surfaceless_context.  If the user attempts to call
-    eglMakeCurrent with EGL_NO_SURFACE on a context which does not support it,
-    this simply results in EGL_BAD_MATCH.
+    RESOLVED. Because multiple API implementations may be available as
+    contexts we cannot guarantee that all OpenGL ES 1.x or OpenGL ES 2.x
+    contexts will support GL_OES_surfaceless_context. If the user attempts
+    to call eglMakeCurrent with EGL_NO_SURFACE on a context which does not
+    support it, this simply results in EGL_BAD_MATCH.
 
  2) Do we need to include all of the relevant "default framebuffer" language
     from the OpenGL specification to properly specify OpenGL ES behavior
     with no default framebuffer bound?
 
-    RESOLVED. Yes, the behaviour of the GLES contexts when no default framebuffer
-    is associated with the context has been moved to the OpenGL ES
-    extension EXT_surfaceless_context.
+    RESOLVED. Yes, the behaviour of the GLES contexts when no default
+    framebuffer is associated with the context has been moved to the OpenGL
+    ES extension OES_surfaceless_context.
 
  3) Since these EGL extensions also modify OpenGL ES behavior and introduce
     a new error condition, do we want corresponding OpenGL ES extension
     strings as well?
 
-    RESOLVED. Yes, see EXT_surfaceless_context extension.
+    RESOLVED. Yes, see GL_OES_surfaceless_context extension.
 
  4) How does this document interact with EGL_KHR_create_context and OpenGL
     contexts?
@@ -147,19 +149,22 @@ Issues
     RESOLVED. Some language defining the error conditions of eglMakeCurrent
     have been imported from the draft specification of EGL_KHR_create_context
     and the definitions of the behaviour of the GLES contexts without a
-    default framebuffer have been moved to GL_EXT_surfaceless_context. Any
+    default framebuffer have been moved to GL_OES_surfaceless_context. Any
     further interactions are left to the create_context extension to define
     when it is completed.
 
 Revision History
 
+    Version 5, 2014/01/07 (Jon Leech) - Correct references to
+    EXT_surfaceless_context with GL_OES_surfaceless_context.
+
     Version 4, 2012/02/27 (Steven Holte) - Add language for error conditions
-    from EGL_KHR_create_context, and resolutions of issues.  Combined API
+    from EGL_KHR_create_context, and resolutions of issues. Combined API
     specific extensions into a single extension.
 
-    Version 3, 2010/08/19 (Kristian Hoegsberg) - Move default
-    framebuffer language to new GLES extension
-    (EXT_surfaceless_context) and make this extension depend on that.
+    Version 3, 2010/08/19 (Kristian Hoegsberg) - Move default framebuffer
+    language to new GLES extension (GL_OES_surfaceless_context) and make
+    this extension depend on that.
 
     Version 2, 2010/08/03 (Jon Leech) - add default framebuffer language to
     the OpenGL ES Specifications, including changes to initial GL state and
