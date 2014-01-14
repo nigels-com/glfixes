@@ -23,7 +23,7 @@ Status
 
 Version
 
-    Version 5, February 19, 2013
+    Version 6, December 05, 2013
 
 Number
 
@@ -195,9 +195,10 @@ Additions to Chapter 2 of the EGL 1.2 Specification (EGL Operation)
 
 
     If eglCreateImageKHR is successful for a EGL_LINUX_DMA_BUF_EXT target, the
-    EGL takes ownership of the file descriptor and is responsible for closing
-    it, which it may do at any time while the EGLDisplay is initialized."
-    
+    EGL will take a reference to the dma_buf(s) which it will release at any
+    time while the EGLDisplay is initialized. It is the responsibility of the
+    application to close the dma_buf file descriptors."
+
 
     Add to the list of error conditions for eglCreateImageKHR:
 
@@ -235,10 +236,6 @@ Additions to Chapter 2 of the EGL 1.2 Specification (EGL Operation)
          specified for a plane's pitch or offset isn't supported by EGL,
          EGL_BAD_ACCESS is generated.
 
-       * If <target> is EGL_LINUX_DMA_BUF_EXT and eglCreateImageKHR fails,
-         EGL does not retain ownership of the file descriptor and it is the
-         responsibility of the application to close it."
-
 
 Issues
 
@@ -258,8 +255,9 @@ Issues
 
     3. Does ownership of the file descriptor pass to the EGL library?
 
-    ANSWER: If eglCreateImageKHR is successful, EGL assumes ownership of the
-    file descriptors and is responsible for closing them.
+    ANSWER: No, EGL does not take ownership of the file descriptors. It is the
+    responsibility of the application to close the file descriptors on success
+    and failure.
 
     4. How are the different YUV color spaces handled (BT.709/BT.601)?
 
@@ -374,6 +372,9 @@ Issues
 
 
 Revision History
+#6 (David Garbett, December 05, 2013)
+   - Application now retains ownership of dma_buf file descriptors.
+
 #5 (Tom Cooksey, February 19, 2013)
    - Assigned enum values
    - Moved out of drafts
