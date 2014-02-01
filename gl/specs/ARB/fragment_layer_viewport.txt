@@ -30,8 +30,8 @@ Status
 
 Version
 
-    Last Modified Date:         May 31, 2012
-    Revision:                   3
+    Last Modified Date:         January 28, 2014
+    Revision:                   5
 
 Number
 
@@ -39,7 +39,9 @@ Number
 
 Dependencies
 
-    OpenGL 3.0, ARB_geometry_shader4 and ARB_viewport_array are required.
+    OpenGL 3.0 and ARB_geometry_shader4, or OpenGL 3.2 is required.
+
+    ARB_viewport_array is required.
     
     This extension is written against The OpenGL Shading Language 4.20.11
     Specification.
@@ -70,6 +72,18 @@ New Tokens
 Additions to Chapter 7 of the OpenGL Shading Language 4.20.11 Specification
 (Built-In Variables)
 
+    "Including the following line in a shader will enable the language
+    features described in this extension:
+
+        #extension GL_ARB_fragment_layer_viewport : <behavior>
+
+    where <behavior> is as specified in section 3.3 for the #extension
+    directive."
+
+    A new preprocessor macro is added to the OpenGL Shading Language:
+
+      #define GL_ARB_fragment_layer_viewport    1
+
     Add to the section labelled "In the fragment language, built-in variables
     are intrinsically declared as:" on page 99:
     
@@ -93,7 +107,7 @@ Additions to Chapter 7 of the OpenGL Shading Language 4.20.11 Specification
     language. If the geometry stage does not dynamically assign a value to 
     gl_Layer, the value of gl_Layer in the fragment stage will be undefined.  
     If the geometry stage makes no static assignment to gl_Layer, the input 
-    gl_Value in the fragment stage will be zero.  Otherwise, the fragment 
+    gl_Layer in the fragment stage will be zero.  Otherwise, the fragment 
     stage will read the same value written by the geometry stage, even if 
     that value is out of range.  If a fragment shader contains a static 
     access to gl_Layer, it will count against the implementation defined 
@@ -186,6 +200,8 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------------
+    5     01/28/14  Ian R     Fix dependencies.  s/gl_Value/gl_Layer/.  Add
+                              GLSL define for GL_ARB_fragment_layer_viewport.
     4     06/05/12  johnk     Improve distinctions between stage and shader and
                               make it be any static access that triggers the 
                               count against number of inputs to the fragment stage.
