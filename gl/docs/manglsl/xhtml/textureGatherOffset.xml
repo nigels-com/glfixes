@@ -16,7 +16,7 @@
 </p><pre class="programlisting">    vec4(Sample_i0_j1(P + offset, base).comp,
          Sample_i1_j1(P + offset, base).comp,
          Sample_i1_j0(P + offset, base).comp,
-         Sample_i0_j9(P + offset, base).comp);</pre><p>
+         Sample_i0_j1(P + offset, base).comp);</pre><p>
     </p><p>
         It perfoms as <a class="citerefentry" href="textureGather.xml"><span class="citerefentry"><span class="refentrytitle">textureGather</span></span></a> but with <em class="parameter"><code>offset</code></em>
         applied as described in <a class="citerefentry" href="textureOffset.xml"><span class="citerefentry"><span class="refentrytitle">textureOffset</span></span></a>, except that the

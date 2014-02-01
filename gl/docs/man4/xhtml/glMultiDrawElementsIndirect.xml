@@ -46,15 +46,11 @@
             A single call to <code class="function">glMultiDrawElementsIndirect</code> is equivalent, assuming no errors
             are generated to:
             </p><pre class="programlisting">    GLsizei n;
-    for (n = 0; n &lt; drawcount; n++)
-    {
-        const DrawElementsIndirectCommand  *cmd;
-        if (stride != 0)
-        {
+    for (n = 0; n &lt; drawcount; n++) {
+        const DrawElementsIndirectCommand *cmd;
+        if (stride != 0) {
             cmd = (const DrawElementsIndirectCommand  *)((uintptr)indirect + n * stride);
-        }
-        else
-        {
+        } else {
             cmd = (const DrawElementsIndirectCommand  *)indirect + n;
         }
 

@@ -14,7 +14,7 @@
 </p><pre class="programlisting">    vec4(Sample_i0_j1(P, base).comp,
          Sample_i1_j1(P, base).comp,
          Sample_i1_j0(P, base).comp,
-         Sample_i0_j9(P, base).comp);</pre><p>
+         Sample_i0_j1(P, base).comp);</pre><p>
     </p><p>
         If specified, the value of <em class="parameter"><code>comp</code></em> must ba constant integer expression with a value
         of 0, 1, 2, or 3, identifying the x, y, z or w component of the four-component vector lookup result for each

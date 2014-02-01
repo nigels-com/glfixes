@@ -145,8 +145,7 @@
             with <em class="parameter"><code>first</code></em> set to <em class="parameter"><code>index</code></em>, <em class="parameter"><code>count</code></em> set to
             1 and <em class="parameter"><code>v</code></em> passsed directly. <code class="function">glViewportIndexedf</code> is equivalent
             to:
-        </p><pre class="programlisting">    void glViewportIndexedf(GLuint index, GLfloat x, GLfloat y, GLfloat w, GLfloat h)
-    {
+        </p><pre class="programlisting">    void glViewportIndexedf(GLuint index, GLfloat x, GLfloat y, GLfloat w, GLfloat h) {
         const float v[4]  = { x, y, w, h };
         glViewportArrayv(index, 1, v);
     }</pre></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>

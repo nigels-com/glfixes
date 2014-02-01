@@ -39,8 +39,7 @@
         </p><p>
             <code class="function">glDrawElementsIndirect</code> is equivalent to:
         </p><p>
-</p><pre class="programlisting">    void glDrawElementsIndirect(GLenum mode, GLenum type, const void * indirect)
-    {
+</p><pre class="programlisting">    void glDrawElementsIndirect(GLenum mode, GLenum type, const void * indirect) {
         const DrawElementsIndirectCommand *cmd  = (const DrawElementsIndirectCommand *)indirect;
         glDrawElementsInstancedBaseVertexBaseInstance(mode,
                                                       cmd-&gt;count,
