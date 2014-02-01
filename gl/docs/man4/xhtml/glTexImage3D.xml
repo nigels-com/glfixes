@@ -164,7 +164,7 @@
             <em class="parameter"><code>internalFormat</code></em> may be one of the base internal formats shown in
             Table 1, below
         </p><p>
-            </p><div class="table"><a id="idp1943224"></a><p class="title"><strong>Table 1. Base Internal Formats</strong></p><div class="table-contents"><table summary="Base Internal Formats" style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+            </p><div class="table"><a id="idp1941392"></a><p class="title"><strong>Table 1. Base Internal Formats</strong></p><div class="table-contents"><table summary="Base Internal Formats" style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                     <span class="bold"><strong>Base Internal Format</strong></span>
                 </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                     <span class="bold"><strong>RGBA, Depth and Stencil Values</strong></span>
@@ -175,7 +175,7 @@
             <em class="parameter"><code>internalFormat</code></em> may also be one of the sized internal formats
             shown in Table 2, below
         </p><p>
-            </p><div class="table"><a id="idp1886576"></a><p class="title"><strong>Table 2. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+            </p><div class="table"><a id="idp3608136"></a><p class="title"><strong>Table 2. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                     <span class="bold"><strong>Sized Internal Format</strong></span>
                 </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                     <span class="bold"><strong>Base Internal Format</strong></span>
@@ -194,7 +194,7 @@
             Finally, <em class="parameter"><code>internalFormat</code></em> may also be one of the generic or compressed
             compressed texture formats shown in Table 3 below
         </p><p>
-            </p><div class="table"><a id="idp2295704"></a><p class="title"><strong>Table 3. Compressed Internal Formats</strong></p><div class="table-contents"><table summary="Compressed Internal Formats" style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+            </p><div class="table"><a id="idp1441176"></a><p class="title"><strong>Table 3. Compressed Internal Formats</strong></p><div class="table-contents"><table summary="Compressed Internal Formats" style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="left" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                     <span class="bold"><strong>Compressed Internal Format</strong></span>
                 </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                     <span class="bold"><strong>Base Internal Format</strong></span>

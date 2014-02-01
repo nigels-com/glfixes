@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 24933 $ on $Date: 2014-01-22 02:37:46 -0800 (Wed, 22 Jan 2014) $
+** Khronos $Revision: 25146 $ on $Date: 2014-01-30 09:36:54 -0800 (Thu, 30 Jan 2014) $
 */
 
 #if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
@@ -53,7 +53,7 @@ extern "C" {
 #define GLAPI extern
 #endif
 
-#define GL_GLEXT_VERSION 20140122
+#define GL_GLEXT_VERSION 20140130
 
 /* Generated C header for:
  * API: gl
@@ -8265,6 +8265,15 @@ GLAPI void APIENTRY glBeginConditionalRenderNVX (GLuint id);
 GLAPI void APIENTRY glEndConditionalRenderNVX (void);
 #endif
 #endif /* GL_NVX_conditional_render */
+
+#ifndef GL_NVX_gpu_memory_info
+#define GL_NVX_gpu_memory_info 1
+#define GL_GPU_MEMORY_INFO_DEDICATED_VIDMEM_NVX 0x9047
+#define GL_GPU_MEMORY_INFO_TOTAL_AVAILABLE_MEMORY_NVX 0x9048
+#define GL_GPU_MEMORY_INFO_CURRENT_AVAILABLE_VIDMEM_NVX 0x9049
+#define GL_GPU_MEMORY_INFO_EVICTION_COUNT_NVX 0x904A
+#define GL_GPU_MEMORY_INFO_EVICTED_MEMORY_NVX 0x904B
+#endif /* GL_NVX_gpu_memory_info */
 
 #ifndef GL_NV_bindless_multi_draw_indirect
 #define GL_NV_bindless_multi_draw_indirect 1

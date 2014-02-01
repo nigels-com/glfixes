@@ -61,7 +61,7 @@
             generation of a <code class="constant">GL_INVALID_OPERATION</code> error, even if it
             would not, in fact, alter the dimensions or format of the object.
         </p><p>
-            </p><div class="table"><a id="idp2555944"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
+            </p><div class="table"><a id="idp2727736"></a><p class="title"><strong>Table 1. Sized Internal Formats</strong></p><div class="table-contents"><table summary="Sized Internal Formats" style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="left" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /></colgroup><thead><tr><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                     <span class="bold"><strong>Sized Internal Format</strong></span>
                 </th><th style="border-right: 2px solid ; border-bottom: 2px solid ; " align="left">
                     <span class="bold"><strong>Base Internal Format</strong></span>
