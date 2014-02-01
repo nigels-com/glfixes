@@ -6,12 +6,10 @@
             <code class="function">any</code> returns true if any element of <em class="parameter"><code>x</code></em> is true and false otherwise.
             It is functionally equivalent to:
         </p><p>
-        </p><pre class="programlisting">    bool any(bvec x)       // bvec can be bvec2, bvec3 or bvec4
-    {
+        </p><pre class="programlisting">    bool any(bvec x) {     // bvec can be bvec2, bvec3 or bvec4
         bool result = false;
         int i;
-        for (i = 0; i &lt; x.length(); ++i)
-        {
+        for (i = 0; i &lt; x.length(); ++i) {
             result |= x[i];
         }
         return result;

@@ -19,14 +19,10 @@
             <code class="function">glBindBuffersBase</code> unbinds any buffers that are currently bound to the referenced binding points.
             Assuming no errors are generated, it is equivalent to the following
             pseudo-code, which calls <a class="citerefentry" href="glBindBufferBase.xml"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>:
-        </p><pre class="programlisting">    for (i = 0; i &lt; count; i++)
-    {
-        if (buffers != NULL)
-        {
+        </p><pre class="programlisting">    for (i = 0; i &lt; count; i++) {
+        if (buffers != NULL) {
             glBindBufferBase(target, first + i, buffers[i]);
-        }
-        else
-        {
+        } else {
             glBindBufferBase(target, first + i, 0);
         }
     }</pre></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>

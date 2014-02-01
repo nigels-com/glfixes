@@ -24,7 +24,7 @@
             If <em class="parameter"><code>buffer</code></em> is <code class="constant">GL_DEPTH</code>, <em class="parameter"><code>drawBuffer</code></em> must be zero, and <em class="parameter"><code>value</code></em>
             points to a single value to clear the depth buffer to. Only <code class="function">glClearBufferfv</code> should be used to clear
             depth buffers. Clamping and conversion for fixed-point depth buffers are performed in the same fashion as
-            <a class="citerefentry" href="glClearDepth.xml"><span class="citerefentry"><span class="refentrytitle">glClearDepth</span></span></a>.
+            <a class="citerefentry" href="glClearDepthf.xml"><span class="citerefentry"><span class="refentrytitle">glClearDepthf</span></span></a>.
         </p><p>
             If <em class="parameter"><code>buffer</code></em> is <code class="constant">GL_STENCIL</code>, <em class="parameter"><code>drawBuffer</code></em> must be zero, and <em class="parameter"><code>value</code></em>
             points to a single value to clear the stencil buffer to. Only <code class="function">glClearBufferiv</code> should be used to clear
@@ -54,7 +54,7 @@
              <code class="constant">GL_STENCIL</code> or <code class="constant">GL_DEPTH_STENCIL</code> and <em class="parameter"><code>drawBuffer</code></em> is not zero.
         </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
             <a class="citerefentry" href="glClearColor.xml"><span class="citerefentry"><span class="refentrytitle">glClearColor</span></span></a>,
-            <a class="citerefentry" href="glClearDepth.xml"><span class="citerefentry"><span class="refentrytitle">glClearDepth</span></span></a>,
+            <a class="citerefentry" href="glClearDepthf.xml"><span class="citerefentry"><span class="refentrytitle">glClearDepthf</span></span></a>,
             <a class="citerefentry" href="glClearStencil.xml"><span class="citerefentry"><span class="refentrytitle">glClearStencil</span></span></a>,
             <a class="citerefentry" href="glClear.xml"><span class="citerefentry"><span class="refentrytitle">glClear</span></span></a>
         </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>

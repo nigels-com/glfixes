@@ -43,19 +43,15 @@
             A single call to <code class="function">glMultiDrawArraysIndirect</code> is equivalent, assuming no errors
             are generated to:
             </p><pre class="programlisting">    GLsizei n;
-    for (n = 0; n &lt; drawcount; n++)
-    {
-        const DrawArraysIndirectCommand  *cmd;
-        if (stride != 0)
-        {
+    for (n = 0; n &lt; drawcount; n++) {
+        const DrawArraysIndirectCommand *cmd;
+        if (stride != 0) {
             cmd = (const DrawArraysIndirectCommand  *)((uintptr)indirect + n * stride);
-        }
-        else
-        {
+        } else  {
             cmd = (const DrawArraysIndirectCommand  *)indirect + n;
         }
 
-        glDrawArraysInstancedBaseInstance(mode,  cmd-&gt;first,  cmd-&gt;count,  cmd-&gt;instanceCount, cmd-&gt;baseInstance);
+        glDrawArraysInstancedBaseInstance(mode, cmd-&gt;first, cmd-&gt;count, cmd-&gt;instanceCount, cmd-&gt;baseInstance);
     }</pre><p>
         </p><p>
             If a buffer is bound to the <code class="constant">GL_DRAW_INDIRECT_BUFFER</code> binding at the time

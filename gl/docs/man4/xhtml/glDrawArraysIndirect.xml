@@ -34,8 +34,8 @@
         uint  baseInstance;
     } DrawArraysIndirectCommand;
 
-    const DrawArraysIndirectCommand  *cmd  = (const DrawArraysIndirectCommand  *)indirect;
-    glDrawArraysInstancedBaseInstance(mode,  cmd-&gt;first,  cmd-&gt;count,  cmd-&gt;primCount, cmd-&gt;baseInstance);</pre><p>
+    const DrawArraysIndirectCommand *cmd = (const DrawArraysIndirectCommand *)indirect;
+    glDrawArraysInstancedBaseInstance(mode, cmd-&gt;first, cmd-&gt;count, cmd-&gt;primCount, cmd-&gt;baseInstance);</pre><p>
         </p><p>
             If a buffer is bound to the <code class="constant">GL_DRAW_INDIRECT_BUFFER</code> binding at the time
             of a call to <code class="function">glDrawArraysIndirect</code>, <em class="parameter"><code>indirect</code></em>

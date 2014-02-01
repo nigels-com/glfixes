@@ -14,8 +14,7 @@
         </p><p>
 </p><pre class="programlisting">    genType t;  /* Or genDType t; */
     t = clamp((x - edge0) / (edge1 - edge0), 0.0, 1.0);
-    return t * t * (3.0 - 2.0 * t);
-</pre><p>
+    return t * t * (3.0 - 2.0 * t);</pre><p>
         </p><p>
             Results are undefined if <em class="parameter"><code>edge0</code></em> ≥ <em class="parameter"><code>edge1</code></em>.
         </p></div><div class="refsect1"><a id="versions"></a><h2>Version Support</h2><div class="informaltable"><table style="border-collapse: collapse;border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; "><colgroup><col align="left" /><col align="center" class="firstvers" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" /><col align="center" class="lastvers" /></colgroup><thead><tr><th style="border-right: 2px solid ; " align="left">
