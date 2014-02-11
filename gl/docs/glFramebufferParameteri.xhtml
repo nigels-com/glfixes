@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glFramebufferParameteri - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glFramebufferParameteri">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glFramebufferParameteri — set a named parameter of a framebuffer</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glFramebufferParameteri</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">pname</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">param</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The target of the operation, which must be <code class="constant">GL_READ_FRAMEBUFFER</code>,
+                    <code class="constant">GL_DRAW_FRAMEBUFFER</code> or <code class="constant">GL_FRAMEBUFFER</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>pname</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    A token indicating the parameter to be modified.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>param</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The new value for the parameter named <em class="parameter"><code>pname</code></em>.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glFramebufferParameteri</code> modifies the current value of the parameter
+            named <em class="parameter"><code>pname</code></em> in the framebuffer bound to <em class="parameter"><code>target</code></em>.
+            <em class="parameter"><code>target</code></em> must be <code class="constant">GL_READ_FRAMEBFUFFER</code>,
+            <code class="constant">GL_DRAW_FRAMEBUFFER</code> or <code class="constant">GL_FRAMEBUFFER</code>. The
+            token <code class="constant">GL_FRAMEBUFFER</code> is treated as <code class="constant">GL_DRAW_FRAMEBUFFER</code>.
+            A non-default framebuffer must be bound to <em class="parameter"><code>target</code></em>.
+        </p>
+        <p>
+            <em class="parameter"><code>pname</code></em> specifies the parameter to be modified. The following symbols
+            are accepted in <em class="parameter"><code>pname</code></em>:
+        </p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <code class="constant">GL_FRAMEBUFFER_DEFAULT_WIDTH</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        <em class="parameter"><code>param</code></em> specifies the assumed with for a framebuffer object with no attachments. If a
+                        framebuffer has attachments then the width of those attachments is used, otherwise
+                        the value of <code class="constant">GL_FRAMEBUFFER_DEFAULT_WIDTH</code> is used for the
+                        framebuffer. <em class="parameter"><code>param</code></em> must be greater than or equal to zero and less than
+                        or equal to the value of <code class="constant">GL_MAX_FRAMEBUFFER_WIDTH</code>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_FRAMEBUFFER_DEFAULT_HEIGHT</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        <em class="parameter"><code>param</code></em> specifies the assumed height for a framebuffer object with no attachments. If a
+                        framebuffer has attachments then the height of those attachments is used, otherwise
+                        the value of <code class="constant">GL_FRAMEBUFFER_DEFAULT_HEIGHT</code> is used for the
+                        framebuffer. <em class="parameter"><code>param</code></em> must be greater than or equal to zero and less than
+                        or equal to the value of <code class="constant">GL_MAX_FRAMEBUFFER_HEIGHT</code>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_FRAMEBUFFER_DEFAULT_LAYERS</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        <em class="parameter"><code>param</code></em> specifies the assumed number of layers for a framebuffer object with no attachments. If a
+                        framebuffer has attachments then the layer count of those attachments is used, otherwise
+                        the value of <code class="constant">GL_FRAMEBUFFER_DEFAULT_LAYERS</code> is used for the
+                        framebuffer. <em class="parameter"><code>param</code></em> must be greater than or equal to zero and less than
+                        or equal to the value of <code class="constant">GL_MAX_FRAMEBUFFER_LAYERS</code>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_FRAMEBUFFER_DEFAULT_SAMPLES</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        <em class="parameter"><code>param</code></em> specifies the assumed number of samples in a framebuffer object with no attachments. If a
+                        framebuffer has attachments then the sample count of those attachments is used, otherwise
+                        the value of <code class="constant">GL_FRAMEBUFFER_DEFAULT_SAMPLES</code> is used for the
+                        framebuffer. <em class="parameter"><code>param</code></em> must be greater than or equal to zero and less than
+                        or equal to the value of <code class="constant">GL_MAX_FRAMEBUFFER_SAMPLE</code>.
+                    </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <code class="constant">GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS</code>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                        <em class="parameter"><code>param</code></em> specifies whether the framebuffer should assume identical sample locations and
+                        the same number of samples for all texels in the virtual image. If <em class="parameter"><code>param</code></em> is zero,
+                        then the implementation may vary the position or the count of samples within the virtual image from
+                        pixel to pixel, otherwise it will use the same sample position and count for all pixels in the virtual image.
+                    </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not one of the accepted
+            framebuffer targets.
+        </p>
+        <p>
+            <code class="constant">GL_INVAILD_VALUE</code> is generated if <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_DEFAULT_WIDTH</code>
+            and <em class="parameter"><code>param</code></em> is less than zero or greater than the value of <code class="constant">GL_MAX_FRAMEBUFFER_WIDTH</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVAILD_VALUE</code> is generated if <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_DEFAULT_HEIGHT</code>
+            and <em class="parameter"><code>param</code></em> is less than zero or greater than the value of <code class="constant">GL_MAX_FRAMEBUFFER_HEIGHT</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVAILD_VALUE</code> is generated if <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_DEFAULT_LAYERS</code>
+            and <em class="parameter"><code>param</code></em> is less than zero or greater than the value of <code class="constant">GL_MAX_FRAMEBUFFER_LAYERS</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVAILD_VALUE</code> is generated if <em class="parameter"><code>pname</code></em> is <code class="constant">GL_FRAMEBUFFER_DEFAULT_SAMPLES</code>
+            and <em class="parameter"><code>param</code></em> is less than zero or greater than the value of <code class="constant">GL_MAX_FRAMEBUFFER_SAMPLES</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the default framebuffer is bound to <em class="parameter"><code>target</code></em>.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGetFramebufferParameteriv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetFramebufferParameteriv</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glVertexAttribBinding.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribBinding</span></span></a>,
+            <a class="citerefentry" href="glVertexAttribFormat.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribFormat</span></span></a>,
+            <a class="citerefentry" href="glVertexAttribPointer.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a>,
+            <a class="citerefentry" href="glVertexBindingDivisor.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexBindingDivisor</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

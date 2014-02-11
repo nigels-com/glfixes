@@ -13,15 +13,14 @@ wget -P gl --mirror --no-parent --no-host-directories --cut-dirs=1 --accept=txt,
 
 # OpenGL Software Development Kit - manual pages for GL and GLSL
 
-wget -P gl --mirror --no-parent --no-host-directories --cut-dirs=1 --accept=html,xml \
-  http://www.opengl.org/sdk/docs/man4/xhtml/
+mkdir -p gl/docs
 
-wget -P gl --mirror --no-parent --no-host-directories --cut-dirs=1 --accept=html,xml \
-  http://www.opengl.org/sdk/docs/manglsl/xhtml/
+wget -P gl/docs --mirror --no-parent --no-host-directories --cut-dirs=4 --accept=html \
+  http://www.opengl.org/sdk/docs/man4/html/
 
 # Tidy-up
 
-rm gl/robots.txt
+rm gl/robots.txt gl/docs/robots.txt
 
 # Leave out the old specs
 
@@ -38,12 +37,14 @@ wget -P gles --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=tx
 
 # SDK - manual pages for ES
 
-wget -P gles --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=html,xml \
-  http://www.khronos.org/opengles/sdk/docs/man3/xhtml/
+mkdir -p gles/docs
+
+wget -P gles/docs --mirror --no-parent --no-host-directories --cut-dirs=5 --accept=html \
+  http://www.khronos.org/opengles/sdk/docs/man3/html/
 
 # Tidy-up
 
-rm gles/robots.txt
+rm gles/robots.txt gles/docs/robots.txt
 
 #
 # EGL
@@ -57,3 +58,15 @@ wget -P egl --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=txt
 # Tidy-up
 
 rm egl/robots.txt
+
+#
+# XML specs
+#
+
+rm -Rf xml
+
+wget -P xml --no-parent --no-host-directories --cut-dirs=8 https://cvs.khronos.org/svn/repos/ogl/trunk/doc/registry/public/api/egl.xml
+wget -P xml --no-parent --no-host-directories --cut-dirs=8 https://cvs.khronos.org/svn/repos/ogl/trunk/doc/registry/public/api/gl.xml
+wget -P xml --no-parent --no-host-directories --cut-dirs=8 https://cvs.khronos.org/svn/repos/ogl/trunk/doc/registry/public/api/glx.xml
+wget -P xml --no-parent --no-host-directories --cut-dirs=8 https://cvs.khronos.org/svn/repos/ogl/trunk/doc/registry/public/api/wgl.xml
+wget -P xml --no-parent --no-host-directories --cut-dirs=8 https://cvs.khronos.org/svn/repos/ogl/trunk/doc/registry/public/api/readme.pdf

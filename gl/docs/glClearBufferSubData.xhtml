@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glClearBufferSubData - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glClearBufferSubData">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glClearBufferSubData — fill all or part of buffer object's data store with a fixed value</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glClearBufferSubData</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">internalformat</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLintptr <var class="pdparam">offset</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizeiptr <var class="pdparam">size</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">format</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">type</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const void * <var class="pdparam">data</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specify the target of the operation. <em class="parameter"><code>target</code></em> must be
+                    one of the global buffer binding targets.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>internalformat</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The internal format with which the data will be stored in the buffer object.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>offset</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The offset, in basic machine units into the buffer object's data store at which to start filling.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>size</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The size, in basic machine units of the range of the data store to fill.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>format</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The format of the data in memory addressed by <em class="parameter"><code>data</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>type</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The type of the data in memory addressed by <em class="parameter"><code>data</code></em>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>data</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    The address of a memory location storing the data to be replicated into the
+                    buffer's data store.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glClearBufferSubData</code> fills a specified region of a buffer object's
+            data store with data from client memory. <em class="parameter"><code>offset</code></em> and <em class="parameter"><code>size</code></em>
+            demark the extent of the region within the data store of the buffer object bound to
+            <em class="parameter"><code>target</code></em> to fill with data. Data, initially supplied in a format
+            specified by <em class="parameter"><code>format</code></em> in data type <em class="parameter"><code>type</code></em> is
+            read from the memory address given by <em class="parameter"><code>data</code></em> and converted into
+            the internal representation given by <em class="parameter"><code>internalforamt</code></em>.
+            This converted data is then replicated throughout the specified region of the buffer object's
+            data store.
+        </p>
+        <p>
+            If <em class="parameter"><code>data</code></em> is NULL, then the subrange of the buffer's data store
+            is filled with zeros.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> not one of the generic buffer binding targets.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if no buffer is bound to <em class="parameter"><code>target</code></em>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>internalformat</code></em> is not a sized internal format.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>offset</code></em> or <em class="parameter"><code>range</code></em> are not multiples of
+            the number of basic machine units per-element for the internal format specified by
+            <em class="parameter"><code>internalformat</code></em>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>offset</code></em> or <em class="parameter"><code>size</code></em> is less than zero, or if
+            <em class="parameter"><code>offset</code></em> + <em class="parameter"><code>size</code></em> is greater than the value of <code class="constant">GL_BUFFER_SIZE</code> for the buffer bound to <em class="parameter"><code>target</code></em>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if any part of the specified buffer range is
+            mapped with <a class="citerefentry" href="glMapBufferRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glMapBufferRange</span></span></a> or <a class="citerefentry" href="glMapBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glClearBufferData.xhtml"><span class="citerefentry"><span class="refentrytitle">glClearBufferData</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

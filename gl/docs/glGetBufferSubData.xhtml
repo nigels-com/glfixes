@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glGetBufferSubData - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glGetBufferSubData">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glGetBufferSubData — returns a subset of a buffer object's data store</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glGetBufferSubData</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLintptr <var class="pdparam">offset</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizeiptr <var class="pdparam">size</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLvoid * <var class="pdparam">data</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the target buffer object.
+                    The symbolic constant must be
+                    <code class="constant">GL_ARRAY_BUFFER</code>,
+                    <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>,
+                    <code class="constant">GL_COPY_READ_BUFFER</code>,
+                    <code class="constant">GL_COPY_WRITE_BUFFER</code>,
+                    <code class="constant">GL_DRAW_INDIRECT_BUFFER</code>,
+                    <code class="constant">GL_DISPATCH_INDIRECT_BUFFER</code>,
+                    <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>,
+                    <code class="constant">GL_PIXEL_PACK_BUFFER</code>,
+                    <code class="constant">GL_PIXEL_UNPACK_BUFFER</code>,
+                    <code class="constant">GL_QUERY_RESULT_BUFFER</code>,
+                    <code class="constant">GL_TEXTURE_BUFFER</code>,
+                    <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code>, or
+                    <code class="constant">GL_UNIFORM_BUFFER</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>offset</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the offset into the buffer object's data store from which data will be returned,
+                    measured in bytes.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>size</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the size in bytes of the data store region being returned.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>data</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies a pointer to the location where buffer object data is returned.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glGetBufferSubData</code> returns some or all of the data from the buffer object currently
+            bound to <em class="parameter"><code>target</code></em>. Data starting at byte offset <em class="parameter"><code>offset</code></em> and
+            extending for <em class="parameter"><code>size</code></em> bytes is copied from the data store to the memory pointed to by
+            <em class="parameter"><code>data</code></em>. An error is thrown if the buffer object is currently mapped, or if
+            <em class="parameter"><code>offset</code></em> and <em class="parameter"><code>size</code></em> together define a range beyond the bounds
+            of the buffer object's data store.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            If an error is generated,
+            no change is made to the contents of <em class="parameter"><code>data</code></em>.
+        </p>
+        <p>
+            The <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code> target is available only if the GL version is 4.2 or greater.
+        </p>
+        <p>
+            The <code class="constant">GL_DISPATCH_INDIRECT_BUFFER</code> target is available only if the GL version is 4.3 or greater.
+        </p>
+        <p>
+            The <code class="constant">GL_QUERY_RESULT_BUFFER</code> target is available only if the GL version is 4.4 or greater.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not
+            <code class="constant">GL_ARRAY_BUFFER</code>, <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>,
+            <code class="constant">GL_PIXEL_PACK_BUFFER</code>, or <code class="constant">GL_PIXEL_UNPACK_BUFFER</code>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>offset</code></em> or
+            <em class="parameter"><code>size</code></em> is negative, or if together they define a region of memory
+            that extends beyond the buffer object's allocated data store.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the reserved buffer object name 0 is bound to <em class="parameter"><code>target</code></em>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the buffer object being queried is mapped.
+        </p>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glBindBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+            <a class="citerefentry" href="glBufferData.xhtml"><span class="citerefentry"><span class="refentrytitle">glBufferData</span></span></a>,
+            <a class="citerefentry" href="glBufferSubData.xhtml"><span class="citerefentry"><span class="refentrytitle">glBufferSubData</span></span></a>,
+            <a class="citerefentry" href="glMapBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glMapBuffer</span></span></a>,
+            <a class="citerefentry" href="glUnmapBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glUnmapBuffer</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2005 Addison-Wesley.
+            Copyright <span class="trademark"/>© 2011-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>
