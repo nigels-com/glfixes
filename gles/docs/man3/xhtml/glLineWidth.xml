@@ -15,14 +15,14 @@
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
                 <mml:mrow>
-                    <mml:mfenced open="∣" close="∣">
+                    <mml:mfenced open="|" close="|">
                         <mml:mrow>
                             <mml:mo>Δ</mml:mo>
                             <mml:mi mathvariant="italic">x</mml:mi>
                         </mml:mrow>
                     </mml:mfenced>
                     <mml:mo>&gt;=</mml:mo>
-                    <mml:mfenced open="∣" close="∣">
+                    <mml:mfenced open="|" close="|">
                         <mml:mrow>
                             <mml:mo>Δ</mml:mo>
                             <mml:mi mathvariant="italic">y</mml:mi>
