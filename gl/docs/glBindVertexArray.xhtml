@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glBindVertexArray - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glBindVertexArray">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glBindVertexArray — bind a vertex array object</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glBindVertexArray</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">array</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>array</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the name of the vertex array to bind.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glBindVertexArray</code> binds the vertex array object with name <em class="parameter"><code>array</code></em>. <em class="parameter"><code>array</code></em>
+            is the name of a vertex array object previously returned from a call to <a class="citerefentry" href="glGenVertexArrays.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenVertexArrays</span></span></a>,
+            or zero to break the existing vertex array object binding.
+        </p>
+        <p>
+            If no vertex array object with name <em class="parameter"><code>array</code></em> exists, one is created when <em class="parameter"><code>array</code></em> is first bound. If the bind
+            is successful no change is made to the state of the vertex array object, and any previous vertex array object binding is broken.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>array</code></em> is not zero or the name of a vertex array object
+            previously returned from a call to <a class="citerefentry" href="glGenVertexArrays.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenVertexArrays</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glGenVertexArrays.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenVertexArrays</span></span></a>,
+            <a class="citerefentry" href="glDeleteVertexArrays.xhtml"><span class="citerefentry"><span class="refentrytitle">glDeleteVertexArrays</span></span></a>
+            <a class="citerefentry" href="glVertexAttribPointer.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a>
+            <a class="citerefentry" href="glEnableVertexAttribArray.xhtml"><span class="citerefentry"><span class="refentrytitle">glEnableVertexAttribArray</span></span></a>
+            </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2010-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

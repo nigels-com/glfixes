@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glMapBuffer - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glMapBuffer">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glMapBuffer — map a buffer object's data store</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void * <strong class="fsfunc">glMapBuffer</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">access</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">GLboolean <strong class="fsfunc">glUnmapBuffer</strong>(</code>
+              </td>
+              <td>GLenum <var class="pdparam">target</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="parameters">
+        <h2>Parameters</h2>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>target</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the target buffer object being mapped.
+                    The symbolic constant must be
+                    <code class="constant">GL_ARRAY_BUFFER</code>,
+                    <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>,
+                    <code class="constant">GL_COPY_READ_BUFFER</code>,
+                    <code class="constant">GL_COPY_WRITE_BUFFER</code>,
+                    <code class="constant">GL_DRAW_INDIRECT_BUFFER</code>,
+                    <code class="constant">GL_DISPATCH_INDIRECT_BUFFER</code>,
+                    <code class="constant">GL_ELEMENT_ARRAY_BUFFER</code>,
+                    <code class="constant">GL_PIXEL_PACK_BUFFER</code>,
+                    <code class="constant">GL_PIXEL_UNPACK_BUFFER</code>,
+                    <code class="constant">GL_QUERY_BUFFER</code>,
+                    <code class="constant">GL_SHADER_STORAGE_BUFFER</code>,
+                    <code class="constant">GL_TEXTURE_BUFFER</code>,
+                    <code class="constant">GL_TRANSFORM_FEEDBACK_BUFFER</code> or
+                    <code class="constant">GL_UNIFORM_BUFFER</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>access</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    For <code class="function">glMapBuffer</code> only,
+                    specifies the access policy, indicating whether it will be possible to read from, write to,
+                    or both read from and write to the buffer object's mapped data store. The symbolic constant must be
+                    <code class="constant">GL_READ_ONLY</code>, <code class="constant">GL_WRITE_ONLY</code>, or <code class="constant">GL_READ_WRITE</code>.
+                </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glMapBuffer</code> maps to the client's address space the entire data store of the buffer object
+            currently bound to <em class="parameter"><code>target</code></em>. The data can then be directly read and/or written relative to
+            the returned pointer, depending on the specified <em class="parameter"><code>access</code></em> policy. If the GL is unable to
+            map the buffer object's data store, <code class="function">glMapBuffer</code> generates an error and returns
+            <code class="constant">NULL</code>. This may occur for system-specific reasons, such as low virtual memory availability.
+            If no error occurs, the returned pointer will have an alignment of at least <code class="constant">GL_MIN_MAP_BUFFER_ALIGNMENT</code>
+            basic machine units. The value of <code class="constant">GL_MIN_MAP_BUFFER_ALIGNMENT</code> can be retrieved by calling
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with <em class="parameter"><code>pname</code></em> set to
+            <code class="constant">GL_MIN_MAP_BUFFER_ALIGNMENT</code> and must be a power of two that is at least 64.
+        </p>
+        <p>
+            If a mapped data store is accessed in a way inconsistent with the specified <em class="parameter"><code>access</code></em> policy,
+            no error is generated, but performance may be negatively impacted and system errors, including program
+            termination, may result. Unlike the <em class="parameter"><code>usage</code></em> parameter of <code class="function">glBufferData</code>,
+            <em class="parameter"><code>access</code></em> is not a hint, and does in fact constrain the usage of the mapped data store on
+            some GL implementations. In order to achieve the highest performance available, a buffer object's data store
+            should be used in ways consistent with both its specified <em class="parameter"><code>usage</code></em> and
+            <em class="parameter"><code>access</code></em> parameters.
+        </p>
+        <p>
+            A mapped data store must be unmapped with <code class="function">glUnmapBuffer</code> before its buffer object is used.
+            Otherwise an error will be generated by any GL command that attempts to dereference the buffer object's data store.
+            When a data store is unmapped, the pointer to its data store becomes invalid. <code class="function">glUnmapBuffer</code>
+            returns <code class="constant">GL_TRUE</code> unless the data store contents have become corrupt during the time
+            the data store was mapped. This can occur for system-specific reasons that affect the availability of graphics
+            memory, such as screen mode changes. In such situations, <code class="constant">GL_FALSE</code> is returned and the
+            data store contents are undefined. An application must detect this rare condition and reinitialize the data store.
+        </p>
+        <p>
+            A buffer object's mapped data store is automatically unmapped when the buffer object is deleted or its data store
+            is recreated with <code class="function">glBufferData</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="notes">
+        <h2>Notes</h2>
+        <p>
+            If an error is generated, <code class="function">glMapBuffer</code> returns <code class="constant">NULL</code>, and
+            <code class="function">glUnmapBuffer</code> returns <code class="constant">GL_FALSE</code>.
+        </p>
+        <p>
+            Parameter values passed to GL commands may not be sourced from the returned pointer. No error will be generated,
+            but results will be undefined and will likely vary across GL implementations.
+        </p>
+        <p>
+            Alignment of the returned pointer is guaranteed only if the version
+            of the GL version is 4.2 or greater. Also, the <code class="constant">GL_ATOMIC_COUNTER_BUFFER</code>
+            target is accepted only if the GL version is 4.2 or greater.
+        </p>
+        <p>
+            The <code class="constant">GL_DISPATCH_INDIRECT_BUFFER</code> and <code class="constant">GL_SHADER_STORAGE_BUFFER</code> targets are available only if the GL version
+            is 4.3 or greater.
+        </p>
+        <p>
+            The <code class="constant">GL_QUERY_BUFFER</code> target is available only if the GL version is 4.4 or greater.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not
+            one of the accepted targets.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>access</code></em> is not
+            <code class="constant">GL_READ_ONLY</code>, <code class="constant">GL_WRITE_ONLY</code>, or <code class="constant">GL_READ_WRITE</code>.
+        </p>
+        <p>
+            <code class="constant">GL_OUT_OF_MEMORY</code> is generated when <code class="function">glMapBuffer</code> is executed
+            if the GL is unable to map the buffer object's data store. This may occur for a variety of system-specific
+            reasons, such as the absence of sufficient remaining virtual memory.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if the reserved buffer object name 0 is bound to <em class="parameter"><code>target</code></em>.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glMapBuffer</code> is executed for
+            a buffer object whose data store is already mapped.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <code class="function">glUnmapBuffer</code> is executed for
+            a buffer object whose data store is not currently mapped.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGetBufferPointerv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetBufferPointerv</span></span></a> with argument <code class="constant">GL_BUFFER_MAP_POINTER</code>
+        </p>
+        <p>
+            <a class="citerefentry" href="glGetBufferParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetBufferParameter</span></span></a> with argument <code class="constant">GL_BUFFER_MAPPED</code>,  <code class="constant">GL_BUFFER_ACCESS</code>, or <code class="constant">GL_BUFFER_USAGE</code>
+        </p>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glBindBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>,
+            <a class="citerefentry" href="glBindBufferBase.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBufferBase</span></span></a>,
+            <a class="citerefentry" href="glBindBufferRange.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBufferRange</span></span></a>,
+            <a class="citerefentry" href="glBufferData.xhtml"><span class="citerefentry"><span class="refentrytitle">glBufferData</span></span></a>,
+            <a class="citerefentry" href="glBufferSubData.xhtml"><span class="citerefentry"><span class="refentrytitle">glBufferSubData</span></span></a>,
+            <a class="citerefentry" href="glDeleteBuffers.xhtml"><span class="citerefentry"><span class="refentrytitle">glDeleteBuffers</span></span></a>
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2005 Addison-Wesley.
+            Copyright <span class="trademark"/>© 2010-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>

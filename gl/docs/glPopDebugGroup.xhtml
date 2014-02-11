@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>glPopDebugGroup - OpenGL 4 Reference Pages</title>
+    <link rel="stylesheet" type="text/css" href="opengl-man.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                MathML: {
+                    extensions: ["content-mathml.js"]
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
+                }
+            });
+        </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+  </head>
+  <body>
+    <header/>
+    <div class="refentry" id="glPopDebugGroup">
+      <div class="titlepage"/>
+      <div class="refnamediv">
+        <h2>Name</h2>
+        <p>glPopDebugGroup — pop the active debug group</p>
+      </div>
+      <div class="refsynopsisdiv">
+        <h2>C Specification</h2>
+        <div class="funcsynopsis">
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glPopDebugGroup</strong>(</code>
+              </td>
+              <td>void<code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+        </div>
+      </div>
+      <div class="refsect1" id="description">
+        <h2>Description</h2>
+        <p>
+            <code class="function">glPopDebugGroup</code> pops the active debug group.
+            After popping a debug group, the GL will also generate a debug
+            output message describing its cause based on the <em class="parameter"><code>message</code></em>
+            string, the source <em class="parameter"><code>source</code></em>, and an ID <em class="parameter"><code>id</code></em>
+            submitted to the corresponding <a class="citerefentry" href="glPushDebugGroup.xhtml"><span class="citerefentry"><span class="refentrytitle">glPushDebugGroup</span></span></a>
+            command. <code class="constant">GL_DEBUG_TYPE_PUSH_GROUP</code> and <code class="constant">GL_DEBUG_TYPE_POP_GROUP</code>
+            share a single namespace for message <em class="parameter"><code>id</code></em>.
+            <em class="parameter"><code>severity</code></em> has the value <code class="constant">GL_DEBUG_SEVERITY_NOTIFICATION</code>. The <em class="parameter"><code>type</code></em>
+            has the value <code class="constant">GL_DEBUG_TYPE_POP_GROUP</code>. Popping a debug group restores
+            the debug output volume control of the parent debug group.
+        </p>
+      </div>
+      <div class="refsect1" id="errors">
+        <h2>Errors</h2>
+        <p>
+            <code class="constant">GL_STACK_UNDERFLOW</code> is generated if an attempt is made to pop the default debug
+            group from the stack.
+        </p>
+      </div>
+      <div class="refsect1" id="associatedgets">
+        <h2>Associated Gets</h2>
+        <p>
+            <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_MAX_DEBUG_MESSAGE_LENGTH</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="seealso">
+        <h2>See Also</h2>
+        <p>
+            <a class="citerefentry" href="glPushDebugGroup.xhtml"><span class="citerefentry"><span class="refentrytitle">glPushDebugGroup</span></span></a>,
+            <a class="citerefentry" href="glObjectLabel.xhtml"><span class="citerefentry"><span class="refentrytitle">glObjectLabel</span></span></a>,
+            <a class="citerefentry" href="glObjectPtrLabel.xhtml"><span class="citerefentry"><span class="refentrytitle">glObjectPtrLabel</span></span></a>.
+        </p>
+      </div>
+      <div class="refsect1" id="Copyright">
+        <h2>Copyright</h2>
+        <p>
+            Copyright <span class="trademark"/>© 2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+      </div>
+    </div>
+    <footer/>
+  </body>
+</html>
