@@ -14,7 +14,7 @@
                 }
             });
         </script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
   </head>
   <body>
     <header/>
@@ -94,7 +94,7 @@
         <p>
             <code class="function">glWaitSync</code> causes the GL server to block and wait until <em class="parameter"><code>sync</code></em> becomes signaled. <em class="parameter"><code>sync</code></em>
             is the name of an existing sync object upon which to wait. <em class="parameter"><code>flags</code></em> and <em class="parameter"><code>timeout</code></em> are currently not used and
-            must be set to zero and the special value <code class="constant">GL_TIMEOUT_IGNORED</code>, respectively<a href="#ftn.idp179312" class="footnote"><sup class="footnote" id="idp179312">[1]</sup></a>. <code class="function">glWaitSync</code> will always wait no longer than an implementation-dependent timeout. The
+            must be set to zero and the special value <code class="constant">GL_TIMEOUT_IGNORED</code>, respectively<a href="#ftn.idp113408" class="footnote"><sup class="footnote" id="idp113408">[1]</sup></a>. <code class="function">glWaitSync</code> will always wait no longer than an implementation-dependent timeout. The
             duration of this timeout in nanoseconds may be queried by calling <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with the
             parameter <code class="constant">GL_MAX_SERVER_WAIT_TIMEOUT</code>. There is currently no way to determine whether <code class="function">glWaitSync</code> unblocked
             because the timeout expired or because the sync object being waited on was signaled.
@@ -140,8 +140,8 @@
       <div class="footnotes">
         <br/>
         <hr class="footnote-hr"/>
-        <div id="ftn.idp179312" class="footnote">
-          <p><a href="#idp179312" class="para"><sup class="para">[1] </sup></a><em class="parameter"><code>flags</code></em> and
+        <div id="ftn.idp113408" class="footnote">
+          <p><a href="#idp113408" class="para"><sup class="para">[1] </sup></a><em class="parameter"><code>flags</code></em> and
             <em class="parameter"><code>timeout</code></em> are placeholders for anticipated future extensions of sync object capabilities. They must have these reserved values in
             order that existing code calling <code class="function">glWaitSync</code> operate properly in the presence of such extensions.</p>
         </div>
