@@ -18,7 +18,7 @@ Contributors
 
 Notice
 
-    Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
+    Copyright (c) 2012-2014 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
 Status
@@ -28,8 +28,8 @@ Status
 
 Version
 
-    Last Modified Date: August 7, 2013
-    Version: 11
+    Last Modified Date: February 18, 2014
+    Version: 13
 
 Number
 
@@ -108,10 +108,10 @@ Append to the end of Section 2.9.2, "Creating Buffer Object Stores"
 
         void ClearBufferSubData(enum target,
                                 enum internalformat,
-                                enum format,
-                                enum type,
                                 sizeiptr offset,
                                 sizeiptr size,
+                                enum format,
+                                enum type,
                                 const void * data);
 
     with <target> set to the target to which the destination buffer is bound.
@@ -280,6 +280,12 @@ Revision History
 
     Rev.  Date        Author    Changes
     ----  ----------  --------  ---------------------------------------------
+    13    02/18/2014  Jon Leech Change order of ClearBufferSubData arguments
+                                in spec body to be consistent with New
+                                Procedures declaration ((offset,size,format,
+                                type) instead of the erroneous (format,type,
+                                offset,size)) (Public Bug 1122).
+
     12    12/12/2013  Jon Leech Change order of ClearNamedBufferSubDataEXT
                                 arguments in spec body to be consistent with
                                 New Procedures declaration ((offset,

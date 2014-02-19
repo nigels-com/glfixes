@@ -19,7 +19,7 @@ Contributors
 
 Notice
 
-    Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
+    Copyright (c) 2012-2014 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
 Status
@@ -29,8 +29,8 @@ Status
 
 Version
 
-    Last Modified Date: October 23, 2012
-    Revision: 25
+    Last Modified Date: January 30, 2014
+    Revision: 26
 
 Number
 
@@ -898,6 +898,14 @@ New State
 
 New Implementation Dependent State
 
+    Add to Table 6.31, "Program Pipeline Object State"
+
+    +----------------------------------------------------+-----------+-------------------------+---------------+-----------------------------------------------------------------------+---------+
+    | Get Value                                          | Type      | Get Command             | Initial Value | Description                                                           | Sec.    |
+    +----------------------------------------------------+-----------+-------------------------+---------------+-----------------------------------------------------------------------+---------+
+    | COMPUTE_SHADER                                     | Z+        | GetProgramPipelineiv    | 0             | Name of current compute shader project object                         | 2.11.4  |
+    +----------------------------------------------------+-----------+-------------------------+---------------+-----------------------------------------------------------------------+---------+
+
     Add to Table 6.32, "Program Object State"
 
     +----------------------------------------------------+-----------+-------------------------+---------------+-----------------------------------------------------------------------+---------+
@@ -1170,6 +1178,8 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+    26    01/30/14  Jon Leech Add table 6.31 COMPUTE_SHADER entry for
+                              program pipeline objects (Bug 11539).
     25    10/23/12  pbrown    Remove the restriction forbidding the use of 
                               barrier() inside potentially divergent flow 
                               control.  Instead, we will allow barrier() to
