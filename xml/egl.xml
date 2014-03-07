@@ -454,7 +454,7 @@
         <enum value="0x31BF" name="EGL_LOSE_CONTEXT_ON_RESET_KHR"/>
     </enums>
 
-    <enums namespace="EGL" start="0x31C0" end="0x31CF" vendor="QCOM" comment="Reserved for Maurice Ribble (Khronos bug 6644)">
+    <enums namespace="EGL" start="0x31C0" end="0x31CF" vendor="QCOM" comment="Reserved for Maurice Ribble (Khronos bug 6644) - EGL_QCOM_create_image spec TBD">
             <unused start="0x31C0" end="0x31CF"/>
     </enums>
 
@@ -564,13 +564,17 @@
             <unused start="0x32A0" end="0x32AF"/>
     </enums>
 
-    <enums namespace="EGL" start="0x32B0" end="0x32BF" vendor="Qualcomm" comment="Reserved for Jeff Vigil (Bug 10663)">
+    <enums namespace="EGL" start="0x32B0" end="0x32BF" vendor="QCOM" comment="Reserved for Jeff Vigil (Bug 10663) - EGL_QCOM_lock_image spec TBD">
             <unused start="0x32B0" end="0x32BF"/>
     </enums>
 
-    <enums namespace="EGL" start="0x32C0" end="0x32CF" vendor="Vivante" comment="Reserved for Jeff Vigil (Bug 10663)">
+    <enums namespace="EGL" start="0x32C0" end="0x32CF" vendor="Vivante" comment="Reserved for Yanjun Zhang (Bug 11498)">
         <enum value="0x32C0" name="EGL_PROTECTED_CONTENT_EXT"/>
             <unused start="0x32C1" end="0x32CF"/>
+    </enums>
+
+    <enums namespace="EGL" start="0x32D0" end="0x32DF" vendor="QCOM" comment="Reserved for Jeff Vigil (Bug 11735) - EGL_QCOM_gpu_perf spec TBD">
+            <unused start="0x32D0" end="0x32DF"/>
     </enums>
 
 <!-- Please remember that new enumerant allocations must be obtained by
@@ -580,11 +584,11 @@
      Khronos APIs, and new ranges should be allocated with such overlaps in
      mind. -->
 
-<!-- Reservable for future use: 0x32D0-0x3FFF.
+<!-- Reservable for future use: 0x32E0-0x3FFF.
      To generate a new range, allocate multiples of 16 starting at the
      lowest available point in this block. -->
-    <enums namespace="EGL" start="0x32D0" end="0x3FFF" vendor="KHR">
-            <unused start="0x32D0" end="0x3FFF" comment="Reserved for future use"/>
+    <enums namespace="EGL" start="0x32E0" end="0x3FFF" vendor="KHR">
+            <unused start="0x32E0" end="0x3FFF" comment="Reserved for future use"/>
     </enums>
 
     <enums namespace="EGL" start="0x8F70" end="0x8F7F" vendor="HI" comment="For Mark Callow, Khronos bug 4055. Shared with GL.">

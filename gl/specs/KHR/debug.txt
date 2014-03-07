@@ -31,7 +31,7 @@ Contributors
     
 Notice
 
-    Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
+    Copyright (c) 2012-2014 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
 Status
@@ -43,8 +43,8 @@ Status
         
 Version
     
-    Last Modified Date: November 5, 2013
-    Author Revision: 14
+    Last Modified Date: March 4, 2014
+    Author Revision: 15
 
 Number
 
@@ -509,9 +509,9 @@ Additions to Chapter 5 of the OpenGL 4.2 Specification
     sufficiently distinguishable string representations to warrant their 
     separation.
     
-    The lengths of all messages, including their null terminators, must be 
-    guaranteed to be less or equal to the implementation-dependent constant 
-    MAX_DEBUG_MESSAGE_LENGTH.
+    The lengths of all messages, including their null terminators, must be
+    guaranteed to be less or equal to the value of the
+    implementation-dependent constant MAX_DEBUG_MESSAGE_LENGTH.
     
     Messages can be either enabled or disabled.  Messages that are disabled 
     will not be generated. All messages are initially enabled unless their 
@@ -667,8 +667,8 @@ Additions to Chapter 5 of the OpenGL 4.2 Specification
     representation of the message. The parameter <length> contains the number 
     of characters in <buf>. If <length> is negative, it is implied that <buf> 
     contains a null terminated string. The error INVALID_VALUE will be 
-    generated if the number of characters in <buf>, excluding the null 
-    terminator when <length> is negative, is not less than
+    generated if the number of characters in <buf>, excluding the null
+    terminator when <length> is negative, is not less than the value of
     MAX_DEBUG_MESSAGE_LENGTH.
 
     If the DEBUG_OUTPUT state is disabled calls to DebugMessageInsert are 
@@ -1291,11 +1291,11 @@ Usage Examples
         GL_DEBUG_SEVERITY_NOTIFICATION, 
         -1, "Message 5");
 
-    // A possible debug output
-    Group depth 0 - GL_DEBUG_TYPE_MARKER - Message 1 
-    Group depth 0 - GL_DEBUG_TYPE_PUSH_GROUP - Message 2
-    Group depth 0 - GL_DEBUG_TYPE_POP_GROUP - Message 2
-    Group depth 0 - GL_DEBUG_TYPE_MARKER - Message 5
+    // Expected debug output from the GL implementation
+    // Message 1 
+    // Message 2
+    // Message 2
+    // Message 5
 
     Scenario 2: Only output a subsection of the code 
     and disable some messages for the entire application
@@ -1343,8 +1343,8 @@ Usage Examples
     
     glPopDebugGroup(); 
 
-    // A possible debug output
-    Group depth 1 - GL_DEBUG_TYPE_OTHER - Message 2
+    // Expected debug output from the GL implementation
+    // Message 2
 
 
 Issues
@@ -1557,6 +1557,11 @@ Issues
     to be resolved.
 
 Revision History
+
+    Revision 15, 2014/03/04 (Jon Leech)
+      - Minor changes to clean up expected message output format in example
+        code and refer to the value of state named by tokens, rather than
+        the token values themselves (Bug 10083).
 
     Revision 14, 2013/11/05 (Jon Leech)
       - Edit state tables to replace the "Get Value" of LABEL with "-",

@@ -34,7 +34,7 @@ Status
 
 Version
 
-    Version 21, April 23, 2013
+    Version 22, January 31, 2014
 
 Number
 
@@ -241,7 +241,8 @@ Changes to Chapter 3 of the EGL 1.2 Specification (EGL Functions and Errors)
     eglClientWaitSyncKHR returns one of three status values describing
     the reason for returning. A return value of EGL_TIMEOUT_EXPIRED_KHR
     indicates that the specified timeout period expired before <sync>
-    was signaled. A return value of EGL_CONDITION_SATISFIED_KHR
+    was signaled, or if <timeout> is zero, indicates that <sync> is
+    not signaled. A return value of EGL_CONDITION_SATISFIED_KHR
     indicates that <sync> was signaled before the timeout expired, which
     includes the case when <sync> was already signaled when
     eglClientWaitSyncKHR was called. If an error occurs then an error is
@@ -502,6 +503,9 @@ Issues
 
 Revision History
 
+#22 (Jon Leech, January 31, 2014)
+    - Clarify return value of ClientWaitSyncKHR when called with <timeout>
+      of zero for an unsignaled <sync> (Bug 11576).
 #21 (Jon Leech, April 23, 2013)
     - Simplify issues list to remove issues specific to fence sync
       objects.
