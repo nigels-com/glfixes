@@ -28,7 +28,7 @@ Contributors
 
 Notice
 
-    Copyright (c) 2009-2013 The Khronos Group Inc. Copyright terms at
+    Copyright (c) 2009-2014 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
 Status
@@ -37,8 +37,8 @@ Status
 
 Version
 
-    Last Modified Date:         01/27/2009
-    Revision:                   7
+    Last Modified Date:         02/26/2014
+    Revision:                   8
 
 Number
 
@@ -188,15 +188,15 @@ New State
     None.
 
 New Implementation Dependent State
-                                                             Minimum
-    Get Value                         Type  Get Command       Value   Description            Sec.   Attrib
-    --------------------------------  ----  ---------------  -------  ---------------------  ------ ------
-    MIN_PROGRAM_TEXTURE_GATHER_        Z+   GetIntegerv        --     Min. texel offset      3.8.8  -
-      OFFSET_ARB                                                      for textureGather
-    MAX_PROGRAM_TEXTURE_GATHER_        Z+   GetIntegerv        --     Max. texel offset      3.8.8  -
-      OFFSET_ARB                                                      for textureGather
-    MAX_PROGRAM_TEXTURE_GATHER_        Z+   GetIntegerv        --     Max. format components 3.8.8  -
-      COMPONENTS_ARB                                                  for textureGather
+                                                                     Minimum
+    Get Value                                 Type  Get Command       Value   Description            Sec.   Attrib
+    --------------------------------          ----  ---------------  -------  ---------------------  ------ ------
+    MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB      Z    GetIntegerv        --     Min. texel offset      3.8.8  -
+                                                                              for textureGather
+    MAX_PROGRAM_TEXTURE_GATHER_OFFSET_ARB      Z+   GetIntegerv        --     Max. texel offset      3.8.8  -
+                                                                              for textureGather
+    MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB  Z+   GetIntegerv        --     Max. format components 3.8.8  -
+                                                                              for textureGather
 
 
 Modifications to The OpenGL Shading Language Specification, Version 1.10.59
@@ -324,10 +324,13 @@ Issues
 Revision History
 
     Rev.    Date      Author    Changes
-    ----  --------    --------  -----------------------------------------
+    ----  --------    --------  --------------------------------------------
+    8     02/26/14    Jon Leech Change MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB
+                                type from Z+ to Z (Bug 11730).       
+
     7     01/27/11    pbrown    Add further clarification on the interaction
-                                of texture gather and incomplete textures (bug
-                                7289).
+                                of texture gather and incomplete textures 
+                                bug 7289).
 
     6     09/23/10    pbrown    Clarify the interaction of texture gather
                                 with swizzle (bug 5910), fixing conflicts
