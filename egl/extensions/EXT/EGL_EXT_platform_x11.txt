@@ -21,7 +21,7 @@ Status
 
 Version
 
-    Version 11, 2013-07-10
+    Version 12, 2014-02-11
 
 Number
 
@@ -297,7 +297,7 @@ Example Code
         };
 
         pixmap.x11 = XCreatePixmap(config.dpy.x11,
-                                   InputOnly, // drawable
+                                   DefaultRootWindow(config.dpy.x11),
                                    256, 256, // width, height
                                    config.x11->depth);
         if (!pixmap.x11) {
@@ -337,6 +337,9 @@ Example Code
     }
 
 Revision History
+
+    Version 12, 2014-02-11 (Chad Versace)
+        - Fix 2nd argument to XCreatePixmap in example code.
 
     Version 11, 2013-07-10 (Jon Leech)
         - Fix enumerant values and assign extension number for publication

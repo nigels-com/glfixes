@@ -6,7 +6,7 @@ extern "C" {
 #endif
 
 /*
-** Copyright (c) 2013 The Khronos Group Inc.
+** Copyright (c) 2013-2014 The Khronos Group Inc.
 **
 ** Permission is hereby granted, free of charge, to any person obtaining a
 ** copy of this software and/or associated documentation files (the
@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 24902 $ on $Date: 2014-01-20 15:18:48 -0800 (Mon, 20 Jan 2014) $
+** Khronos $Revision: 25231 $ on $Date: 2014-02-03 21:35:17 -0800 (Mon, 03 Feb 2014) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20140120
+#define EGL_EGLEXT_VERSION 20140203
 
 /* Generated C header for:
  * API: egl

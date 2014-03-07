@@ -1,4 +1,4 @@
-﻿Name
+Name
 
     EXT_protected_surface
 
