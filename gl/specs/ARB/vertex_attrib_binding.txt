@@ -28,8 +28,8 @@ Status
 
 Version
 
-    Last Modified Date: August 6, 2013
-    Revision: 4
+    Last Modified Date: October 22, 2013
+    Revision: 5
 
     EXT_direct_state_access interacton added with revision 3.
 
@@ -131,6 +131,7 @@ New Tokens
         VERTEX_BINDING_DIVISOR                          0x82D6  
         VERTEX_BINDING_OFFSET                           0x82D7  
         VERTEX_BINDING_STRIDE                           0x82D8  
+        VERTEX_BINDING_BUFFER                           0x8F4F
 
     Accepted by the <pname> parameter of GetIntegerv, ...
 
@@ -402,7 +403,7 @@ Additions to Chapter 2 of the OpenGL 2.0 Specification (OpenGL Operation)
     is:
 
         bindingIndex = VERTEX_ATTRIB_BINDING[attribIndex];
-        buffer = VERTEX_ATTRIB_ARRAY_BUFFER_BINDING[bindingIndex];
+        buffer = VERTEX_BINDING_BUFFER[bindingIndex];
 
         if (buffer->name != 0) {
             address = buffer->baseAddress + 
@@ -429,7 +430,14 @@ Additions to Chapter 5 of the OpenGL 2.0 Specification (Special Functions)
 Additions to Chapter 6 of the OpenGL 2.0 Specification (State and
 State Requests)
 
-    None.
+    Modify Section 6.1.18, "Shader and Program Queries", p. 500
+
+    (Append to the description of GetVertexAttrib)
+
+    Queries of VERTEX_ATTRIB_ARRAY_BUFFER_BINDING and VERTEX_ATTRIB_ARRAY_-
+    DIVISOR first map the requested attribute index to a binding index via
+    the VERTEX_ATTRIB_BINDING state, and then return the value of 
+    VERTEX_BINDING_BUFFER or VERTEX_BINDING_DIVISOR, respectively.
 
 Additions to the AGL/GLX/WGL Specifications
 
@@ -529,11 +537,20 @@ New State
       OFFSET                                                        vertex binding offset
                                                                     for this attribute
     VERTEX_BINDING_OFFSET        16*Z    GetInteger64i_v      0     Byte offset of the first   2.8
-                                                                    element in the bound 
-                                                                    buffer's data store
-    VERTEX_BINDING_STRIDE        16*Z    GetIntegeri_v       16     Vertex binding stride      2.8
+                                                                    element in data store of
+                                                                    the buffer bound to vertex
+                                                                    binding <i>
+    VERTEX_BINDING_STRIDE        16*Z    GetIntegeri_v       16     Stride between elements in 2.8
+                                                                    vertex binding <i>
+    VERTEX_BINDING_DIVISOR       16*Z+   GetIntegeri_v        0     Instance divisor used for  2.8
+                                                                    vertex binding <i>
+    VERTEX_BINDING_BUFFER        16*Z+   GetIntegeri_v        0     Name of buffer bound to    2.8
+                                                                    vertex binding <i>
 
     [fn1] The <i>'th attribute defaults to a value of <i>.
+
+    If the compatibility profile is supported, then all of these new state 
+    values belong to the 'vertex-array' attribute.
 
 New Implementation Dependent State
 
@@ -640,10 +657,34 @@ Issues
       the EXT_direct_state_access commands.  Revision 3 (August 2013)
       corrects this oversight.
 
+    (8) Which state queries return information from attributes vs from 
+        bindings?
+
+      RESOLVED: The general convention is that tokens starting with 
+      VERTEX_BINDING return information corresponding to a buffer binding and
+      are queried with GetIntegeri_v, whereas tokens starting with 
+      VERTEX_ATTRIB_ARRAY return information corresponding to a vertex 
+      attribute index and are queried with GetVertexAttribiv.
+
+      For cases where there is both an "attribute" and "binding" token for the
+      same state, the "attribute" query returns state for the binding that 
+      attribute is currently using (set via VertexAttribBinding). Specifically,
+      VERTEX_ATTRIB_ARRAY_BUFFER_BINDING returns a value from VERTEX_BINDING_-
+      BUFFER, and VERTEX_ATTRIB_ARRAY_DIVISOR returns a value from VERTEX_-
+      BINDING_DIVISOR.
+
+      A notable exception to this is for VERTEX_BINDING_STRIDE and 
+      VERTEX_ATTRIB_ARRAY_STRIDE. As described in issue (3), these tokens track
+      separate state.
+
+
 Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  ------------------------------------------
+      5   10/22/13  jbolz     Added missing definition of 
+                              VERTEX_BINDING_DIVISOR, and added 
+                              VERTEX_BINDING_BUFFER, to keep things consistent.
       4   08/06/13  mjk       Added EXT_direct_state_access interactions
       3   07/19/13  Jon Leech Add error to BindVertexBuffer for the core
                               profile if <buffer> is not a name returned

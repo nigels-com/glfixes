@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 25231 $ on $Date: 2014-02-03 21:35:17 -0800 (Mon, 03 Feb 2014) $
+** Khronos $Revision: 25997 $ on $Date: 2014-03-18 22:40:11 -0700 (Tue, 18 Mar 2014) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20140203
+#define EGL_EGLEXT_VERSION 20140318
 
 /* Generated C header for:
  * API: egl
@@ -206,6 +206,27 @@ typedef EGLBoolean (EGLAPIENTRYP PFNEGLQUERYSURFACE64KHRPROC) (EGLDisplay dpy, E
 EGLAPI EGLBoolean EGLAPIENTRY eglQuerySurface64KHR (EGLDisplay dpy, EGLSurface surface, EGLint attribute, EGLAttribKHR *value);
 #endif
 #endif /* EGL_KHR_lock_surface3 */
+
+#ifndef EGL_KHR_platform_android
+#define EGL_KHR_platform_android 1
+#define EGL_PLATFORM_ANDROID_KHR          0x3141
+#endif /* EGL_KHR_platform_android */
+
+#ifndef EGL_KHR_platform_gbm
+#define EGL_KHR_platform_gbm 1
+#define EGL_PLATFORM_GBM_KHR              0x31D7
+#endif /* EGL_KHR_platform_gbm */
+
+#ifndef EGL_KHR_platform_wayland
+#define EGL_KHR_platform_wayland 1
+#define EGL_PLATFORM_WAYLAND_KHR          0x31D8
+#endif /* EGL_KHR_platform_wayland */
+
+#ifndef EGL_KHR_platform_x11
+#define EGL_KHR_platform_x11 1
+#define EGL_PLATFORM_X11_KHR              0x31D5
+#define EGL_PLATFORM_X11_SCREEN_KHR       0x31D6
+#endif /* EGL_KHR_platform_x11 */
 
 #ifndef EGL_KHR_reusable_sync
 #define EGL_KHR_reusable_sync 1

@@ -1,15 +1,16 @@
 Name
 
-    EXT_platform_x11
+    KHR_platform_x11
 
 Name Strings
 
-    EGL_EXT_platform_x11
+    EGL_KHR_platform_x11
 
 Contributors
 
     Chad Versace <chad.versace@intel.com>
     James Jones <jajones@nvidia.com>
+    Jon Leech (oddhack 'at' sonic.net)
 
 Contacts
 
@@ -17,15 +18,17 @@ Contacts
 
 Status
 
-    Complete
+    Complete.
+    Approved by the EGL Working Group on January 31, 2014.
+    Ratified by the Khronos Board of Promoters on March 14, 2014. 
 
 Version
 
-    Version 13, 2014-03-10
+    Version 3, 2014/02/18
 
 Number
 
-    EGL Extension #59
+    EGL Extension #71
 
 Extension Type
 
@@ -33,21 +36,18 @@ Extension Type
 
 Dependencies
 
-    Requires EGL_EXT_client_extensions to query its existence without
-    a display.
+    EGL 1.5 is required.
 
-    Requires EGL_EXT_platform_base.
-
-    This extension is written against the wording of version 7 of the
-    EGL_EXT_platform_base specification.
+    This extension is written against the EGL 1.5 Specification (draft
+    20140122).
 
 Overview
 
     This extension defines how to create EGL resources from native X11
-    resources using the functions defined by EGL_EXT_platform_base.
+    resources using the EGL 1.5 platform functionality.
 
-    This extension defines only how to create EGL resources from Xlib
-    resources. It does not define how to do so from xcb resources.  All X11
+    This extension only defines how to create EGL resources from Xlib
+    resources. It does not define how to do so from xcb resources. All X11
     types discussed here are defined by the header `Xlib.h`.
 
 New Types
@@ -60,14 +60,14 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted as the <platform> argument of eglGetPlatformDisplayEXT:
+    Accepted as the <platform> argument of eglGetPlatformDisplay:
 
-        EGL_PLATFORM_X11_EXT                    0x31D5
+        EGL_PLATFORM_X11_KHR                    0x31D5
 
     Accepted as an attribute name in the <attrib_list> argument of
-    eglGetPlatformDisplayEXT:
+    eglGetPlatformDisplay:
 
-        EGL_PLATFORM_X11_SCREEN_EXT             0x31D6
+        EGL_PLATFORM_X11_SCREEN_KHR             0x31D6
 
 Additions to the EGL Specification
 
@@ -84,14 +84,14 @@ New Behavior
     reside on different GPUs and/or be driven by different drivers. Therefore,
     different X11 screens may have different EGL capabilities.
 
-    To obtain an EGLDisplay backed by an X11 screen, call
-    eglGetPlatformDisplayEXT with <platform> set to EGL_PLATFORM_X11_EXT. The
-    <native_display> parameter specifies the X11 display connection to use, and
-    must point to a valid X11 `Display` or be NULL.  If <native_display> is
+    To obtain an EGLDisplay backed by an X11 screen, call eglGetPlatformDisplay
+    with <platform> set to EGL_PLATFORM_X11_KHR. The <native_display> parameter
+    specifies the X11 display connection to use, and must either point to
+    a valid X11 `Display` or be EGL_DEFAULT_DISPLAY.  If <native_display> is
     EGL_DEFAULT_DISPLAY, then EGL will create [1] a connection to the default
     X11 display. The environment variable DISPLAY determines the default X11
     display as described in the manual page for XOpenDisplay(3).  The value of
-    attribute EGL_PLATFORM_X11_SCREEN_EXT specifies the X11 screen to use. If
+    attribute EGL_PLATFORM_X11_SCREEN_KHR specifies the X11 screen to use. If
     the attribute is omitted from <attrib_list>, then the display connection's
     default screen is used.  Otherwise, the attribute's value must be a valid
     screen on the display connection. If the attribute's value is not a valid
@@ -102,35 +102,34 @@ New Behavior
     XOpenDisplay, xcb_connect, or any other method.
     
     To obtain an on-screen rendering surface from an X11 Window, call
-    eglCreatePlatformWindowSurfaceEXT with a <dpy> that belongs to X11 and
+    eglCreatePlatformWindowSurface with a <dpy> that belongs to X11 and
     a <native_window> that points to an X11 Window.
 
     To obtain an offscreen rendering surface from an X11 Pixmap, call
-    eglCreatePlatformPixmapSurfaceEXT with a <dpy> that belongs to X11 and
+    eglCreatePlatformPixmapSurface with a <dpy> that belongs to X11 and
     a <native_pixmap> that points to an X11 Pixmap.
 
 Issues
 
     1. Should this extension permit EGL_DEFAULT_DISPLAY as input to
-       eglGetPlatformDisplayEXT()?
+       eglGetPlatformDisplay()?
 
-       RESOLVED. Yes. When given EGL_DEFAULT_DISPLAY, eglGetPlatformDisplayEXT
+       RESOLVED. Yes. When given EGL_DEFAULT_DISPLAY, eglGetPlatformDisplay
        returns an EGLDisplay backed by the default X11 display.
 
-    2. When given EGL_DEFAULT_DISPLAY, does eglGetPlatformDisplayEXT reuse an
+    2. When given EGL_DEFAULT_DISPLAY, does eglGetPlatformDisplay reuse an
        existing X11 display connection or create a new one?
 
-       RESOLVED. eglGetPlatformDisplayEXT creates a new connection because the
+       RESOLVED. eglGetPlatformDisplay creates a new connection because the
        alternative is infeasible. EGL cannot reliably detect if the client
        process already has a X11 display connection.
-
 
 Example Code
 
     // This example program creates two EGL surfaces: one from an X11 Window
     // and the other from an X11 Pixmap.
     //
-    // If the macro USE_EGL_EXT_PLATFORM_X11 is defined, then the program
+    // If the macro USE_EGL_KHR_PLATFORM_X11 is defined, then the program
     // creates the surfaces using the methods defined in this specification.
     // Otherwise, it uses the methods defined by the EGL 1.4 specification.
     //
@@ -169,14 +168,14 @@ Example Code
     static void
     check_extensions(void)
     {
-    #ifdef USE_EGL_EXT_PLATFORM_X11
+    #ifdef USE_EGL_KHR_PLATFORM_X11
         const char *client_extensions = eglQueryString(EGL_NO_DISPLAY, EGL_EXTENSIONS);
 
         if (!client_extensions) {
-            // EGL_EXT_client_extensions is unsupported.
+            // No client extensions string available
             abort();
         }
-        if (!strstr(client_extensions, "EGL_EXT_platform_x11")) {
+        if (!strstr(client_extensions, "EGL_KHR_platform_x11")) {
             abort();
         }
     #endif
@@ -192,9 +191,8 @@ Example Code
             abort();
         }
 
-    #ifdef USE_EGL_EXT_PLATFORM_X11
-        dpy.egl = eglGetPlatformDisplayEXT(EGL_PLATFORM_X11_EXT, dpy.x11,
-                                           NULL);
+    #ifdef USE_EGL_KHR_PLATFORM_X11
+        dpy.egl = eglGetPlatformDisplay(EGL_PLATFORM_X11_KHR, dpy.x11, NULL);
     #else
         dpy.egl = eglGetDisplay(dpy.x11);
     #endif
@@ -299,11 +297,11 @@ Example Code
             abort();
         }
 
-    #ifdef USE_EGL_EXT_PLATFORM_X11
-        window.egl = eglCreatePlatformWindowSurfaceEXT(config.dpy.egl,
-                                                       config.egl,
-                                                       &window.x11,
-                                                       NULL);
+    #ifdef USE_EGL_KHR_PLATFORM_X11
+        window.egl = eglCreatePlatformWindowSurface(config.dpy.egl,
+                                                    config.egl,
+                                                    &window.x11,
+                                                    NULL);
     #else
         window.egl = eglCreateWindowSurface(config.dpy.egl,
                                             config.egl,
@@ -333,11 +331,11 @@ Example Code
             abort();
         }
 
-    #ifdef USE_EGL_EXT_PLATFORM_X11
-        pixmap.egl = eglCreatePlatformPixmapSurfaceEXT(config.dpy.egl,
-                                                       config.egl,
-                                                       &pixmap.x11,
-                                                       NULL);
+    #ifdef USE_EGL_KHR_PLATFORM_X11
+        pixmap.egl = eglCreatePlatformPixmapSurface(config.dpy.egl,
+                                                    config.egl,
+                                                    &pixmap.x11,
+                                                    NULL);
     #else
         pixmap.egl = eglCreatePixmapSurface(config.dpy.egl,
                                             config.egl,
@@ -367,48 +365,14 @@ Example Code
 
 Revision History
 
-    Version 13, 2014-03-10 (Chad Versace)
+    Version 3, 2014/02/18 (Chad Versace)
         - Update text to reflect resolution of issue #1. State that
           <native_display> may be EGL_DEFAULT_DISPLAY.
         - Explain in more detail how EGL connects to the default X11 display.
         - Add and resolve issue #2.
 
-    Version 12, 2014-02-11 (Chad Versace)
+    Version 2, 2014/02/11 (Chad Versace)
         - Fix 2nd argument to XCreatePixmap in example code.
 
-    Version 11, 2013-07-10 (Jon Leech)
-        - Fix enumerant values and assign extension number for publication
-          (Bug 10240).
-
-    Version 10, 2013-07-03 (Chad Versace)
-        - Add "Extension Type" section, required by EGL_EXT_client_extensions v9.
-
-    Version 9, 2013-06-11 (Chad Versace)
-        - Replace reference to version 5 of EGL_EXT_platform_base to version 7.
-        - Add James Jones as contributor.
-
-    Version 8, 2013-06-07 (Chad Versace)
-        - Assign enum values to new tokens.
-
-    Version 7, 2013-06-07 (Chad Versace)
-        - Explicitly require EGL_EXT_client_extensions in the Dependencies
-          section.
-
-    Version 6, 2013-06-07 (Chad Versace)
-        - Add attribute EGL_PLATFORM_X11_SCREEN_EXT.
-
-    Version 5, 2013-06-07 (Chad Versace)
-        - Rephrase against version 7 of EGL_EXT_platform_base.
-
-    Version 4, 2013-06-07 (Chad Versace)
-        - Fix compilation of example code.
-
-    Version 3, 2013-04-26 (Chad Versace)
-        - Add missing EXT suffix to new token.
-
-    Version 2, 2013-04-22 (Chad Versace)
-        - Discuss EGL_DEFAULT_DISPLAY.
-        - Fix minor typographical and grammatical errors.
-
-    Version 1, 2013.03.24 (Chad Versace)
-        - First draft
+    Version 1, 2014/01/22 (Jon Leech)
+        - Promote EGL_EXT_platform_x11 to KHR to go with EGL 1.5.

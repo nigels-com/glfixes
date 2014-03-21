@@ -1,14 +1,15 @@
 Name
 
-    MESA_platform_gbm
+    KHR_platform_gbm
 
 Name Strings
 
-    EGL_MESA_platform_gbm
+    EGL_KHR_platform_gbm
 
 Contributors
 
     Chad Versace <chad.versace@intel.com>
+    Jon Leech (oddhack 'at' sonic.net)
     Kristian Høgsberg <krh@bitplanet.org>
 
 Contacts
@@ -17,15 +18,17 @@ Contacts
 
 Status
 
-    Complete
+    Complete.
+    Approved by the EGL Working Group on January 31, 2014.
+    Ratified by the Khronos Board of Promoters on March 14, 2014. 
 
 Version
 
-    Version 6, 2014-02-12
+    Version 2, 2014/02/12
 
 Number
 
-    EGL Extension #62
+    EGL Extension #69
 
 Extension Type
 
@@ -33,19 +36,16 @@ Extension Type
 
 Dependencies
 
-    Requires EGL_EXT_client_extensions to query its existence without
-    a display.
+    EGL 1.5 is required.
 
-    Requires EGL_EXT_platform_base.
-
-    This extension is written against the wording of version 7 of the
-    EGL_EXT_platform_base specification.
+    This extension is written against the EGL 1.5 Specification (draft
+    20140122).
 
 Overview
 
     This extension defines how to create EGL resources from native GBM
-    resources using the functions defined by EGL_EXT_platform_base. (GBM is
-    a Generic Buffer Manager for Linux).
+    resources using the EGL 1.5 platform functionality (GBM is a Generic
+    Buffer Manager for Linux).
 
 New Types
 
@@ -57,9 +57,9 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted as the <platform> argument of eglGetPlatformDisplayEXT:
+    Accepted as the <platform> argument of eglGetPlatformDisplay:
 
-        EGL_PLATFORM_GBM_MESA                    0x31D7
+        EGL_PLATFORM_GBM_KHR                     0x31D7
 
 Additions to the EGL Specification
 
@@ -70,8 +70,8 @@ New Behavior
     To determine if the EGL implementation supports this extension, clients
     should query the EGL_EXTENSIONS string of EGL_NO_DISPLAY.
 
-    To obtain an EGLDisplay from an GBM device, call eglGetPlatformDisplayEXT with
-    <platform> set to EGL_PLATFORM_GBM_MESA. The <native_display> parameter
+    To obtain an EGLDisplay from an GBM device, call eglGetPlatformDisplay with
+    <platform> set to EGL_PLATFORM_GBM_KHR. The <native_display> parameter
     specifies the GBM device to use and must either point to a `struct
     gbm_device` or be EGL_DEFAULT_DISPLAY. If <native_display> is
     EGL_DEFAULT_DISPLAY, then the resultant EGLDisplay will be backed by some
@@ -82,29 +82,29 @@ New Behavior
     GBM_FORMAT_XRGB8888.
 
     To obtain a rendering surface from a GBM surface, call
-    eglCreatePlatformWindowSurfaceEXT with a <dpy> that belongs to the GBM
+    eglCreatePlatformWindowSurface with a <dpy> that belongs to the GBM
     platform and a <native_window> that points to a `struct gbm_surface`.  If
     <native_window> was created without the GBM_BO_USE_RENDERING flag, or if
     the color format of <native_window> differs from the EGL_NATIVE_VISUAL_ID
     of <config>, then the function fails and generates EGL_BAD_MATCH.
 
-    It is not valid to call eglCreatePlatformPixmapSurfaceEXT with a <dpy> that
+    It is not valid to call eglCreatePlatformPixmapSurface with a <dpy> that
     belongs to the GBM platform. Any such call fails and generates
-    EGL_BAD_PARAMETER.
+    an EGL_BAD_PARAMETER error.
 
 Issues
 
     1. Should this extension permit EGL_DEFAULT_DISPLAY as input to
-       eglGetPlatformDisplayEXT?
+       eglGetPlatformDisplay?
 
-       RESOLUTION: Yes. When given EGL_DEFAULT_DISPLAY, eglGetPlatformDisplayEXT
+       RESOLUTION: Yes. When given EGL_DEFAULT_DISPLAY, eglGetPlatformDisplay
        returns an EGLDisplay backed by an implementation-chosen GBM device.
 
 Example Code
 
     // This example program creates an EGL surface from a GBM surface.
     //
-    // If the macro EGL_MESA_platform_gbm is defined, then the program
+    // If the macro EGL_KHR_platform_gbm is defined, then the program
     // creates the surfaces using the methods defined in this specification.
     // Otherwise, it uses the methods defined by the EGL 1.4 specification.
     //
@@ -139,14 +139,14 @@ Example Code
     static void
     check_extensions(void)
     {
-    #ifdef EGL_MESA_platform_gbm
+    #ifdef EGL_KHR_platform_gbm
         const char *client_extensions = eglQueryString(EGL_NO_DISPLAY, EGL_EXTENSIONS);
 
         if (!client_extensions) {
-            // EGL_EXT_client_extensions is unsupported.
+            // No client extensions string available
             abort();
         }
-        if (!strstr(client_extensions, "EGL_MESA_platform_gbm")) {
+        if (!strstr(client_extensions, "EGL_KHR_platform_gbm")) {
             abort();
         }
     #endif
@@ -168,8 +168,8 @@ Example Code
         }
 
 
-    #ifdef EGL_MESA_platform_gbm
-        dpy.egl = eglGetPlatformDisplayEXT(EGL_PLATFORM_GBM_MESA, dpy.gbm, NULL);
+    #ifdef EGL_KHR_platform_gbm
+        dpy.egl = eglGetPlatformDisplay(EGL_PLATFORM_GBM_KHR, dpy.gbm, NULL);
     #else
         dpy.egl = eglGetDisplay(dpy.gbm);
     #endif
@@ -250,11 +250,11 @@ Example Code
             abort();
         }
 
-    #ifdef EGL_MESA_platform_gbm
-        window.egl = eglCreatePlatformWindowSurfaceEXT(config.dpy.egl,
-                                                       config.egl,
-                                                       window.gbm,
-                                                       NULL);
+    #ifdef EGL_KHR_platform_gbm
+        window.egl = eglCreatePlatformWindowSurface(config.dpy.egl,
+                                                    config.egl,
+                                                    window.gbm,
+                                                    NULL);
     #else
         window.egl = eglCreateWindowSurface(config.dpy.egl,
                                             config.egl,
@@ -283,29 +283,9 @@ Example Code
 
 Revision History
 
-    Version 6, 2014-02-12 (Chad Versace)
+    Version 2, 2014/02/12 (Chad Versace)
         - Change resolution of issue #1 from "no" to "yes". Now
-          eglGetPlatformDisplayEXT accepts EGL_DEFAULT_DISPLAY for GBM.
+          eglGetPlatformDisplay accepts EGL_DEFAULT_DISPLAY for GBM.
 
-    Version 5, 2013-010-15 (Chad Versace)
-        - Specify that EGL_NATIVE_VISUAL_ID is a GBM color format.
-        - Require for eglCreatePlatformWindowSurfaceEXT that the GBM color
-          format not differ between the EGLConfig and gbm_surface. (Suggested
-          by Kristian).
-        - Update example code to find matching EGL_NATIVE_VISUAL_ID.
-
-    Version 4, 2013-09-13 (Chad Versace)
-        - Update the text and example code to wording of version 7 of
-          EGL_EXT_platform_base spec.
-        - Add section "Extension Type".
-        - Resolve issue #1 to "No".
-        - Add issue #2.
-
-    Version 3, 2013-04-26 (Chad Versace)
-        - Add missing MESA suffix to new token.
-
-    Version 2, 2013-04-23 (Chad Versace)
-        - Add issue #1 regarding EGL_DEFAULT_DISPLAY.
-
-    Version 1, 2013.03.24 (Chad Versace)
-        - First draft
+    Version 1, 2014/01/22 (Jon Leech)
+        - Promote EGL_MESA_platform_gbm to KHR to go with EGL 1.5.

@@ -20,7 +20,7 @@ Status
 
 Version
 
-    Version 3, 2013-10-16
+    Version 4, 2014-03-10
 
 Number
 
@@ -69,11 +69,13 @@ New Behavior
     should query the EGL_EXTENSIONS string of EGL_NO_DISPLAY.
 
     To obtain an EGLDisplay backed by a Wayland display, call
-    eglGetPlatformDisplayEXT with <platform> set to EGL_PLATFORM_WAYLAND_EXT.
-    The <native_display> parameter specifies the Wayland display to use and
-    must point to a valid `struct wl_display` or be NULL. If NULL, then the
-    default Wayland display is used; that is, the one returned by
-    wl_display_connect(NULL).
+    eglGetPlatformDisplayEXT with <platform> set to EGL_PLATFORM_WAYLAND_EXT.  The
+    <native_display> parameter specifies the Wayland display  to use and must
+    either point to a `struct wl_display` or be EGL_DEFAULT_DISPLAY. If
+    <native_display> is EGL_DEFAULT_DISPLAY, then EGL will create a new
+    wl_display structure by connecting to the default Wayland socket.  The
+    manual page wl_display_connect(3) defines the location of the default
+    Wayland socket.
 
     To obtain an on-screen rendering surface from a Wayland window, call
     eglCreatePlatformWindowSurfaceEXT with a <dpy> that belongs to Wayland and
@@ -88,11 +90,8 @@ Issues
     1. Should this extension permit EGL_DEFAULT_DISPLAY as input to
        eglGetPlatformDisplayEXT()?
 
-       RESOLUTION: No, because the type of EGL_DEFAULT_DISPLAY, as defined by
-       eglplatform.h, likely differs from that of the <native_display>
-       parameter of eglGetPlatformDisplayEXT, which is void*.  Instead, this
-       specification states that eglGetPlatformDisplayEXT accepts NULL as
-       a Wayland native display.
+       RESOLUTION: Yes. When given EGL_DEFAULT_DISPLAY, eglGetPlatformDisplayEXT
+       returns a display backed by the default Wayland display.
 
     2. Should this extension support creation EGLPixmap resources from Wayland
        pixmaps?
@@ -110,6 +109,12 @@ Issues
        interest in Wayland.
 
 Revision History
+
+    Version 4, 2014-03-10(Chad Versace)
+        - Change resolution of issue #1 from "no" to "yes". Now
+          eglGetPlatformDisplayEXT accepts EGL_DEFAULT_DISPLAY for Wayland.
+        - Explain in more detail how EGL connects to the default Wayland
+          display.
 
     Version 3, 2013-10-16 (Chad Versace)
         - Resolve issue #3 to use EXT namespace.
