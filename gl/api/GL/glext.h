@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 25668 $ on $Date: 2014-03-04 15:46:27 -0800 (Tue, 04 Mar 2014) $
+** Khronos $Revision: 26007 $ on $Date: 2014-03-19 01:28:09 -0700 (Wed, 19 Mar 2014) $
 */
 
 #if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
@@ -53,7 +53,7 @@ extern "C" {
 #define GLAPI extern
 #endif
 
-#define GL_GLEXT_VERSION 20140221
+#define GL_GLEXT_VERSION 20140319
 
 /* Generated C header for:
  * API: gl
@@ -2436,6 +2436,7 @@ typedef void (APIENTRY  *GLDEBUGPROC)(GLenum source,GLenum type,GLuint id,GLenum
 #define GL_VERTEX_BINDING_STRIDE          0x82D8
 #define GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET 0x82D9
 #define GL_MAX_VERTEX_ATTRIB_BINDINGS     0x82DA
+#define GL_VERTEX_BINDING_BUFFER          0x8F4F
 #define GL_DISPLAY_LIST                   0x82E7
 typedef void (APIENTRYP PFNGLCLEARBUFFERDATAPROC) (GLenum target, GLenum internalformat, GLenum format, GLenum type, const void *data);
 typedef void (APIENTRYP PFNGLCLEARBUFFERSUBDATAPROC) (GLenum target, GLenum internalformat, GLintptr offset, GLsizeiptr size, GLenum format, GLenum type, const void *data);
@@ -7080,6 +7081,10 @@ GLAPI GLuint APIENTRY glCreateShaderProgramEXT (GLenum type, const GLchar *strin
 #define GL_SEPARATE_SPECULAR_COLOR_EXT    0x81FA
 #endif /* GL_EXT_separate_specular_color */
 
+#ifndef GL_EXT_shader_image_load_formatted
+#define GL_EXT_shader_image_load_formatted 1
+#endif /* GL_EXT_shader_image_load_formatted */
+
 #ifndef GL_EXT_shader_image_load_store
 #define GL_EXT_shader_image_load_store 1
 #define GL_MAX_IMAGE_UNITS_EXT            0x8F38
@@ -9426,6 +9431,17 @@ GLAPI void APIENTRY glProgramUniformui64vNV (GLuint program, GLint location, GLs
 #ifndef GL_NV_shader_storage_buffer_object
 #define GL_NV_shader_storage_buffer_object 1
 #endif /* GL_NV_shader_storage_buffer_object */
+
+#ifndef GL_NV_shader_thread_group
+#define GL_NV_shader_thread_group 1
+#define GL_WARP_SIZE_NV                   0x9339
+#define GL_WARPS_PER_SM_NV                0x933A
+#define GL_SM_COUNT_NV                    0x933B
+#endif /* GL_NV_shader_thread_group */
+
+#ifndef GL_NV_shader_thread_shuffle
+#define GL_NV_shader_thread_shuffle 1
+#endif /* GL_NV_shader_thread_shuffle */
 
 #ifndef GL_NV_tessellation_program5
 #define GL_NV_tessellation_program5 1

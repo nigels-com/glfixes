@@ -21,7 +21,7 @@ Status
 
 Version
 
-    Version 12, 2014-02-11
+    Version 13, 2014-03-10
 
 Number
 
@@ -86,16 +86,21 @@ New Behavior
 
     To obtain an EGLDisplay backed by an X11 screen, call
     eglGetPlatformDisplayEXT with <platform> set to EGL_PLATFORM_X11_EXT. The
-    <native_display> parameter specifies the X11 display connection to use,
-    and must point to a valid X11 `Display` or be NULL. If NULL, then the
-    default X11 display connection is used; that is, the one returned by
-    XOpenDisplay(NULL). The value of attribute EGL_PLATFORM_X11_SCREEN_EXT
-    specifies the X11 screen to use. If the attribute is omitted from
-    <attrib_list>, then the display connection's default screen is used.
-    Otherwise, the attribute's value must be a valid screen on the display
-    connection. If the attribute's value is not a valid screen, then an
-    EGL_BAD_ATTRIBUTE error is generated.
+    <native_display> parameter specifies the X11 display connection to use, and
+    must point to a valid X11 `Display` or be NULL.  If <native_display> is
+    EGL_DEFAULT_DISPLAY, then EGL will create [1] a connection to the default
+    X11 display. The environment variable DISPLAY determines the default X11
+    display as described in the manual page for XOpenDisplay(3).  The value of
+    attribute EGL_PLATFORM_X11_SCREEN_EXT specifies the X11 screen to use. If
+    the attribute is omitted from <attrib_list>, then the display connection's
+    default screen is used.  Otherwise, the attribute's value must be a valid
+    screen on the display connection. If the attribute's value is not a valid
+    screen, then an EGL_BAD_ATTRIBUTE error is generated.
 
+    [fn1] The method by which EGL creates a connection to the default X11
+    display is an internal implementation detail. The implementation may use
+    XOpenDisplay, xcb_connect, or any other method.
+    
     To obtain an on-screen rendering surface from an X11 Window, call
     eglCreatePlatformWindowSurfaceEXT with a <dpy> that belongs to X11 and
     a <native_window> that points to an X11 Window.
@@ -109,7 +114,16 @@ Issues
     1. Should this extension permit EGL_DEFAULT_DISPLAY as input to
        eglGetPlatformDisplayEXT()?
 
-       PROPOSED RESOLUTION: Yes. Language has been added to that effect.
+       RESOLVED. Yes. When given EGL_DEFAULT_DISPLAY, eglGetPlatformDisplayEXT
+       returns an EGLDisplay backed by the default X11 display.
+
+    2. When given EGL_DEFAULT_DISPLAY, does eglGetPlatformDisplayEXT reuse an
+       existing X11 display connection or create a new one?
+
+       RESOLVED. eglGetPlatformDisplayEXT creates a new connection because the
+       alternative is infeasible. EGL cannot reliably detect if the client
+       process already has a X11 display connection.
+
 
 Example Code
 
@@ -136,6 +150,7 @@ Example Code
     struct my_config {
         struct my_display dpy;
         XVisualInfo *x11;
+        Colormap colormap;
         EGLConfig egl;
     };
 
@@ -246,15 +261,29 @@ Example Code
             abort();
         }
 
+        config.colormap = XCreateColormap(dpy.x11,
+                                          RootWindow(dpy.x11, 0),
+                                          config.x11->visual,
+                                          AllocNone);
+        if (config.colormap == None) {
+            abort();
+        }
+
         return config;
     }
 
     static struct my_window
     get_window(struct my_config config)
     {
+        XSetWindowAttributes attr;
+        unsigned long mask;
+
         struct my_window window = {
             .config = config,
         };
+
+        attr.colormap = config.colormap;
+        mask = CWColormap;
 
         window.x11 = XCreateWindow(config.dpy.x11,
                                    DefaultRootWindow(config.dpy.x11), // parent
@@ -264,8 +293,8 @@ Example Code
                                    config.x11->depth,
                                    InputOutput, // class
                                    config.x11->visual,
-                                   0, // valuemask
-                                   NULL); // attributes
+                                   mask, // valuemask
+                                   &attr); // attributes
         if (!window.x11) {
             abort();
         }
@@ -337,6 +366,12 @@ Example Code
     }
 
 Revision History
+
+    Version 13, 2014-03-10 (Chad Versace)
+        - Update text to reflect resolution of issue #1. State that
+          <native_display> may be EGL_DEFAULT_DISPLAY.
+        - Explain in more detail how EGL connects to the default X11 display.
+        - Add and resolve issue #2.
 
     Version 12, 2014-02-11 (Chad Versace)
         - Fix 2nd argument to XCreatePixmap in example code.

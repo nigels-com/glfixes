@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 25401 $ on $Date: 2014-02-18 15:43:24 -0800 (Tue, 18 Feb 2014) $
+** Khronos $Revision: 26007 $ on $Date: 2014-03-19 01:28:09 -0700 (Wed, 19 Mar 2014) $
 */
 
 #if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
@@ -2489,6 +2489,7 @@ typedef void (APIENTRY  *GLDEBUGPROC)(GLenum source,GLenum type,GLuint id,GLenum
 #define GL_VERTEX_BINDING_STRIDE          0x82D8
 #define GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET 0x82D9
 #define GL_MAX_VERTEX_ATTRIB_BINDINGS     0x82DA
+#define GL_VERTEX_BINDING_BUFFER          0x8F4F
 typedef void (APIENTRYP PFNGLCLEARBUFFERDATAPROC) (GLenum target, GLenum internalformat, GLenum format, GLenum type, const void *data);
 typedef void (APIENTRYP PFNGLCLEARBUFFERSUBDATAPROC) (GLenum target, GLenum internalformat, GLintptr offset, GLsizeiptr size, GLenum format, GLenum type, const void *data);
 typedef void (APIENTRYP PFNGLDISPATCHCOMPUTEPROC) (GLuint num_groups_x, GLuint num_groups_y, GLuint num_groups_z);
