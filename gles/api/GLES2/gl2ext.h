@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 25550 $ on $Date: 2014-02-25 22:02:09 -0800 (Tue, 25 Feb 2014) $
+** Khronos $Revision: 25855 $ on $Date: 2014-03-13 03:58:38 -0700 (Thu, 13 Mar 2014) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20140221 */
+/* Generated on date 20140313 */
 
 /* Generated C header for:
  * API: gles2
@@ -613,6 +613,16 @@ GL_APICALL void GL_APIENTRY glGetSyncivAPPLE (GLsync sync, GLenum pname, GLsizei
 #define GL_ARM_rgba8 1
 #endif /* GL_ARM_rgba8 */
 
+#ifndef GL_ARM_shader_framebuffer_fetch
+#define GL_ARM_shader_framebuffer_fetch 1
+#define GL_FETCH_PER_SAMPLE_ARM           0x8F65
+#define GL_FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM 0x8F66
+#endif /* GL_ARM_shader_framebuffer_fetch */
+
+#ifndef GL_ARM_shader_framebuffer_fetch_depth_stencil
+#define GL_ARM_shader_framebuffer_fetch_depth_stencil 1
+#endif /* GL_ARM_shader_framebuffer_fetch_depth_stencil */
+
 #ifndef GL_DMP_shader_binary
 #define GL_DMP_shader_binary 1
 #define GL_SHADER_BINARY_DMP              0x9250
@@ -989,6 +999,13 @@ GL_APICALL void GL_APIENTRY glProgramUniformMatrix4x3fvEXT (GLuint program, GLin
 #ifndef GL_EXT_shader_integer_mix
 #define GL_EXT_shader_integer_mix 1
 #endif /* GL_EXT_shader_integer_mix */
+
+#ifndef GL_EXT_shader_pixel_local_storage
+#define GL_EXT_shader_pixel_local_storage 1
+#define GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT 0x8F63
+#define GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT 0x8F67
+#define GL_SHADER_PIXEL_LOCAL_STORAGE_EXT 0x8F64
+#endif /* GL_EXT_shader_pixel_local_storage */
 
 #ifndef GL_EXT_shader_texture_lod
 #define GL_EXT_shader_texture_lod 1
