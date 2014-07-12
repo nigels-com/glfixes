@@ -11,27 +11,22 @@ normative files described below for the most current versions.
     which lists the name and status of each extension. Changes to
     GL, GLX, and WGL enumerants must be synced with changes to
 
-	ogl/trunk/doc/registry/specs/enum.spec
-	ogl/trunk/doc/registry/specs/enumext.spec
-	ogl/trunk/doc/registry/specs/glxenum.spec
-	ogl/trunk/doc/registry/specs/glxenumext.spec
-	ogl/trunk/doc/registry/specs/wglenum.spec
-	ogl/trunk/doc/registry/specs/wglenumext.spec
+	ogl/trunk/doc/registry/api/gl.xml
+	ogl/trunk/doc/registry/api/glx.xml
+	ogl/trunk/doc/registry/api/wgl.xml
 
-    which are the actual registry and the sources from which header
-    files are generated.
+    which are the actual XML registry and the sources from which header
+    files are generated (the older '.spec' files are obsolete and no longer
+    maintained).
 
     When new GLX protocol is created for extension specifications,
     allocate it here and reflect it in the extension specification
-    document as well as the registry and, if appropriate, gl.spec and
-    glx.spec files under
-
-	ogl/trunk/doc/registry/specs/
+    document as well as the registry and, if appropriate, gl.xml and
+    glx.xml files
 
     Reserved opcode ranges assigned to vendors, and in some cases,
     opcodes actually assigned within that range are tracked here. Not
     all opcodes used by vendors are known.
-
 
 Value Range	Definition	Contact
 		Control		(if different)
@@ -133,7 +128,7 @@ Extension Numbers
 359-363		AMD
 364		NVIDIA,TransGaming
 365-366		AMD
-367-373		APPLE
+367-373		Apple
 374-381		NVIDIA
 382-383		AMD
 384		INTEL
@@ -170,6 +165,17 @@ Extension Numbers
 436		NVIDIA
 437		Intel
 438		NVIDIA
+439-440		Apple
+441		INTEL
+442		AMD
+443		INTEL
+444		AMD
+445		NV
+446		MESA
+447-449		NV
+450-451		AMD
+452		NV
+453-454		AMD
 
 GLU Enumerants
 ==============
@@ -279,6 +285,9 @@ Enumerateds (32 Bits)
 0x9380	0x939F	OpenGL ARB
 0x93A0	0x93AF	ANGLE
 0x93B0	0x93EF	Khronos OpenGL ES
+0x93F0	0x94EF	Apple
+0x94F0	0x950F	INTEL
+0x9510	0x952F	Broadcom
 100000	100999	GLU Library
 101000	101999	OpenGL ARB	Conformance Tests
 103000	103999	IBM
@@ -558,9 +567,10 @@ Control
 OpenGL ARB	Jon Leech	    jon 'at' alumni.caltech.edu
 Khronos		Jon Leech	    jon 'at' alumni.caltech.edu (OpenML, OpenGL ES)
 Apple		Bob Beretta	    beretta 'at' apple.com
-ARM		TBD
-ATI		Bill Licea-Kane     bill.licea-kane 'at' amd.com
-ATI/NVIDIA	Bill Licea-Kane     bill.licea-kane 'at' amd.com
+ARM		Tom Olson	    tom.olson 'at' arm.com
+AMD and ATI	Graham Sellers	    graham.sellers 'at' amd.com
+ATI/NVIDIA	Graham Sellers	    graham.sellers 'at' amd.com
+Broadcom	Gary Sweet	    gsweet 'at' broadcom.com
 HP		Andrew Wiltzius     andrew.wiltzius 'at' hp.com
 IBM		Dan Brokenshire     brokensh 'at' austin.ibm.com
 Imagination	Graham Connor	    gconnor 'at' videologic.com

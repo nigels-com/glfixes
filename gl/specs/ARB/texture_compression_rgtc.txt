@@ -28,8 +28,8 @@ Status
 
 Version
 
-    Last Modified Date: May 27, 2009
-    Revision: 1.5
+    Last Modified Date: April 17, 2014
+    Revision: 1.6
 
 Number
 
@@ -94,8 +94,8 @@ Additions to Chapter 3 of the OpenGL 2.0 Specification (Rasterization)
         ---------------------------------       --------------------
         COMPRESSED_RED_RGTC1                    RGB
         COMPRESSED_SIGNED_RED_RGTC1             RGB
-        COMPRESSED_RG_RGTC2              RGB
-        COMPRESSED_SIGNED_RG_RGTC2       RGB
+        COMPRESSED_RG_RGTC2                     RG
+        COMPRESSED_SIGNED_RG_RGTC2              RG
 
  -- Section 3.8.2, Alternative Texture Image Specification Commands
 
@@ -822,3 +822,7 @@ Revision History
           to perform edits that include partial tiles at the edge of the
           image as long as the specified width/height parameters line up
           with the edge. Thanks to Emil Persson for finding this issue.
+
+    Revision 1.6, April 17, 2014: jleech
+        - Fix table 3.17 so base type for COMRPESSED*RG_RGTC2 formats
+          is RG instead of RGB, matching core GL spec (Bug 7812).

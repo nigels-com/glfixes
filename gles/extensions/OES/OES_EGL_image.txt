@@ -18,7 +18,7 @@ Contacts
 
 Notice
 
-    Copyright (c) 2006-2013 The Khronos Group Inc. Copyright terms at
+    Copyright (c) 2006-2014 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
 Status
@@ -28,7 +28,7 @@ Status
 
 Version
 
-    April 1, 2009 (version 6)
+    April 17, 2014 (version 7)
 
 Number
 
@@ -137,6 +137,9 @@ Additions to Chapter 3 of the OpenGL 2.0 Specification (Rasterization)
     If the GL is unable to specify a texture object using the supplied
     eglImageOES <image> (if, for example, <image> refers to a multisampled
     eglImageOES), the error INVALID_OPERATION is generated.
+
+    If <image> does not refer to a valid eglImageOES object, the error
+    INVALID_VALUE is generated.
 
     If <target> is not TEXTURE_2D, the error INVALID_ENUM is generated.
 
@@ -366,6 +369,10 @@ Dependencies on OES_framebuffer_object
     INVALID_OPERATION.
 
 Revision History
+
+    #7 (April 17, 2014, Jon Leech)
+       - Add missing error for invalid <image> parameter to
+         EGLImageTargetTexture2DOES (Bug 5164).
 
     #6 (April 1, 2009, Acorn Pooley, Jon Leech)
        - Fix dependancy typo. Mention EGL_KHR_image_base. Correct

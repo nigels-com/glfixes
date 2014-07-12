@@ -37,8 +37,8 @@ Status
     
 Version
 
-    Last Modified Date:         10/25/2012
-    NVIDIA Revision:            19
+    Last Modified Date:         April 25, 2014
+    NVIDIA Revision:            20
 
 Number
 
@@ -923,9 +923,15 @@ Operation)
     of generating points instead of lines or triangles.  If an input layout
     declaration in the tessellation evaluation shader specifies the identifier
     "point_mode", the primitive generator will generate one point for each
-    unique vertex produced by tessellation.  Otherwise, the primitive
+    distinct vertex produced by tessellation.  Otherwise, the primitive
     generator will produce a collection of line segments or triangles
-    according to the primitive mode.
+    according to the primitive mode.  When tessellating triangles or quads in
+    point mode with fractional odd spacing, the tessellation primitive
+    generator may produce "interior" vertices that are positioned on the edge
+    of the patch if an inner tessellation level is less than or equal to one.
+    Such vertices are considered distinct from vertices produced by
+    subdividing the outer edge of the patch, even if there are pairs of
+    vertices with identical coordinates.
 
     The points, lines, or triangles produced by the tessellation primitive
     generator are passed to subsequent pipeline stages in an
@@ -954,9 +960,10 @@ Operation)
     with (u,v,w) coordinates of (0,0,1), (1,0,0), and (0,1,0) is generated.
     If the inner tessellation level is one and any of the outer tessellation
     levels is greater than one, the inner tessellation level is treated as
-    though it were originally specified as 1+epsilon and will be rounded up to
-    result in a two- or three-segment subdivision according to the
-    tessellation spacing.
+    though it were originally specified as 1+epsilon and will result in a two-
+    or three-segment subdivision depending on the tessellation spacing.  When
+    used with fractional odd spacing, the three-segment subdivision may
+    produce "inner" vertices positioned on the edge of the triangle.
 
     If any tessellation level is greater than one, tessellation begins by
     producing a set of concentric inner triangles and subdividing their edges.
@@ -1065,9 +1072,10 @@ Operation)
     tessellation levels are exactly one, only a single triangle pair covering
     the outer rectangle is generated.  Otherwise, if either clamped inner
     tessellation level is one, that tessellation level is treated as though it
-    were originally specified as 1+epsilon, which would rounded up to result
-    in a two- or three-segment subdivision according to the tessellation
-    spacing.
+    were originally specified as 1+epsilon and will result in a two- or
+    three-segment subdivision depending on the tessellation spacing.  When
+    used with fractional odd spacing, the three-segment subdivision may
+    produce "inner" vertices positioned on the edge of the rectangle.
 
     If any tessellation level is greater than one, tessellation begins by
     subdividing the u==0 and u==1 edges of the outer rectangle into <m>
@@ -1884,8 +1892,8 @@ Additions to the OpenGL Shading Language Specification, version 1.50 (Revision
     produce triangles, the order is ignored.
 
     The identifier "point_mode" specifies that the tessellation primitive
-    generator should produce a point for each unique vertex in the subdivided
-    primitive, rather than generating lines or triangles.
+    generator should produce one point for each distinct vertex in the
+    subdivided primitive, rather than generating lines or triangles.
 
     Any or all of these identifiers may be specified one or more times in a
     single input layout declaration.
@@ -3460,11 +3468,52 @@ Issues
       FrontFace set to CW.  The only limitation of this approach is that it
       doesn't affect the winding of primitives captured by transform feedback.
 
+   (50) Tessellation using "point_mode" is supposed to emit each distinct
+        vertex produced by the tessellation primitive generator exactly once.
+        Are there cases where this can produce multiple vertices with the same
+        position?
+
+      RESOLVED:  Yes.  If fractional odd spacing is used, we have outer
+      tessellation levels that are greater than 1.0, and inner tessellation
+      levels less than or equal to 1.0, this can occur.  If any outer level is
+      greater than 1.0, we will subdivide the outer edges of the patch, and
+      will need a subdivided patch interior to connect to.  We handle this by
+      treating inner levels less than or equal to 1.0 as though they were
+      slightly greater than 1.0 ("1+epsilon").
+
+      With fractional odd spacing, inner levels between 1.0 and 3.0 will
+      produce a three-segment subdivision, with one full-size interior segment
+      and two smaller ones on the outside.  The following figure illustrates
+      what happens to quad tessellation if the horizontal inner LOD (IL0) goes
+      from 3.0 toward 1.0 in fractional odd mode:
+
+             IL0==3         IL0==2         IL0=1.5       IL0=1.2
+          +-----------+  +-----------+  +-----------+  +-----------+
+          |           |  |           |  |           |  |           |
+          |   +---+   |  |  +-----+  |  | +-------+ |  |+---------+|
+          |   |   |   |  |  |     |  |  | |       | |  ||         ||
+          |   |   |   |  |  |     |  |  | |       | |  ||         ||
+          |   +---+   |  |  +-----+  |  | +-------+ |  |+---------+|
+          |           |  |           |  |           |  |           |
+          +-----------+  +-----------+  +-----------+  +-----------+
+
+      As the inner level approaches 1.0, the vertical inner edges in this
+      example get closer and closer to the outer edge.  The distance between
+      the inner and outer vertical edges approaches zero for an inner level of
+      1+epsilon, and the positions of vertices produced by subdividing such
+      edges may be numerically indistinguishable.
 
 Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+     20   04/25/14  pbrown    Clarify that the tessellation primitive
+                              generator may produce multiple vertices with 
+                              the same gl_TessCoord values in point mode when
+                              fractional odd spacing is used with an inner
+                              tessellation level less than or equal to 1.0
+                              (bug 11979).
+
      19   10/25/12  pbrown    Update spec language describing tessellation of
                               isolines.  Fix the inconsistent/incorrect
                               language describing the handling of tessellation

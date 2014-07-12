@@ -4,7 +4,7 @@ Name
 
 Name Strings 
 
-    GLX_NV_video_output
+    GLX_NV_video_out
 
 Contact 
 
@@ -18,8 +18,8 @@ Status
     Shipping since 2004 for NVIDIA Quadro SDI (Serial Digital Interface)
 
 Version 
-    Last Modified:      2013/02/06
-    NVIDIA Revision:    7
+    Last Modified:      2014/06/04
+    NVIDIA Revision:    8
 
 Number 
 
@@ -415,6 +415,9 @@ New Implementation Dependent State
     None
 
 History
+
+    Revision 8, June 4, 2014 (jajones)
+      - Fix extension string to match implementation.
 
     Revision 7, February 6, 2013 (pbrown)
       - Fix GLX protocol section to remove the duplicate

@@ -31,7 +31,7 @@ Status
 
 Version
 
-    0.14
+    Version 16, April 17, 2014
 
 Number
 
@@ -59,10 +59,10 @@ Issues
    * Should vertex array objects be sharable across multiple OpenGL ES
      contexts?
 
-     RESOLVED: No. The OpenGL ES working group took a straw-poll and
-     agreed that compatibility with OpenGL and ease of implementation
-     were more important than creating the first non-shared named object
-     in OpenGL ES.
+     RESOLVED: No. The OpenGL ES working group took a straw poll and agreed
+     that the advantages of compatibility with OpenGL and ease of
+     implementation were more important than the disadvantage of creating
+     the first non-shared named object in OpenGL ES.
 
    * Is it required for a vertex array object name to be explicitly
      generated before being bound?
@@ -413,6 +413,7 @@ Revision History
 
      Rev.      Date        Author                    Changes
    -------  ----------  ------------  -----------------------------------------------------
+     16      04/17/14     Jon Leech    Update wording of first issue (Bug 7847).
      15      02/05/10     Jon Leech    Update Status and assign extension number.
                                        Reflow spec text to standard widths.
      14      10/11/09     Ben Bowman   Allow VAO to employ client indices.

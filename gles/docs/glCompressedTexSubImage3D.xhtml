@@ -268,7 +268,7 @@
             but such a specification has no effect.
         </p>
         <p>
-            <em class="parameter"><code>internalformat</code></em> must be a known compressed image format (such as <code class="constant">GL_COMPRESSED_R11_EAC</code>)
+            <em class="parameter"><code>format</code></em> must be a known compressed image format (such as <code class="constant">GL_COMPRESSED_R11_EAC</code>)
             or an extension-specified compressed-texture format.
         </p>
         <p>
@@ -307,7 +307,7 @@
                         to the width of the texture level; if <em class="parameter"><code>height</code></em> is not a multiple of four,
                         and <em class="parameter"><code>height</code></em> + <em class="parameter"><code>yoffset</code></em> is not equal to the height of the texture level;
                         or if <em class="parameter"><code>xoffset</code></em> or <em class="parameter"><code>yoffset</code></em> is not a multiple of four. The ETC2/EAC
-                        texture compression algorithm supports only two-dimensional images. If internalformat is an ETC2/EAC format,
+                        texture compression algorithm supports only two-dimensional images. If format is an ETC2/EAC format,
                         <code class="function">glCompressedTexSubImage3D</code> will generate an <code class="constant">GL_INVALID_OPERATION</code> error
                         if target is not <code class="constant">GL_TEXTURE_2D_ARRAY</code>.
         </p>
