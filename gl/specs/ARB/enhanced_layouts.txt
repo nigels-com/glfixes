@@ -27,8 +27,8 @@ Status
 
 Version
 
-    Last Modified Date: 3-July-2013
-    Revision: 26
+    Last Modified Date: June 13, 2014
+    Revision: 27
 
 Number
 
@@ -173,8 +173,8 @@ New Tokens
         TRANSFORM_FEEDBACK_BUFFER_STRIDE                0x934C
 
     Accepted by the <programInterface> parameter of GetProgramInterfaceiv,
-    GetProgramResourceIndex, GetProgramResourceName, GetProgramResourceiv,
-    GetProgramResourceLocation, and GetProgramResourceLocationIndex:
+    GetProgramResourceIndex, GetProgramResourceName, and
+    GetProgramResourceiv:
 
         TRANSFORM_FEEDBACK_BUFFER                       // reuse from core
 
@@ -1904,4 +1904,7 @@ Revision History
       - Bug 10327: Editorial: Expanded the introduction to the transform-feedback 
         section. Described inheritance for xfb_bufferwithout referring to stream.
       - A few minor editorial corrections.
-       
+    Revision 27, June 13, 2014 (Jon Leech)
+      - Remove GetProgramResource* as commands accepting the
+        TRANSFORM_FEEDBACK_BUFFER interface from the New Tokens section (Bug
+        10588).

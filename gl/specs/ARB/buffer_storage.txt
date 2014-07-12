@@ -29,8 +29,8 @@ Status
 
 Version
 
-    Last Modified Date: August 16, 2013
-    Revision: 23
+    Last Modified Date: June 9, 2014
+    Revision: 24
 
 Number
 
@@ -357,14 +357,14 @@ New State
 
     Append to Table 23.6, "Buffer Object State", p. 511:
 
-    +---------------------------+-----------+---------------+-------------------+---------------------------------+------------+
-    | Get Value                 | Type      | Get Command   | Initial Value     | Description                     | Sec.       |
-    +---------------------------+-----------+---------------+-------------------+---------------------------------+------------+
-    | BUFFER_IMMUTABLE_STORAGE  | B         | GetBooleanv   | FALSE             | TRUE if buffer's data store is  | 6          |
-    |                           |           |               |                   | immutable, FALSE otherwise      |            |
-    | BUFFER_STORAGE_FLAGS      | Z+        | GetIntegeruiv | 0                 | The buffer object's storage     | 6          |
-    |                           |           |               |                   | flags.                          |            |
-    +---------------------------+-----------+---------------+-------------------+---------------------------------+------------+
+    +---------------------------+-----------+----------------------+-------------------+---------------------------------+------------+
+    | Get Value                 | Type      | Get Command          | Initial Value     | Description                     | Sec.       |
+    +---------------------------+-----------+----------------------+-------------------+---------------------------------+------------+
+    | BUFFER_IMMUTABLE_STORAGE  | B         | GetBufferParameteriv | FALSE             | TRUE if buffer's data store is  | 6          |
+    |                           |           |                      |                   | immutable, FALSE otherwise      |            |
+    | BUFFER_STORAGE_FLAGS      | Z+        | GetBufferParameteriv | 0                 | The buffer object's storage     | 6          |
+    |                           |           |                      |                   | flags.                          |            |
+    +---------------------------+-----------+----------------------+-------------------+---------------------------------+------------+
 
 New Implementation Dependent State
 
@@ -707,3 +707,6 @@ Revision History
                                 925).
 
     23    08/16/2013  mjk       Better indicate DSA entrypoints
+
+    24    06/09/2014  Jon Leech Change query commands for buffer storage
+                                state to GetBufferParameteriv (Bug 12307). 

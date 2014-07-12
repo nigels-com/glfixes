@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 25997 $ on $Date: 2014-03-18 22:40:11 -0700 (Tue, 18 Mar 2014) $
+** Khronos $Revision: 27018 $ on $Date: 2014-06-10 08:06:12 -0700 (Tue, 10 Jun 2014) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20140318
+#define EGL_EGLEXT_VERSION 20140610
 
 /* Generated C header for:
  * API: egl
@@ -444,6 +444,24 @@ EGLAPI EGLBoolean EGLAPIENTRY eglQuerySurfacePointerANGLE (EGLDisplay dpy, EGLSu
 #define EGL_LOSE_CONTEXT_ON_RESET_EXT     0x31BF
 #endif /* EGL_EXT_create_context_robustness */
 
+#ifndef EGL_EXT_device_base
+#define EGL_EXT_device_base 1
+typedef void *EGLDeviceEXT;
+#define EGL_NO_DEVICE_EXT                 ((EGLDeviceEXT)(0))
+#define EGL_BAD_DEVICE_EXT                0x322B
+#define EGL_DEVICE_EXT                    0x322C
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLQUERYDEVICEATTRIBEXTPROC) (EGLDeviceEXT device, EGLint attribute, EGLAttrib *value);
+typedef const char *(EGLAPIENTRYP PFNEGLQUERYDEVICESTRINGEXTPROC) (EGLDeviceEXT device, EGLint name);
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLQUERYDEVICESEXTPROC) (EGLint max_devices, EGLDeviceEXT *devices, EGLint *num_devices);
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLQUERYDISPLAYATTRIBEXTPROC) (EGLDisplay dpy, EGLint attribute, EGLAttrib *value);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglQueryDeviceAttribEXT (EGLDeviceEXT device, EGLint attribute, EGLAttrib *value);
+EGLAPI const char *EGLAPIENTRY eglQueryDeviceStringEXT (EGLDeviceEXT device, EGLint name);
+EGLAPI EGLBoolean EGLAPIENTRY eglQueryDevicesEXT (EGLint max_devices, EGLDeviceEXT *devices, EGLint *num_devices);
+EGLAPI EGLBoolean EGLAPIENTRY eglQueryDisplayAttribEXT (EGLDisplay dpy, EGLint attribute, EGLAttrib *value);
+#endif
+#endif /* EGL_EXT_device_base */
+
 #ifndef EGL_EXT_image_dma_buf_import
 #define EGL_EXT_image_dma_buf_import 1
 #define EGL_LINUX_DMA_BUF_EXT             0x3270
@@ -486,6 +504,11 @@ EGLAPI EGLSurface EGLAPIENTRY eglCreatePlatformWindowSurfaceEXT (EGLDisplay dpy,
 EGLAPI EGLSurface EGLAPIENTRY eglCreatePlatformPixmapSurfaceEXT (EGLDisplay dpy, EGLConfig config, void *native_pixmap, const EGLint *attrib_list);
 #endif
 #endif /* EGL_EXT_platform_base */
+
+#ifndef EGL_EXT_platform_device
+#define EGL_EXT_platform_device 1
+#define EGL_PLATFORM_DEVICE_EXT           0x313F
+#endif /* EGL_EXT_platform_device */
 
 #ifndef EGL_EXT_platform_wayland
 #define EGL_EXT_platform_wayland 1
@@ -563,6 +586,27 @@ EGLAPI EGLBoolean EGLAPIENTRY eglExportDRMImageMESA (EGLDisplay dpy, EGLImageKHR
 #define EGL_MESA_platform_gbm 1
 #define EGL_PLATFORM_GBM_MESA             0x31D7
 #endif /* EGL_MESA_platform_gbm */
+
+#ifndef EGL_NOK_swap_region
+#define EGL_NOK_swap_region 1
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLSWAPBUFFERSREGIONNOKPROC) (EGLDisplay dpy, EGLSurface surface, EGLint numRects, const EGLint *rects);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglSwapBuffersRegionNOK (EGLDisplay dpy, EGLSurface surface, EGLint numRects, const EGLint *rects);
+#endif
+#endif /* EGL_NOK_swap_region */
+
+#ifndef EGL_NOK_swap_region2
+#define EGL_NOK_swap_region2 1
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLSWAPBUFFERSREGION2NOKPROC) (EGLDisplay dpy, EGLSurface surface, EGLint numRects, const EGLint *rects);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglSwapBuffersRegion2NOK (EGLDisplay dpy, EGLSurface surface, EGLint numRects, const EGLint *rects);
+#endif
+#endif /* EGL_NOK_swap_region2 */
+
+#ifndef EGL_NOK_texture_from_pixmap
+#define EGL_NOK_texture_from_pixmap 1
+#define EGL_Y_INVERTED_NOK                0x307F
+#endif /* EGL_NOK_texture_from_pixmap */
 
 #ifndef EGL_NV_3dvision_surface
 #define EGL_NV_3dvision_surface 1

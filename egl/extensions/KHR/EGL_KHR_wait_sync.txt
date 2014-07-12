@@ -10,6 +10,7 @@ Contributors
 
     Jon Leech
     Tom Cooksey
+    Alon Or-bach
 
 Contacts
 
@@ -17,7 +18,7 @@ Contacts
 
 Notice
 
-    Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
+    Copyright (c) 2012-2014 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
 Status
@@ -27,7 +28,7 @@ Status
 
 Version
 
-    Version 6, January 24, 2013
+    Version 7, March 12, 2014
 
 Number
 
@@ -148,21 +149,39 @@ Changes to Chapter 3 of the EGL 1.4 Specification (EGL Functions and Errors)
     some client APIs may not support eglWaitSyncKHR. This support is
     determined by client API-specific extensions."
 
-    Modify the description of eglSignalSyncKHR to include both client and
-    server syncs:
+    Additions to the EGL_KHR_reusable_sync extension, modifying the description
+    of eglSignalSyncKHR to include both client and server syncs:
 
    "... If as a result of calling eglSignalSyncKHR the status of <sync>
     transitions from unsignaled to signaled, any eglClientWaitSyncKHR
         * or eglWaitSyncKHR *
     commands blocking on <sync> will unblock. ..."
 
-    Modify the description of eglDestroySyncKHR to include both client and
-    server syncs:
+    Additions to the EGL_KHR_reusable_sync extension, modifying the description
+    of eglDestroySyncKHR to include both client and server syncs:
 
    "... If any eglClientWaitSyncKHR
         * or eglWaitSyncKHR *
     commands are blocking on <sync> when eglDestroySyncKHR is called, they
     will be woken up, as if <sync> were signaled."
+
+
+    Additions to the EGL_KHR_fence_sync extension, modifying the description
+    of eglCreateSyncKHR to include both client and server syncs:
+
+   "... causing any eglClientWaitSyncKHR 
+        * or eglWaitSyncKHR *
+    commands (see below) blocking on <sync> to unblock ..."
+
+    Additions to the EGL_KHR_fence_sync extension, modifying the description
+    of eglDestroySyncKHR to include both client and server syncs:
+
+   "... If any eglClientWaitSyncKHR
+        * or eglWaitSyncKHR *
+    commands are blocking on <sync> when eglDestroySyncKHR is called, <sync>
+    is flagged for deletion and will be deleted when it is no longer
+    associated with any fence command and is no longer blocking any
+    eglClientWaitSyncKHR or eglWaitSyncKHR commands."
 
 
 Issues
@@ -226,9 +245,17 @@ Issues
     likely to be different depending on a particular implementation. Could
     be handled in the same way as an extremely long-running GLSL shader.
 
+    6. Does this extension affect the destruction behavior?
+
+    RESOLVED: No. The behavior of eglDestroySyncKHR is determined by the type
+    of sync object, and is not affected by this extension.
 
 Revision History
 
+#7   (Alon Or-bach, March 12, 2014)
+   - Clarified that eglDestroySyncKHR behavior is set in 
+     EGL_KHR_fence_sync / EGL_KHR_reusable_sync and is not modified by this
+     extension (bug 11458).
 #6   (Jon Leech, January 24, 2013)
    - eglWaitSyncKHR causes a server wait in OpenGL ES when GL_OES_EGL_sync
      is supported, not a client wait as formerly specified (Bug 9493).

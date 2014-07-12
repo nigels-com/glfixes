@@ -34,8 +34,8 @@ Status
 
 Version
 
-    Last Modified Date:         October 16, 2013
-    Revision:                   33
+    Last Modified Date:         June 10, 2014
+    Revision:                   34
 
 Number
 
@@ -735,7 +735,7 @@ Additions to Chapter 3 of the OpenGL 3.2 (Compatibility Profile) Specification
     considered to use a texture target corresponding to the bound layer,
     rather than that of the full texture.
 
-                                             face/
+                                                   Face/
                                           i  j  k  layer
                                           -- -- -- -----
         TEXTURE_1D                        x  -  -    -
@@ -758,7 +758,8 @@ Additions to Chapter 3 of the OpenGL 3.2 (Compatibility Profile) Specification
     texture is bound with <layered> set to FALSE, or from the coordinate
     identified by Table X.1 otherwise.  For cube map and cube map array
     textures with <layered> set to TRUE, the coordinate is mapped to a layer
-    and face in the same manner as the <layer> argument of BindImageTexture.
+    and face in the same manner as described for the <layer> argument of
+    BindImageTexture.
 
     If the individual texel identified for an image load, store, or atomic
     operation doesn't exist, the access is treated as invalid.  Invalid image
@@ -2360,6 +2361,8 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------------
+    34    06/10/14  Jon Leech Minor typo fixes from bug 7263.
+
     33    10/16/13  pbrown    Update issue (20) to clarify that any image
                               stores and atomics issued before a "discard" do
                               have an effect.  Update issue (22) to better

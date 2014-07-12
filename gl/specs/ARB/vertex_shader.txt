@@ -1755,7 +1755,7 @@ GLX Protocol
     BindAttribLocationARB
 
         2           12+n+p           rendering command length
-        2           265              GLX opcode
+        2           265              rendering command opcode
         4           CARD32           programObj
         4           CARD32           index
         n           LISTofBYTE       name, n = strlen(name) + 1

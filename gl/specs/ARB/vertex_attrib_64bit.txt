@@ -36,8 +36,8 @@ Status
 
 Version
 
-    Last Modified Date:         August 1, 2011
-    Revision:                   9
+    Last Modified Date:         June 10, 2014
+    Revision:                   10
 
 Number
 
@@ -136,7 +136,7 @@ New Procedures and Functions
                                            intptr offset);
 
     (note:  VertexArrayVertexAttribLOffsetEXT is provided only if
-    EXT_direct_state_access_memory is supported.)
+    EXT_direct_state_access is supported.)
 
 New Tokens
 
@@ -654,7 +654,10 @@ Issues
 Revision History
 
     Rev.    Date    Author    Changes
-    ----  --------  --------  -----------------------------------------
+    ----  --------  --------  -----------------------------------------------
+    10    06/10/14  Jon Leech Fix typo in name of EXT_direct_state_access
+                              (Bug 7704).
+
      9    08/01/11  pbrown    Clarify that "dvec3" and "dvec4" vertex shader
                               inputs consume only a single "location" for the
                               purpose of matching inputs to generic vertex
@@ -692,5 +695,3 @@ Revision History
      2              gsellers  EXT'ify.
 
      1              pbrown    Internal revisions.
-
-

@@ -39,8 +39,8 @@ Status
 
 Version
 
-    Last Modified Date: 25-Jul-2011
-    Revision: 2
+    Last Modified Date: 13-May-2014
+    Revision: 3
 
 Number
 
@@ -565,11 +565,14 @@ Additions to Chapter 4 of the OpenGL Shading Language
 
     Replace the "Order of Qualification" section with the following
 
-    "When multiple qualifiers are present in a declaration, they may appear in 
-    any order, but they must all appear before the type. The layout qualifier 
-    is the only qualifier that can appear more than once. Further, a 
-    declaration can have at most one storage qualifier, at most one auxiliary 
-    storage qualifier, and at most one interpolation qualifier. Multiple 
+    4.11 "Order and Repetition of Qualification"
+
+    "When multiple qualifiers are present in a variable or parameter
+    declaration, they may appear in any order, but they must all appear before
+    the type. The layout qualifier is the only qualifier that can appear more
+    than once. Further, a declaration can have at most one storage qualifier,
+    at most one auxiliary storage qualifier, and at most one interpolation
+    qualifier. If inout is used, neither in nor out may be used.  Multiple 
     memory qualifiers can be used. Any violation of these rules will cause a 
     compile-time error."
 
@@ -1176,6 +1179,8 @@ Issues
 
 Revision History
 
+    Revision 3, 13-May-2014 (John Kessenich)
+      - Resolve bug 10593.
     Revision 2, 25-Jul-2011 (John Kessenich)
       - Mark as complete and approved.
       - Tidy up some formating and non-raw-text quote marks.
