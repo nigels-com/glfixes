@@ -37,8 +37,8 @@ Status
 
 Version
 
-    Last Modified Date:  September 17, 2012
-    Version:             17
+    Last Modified Date:  June 25, 2014
+    Version:             18
 
 Number
 
@@ -521,9 +521,9 @@ Specification (State and State Requests)
           void GetUniformuiv(uint program, int location, uint *params);
           void GetnUniformuivARB(uint program, int location, sizei bufSize,
                                  uint *params);
-          void GetUniformdv(uint program, int location, uint *params);
+          void GetUniformdv(uint program, int location, double *params);
           void GetnUniformdvARB(uint program, int location, sizei bufSize,
-                                uint *params);
+                                double *params);
 
       return the value or values of the uniform at location location of
       the default uniform block for program object program in the array
@@ -918,6 +918,7 @@ Revision History
 
     Rev.    Date       Author     Changes
     ----  ------------ ---------  --------------------------------------------
+     18   25 Jun 2014  Jon Leech  Fix type of <params> in Get*Uniformdv.
      17   17 Sep 2012  Jon Leech  Clarify that GetnUniform* does not write
                                   any data if bufSize is less than required
                                   (Bug 8739).

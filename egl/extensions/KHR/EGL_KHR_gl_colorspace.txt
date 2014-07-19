@@ -22,7 +22,7 @@ Status
 
 Version
 
-    Version 4, 2013/09/16
+    Version 5, 2014/07/15
 
 Number
 
@@ -49,12 +49,14 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted as an attribute name by eglCreateWindowSurface
+    Accepted as an attribute name by eglCreateWindowSurface,
+    eglCreatePbufferSurface and eglCreatePixmapSurface
 
         EGL_GL_COLORSPACE_KHR                   0x309D
 
     Accepted as attribute values for EGL_GL_COLORSPACE_KHR by
-    eglCreateWindowSurface
+    eglCreateWindowSurface, eglCreatePbufferSurface and
+    eglCreatePixmapSurface
 
         EGL_GL_COLORSPACE_SRGB_KHR              0x3089
         EGL_GL_COLORSPACE_LINEAR_KHR            0x308A
@@ -191,3 +193,5 @@ Revision History
         enable, add issue 4, and fix typos (bug 9995).
     Version 4, 2013/09/16
       - Assign enum values.
+    Version 5, 2014/07/15
+      - Fix New Tokens section to include all relevant commands (Bug 12457).
