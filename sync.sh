@@ -15,7 +15,7 @@ wget -P gl --mirror --no-parent --no-host-directories --cut-dirs=1 --accept=txt,
 
 mkdir -p gl/docs
 
-wget -P gl/docs --mirror --no-parent --no-host-directories --cut-dirs=4 --accept=html \
+wget -P gl/docs --mirror --no-parent --no-host-directories --cut-dirs=4 --accept=html,css \
   http://www.opengl.org/sdk/docs/man4/html/
 
 # Tidy-up
@@ -39,7 +39,7 @@ wget -P gles --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=tx
 
 mkdir -p gles/docs
 
-wget -P gles/docs --mirror --no-parent --no-host-directories --cut-dirs=5 --accept=html \
+wget -P gles/docs --mirror --no-parent --no-host-directories --cut-dirs=5 --accept=html,css \
   http://www.khronos.org/opengles/sdk/docs/man3/html/
 
 # Tidy-up
