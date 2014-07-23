@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 27132 $ on $Date: 2014-06-24 17:25:15 -0700 (Tue, 24 Jun 2014) $
+** Khronos $Revision$ on $Date$
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20140624 */
+/* Generated on date 20140714 */
 
 /* Generated C header for:
  * API: gles2
@@ -511,6 +511,10 @@ GL_APICALL void GL_APIENTRY glGetPerfMonitorCounterDataAMD (GLuint monitor, GLen
 #define GL_AMD_program_binary_Z400 1
 #define GL_Z400_BINARY_AMD                0x8740
 #endif /* GL_AMD_program_binary_Z400 */
+
+#ifndef GL_ANDROID_extension_pack_es31a
+#define GL_ANDROID_extension_pack_es31a 1
+#endif /* GL_ANDROID_extension_pack_es31a */
 
 #ifndef GL_ANGLE_depth_texture
 #define GL_ANGLE_depth_texture 1

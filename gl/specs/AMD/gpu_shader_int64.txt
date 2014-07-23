@@ -21,8 +21,8 @@ Status
 
 Version
 
-    Last Modified Date:         03/31/2014
-    Author Revision:            2
+    Last Modified Date:         07/07/2014
+    Author Revision:            3
 
 Number
 
@@ -393,21 +393,21 @@ Additions to Chapter 4 of the OpenGL Shading Language Specification
     | Type of expression   | Can be implicitly converted to                  |
     +----------------------+-------------------------------------------------+
     | int                  | uint, int64_t, uint64_t, float, double          |
-    | uint                 | int, int64_T, uint64_t, float, double           |
+    | uint                 | uint64_t, float, double                         |
     | int64_t              | uint64_t, double                                |
-    | uint64_t             | int64_t, double                                 |
+    | uint64_t             | double                                          |
     | ivec2                | uvec2, i64vec2, u64vec2, vec2, dvec2            |
     | ivec3                | uvec3, i64vec3, u64vec3, vec3, dvec3            |
     | ivec4                | uvec4, i64vec4, u64vec4, vec4, dvec4            |
-    | uvec2                | ivec2, i64vec2, u64vec2, vec2, dvec2            |
-    | uvec3                | ivec3, i64vec3, u64vec3, vec3, dvec3            |
-    | uvec4                | ivec4, i64vec4, u64vec4, vec4, dvec4            |
+    | uvec2                | u64vec2, vec2, dvec2                            |
+    | uvec3                | u64vec3, vec3, dvec3                            |
+    | uvec4                | u64vec4, vec4, dvec4                            |
     | i64vec2              | u64vec2, dvec2                                  |
     | i64vec3              | u64vec3, dvec3                                  |
     | i64vec4              | u64vec4, dvec4                                  |
-    | u64vec2              | i64vec2, dvec2                                  |
-    | u64vec3              | i64vec3, dvec3                                  |
-    | u64vec4              | i64vec4, dvec4                                  |
+    | u64vec2              | dvec2                                           |
+    | u64vec3              | dvec3                                           |
+    | u64vec4              | dvec4                                           |
     +----------------------+-------------------------------------------------+
 
 
@@ -702,9 +702,6 @@ Issues
       functional superset of that, as it adds the following additional
       features:
 
-        * support for implicit conversions from int and uint to int64_t and
-          uint64_t (including signed to unsigned conversions and vice versa);
-
         * support for overloaded versions of the functions abs, sign, min,
           max, clamp, and mix that accept 64-bit integers as parameters.
 
@@ -793,6 +790,7 @@ Issues
 Revision History
 
     Rev.    Date    Author    Changes
-    ----  --------  --------  -----------------------------------------
+    ----  --------  --------  -------------------------------------------------
+     3    07/07/14  drakos    Fixed inconsistency in implicit conversion rules.
      2    31/04/14  gsellers  Ready to post.
      1    10/09/13  drakos    Initial revision.

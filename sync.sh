@@ -15,7 +15,7 @@ wget -P gl --mirror --no-parent --no-host-directories --cut-dirs=1 --accept=txt,
 
 mkdir -p gl/docs
 
-wget -P gl/docs --mirror --no-parent --no-host-directories --cut-dirs=4 --accept=html \
+wget -P gl/docs --mirror --no-parent --no-host-directories --cut-dirs=4 --accept=html,css \
   http://www.opengl.org/sdk/docs/man4/html/
 
 # Tidy-up
@@ -39,7 +39,7 @@ wget -P gles --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=tx
 
 mkdir -p gles/docs
 
-wget -P gles/docs --mirror --no-parent --no-host-directories --cut-dirs=5 --accept=html \
+wget -P gles/docs --mirror --no-parent --no-host-directories --cut-dirs=5 --accept=html,css \
   http://www.khronos.org/opengles/sdk/docs/man3/html/
 
 # Tidy-up
@@ -55,12 +55,16 @@ rm -Rf egl
 wget -P egl --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=txt,spec,tm,h,html \
   http://www.khronos.org/registry/egl/
 
-wget -P egl --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=xhtml \
+wget -P egl --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=xhtml,css,jpg \
   http://www.khronos.org/registry/egl/sdk/docs/man/html
 
 # Tidy-up
 
 rm egl/robots.txt
+
+# Clean up 404 errors - pages that don't actually exist
+
+find . -mindepth 2 -type f | xargs grep -l '404 ERROR - PAGE NOT FOUND' | xargs rm
 
 #
 # XML specs
