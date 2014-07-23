@@ -62,6 +62,10 @@ wget -P egl --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=xht
 
 rm egl/robots.txt
 
+# Clean up 404 errors - pages that don't actually exist
+
+find . -mindepth 2 -type f | xargs grep -l '404 ERROR - PAGE NOT FOUND' | xargs rm
+
 #
 # XML specs
 #
