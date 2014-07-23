@@ -55,7 +55,7 @@ rm -Rf egl
 wget -P egl --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=txt,spec,tm,h,html \
   http://www.khronos.org/registry/egl/
 
-wget -P egl --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=xhtml \
+wget -P egl --mirror --no-parent --no-host-directories --cut-dirs=2 --accept=xhtml,css,jpg \
   http://www.khronos.org/registry/egl/sdk/docs/man/html
 
 # Tidy-up
