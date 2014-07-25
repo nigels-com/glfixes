@@ -208,7 +208,7 @@ Issues
       normalize to implement rescaling, the rescaling factor can be
       concatenated into each particular inverse modelview matrix.
 
-New Procedures and Functions 
+New Procedures and Functions
 
     void VertexWeightfEXT(float weight);
 
@@ -216,7 +216,7 @@ New Procedures and Functions
 
     void VertexWeightPointerEXT(int size, enum type, sizei stride, void *pointer);
 
-New Tokens 
+New Tokens
 
     Accepted by the <target> parameter of Enable:
 
