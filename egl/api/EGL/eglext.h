@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 27190 $ on $Date: 2014-06-30 15:10:19 -0700 (Mon, 30 Jun 2014) $
+** Khronos $Revision: 27553 $ on $Date: 2014-07-29 22:49:34 -0700 (Tue, 29 Jul 2014) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20140630
+#define EGL_EGLEXT_VERSION 20140729
 
 /* Generated C header for:
  * API: egl
@@ -626,12 +626,24 @@ EGLAPI EGLBoolean EGLAPIENTRY eglSwapBuffersRegion2NOK (EGLDisplay dpy, EGLSurfa
 #define EGL_COVERAGE_SAMPLE_RESOLVE_NONE_NV 0x3133
 #endif /* EGL_NV_coverage_sample_resolve */
 
+#ifndef EGL_NV_cude_event
+#define EGL_NV_cude_event 1
+#define EGL_CUDA_EVENT_HANDLE_NV          0x323B
+#define EGL_SYNC_CUDA_EVENT_NV            0x323C
+#define EGL_SYNC_CUDA_EVENT_COMPLETE_NV   0x323D
+#endif /* EGL_NV_cude_event */
+
 #ifndef EGL_NV_depth_nonlinear
 #define EGL_NV_depth_nonlinear 1
 #define EGL_DEPTH_ENCODING_NV             0x30E2
 #define EGL_DEPTH_ENCODING_NONE_NV        0
 #define EGL_DEPTH_ENCODING_NONLINEAR_NV   0x30E3
 #endif /* EGL_NV_depth_nonlinear */
+
+#ifndef EGL_NV_device_cuda
+#define EGL_NV_device_cuda 1
+#define EGL_CUDA_DEVICE_NV                0x323A
+#endif /* EGL_NV_device_cuda */
 
 #ifndef EGL_NV_native_query
 #define EGL_NV_native_query 1

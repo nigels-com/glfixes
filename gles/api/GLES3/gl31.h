@@ -38,7 +38,7 @@ extern "C" {
 
 #include <GLES3/gl3platform.h>
 
-/* Generated on date 20140714 */
+/* Generated on date 20140725 */
 
 /* Generated C header for:
  * API: gles2
@@ -826,7 +826,7 @@ typedef unsigned short GLhalf;
 #define GL_MAX_ELEMENT_INDEX              0x8D6B
 #define GL_NUM_SAMPLE_COUNTS              0x9380
 #define GL_TEXTURE_IMMUTABLE_LEVELS       0x82DF
-GL_APICALL void GL_APIENTRY glReadBuffer (GLenum mode);
+GL_APICALL void GL_APIENTRY glReadBuffer (GLenum src);
 GL_APICALL void GL_APIENTRY glDrawRangeElements (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void *indices);
 GL_APICALL void GL_APIENTRY glTexImage3D (GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, const void *pixels);
 GL_APICALL void GL_APIENTRY glTexSubImage3D (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *pixels);

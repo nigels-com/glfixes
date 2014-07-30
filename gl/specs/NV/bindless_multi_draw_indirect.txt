@@ -59,6 +59,7 @@ Overview
     
 
 New Procedures and Functions
+
         void MultiDrawArraysIndirectBindlessNV(enum mode, 
                                                const void *indirect, 
                                                sizei drawCount, 

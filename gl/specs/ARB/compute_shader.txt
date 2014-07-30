@@ -29,8 +29,8 @@ Status
 
 Version
 
-    Last Modified Date: January 30, 2014
-    Revision: 26
+    Last Modified Date: July 24, 2014
+    Revision: 27
 
 Number
 
@@ -665,7 +665,7 @@ Additions to Chapter 7 of the OpenGL Shading Language Specification, Version
 
         const ivec3 gl_MaxComputeWorkGroupCount = { 65535, 65535, 65535 };
         const ivec3 gl_MaxComputeWorkGroupSize = { 1024, 1024, 64 };
-        const int gl_MaxComputeUniformComponents = 1024;
+        const int gl_MaxComputeUniformComponents = 512;
         const int gl_MaxComputeTextureImageUnits = 16;
         const int gl_MaxComputeImageUniforms = 8;
         const int gl_MaxComputeAtomicCounters = 8;
@@ -1178,6 +1178,9 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+    27    07/24/14  Jon Leech Change value of GLSL limit
+                              gl_MaxComputeUniformComponents to 512 for
+                              consistency with the API (Bug 12370).
     26    01/30/14  Jon Leech Add table 6.31 COMPUTE_SHADER entry for
                               program pipeline objects (Bug 11539).
     25    10/23/12  pbrown    Remove the restriction forbidding the use of 
