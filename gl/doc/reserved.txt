@@ -330,9 +330,12 @@ GLX Vendor Private / Vendor Private with Reply opcodes (32-bits)
   1328	  1329		EXT_timer_query
   1330	  1331		EXT_texture_from_pixmap
   1332	  1359		NVIDIA (use TBD)
-  1360			NV_copy_image
-  1361	  1420		NVIDIA (use TBD)
+  1360			GLX_NV_copy_image
+  1361	  1386		NVIDIA (use TBD)
+  1387	  1388		GLX_NV_copy_buffer
+  1389	  1415		NVIDIA (use TBD)
   1416			GLX_EXT_swap_control
+  1417	  1420		NVIDIA (use TBD)
   1421			OES_single_precision (Khronos OpenGL ES 1.0)
   1422	  1428		EXT_framebuffer_object
       (1429-2047 unused)

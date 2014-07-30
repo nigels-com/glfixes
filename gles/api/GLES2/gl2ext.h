@@ -40,7 +40,7 @@ extern "C" {
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20140714 */
+/* Generated on date 20140725 */
 
 /* Generated C header for:
  * API: gles2
@@ -199,6 +199,10 @@ GL_APICALL void GL_APIENTRY glEGLImageTargetRenderbufferStorageOES (GLenum targe
 #define GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES 0x8D68
 #define GL_SAMPLER_EXTERNAL_OES           0x8D66
 #endif /* GL_OES_EGL_image_external */
+
+#ifndef GL_OES_compressed_ETC1_RGB8_sub_texture
+#define GL_OES_compressed_ETC1_RGB8_sub_texture 1
+#endif /* GL_OES_compressed_ETC1_RGB8_sub_texture */
 
 #ifndef GL_OES_compressed_ETC1_RGB8_texture
 #define GL_OES_compressed_ETC1_RGB8_texture 1
