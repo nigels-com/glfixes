@@ -16,12 +16,12 @@ Contributors
 
 Status
 
-    DRAFT - do not ship
+    Complete.
 
 Version
 
-    Last Modified Date: May 2, 2014
-    Revision: 2
+    Last Modified Date: July 7, 2014
+    Revision: 3
 
 Number
 
@@ -51,7 +51,7 @@ Dependencies
       * EXT_texture_border_clamp
       * EXT_texture_buffer
       * EXT_texture_cube_map_array
-      * EXT_texture_srgb_decode
+      * EXT_texture_sRGB_decode
 
 Overview
 
@@ -143,6 +143,10 @@ Issues
 
 
 Revision History
+
+    Revision 3, 2014/7/7 (Jesse Hall)
+        - Changed status from "draft" to "complete"
+        - Corrected capitalization of EXT_texture_sRGB_decode
 
     Revision 2, 2014/5/2 (Jesse Hall)
         - Added dependency on EXT_primitive_bounding_box

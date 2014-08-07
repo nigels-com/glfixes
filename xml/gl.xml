@@ -2332,7 +2332,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x19" name="GL_RELATIVE_LARGE_CW_ARC_TO_NV"/>
         <enum value="0x1A" name="GL_CONIC_CURVE_TO_NV"/> 
         <enum value="0x1B" name="GL_RELATIVE_CONIC_CURVE_TO_NV"/> 
-
+            <unused start="0x1C" end="0xE7" comment="Unused for PathRenderingTokenNV"/>
         <enum value="0xE8" name="GL_ROUNDED_RECT_NV"/> 
         <enum value="0xE9" name="GL_RELATIVE_ROUNDED_RECT_NV"/> 
         <enum value="0xEA" name="GL_ROUNDED_RECT2_NV"/> 
@@ -2341,7 +2341,6 @@ typedef unsigned int GLhandleARB;
         <enum value="0xED" name="GL_RELATIVE_ROUNDED_RECT4_NV"/> 
         <enum value="0xEE" name="GL_ROUNDED_RECT8_NV"/> 
         <enum value="0xEF" name="GL_RELATIVE_ROUNDED_RECT8_NV"/> 
-
         <enum value="0xF0" name="GL_RESTART_PATH_NV"/>
         <enum value="0xF2" name="GL_DUP_FIRST_CUBIC_CURVE_TO_NV"/>
         <enum value="0xF4" name="GL_DUP_LAST_CUBIC_CURVE_TO_NV"/>
@@ -39093,10 +39092,9 @@ typedef unsigned int GLhandleARB;
                 <command name="glGetPerfQueryInfoINTEL"/>
             </require>
         </extension>
-        <extension name="GL_KHR_blend_equation_advanced" supported="gles2">
+        <extension name="GL_KHR_blend_equation_advanced" supported="gl|gles2">
             <require>
                 <command name="glBlendBarrierKHR"/>
-                <enum name="GL_BLEND_ADVANCED_COHERENT_KHR"/>
                 <enum name="GL_MULTIPLY_KHR"/>
                 <enum name="GL_SCREEN_KHR"/>
                 <enum name="GL_OVERLAY_KHR"/>
@@ -39112,6 +39110,11 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_HSL_SATURATION_KHR"/>
                 <enum name="GL_HSL_COLOR_KHR"/>
                 <enum name="GL_HSL_LUMINOSITY_KHR"/>
+            </require>
+        </extension>
+        <extension name="GL_KHR_blend_equation_advanced_coherent" supported="gl|gles2">
+            <require comment="Otherwise identical to GL_KHR_blend_equation_advanced, just different semantic behavior">
+                <enum name="GL_BLEND_ADVANCED_COHERENT_KHR"/>
             </require>
         </extension>
         <extension name="GL_KHR_debug" supported="gl|glcore|gles2">
