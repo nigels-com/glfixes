@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 27498 $ on $Date: 2014-07-25 19:12:07 -0700 (Fri, 25 Jul 2014) $
+** Khronos $Revision: 27607 $ on $Date: 2014-08-05 21:45:09 -0700 (Tue, 05 Aug 2014) $
 */
 
 #if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
@@ -53,7 +53,7 @@ extern "C" {
 #define GLAPI extern
 #endif
 
-#define GL_GLEXT_VERSION 20140725
+#define GL_GLEXT_VERSION 20140805
 
 /* Generated C header for:
  * API: gl
@@ -4370,6 +4370,34 @@ GLAPI void APIENTRY glWindowPos3sARB (GLshort x, GLshort y, GLshort z);
 GLAPI void APIENTRY glWindowPos3svARB (const GLshort *v);
 #endif
 #endif /* GL_ARB_window_pos */
+
+#ifndef GL_KHR_blend_equation_advanced
+#define GL_KHR_blend_equation_advanced 1
+#define GL_MULTIPLY_KHR                   0x9294
+#define GL_SCREEN_KHR                     0x9295
+#define GL_OVERLAY_KHR                    0x9296
+#define GL_DARKEN_KHR                     0x9297
+#define GL_LIGHTEN_KHR                    0x9298
+#define GL_COLORDODGE_KHR                 0x9299
+#define GL_COLORBURN_KHR                  0x929A
+#define GL_HARDLIGHT_KHR                  0x929B
+#define GL_SOFTLIGHT_KHR                  0x929C
+#define GL_DIFFERENCE_KHR                 0x929E
+#define GL_EXCLUSION_KHR                  0x92A0
+#define GL_HSL_HUE_KHR                    0x92AD
+#define GL_HSL_SATURATION_KHR             0x92AE
+#define GL_HSL_COLOR_KHR                  0x92AF
+#define GL_HSL_LUMINOSITY_KHR             0x92B0
+typedef void (APIENTRYP PFNGLBLENDBARRIERKHRPROC) (void);
+#ifdef GL_GLEXT_PROTOTYPES
+GLAPI void APIENTRY glBlendBarrierKHR (void);
+#endif
+#endif /* GL_KHR_blend_equation_advanced */
+
+#ifndef GL_KHR_blend_equation_advanced_coherent
+#define GL_KHR_blend_equation_advanced_coherent 1
+#define GL_BLEND_ADVANCED_COHERENT_KHR    0x9285
+#endif /* GL_KHR_blend_equation_advanced_coherent */
 
 #ifndef GL_KHR_debug
 #define GL_KHR_debug 1

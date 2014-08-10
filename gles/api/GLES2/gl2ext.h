@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision$ on $Date$
+** Khronos $Revision: 27606 $ on $Date: 2014-08-05 21:44:13 -0700 (Tue, 05 Aug 2014) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20140725 */
+/* Generated on date 20140805 */
 
 /* Generated C header for:
  * API: gles2
@@ -54,7 +54,6 @@ extern "C" {
 
 #ifndef GL_KHR_blend_equation_advanced
 #define GL_KHR_blend_equation_advanced 1
-#define GL_BLEND_ADVANCED_COHERENT_KHR    0x9285
 #define GL_MULTIPLY_KHR                   0x9294
 #define GL_SCREEN_KHR                     0x9295
 #define GL_OVERLAY_KHR                    0x9296
@@ -75,6 +74,11 @@ typedef void (GL_APIENTRYP PFNGLBLENDBARRIERKHRPROC) (void);
 GL_APICALL void GL_APIENTRY glBlendBarrierKHR (void);
 #endif
 #endif /* GL_KHR_blend_equation_advanced */
+
+#ifndef GL_KHR_blend_equation_advanced_coherent
+#define GL_KHR_blend_equation_advanced_coherent 1
+#define GL_BLEND_ADVANCED_COHERENT_KHR    0x9285
+#endif /* GL_KHR_blend_equation_advanced_coherent */
 
 #ifndef GL_KHR_debug
 #define GL_KHR_debug 1

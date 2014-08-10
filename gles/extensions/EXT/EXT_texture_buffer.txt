@@ -36,8 +36,8 @@ Status
 
 Version
 
-    Last Modified Date: May 14, 2014
-    Revision: 13
+    Last Modified Date: July 14, 2014
+    Revision: 14
 
 Number
 
@@ -118,7 +118,6 @@ New Tokens
             bound to other buffer binding points).
         MAX_TEXTURE_BUFFER_SIZE_EXT                     0x8C2B
         TEXTURE_BINDING_BUFFER_EXT                      0x8C2C
-        TEXTURE_BUFFER_DATA_STORE_BINDING_EXT           0x8C2D
         TEXTURE_BUFFER_OFFSET_ALIGNMENT_EXT             0x919F
 
     Returned in the <type> parameter of GetActiveUniform, the <params>
@@ -135,6 +134,7 @@ New Tokens
 
     Accepted by the <pname> parameter of GetTexLevelParameter:
 
+        TEXTURE_BUFFER_DATA_STORE_BINDING_EXT           0x8C2D
         TEXTURE_BUFFER_OFFSET_EXT                       0x919D
         TEXTURE_BUFFER_SIZE_EXT                         0x919E
 
@@ -495,8 +495,8 @@ Modifications to the OpenGL ES Shading Language Specification, Version 3.10
 
     Type                    Meaning
     ----------------------- ------------------------------------------
-    isamplerBuffer          a handle for accessing an unsigned integer
-    iimageBuffer            buffer texture
+    usamplerBuffer          a handle for accessing an unsigned integer
+    uimageBuffer            buffer texture
 
 
     Modify section 4.7.4 "Default Precision Qualifiers"
@@ -625,10 +625,10 @@ Issues
             (c) the buffer object bound to the TEXTURE_BUFFER_EXT binding
                 point (TEXTURE_BUFFER_BINDING_EXT).
 
-        All three are queried with GetIntegerv, because it didn't seem worth
-        the trouble to add one or more new query functions. Note that for
-        (a) and (b), the texture queried is the one bound to
-        TEXTURE_BUFFER_EXT on the active texture image unit.
+        The first and last are queried with GetIntegerv, but the second is
+        queried with GetTexLevelParameter. Note that for (a) and (b), the
+        texture queried is the one bound to TEXTURE_BUFFER_EXT on the active
+        texture image unit.
 
     (6) Should the R16, RG16 and RGBA16 texture formats be supported?
 
@@ -665,6 +665,10 @@ Revision History
 
     Rev.  Date     Author    Changes
     ----  -------- --------- ---------------------------------------------
+    14    07/14/14 dkoch     Clarify that TEXTURE_BUFFER_DATA_STORE_BINDING_EXT
+                             is queried with GetTexLevelParameter not
+                             GetIntegerv (Bug 12343). Fix types in unsigned
+                             sampler types table (Bug 12356)
     13    05/14/14 dkoch     Add issue 8.
     12    05/05/14 dkoch     Clarify OFFSET_ALIGNMENT (Bug 11962)
     11    03/28/14 dkoch     Correct texture function prototypes

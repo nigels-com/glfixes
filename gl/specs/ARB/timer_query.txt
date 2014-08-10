@@ -31,8 +31,8 @@ Status
 
 Version
 
-    Last Modified Date:         2013/07/11
-    Revision:                   12
+    Last Modified Date: August 9, 2014
+    Revision: 13
 
 Number
 
@@ -430,7 +430,7 @@ Examples
          */
 
         /* Queue a query to find out when the frame finishes on the GL */
-        glQueryCounter(GL_TIMESTAMP, endFrameQuery);
+        glQueryCounter(endFrameQuery, GL_TIMESTAMP);
 
         /* Get the current GL time without stalling the GL */
         glGet(GL_TIMESTAMP, &flushTime);
@@ -579,6 +579,8 @@ Revision History
 
     Rev.  Date          Author    Changes
     ----  ------------  --------  -------------------------------------------
+    13    Aug 9, 2014   Jon Leech Fix typo in example 3 (bug 12552).
+
     12    Jul 11, 2013  Jon Leech Change type of queries[] in sample code to
                                   GLuint (public bug 432).
 
