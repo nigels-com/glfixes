@@ -45,6 +45,42 @@
             </tr>
           </table>
           <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">genType <strong class="fsfunc">dFdxCoarse</strong>(</code>
+              </td>
+              <td>genType <var class="pdparam">p</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">genType <strong class="fsfunc">dFdyCoarse</strong>(</code>
+              </td>
+              <td>genType <var class="pdparam">p</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">genType <strong class="fsfunc">dFdxFine</strong>(</code>
+              </td>
+              <td>genType <var class="pdparam">p</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">genType <strong class="fsfunc">dFdyFine</strong>(</code>
+              </td>
+              <td>genType <var class="pdparam">p</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
         </div>
       </div>
       <div class="refsect1" id="parameters">
@@ -60,7 +96,8 @@
             </dt>
             <dd>
               <p>
-                    Specifies the expression of which to take the partial derivative.
+                    Specifies the expression of which to take the partial
+                    derivative.
                 </p>
             </dd>
           </dl>
@@ -69,12 +106,48 @@
       <div class="refsect1" id="description">
         <h2>Description</h2>
         <p>
-            <span class="emphasis"><em>Available only in the fragment shader</em></span>, <code class="function">dFdx</code> and <code class="function">dFdy</code>
-            return the partial derivative of expression <em class="parameter"><code>p</code></em> in x and y, respectively. Deviatives are calculated
-            using local differencing. Expressions that imply higher order derivatives such as <code class="code">dFdx(dFdx(n))</code> have undefined
-            results, as do mixed-order derivatives such as <code class="code">dFdx(dFdy(n))</code>.
-            It is assumed that the expression <em class="parameter"><code>p</code></em> is continuous and therefore, expressions evaluated
-            via non-uniform control flow may be undefined.
+            <span class="emphasis"><em>Available only in the fragment shader</em></span>,
+            these functions return the partial derivative of expression
+            <em class="parameter"><code>p</code></em> with respect to the window $x$
+            coordinate (for <code class="function">dFdx*</code>) and $y$ coordinate
+            (for <code class="function">dFdy*</code>).
+        </p>
+        <p>
+            <code class="function">dFdxFine</code> and <code class="function">dFdyFine</code>
+            calculate derivatives using local differencing based on on the
+            value of <em class="parameter"><code>p</code></em> for the current fragment and
+            its immediate neighbor(s).
+        </p>
+        <p>
+            <code class="function">dFdxCoarse</code> and
+            <code class="function">dFdyCoarse</code> calculate derivatives using
+            local differencing based on the value of
+            <em class="parameter"><code>p</code></em> for the current fragment's neighbors,
+            and will possibly, but not necessarily, include the value for
+            the current fragment. That is, over a given area, the
+            implementation can compute derivatives in fewer unique locations
+            than would be allowed for the corresponding
+            <code class="function">dFdxFine</code> and <code class="function">dFdyFine</code>
+            functions.
+        </p>
+        <p>
+            <code class="function">dFdx</code> returns either
+            <code class="function">dFdxCoarse</code> or
+            <code class="function">dFdxFine</code>. <code class="function">dFdy</code> returns
+            either <code class="function">dFdyCoarse</code> or
+            <code class="function">dFdyFine</code>. The implementation may choose
+            which calculation to perform based upon factors such as
+            performance or the value of the API
+            <code class="constant">GL_FRAGMENT_SHADER_DERIVATIVE_HINT</code> hint.
+        </p>
+        <p>
+            Expressions that imply higher order
+            derivatives such as <code class="code">dFdx(dFdx(n))</code> have undefined
+            results, as do mixed-order derivatives such as
+            <code class="code">dFdx(dFdy(n))</code>. It is assumed that the expression
+            <em class="parameter"><code>p</code></em> is continuous and therefore,
+            expressions evaluated via non-uniform control flow may be
+            undefined.
         </p>
       </div>
       <div class="refsect1" id="versions">
@@ -92,6 +165,8 @@
               <col style="text-align: center; "/>
               <col style="text-align: center; "/>
               <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -99,7 +174,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="10">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
                 <span class="bold"><strong>OpenGL Shading Language Version</strong></span>
             </th>
               </tr>
@@ -134,8 +209,14 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>4.20</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>4.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.40</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.50</strong></span>
             </th>
               </tr>
             </thead>
@@ -151,19 +232,38 @@
                 <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
                 <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
               </tr>
               <tr>
-                <td style="text-align: left; border-right: 2px solid ; ">dFdy</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">dFdy</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">dFdxCoarse, dFdxFine, dFdyCoarse, dFdyFine</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
                 <td style="text-align: center; ">✔</td>
               </tr>
             </tbody>
@@ -173,13 +273,14 @@
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
         <p>
-            <a class="citerefentry" href="fwidth.xhtml"><span class="citerefentry"><span class="refentrytitle">fwidth</span></span></a>
+            <a class="citerefentry" href="fwidth.xhtml"><span class="citerefentry"><span class="refentrytitle">fwidth</span></span></a>,
+            <a class="citerefentry" href="glHint.xhtml"><span class="citerefentry"><span class="refentrytitle">glHint</span></span></a>
         </p>
       </div>
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>
         <p>
-            Copyright <span class="trademark"/>© 2011-2013 Khronos Group.
+            Copyright <span class="trademark"/>© 2011-2014 Khronos Group.
             This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
