@@ -102,6 +102,7 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glBindSamplers.xhtml" target="pagedisplay">glBindSamplers</a></li>
                 <li><a href="glBindTexture.xhtml" target="pagedisplay">glBindTexture</a></li>
                 <li><a href="glBindTextures.xhtml" target="pagedisplay">glBindTextures</a></li>
+                <li><a href="glBindTextureUnit.xhtml" target="pagedisplay">glBindTextureUnit</a></li>
                 <li><a href="glBindTransformFeedback.xhtml" target="pagedisplay">glBindTransformFeedback</a></li>
                 <li><a href="glBindVertexArray.xhtml" target="pagedisplay">glBindVertexArray</a></li>
                 <li><a href="glBindVertexBuffer.xhtml" target="pagedisplay">glBindVertexBuffer</a></li>
@@ -116,6 +117,7 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glBlendFuncSeparate.xhtml" target="pagedisplay">glBlendFuncSeparate</a></li>
                 <li><a href="glBlendFuncSeparate.xhtml" target="pagedisplay">glBlendFuncSeparatei</a></li>
                 <li><a href="glBlitFramebuffer.xhtml" target="pagedisplay">glBlitFramebuffer</a></li>
+                <li><a href="glBlitFramebuffer.xhtml" target="pagedisplay">glBlitNamedFramebuffer</a></li>
                 <li><a href="glBufferData.xhtml" target="pagedisplay">glBufferData</a></li>
                 <li><a href="glBufferStorage.xhtml" target="pagedisplay">glBufferStorage</a></li>
                 <li><a href="glBufferSubData.xhtml" target="pagedisplay">glBufferSubData</a></li>
@@ -125,6 +127,7 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
         <li>c
             <ul class="Level3">
                 <li><a href="glCheckFramebufferStatus.xhtml" target="pagedisplay">glCheckFramebufferStatus</a></li>
+                <li><a href="glCheckFramebufferStatus.xhtml" target="pagedisplay">glCheckNamedFramebufferStatus</a></li>
                 <li><a href="glClampColor.xhtml" target="pagedisplay">glClampColor</a></li>
                 <li><a href="glClear.xhtml" target="pagedisplay">glClear</a></li>
                 <li><a href="glClearBuffer.xhtml" target="pagedisplay">glClearBuffer</a></li>
@@ -137,10 +140,17 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glClearColor.xhtml" target="pagedisplay">glClearColor</a></li>
                 <li><a href="glClearDepth.xhtml" target="pagedisplay">glClearDepth</a></li>
                 <li><a href="glClearDepth.xhtml" target="pagedisplay">glClearDepthf</a></li>
+                <li><a href="glClearBufferData.xhtml" target="pagedisplay">glClearNamedBufferData</a></li>
+                <li><a href="glClearBufferSubData.xhtml" target="pagedisplay">glClearNamedBufferSubData</a></li>
+                <li><a href="glClearBuffer.xhtml" target="pagedisplay">glClearNamedFramebufferfi</a></li>
+                <li><a href="glClearBuffer.xhtml" target="pagedisplay">glClearNamedFramebufferfv</a></li>
+                <li><a href="glClearBuffer.xhtml" target="pagedisplay">glClearNamedFramebufferiv</a></li>
+                <li><a href="glClearBuffer.xhtml" target="pagedisplay">glClearNamedFramebufferuiv</a></li>
                 <li><a href="glClearStencil.xhtml" target="pagedisplay">glClearStencil</a></li>
                 <li><a href="glClearTexImage.xhtml" target="pagedisplay">glClearTexImage</a></li>
                 <li><a href="glClearTexSubImage.xhtml" target="pagedisplay">glClearTexSubImage</a></li>
                 <li><a href="glClientWaitSync.xhtml" target="pagedisplay">glClientWaitSync</a></li>
+                <li><a href="glClipControl.xhtml" target="pagedisplay">glClipControl</a></li>
                 <li><a href="glColorMask.xhtml" target="pagedisplay">glColorMask</a></li>
                 <li><a href="glColorMask.xhtml" target="pagedisplay">glColorMaski</a></li>
                 <li><a href="glCompileShader.xhtml" target="pagedisplay">glCompileShader</a></li>
@@ -150,17 +160,33 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glCompressedTexSubImage1D.xhtml" target="pagedisplay">glCompressedTexSubImage1D</a></li>
                 <li><a href="glCompressedTexSubImage2D.xhtml" target="pagedisplay">glCompressedTexSubImage2D</a></li>
                 <li><a href="glCompressedTexSubImage3D.xhtml" target="pagedisplay">glCompressedTexSubImage3D</a></li>
+                <li><a href="glCompressedTexSubImage1D.xhtml" target="pagedisplay">glCompressedTextureSubImage1D</a></li>
+                <li><a href="glCompressedTexSubImage2D.xhtml" target="pagedisplay">glCompressedTextureSubImage2D</a></li>
+                <li><a href="glCompressedTexSubImage3D.xhtml" target="pagedisplay">glCompressedTextureSubImage3D</a></li>
                 <li><a href="glCopyBufferSubData.xhtml" target="pagedisplay">glCopyBufferSubData</a></li>
                 <li><a href="glCopyImageSubData.xhtml" target="pagedisplay">glCopyImageSubData</a></li>
+                <li><a href="glCopyBufferSubData.xhtml" target="pagedisplay">glCopyNamedBufferSubData</a></li>
                 <li><a href="glCopyTexImage1D.xhtml" target="pagedisplay">glCopyTexImage1D</a></li>
                 <li><a href="glCopyTexImage2D.xhtml" target="pagedisplay">glCopyTexImage2D</a></li>
                 <li><a href="glCopyTexSubImage1D.xhtml" target="pagedisplay">glCopyTexSubImage1D</a></li>
                 <li><a href="glCopyTexSubImage2D.xhtml" target="pagedisplay">glCopyTexSubImage2D</a></li>
                 <li><a href="glCopyTexSubImage3D.xhtml" target="pagedisplay">glCopyTexSubImage3D</a></li>
+                <li><a href="glCopyTexSubImage1D.xhtml" target="pagedisplay">glCopyTextureSubImage1D</a></li>
+                <li><a href="glCopyTexSubImage2D.xhtml" target="pagedisplay">glCopyTextureSubImage2D</a></li>
+                <li><a href="glCopyTexSubImage3D.xhtml" target="pagedisplay">glCopyTextureSubImage3D</a></li>
+                <li><a href="glCreateBuffers.xhtml" target="pagedisplay">glCreateBuffers</a></li>
+                <li><a href="glCreateFramebuffers.xhtml" target="pagedisplay">glCreateFramebuffers</a></li>
                 <li><a href="glCreateProgram.xhtml" target="pagedisplay">glCreateProgram</a></li>
+                <li><a href="glCreateProgramPipelines.xhtml" target="pagedisplay">glCreateProgramPipelines</a></li>
+                <li><a href="glCreateQueries.xhtml" target="pagedisplay">glCreateQueries</a></li>
+                <li><a href="glCreateRenderbuffers.xhtml" target="pagedisplay">glCreateRenderbuffers</a></li>
+                <li><a href="glCreateSamplers.xhtml" target="pagedisplay">glCreateSamplers</a></li>
                 <li><a href="glCreateShader.xhtml" target="pagedisplay">glCreateShader</a></li>
                 <li><a href="glCreateShaderProgram.xhtml" target="pagedisplay">glCreateShaderProgram</a></li>
                 <li><a href="glCreateShaderProgram.xhtml" target="pagedisplay">glCreateShaderProgramv</a></li>
+                <li><a href="glCreateTextures.xhtml" target="pagedisplay">glCreateTextures</a></li>
+                <li><a href="glCreateTransformFeedbacks.xhtml" target="pagedisplay">glCreateTransformFeedbacks</a></li>
+                <li><a href="glCreateVertexArrays.xhtml" target="pagedisplay">glCreateVertexArrays</a></li>
                 <li><a href="glCullFace.xhtml" target="pagedisplay">glCullFace</a></li>
             </ul> <!-- End Level3 -->
         </li>
@@ -192,6 +218,7 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glDetachShader.xhtml" target="pagedisplay">glDetachShader</a></li>
                 <li><a href="glEnable.xhtml" target="pagedisplay">glDisable</a></li>
                 <li><a href="glEnable.xhtml" target="pagedisplay">glDisablei</a></li>
+                <li><a href="glEnableVertexAttribArray.xhtml" target="pagedisplay">glDisableVertexArrayAttrib</a></li>
                 <li><a href="glEnableVertexAttribArray.xhtml" target="pagedisplay">glDisableVertexAttribArray</a></li>
                 <li><a href="glDispatchCompute.xhtml" target="pagedisplay">glDispatchCompute</a></li>
                 <li><a href="glDispatchComputeIndirect.xhtml" target="pagedisplay">glDispatchComputeIndirect</a></li>
@@ -221,6 +248,7 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
             <ul class="Level3">
                 <li><a href="glEnable.xhtml" target="pagedisplay">glEnable</a></li>
                 <li><a href="glEnable.xhtml" target="pagedisplay">glEnablei</a></li>
+                <li><a href="glEnableVertexAttribArray.xhtml" target="pagedisplay">glEnableVertexArrayAttrib</a></li>
                 <li><a href="glEnableVertexAttribArray.xhtml" target="pagedisplay">glEnableVertexAttribArray</a></li>
                 <li><a href="glBeginConditionalRender.xhtml" target="pagedisplay">glEndConditionalRender</a></li>
                 <li><a href="glBeginQuery.xhtml" target="pagedisplay">glEndQuery</a></li>
@@ -235,6 +263,7 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glFinish.xhtml" target="pagedisplay">glFinish</a></li>
                 <li><a href="glFlush.xhtml" target="pagedisplay">glFlush</a></li>
                 <li><a href="glFlushMappedBufferRange.xhtml" target="pagedisplay">glFlushMappedBufferRange</a></li>
+                <li><a href="glFlushMappedBufferRange.xhtml" target="pagedisplay">glFlushMappedNamedBufferRange</a></li>
                 <li><a href="glFramebufferParameteri.xhtml" target="pagedisplay">glFramebufferParameteri</a></li>
                 <li><a href="glFramebufferRenderbuffer.xhtml" target="pagedisplay">glFramebufferRenderbuffer</a></li>
                 <li><a href="glFramebufferTexture.xhtml" target="pagedisplay">glFramebufferTexture</a></li>
@@ -250,6 +279,7 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
             <ul class="Level3">
                 <li><a href="glGenBuffers.xhtml" target="pagedisplay">glGenBuffers</a></li>
                 <li><a href="glGenerateMipmap.xhtml" target="pagedisplay">glGenerateMipmap</a></li>
+                <li><a href="glGenerateMipmap.xhtml" target="pagedisplay">glGenerateTextureMipmap</a></li>
                 <li><a href="glGenFramebuffers.xhtml" target="pagedisplay">glGenFramebuffers</a></li>
                 <li><a href="glGenProgramPipelines.xhtml" target="pagedisplay">glGenProgramPipelines</a></li>
                 <li><a href="glGenQueries.xhtml" target="pagedisplay">glGenQueries</a></li>
@@ -281,6 +311,8 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glGetBufferPointerv.xhtml" target="pagedisplay">glGetBufferPointerv</a></li>
                 <li><a href="glGetBufferSubData.xhtml" target="pagedisplay">glGetBufferSubData</a></li>
                 <li><a href="glGetCompressedTexImage.xhtml" target="pagedisplay">glGetCompressedTexImage</a></li>
+                <li><a href="glGetCompressedTexImage.xhtml" target="pagedisplay">glGetCompressedTextureImage</a></li>
+                <li><a href="glGetCompressedTextureSubImage.xhtml" target="pagedisplay">glGetCompressedTextureSubImage</a></li>
                 <li><a href="glGetDebugMessageLog.xhtml" target="pagedisplay">glGetDebugMessageLog</a></li>
                 <li><a href="glGet.xhtml" target="pagedisplay">glGetDoublei_v</a></li>
                 <li><a href="glGet.xhtml" target="pagedisplay">glGetDoublev</a></li>
@@ -293,6 +325,7 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glGetFramebufferAttachmentParameter.xhtml" target="pagedisplay">glGetFramebufferAttachmentParameteriv</a></li>
                 <li><a href="glGetFramebufferParameter.xhtml" target="pagedisplay">glGetFramebufferParameter</a></li>
                 <li><a href="glGetFramebufferParameter.xhtml" target="pagedisplay">glGetFramebufferParameteriv</a></li>
+                <li><a href="glGetGraphicsResetStatus.xhtml" target="pagedisplay">glGetGraphicsResetStatus</a></li>
                 <li><a href="glGet.xhtml" target="pagedisplay">glGetInteger64i_v</a></li>
                 <li><a href="glGet.xhtml" target="pagedisplay">glGetInteger64v</a></li>
                 <li><a href="glGet.xhtml" target="pagedisplay">glGetIntegeri_v</a></li>
@@ -302,8 +335,22 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glGetInternalformat.xhtml" target="pagedisplay">glGetInternalformativ</a></li>
                 <li><a href="glGetMultisample.xhtml" target="pagedisplay">glGetMultisample</a></li>
                 <li><a href="glGetMultisample.xhtml" target="pagedisplay">glGetMultisamplefv</a></li>
+                <li><a href="glGetBufferParameter.xhtml" target="pagedisplay">glGetNamedBufferParameteri64v</a></li>
+                <li><a href="glGetBufferParameter.xhtml" target="pagedisplay">glGetNamedBufferParameteriv</a></li>
+                <li><a href="glGetBufferPointerv.xhtml" target="pagedisplay">glGetNamedBufferPointerv</a></li>
+                <li><a href="glGetBufferSubData.xhtml" target="pagedisplay">glGetNamedBufferSubData</a></li>
+                <li><a href="glGetFramebufferAttachmentParameter.xhtml" target="pagedisplay">glGetNamedFramebufferAttachmentParameteriv</a></li>
+                <li><a href="glGetFramebufferParameter.xhtml" target="pagedisplay">glGetNamedFramebufferParameteriv</a></li>
+                <li><a href="glGetRenderbufferParameter.xhtml" target="pagedisplay">glGetNamedRenderbufferParameteriv</a></li>
+                <li><a href="glGetCompressedTexImage.xhtml" target="pagedisplay">glGetnCompressedTexImage</a></li>
+                <li><a href="glGetTexImage.xhtml" target="pagedisplay">glGetnTexImage</a></li>
+                <li><a href="glGetUniform.xhtml" target="pagedisplay">glGetnUniformdv</a></li>
+                <li><a href="glGetUniform.xhtml" target="pagedisplay">glGetnUniformfv</a></li>
+                <li><a href="glGetUniform.xhtml" target="pagedisplay">glGetnUniformiv</a></li>
+                <li><a href="glGetUniform.xhtml" target="pagedisplay">glGetnUniformuiv</a></li>
                 <li><a href="glGetObjectLabel.xhtml" target="pagedisplay">glGetObjectLabel</a></li>
                 <li><a href="glGetObjectPtrLabel.xhtml" target="pagedisplay">glGetObjectPtrLabel</a></li>
+                <li><a href="glGetPointerv.xhtml" target="pagedisplay">glGetPointerv</a></li>
                 <li><a href="glGetProgram.xhtml" target="pagedisplay">glGetProgram</a></li>
                 <li><a href="glGetProgramBinary.xhtml" target="pagedisplay">glGetProgramBinary</a></li>
                 <li><a href="glGetProgramInfoLog.xhtml" target="pagedisplay">glGetProgramInfoLog</a></li>
@@ -356,6 +403,18 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glGetTexParameter.xhtml" target="pagedisplay">glGetTexParameterIiv</a></li>
                 <li><a href="glGetTexParameter.xhtml" target="pagedisplay">glGetTexParameterIuiv</a></li>
                 <li><a href="glGetTexParameter.xhtml" target="pagedisplay">glGetTexParameteriv</a></li>
+                <li><a href="glGetTexImage.xhtml" target="pagedisplay">glGetTextureImage</a></li>
+                <li><a href="glGetTexLevelParameter.xhtml" target="pagedisplay">glGetTextureLevelParameterfv</a></li>
+                <li><a href="glGetTexLevelParameter.xhtml" target="pagedisplay">glGetTextureLevelParameteriv</a></li>
+                <li><a href="glGetTexParameter.xhtml" target="pagedisplay">glGetTextureParameterfv</a></li>
+                <li><a href="glGetTexParameter.xhtml" target="pagedisplay">glGetTextureParameterIiv</a></li>
+                <li><a href="glGetTexParameter.xhtml" target="pagedisplay">glGetTextureParameterIuiv</a></li>
+                <li><a href="glGetTexParameter.xhtml" target="pagedisplay">glGetTextureParameteriv</a></li>
+                <li><a href="glGetTextureSubImage.xhtml" target="pagedisplay">glGetTextureSubImage</a></li>
+                <li><a href="glGetTransformFeedback.xhtml" target="pagedisplay">glGetTransformFeedback</a></li>
+                <li><a href="glGetTransformFeedback.xhtml" target="pagedisplay">glGetTransformFeedbacki64_v</a></li>
+                <li><a href="glGetTransformFeedback.xhtml" target="pagedisplay">glGetTransformFeedbacki_v</a></li>
+                <li><a href="glGetTransformFeedback.xhtml" target="pagedisplay">glGetTransformFeedbackiv</a></li>
                 <li><a href="glGetTransformFeedbackVarying.xhtml" target="pagedisplay">glGetTransformFeedbackVarying</a></li>
                 <li><a href="glGetUniform.xhtml" target="pagedisplay">glGetUniform</a></li>
                 <li><a href="glGetUniformBlockIndex.xhtml" target="pagedisplay">glGetUniformBlockIndex</a></li>
@@ -367,6 +426,10 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glGetUniformSubroutine.xhtml" target="pagedisplay">glGetUniformSubroutine</a></li>
                 <li><a href="glGetUniformSubroutine.xhtml" target="pagedisplay">glGetUniformSubroutineuiv</a></li>
                 <li><a href="glGetUniform.xhtml" target="pagedisplay">glGetUniformuiv</a></li>
+                <li><a href="glGetVertexArrayIndexed.xhtml" target="pagedisplay">glGetVertexArrayIndexed</a></li>
+                <li><a href="glGetVertexArrayIndexed.xhtml" target="pagedisplay">glGetVertexArrayIndexed64iv</a></li>
+                <li><a href="glGetVertexArrayIndexed.xhtml" target="pagedisplay">glGetVertexArrayIndexediv</a></li>
+                <li><a href="glGetVertexArrayiv.xhtml" target="pagedisplay">glGetVertexArrayiv</a></li>
                 <li><a href="glGetVertexAttrib.xhtml" target="pagedisplay">glGetVertexAttrib</a></li>
                 <li><a href="glGetVertexAttrib.xhtml" target="pagedisplay">glGetVertexAttribdv</a></li>
                 <li><a href="glGetVertexAttrib.xhtml" target="pagedisplay">glGetVertexAttribfv</a></li>
@@ -389,6 +452,8 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glInvalidateBufferData.xhtml" target="pagedisplay">glInvalidateBufferData</a></li>
                 <li><a href="glInvalidateBufferSubData.xhtml" target="pagedisplay">glInvalidateBufferSubData</a></li>
                 <li><a href="glInvalidateFramebuffer.xhtml" target="pagedisplay">glInvalidateFramebuffer</a></li>
+                <li><a href="glInvalidateFramebuffer.xhtml" target="pagedisplay">glInvalidateNamedFramebufferData</a></li>
+                <li><a href="glInvalidateSubFramebuffer.xhtml" target="pagedisplay">glInvalidateNamedFramebufferSubData</a></li>
                 <li><a href="glInvalidateSubFramebuffer.xhtml" target="pagedisplay">glInvalidateSubFramebuffer</a></li>
                 <li><a href="glInvalidateTexImage.xhtml" target="pagedisplay">glInvalidateTexImage</a></li>
                 <li><a href="glInvalidateTexSubImage.xhtml" target="pagedisplay">glInvalidateTexSubImage</a></li>
@@ -421,13 +486,33 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
             <ul class="Level3">
                 <li><a href="glMapBuffer.xhtml" target="pagedisplay">glMapBuffer</a></li>
                 <li><a href="glMapBufferRange.xhtml" target="pagedisplay">glMapBufferRange</a></li>
+                <li><a href="glMapBuffer.xhtml" target="pagedisplay">glMapNamedBuffer</a></li>
+                <li><a href="glMapBufferRange.xhtml" target="pagedisplay">glMapNamedBufferRange</a></li>
                 <li><a href="glMemoryBarrier.xhtml" target="pagedisplay">glMemoryBarrier</a></li>
+                <li><a href="glMemoryBarrier.xhtml" target="pagedisplay">glMemoryBarrierByRegion</a></li>
                 <li><a href="glMinSampleShading.xhtml" target="pagedisplay">glMinSampleShading</a></li>
                 <li><a href="glMultiDrawArrays.xhtml" target="pagedisplay">glMultiDrawArrays</a></li>
                 <li><a href="glMultiDrawArraysIndirect.xhtml" target="pagedisplay">glMultiDrawArraysIndirect</a></li>
                 <li><a href="glMultiDrawElements.xhtml" target="pagedisplay">glMultiDrawElements</a></li>
                 <li><a href="glMultiDrawElementsBaseVertex.xhtml" target="pagedisplay">glMultiDrawElementsBaseVertex</a></li>
                 <li><a href="glMultiDrawElementsIndirect.xhtml" target="pagedisplay">glMultiDrawElementsIndirect</a></li>
+            </ul> <!-- End Level3 -->
+        </li>
+        <a name="n"></a>
+        <li>n
+            <ul class="Level3">
+                <li><a href="glBufferData.xhtml" target="pagedisplay">glNamedBufferData</a></li>
+                <li><a href="glBufferStorage.xhtml" target="pagedisplay">glNamedBufferStorage</a></li>
+                <li><a href="glBufferSubData.xhtml" target="pagedisplay">glNamedBufferSubData</a></li>
+                <li><a href="glDrawBuffer.xhtml" target="pagedisplay">glNamedFramebufferDrawBuffer</a></li>
+                <li><a href="glDrawBuffers.xhtml" target="pagedisplay">glNamedFramebufferDrawBuffers</a></li>
+                <li><a href="glFramebufferParameteri.xhtml" target="pagedisplay">glNamedFramebufferParameteri</a></li>
+                <li><a href="glReadBuffer.xhtml" target="pagedisplay">glNamedFramebufferReadBuffer</a></li>
+                <li><a href="glFramebufferRenderbuffer.xhtml" target="pagedisplay">glNamedFramebufferRenderbuffer</a></li>
+                <li><a href="glFramebufferTexture.xhtml" target="pagedisplay">glNamedFramebufferTexture</a></li>
+                <li><a href="glFramebufferTextureLayer.xhtml" target="pagedisplay">glNamedFramebufferTextureLayer</a></li>
+                <li><a href="glRenderbufferStorage.xhtml" target="pagedisplay">glNamedRenderbufferStorage</a></li>
+                <li><a href="glRenderbufferStorageMultisample.xhtml" target="pagedisplay">glNamedRenderbufferStorageMultisample</a></li>
             </ul> <!-- End Level3 -->
         </li>
         <a name="o"></a>
@@ -508,6 +593,7 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
         <li>r
             <ul class="Level3">
                 <li><a href="glReadBuffer.xhtml" target="pagedisplay">glReadBuffer</a></li>
+                <li><a href="glReadPixels.xhtml" target="pagedisplay">glReadnPixels</a></li>
                 <li><a href="glReadPixels.xhtml" target="pagedisplay">glReadPixels</a></li>
                 <li><a href="glReleaseShaderCompiler.xhtml" target="pagedisplay">glReleaseShaderCompiler</a></li>
                 <li><a href="removedTypes.xhtml" target="pagedisplay">removedTypes</a></li>
@@ -569,7 +655,26 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glTexSubImage1D.xhtml" target="pagedisplay">glTexSubImage1D</a></li>
                 <li><a href="glTexSubImage2D.xhtml" target="pagedisplay">glTexSubImage2D</a></li>
                 <li><a href="glTexSubImage3D.xhtml" target="pagedisplay">glTexSubImage3D</a></li>
+                <li><a href="glTextureBarrier.xhtml" target="pagedisplay">glTextureBarrier</a></li>
+                <li><a href="glTexBuffer.xhtml" target="pagedisplay">glTextureBuffer</a></li>
+                <li><a href="glTexBufferRange.xhtml" target="pagedisplay">glTextureBufferRange</a></li>
+                <li><a href="glTexParameter.xhtml" target="pagedisplay">glTextureParameterf</a></li>
+                <li><a href="glTexParameter.xhtml" target="pagedisplay">glTextureParameterfv</a></li>
+                <li><a href="glTexParameter.xhtml" target="pagedisplay">glTextureParameteri</a></li>
+                <li><a href="glTexParameter.xhtml" target="pagedisplay">glTextureParameterIiv</a></li>
+                <li><a href="glTexParameter.xhtml" target="pagedisplay">glTextureParameterIuiv</a></li>
+                <li><a href="glTexParameter.xhtml" target="pagedisplay">glTextureParameteriv</a></li>
+                <li><a href="glTexStorage1D.xhtml" target="pagedisplay">glTextureStorage1D</a></li>
+                <li><a href="glTexStorage2D.xhtml" target="pagedisplay">glTextureStorage2D</a></li>
+                <li><a href="glTexStorage2DMultisample.xhtml" target="pagedisplay">glTextureStorage2DMultisample</a></li>
+                <li><a href="glTexStorage3D.xhtml" target="pagedisplay">glTextureStorage3D</a></li>
+                <li><a href="glTexStorage3DMultisample.xhtml" target="pagedisplay">glTextureStorage3DMultisample</a></li>
+                <li><a href="glTexSubImage1D.xhtml" target="pagedisplay">glTextureSubImage1D</a></li>
+                <li><a href="glTexSubImage2D.xhtml" target="pagedisplay">glTextureSubImage2D</a></li>
+                <li><a href="glTexSubImage3D.xhtml" target="pagedisplay">glTextureSubImage3D</a></li>
                 <li><a href="glTextureView.xhtml" target="pagedisplay">glTextureView</a></li>
+                <li><a href="glTransformFeedbackBufferBase.xhtml" target="pagedisplay">glTransformFeedbackBufferBase</a></li>
+                <li><a href="glTransformFeedbackBufferRange.xhtml" target="pagedisplay">glTransformFeedbackBufferRange</a></li>
                 <li><a href="glTransformFeedbackVaryings.xhtml" target="pagedisplay">glTransformFeedbackVaryings</a></li>
             </ul> <!-- End Level3 -->
         </li>
@@ -613,7 +718,8 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="glUniform.xhtml" target="pagedisplay">glUniformMatrix4x3fv</a></li>
                 <li><a href="glUniformSubroutines.xhtml" target="pagedisplay">glUniformSubroutines</a></li>
                 <li><a href="glUniformSubroutines.xhtml" target="pagedisplay">glUniformSubroutinesuiv</a></li>
-                <li><a href="glMapBuffer.xhtml" target="pagedisplay">glUnmapBuffer</a></li>
+                <li><a href="glUnmapBuffer.xhtml" target="pagedisplay">glUnmapBuffer</a></li>
+                <li><a href="glUnmapBuffer.xhtml" target="pagedisplay">glUnmapNamedBuffer</a></li>
                 <li><a href="glUseProgram.xhtml" target="pagedisplay">glUseProgram</a></li>
                 <li><a href="glUseProgramStages.xhtml" target="pagedisplay">glUseProgramStages</a></li>
             </ul> <!-- End Level3 -->
@@ -623,6 +729,14 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
             <ul class="Level3">
                 <li><a href="glValidateProgram.xhtml" target="pagedisplay">glValidateProgram</a></li>
                 <li><a href="glValidateProgramPipeline.xhtml" target="pagedisplay">glValidateProgramPipeline</a></li>
+                <li><a href="glVertexAttribBinding.xhtml" target="pagedisplay">glVertexArrayAttribBinding</a></li>
+                <li><a href="glVertexAttribFormat.xhtml" target="pagedisplay">glVertexArrayAttribFormat</a></li>
+                <li><a href="glVertexAttribFormat.xhtml" target="pagedisplay">glVertexArrayAttribIFormat</a></li>
+                <li><a href="glVertexAttribFormat.xhtml" target="pagedisplay">glVertexArrayAttribLFormat</a></li>
+                <li><a href="glVertexBindingDivisor.xhtml" target="pagedisplay">glVertexArrayBindingDivisor</a></li>
+                <li><a href="glVertexArrayElementBuffer.xhtml" target="pagedisplay">glVertexArrayElementBuffer</a></li>
+                <li><a href="glBindVertexBuffer.xhtml" target="pagedisplay">glVertexArrayVertexBuffer</a></li>
+                <li><a href="glBindVertexBuffers.xhtml" target="pagedisplay">glVertexArrayVertexBuffers</a></li>
                 <li><a href="glVertexAttrib.xhtml" target="pagedisplay">glVertexAttrib</a></li>
                 <li><a href="glVertexAttrib.xhtml" target="pagedisplay">glVertexAttrib1d</a></li>
                 <li><a href="glVertexAttrib.xhtml" target="pagedisplay">glVertexAttrib1dv</a></li>
@@ -770,7 +884,11 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="degrees.xhtml" target="pagedisplay">degrees</a></li>
                 <li><a href="determinant.xhtml" target="pagedisplay">determinant</a></li>
                 <li><a href="dFdx.xhtml" target="pagedisplay">dFdx</a></li>
+                <li><a href="dFdx.xhtml" target="pagedisplay">dFdxCoarse</a></li>
+                <li><a href="dFdx.xhtml" target="pagedisplay">dFdxFine</a></li>
                 <li><a href="dFdx.xhtml" target="pagedisplay">dFdy</a></li>
+                <li><a href="dFdx.xhtml" target="pagedisplay">dFdyCoarse</a></li>
+                <li><a href="dFdx.xhtml" target="pagedisplay">dFdyFine</a></li>
                 <li><a href="distance.xhtml" target="pagedisplay">distance</a></li>
                 <li><a href="dot.xhtml" target="pagedisplay">dot</a></li>
             </ul> <!-- End Level3 -->
@@ -800,16 +918,20 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="fract.xhtml" target="pagedisplay">fract</a></li>
                 <li><a href="frexp.xhtml" target="pagedisplay">frexp</a></li>
                 <li><a href="fwidth.xhtml" target="pagedisplay">fwidth</a></li>
+                <li><a href="fwidth.xhtml" target="pagedisplay">fwidthCoarse</a></li>
+                <li><a href="fwidth.xhtml" target="pagedisplay">fwidthFine</a></li>
             </ul> <!-- End Level3 -->
         </li>
         <a name="g"></a>
         <li>g
             <ul class="Level3">
                 <li><a href="gl_ClipDistance.xhtml" target="pagedisplay">gl_ClipDistance</a></li>
+                <li><a href="gl_CullDistance.xhtml" target="pagedisplay">gl_CullDistance</a></li>
                 <li><a href="gl_FragCoord.xhtml" target="pagedisplay">gl_FragCoord</a></li>
                 <li><a href="gl_FragDepth.xhtml" target="pagedisplay">gl_FragDepth</a></li>
                 <li><a href="gl_FrontFacing.xhtml" target="pagedisplay">gl_FrontFacing</a></li>
                 <li><a href="gl_GlobalInvocationID.xhtml" target="pagedisplay">gl_GlobalInvocationID</a></li>
+                <li><a href="gl_HelperInvocation.xhtml" target="pagedisplay">gl_HelperInvocation</a></li>
                 <li><a href="gl_InstanceID.xhtml" target="pagedisplay">gl_InstanceID</a></li>
                 <li><a href="gl_InvocationID.xhtml" target="pagedisplay">gl_InvocationID</a></li>
                 <li><a href="gl_Layer.xhtml" target="pagedisplay">gl_Layer</a></li>
@@ -851,6 +973,7 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="imageAtomicOr.xhtml" target="pagedisplay">imageAtomicOr</a></li>
                 <li><a href="imageAtomicXor.xhtml" target="pagedisplay">imageAtomicXor</a></li>
                 <li><a href="imageLoad.xhtml" target="pagedisplay">imageLoad</a></li>
+                <li><a href="imageSamples.xhtml" target="pagedisplay">imageSamples</a></li>
                 <li><a href="imageSize.xhtml" target="pagedisplay">imageSize</a></li>
                 <li><a href="imageStore.xhtml" target="pagedisplay">imageStore</a></li>
                 <li><a href="umulExtended.xhtml" target="pagedisplay">imulExtended</a></li>
@@ -968,6 +1091,7 @@ function writeCookie(){ // Runs through the menu and puts the "states" of each n
                 <li><a href="textureProjOffset.xhtml" target="pagedisplay">textureProjOffset</a></li>
                 <li><a href="textureQueryLevels.xhtml" target="pagedisplay">textureQueryLevels</a></li>
                 <li><a href="textureQueryLod.xhtml" target="pagedisplay">textureQueryLod</a></li>
+                <li><a href="textureSamples.xhtml" target="pagedisplay">textureSamples</a></li>
                 <li><a href="textureSize.xhtml" target="pagedisplay">textureSize</a></li>
                 <li><a href="transpose.xhtml" target="pagedisplay">transpose</a></li>
                 <li><a href="trunc.xhtml" target="pagedisplay">trunc</a></li>

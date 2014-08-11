@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 27606 $ on $Date: 2014-08-05 21:44:13 -0700 (Tue, 05 Aug 2014) $
+** Khronos $Revision: 27673 $ on $Date: 2014-08-10 16:26:49 -0700 (Sun, 10 Aug 2014) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20140805 */
+/* Generated on date 20140810 */
 
 /* Generated C header for:
  * API: gles2
@@ -79,6 +79,12 @@ GL_APICALL void GL_APIENTRY glBlendBarrierKHR (void);
 #define GL_KHR_blend_equation_advanced_coherent 1
 #define GL_BLEND_ADVANCED_COHERENT_KHR    0x9285
 #endif /* GL_KHR_blend_equation_advanced_coherent */
+
+#ifndef GL_KHR_context_flush_control
+#define GL_KHR_context_flush_control 1
+#define GL_CONTEXT_RELEASE_BEHAVIOR_KHR   0x82FB
+#define GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR 0x82FC
+#endif /* GL_KHR_context_flush_control */
 
 #ifndef GL_KHR_debug
 #define GL_KHR_debug 1
@@ -148,6 +154,34 @@ GL_APICALL void GL_APIENTRY glGetObjectPtrLabelKHR (const void *ptr, GLsizei buf
 GL_APICALL void GL_APIENTRY glGetPointervKHR (GLenum pname, void **params);
 #endif
 #endif /* GL_KHR_debug */
+
+#ifndef GL_KHR_robust_buffer_access_behavior
+#define GL_KHR_robust_buffer_access_behavior 1
+#endif /* GL_KHR_robust_buffer_access_behavior */
+
+#ifndef GL_KHR_robustness
+#define GL_KHR_robustness 1
+#define GL_CONTEXT_ROBUST_ACCESS_KHR      0x90F3
+#define GL_LOSE_CONTEXT_ON_RESET_KHR      0x8252
+#define GL_GUILTY_CONTEXT_RESET_KHR       0x8253
+#define GL_INNOCENT_CONTEXT_RESET_KHR     0x8254
+#define GL_UNKNOWN_CONTEXT_RESET_KHR      0x8255
+#define GL_RESET_NOTIFICATION_STRATEGY_KHR 0x8256
+#define GL_NO_RESET_NOTIFICATION_KHR      0x8261
+#define GL_CONTEXT_LOST_KHR               0x0507
+typedef GLenum (GL_APIENTRYP PFNGLGETGRAPHICSRESETSTATUSKHRPROC) (void);
+typedef void (GL_APIENTRYP PFNGLREADNPIXELSKHRPROC) (GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, GLsizei bufSize, void *data);
+typedef void (GL_APIENTRYP PFNGLGETNUNIFORMFVKHRPROC) (GLuint program, GLint location, GLsizei bufSize, GLfloat *params);
+typedef void (GL_APIENTRYP PFNGLGETNUNIFORMIVKHRPROC) (GLuint program, GLint location, GLsizei bufSize, GLint *params);
+typedef void (GL_APIENTRYP PFNGLGETNUNIFORMUIVKHRPROC) (GLuint program, GLint location, GLsizei bufSize, GLuint *params);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL GLenum GL_APIENTRY glGetGraphicsResetStatusKHR (void);
+GL_APICALL void GL_APIENTRY glReadnPixelsKHR (GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, GLsizei bufSize, void *data);
+GL_APICALL void GL_APIENTRY glGetnUniformfvKHR (GLuint program, GLint location, GLsizei bufSize, GLfloat *params);
+GL_APICALL void GL_APIENTRY glGetnUniformivKHR (GLuint program, GLint location, GLsizei bufSize, GLint *params);
+GL_APICALL void GL_APIENTRY glGetnUniformuivKHR (GLuint program, GLint location, GLsizei bufSize, GLuint *params);
+#endif
+#endif /* GL_KHR_robustness */
 
 #ifndef GL_KHR_texture_compression_astc_hdr
 #define GL_KHR_texture_compression_astc_hdr 1

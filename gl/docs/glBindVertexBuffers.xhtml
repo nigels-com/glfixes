@@ -22,7 +22,7 @@
       <div class="titlepage"/>
       <div class="refnamediv">
         <h2>Name</h2>
-        <p>glBindVertexBuffers — bind one or more named buffer objects to a sequence of consecutive vertex buffer binding points</p>
+        <p>glBindVertexBuffers, glVertexArrayVertexBuffers — attach multiple buffer objects to a vertex array object</p>
       </div>
       <div class="refsynopsisdiv">
         <h2>C Specification</h2>
@@ -52,6 +52,35 @@
             </tr>
           </table>
           <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glVertexArrayVertexBuffers</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">vaobj</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLuint <var class="pdparam">first</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">count</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const GLuint *<var class="pdparam">buffers</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const GLintptr *<var class="pdparam">offsets</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const GLsizei *<var class="pdparam">strides</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
         </div>
       </div>
       <div class="refsect1" id="parameters">
@@ -61,13 +90,27 @@
             <dt>
               <span class="term">
                 <em class="parameter">
+                  <code>vaobj</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the name of the vertex array object for
+                    <code class="function">glVertexArrayVertexBuffers</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
                   <code>first</code>
                 </em>
               </span>
             </dt>
             <dd>
               <p>
-                    Specifies the first vertex buffer binding point to which a buffer object is to be bound.
+                    Specifies the first vertex buffer binding point to which
+                    a buffer object is to be bound.
                 </p>
             </dd>
             <dt>
@@ -91,7 +134,8 @@
             </dt>
             <dd>
               <p>
-                    Specifies the address of an array of names of existing buffer objects.
+                    Specifies the address of an array of names of existing
+                    buffer objects.
                 </p>
             </dd>
             <dt>
@@ -103,7 +147,8 @@
             </dt>
             <dd>
               <p>
-                    Specifies the address of an array of offsets to associate with the binding points.
+                    Specifies the address of an array of offsets to
+                    associate with the binding points.
                 </p>
             </dd>
             <dt>
@@ -115,7 +160,8 @@
             </dt>
             <dd>
               <p>
-                    Specifies the address of an array of strides to associate with the binding points.
+                    Specifies the address of an array of strides to
+                    associate with the binding points.
                 </p>
             </dd>
           </dl>
@@ -124,31 +170,38 @@
       <div class="refsect1" id="description">
         <h2>Description</h2>
         <p>
-            <code class="function">glBindVertexBuffers</code> binds storage from an array of existing buffer objects to a specified
-            number of consecutive vertex buffer binding points units. <em class="parameter"><code>count</code></em> specifies the number of buffer
-            objects whose names are stored in the array <em class="parameter"><code>buffers</code></em>. That number
-            of buffer object names is read from the array and their storage bound to the <em class="parameter"><code>count</code></em> consecutive
-            vertex buffer binding points starting from <em class="parameter"><code>first</code></em>.
+            <code class="function">glBindVertexBuffers</code> and
+            <code class="function">glVertexArrayVertexBuffers</code> bind storage
+            from an array of existing buffer objects to a specified number
+            of consecutive vertex buffer binding points units in a vertex
+            array object. For <code class="function">glBindVertexBuffers</code>, the
+            vertex array object is the currently bound vertex array object.
+            For <code class="function">glVertexArrayVertexBuffers</code>,
+            <em class="parameter"><code>vaobj</code></em> is the name of the vertex array
+            object.
         </p>
         <p>
-            If the name zero appears in the <em class="parameter"><code>buffers</code></em> array, any existing binding
-            to the vertex buffer binding point is reset, and the corresponding entries in <em class="parameter"><code>offsets</code></em>
-            and <em class="parameter"><code>strides</code></em> is ignored. Any non-zero entry in <em class="parameter"><code>buffers</code></em> must be the
-            name of an existing buffer object. When a non-zero entry in <em class="parameter"><code>buffers</code></em> is
-            present, that buffer objects data store is bound to the corresponding vertex buffer binding point.
-            If <em class="parameter"><code>buffers</code></em> is <code class="constant">NULL</code> then it is as
-            if an appropriately sized array containing only zeros had been specified.
+            <em class="parameter"><code>count</code></em> existing buffer objects are bound
+            to vertex buffer binding points numbered $first$ through $first
+            + count - 1$. If <em class="parameter"><code>buffers</code></em> is not NULL, it
+            specifies an array of <em class="parameter"><code>count</code></em> values, each
+            of which must be zero or the name of an existing buffer object.
+            <em class="parameter"><code>offsets</code></em> and
+            <em class="parameter"><code>strides</code></em> specify arrays of
+            <em class="parameter"><code>count</code></em> values indicating the offset of the
+            first element and stride between elements in each buffer,
+            respectively. If <em class="parameter"><code>buffers</code></em> is NULL, each
+            affected vertex buffer binding point from $first$ through $first
+            + count - 1$ will be reset to have no bound buffer object. In
+            this case, the offsets and strides associated with the binding
+            points are set to default values, ignoring
+            <em class="parameter"><code>offsets</code></em> and
+            <em class="parameter"><code>strides</code></em>.
         </p>
         <p>
-            <em class="parameter"><code>offsets</code></em> and <em class="parameter"><code>strides</code></em> specify the addresses
-            of two arrays containing, respectively, the offset of the first element
-            and stride between elements in each buffer. If an entry in <em class="parameter"><code>buffers</code></em>
-            is zero, then the content of the corresponding entry in each of <em class="parameter"><code>offsets</code></em>
-            and <em class="parameter"><code>strides</code></em> is ignored.
-        </p>
-        <p>
-            <code class="function">glBindVertexBuffers</code> is equivalent to the following pseudo code:
-        </p>
+            <code class="function">glBindVertexBuffers</code> is equivalent (assuming no errors
+            are generated) to:
+</p>
         <pre class="programlisting">    for (i = 0; i &lt; count; i++) {
         if (buffers == NULL) {
             glBindVertexBuffer(first + i, 0, 0, 16);
@@ -157,32 +210,164 @@
         }
     }</pre>
         <p>
-        Each entry in <em class="parameter"><code>buffers</code></em> will be checked individually and if found
-        to be invalid, the state for that vertex buffer binding point will not be changed and an error will be
-        generated. However, the state for other binding points referenced by the command will still
-        be updated.
-    </p>
-      </div>
-      <div class="refsect1" id="notes">
-        <h2>Notes</h2>
+            except that buffers will not be created if they do not exist.
+        </p>
         <p>
-            <code class="function">glBindVertexBuffers</code> is available only if the GL version is 4.4 or higher.
+            <code class="function">glVertexArrayVertexBuffers</code> is equivalent to
+            the pseudocode above, but replacing
+            <code class="function">glBindVertexBuffers</code>(args) with
+            <code class="function">glVertexArrayVertexBuffers</code>(vaobj, args).
+        </p>
+        <p>
+            The values specified in <em class="parameter"><code>buffers</code></em>,
+            <em class="parameter"><code>offsets</code></em>, and
+            <em class="parameter"><code>strides</code></em> will be checked separately for
+            each vertex buffer binding point. When a value for a specific
+            vertex buffer binding point is invalid, the state for that
+            binding point will be unchanged and an error will be generated.
+            However, state for other vertex buffer binding points will still
+            be changed if their corresponding values are valid.
         </p>
       </div>
       <div class="refsect1" id="errors">
         <h2>Errors</h2>
         <p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>first</code></em> + <em class="parameter"><code>count</code></em> is greater
-            than the value of <code class="constant">GL_MAX_VERTEX_ATTRIB_BINDINGS</code>.
+            <code class="constant">GL_INVALID_OPERATION</code> is generated 
+            by <code class="function">glBindVertexBuffers</code> if no vertex array
+            object is bound.
         </p>
         <p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if any value in <code class="constant">buffers</code> is not
-            zero or the name of an existing buffer object.
+            <code class="constant">GL_INVALID_OPERATION</code> is generated by
+            <code class="function">glVertexArrayVertexBuffers</code> if
+            <em class="parameter"><code>vaobj</code></em> is not the name of the vertex array
+            object.
         </p>
         <p>
-            <code class="constant">GL_INVALID_VALUE</code> is generated if any value in <em class="parameter"><code>offsets</code></em> or <em class="parameter"><code>strides</code></em>
-            is negative, or if a value is <em class="parameter"><code>stride</code></em> is greater than the value of <code class="constant">GL_MAX_VERTEX_ATTRIB_STRIDE</code>.
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if $first
+            + count$ is greater than the value of
+            <code class="constant">GL_MAX_VERTEX_ATTRIB_BINDINGS</code>.
         </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if any
+            value in <code class="constant">buffers</code> is not zero or the name of
+            an existing buffer object.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if any value
+            in <em class="parameter"><code>offsets</code></em> or
+            <em class="parameter"><code>strides</code></em> is negative, or if a value is
+            <em class="parameter"><code>stride</code></em> is greater than the value of
+            <code class="constant">GL_MAX_VERTEX_ATTRIB_STRIDE</code>.
+        </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glBindVertexBuffers</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glVertexArrayVertexBuffers</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
@@ -196,7 +381,7 @@
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>
         <p>
-            Copyright <span class="trademark"/>© 2013 Khronos Group.
+            Copyright <span class="trademark"/>© 2014 Khronos Group.
             This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.

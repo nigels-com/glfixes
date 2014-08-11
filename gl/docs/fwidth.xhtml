@@ -22,7 +22,7 @@
       <div class="titlepage"/>
       <div class="refnamediv">
         <h2>Name</h2>
-        <p>fwidth — return the sum of the absolute derivatives in x and y</p>
+        <p>fwidth — return the sum of the absolute value of derivatives in x and y</p>
       </div>
       <div class="refsynopsisdiv">
         <h2>Declaration</h2>
@@ -31,6 +31,24 @@
             <tr>
               <td>
                 <code class="funcdef">genType <strong class="fsfunc">fwidth</strong>(</code>
+              </td>
+              <td>genType <var class="pdparam">p</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">genType <strong class="fsfunc">fwidthCoarse</strong>(</code>
+              </td>
+              <td>genType <var class="pdparam">p</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">genType <strong class="fsfunc">fwidthFine</strong>(</code>
               </td>
               <td>genType <var class="pdparam">p</var><code>)</code>;</td>
             </tr>
@@ -51,7 +69,8 @@
             </dt>
             <dd>
               <p>
-                    Specifies the expression of which to take the partial derivative.
+                    Specifies the expression of which to take the partial
+                    derivative.
                 </p>
             </dd>
           </dl>
@@ -60,9 +79,25 @@
       <div class="refsect1" id="description">
         <h2>Description</h2>
         <p>
-            <span class="emphasis"><em>Available only in the fragment shader</em></span>, <code class="function">fwidth</code> returns the sum of
-            the absolute derivatives in x and y using local differencing for the input argument <em class="parameter"><code>p</code></em>.
-            It is equivalent to <code class="code"><code class="function">abs</code>(<em class="parameter"><code>dFdx</code></em>(p)) + <code class="function">abs</code>(<em class="parameter"><code>dFdy</code></em>(p))</code>.
+            <span class="emphasis"><em>Available only in the fragment shader</em></span>,
+            these functions return the sum of the absolute derivatives in
+            $x$ and $y$ using local differencing for the input argument
+            <em class="parameter"><code>p</code></em>.  
+            <code class="function">fwidth</code> is equivalent to
+            <code class="code">
+                <code class="function">abs</code>(<em class="parameter"><code>dFdx</code></em>(p)) +
+                <code class="function">abs</code>(<em class="parameter"><code>dFdy</code></em>(p))
+            </code>.
+            <code class="function">fwidthCoarse</code> is equivalent to
+            <code class="code">
+                <code class="function">abs</code>(<em class="parameter"><code>dFdxCoarse</code></em>(p)) +
+                <code class="function">abs</code>(<em class="parameter"><code>dFdyCoarse</code></em>(p))
+            </code>.
+            <code class="function">fwidthFine</code> is equivalent to
+            <code class="code">
+                <code class="function">abs</code>(<em class="parameter"><code>dFdxFine</code></em>(p)) +
+                <code class="function">abs</code>(<em class="parameter"><code>dFdyFine</code></em>(p))
+            </code>.
         </p>
       </div>
       <div class="refsect1" id="versions">
@@ -80,6 +115,8 @@
               <col style="text-align: center; "/>
               <col style="text-align: center; "/>
               <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
               <col style="text-align: center; " class="lastvers"/>
             </colgroup>
             <thead>
@@ -87,7 +124,7 @@
                 <th style="text-align: left; border-right: 2px solid ; ">
                  
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; " colspan="10">
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
                 <span class="bold"><strong>OpenGL Shading Language Version</strong></span>
             </th>
               </tr>
@@ -122,23 +159,46 @@
                 <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>4.20</strong></span>
             </th>
-                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
                 <span class="bold"><strong>4.30</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.40</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.50</strong></span>
             </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td style="text-align: left; border-right: 2px solid ; ">fwidth</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
-                <td style="text-align: center; border-right: 2px solid ; ">✔</td>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">fwidth</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">fwidthCoarse, fwidthFine</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
                 <td style="text-align: center; ">✔</td>
               </tr>
             </tbody>
@@ -148,14 +208,13 @@
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
         <p>
-            <a class="citerefentry" href="dFdx.xhtml"><span class="citerefentry"><span class="refentrytitle">dFdx</span></span></a>,
-            <a class="citerefentry" href="dFdy.xhtml"><span class="citerefentry"><span class="refentrytitle">dFdy</span></span></a>
+            <a class="citerefentry" href="dFdx.xhtml"><span class="citerefentry"><span class="refentrytitle">dFdx</span></span></a>
         </p>
       </div>
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>
         <p>
-            Copyright <span class="trademark"/>© 2011-2013 Khronos Group.
+            Copyright <span class="trademark"/>© 2011-2014 Khronos Group.
             This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.

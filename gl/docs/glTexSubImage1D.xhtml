@@ -22,7 +22,7 @@
       <div class="titlepage"/>
       <div class="refnamediv">
         <h2>Name</h2>
-        <p>glTexSubImage1D — specify a one-dimensional texture subimage</p>
+        <p>glTexSubImage1D, glTextureSubImage1D — specify a one-dimensional texture subimage</p>
       </div>
       <div class="refsynopsisdiv">
         <h2>C Specification</h2>
@@ -56,7 +56,40 @@
             </tr>
             <tr>
               <td> </td>
-              <td>const GLvoid * <var class="pdparam">data</var><code>)</code>;</td>
+              <td>const GLvoid * <var class="pdparam">pixels</var><code>)</code>;</td>
+            </tr>
+          </table>
+          <div class="funcprototype-spacer"> </div>
+          <table style="border: 0; cellspacing: 0; cellpadding: 0;" class="funcprototype-table">
+            <tr>
+              <td>
+                <code class="funcdef">void <strong class="fsfunc">glTextureSubImage1D</strong>(</code>
+              </td>
+              <td>GLuint <var class="pdparam">texture</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">level</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLint <var class="pdparam">xoffset</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLsizei <var class="pdparam">width</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">format</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>GLenum <var class="pdparam">type</var>, </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>const void *<var class="pdparam">pixels</var><code>)</code>;</td>
             </tr>
           </table>
           <div class="funcprototype-spacer"> </div>
@@ -75,8 +108,24 @@
             </dt>
             <dd>
               <p>
-                    Specifies the target texture.
+                    Specifies the target to which the texture is bound for
+                    <code class="function">glTexSubImage1D</code>.
                     Must be <code class="constant">GL_TEXTURE_1D</code>.
+                </p>
+            </dd>
+            <dt>
+              <span class="term">
+                <em class="parameter">
+                  <code>texture</code>
+                </em>
+              </span>
+            </dt>
+            <dd>
+              <p>
+                    Specifies the texture object name for
+                    <code class="function">glTextureSubImage1D</code>. The effective
+                    target of <em class="parameter"><code>texture</code></em> must be one of
+                    the valid <em class="parameter"><code>target</code></em> values above.
                 </p>
             </dd>
             <dt>
@@ -172,7 +221,7 @@
             <dt>
               <span class="term">
                 <em class="parameter">
-                  <code>data</code>
+                  <code>pixels</code>
                 </em>
               </span>
             </dt>
@@ -193,9 +242,10 @@
             and <a class="citerefentry" href="glDisable.xhtml"><span class="citerefentry"><span class="refentrytitle">glDisable</span></span></a> with argument <code class="constant">GL_TEXTURE_1D</code>.
         </p>
         <p>
-            <code class="function">glTexSubImage1D</code> redefines a contiguous subregion of an existing one-dimensional
-            texture image.
-            The texels referenced by <em class="parameter"><code>data</code></em> replace the portion of the
+            <code class="function">glTexSubImage1D</code> and
+            <code class="function">glTextureSubImage1D</code> redefine a contiguous
+            subregion of an existing one-dimensional texture image.
+            The texels referenced by <em class="parameter"><code>pixels</code></em> replace the portion of the
             existing texture array with x indices <em class="parameter"><code>xoffset</code></em> and
             <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
                 
@@ -216,7 +266,7 @@
         <p>
             If a non-zero named buffer object is bound to the <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target
             (see <a class="citerefentry" href="glBindBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is
-            specified, <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer object's data store.
+            specified, <em class="parameter"><code>pixels</code></em> is treated as a byte offset into the buffer object's data store.
         </p>
       </div>
       <div class="refsect1" id="notes">
@@ -225,8 +275,11 @@
             <a class="citerefentry" href="glPixelStore.xhtml"><span class="citerefentry"><span class="refentrytitle">glPixelStore</span></span></a> modes affect texture images.
         </p>
         <p>
-            <code class="function">glTexSubImage1D</code> specifies a one-dimensional subtexture for the current texture unit,
-            specified with <a class="citerefentry" href="glActiveTexture.xhtml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
+            <code class="function">glTexSubImage1D</code> and
+            <code class="function">glTextureSubImage1D</code> specify a
+            one-dimensional subtexture for the current texture unit,
+            specified with
+            <a class="citerefentry" href="glActiveTexture.xhtml"><span class="citerefentry"><span class="refentrytitle">glActiveTexture</span></span></a>.
         </p>
         <p>
             <code class="constant">GL_STENCIL_INDEX</code> is accepted for <em class="parameter"><code>format</code></em> only if the GL version
@@ -236,8 +289,16 @@
       <div class="refsect1" id="errors">
         <h2>Errors</h2>
         <p>
-            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not one of the
-            allowable values.
+            <code class="constant">GL_INVALID_ENUM</code> is generated if
+            <em class="parameter"><code>target</code></em> or the effective target of
+            <em class="parameter"><code>texture</code></em> is not one of the allowable
+            values.
+        </p>
+        <p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated by
+            <code class="function">glTextureSubImage1D</code> if
+            <em class="parameter"><code>texture</code></em> is not the name of an existing
+            texture object.
         </p>
         <p>
             <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>format</code></em> is not an accepted
@@ -348,7 +409,7 @@
         </p>
         <p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if a non-zero buffer object name is bound to the
-            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>data</code></em> is not evenly divisible
+            <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target and <em class="parameter"><code>pixels</code></em> is not evenly divisible
             into the number of bytes needed to store in memory a datum indicated by <em class="parameter"><code>type</code></em>.
         </p>
       </div>
@@ -360,6 +421,115 @@
         <p>
             <a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_PIXEL_UNPACK_BUFFER_BINDING</code>
         </p>
+      </div>
+      <div class="refsect1" id="versions">
+        <h2>Version Support</h2>
+        <div class="informaltable">
+          <table style="border-collapse: collapse; border-top: 2px solid ; border-bottom: 2px solid ; border-left: 2px solid ; border-right: 2px solid ; ">
+            <colgroup>
+              <col style="text-align: left; "/>
+              <col style="text-align: center; " class="firstvers"/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; "/>
+              <col style="text-align: center; " class="lastvers"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; ">
+                 
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; " colspan="12">
+                <span class="bold"><strong>OpenGL Version</strong></span>
+            </th>
+              </tr>
+              <tr>
+                <th style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>Function / Feature Name</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>2.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>3.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.0</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.1</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.2</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.3</strong></span>
+            </th>
+                <th style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.4</strong></span>
+            </th>
+                <th style="text-align: center; border-bottom: 2px solid ; ">
+                <span class="bold"><strong>4.5</strong></span>
+            </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; border-bottom: 2px solid ; ">
+                  <code class="function">glTexSubImage1D</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-right: 2px solid ; border-bottom: 2px solid ; ">✔</td>
+                <td style="text-align: center; border-bottom: 2px solid ; ">✔</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; border-right: 2px solid ; ">
+                  <code class="function">glTextureSubImage1D</code>
+                </td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; border-right: 2px solid ; ">-</td>
+                <td style="text-align: center; ">✔</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
@@ -383,7 +553,7 @@
         <h2>Copyright</h2>
         <p>
             Copyright <span class="trademark"/>© 1991-2006 Silicon Graphics, Inc.
-            Copyright <span class="trademark"/>© 2010-2013 Khronos Group.
+            Copyright <span class="trademark"/>© 2010-2014 Khronos Group.
             This document is licensed under the SGI Free Software B License.
             For details, see
             <a class="link" href="http://oss.sgi.com/projects/FreeB/" target="_top">http://oss.sgi.com/projects/FreeB/</a>.
