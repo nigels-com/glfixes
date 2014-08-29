@@ -32,7 +32,7 @@
               <td>
                 <code class="funcdef">void <strong class="fsfunc">glReadBuffer</strong>(</code>
               </td>
-              <td>GLenum <var class="pdparam">mode</var><code>)</code>;</td>
+              <td>GLenum <var class="pdparam">src</var><code>)</code>;</td>
             </tr>
           </table>
           <div class="funcprototype-spacer"> </div>
@@ -45,7 +45,7 @@
             <dt>
               <span class="term">
                 <em class="parameter">
-                  <code>mode</code>
+                  <code>src</code>
                 </em>
               </span>
             </dt>
@@ -68,7 +68,7 @@
             <a class="citerefentry" href="glReadPixels.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>, , <a class="citerefentry" href="glCopyTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
             <a class="citerefentry" href="glCopyTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>, and
             <a class="citerefentry" href="glCopyTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a> commands.
-            <em class="parameter"><code>mode</code></em> accepts one of the following values:
+            <em class="parameter"><code>src</code></em> accepts one of the following values:
             <code class="constant">GL_NONE</code>,
             <code class="constant">GL_BACK</code> names the back buffer of the default framebuffer, and
             <code class="constant">GL_COLOR_ATTACHMENTi</code> names a color attachment of the current framebuffer,
@@ -77,17 +77,17 @@
       <div class="refsect1" id="errors">
         <h2>Errors</h2>
         <p>
-            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>mode</code></em> is not <code class="constant">GL_BACK</code>,
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>src</code></em> is not <code class="constant">GL_BACK</code>,
                     <code class="constant">GL_NONE</code>, or <code class="constant">GL_COLOR_ATTACHMENTi</code>, where i is less than
                                         <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code>.
         </p>
         <p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if the current framebuffer is the default framebufer and
-                        <em class="parameter"><code>mode</code></em> is not <code class="constant">GL_NONE</code> or <code class="constant">GL_BACK</code>.
+                        <em class="parameter"><code>src</code></em> is not <code class="constant">GL_NONE</code> or <code class="constant">GL_BACK</code>.
         </p>
         <p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if the current framebuffer is a named framebufer and
-                        <em class="parameter"><code>mode</code></em> is not <code class="constant">GL_NONE</code> or <code class="constant">GL_COLOR_ATTACHMENTi</code>.
+                        <em class="parameter"><code>src</code></em> is not <code class="constant">GL_NONE</code> or <code class="constant">GL_COLOR_ATTACHMENTi</code>.
         </p>
       </div>
       <div class="refsect1" id="associatedgets">

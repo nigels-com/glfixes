@@ -76,7 +76,7 @@
       <div class="refsect1" id="description">
         <h2>Description</h2>
         <p>
-            <code class="function">glDebugMessageInsert</code> sets the current debug output callback function to
+            <code class="function">glDebugMessageCallback</code> sets the current debug output callback function to
             the function whose address is given in <em class="parameter"><code>callback</code></em>. The callback function
             should have the following prototype (in C), or be otherwise compatible with such a prototype:
         </p>
@@ -88,25 +88,33 @@
             const GLchar *message,
             void *userParam);</pre>
         <p>
-            This function is defined to have the same calling convention as the GL API functions. In
-            most cases this is defined as <code class="code">APIENTRY</code>, although it will vary depending
-            on platform, language and compiler.
+            This function is defined to have the same calling convention as
+            the GL API functions. In most cases this is defined as
+            <code class="code">APIENTRY</code>, although it will vary depending on
+            platform, language and compiler.
         </p>
         <p>
-            Each time a debug message is generated the debug callback function will be invoked
-            with <em class="parameter"><code>source</code></em>, <em class="parameter"><code>type</code></em>, <em class="parameter"><code>id</code></em>, and
-            <em class="parameter"><code>severity</code></em> associated with the message, and <em class="parameter"><code>length</code></em> set to
-            the length of debug message whose character string is in the array pointed to by <em class="parameter"><code>message</code></em>
-            <em class="parameter"><code>userParam</code></em> will be set to the value passed in the
-            <em class="parameter"><code>userParam</code></em> parameter to the most recent call to <code class="function">glDebugMessageInsert</code>.
+            Each time a debug message is generated the debug callback
+            function will be invoked with <em class="parameter"><code>source</code></em>,
+            <em class="parameter"><code>type</code></em>, <em class="parameter"><code>id</code></em>, and
+            <em class="parameter"><code>severity</code></em> associated with the message, and
+            <em class="parameter"><code>length</code></em> set to the length of debug message
+            whose character string is in the array pointed to by
+            <em class="parameter"><code>message</code></em> <em class="parameter"><code>userParam</code></em>
+            will be set to the value passed in the
+            <em class="parameter"><code>userParam</code></em> parameter to the most recent
+            call to <code class="function">glDebugMessageCallback</code>.
         </p>
       </div>
       <div class="refsect1" id="notes">
         <h2>Notes</h2>
         <p>
-            When the GL is in use remotely, the server may not be able to call functions in the client's address space.
-            In such cases, the callback function may not be invoked and the user should retrieve debug messages from
-            the context's debug message log by calling <a class="citerefentry" href="glGetDebugMessageLog.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetDebugMessageLog</span></span></a>.
+            When the GL is in use remotely, the server may not be able to
+            call functions in the client's address space. In such cases, the
+            callback function may not be invoked and the user should
+            retrieve debug messages from the context's debug message log by
+            calling
+            <a class="citerefentry" href="glGetDebugMessageLog.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetDebugMessageLog</span></span></a>.
         </p>
       </div>
       <div class="refsect1" id="versions">
