@@ -175,6 +175,7 @@
         <enum value="((EGLContext)0)" name="EGL_NO_CONTEXT"/>
         <enum value="((EGLDeviceEXT)(0))" name="EGL_NO_DEVICE_EXT"/>
         <enum value="((EGLDisplay)0)" name="EGL_NO_DISPLAY"/>
+        <enum value="((EGLImage)0)" name="EGL_NO_IMAGE"/>
         <enum value="((EGLImageKHR)0)" name="EGL_NO_IMAGE_KHR"/>
         <enum value="((EGLNativeDisplayType)0)" name="EGL_DEFAULT_DISPLAY"/>
         <enum value="((EGLNativeFileDescriptorKHR)(-1))" name="EGL_NO_FILE_DESCRIPTOR_KHR"/>
@@ -372,6 +373,7 @@
 
     <enums namespace="EGL" start="0x30D0" end="0x30DF" vendor="Symbian" comment="Reserved for Robert Palmer (bug #2545)">
             <unused start="0x30D0" end="0x30D1"/>
+        <enum value="0x30D2" name="EGL_IMAGE_PRESERVED"/>
         <enum value="0x30D2" name="EGL_IMAGE_PRESERVED_KHR"/>
             <unused start="0x30D3" end="0x30D9"/>
         <enum value="0x30DA" name="EGL_SHARED_IMAGE_NOK" comment="Unreleased extension"/>
@@ -622,7 +624,9 @@
     </enums>
 
     <enums namespace="EGL" start="0x32A0" end="0x32AF" vendor="Samsung" comment="Reserved for Dongyeon Kim (Public bug 880)">
-            <unused start="0x32A0" end="0x32AF"/>
+        <enum value="0x32A0" name="EGL_NATIVE_BUFFER_TIZEN"/>
+        <enum value="0x32A1" name="EGL_NATIVE_SURFACE_TIZEN"/>
+            <unused start="0x32A2" end="0x32AF"/>
     </enums>
 
     <enums namespace="EGL" start="0x32B0" end="0x32BF" vendor="QCOM" comment="Reserved for Jeff Vigil (Bug 10663) - EGL_QCOM_lock_image spec TBD">
@@ -726,12 +730,21 @@
             <param>const <ptype>EGLint</ptype> *<name>attrib_list</name></param>
         </command>
         <command>
+            <proto><ptype>EGLImage</ptype> <name>eglCreateImage</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLContext</ptype> <name>ctx</name></param>
+            <param><ptype>EGLenum</ptype> <name>target</name></param>
+            <param><ptype>EGLClientBuffer</ptype> <name>buffer</name></param>
+            <param>const <ptype>EGLint</ptype> *<name>attrib_list</name></param>
+        </command>
+        <command>
             <proto><ptype>EGLImageKHR</ptype> <name>eglCreateImageKHR</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLContext</ptype> <name>ctx</name></param>
             <param><ptype>EGLenum</ptype> <name>target</name></param>
             <param><ptype>EGLClientBuffer</ptype> <name>buffer</name></param>
             <param>const <ptype>EGLint</ptype> *<name>attrib_list</name></param>
+            <alias name="eglCreateImage"/>
         </command>
         <command>
             <proto><ptype>EGLSurface</ptype> <name>eglCreatePbufferFromClientBuffer</name></proto>
@@ -844,9 +857,15 @@
             <param><ptype>EGLContext</ptype> <name>ctx</name></param>
         </command>
         <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglDestroyImage</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLImage</ptype> <name>image</name></param>
+        </command>
+        <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglDestroyImageKHR</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLImageKHR</ptype> <name>image</name></param>
+            <alias name="eglDestroyImage"/>
         </command>
         <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglDestroyStreamKHR</name></proto>
@@ -1458,6 +1477,12 @@
             <enum name="EGL_GL_TEXTURE_CUBE_MAP_POSITIVE_Z"/>
             <enum name="EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Z"/>
         </require>
+        <require comment="EGL_KHR_image_base">
+            <enum name="EGL_IMAGE_PRESERVED"/>
+            <enum name="EGL_NO_IMAGE"/>
+            <command name="eglCreateImage"/>
+            <command name="eglDestroyImage"/>
+        </require>
         <require comment="EGL_EXT_platform_base">
             <command name="eglGetPlatformDisplay"/>
             <command name="eglCreatePlatformWindowSurface"/>
@@ -2022,6 +2047,16 @@
             <require>
                 <command name="eglGetSystemTimeFrequencyNV"/>
                 <command name="eglGetSystemTimeNV"/>
+            </require>
+        </extension>
+        <extension name="EGL_TIZEN_image_native_buffer" supported="egl">
+            <require>
+                <enum name="EGL_NATIVE_BUFFER_TIZEN"/>
+            </require>
+        </extension>
+        <extension name="EGL_TIZEN_image_native_surface" supported="egl">
+            <require>
+                <enum name="EGL_NATIVE_SURFACE_TIZEN"/>
             </require>
         </extension>
     </extensions>

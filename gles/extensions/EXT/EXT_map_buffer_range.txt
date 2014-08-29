@@ -21,8 +21,8 @@ Status
 
 Version
 
-    Last Modified Date: June 21, 2012
-    Author Revision: 3
+    Last Modified Date: August 21, 2014
+    Author Revision: 4
 
 Number
 
@@ -32,7 +32,7 @@ Dependencies
 
     OpenGL ES 1.1 or OpenGL ES 2.0 is required.
     
-    OES_map_buffer is required.
+    OES_mapbuffer is required.
 
     This specification is written against the OpenGL ES 2.0.25 specification.
 
@@ -299,6 +299,7 @@ Usage Examples
 
 Revision History
 
+    Version 4, 2014/08/21 - Fix typo OES_map_buffer -> OES_mapbuffer.
     Version 3, 2012/06/21 - Recast from APPLE to multivendor EXT
     Version 2, 2012/06/18 - Correct spec to indicate ES 1.1 may also be okay.
     Version 1, 2012/06/01 - Conversion from ARB_map_buffer_range to 

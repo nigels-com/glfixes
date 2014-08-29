@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 27652 $ on $Date: 2014-08-08 15:34:23 -0700 (Fri, 08 Aug 2014) $
+** Khronos $Revision$ on $Date$
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20140808
+#define EGL_EGLEXT_VERSION 20140820
 
 /* Generated C header for:
  * API: egl
@@ -726,6 +726,16 @@ EGLAPI EGLuint64NV EGLAPIENTRY eglGetSystemTimeNV (void);
 #endif
 #endif /* KHRONOS_SUPPORT_INT64 */
 #endif /* EGL_NV_system_time */
+
+#ifndef EGL_TIZEN_image_native_buffer
+#define EGL_TIZEN_image_native_buffer 1
+#define EGL_NATIVE_BUFFER_TIZEN           0x32A0
+#endif /* EGL_TIZEN_image_native_buffer */
+
+#ifndef EGL_TIZEN_image_native_surface
+#define EGL_TIZEN_image_native_surface 1
+#define EGL_NATIVE_SURFACE_TIZEN          0x32A1
+#endif /* EGL_TIZEN_image_native_surface */
 
 #ifdef __cplusplus
 }
