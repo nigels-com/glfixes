@@ -54,23 +54,25 @@
         <type>typedef unsigned int <name>EGLenum</name>;</type>
         <type requires="khrplatform">typedef intptr_t <name>EGLAttribKHR</name>;</type>
         <type requires="khrplatform">typedef intptr_t <name>EGLAttrib</name>;</type>
+        <type>typedef void *<name>EGLClientBuffer</name>;</type>
         <type>typedef void *<name>EGLConfig</name>;</type>
         <type>typedef void *<name>EGLContext</name>;</type>
         <type>typedef void *<name>EGLDeviceEXT</name>;</type>
         <type>typedef void *<name>EGLDisplay</name>;</type>
-        <type>typedef void *<name>EGLSurface</name>;</type>
-        <type>typedef void *<name>EGLClientBuffer</name>;</type>
-        <type>typedef void (*<name>__eglMustCastToProperFunctionPointerType</name>)(void);</type>
-        <type>typedef void *<name>EGLImageKHR</name>;</type>
         <type>typedef void *<name>EGLImage</name>;</type>
-        <type>typedef void *<name>EGLSyncKHR</name>;</type>
+        <type>typedef void *<name>EGLImageKHR</name>;</type>
+        <type>typedef void *<name>EGLOutputLayerEXT</name>;</type>
+        <type>typedef void *<name>EGLOutputPortEXT</name>;</type>
+        <type>typedef void *<name>EGLStreamKHR</name>;</type>
+        <type>typedef void *<name>EGLSurface</name>;</type>
         <type>typedef void *<name>EGLSync</name>;</type>
+        <type>typedef void *<name>EGLSyncKHR</name>;</type>
+        <type>typedef void *<name>EGLSyncNV</name>;</type>
+        <type>typedef void (*<name>__eglMustCastToProperFunctionPointerType</name>)(void);</type>
         <type requires="khrplatform">typedef khronos_utime_nanoseconds_t <name>EGLTimeKHR</name>;</type>
         <type requires="khrplatform">typedef khronos_utime_nanoseconds_t <name>EGLTime</name>;</type>
-        <type>typedef void *<name>EGLSyncNV</name>;</type>
         <type requires="khrplatform">typedef khronos_utime_nanoseconds_t <name>EGLTimeNV</name>;</type>
         <type requires="khrplatform">typedef khronos_utime_nanoseconds_t <name>EGLuint64NV</name>;</type>
-        <type>typedef void *<name>EGLStreamKHR</name>;</type>
         <type requires="khrplatform">typedef khronos_uint64_t <name>EGLuint64KHR</name>;</type>
         <type>typedef int <name>EGLNativeFileDescriptorKHR</name>;</type>
         <type requires="khrplatform">typedef khronos_ssize_t <name>EGLsizeiANDROID</name>;</type>
@@ -179,6 +181,8 @@
         <enum value="((EGLImageKHR)0)" name="EGL_NO_IMAGE_KHR"/>
         <enum value="((EGLNativeDisplayType)0)" name="EGL_DEFAULT_DISPLAY"/>
         <enum value="((EGLNativeFileDescriptorKHR)(-1))" name="EGL_NO_FILE_DESCRIPTOR_KHR"/>
+        <enum value="((EGLOutputLayerEXT)0)" name="EGL_NO_OUTPUT_LAYER_EXT"/>                 
+        <enum value="((EGLOutputPortEXT)0)" name="EGL_NO_OUTPUT_PORT_EXT"/>                  
         <enum value="((EGLStreamKHR)0)" name="EGL_NO_STREAM_KHR"/>
         <enum value="((EGLSurface)0)" name="EGL_NO_SURFACE"/>
         <enum value="((EGLSync)0)" name="EGL_NO_SYNC"/>
@@ -580,7 +584,17 @@
             <unused start="0x3220" end="0x322A"/>
         <enum value="0x322B" name="EGL_BAD_DEVICE_EXT"/>
         <enum value="0x322C" name="EGL_DEVICE_EXT"/>
-            <unused start="0x322D" end="0x3239"/>
+        <enum value="0x322D" name="EGL_BAD_OUTPUT_LAYER_EXT"/>                
+        <enum value="0x322E" name="EGL_BAD_OUTPUT_PORT_EXT"/>                 
+        <enum value="0x322F" name="EGL_SWAP_INTERVAL_EXT"/>                   
+            <unused start="0x3230" end="0x3232"/>
+        <enum value="0x3233" name="EGL_DRM_DEVICE_FILE_EXT"/>                 
+        <enum value="0x3234" name="EGL_DRM_CRTC_EXT"/>                        
+        <enum value="0x3235" name="EGL_DRM_PLANE_EXT"/>                       
+        <enum value="0x3236" name="EGL_DRM_CONNECTOR_EXT"/>                   
+        <enum value="0x3237" name="EGL_OPENWF_DEVICE_ID_EXT"/>                
+        <enum value="0x3238" name="EGL_OPENWF_PIPELINE_ID_EXT"/>              
+        <enum value="0x3239" name="EGL_OPENWF_PORT_ID_EXT"/>                  
         <enum value="0x323A" name="EGL_CUDA_DEVICE_NV"/>
         <enum value="0x323B" name="EGL_CUDA_EVENT_HANDLE_NV"/>
         <enum value="0x323C" name="EGL_SYNC_CUDA_EVENT_NV"/>
@@ -941,6 +955,22 @@
             <proto><ptype>EGLint</ptype> <name>eglGetError</name></proto>
         </command>
         <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglGetOutputLayersEXT</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param>const <ptype>EGLAttrib</ptype> *<name>attrib_list</name></param>
+            <param><ptype>EGLOutputLayerEXT</ptype> *<name>layers</name></param>
+            <param><ptype>EGLint</ptype> <name>max_layers</name></param>
+            <param><ptype>EGLint</ptype> *<name>num_layers</name></param>
+        </command>
+        <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglGetOutputPortsEXT</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param>const <ptype>EGLAttrib</ptype> *<name>attrib_list</name></param>
+            <param><ptype>EGLOutputPortEXT</ptype> *<name>ports</name></param>
+            <param><ptype>EGLint</ptype> <name>max_ports</name></param>
+            <param><ptype>EGLint</ptype> *<name>num_ports</name></param>
+        </command>
+        <command>
             <proto><ptype>EGLDisplay</ptype> <name>eglGetPlatformDisplay</name></proto>
             <param><ptype>EGLenum</ptype> <name>platform</name></param>
             <param>void *<name>native_display</name></param>
@@ -1007,6 +1037,20 @@
             <param><ptype>EGLContext</ptype> <name>ctx</name></param>
         </command>
         <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglOutputLayerAttribEXT</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLOutputLayerEXT</ptype> <name>layer</name></param>
+            <param><ptype>EGLint</ptype> <name>attribute</name></param>
+            <param><ptype>EGLAttrib</ptype> <name>value</name></param>
+        </command>
+        <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglOutputPortAttribEXT</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLOutputPortEXT</ptype> <name>port</name></param>
+            <param><ptype>EGLint</ptype> <name>attribute</name></param>
+            <param><ptype>EGLAttrib</ptype> <name>value</name></param>
+        </command>
+        <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglPostSubBufferNV</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLSurface</ptype> <name>surface</name></param>
@@ -1064,6 +1108,32 @@
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLSurface</ptype> <name>surf</name></param>
             <param><ptype>EGLNativeWindowType</ptype> *<name>window</name></param>
+        </command>
+        <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglQueryOutputLayerAttribEXT</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLOutputLayerEXT</ptype> <name>layer</name></param>
+            <param><ptype>EGLint</ptype> <name>attribute</name></param>
+            <param><ptype>EGLAttrib</ptype> *<name>value</name></param>
+        </command>
+        <command>
+            <proto>const char *<name>eglQueryOutputLayerStringEXT</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLOutputLayerEXT</ptype> <name>layer</name></param>
+            <param><ptype>EGLint</ptype> <name>name</name></param>
+        </command>
+        <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglQueryOutputPortAttribEXT</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLOutputPortEXT</ptype> <name>port</name></param>
+            <param><ptype>EGLint</ptype> <name>attribute</name></param>
+            <param><ptype>EGLAttrib</ptype> *<name>value</name></param>
+        </command>
+        <command>
+            <proto>const char *<name>eglQueryOutputPortStringEXT</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLOutputPortEXT</ptype> <name>port</name></param>
+            <param><ptype>EGLint</ptype> <name>name</name></param>
         </command>
         <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglQueryStreamKHR</name></proto>
@@ -1154,6 +1224,12 @@
             <proto><ptype>EGLBoolean</ptype> <name>eglStreamConsumerGLTextureExternalKHR</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
+        </command>
+        <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglStreamConsumerOutputEXT</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
+            <param><ptype>EGLOutputLayerEXT</ptype> <name>layer</name></param>
         </command>
         <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglStreamConsumerReleaseKHR</name></proto>
@@ -1570,6 +1646,16 @@
                 <command name="eglQueryDisplayAttribEXT"/>
             </require>
         </extension>
+        <extension name="EGL_EXT_device_drm" supported="egl">
+            <require>
+                <enum name="EGL_DRM_DEVICE_FILE_EXT"/>
+            </require>
+        </extension>
+        <extension name="EGL_EXT_device_openwf" supported="egl">
+            <require>
+                <enum name="EGL_OPENWF_DEVICE_ID_EXT"/>
+            </require>
+        </extension>
         <extension name="EGL_EXT_image_dma_buf_import" supported="egl">
             <require>
                 <enum name="EGL_LINUX_DMA_BUF_EXT"/>
@@ -1601,6 +1687,38 @@
                 <enum name="EGL_MULTIVIEW_VIEW_COUNT_EXT"/>
             </require>
         </extension>
+        <extension name="EGL_EXT_output_base" supported="egl">
+            <require>
+                <type name="EGLOutputLayerEXT"/>
+                <type name="EGLOutputPortEXT"/>
+                <enum name="EGL_NO_OUTPUT_LAYER_EXT"/>
+                <enum name="EGL_NO_OUTPUT_PORT_EXT"/>
+                <enum name="EGL_BAD_OUTPUT_LAYER_EXT"/>
+                <enum name="EGL_BAD_OUTPUT_PORT_EXT"/>
+                <enum name="EGL_SWAP_INTERVAL_EXT"/>
+                <command name="eglGetOutputLayersEXT"/>
+                <command name="eglGetOutputPortsEXT"/>
+                <command name="eglOutputLayerAttribEXT"/>
+                <command name="eglQueryOutputLayerAttribEXT"/>
+                <command name="eglQueryOutputLayerStringEXT"/>
+                <command name="eglOutputPortAttribEXT"/>
+                <command name="eglQueryOutputPortAttribEXT"/>
+                <command name="eglQueryOutputPortStringEXT"/>
+            </require>
+        </extension>
+        <extension name="EGL_EXT_output_drm" supported="egl">
+            <require>
+                <enum name="EGL_DRM_CRTC_EXT"/>
+                <enum name="EGL_DRM_PLANE_EXT"/>
+                <enum name="EGL_DRM_CONNECTOR_EXT"/>
+            </require>
+        </extension>
+        <extension name="EGL_EXT_output_openwf" supported="egl">
+            <require>
+                <enum name="EGL_OPENWF_PIPELINE_ID_EXT"/>
+                <enum name="EGL_OPENWF_PORT_ID_EXT"/>
+            </require>
+        </extension>
         <extension name="EGL_EXT_platform_base" supported="egl">
             <require>
                 <command name="eglGetPlatformDisplayEXT"/>
@@ -1627,6 +1745,11 @@
         <extension name="EGL_EXT_protected_surface" supported="egl">
             <require>
                 <enum name="EGL_PROTECTED_CONTENT_EXT"/>
+            </require>
+        </extension>
+        <extension name="EGL_EXT_stream_consumer_egloutput" supported="egl">
+            <require>
+                <command name="eglStreamConsumerOutputEXT"/>
             </require>
         </extension>
         <extension name="EGL_EXT_swap_buffers_with_damage" supported="egl">

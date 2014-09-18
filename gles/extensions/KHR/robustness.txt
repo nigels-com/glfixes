@@ -31,7 +31,7 @@ Status
 
 Version
 
-    Version 10, June 26, 2014
+    Version 11, August 21, 2014
 
 Number
 
@@ -67,7 +67,7 @@ Overview
     software failures.  System software failures can be due to device
     changes or driver failures.
 
-    GL queries that that return (write) some number of bytes to a
+    GL queries that return (write) some number of bytes to a
     buffer indicated by a pointer parameter introduce risk of buffer
     overflows that might be exploitable by malware. To address this,
     queries with return value sizes that are not expressed directly by
@@ -570,6 +570,7 @@ Revision History
 
     Rev.    Date       Author     Changes
     ----  ------------ ---------  ------------------------------------------
+     11   2014/08/21   Jon Leech  Fix typo.
      10   2014/06/26   Jon Leech  Change from OES to KHR. Update issues 1
                                   and 9; add issue 12 on ES / GL
                                   differences.
