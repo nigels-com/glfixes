@@ -31,7 +31,7 @@ Status
 
 Version
 
-    Version 3, 2013/12/04
+    Version 4, 2014/09/17 
 
 Number
 
@@ -88,7 +88,7 @@ New Procedures and Functions
                                  const EGLint *attrib_list);
     EGLBoolean eglUnlockSurfaceKHR(EGLDisplay dpy,
                                    EGLSurface surface);
-    EGLSyncKHR eglQuerySurface64KHR(EGLDisplay dpy,
+    EGLBoolean eglQuerySurface64KHR(EGLDisplay dpy,
                                     EGLSurface surface,
                                     EGLint attribute,
                                     EGLAttribKHR *value);
@@ -664,6 +664,9 @@ Issues
     that executing such code on a 64-bit platform will probably fail.
 
 Revision History
+
+    Version 4, 2014/09/17 (Jon Leech) - Fix bogus return type for
+    eglQuerySurface64KHR in New Functions section.
 
     Version 3, 20130/12/04 (Jon Leech) - Minor cleanup for public release.
     Change formal parameter names from 'display' to 'dpy' to match other EGL

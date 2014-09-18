@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 27775 $ on $Date: 2014-08-20 09:25:35 -0700 (Wed, 20 Aug 2014) $
+** Khronos $Revision: 28161 $ on $Date: 2014-09-16 06:41:18 -0700 (Tue, 16 Sep 2014) $
 */
 
 #if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
@@ -53,7 +53,7 @@ extern "C" {
 #define GLAPI extern
 #endif
 
-#define GL_GLEXT_VERSION 20140820
+#define GL_GLEXT_VERSION 20140916
 
 /* Generated C header for:
  * API: gl
@@ -4065,13 +4065,13 @@ GLAPI void APIENTRY glGetNamedStringivARB (GLint namelen, const GLchar *name, GL
 #define GL_ARB_sparse_buffer 1
 #define GL_SPARSE_STORAGE_BIT_ARB         0x0400
 #define GL_SPARSE_BUFFER_PAGE_SIZE_ARB    0x82F8
-typedef void (APIENTRYP PFNGLBUFFERPAGECOMMITMENTARBPROC) (GLenum target, GLintptr offset, GLsizei size, GLboolean commit);
-typedef void (APIENTRYP PFNGLNAMEDBUFFERPAGECOMMITMENTEXTPROC) (GLuint buffer, GLintptr offset, GLsizei size, GLboolean commit);
-typedef void (APIENTRYP PFNGLNAMEDBUFFERPAGECOMMITMENTARBPROC) (GLuint buffer, GLintptr offset, GLsizei size, GLboolean commit);
+typedef void (APIENTRYP PFNGLBUFFERPAGECOMMITMENTARBPROC) (GLenum target, GLintptr offset, GLsizeiptr size, GLboolean commit);
+typedef void (APIENTRYP PFNGLNAMEDBUFFERPAGECOMMITMENTEXTPROC) (GLuint buffer, GLintptr offset, GLsizeiptr size, GLboolean commit);
+typedef void (APIENTRYP PFNGLNAMEDBUFFERPAGECOMMITMENTARBPROC) (GLuint buffer, GLintptr offset, GLsizeiptr size, GLboolean commit);
 #ifdef GL_GLEXT_PROTOTYPES
-GLAPI void APIENTRY glBufferPageCommitmentARB (GLenum target, GLintptr offset, GLsizei size, GLboolean commit);
-GLAPI void APIENTRY glNamedBufferPageCommitmentEXT (GLuint buffer, GLintptr offset, GLsizei size, GLboolean commit);
-GLAPI void APIENTRY glNamedBufferPageCommitmentARB (GLuint buffer, GLintptr offset, GLsizei size, GLboolean commit);
+GLAPI void APIENTRY glBufferPageCommitmentARB (GLenum target, GLintptr offset, GLsizeiptr size, GLboolean commit);
+GLAPI void APIENTRY glNamedBufferPageCommitmentEXT (GLuint buffer, GLintptr offset, GLsizeiptr size, GLboolean commit);
+GLAPI void APIENTRY glNamedBufferPageCommitmentARB (GLuint buffer, GLintptr offset, GLsizeiptr size, GLboolean commit);
 #endif
 #endif /* GL_ARB_sparse_buffer */
 
@@ -4079,7 +4079,7 @@ GLAPI void APIENTRY glNamedBufferPageCommitmentARB (GLuint buffer, GLintptr offs
 #define GL_ARB_sparse_texture 1
 #define GL_TEXTURE_SPARSE_ARB             0x91A6
 #define GL_VIRTUAL_PAGE_SIZE_INDEX_ARB    0x91A7
-#define GL_MIN_SPARSE_LEVEL_ARB           0x919B
+#define GL_NUM_SPARSE_LEVELS_ARB          0x91AA
 #define GL_NUM_VIRTUAL_PAGE_SIZES_ARB     0x91A8
 #define GL_VIRTUAL_PAGE_SIZE_X_ARB        0x9195
 #define GL_VIRTUAL_PAGE_SIZE_Y_ARB        0x9196
@@ -7485,6 +7485,15 @@ GLAPI void APIENTRY glPolygonOffsetEXT (GLfloat factor, GLfloat bias);
 #endif
 #endif /* GL_EXT_polygon_offset */
 
+#ifndef GL_EXT_polygon_offset_clamp
+#define GL_EXT_polygon_offset_clamp 1
+#define GL_POLYGON_OFFSET_CLAMP_EXT       0x8E1B
+typedef void (APIENTRYP PFNGLPOLYGONOFFSETCLAMPEXTPROC) (GLfloat factor, GLfloat units, GLfloat clamp);
+#ifdef GL_GLEXT_PROTOTYPES
+GLAPI void APIENTRY glPolygonOffsetClampEXT (GLfloat factor, GLfloat units, GLfloat clamp);
+#endif
+#endif /* GL_EXT_polygon_offset_clamp */
+
 #ifndef GL_EXT_provoking_vertex
 #define GL_EXT_provoking_vertex 1
 #define GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT 0x8E4C
@@ -10175,6 +10184,13 @@ GLAPI void APIENTRY glResumeTransformFeedbackNV (void);
 GLAPI void APIENTRY glDrawTransformFeedbackNV (GLenum mode, GLuint id);
 #endif
 #endif /* GL_NV_transform_feedback2 */
+
+#ifndef GL_NV_uniform_buffer_unified_memory
+#define GL_NV_uniform_buffer_unified_memory 1
+#define GL_UNIFORM_BUFFER_UNIFIED_NV      0x936E
+#define GL_UNIFORM_BUFFER_ADDRESS_NV      0x936F
+#define GL_UNIFORM_BUFFER_LENGTH_NV       0x9370
+#endif /* GL_NV_uniform_buffer_unified_memory */
 
 #ifndef GL_NV_vdpau_interop
 #define GL_NV_vdpau_interop 1

@@ -38,7 +38,7 @@ Status
 
 Version
 
-    Version 7, June 12, 2013
+    Version 8, August 27, 2014
 
 Number
 
@@ -219,9 +219,7 @@ Additions to Chapter 2 of the EGL 1.2 Specification (EGL Operation)
     This command returns an EGLImageKHR object corresponding to the image
     data specified by <dpy>, <ctx>, <target>, <buffer> and <attrib_list> which
     may be referenced by client API operations, or EGL_NO_IMAGE_KHR in the
-    event of an error. If <attrib_list> contains attributes from table
-    bbb which are not applicable to the buffer specified by <target>,
-    then such attributes are ignored.
+    event of an error.
 
     If the value of attribute EGL_IMAGE_PRESERVED_KHR is EGL_FALSE (the
     default), then all pixel data values associated with <buffer> will be
@@ -721,6 +719,10 @@ Issues
 
 
 Revision History
+
+#8  (Jon Leech, August 27, 2014)
+    - Remove leftover comment saying that inapplicable attributes are
+      ignored (Bug 12585).
 
 #7  (Jon Leech, June 12, 2013)
     - Add a column to table bbb specifying which <target>s attributes are
