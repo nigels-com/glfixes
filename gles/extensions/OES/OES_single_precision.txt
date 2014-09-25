@@ -22,8 +22,7 @@ Status
 
 Version
 
-    Last Modifed Date: April 22, 2007
-    Author Revision : 0.6
+    Version 1, September 18, 2014
 
 Number
 
@@ -65,7 +64,7 @@ New Procedures and Functions
     void ClipPlanefOES(enum plane, const float* equation);
     void GetClipPlanefOES(enum plane, float* equation);
 
-    void glClearDepthfOES(clampd depth);
+    void glClearDepthfOES(clampf depth);
 
 New Tokens
 
@@ -234,3 +233,6 @@ Revision History
 
     04/22/2007    0.6
         - Fixed 'void void' typo (Jon Leech)
+
+    09/18/2014    1
+        - Fixed 'clampd' type to 'clampf' in ClearDepthfOES (Bug 12656).

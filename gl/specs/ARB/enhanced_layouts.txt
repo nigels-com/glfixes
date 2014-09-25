@@ -1905,6 +1905,6 @@ Revision History
         section. Described inheritance for xfb_bufferwithout referring to stream.
       - A few minor editorial corrections.
     Revision 27, June 13, 2014 (Jon Leech)
-      - Remove GetProgramResource* as commands accepting the
+      - Remove GetProgramResourceLocation* as commands accepting the
         TRANSFORM_FEEDBACK_BUFFER interface from the New Tokens section (Bug
         10588).

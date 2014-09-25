@@ -461,6 +461,7 @@ OpenGL Rendering Opcodes (16 Bits)
       4220	    EXT_stencil_two_side
       4221    4222  NV_point_sprite
       4223	    EXT_stencil_clear_tag
+      4225	    EXT_polygon_offset_clamp
       4228	    EXT_blend_equation_separate
       4229	    EXT_depth_bounds_test
       4230    4239  ARB_vertex_program

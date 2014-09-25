@@ -21,7 +21,7 @@ Contributors
 
 Notice
 
-    Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
+    Copyright (c) 2012-2014 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
 Status
@@ -31,8 +31,8 @@ Status
 
 Version
 
-    Last Modified Date:         September 23, 2013
-    Revision:                   15
+    Last Modified Date:         April 28, 2014
+    Revision:                   16
 
 Number
 
@@ -318,7 +318,7 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
     All active shaders combined cannot use more than the value of
     MAX_COMBINED_SHADER_STORAGE_BLOCKS shader storage blocks. If more than one
     pipeline stage accesses the same shader storage block, each such access
-    separately against this combined limit.
+    counts separately against this combined limit.
 
 
     (add to the list of bullets in the "Validation" section on p. 153)
@@ -1584,6 +1584,9 @@ Issues
 
 
 Revision History
+
+    Revision 16, April 28, 2014 (pbrown)
+      - Fix typo in description of MAX_COMBINED_SHADER_STORAGE_BLOCKS.
 
     Revision 15, September 23, 2013 (Jon Leech)
       - Fix typo ShaderStorageBinding -> ShaderStorageBlockBinding in the

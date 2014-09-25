@@ -10,6 +10,13 @@ Contact
 
     Mark J. Kilgard, NVIDIA Corporation (mjk 'at' nvidia.com)
 
+Contributors
+
+    Pat Brown
+    Erik Lindholm
+    Steve Glanville
+    Erik Faye-Lund
+
 Notice
 
     Copyright NVIDIA Corporation, 2001, 2002.
@@ -24,8 +31,8 @@ Status
 
 Version
 
-    NVIDIA Date: September 3, 2002
-    Version:     7
+    NVIDIA Date: March 4, 2014
+    Version:     8
 
 Number
 
@@ -213,14 +220,14 @@ a scalar output replicated across a 4-component vector.
           u.x = 1.0f / t.x;
         }
         if (Positive(u.x)) {
-          if (u.x > 1.884467e+019) {
-            u.x = 1.884467e+019;   // the IEEE 32-bit binary value 0x5F800000
+          if (u.x > 1.84467e+019) {
+            u.x = 1.84467e+019;   // the IEEE 32-bit binary value 0x5F800000
           } else if (u.x < 5.42101e-020) {
             u.x = 5.42101e-020;    // the IEEE 32-bit bindary value 0x1F800000
           }
         } else {
-          if (u.x < -1.884467e+019) {
-            u.x = -1.884467e+019;  // the IEEE 32-bit binary value 0xDF800000
+          if (u.x < -1.84467e+019) {
+            u.x = -1.84467e+019;  // the IEEE 32-bit binary value 0xDF800000
           } else if (u.x > -5.42101e-020) {
             u.x = -5.42101e-020;   // the IEEE 32-bit binary value 0x9F800000
           }
@@ -428,3 +435,8 @@ New State
 
     None
 
+Revision History
+
+    Rev.    Date    Author     Changes
+    ----  -------- ---------  ----------------------------------------
+      8   03/04/14 mjk        RCC decimal value corrections

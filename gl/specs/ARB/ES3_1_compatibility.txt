@@ -29,8 +29,8 @@ Status
 
 Version
 
-    Last Modified Date:         May 8, 2014
-    Revision:                   13
+    Last Modified Date:         September 19, 2014
+    Revision:                   15
 
 Number
 
@@ -162,7 +162,17 @@ Specification (Programs and Shaders)
 Additions to Chapter 9 of the OpenGL 4.4 (Compatibility Profile)
 Specification (Framebuffers and Framebuffer Objects)
 
-    Modify the fist paragraph of Section 9.4.5 (Effects of
+    Modify Section 9.2.3 (Framebuffer Object Queries) in the second
+    paragraph describing GetFramebufferAttachmentParameteriv to add BACK as
+    a valid <attachment>:
+
+    "If the default framebuffer is bound to <target>, then <attachment> must
+    be one of FRONT_LEFT, FRONT_RIGHT, BACK, BACK_LEFT, or BACK_RIGHT,
+    identifying a color buffer; ... identifying the stencil buffer. Since
+    this command can only query a single framebuffer attachment, BACK is
+    equivalent to BACK_LEFT."
+
+    Modify the first paragraph of Section 9.4.5 (Effects of
     Framebuffer State on Framebuffer Dependent Values)
     
     "The values of the state variables listed in table 23.85 may change when
@@ -572,6 +582,12 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------------
+    15    09/19/14  Jon Leech Remove FRONT as valid <attachment>.    
+
+    14    09/18/14  Jon Leech Add FRONT and BACK as valid <attachment>s for 
+                              GetFramebufferAttachmentParameteriv (Bug
+                              12695).
+
     13    05/08/14  pdaniell  Allow precision qualifiers to be used with any
                               opaque type, and not just samplers.
 

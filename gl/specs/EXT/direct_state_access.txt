@@ -30,6 +30,7 @@ Contributors
     Nigel Stewart, NVIDIA
     Jason McKesson
     Graham Sellers, AMD
+    Vladimir Vukicevic, Mozilla
 
 Contact
 
@@ -44,8 +45,8 @@ Status
 
 Version
 
-    Last Modified Date:         10/22/2013
-    Author revision:            38
+    Last Modified Date:         02/24/2014
+    Author revision:            39
     Version                     1.2
 
     (version 1.0 lacked OpenGL 3.0 support)
@@ -3025,7 +3026,7 @@ NVIDIA Implementation Details
     can be rewritten as:
 
       GLenum pvalue = value;
-      glMultiTexGenivEXT(texUnit, coord, pname, pvalue);
+      glMultiTexGenivEXT(texUnit, coord, pname, &pvalue);
 
     NVIDIA drivers prior to 330.00 (August 2013) do not support
     the glEnableVertexArrayEXT and glDisableVertexArrayEXT with the
@@ -4290,3 +4291,4 @@ Revision History
      37   07/29/13  mjk       document NVIDIA driver bugs
      38   10/22/13  mjk       add Matrix*Transpose*EXT routines missing
                               from section 2.12.2 list
+     39   02/24/15  mjk       add & operator to glMultiTexGenivEXT in NV Impl.

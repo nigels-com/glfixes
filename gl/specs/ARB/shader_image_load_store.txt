@@ -24,7 +24,7 @@ Contributors
 
 Notice
 
-    Copyright (c) 2011-2013 The Khronos Group Inc. Copyright terms at
+    Copyright (c) 2011-2014 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
 Status
@@ -34,8 +34,8 @@ Status
 
 Version
 
-    Last Modified Date:         June 10, 2014
-    Revision:                   34
+    Last Modified Date:         September 11, 2014
+    Revision:                   35
 
 Number
 
@@ -1949,9 +1949,11 @@ Issues
         on the amount of state, the number of active samplers in each shader
         stage, and the sum of the active sampler counts in each stage.
 
-      RESOLVED:  No.  It was considered sufficient to have just a limit on the
-      total number of image units in the implementation (i.e., the number of
-      distinct values that the variable can be set to).
+      RESOLVED:  Yes, we provide a similar set of limits.  MAX_IMAGE_UNITS
+      specifies the number of image bindings.  MAX_{VERTEX,...}_IMAGE_UNIFORMS
+      specifies the maximum number of active image uniforms in each shader
+      stage.  MAX_COMBINED_IMAGE_UNIFORMS specifies a limit on the sum of the
+      number of active image uniforms in all stages of a program.
 
     (10) Can this extension be used to load and store values into a buffer
          object?  Into a renderbuffer?
@@ -2361,6 +2363,8 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------------
+    35    09/11/14  pbrown    Add missing text for issue (9).
+    
     34    06/10/14  Jon Leech Minor typo fixes from bug 7263.
 
     33    10/16/13  pbrown    Update issue (20) to clarify that any image

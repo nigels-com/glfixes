@@ -18,6 +18,7 @@ Contributors
     Greg Roth, NVIDIA
     Jeff Bolz, NVIDIA
     Piers Daniell, NVIDIA
+    Daniel Rakos, AMD
 
 Status
 
@@ -25,8 +26,8 @@ Status
 
 Version
 
-    Last Modified Date:         03/23/2010
-    NVIDIA Revision:            6
+    Last Modified Date:         09/11/2014
+    NVIDIA Revision:            8
 
 Number
 
@@ -636,30 +637,26 @@ Modifications to The OpenGL Shading Language Specification, Version 1.50
 
                                 Can be implicitly
         Type of expression        converted to
-        --------------------    -------------------------------
-        int                     uint, float, double(*)
-        ivec2                   uvec2, vec2, dvec2(*)
-        ivec3                   uvec3, vec3, dvec3(*)
-        ivec4                   uvec4, vec4, dvec4(*)
+        --------------------    -----------------------------------------
+        int                     uint, int64_t, uint64_t, float, double(*)
+        ivec2                   uvec2, i64vec2, u64vec2, vec2, dvec2(*)
+        ivec3                   uvec3, i64vec3, u64vec3, vec3, dvec3(*)
+        ivec4                   uvec4, i64vec4, u64vec4, vec4, dvec4(*)
 
-        int8_t   int16_t        int, int64_t, uint, uint64_t,
-                                  float, double(*)
-        i8vec2   i16vec2        ivec2, i64vec2, uvec2, u64vec2,
-                                  vec2, dvec2(*)
-        i8vec3   i16vec3        ivec3, i64vec3, uvec3, u64vec3,
-                                  vec3, dvec3(*)
-        i8vec4   i16vec4        ivec4, i64vec4, uvec4, u64vec4,
-                                  vec4, dvec4(*)
+        int8_t   int16_t        int, int64_t, uint, uint64_t, float, double(*)
+        i8vec2   i16vec2        ivec2, i64vec2, uvec2, u64vec2, vec2, dvec2(*)
+        i8vec3   i16vec3        ivec3, i64vec3, uvec3, u64vec3, vec3, dvec3(*)
+        i8vec4   i16vec4        ivec4, i64vec4, uvec4, u64vec4, vec4, dvec4(*)
 
         int64_t                 uint64_t, double(*)
         i64vec2                 u64vec2, dvec2(*)
         i64vec3                 u64vec3, dvec3(*)
         i64vec4                 u64vec4, dvec4(*)
 
-        uint                    float, double(*)
-        uvec2                   vec2, dvec2(*)
-        uvec3                   vec3, dvec3(*)
-        uvec4                   vec4, dvec4(*)
+        uint                    uint64_t, float, double(*)
+        uvec2                   u64vec2, vec2, dvec2(*)
+        uvec3                   u64vec3, vec3, dvec3(*)
+        uvec4                   u64vec4, vec4, dvec4(*)
 
         uint8_t  uint16_t       uint, uint64_t, float, double(*)
         u8vec2   u16vec2        uvec2, u64vec2, vec2, dvec2(*)
@@ -957,9 +954,9 @@ Modifications to The OpenGL Shading Language Specification, Version 1.50
       f16vec2   unpackFloat2x16(uint v);
 
     The function packFloat2x16() returns an unsigned integer obtained by
-    interpreting the components of a two-component 16-bit floating-point as
-    integers according to OpenGL Specification, and then packing the two
-    16-bit integers into a 32-bit unsigned integer.  The first vector
+    interpreting the components of a two-component 16-bit floating-point
+    vector as integers according to OpenGL Specification, and then packing the
+    two 16-bit integers into a 32-bit unsigned integer.  The first vector
     component specifies the 16 least significant bits of the result; the
     second component specifies the 16 most significant bits.
 
@@ -968,7 +965,7 @@ Modifications to The OpenGL Shading Language Specification, Version 1.50
     into a pair of 16-bit values, and interpreting those values as 16-bit
     floating-point numbers according to the OpenGL Specification.  The first
     component of the vector is obtained from the 16 least significant bits of
-    the double; the second component is obtained from the 16 most significant
+    the input; the second component is obtained from the 16 most significant
     bits.
 
 
@@ -1527,6 +1524,15 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+     8    09/11/14  pbrown    Fix incorrect implicit conversions, which
+                              follow the general pattern of little->big
+                              and int->uint->float.  Thanks to Daniel
+                              Rakos, author of similar functionality in
+                              the AMD_gpu_shader_int64 spec.
+
+     7    11/08/10  pbrown    Fix typos in description of packFloat2x16 and
+                              unpackFloat2x16.
+
      6    03/23/10  pbrown    Update overview, dependencies, remove references
                               to old extension names.  Extend the function
                               overloading prioritization rules from

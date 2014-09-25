@@ -16,8 +16,8 @@ Status
 
 Version
 
-    Last Modified Date:         05/09/2012
-    NVIDIA Revision:            1
+    Last Modified Date:         February 11, 2014
+    NVIDIA Revision:            2
 
 Number
 
@@ -195,16 +195,16 @@ Additions to Chapter 2 of the OpenGL 4.2 (Compatibility Profile) Specification
       Binding                        Components  Underlying State
       -----------------------------  ----------  -----------------------------
       program.storage[a][c]          (x,x,x,x)   shader storage buffer a,
-                                                   element b
+                                                   element c
       program.storage[a][c..d]       (x,x,x,x)   shader storage buffer a,
-                                                   elements b through c
+                                                   elements c through d
       program.storage[a]             (x,x,x,x)   shader storage buffer a,
                                                    all elements
       program.storage[a..b][c]       (x,x,x,x)   shader storage buffers a
                                                    through b, element c
       program.storage[a..b][c..d]    (x,x,x,x)   shader storage buffers a
-                                                   through b, elements b
-                                                   through c
+                                                   through b, elements c
+                                                   through d
       program.storage[a..b]          (x,x,x,x)   shader storage buffers a
                                                    through b, all elements
 
@@ -450,6 +450,8 @@ Issues
 
 Revision History
 
-    Rev.    Date    Author    Changes
-    ----  --------  --------  --------------------------------------------
-     1              pbrown    Internal spec development.
+    Revision 2, February 11, 2014 (pbrown)
+    - Fix typos in the descriptions of the "program.storage" bindings.
+
+    Revision 1, May 9, 2012 (pbrown)
+    - Internal spec development.

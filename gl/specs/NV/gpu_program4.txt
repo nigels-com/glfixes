@@ -16,8 +16,8 @@ Status
 
 Version
 
-    Last Modified Date:         12/14/2009
-    NVIDIA Revision:            10
+    Last Modified Date:         09/11/2014
+    NVIDIA Revision:            11
 
 Number
 
@@ -3552,7 +3552,7 @@ Additions to Chapter 2 of the OpenGL 1.5 Specification (OpenGL Operation)
     floating-point variable and should only be used to feed future unpack
     instructions.
 
-    A program will fail to load if it contains a PK2S instruction that writes
+    A program will fail to load if it contains a PK2US instruction that writes
     its results to a variable declared as "SHORT".
 
 
@@ -6259,7 +6259,9 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  --------------------------------------------
-     10   12/14/09  mgodse    Added GLX protocol.
+    11    09/11/14  pbrown    Fix cut-and-paste error in PK2US section.
+
+    10    12/14/09  mgodse    Added GLX protocol.
 
      9    10/29/09  pbrown    Add language for previously undocumented errors
                               when using "SHORT" and "LONG" modifiers on
