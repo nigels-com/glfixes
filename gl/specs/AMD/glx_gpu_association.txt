@@ -8,7 +8,7 @@ Name Strings
 
 Contact
 
-    Nick Haemel, AMD (nick.haemel 'at' amd.com)
+    David Mao, AMD (david.mao 'at' amd.com)
 
 Status
 
@@ -16,8 +16,8 @@ Status
 
 Version
 
-    Last Modified Date: November 04, 2009
-    Author Revision: 0.1
+    Last Modified Date: September 18, 2014
+    Author Revision: 2
 
     Based on:  GLX_SGI_make_current_read specification
                Date: 3/20/1997
@@ -87,28 +87,30 @@ Overview
 
 New Procedures and Functions
 
-    UINT  glXGetGPUIDsAMD(UINT maxCount, UINT *ids);
+    unsigned int glXGetGPUIDsAMD(unsigned int maxCount, unsigned int *ids);
 
-    INT   glXGetGPUInfoAMD(UINT id, INT property, GLenum dataType,
-                           UINT size, void *data)
+    int   glXGetGPUInfoAMD(unsigned int id, int property, GLenum dataType,
+                           unsigned int size, void *data)
 
-    UINT  glXGetContextGPUIDAMD(GLXContext ctx);
+    unsigned int glXGetContextGPUIDAMD(GLXContext ctx);
 
-    HGLRC glXCreateAssociatedContextAMD(UINT id, GLXContext share_list);
+    GLXContext glXCreateAssociatedContextAMD(unsigned int id,
+                                             GLXContext share_list);
 
-    HGLRC glXCreateAssociatedContextAttribsAMD(UINT id, GLXContext share_context,
-                                               const int *attribList);
+    GLXContext glXCreateAssociatedContextAttribsAMD(unsigned int id,
+                                                    GLXContext share_context,
+                                                    const int *attribList);
 
-    BOOL  glXDeleteAssociatedContextAMD(GLXContext ctx);
+    Bool glXDeleteAssociatedContextAMD(GLXContext ctx);
 
-    BOOL  glXMakeAssociatedContextCurrentAMD(GLXContext ctx);
+    Bool glXMakeAssociatedContextCurrentAMD(GLXContext ctx);
 
-    HGLRC glXGetCurrentAssociatedContextAMD(void);
+    GLXContext glXGetCurrentAssociatedContextAMD(void);
 
-    VOID  glXBlitContextFramebufferAMD(GLXContext dstCtx, GLint srcX0, GLint srcY0,
-                                       GLint srcX1, GLint srcY1, GLint dstX0,
-                                       GLint dstY0, GLint dstX1, GLint dstY1,
-                                       GLbitfield mask, GLenum filter);
+    void glXBlitContextFramebufferAMD(GLXContext dstCtx, GLint srcX0, GLint srcY0,
+                                      GLint srcX1, GLint srcY1, GLint dstX0,
+                                      GLint dstY0, GLint dstX1, GLint dstY1,
+                                      GLbitfield mask, GLenum filter);
 
 New Tokens
 
@@ -156,7 +158,7 @@ Additions to the GLX 1.4 Specification
 
     The IDs for available GPUs can be queried with the command:
 
-        UINT  glXGetGPUIDsAMD(UINT maxCount, UINT *ids);
+        unsigned int glXGetGPUIDsAMD(unsigned int maxCount, unsigned int *ids);
 
     where <maxCount> is the max number of IDs that can be returned and
     <ids> is the array of returned IDs. If the function succeeds,
@@ -179,8 +181,8 @@ Additions to the GLX 1.4 Specification
     determine which GPU is best suited for a specific task the
     following functions may be used:
 
-        INT  glXGetGPUInfoAMD(UINT id, INT property, GLenum dataType,
-                              UINT size, void *data);
+        int glXGetGPUInfoAMD(unsigned int id, int property, GLenum dataType,
+                             unsigned int size, void *data);
 
     <id> is a GPU id obtained from calling glXGetGPUIDsAMD. The GPU ID
     must be a valid GPU ID. The function will fail if <id> is an invalid
@@ -237,7 +239,7 @@ Additions to the GLX 1.4 Specification
     same one for off-screen rendering. Use the following command to
     determine which GPU a context is attached to:
 
-        UINT  glXGetContextGPUIDAMD(GLXContext ctx);
+        unsigned int glXGetContextGPUIDAMD(GLXContext ctx);
 
     <ctx> is the context for which the GPU id will be returned. If the
     context is invalid or if an error has occurred, glXGetContextGPUIDAMD
@@ -245,7 +247,8 @@ Additions to the GLX 1.4 Specification
 
     To create an associated context, use:
 
-        GLXContext glXCreateAssociatedContextAMD(UINT id, GLXContext share_list);
+        GLXContext glXCreateAssociatedContextAMD(unsigned int id,
+                                                 GLXContext share_list);
 
     <id> must be a valid GPU id and cannot be 0. <share_list> must either
     be NULL or that of an associated context created with the the same GPU
@@ -269,7 +272,7 @@ Additions to the GLX 1.4 Specification
 
     To create an associated context and request a specific GL version, use:
 
-        GLXContext glXCreateAssociatedContextAttribsAMD(UINT id,
+        GLXContext glXCreateAssociatedContextAttribsAMD(unsigned int id,
                     GLXContext share_list, const int *attribList)
 
     All capabilities and limitations of glXCreateContextAttribsARB apply
@@ -294,7 +297,7 @@ Additions to the GLX 1.4 Specification
     A context must be deleted once it is no longer needed. Use the
     following call to delete an associated context:
 
-        BOOL glXDeleteAssociatedContextAMD(GLXContext ctx);
+        Bool glXDeleteAssociatedContextAMD(GLXContext ctx);
 
     If the function succeeds, TRUE will be returned, otherwise FALSE is
     returned. <ctx> must be a valid associated context created by
@@ -307,7 +310,7 @@ Additions to the GLX 1.4 Specification
     To render using an associated context, it must be made the current
     context for a thread:
 
-        BOOL  glXMakeAssociatedContextCurrentAMD(GLXContext ctx);
+        Bool glXMakeAssociatedContextCurrentAMD(GLXContext ctx);
 
     <ctx> is a context handle created by calling
     glXCreateAssociatedContextAMD. If <ctx> was created using
@@ -441,12 +444,19 @@ Interactions with GLX_create_context
 
 Issues
 
-1. Should the language for the new context creation methods be added to
-   GLX 1.4 section 3.3.7 or in a new section?
+    1) Should the language for the new context creation methods be added to
+       GLX 1.4 section 3.3.7 or in a new section?
 
-   Resolved. Although it is also possible to add this exension text to
-   section 3.3.7, the resulting text would not flow well or be as coherent.
+       Resolved. Although it is also possible to add this exension text to
+       section 3.3.7, the resulting text would not flow well or be as coherent.
 
 
 Revision History
-    11/04/2009 - Initial version written. Written by nickh
+
+
+    Rev.    Date      Author    Changes
+    ----  --------    --------  ---------------------------------------------
+
+      2   09/18/2014  gsellers  Fixed types in function prototypes.
+                                Update contact. Minor formatting fixes.
+      0.1 11/04/2009  nickh     Initial version.

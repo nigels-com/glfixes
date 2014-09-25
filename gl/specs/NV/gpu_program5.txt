@@ -17,8 +17,8 @@ Status
 
 Version
 
-    Last Modified Date:         07/04/2013
-    NVIDIA Revision:            6
+    Last Modified Date:         09/11/2014
+    NVIDIA Revision:            7
 
 Number
 
@@ -287,7 +287,7 @@ Additions to Chapter 2 of the OpenGL 3.0 Specification (OpenGL Operation)
     parsing begins with the character immediately following the header string.
 
 
-    Modify Section 2.X.2 of NV_gpu_program5, Program Grammar
+    Modify Section 2.X.2 of NV_gpu_program4, Program Grammar
 
     (add the following grammar rules to the NV_gpu_program4 base grammar;
      additional grammar rules usable for assembly programs are documented in
@@ -3162,6 +3162,8 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+     7    09/11/14  pbrown    Minor typo fixes.
+
      6    07/04/13  pbrown    Add missing language describing the
                               <texImageUnitComp> grammar rule for component
                               selection in TXG and TXGO instructions.

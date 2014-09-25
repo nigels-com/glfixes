@@ -26,8 +26,8 @@ Status
 
 Version
 
-    Last Modified Date:         November 6, 2013
-    NVIDIA Revision:            7
+    Last Modified Date:         February 26, 2014
+    NVIDIA Revision:            8
 
 Number
 
@@ -310,6 +310,14 @@ Operations and the Frame Buffer)
       (Rd', Gd', Bd') =
         (0, 0, 0),               if Ad == 0
         (Rd/Ad, Gd/Ad, Bd/Ad),   otherwise
+
+    When blending using advanced blend equations, we expect that the R, G, and
+    B components of premultiplied source and destination color inputs be
+    stored as the product of non-premultiplied R, G, and B component values
+    and the A component of the color.  If any R, G, or B component of a
+    premultiplied input color is non-zero and the A component is zero, the
+    color is considered ill-formed, and the corresponding component of the
+    blend result will be undefined.
 
     The weighting functions p0, p1, and p2 are defined in table X.1.  In these
     functions, the A components of the source and destination colors are taken
@@ -620,13 +628,18 @@ Operations and the Frame Buffer)
     [[ The following paragraph applies to NV_blend_equation_advanced only. ]]
 
     When using advanced blending equations, applications should split their
-    rendering into a collection of passes, none of which touch an individual
-    sample more than once.  The results of blending are undefined if an
-    individual sample is touched more than once in a single pass.  The command
+    rendering into a collection of blending passes, none of which touch an
+    individual sample more than once.  The results of blending are undefined
+    if the sample being blended has been touched previously in the same pass.
+    The command
 
       void BlendBarrierNV(void);
 
     specifies a boundary between passes when using advanced blend equations.
+    Any command that causes the value of a sample to be modified is considered
+    to touch the sample, including clears, blended or unblended primitives,
+    BlitFramebuffer copies, and direct updates by commands such as
+    TexSubImage2D.
 
     [[ The following paragraph applies to NV_blend_equation_advanced_coherent
        only. ]]
@@ -638,14 +651,18 @@ Operations and the Frame Buffer)
     blending is enabled by default, but can be enabled or disabled by calling
     Enable or Disable with the symbolic constant BLEND_ADVANCED_COHERENT_NV.
     If coherent blending is disabled, applications should split their
-    rendering into a collection of passes, none of which touch an individual
-    sample more than once.  The results of blending are undefined if an
-    individual sample is touched more than once in a single pass when coherent
-    blending is disabled.  The command
+    rendering into a collection of blending passes, none of which touch an
+    individual sample more than once.  When coherent blending is disabled, the
+    results of blending are undefined if the sample being blended has been
+    touched previously in the same pass.  The command
 
       void BlendBarrierNV(void);
 
     specifies a boundary between passes when using advanced blend equations.
+    Any command that causes the value of a sample to be modified is considered
+    to touch the sample, including clears, blended or unblended primitives,
+    BlitFramebuffer copies, and direct updates by commands such as
+    TexSubImage2D.
 
 
 Additions to Chapter 5 of the OpenGL 4.1 Specification (Special Functions)
@@ -948,18 +965,37 @@ Issues
     (12) What happens when converting a premultiplied color with an alpha of
          zero to a non-premultiplied color?
 
-      RESOLVED:  We will specify division by zero to produce zero.  In
-      practice, this doesn't matter much.  In all of the advanced blending
-      equations, a color will not contribute to the final result when its
-      alpha component is zero.
+      RESOLVED:  We specify that a premultiplied color of (0,0,0,0) should
+      produce non-premultiplied (R,G,B) values of (0,0,0).  A premultiplied
+      color with an alpha of zero and a non-zero R, G, or B component is
+      considered to be ill-formed and will produce undefined blending results.
 
-      Note that the basic formulation of most of the blend equations in this
-      extension uses non-premultiplied colors in the f(Cs,Cd) equation, whose
-      result is then multiplied by alpha "coverage" values computed according
-      to the overlap modes.  In many of these equations, the alpha component
-      used as a denominator when computing the non-premultiplied color ends up
-      being multiplied by the same alpha component in the coverage, resulting
-      in cancellation.
+      For a non-premultiplied color (R',G',B',A'), the corresponding
+      premultiplied color (R,G,B,A) should satisfy the equation:
+
+        (R,G,B,A) = (R'*A', G'*A', B'*A', A')
+
+      If the alpha of a non-premultiplied color is zero, the corresponding
+      premultiplied color (R,G,B,A) should be (0,0,0,0).
+
+      We specify that ill-formed premultiplied colors produce undefined
+      blending results to enable certain performance optimizations.  In many
+      of these blending equations, the alpha component used as a denominator
+      to compute the non-premultiplied color ends up being multiplied by the
+      same alpha component in the coverage, resulting in cancellation.  For
+      example, implementations may want to substitute a premultiplied
+      destination color into the last term of the basic blend equation:
+
+        R = f(Rs',Rd')*p0(As,Ad) + Y*Rs'*p1(As,Ad) + Z*Rd'*p2(As,Ad)
+          =                                    ... + Z*Rd'*(Ad*(1-As))
+          =                                    ... + Z*(Rd'*Ad)*(1-As)
+          =                                    ... + Z* Rd * (1-As)
+
+      This substitution would be invalid for ill-formed premultiplied
+      destination colors.  We choose to specify undefined results for invalid
+      input colors rather than requiring implementations to skip such
+      optimizations or include logic to check for zero alpha values for each
+      input.
 
     (13) Should we provide "advanced" RGB blend equations for modes commonly
          used in dedicated imaging APIs that can already be expressed with
@@ -1633,6 +1669,19 @@ Revision History
     
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+     8    02/26/14  pbrown    For non-coherent blending, clarify that all
+                              writes to a sample are considered to "touch"
+                              that sample and require a BlendBarrierOES call
+                              before blending overlapping geometry.  Clears,
+                              non-blended geometry, and copies by
+                              BlitFramebuffer or TexSubImage are all
+                              considered to "touch" a sample (bug 11738).
+                              Specify that non-premultiplied values
+                              corresponding to ill-conditioned premultiplied
+                              colors such as (1,1,1,0) are undefined (bug
+                              11739).  Update issue (12) related to
+                              ill-conditioned premultiplied colors.
+
      7    11/06/13  pbrown    Fix the language about non-coherent blending
                               to specify that results are undefined only if an
                               individual *sample* is touched more than once

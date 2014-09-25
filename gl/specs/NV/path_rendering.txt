@@ -12,12 +12,15 @@ Contact
 
 Contributors
 
+    Roger Allen, NVIDIA
     Jeff Bolz, NVIDIA
     Chris Dalton, NVIDIA
     Pierre-Loup Griffais, NVIDIA
+    Chris Hebert, Samsung
     Scott Nations, NVIDIA
     David Chait, NVIDIA
     Daniel Koch, NVIDIA
+    Bas Schouten, Mozilla
     Sandeep Shinde, NVIDIA
 
 Status
@@ -33,12 +36,12 @@ Status
 
 Version
 
-    Last Modified Date:  July 2, 2014
-    Version:             31
+    Last Modified Date:  September 9, 2014
+    Version:             35
 
 Number
 
-    OpenGL Extension #410
+    410
 
 Dependencies
 
@@ -366,7 +369,7 @@ Overview
                                    "\000\001\002\003\004\005",
                                    glyphBase,
                                    GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV,
-                                   GL_TRANSLATE_2D_NV, xtranslate);
+                                   GL_TRANSLATE_X_NV, xtranslate);
 
     Voila, the word "OpenGL" in gray is now stenciled into the framebuffer.
 
@@ -418,12 +421,20 @@ Overview
         glStencilFillPathInstancedNV(6, GL_UNSIGNED_BYTE, "OpenGL",
                                      glyphBase,
                                      GL_PATH_FILL_MODE_NV, 0xFF,
-                                     GL_TRANSLATE_2D_NV, xtranslate);
+                                     GL_TRANSLATE_X_NV, xtranslate);
 
         glCoverFillPathInstancedNV(6, GL_UNSIGNED_BYTE, "OpenGL",
                                    glyphBase,
                                    GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV,
-                                   GL_TRANSLATE_2D_NV, xtranslate);
+                                   GL_TRANSLATE_X_NV, xtranslate);
+
+    The "stencil" and "cover" steps can be combined in a single command:
+
+        glStencilThenCoverFillPathInstancedNV(6, GL_UNSIGNED_BYTE, "OpenGL",
+                                              glyphBase,
+                                              GL_PATH_FILL_MODE_NV, 0xFF,
+                                              GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV
+                                              GL_TRANSLATE_X_NV, xtranslate);
 
     XXX add path clipping example to demonstrate glPathStencilFuncNV.
 
@@ -1955,20 +1966,20 @@ Additions to Chapter 5 of the OpenGL 3.2 (unabridged) Specification
     Equation 5.generalParametricArc
 
         arc_x(c,rv,rh,phi,theta1,dtheta,t) = cos(phi)*rh*cos(theta1+t*dtheta) -
-                                             sin(phi)*ry*sin(theta1+t*dtheta) + c.x
+                                             sin(phi)*rv*sin(theta1+t*dtheta) + c.x
         arc_y(c,rv,rh,phi,theta1,dtheta,t) = sin(phi)*rh*cos(theta1+t*dtheta) +
-                                             cos(phi)*ry*sin(theta1+t*dtheta) + c.y
+                                             cos(phi)*rv*sin(theta1+t*dtheta) + c.y
 
     This general form of a parametric partial elliptical arc computes
     (x,y) 2D positions on the arc as /t/ ranges from 0.0 to 1.0 inclusive.
 
     In addition to the varying /t/ parameter, these functions depend on
     a 2D (x,y) center position /c/, a horizontal ellipse radius /rh/,
-    a vertical ellipse radius /ry/, a counterclockwise angle (in radians)
+    a vertical ellipse radius /rv/, a counterclockwise angle (in radians)
     of an ellipse with respect to the x-axis /phi/, /theta1/ is the angle
     (in radians) of the initial point on the partial arc, and /dtheta/
     is the difference between the angle (in radians) of the terminal
-    point on the partial arc and /theta1/.  The larger of /rh/ and /ry/
+    point on the partial arc and /theta1/.  The larger of /rh/ and /rv/
     is the complete ellipse's major axis while the smaller of the two
     is the complete ellipse's minor axis.
 
@@ -6178,6 +6189,24 @@ NVIDIA Implementation Details
         GL_FONT_UNINTELLIGIBLE_NV
         GL_STANDARD_FONT_FORMAT_NV
 
+    New programInferface token:
+
+        FRAGMENT_INPUT_NV
+
+    New (aliased) matrix tokens for ES support:
+
+        PATH_PROJECTION_NV
+        PATH_MODELVIEW_NV
+
+        PATH_MODELVIEW_STACK_DEPTH_NV
+        PATH_MODELVIEW_MATRIX_NV
+        PATH_MAX_MODELVIEW_STACK_DEPTH_NV
+        PATH_TRANSPOSE_MODELVIEW_MATRIX_NV
+        PATH_PROJECTION_STACK_DEPTH_NV
+        PATH_PROJECTION_MATRIX_NV
+        PATH_MAX_PROJECTION_STACK_DEPTH_NV
+        PATH_TRANSPOSE_PROJECTION_MATRIX_NV
+
     New glyph index path specification commands:
 
         enum glPathGlyphIndexArrayNV(GLuint firstPathName,
@@ -8695,19 +8724,7 @@ Issues
         to GL_MOVE_TO_RESETS_NV, GL_RESTART_PATH_NV (as with any command
         that updates /sp/) will reset the dash offset.
 
-   127. Why does glPathStencilDepthOffsetNV take a GLfloat second
-        parameter instead of GLint like glPolygonOffset?
-
-        RESOLVED:  This was an implementation mistake; the specification
-        has been changed to GLfloat now to match the implementation.
-
-        The driver has shipped with the second parameter being a GLfloat
-        for almost a year.  As a practical matter, having the parameter
-        be a GLfloat rather than GLuint is of little consequence.
-
-        In all specification versions, the state table indicated the
-        GL_PATH_STENCIL_DEPTH_OFFSET_UNITS_NV was a real (R) value rather
-        than integer.
+   127. <<Bogus issue removed.>>
 
    128. How does the "stencil" and "cover" steps operate on a multisample
         framebuffer when the GL_MULTISAMPLE enabled is disabled?
@@ -9465,3 +9482,8 @@ Revision History
       31  07/02/14 dkoch      Fix a variety of typos and inconsistencies
                               Update ES interactions
                               Fix pseudocode (float vs double, renderBoundingBox)
+      32  07/24/14 mjk        Fix Equation 5.generalParametricArc typos,
+                              thanks to Chris Hebert
+      33  08/19/14 mjk        Add missing 1.3 additions to revisions section
+      34  08/27/14 mjk        Remove bogus polygon offset issue 127; my mistake
+      35  09/09/14 mjk        Intro: fix translate mode, add StencilThenCover

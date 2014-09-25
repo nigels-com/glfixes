@@ -19,7 +19,7 @@ Contributors
 
 Status
 
-     DRAFT SPECIFICATION
+     Shipping
 
 Version
 
