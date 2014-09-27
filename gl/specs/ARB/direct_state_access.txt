@@ -455,6 +455,15 @@ New Procedures and Functions
 
     void CreateQueries(enum target, sizei n, uint *ids);
 
+    /* Query buffer object functions */
+
+    void GetQueryBufferObjectiv(uint id,uint buffer,enum pname,intptr offset);
+
+    void GetQueryBufferObjectuiv(uint id,uint buffer,enum pname,intptr offset);
+
+    void GetQueryBufferObjecti64v(uint id,uint buffer,enum pname,intptr offset);
+
+    void GetQueryBufferObjectui64v(uint id,uint buffer,enum pname,intptr offset);
 
 New Tokens
 
