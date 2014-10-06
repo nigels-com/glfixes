@@ -36,8 +36,8 @@ Status
 
 Version
 
-    Last Modified Date:         September 18, 2014
-    Author Revision:            42
+    Last Modified Date:         September 26, 2014
+    Author Revision:            43
 
 Number
 
@@ -408,8 +408,10 @@ New Procedures and Functions
     void VertexArrayVertexBuffer(uint vaobj, uint bindingindex, uint buffer,
                                  intptr offset, sizei stride);
 
-    void VertexArrayVertexBuffers(uint vaobj, uint first, sizei count, const uint *buffers,
-                                  const intptr *offsets, const sizei *strides);
+    void VertexArrayVertexBuffers(uint vaobj, uint first, sizei count, 
+                                  const uint *buffers, 
+                                  const intptr *offsets, 
+                                  const sizei *strides);
 
     void VertexArrayAttribFormat(uint vaobj, uint attribindex, int size,
                                  enum type, boolean normalized,
@@ -454,6 +456,14 @@ New Procedures and Functions
     /* Query object functions */
 
     void CreateQueries(enum target, sizei n, uint *ids);
+    void GetQueryBufferObjectiv(uint id, uint buffer, enum pname,
+                                intptr offset);
+    void GetQueryBufferObjectuiv(uint id, uint buffer, enum pname,
+                                 intptr offset);
+    void GetQueryBufferObjecti64v(uint id, uint buffer, enum pname,
+                                  intptr offset);
+    void GetQueryBufferObjectui64v(uint id, uint buffer, enum pname, 
+                                   intptr offset);
 
     /* Query buffer object functions */
 
@@ -2388,7 +2398,7 @@ Specification and Drawing Commands)
     The divisor value for attributes taken from a target vertex array object
     is set with the commands
 
-        void VertexBindingDivisor(uint bindingindex,uint divisor);
+        void VertexBindingDivisor(uint bindingindex, uint divisor);
         void VertexArrayBindingDivisor(uint vaobj, uint bindingindex, 
                                        uint divisor);
 
@@ -3287,7 +3297,8 @@ Interactions with OpenGL 3.1 or ARB_copy_buffer
 Interactions with OpenGL 3.3 or ARB_instanced_arrays
 
     If neither OpenGL 3.3 nor ARB_instanced_arrays are supported,
-    ignore the support for VertexArrayAttribDivisor and VertexArrayBindingDivisor.
+    ignore the support for VertexArrayAttribDivisor and
+    VertexArrayBindingDivisor.
 
 Interactions with OpenGL 3.3 or ARB_sampler_objects
 
@@ -4160,6 +4171,9 @@ Revision History
 
     Rev.    Date        Author    Changes
     ----  -----------   --------  ----------------------------------------------
+    43    26 Sep 2014   Jon Leech Add GetQueryBufferObject* to New Commands +
+                                  minor spacing fixes.
+
     42    18 Sep 2014   Jon Leech Add GetQueryBufferObject* queries (Bug 1214).
 
     41    24 Jul 2014   Jon Leech Allow cube map textures to be queried with

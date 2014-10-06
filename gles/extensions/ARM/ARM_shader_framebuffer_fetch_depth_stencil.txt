@@ -23,12 +23,12 @@ Status
 
 Version
 
-    Revision 6
-    Last Modified Date: November 25, 2013
+    Revision 7
+    Last Modified Date: September 26, 2014
 
 Number
 
-    OpenGL ES Extension #166
+    TBD
 
 Dependencies
 
@@ -39,6 +39,8 @@ Dependencies
     This extension is written against the OpenGL ES Shading Language
     specification, Language Version 1.00, Document Revision 17 and revision
     OpenGL ES 2.0.25 of the API specification.
+
+    This extension has a minor dependency on OpenGL ES 3.1.
 
     EXT_shader_framebuffer_fetch and ARM_shader_framebuffer_fetch affect the
     wording of this extension.
@@ -137,7 +139,12 @@ Additions to Chapter 7 of the OpenGL ES Shading Language Specification
         for the processing of all previous fragments destined for the current
         pixel to complete. For best performance, it is therefore recommended
         that reads from either of these built-in variables are done as late in
-        the execution of the fragment shader as possible.
+        the execution of the fragment shader as possible."
+
+        [[ The below paragraph only applies if ESSL 3.10 is supported ]]
+        It is not legal for a fragment shader to read from gl_LastFragDepthARM
+        and gl_LastFragStencilARM if the early_fragment_tests layout qualifier
+        is specified. This will result in a compile-time error.
 
         Access to gl_LastFragDepthARM and gl_LastFragStencilARM is optional,
         and must be enabled by:
@@ -184,6 +191,11 @@ Interactions with ARM_shader_framebuffer_fetch
 
     The presence of multiple color attachments does not affect whether reading
     gl_LastFragDepthARM and gl_LastFragStencilARM returns a defined result.
+
+Dependencies on OpenGL ES 3.1
+
+    If OpenGL ES 3.1 is not supported, remove all references to the
+    early_fragment_tests layout qualifier.
 
 Issues
 
@@ -252,7 +264,24 @@ Issues
         or correspond to the API clear value. It is guaranteed that these values
         will never originate from other GL contexts or applications.
 
+    (7) How do the built-in variables added by this extension interract with
+        the early_fragment_tests layout qualifier in ESSL 3.10?
+
+        RESOLVED.
+
+        Combining early fragment tests with reads from gl_LastFragDepthARM or
+        gl_LastFragStencilARM is an error.
+
+        The early_fragment_tests qualifier requires per-fragment tests to be
+        complete before shader execution, but the built-ins added by this
+        extension will only give predictable results if per-fragment tests are
+        done late. If this is not the case, later fragments may update the depth
+        and stencil buffer values before the current fragment reads them.
+
 Revision History
+
+    Revision 7, 26/09/2014 (Jan-Harald Fredriksen)
+        Added interraction with OpenGL ES 3.10 per issue 7.
 
     Revision 6, 25/11/2013 (Jan-Harald Fredriksen)
         Clarified behavior when no depth or stencil buffer is bound.
