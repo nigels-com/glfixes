@@ -6,10 +6,6 @@ Name Strings
 
     EGL_EXT_swap_buffers_with_damage
 
-Notice
-
-    Copyright 2011,2012,2013 Intel Cooperation
-
 IP Status
 
     No known IP claims.
@@ -33,7 +29,7 @@ Status
 
 Version
 
-    9 - June 12, 2013
+    10 - October 23, 2014
 
 Number
 
@@ -341,3 +337,5 @@ Revision History
         of the spec.
       - Add "IP Status" section to explicitly state that this extension has no
         knonw IP claims.
+    Version 10, 23/10/2014, Jon Leech
+      - Remove copyright after signoff from Intel.

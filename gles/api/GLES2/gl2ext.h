@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 28335 $ on $Date: 2014-09-26 18:55:45 -0700 (Fri, 26 Sep 2014) $
+** Khronos $Revision: 28689 $ on $Date: 2014-10-21 17:30:22 -0700 (Tue, 21 Oct 2014) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20140926 */
+/* Generated on date 20141021 */
 
 /* Generated C header for:
  * API: gles2
@@ -1786,6 +1786,20 @@ typedef void (GL_APIENTRYP PFNGLVERTEXATTRIBDIVISORNVPROC) (GLuint index, GLuint
 GL_APICALL void GL_APIENTRY glVertexAttribDivisorNV (GLuint index, GLuint divisor);
 #endif
 #endif /* GL_NV_instanced_arrays */
+
+#ifndef GL_NV_internalformat_sample_query
+#define GL_NV_internalformat_sample_query 1
+#define GL_TEXTURE_2D_MULTISAMPLE         0x9100
+#define GL_TEXTURE_2D_MULTISAMPLE_ARRAY   0x9102
+#define GL_MULTISAMPLES_NV                0x9371
+#define GL_SUPERSAMPLE_SCALE_X_NV         0x9372
+#define GL_SUPERSAMPLE_SCALE_Y_NV         0x9373
+#define GL_CONFORMANT_NV                  0x9374
+typedef void (GL_APIENTRYP PFNGLGETINTERNALFORMATSAMPLEIVNVPROC) (GLenum target, GLenum internalformat, GLsizei samples, GLenum pname, GLsizei bufSize, GLint *params);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glGetInternalformatSampleivNV (GLenum target, GLenum internalformat, GLsizei samples, GLenum pname, GLsizei bufSize, GLint *params);
+#endif
+#endif /* GL_NV_internalformat_sample_query */
 
 #ifndef GL_NV_non_square_matrices
 #define GL_NV_non_square_matrices 1

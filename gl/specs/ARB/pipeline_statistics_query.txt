@@ -30,8 +30,8 @@ Status
 
 Version
 
-    Date: June 27, 2014
-    Revision: 8
+    Date: October 8, 2014
+    Revision: 9
 
 Number
 
@@ -53,6 +53,8 @@ Dependencies
     extension.
 
     OpenGL 4.3 and ARB_compute_shader affect the definition of this extension.
+
+    This extension interacts with AMD_transform_feedback4.
 
 Overview
 
@@ -162,8 +164,13 @@ Additions to Chapter 10 of the OpenGL 4.4 (Core Profile) Specification (Vertex S
     submitted vertices count maintained by the GL is set to zero. When a
     vertices submitted query is active, the submitted vertices count is
     incremented every time a vertex is transferred to the GL (see sections
-    10.3.4, and 10.5). Vertices corresponding to incomplete primitives may
-    or may not be counted.
+    10.3.4, and 10.5). In case of primitive types with adjacency information
+    (see sections 10.1.11 through 10.1.14) only the vertices belonging to
+    the main primitive are counted but not the adjacent vertices. In case
+    of line loop primitives implementations are allowed to count the first
+    vertex twice for the purposes of VERTICES_SUBMITTED_ARB queries.
+    Additionally, vertices corresponding to incomplete primitives may or may
+    not be counted.
 
     When BeginQuery is called with a target of PRIMITIVES_SUBMITTED_ARB, the
     submitted primitives count maintained by the GL is set to zero. When a
@@ -243,9 +250,10 @@ Additions to Chapter 11 of the OpenGL 4.4 (Core Profile) Specification (Programm
     EMITTED_ARB, the geometry shader output primitives count maintained by the
     GL is set to zero. When a geometry shader primitives emitted query is
     active, the counter is incremented every time the geometry shader emits
-    a primitive (see section 11.3.2). Restarting primitive topology using the
-    shading language built-in functions EndPrimitive or EndStreamPrimitive has
-    no effect on the geometry shader output primitives count.
+    a primitive to a vertex stream that is further processed by the GL (see
+    section 11.3.2). Restarting primitive topology using the shading language
+    built-in functions EndPrimitive or EndStreamPrimitive does not increment
+    the geometry shader output primitives count.
 
     The result of geometry shader queries may be implementation dependent due
     to reasons described in section 11.1.3.
@@ -366,6 +374,12 @@ Dependencies on OpenGL 4.3 and ARB_compute_shader
 
     If OpenGL 4.3 and ARB_compute_shader are not supported then remove all
     references to COMPUTE_SHADER_INVOCATIONS_ARB.
+
+Dependencies on AMD_transform_feedback4
+
+    If AMD_transform_feedback4 is supported then GEOMETRY_SHADER_PRIMITIVES_-
+    EMITTED_ARB counts primitives emitted to any of the vertex streams for
+    which STREAM_RASTERIZATION_AMD is enabled.
 
 New State
 
@@ -494,10 +508,11 @@ Issues
          different than PRIMITIVES_GENERATED?
 
       RESOLVED: GEOMETRY_SHADER_PRIMITIVES_EMITTED_ARB counts primitives that
-      were output by the geometry shader. Also, all emitted primitives are
-      counted no matter which stream they were output to, instead of counting
-      per-stream like PRIMITIVES_GENERATED. If no goemetry shader is present
-      then the counter may or may not be incremented.
+      were output by the geometry shader and that are further processed. That
+      means in unextended GL only the primitives emitted to vertex stream zero
+      are counted as the rest of the vertex streams can only be used for
+      transform feedback purposes. If no goemetry shader is present then the
+      counter may or may not be incremented.
 
     (12) What does CLIPPING_INPUT_PRIMITIVES_ARB count?
 
@@ -677,7 +692,31 @@ Issues
       RESOLVED: The number of patches processed by the tessellation control
       shader stage is counted.
 
+    (26) Should VERTICES_SUBMITTED_ARB count adjacent vertices in case of
+         primitives with adjacency?
+
+      RESOLVED: No. Only vertices belonging to the main primitive are counted.
+
+    (27) Should VERTICES_SUBMITTED_ARB count vertices multiple times in case
+         of primitive types that reuse vertices (e.g. LINE_LOOP, LINE_STRIP,
+         TRIANGLE_STRIP)?
+
+      RESOLVED: No for strip primitives, but allow (but not require) counting
+      the first vertex twice for line loop primitives.
+
 Revision History
+
+    Revision 9, 2014/10/08 (Daniel Rakos)
+      - Specified that the vertices submitted count is only incremented for
+        vertices belonging to the main primitive in case of primitives with
+        adjacency.
+      - Relaxed the definition of VERTICES_SUBMITTED_ARB queries to allow
+        implementations to count the first vertex twice for line loop
+        primitives.
+      - Changed the definition of GEOMETRY_SHADER_PRIMITIVES_EMITTED_ARB
+        queries to only count primitives emitted to vertex streams that are
+        further processed by the GL.
+      - Added interaction with AMD_transform_feedback4.
 
     Revision 8, 2014/06/27 (Daniel Rakos)
       - Renamed tessellation control shader query to TESS_CONTROL_SHADER_-

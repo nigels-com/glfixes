@@ -39,8 +39,8 @@ Status
 
 Version
 
-    Last Modified Date: April 23, 2014
-    Revision: 18
+    Last Modified Date: October 8, 2014
+    Revision: 19
 
 Number
 
@@ -2040,7 +2040,7 @@ Additions to the OpenGL ES Shading Language 3.10 Specification
           points
           line_strip
           triangle_strip
-          max_vertices = integer-constant-expression
+          max_vertices = integer-constant
 
     The primitive type identifiers points, line_strip, and triangle_strip
     are used to specify the type of output primitive produced by the
@@ -2548,6 +2548,9 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------- -------------------------------------------------
+     19   10/08/14  dkoch     change max_vertices identifier to integer-constant
+                              to match rest of ES layout-qualifier-id's 
+                              (Bug 12878)
      18   04/23/14  dkoch     Add GetProgramPipelineiv to the list of functions
                               which accept GEOMETRY_SHADER token. Add issue 14.
                               (Bug 12152)

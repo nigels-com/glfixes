@@ -64,7 +64,7 @@ rm egl/robots.txt
 
 # Clean up 404 errors - pages that don't actually exist
 
-find . -mindepth 2 -type f | xargs grep -l '404 ERROR - PAGE NOT FOUND' | xargs rm
+find . -mindepth 2 -type f | xargs grep -l '404 Error Page not found' | xargs rm
 
 #
 # XML specs
