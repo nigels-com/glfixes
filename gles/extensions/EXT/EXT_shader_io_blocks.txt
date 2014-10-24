@@ -33,8 +33,8 @@ Status
 
 Version
 
-    Last Modified Date: March 28, 2014
-    Revision: 7
+    Last Modified Date: October 8, 2014
+    Revision: 8
 
 Number
 
@@ -718,9 +718,9 @@ Additions to the OpenGL ES Shading Language 3.10 Specification
     an output variable of the same type.
 
     Location layout qualifiers may be used on output variables declared as
-    structures, but not on individual members. Location layout qualifiers
-    may not be used on output blocks or output block members. Compile-time
-    errors result if these rules are not followed.
+    structures, but it is a compile-time error to use them on individual
+    members. Location layout qualifiers may be used on output blocks and
+    output block members.
 
     The number of output locations available to a shader is limited. For
     fragment shaders, the limit is the advertised number of draw buffers.
@@ -1032,3 +1032,6 @@ Revision History
       5   03/09/14  Jon Leech Rebase on OpenGL ES 3.1 and change suffix to EXT.
       6   03/26/14  dkoch     Update contributors.
       7   03/28/14  Jon Leech Sync with released ES 3.1 specs. Reflow text.
+      8   08/10/14  jhf       Removed contradictory language forbidding
+                              location layout qualifiers on output blocks
+                              or output block members (Bug 12831)
