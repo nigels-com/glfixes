@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 28691 $ on $Date: 2014-10-21 17:37:57 -0700 (Tue, 21 Oct 2014) $
+** Khronos $Revision: 28798 $ on $Date: 2014-10-30 03:27:48 -0700 (Thu, 30 Oct 2014) $
 */
 
 #if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
@@ -53,7 +53,7 @@ extern "C" {
 #define GLAPI extern
 #endif
 
-#define GL_GLEXT_VERSION 20141021
+#define GL_GLEXT_VERSION 20141030
 
 /* Generated C header for:
  * API: gl
