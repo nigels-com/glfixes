@@ -660,6 +660,10 @@
             <unused start="0x32F0" end="0x32FF"/>
     </enums>
 
+    <enums namespace="EGL" start="0x3300" end="0x331F" vendor="QCOM" comment="Reserved for Jeff Vigil (Bug 12973) - EGL_EXT_yuv_surface spec TBD">
+            <unused start="0x3300" end="0x331F"/>
+    </enums>
+
 <!-- Please remember that new enumerant allocations must be obtained by
      request to the Khronos API registrar (see comments at the top of this
      file) File requests in the Khronos Bugzilla, EGL project, Registry
@@ -667,11 +671,11 @@
      Khronos APIs, and new ranges should be allocated with such overlaps in
      mind. -->
 
-<!-- Reservable for future use: 0x3300-0x3FFF.
+<!-- Reservable for future use: 0x3320-0x3FFF.
      To generate a new range, allocate multiples of 16 starting at the
      lowest available point in this block. -->
-    <enums namespace="EGL" start="0x3300" end="0x3FFF" vendor="KHR">
-            <unused start="0x3300" end="0x3FFF" comment="Reserved for future use"/>
+    <enums namespace="EGL" start="0x3320" end="0x3FFF" vendor="KHR">
+            <unused start="0x3320" end="0x3FFF" comment="Reserved for future use"/>
     </enums>
 
     <enums namespace="EGL" start="0x8F70" end="0x8F7F" vendor="HI" comment="For Mark Callow, Khronos bug 4055. Shared with GL.">

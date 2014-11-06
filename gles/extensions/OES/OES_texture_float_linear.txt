@@ -12,7 +12,7 @@ Contact
 
 Notice
 
-    Copyright (c) 2005-2013 The Khronos Group Inc. Copyright terms at
+    Copyright (c) 2005-2014 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
 IP Status
@@ -25,7 +25,7 @@ Status
 
 Version
 
-    Last Modified Date:  July 7, 2005
+    Revision 2, October 29, 2014
 
 Number
 
@@ -41,11 +41,18 @@ Dependencies
 
 Overview
 
-   These extensions expand upon the OES_texture_half_float and
-   OES_texture_float extensions by allowing support for LINEAR
-   magnification filter and LINEAR, NEAREST_MIPMAP_LINEAR,
-   LINEAR_MIPMAP_NEAREST and LINEAR_MIPMAP_NEAREST minification
-   filters.
+    These extensions expand upon the OES_texture_half_float and
+    OES_texture_float extensions by allowing support for LINEAR
+    magnification filter and LINEAR, NEAREST_MIPMAP_LINEAR,
+    LINEAR_MIPMAP_NEAREST and LINEAR_MIPMAP_NEAREST minification
+    filters.
+
+    When implemented against OpenGL ES 3.0 or later versions, sized 32-bit
+    floating-point formats become texture-filterable. This should be noted
+    by, for example, checking the ``TF'' column of table 8.13 in the ES 3.1
+    Specification (``Correspondence of sized internal formats to base
+    internal formats ... and use cases ...'') for the R32F, RG32F, RGB32F,
+    and RGBA32F formats.
 
 Issues
 
@@ -62,3 +69,5 @@ New Tokens
 Revision History
 
     07/06/2005  0.1   Original draft
+
+    10/29/2014  2     Add interactions with ES 3.0/3.1.
