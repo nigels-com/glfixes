@@ -13,8 +13,7 @@ Notice
 
 Version
 
-    NVIDIA Date: April 25, 2000
-    $Date$ $Revision$
+    Last updated November 12, 2014
 
 Number
 
@@ -77,7 +76,7 @@ Issues
       settings to influence the anisotropic scheme used.  Yes, such
       an anisotropic filtering scheme exists in hardware.
 
-    What should the minimum value for MAX_TEXTURE_MAX_ANISTROPY_EXT be?
+    What should the minimum value for MAX_TEXTURE_MAX_ANISOTROPY_EXT be?
 
       RESOLUTION:  2.0.  To support this extension, at least 2 to 1
       anisotropy should be supported.
@@ -137,8 +136,8 @@ Additions to Chapter 3 of the 1.2 Specification (Rasterization)
      of TEXTURE_MAX_ANISOTROPY_EXT is greater than 1.0, the GL implementation
      should use a texture filtering scheme that accounts for a degree
      of anisotropy up to the smaller of the texture's value of
-     TEXTURE_MAX_ANISTROPY_EXT or the implementation-defined value of
-     MAX_TEXTURE_MAX_ANISTROPY_EXT.
+     TEXTURE_MAX_ANISOTROPY_EXT or the implementation-defined value of
+     MAX_TEXTURE_MAX_ANISOTROPY_EXT.
 
      The particular scheme for anisotropic texture filtering is
      implementation dependent.  Additionally, implementations are free
@@ -278,9 +277,12 @@ MAX_TEXTURE_MAX_ANISOTROPY_EXT   R    GetFloatv     2.0             Limit of    
 
 Revision History
 
+  11/12/14 (Jon Leech) - Fix spelling of TEXTURE_MAX_ANISOTROPY 
+  (public Bug 1263).
+
   9/26/07 (Jon Leech) - assigned OpenGL ES extension number so
   the extension can live in both API registries.
 
   4/25/00 - clarify that TexParameterf and TexParameteri accept
-  TEXTURE_MAX_ANISTROPY_EXT as a pname.
+  TEXTURE_MAX_ANISOTROPY_EXT as a pname.
 

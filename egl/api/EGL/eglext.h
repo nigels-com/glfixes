@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 28371 $ on $Date: 2014-10-01 09:16:09 -0700 (Wed, 01 Oct 2014) $
+** Khronos $Revision$ on $Date$
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20141001
+#define EGL_EGLEXT_VERSION 20141119
 
 /* Generated C header for:
  * API: egl

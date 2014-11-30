@@ -30,7 +30,7 @@ Status
 
 Version
 
-    Version 12, July 22, 2011
+    Version 13, November 12, 2014
 
 Number
 
@@ -302,7 +302,7 @@ Additions to Chapter 3 of the OpenGL 3.2 Specification (Compatibility Profile) (
     TEXTURE_WRAP_R, TEXTURE_MIN_FILTER, TEXTURE_MAG_FILTER,
     TEXTURE_BORDER_COLOR, TEXTURE_MIN_LOD, TEXTURE_MAX_LOD,
     TEXTURE_LOD_BIAS, TEXTURE_COMPARE_MODE, TEXTURE_COMPARE_FUNC and
-    TEXTURE_MAX_ANISTROPY_EXT. Texture state listed in table 6.22 but
+    TEXTURE_MAX_ANISOTROPY_EXT. Texture state listed in table 6.22 but
     not listed here and in the sampler state in table 6.23 is not part
     of the sampler state, and remains in the texture object.
 
@@ -398,7 +398,7 @@ Additions to Appendix A of the OpenGL 3.2 Specification (Compatibility Profile) 
 Interactions with EXT_texture_filter_anisotropic
 
     If EXT_texture_filter_anisotropic is not supported, remove all
-    references to TEXTURE_MAX_ANISTROPY_EXT.
+    references to TEXTURE_MAX_ANISOTROPY_EXT.
 
 Additions to the AGL/GLX/WGL Specifications
 
@@ -448,7 +448,7 @@ New State
     |                           |           |                      |                        | bias (biastexobj)            |        |            |
     | TEXTURE_COMPARE_MODE      | n x Z2    | GetSamplerParameter  | NONE                   | Comparison mode              | 3.9.16 | -          |
     | TEXTURE_COMPARE_FUNC      | n x Z8    | GetSamplerParameter  | LEQUAL                 | Comparison function          | 3.9.16 | -          |
-    | TEXTURE_MAX_ANISTROPY_EXT | n x R     | GetSamplerParameter  | 1.0                    | Maximum degree of anisotropy | 3.9    | -          |
+    | TEXTURE_MAX_ANISOTROPY_EXT| n x R     | GetSamplerParameter  | 1.0                    | Maximum degree of anisotropy | 3.9    | -          |
     +---------------------------+-----------+----------------------+------------------------+------------------------------+--------+------------+
 
 New Implementation Dependent State
@@ -535,7 +535,9 @@ Issues
 Revision History
 
     Rev.    Date      Author    Changes
-    ----  --------    --------  -----------------------------------------
+    ----  ----------  --------- -----------------------------------------
+    13    11/12/2014  Jon Leech Fix spelling of TEXTURE_MAX_ANISOTROPY
+                                (public Bug 1263).
     12    07/22/2011  Jon Leech Fix valid <unit> values to be based
                                 on MAX_COMBINED_TEXTURE_IMAGE_UNITS
                                 instead of MAX_TEXTURE_IMAGE_UNITS (bug
