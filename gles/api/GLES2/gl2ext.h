@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 28689 $ on $Date: 2014-10-21 17:30:22 -0700 (Tue, 21 Oct 2014) $
+** Khronos $Revision: 28958 $ on $Date: 2014-11-17 01:45:17 -0800 (Mon, 17 Nov 2014) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20141021 */
+/* Generated on date 20141117 */
 
 /* Generated C header for:
  * API: gles2
@@ -1570,6 +1570,38 @@ GL_APICALL void GL_APIENTRY glGetPerfQueryInfoINTEL (GLuint queryId, GLuint quer
 #endif
 #endif /* GL_INTEL_performance_query */
 
+#ifndef GL_NV_bindless_texture
+#define GL_NV_bindless_texture 1
+typedef GLuint64 (GL_APIENTRYP PFNGLGETTEXTUREHANDLENVPROC) (GLuint texture);
+typedef GLuint64 (GL_APIENTRYP PFNGLGETTEXTURESAMPLERHANDLENVPROC) (GLuint texture, GLuint sampler);
+typedef void (GL_APIENTRYP PFNGLMAKETEXTUREHANDLERESIDENTNVPROC) (GLuint64 handle);
+typedef void (GL_APIENTRYP PFNGLMAKETEXTUREHANDLENONRESIDENTNVPROC) (GLuint64 handle);
+typedef GLuint64 (GL_APIENTRYP PFNGLGETIMAGEHANDLENVPROC) (GLuint texture, GLint level, GLboolean layered, GLint layer, GLenum format);
+typedef void (GL_APIENTRYP PFNGLMAKEIMAGEHANDLERESIDENTNVPROC) (GLuint64 handle, GLenum access);
+typedef void (GL_APIENTRYP PFNGLMAKEIMAGEHANDLENONRESIDENTNVPROC) (GLuint64 handle);
+typedef void (GL_APIENTRYP PFNGLUNIFORMHANDLEUI64NVPROC) (GLint location, GLuint64 value);
+typedef void (GL_APIENTRYP PFNGLUNIFORMHANDLEUI64VNVPROC) (GLint location, GLsizei count, const GLuint64 *value);
+typedef void (GL_APIENTRYP PFNGLPROGRAMUNIFORMHANDLEUI64NVPROC) (GLuint program, GLint location, GLuint64 value);
+typedef void (GL_APIENTRYP PFNGLPROGRAMUNIFORMHANDLEUI64VNVPROC) (GLuint program, GLint location, GLsizei count, const GLuint64 *values);
+typedef GLboolean (GL_APIENTRYP PFNGLISTEXTUREHANDLERESIDENTNVPROC) (GLuint64 handle);
+typedef GLboolean (GL_APIENTRYP PFNGLISIMAGEHANDLERESIDENTNVPROC) (GLuint64 handle);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL GLuint64 GL_APIENTRY glGetTextureHandleNV (GLuint texture);
+GL_APICALL GLuint64 GL_APIENTRY glGetTextureSamplerHandleNV (GLuint texture, GLuint sampler);
+GL_APICALL void GL_APIENTRY glMakeTextureHandleResidentNV (GLuint64 handle);
+GL_APICALL void GL_APIENTRY glMakeTextureHandleNonResidentNV (GLuint64 handle);
+GL_APICALL GLuint64 GL_APIENTRY glGetImageHandleNV (GLuint texture, GLint level, GLboolean layered, GLint layer, GLenum format);
+GL_APICALL void GL_APIENTRY glMakeImageHandleResidentNV (GLuint64 handle, GLenum access);
+GL_APICALL void GL_APIENTRY glMakeImageHandleNonResidentNV (GLuint64 handle);
+GL_APICALL void GL_APIENTRY glUniformHandleui64NV (GLint location, GLuint64 value);
+GL_APICALL void GL_APIENTRY glUniformHandleui64vNV (GLint location, GLsizei count, const GLuint64 *value);
+GL_APICALL void GL_APIENTRY glProgramUniformHandleui64NV (GLuint program, GLint location, GLuint64 value);
+GL_APICALL void GL_APIENTRY glProgramUniformHandleui64vNV (GLuint program, GLint location, GLsizei count, const GLuint64 *values);
+GL_APICALL GLboolean GL_APIENTRY glIsTextureHandleResidentNV (GLuint64 handle);
+GL_APICALL GLboolean GL_APIENTRY glIsImageHandleResidentNV (GLuint64 handle);
+#endif
+#endif /* GL_NV_bindless_texture */
+
 #ifndef GL_NV_blend_equation_advanced
 #define GL_NV_blend_equation_advanced 1
 #define GL_BLEND_OVERLAP_NV               0x9281
@@ -1633,6 +1665,20 @@ GL_APICALL void GL_APIENTRY glBlendBarrierNV (void);
 #define GL_NV_blend_equation_advanced_coherent 1
 #define GL_BLEND_ADVANCED_COHERENT_NV     0x9285
 #endif /* GL_NV_blend_equation_advanced_coherent */
+
+#ifndef GL_NV_conditional_render
+#define GL_NV_conditional_render 1
+#define GL_QUERY_WAIT_NV                  0x8E13
+#define GL_QUERY_NO_WAIT_NV               0x8E14
+#define GL_QUERY_BY_REGION_WAIT_NV        0x8E15
+#define GL_QUERY_BY_REGION_NO_WAIT_NV     0x8E16
+typedef void (GL_APIENTRYP PFNGLBEGINCONDITIONALRENDERNVPROC) (GLuint id, GLenum mode);
+typedef void (GL_APIENTRYP PFNGLENDCONDITIONALRENDERNVPROC) (void);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glBeginConditionalRenderNV (GLuint id, GLenum mode);
+GL_APICALL void GL_APIENTRY glEndConditionalRenderNV (void);
+#endif
+#endif /* GL_NV_conditional_render */
 
 #ifndef GL_NV_copy_buffer
 #define GL_NV_copy_buffer 1
@@ -1824,6 +1870,279 @@ GL_APICALL void GL_APIENTRY glUniformMatrix3x4fvNV (GLint location, GLsizei coun
 GL_APICALL void GL_APIENTRY glUniformMatrix4x3fvNV (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
 #endif
 #endif /* GL_NV_non_square_matrices */
+
+#ifndef GL_NV_path_rendering
+#define GL_NV_path_rendering 1
+#define GL_PATH_FORMAT_SVG_NV             0x9070
+#define GL_PATH_FORMAT_PS_NV              0x9071
+#define GL_STANDARD_FONT_NAME_NV          0x9072
+#define GL_SYSTEM_FONT_NAME_NV            0x9073
+#define GL_FILE_NAME_NV                   0x9074
+#define GL_PATH_STROKE_WIDTH_NV           0x9075
+#define GL_PATH_END_CAPS_NV               0x9076
+#define GL_PATH_INITIAL_END_CAP_NV        0x9077
+#define GL_PATH_TERMINAL_END_CAP_NV       0x9078
+#define GL_PATH_JOIN_STYLE_NV             0x9079
+#define GL_PATH_MITER_LIMIT_NV            0x907A
+#define GL_PATH_DASH_CAPS_NV              0x907B
+#define GL_PATH_INITIAL_DASH_CAP_NV       0x907C
+#define GL_PATH_TERMINAL_DASH_CAP_NV      0x907D
+#define GL_PATH_DASH_OFFSET_NV            0x907E
+#define GL_PATH_CLIENT_LENGTH_NV          0x907F
+#define GL_PATH_FILL_MODE_NV              0x9080
+#define GL_PATH_FILL_MASK_NV              0x9081
+#define GL_PATH_FILL_COVER_MODE_NV        0x9082
+#define GL_PATH_STROKE_COVER_MODE_NV      0x9083
+#define GL_PATH_STROKE_MASK_NV            0x9084
+#define GL_COUNT_UP_NV                    0x9088
+#define GL_COUNT_DOWN_NV                  0x9089
+#define GL_PATH_OBJECT_BOUNDING_BOX_NV    0x908A
+#define GL_CONVEX_HULL_NV                 0x908B
+#define GL_BOUNDING_BOX_NV                0x908D
+#define GL_TRANSLATE_X_NV                 0x908E
+#define GL_TRANSLATE_Y_NV                 0x908F
+#define GL_TRANSLATE_2D_NV                0x9090
+#define GL_TRANSLATE_3D_NV                0x9091
+#define GL_AFFINE_2D_NV                   0x9092
+#define GL_AFFINE_3D_NV                   0x9094
+#define GL_TRANSPOSE_AFFINE_2D_NV         0x9096
+#define GL_TRANSPOSE_AFFINE_3D_NV         0x9098
+#define GL_UTF8_NV                        0x909A
+#define GL_UTF16_NV                       0x909B
+#define GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV 0x909C
+#define GL_PATH_COMMAND_COUNT_NV          0x909D
+#define GL_PATH_COORD_COUNT_NV            0x909E
+#define GL_PATH_DASH_ARRAY_COUNT_NV       0x909F
+#define GL_PATH_COMPUTED_LENGTH_NV        0x90A0
+#define GL_PATH_FILL_BOUNDING_BOX_NV      0x90A1
+#define GL_PATH_STROKE_BOUNDING_BOX_NV    0x90A2
+#define GL_SQUARE_NV                      0x90A3
+#define GL_ROUND_NV                       0x90A4
+#define GL_TRIANGULAR_NV                  0x90A5
+#define GL_BEVEL_NV                       0x90A6
+#define GL_MITER_REVERT_NV                0x90A7
+#define GL_MITER_TRUNCATE_NV              0x90A8
+#define GL_SKIP_MISSING_GLYPH_NV          0x90A9
+#define GL_USE_MISSING_GLYPH_NV           0x90AA
+#define GL_PATH_ERROR_POSITION_NV         0x90AB
+#define GL_ACCUM_ADJACENT_PAIRS_NV        0x90AD
+#define GL_ADJACENT_PAIRS_NV              0x90AE
+#define GL_FIRST_TO_REST_NV               0x90AF
+#define GL_PATH_GEN_MODE_NV               0x90B0
+#define GL_PATH_GEN_COEFF_NV              0x90B1
+#define GL_PATH_GEN_COMPONENTS_NV         0x90B3
+#define GL_PATH_STENCIL_FUNC_NV           0x90B7
+#define GL_PATH_STENCIL_REF_NV            0x90B8
+#define GL_PATH_STENCIL_VALUE_MASK_NV     0x90B9
+#define GL_PATH_STENCIL_DEPTH_OFFSET_FACTOR_NV 0x90BD
+#define GL_PATH_STENCIL_DEPTH_OFFSET_UNITS_NV 0x90BE
+#define GL_PATH_COVER_DEPTH_FUNC_NV       0x90BF
+#define GL_PATH_DASH_OFFSET_RESET_NV      0x90B4
+#define GL_MOVE_TO_RESETS_NV              0x90B5
+#define GL_MOVE_TO_CONTINUES_NV           0x90B6
+#define GL_CLOSE_PATH_NV                  0x00
+#define GL_MOVE_TO_NV                     0x02
+#define GL_RELATIVE_MOVE_TO_NV            0x03
+#define GL_LINE_TO_NV                     0x04
+#define GL_RELATIVE_LINE_TO_NV            0x05
+#define GL_HORIZONTAL_LINE_TO_NV          0x06
+#define GL_RELATIVE_HORIZONTAL_LINE_TO_NV 0x07
+#define GL_VERTICAL_LINE_TO_NV            0x08
+#define GL_RELATIVE_VERTICAL_LINE_TO_NV   0x09
+#define GL_QUADRATIC_CURVE_TO_NV          0x0A
+#define GL_RELATIVE_QUADRATIC_CURVE_TO_NV 0x0B
+#define GL_CUBIC_CURVE_TO_NV              0x0C
+#define GL_RELATIVE_CUBIC_CURVE_TO_NV     0x0D
+#define GL_SMOOTH_QUADRATIC_CURVE_TO_NV   0x0E
+#define GL_RELATIVE_SMOOTH_QUADRATIC_CURVE_TO_NV 0x0F
+#define GL_SMOOTH_CUBIC_CURVE_TO_NV       0x10
+#define GL_RELATIVE_SMOOTH_CUBIC_CURVE_TO_NV 0x11
+#define GL_SMALL_CCW_ARC_TO_NV            0x12
+#define GL_RELATIVE_SMALL_CCW_ARC_TO_NV   0x13
+#define GL_SMALL_CW_ARC_TO_NV             0x14
+#define GL_RELATIVE_SMALL_CW_ARC_TO_NV    0x15
+#define GL_LARGE_CCW_ARC_TO_NV            0x16
+#define GL_RELATIVE_LARGE_CCW_ARC_TO_NV   0x17
+#define GL_LARGE_CW_ARC_TO_NV             0x18
+#define GL_RELATIVE_LARGE_CW_ARC_TO_NV    0x19
+#define GL_RESTART_PATH_NV                0xF0
+#define GL_DUP_FIRST_CUBIC_CURVE_TO_NV    0xF2
+#define GL_DUP_LAST_CUBIC_CURVE_TO_NV     0xF4
+#define GL_RECT_NV                        0xF6
+#define GL_CIRCULAR_CCW_ARC_TO_NV         0xF8
+#define GL_CIRCULAR_CW_ARC_TO_NV          0xFA
+#define GL_CIRCULAR_TANGENT_ARC_TO_NV     0xFC
+#define GL_ARC_TO_NV                      0xFE
+#define GL_RELATIVE_ARC_TO_NV             0xFF
+#define GL_BOLD_BIT_NV                    0x01
+#define GL_ITALIC_BIT_NV                  0x02
+#define GL_GLYPH_WIDTH_BIT_NV             0x01
+#define GL_GLYPH_HEIGHT_BIT_NV            0x02
+#define GL_GLYPH_HORIZONTAL_BEARING_X_BIT_NV 0x04
+#define GL_GLYPH_HORIZONTAL_BEARING_Y_BIT_NV 0x08
+#define GL_GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV 0x10
+#define GL_GLYPH_VERTICAL_BEARING_X_BIT_NV 0x20
+#define GL_GLYPH_VERTICAL_BEARING_Y_BIT_NV 0x40
+#define GL_GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV 0x80
+#define GL_GLYPH_HAS_KERNING_BIT_NV       0x100
+#define GL_FONT_X_MIN_BOUNDS_BIT_NV       0x00010000
+#define GL_FONT_Y_MIN_BOUNDS_BIT_NV       0x00020000
+#define GL_FONT_X_MAX_BOUNDS_BIT_NV       0x00040000
+#define GL_FONT_Y_MAX_BOUNDS_BIT_NV       0x00080000
+#define GL_FONT_UNITS_PER_EM_BIT_NV       0x00100000
+#define GL_FONT_ASCENDER_BIT_NV           0x00200000
+#define GL_FONT_DESCENDER_BIT_NV          0x00400000
+#define GL_FONT_HEIGHT_BIT_NV             0x00800000
+#define GL_FONT_MAX_ADVANCE_WIDTH_BIT_NV  0x01000000
+#define GL_FONT_MAX_ADVANCE_HEIGHT_BIT_NV 0x02000000
+#define GL_FONT_UNDERLINE_POSITION_BIT_NV 0x04000000
+#define GL_FONT_UNDERLINE_THICKNESS_BIT_NV 0x08000000
+#define GL_FONT_HAS_KERNING_BIT_NV        0x10000000
+#define GL_ROUNDED_RECT_NV                0xE8
+#define GL_RELATIVE_ROUNDED_RECT_NV       0xE9
+#define GL_ROUNDED_RECT2_NV               0xEA
+#define GL_RELATIVE_ROUNDED_RECT2_NV      0xEB
+#define GL_ROUNDED_RECT4_NV               0xEC
+#define GL_RELATIVE_ROUNDED_RECT4_NV      0xED
+#define GL_ROUNDED_RECT8_NV               0xEE
+#define GL_RELATIVE_ROUNDED_RECT8_NV      0xEF
+#define GL_RELATIVE_RECT_NV               0xF7
+#define GL_FONT_GLYPHS_AVAILABLE_NV       0x9368
+#define GL_FONT_TARGET_UNAVAILABLE_NV     0x9369
+#define GL_FONT_UNAVAILABLE_NV            0x936A
+#define GL_FONT_UNINTELLIGIBLE_NV         0x936B
+#define GL_CONIC_CURVE_TO_NV              0x1A
+#define GL_RELATIVE_CONIC_CURVE_TO_NV     0x1B
+#define GL_FONT_NUM_GLYPH_INDICES_BIT_NV  0x20000000
+#define GL_STANDARD_FONT_FORMAT_NV        0x936C
+#define GL_PATH_PROJECTION_NV             0x1701
+#define GL_PATH_MODELVIEW_NV              0x1700
+#define GL_PATH_MODELVIEW_STACK_DEPTH_NV  0x0BA3
+#define GL_PATH_MODELVIEW_MATRIX_NV       0x0BA6
+#define GL_PATH_MAX_MODELVIEW_STACK_DEPTH_NV 0x0D36
+#define GL_PATH_TRANSPOSE_MODELVIEW_MATRIX_NV 0x84E3
+#define GL_PATH_PROJECTION_STACK_DEPTH_NV 0x0BA4
+#define GL_PATH_PROJECTION_MATRIX_NV      0x0BA7
+#define GL_PATH_MAX_PROJECTION_STACK_DEPTH_NV 0x0D38
+#define GL_PATH_TRANSPOSE_PROJECTION_MATRIX_NV 0x84E4
+#define GL_FRAGMENT_INPUT_NV              0x936D
+typedef GLuint (GL_APIENTRYP PFNGLGENPATHSNVPROC) (GLsizei range);
+typedef void (GL_APIENTRYP PFNGLDELETEPATHSNVPROC) (GLuint path, GLsizei range);
+typedef GLboolean (GL_APIENTRYP PFNGLISPATHNVPROC) (GLuint path);
+typedef void (GL_APIENTRYP PFNGLPATHCOMMANDSNVPROC) (GLuint path, GLsizei numCommands, const GLubyte *commands, GLsizei numCoords, GLenum coordType, const void *coords);
+typedef void (GL_APIENTRYP PFNGLPATHCOORDSNVPROC) (GLuint path, GLsizei numCoords, GLenum coordType, const void *coords);
+typedef void (GL_APIENTRYP PFNGLPATHSUBCOMMANDSNVPROC) (GLuint path, GLsizei commandStart, GLsizei commandsToDelete, GLsizei numCommands, const GLubyte *commands, GLsizei numCoords, GLenum coordType, const void *coords);
+typedef void (GL_APIENTRYP PFNGLPATHSUBCOORDSNVPROC) (GLuint path, GLsizei coordStart, GLsizei numCoords, GLenum coordType, const void *coords);
+typedef void (GL_APIENTRYP PFNGLPATHSTRINGNVPROC) (GLuint path, GLenum format, GLsizei length, const void *pathString);
+typedef void (GL_APIENTRYP PFNGLPATHGLYPHSNVPROC) (GLuint firstPathName, GLenum fontTarget, const void *fontName, GLbitfield fontStyle, GLsizei numGlyphs, GLenum type, const void *charcodes, GLenum handleMissingGlyphs, GLuint pathParameterTemplate, GLfloat emScale);
+typedef void (GL_APIENTRYP PFNGLPATHGLYPHRANGENVPROC) (GLuint firstPathName, GLenum fontTarget, const void *fontName, GLbitfield fontStyle, GLuint firstGlyph, GLsizei numGlyphs, GLenum handleMissingGlyphs, GLuint pathParameterTemplate, GLfloat emScale);
+typedef void (GL_APIENTRYP PFNGLWEIGHTPATHSNVPROC) (GLuint resultPath, GLsizei numPaths, const GLuint *paths, const GLfloat *weights);
+typedef void (GL_APIENTRYP PFNGLCOPYPATHNVPROC) (GLuint resultPath, GLuint srcPath);
+typedef void (GL_APIENTRYP PFNGLINTERPOLATEPATHSNVPROC) (GLuint resultPath, GLuint pathA, GLuint pathB, GLfloat weight);
+typedef void (GL_APIENTRYP PFNGLTRANSFORMPATHNVPROC) (GLuint resultPath, GLuint srcPath, GLenum transformType, const GLfloat *transformValues);
+typedef void (GL_APIENTRYP PFNGLPATHPARAMETERIVNVPROC) (GLuint path, GLenum pname, const GLint *value);
+typedef void (GL_APIENTRYP PFNGLPATHPARAMETERINVPROC) (GLuint path, GLenum pname, GLint value);
+typedef void (GL_APIENTRYP PFNGLPATHPARAMETERFVNVPROC) (GLuint path, GLenum pname, const GLfloat *value);
+typedef void (GL_APIENTRYP PFNGLPATHPARAMETERFNVPROC) (GLuint path, GLenum pname, GLfloat value);
+typedef void (GL_APIENTRYP PFNGLPATHDASHARRAYNVPROC) (GLuint path, GLsizei dashCount, const GLfloat *dashArray);
+typedef void (GL_APIENTRYP PFNGLPATHSTENCILFUNCNVPROC) (GLenum func, GLint ref, GLuint mask);
+typedef void (GL_APIENTRYP PFNGLPATHSTENCILDEPTHOFFSETNVPROC) (GLfloat factor, GLfloat units);
+typedef void (GL_APIENTRYP PFNGLSTENCILFILLPATHNVPROC) (GLuint path, GLenum fillMode, GLuint mask);
+typedef void (GL_APIENTRYP PFNGLSTENCILSTROKEPATHNVPROC) (GLuint path, GLint reference, GLuint mask);
+typedef void (GL_APIENTRYP PFNGLSTENCILFILLPATHINSTANCEDNVPROC) (GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLenum fillMode, GLuint mask, GLenum transformType, const GLfloat *transformValues);
+typedef void (GL_APIENTRYP PFNGLSTENCILSTROKEPATHINSTANCEDNVPROC) (GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLint reference, GLuint mask, GLenum transformType, const GLfloat *transformValues);
+typedef void (GL_APIENTRYP PFNGLPATHCOVERDEPTHFUNCNVPROC) (GLenum func);
+typedef void (GL_APIENTRYP PFNGLCOVERFILLPATHNVPROC) (GLuint path, GLenum coverMode);
+typedef void (GL_APIENTRYP PFNGLCOVERSTROKEPATHNVPROC) (GLuint path, GLenum coverMode);
+typedef void (GL_APIENTRYP PFNGLCOVERFILLPATHINSTANCEDNVPROC) (GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLenum coverMode, GLenum transformType, const GLfloat *transformValues);
+typedef void (GL_APIENTRYP PFNGLCOVERSTROKEPATHINSTANCEDNVPROC) (GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLenum coverMode, GLenum transformType, const GLfloat *transformValues);
+typedef void (GL_APIENTRYP PFNGLGETPATHPARAMETERIVNVPROC) (GLuint path, GLenum pname, GLint *value);
+typedef void (GL_APIENTRYP PFNGLGETPATHPARAMETERFVNVPROC) (GLuint path, GLenum pname, GLfloat *value);
+typedef void (GL_APIENTRYP PFNGLGETPATHCOMMANDSNVPROC) (GLuint path, GLubyte *commands);
+typedef void (GL_APIENTRYP PFNGLGETPATHCOORDSNVPROC) (GLuint path, GLfloat *coords);
+typedef void (GL_APIENTRYP PFNGLGETPATHDASHARRAYNVPROC) (GLuint path, GLfloat *dashArray);
+typedef void (GL_APIENTRYP PFNGLGETPATHMETRICSNVPROC) (GLbitfield metricQueryMask, GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLsizei stride, GLfloat *metrics);
+typedef void (GL_APIENTRYP PFNGLGETPATHMETRICRANGENVPROC) (GLbitfield metricQueryMask, GLuint firstPathName, GLsizei numPaths, GLsizei stride, GLfloat *metrics);
+typedef void (GL_APIENTRYP PFNGLGETPATHSPACINGNVPROC) (GLenum pathListMode, GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLfloat advanceScale, GLfloat kerningScale, GLenum transformType, GLfloat *returnedSpacing);
+typedef GLboolean (GL_APIENTRYP PFNGLISPOINTINFILLPATHNVPROC) (GLuint path, GLuint mask, GLfloat x, GLfloat y);
+typedef GLboolean (GL_APIENTRYP PFNGLISPOINTINSTROKEPATHNVPROC) (GLuint path, GLfloat x, GLfloat y);
+typedef GLfloat (GL_APIENTRYP PFNGLGETPATHLENGTHNVPROC) (GLuint path, GLsizei startSegment, GLsizei numSegments);
+typedef GLboolean (GL_APIENTRYP PFNGLPOINTALONGPATHNVPROC) (GLuint path, GLsizei startSegment, GLsizei numSegments, GLfloat distance, GLfloat *x, GLfloat *y, GLfloat *tangentX, GLfloat *tangentY);
+typedef void (GL_APIENTRYP PFNGLMATRIXLOAD3X2FNVPROC) (GLenum matrixMode, const GLfloat *m);
+typedef void (GL_APIENTRYP PFNGLMATRIXLOAD3X3FNVPROC) (GLenum matrixMode, const GLfloat *m);
+typedef void (GL_APIENTRYP PFNGLMATRIXLOADTRANSPOSE3X3FNVPROC) (GLenum matrixMode, const GLfloat *m);
+typedef void (GL_APIENTRYP PFNGLMATRIXMULT3X2FNVPROC) (GLenum matrixMode, const GLfloat *m);
+typedef void (GL_APIENTRYP PFNGLMATRIXMULT3X3FNVPROC) (GLenum matrixMode, const GLfloat *m);
+typedef void (GL_APIENTRYP PFNGLMATRIXMULTTRANSPOSE3X3FNVPROC) (GLenum matrixMode, const GLfloat *m);
+typedef void (GL_APIENTRYP PFNGLSTENCILTHENCOVERFILLPATHNVPROC) (GLuint path, GLenum fillMode, GLuint mask, GLenum coverMode);
+typedef void (GL_APIENTRYP PFNGLSTENCILTHENCOVERSTROKEPATHNVPROC) (GLuint path, GLint reference, GLuint mask, GLenum coverMode);
+typedef void (GL_APIENTRYP PFNGLSTENCILTHENCOVERFILLPATHINSTANCEDNVPROC) (GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLenum fillMode, GLuint mask, GLenum coverMode, GLenum transformType, const GLfloat *transformValues);
+typedef void (GL_APIENTRYP PFNGLSTENCILTHENCOVERSTROKEPATHINSTANCEDNVPROC) (GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLint reference, GLuint mask, GLenum coverMode, GLenum transformType, const GLfloat *transformValues);
+typedef GLenum (GL_APIENTRYP PFNGLPATHGLYPHINDEXRANGENVPROC) (GLenum fontTarget, const void *fontName, GLbitfield fontStyle, GLuint pathParameterTemplate, GLfloat emScale, GLuint baseAndCount[2]);
+typedef GLenum (GL_APIENTRYP PFNGLPATHGLYPHINDEXARRAYNVPROC) (GLuint firstPathName, GLenum fontTarget, const void *fontName, GLbitfield fontStyle, GLuint firstGlyphIndex, GLsizei numGlyphs, GLuint pathParameterTemplate, GLfloat emScale);
+typedef GLenum (GL_APIENTRYP PFNGLPATHMEMORYGLYPHINDEXARRAYNVPROC) (GLuint firstPathName, GLenum fontTarget, GLsizeiptr fontSize, const void *fontData, GLsizei faceIndex, GLuint firstGlyphIndex, GLsizei numGlyphs, GLuint pathParameterTemplate, GLfloat emScale);
+typedef void (GL_APIENTRYP PFNGLPROGRAMPATHFRAGMENTINPUTGENNVPROC) (GLuint program, GLint location, GLenum genMode, GLint components, const GLfloat *coeffs);
+typedef void (GL_APIENTRYP PFNGLGETPROGRAMRESOURCEFVNVPROC) (GLuint program, GLenum programInterface, GLuint index, GLsizei propCount, const GLenum *props, GLsizei bufSize, GLsizei *length, GLfloat *params);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL GLuint GL_APIENTRY glGenPathsNV (GLsizei range);
+GL_APICALL void GL_APIENTRY glDeletePathsNV (GLuint path, GLsizei range);
+GL_APICALL GLboolean GL_APIENTRY glIsPathNV (GLuint path);
+GL_APICALL void GL_APIENTRY glPathCommandsNV (GLuint path, GLsizei numCommands, const GLubyte *commands, GLsizei numCoords, GLenum coordType, const void *coords);
+GL_APICALL void GL_APIENTRY glPathCoordsNV (GLuint path, GLsizei numCoords, GLenum coordType, const void *coords);
+GL_APICALL void GL_APIENTRY glPathSubCommandsNV (GLuint path, GLsizei commandStart, GLsizei commandsToDelete, GLsizei numCommands, const GLubyte *commands, GLsizei numCoords, GLenum coordType, const void *coords);
+GL_APICALL void GL_APIENTRY glPathSubCoordsNV (GLuint path, GLsizei coordStart, GLsizei numCoords, GLenum coordType, const void *coords);
+GL_APICALL void GL_APIENTRY glPathStringNV (GLuint path, GLenum format, GLsizei length, const void *pathString);
+GL_APICALL void GL_APIENTRY glPathGlyphsNV (GLuint firstPathName, GLenum fontTarget, const void *fontName, GLbitfield fontStyle, GLsizei numGlyphs, GLenum type, const void *charcodes, GLenum handleMissingGlyphs, GLuint pathParameterTemplate, GLfloat emScale);
+GL_APICALL void GL_APIENTRY glPathGlyphRangeNV (GLuint firstPathName, GLenum fontTarget, const void *fontName, GLbitfield fontStyle, GLuint firstGlyph, GLsizei numGlyphs, GLenum handleMissingGlyphs, GLuint pathParameterTemplate, GLfloat emScale);
+GL_APICALL void GL_APIENTRY glWeightPathsNV (GLuint resultPath, GLsizei numPaths, const GLuint *paths, const GLfloat *weights);
+GL_APICALL void GL_APIENTRY glCopyPathNV (GLuint resultPath, GLuint srcPath);
+GL_APICALL void GL_APIENTRY glInterpolatePathsNV (GLuint resultPath, GLuint pathA, GLuint pathB, GLfloat weight);
+GL_APICALL void GL_APIENTRY glTransformPathNV (GLuint resultPath, GLuint srcPath, GLenum transformType, const GLfloat *transformValues);
+GL_APICALL void GL_APIENTRY glPathParameterivNV (GLuint path, GLenum pname, const GLint *value);
+GL_APICALL void GL_APIENTRY glPathParameteriNV (GLuint path, GLenum pname, GLint value);
+GL_APICALL void GL_APIENTRY glPathParameterfvNV (GLuint path, GLenum pname, const GLfloat *value);
+GL_APICALL void GL_APIENTRY glPathParameterfNV (GLuint path, GLenum pname, GLfloat value);
+GL_APICALL void GL_APIENTRY glPathDashArrayNV (GLuint path, GLsizei dashCount, const GLfloat *dashArray);
+GL_APICALL void GL_APIENTRY glPathStencilFuncNV (GLenum func, GLint ref, GLuint mask);
+GL_APICALL void GL_APIENTRY glPathStencilDepthOffsetNV (GLfloat factor, GLfloat units);
+GL_APICALL void GL_APIENTRY glStencilFillPathNV (GLuint path, GLenum fillMode, GLuint mask);
+GL_APICALL void GL_APIENTRY glStencilStrokePathNV (GLuint path, GLint reference, GLuint mask);
+GL_APICALL void GL_APIENTRY glStencilFillPathInstancedNV (GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLenum fillMode, GLuint mask, GLenum transformType, const GLfloat *transformValues);
+GL_APICALL void GL_APIENTRY glStencilStrokePathInstancedNV (GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLint reference, GLuint mask, GLenum transformType, const GLfloat *transformValues);
+GL_APICALL void GL_APIENTRY glPathCoverDepthFuncNV (GLenum func);
+GL_APICALL void GL_APIENTRY glCoverFillPathNV (GLuint path, GLenum coverMode);
+GL_APICALL void GL_APIENTRY glCoverStrokePathNV (GLuint path, GLenum coverMode);
+GL_APICALL void GL_APIENTRY glCoverFillPathInstancedNV (GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLenum coverMode, GLenum transformType, const GLfloat *transformValues);
+GL_APICALL void GL_APIENTRY glCoverStrokePathInstancedNV (GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLenum coverMode, GLenum transformType, const GLfloat *transformValues);
+GL_APICALL void GL_APIENTRY glGetPathParameterivNV (GLuint path, GLenum pname, GLint *value);
+GL_APICALL void GL_APIENTRY glGetPathParameterfvNV (GLuint path, GLenum pname, GLfloat *value);
+GL_APICALL void GL_APIENTRY glGetPathCommandsNV (GLuint path, GLubyte *commands);
+GL_APICALL void GL_APIENTRY glGetPathCoordsNV (GLuint path, GLfloat *coords);
+GL_APICALL void GL_APIENTRY glGetPathDashArrayNV (GLuint path, GLfloat *dashArray);
+GL_APICALL void GL_APIENTRY glGetPathMetricsNV (GLbitfield metricQueryMask, GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLsizei stride, GLfloat *metrics);
+GL_APICALL void GL_APIENTRY glGetPathMetricRangeNV (GLbitfield metricQueryMask, GLuint firstPathName, GLsizei numPaths, GLsizei stride, GLfloat *metrics);
+GL_APICALL void GL_APIENTRY glGetPathSpacingNV (GLenum pathListMode, GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLfloat advanceScale, GLfloat kerningScale, GLenum transformType, GLfloat *returnedSpacing);
+GL_APICALL GLboolean GL_APIENTRY glIsPointInFillPathNV (GLuint path, GLuint mask, GLfloat x, GLfloat y);
+GL_APICALL GLboolean GL_APIENTRY glIsPointInStrokePathNV (GLuint path, GLfloat x, GLfloat y);
+GL_APICALL GLfloat GL_APIENTRY glGetPathLengthNV (GLuint path, GLsizei startSegment, GLsizei numSegments);
+GL_APICALL GLboolean GL_APIENTRY glPointAlongPathNV (GLuint path, GLsizei startSegment, GLsizei numSegments, GLfloat distance, GLfloat *x, GLfloat *y, GLfloat *tangentX, GLfloat *tangentY);
+GL_APICALL void GL_APIENTRY glMatrixLoad3x2fNV (GLenum matrixMode, const GLfloat *m);
+GL_APICALL void GL_APIENTRY glMatrixLoad3x3fNV (GLenum matrixMode, const GLfloat *m);
+GL_APICALL void GL_APIENTRY glMatrixLoadTranspose3x3fNV (GLenum matrixMode, const GLfloat *m);
+GL_APICALL void GL_APIENTRY glMatrixMult3x2fNV (GLenum matrixMode, const GLfloat *m);
+GL_APICALL void GL_APIENTRY glMatrixMult3x3fNV (GLenum matrixMode, const GLfloat *m);
+GL_APICALL void GL_APIENTRY glMatrixMultTranspose3x3fNV (GLenum matrixMode, const GLfloat *m);
+GL_APICALL void GL_APIENTRY glStencilThenCoverFillPathNV (GLuint path, GLenum fillMode, GLuint mask, GLenum coverMode);
+GL_APICALL void GL_APIENTRY glStencilThenCoverStrokePathNV (GLuint path, GLint reference, GLuint mask, GLenum coverMode);
+GL_APICALL void GL_APIENTRY glStencilThenCoverFillPathInstancedNV (GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLenum fillMode, GLuint mask, GLenum coverMode, GLenum transformType, const GLfloat *transformValues);
+GL_APICALL void GL_APIENTRY glStencilThenCoverStrokePathInstancedNV (GLsizei numPaths, GLenum pathNameType, const void *paths, GLuint pathBase, GLint reference, GLuint mask, GLenum coverMode, GLenum transformType, const GLfloat *transformValues);
+GL_APICALL GLenum GL_APIENTRY glPathGlyphIndexRangeNV (GLenum fontTarget, const void *fontName, GLbitfield fontStyle, GLuint pathParameterTemplate, GLfloat emScale, GLuint baseAndCount[2]);
+GL_APICALL GLenum GL_APIENTRY glPathGlyphIndexArrayNV (GLuint firstPathName, GLenum fontTarget, const void *fontName, GLbitfield fontStyle, GLuint firstGlyphIndex, GLsizei numGlyphs, GLuint pathParameterTemplate, GLfloat emScale);
+GL_APICALL GLenum GL_APIENTRY glPathMemoryGlyphIndexArrayNV (GLuint firstPathName, GLenum fontTarget, GLsizeiptr fontSize, const void *fontData, GLsizei faceIndex, GLuint firstGlyphIndex, GLsizei numGlyphs, GLuint pathParameterTemplate, GLfloat emScale);
+GL_APICALL void GL_APIENTRY glProgramPathFragmentInputGenNV (GLuint program, GLint location, GLenum genMode, GLint components, const GLfloat *coeffs);
+GL_APICALL void GL_APIENTRY glGetProgramResourcefvNV (GLuint program, GLenum programInterface, GLuint index, GLsizei propCount, const GLenum *props, GLsizei bufSize, GLsizei *length, GLfloat *params);
+#endif
+#endif /* GL_NV_path_rendering */
 
 #ifndef GL_NV_read_buffer
 #define GL_NV_read_buffer 1
