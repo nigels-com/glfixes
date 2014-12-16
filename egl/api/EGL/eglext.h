@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision$ on $Date$
+** Khronos $Revision: 29114 $ on $Date: 2014-12-04 01:44:15 -0800 (Thu, 04 Dec 2014) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20141119
+#define EGL_EGLEXT_VERSION 20141203
 
 /* Generated C header for:
  * API: egl
@@ -207,6 +207,15 @@ EGLAPI EGLBoolean EGLAPIENTRY eglQuerySurface64KHR (EGLDisplay dpy, EGLSurface s
 #endif
 #endif /* EGL_KHR_lock_surface3 */
 
+#ifndef EGL_KHR_partial_update
+#define EGL_KHR_partial_update 1
+#define EGL_BUFFER_AGE_KHR                0x313D
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLSETDAMAGEREGIONKHRPROC) (EGLDisplay dpy, EGLSurface surface, EGLint *rects, EGLint n_rects);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglSetDamageRegionKHR (EGLDisplay dpy, EGLSurface surface, EGLint *rects, EGLint n_rects);
+#endif
+#endif /* EGL_KHR_partial_update */
+
 #ifndef EGL_KHR_platform_android
 #define EGL_KHR_platform_android 1
 #define EGL_PLATFORM_ANDROID_KHR          0x3141
@@ -353,6 +362,14 @@ EGLAPI EGLSurface EGLAPIENTRY eglCreateStreamProducerSurfaceKHR (EGLDisplay dpy,
 #ifndef EGL_KHR_surfaceless_context
 #define EGL_KHR_surfaceless_context 1
 #endif /* EGL_KHR_surfaceless_context */
+
+#ifndef EGL_KHR_swap_buffers_with_damage
+#define EGL_KHR_swap_buffers_with_damage 1
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLSWAPBUFFERSWITHDAMAGEKHRPROC) (EGLDisplay dpy, EGLSurface surface, EGLint *rects, EGLint n_rects);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglSwapBuffersWithDamageKHR (EGLDisplay dpy, EGLSurface surface, EGLint *rects, EGLint n_rects);
+#endif
+#endif /* EGL_KHR_swap_buffers_with_damage */
 
 #ifndef EGL_KHR_vg_parent_image
 #define EGL_KHR_vg_parent_image 1
