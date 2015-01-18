@@ -13,7 +13,7 @@ Contact
 
 Contributors
 
-    TBD
+    Daniel Koch, NVIDIA
 
 Status
 
@@ -21,19 +21,20 @@ Status
 
 Version
 
-    Last Modified Date:   May 16, 2013
-    Author Revision:      2
+    Last Modified Date:   June 13, 2014
+    Author Revision:      3
 
 Number
 
-    418
+    OpenGL Extension #418
+    OpenGL ES Extension #197
 
 Dependencies
 
-    This extension is written against the OpenGL 4.0 (Compatibility Profile) 
+    This extension is written against the OpenGL 4.0 (Compatibility Profile)
     and OpenGL Shading Language 4.00 Specifications.
 
-    OpenGL 4.0 or later versions is required.
+    OpenGL 4.0 or later is required for an OpenGL implementation.
 
     The GLSL portion of this extension requires NV_gpu_shader5, or a similar
     extension providing 64-bit integer support in the shading language.
@@ -59,12 +60,23 @@ Dependencies
 
     This extension interacts with GLSL 4.20.
 
+    OpenGL ES 3.0 or later is required for an OpenGL ES implementation.
+
+    This extension interacts with OpenGL ES 3.1.
+
+    This extension interacts with OES_shader_image_atomic.
+
+    This extension interacts with EXT_texture_cube_map_array.
+
+    This extension interacts with EXT_texture_buffer.
+
+    This extension interacts with EXT_shader_io_blocks.
 
 Overview
 
     This extension allows OpenGL applications to access texture objects in
     shaders without first binding each texture to one of a limited number of
-    texture image units.  Using this extension, an application can query an
+    texture image units.  Using this extension, an application can query a
     64-bit unsigned integer texture handle for each texture that it wants to
     access and then use that handle directly in GLSL or assembly-based
     shaders.  The ability to access textures without having to bind and/or
@@ -75,7 +87,7 @@ Overview
     needed to manage resource bindings.
 
     This extension also provides similar capability for the image load, store,
-    and atomic functionality provided by OpenGL 4.2 and the
+    and atomic functionality provided by OpenGL 4.2, OpenGL ES 3.1 and the
     ARB_shader_image_load_store and EXT_shader_image_load_store extensions,
     where a texture can be accessed without first binding it to an image unit.
     An image handle can be extracted from a texture object using an API with a
@@ -88,7 +100,7 @@ Overview
     particular, sampler and image types may be used as shader inputs/outputs,
     temporary variables, and uniform block members, and may be assigned to by
     shader code.  Constructors are provided to convert 64-bit unsigned integer
-    handles to and from sampler and image data types.  Additionally, new APIs
+    values to and from sampler and image data types.  Additionally, new APIs
     are provided to load values for sampler and image uniforms with 64-bit
     handle inputs.  The use of existing integer-based Uniform* APIs is still
     permitted, in which case the integer specified will identify a texture
@@ -114,7 +126,7 @@ New Procedures and Functions
     void MakeTextureHandleResidentNV(uint64 handle);
     void MakeTextureHandleNonResidentNV(uint64 handle);
 
-    uint64 GetImageHandleNV(uint texture, int level, boolean layered, 
+    uint64 GetImageHandleNV(uint texture, int level, boolean layered,
                             int layer, enum format);
 
     void MakeImageHandleResidentNV(uint64 handle, enum access);
@@ -122,9 +134,9 @@ New Procedures and Functions
 
     void UniformHandleui64NV(int location, uint64 value);
     void UniformHandleui64vNV(int location, sizei count, const uint64 *value);
-    void ProgramUniformHandleui64NV(uint program, int location, 
+    void ProgramUniformHandleui64NV(uint program, int location,
                                     uint64 value);
-    void ProgramUniformHandleui64vNV(uint program, int location, 
+    void ProgramUniformHandleui64vNV(uint program, int location,
                                      sizei count, const uint64 *values);
 
     boolean IsTextureHandleResidentNV(uint64 handle);
@@ -147,8 +159,8 @@ Additions to Chapter 2 of the OpenGL 4.0 (Compatibility Profile) Specification
     These commands specify one, two, three or four values.  Note that attribute
     variables declared with "double" types must be loaded with
     VertexAttribL*d{v}EXT; loading attributes with VertexAttrib*d{v} will
-    produce undefined results. Similarly, attributes declared with 64-bit 
-    integer types, sampler types, or image types must be loaded with 
+    produce undefined results. Similarly, attributes declared with 64-bit
+    integer types, sampler types, or image types must be loaded with
     VertexAttribL*{i64,ui64}{v}.
 
     ...
@@ -159,15 +171,15 @@ Additions to Chapter 2 of the OpenGL 4.0 (Compatibility Profile) Specification
       * floating-point values (VertexAttrib*),
       * signed or unsigned integers (VertexAttribI*),
       * double-precision floating-point values (VertexAttribL*d*), and
-      * 64-bit signed or unsigned integers, images, or samplers 
+      * 64-bit signed or unsigned integers, images, or samplers
         (VertexAttribL*{i64,ui64}*).
 
 
     Modify Section 2.14.3, Vertex Attributes, p. 94
 
-    Edit Table X.1 of NV_vertex_attrib_integer_64bit (Scalar and vector 
-    vertex attribute types and VertexAttrib* commands used to set the values 
-    of the corresponding generic attribute.). Change the line describing 
+    Edit Table X.1 of NV_vertex_attrib_integer_64bit (Scalar and vector
+    vertex attribute types and VertexAttrib* commands used to set the values
+    of the corresponding generic attribute.). Change the line describing
     VertexAttribL1ui64NV to allow it for sampler and image types.
 
       Data type                         Command
@@ -193,15 +205,15 @@ Additions to Chapter 2 of the OpenGL 4.0 (Compatibility Profile) Specification
 
     (Edit the subsection "Loading Uniform Variables In The Default Uniform
      Block", p. 108)
-    
+
     (Add the following commands to the list of uniform functions on p. 108.)
 
         void UniformHandleui64NV(int location, uint64 value);
-        void UniformHandleui64vNV(int location, sizei count, 
+        void UniformHandleui64vNV(int location, sizei count,
                                   const uint64 *value);
-        void ProgramUniformHandleui64NV(uint program, int location, 
+        void ProgramUniformHandleui64NV(uint program, int location,
                                         uint64 value);
-        void ProgramUniformHandleui64vNV(uint program, int location, 
+        void ProgramUniformHandleui64vNV(uint program, int location,
                                          sizei count, const uint64 *values);
 
     (Delete the sentence: "Only the Uniform1i{v} commands can be used to load
@@ -215,7 +227,7 @@ Additions to Chapter 2 of the OpenGL 4.0 (Compatibility Profile) Specification
     can be used to load sampler and image values as described in Section
     2.14.6 (Samplers).
 
-    
+
     Edit Subsection "Uniform Buffer Object Storage", p. 110:
 
     (Add rules for sampler and image types to the list at the beginning of
@@ -247,12 +259,12 @@ Additions to Chapter 2 of the OpenGL 4.0 (Compatibility Profile) Specification
     to the implementation-dependent maximum supported number of texture image
     units.  The error INVALID_VALUE is generated if a Uniform1i{v} call is
     used to set a sampler uniform to a value less than zero or greater than or
-    equal to the value of MAX_TEXTURE_IMAGE_UNITS.  If a sampler uniform value 
-    is specified by UniformHandleui64{v}NV, the value passed to 
-    UniformHandleui64NV{v} directly specifies a texture object by handle, as 
-    defined in Section 3.9.X (Bindless Textures).  When a program is linked, 
-    all sampler uniforms are initialized to zero and considered to be 
-    references to texture image units.  When used as shader inputs, outputs, 
+    equal to the value of MAX_TEXTURE_IMAGE_UNITS.  If a sampler uniform value
+    is specified by UniformHandleui64{v}NV, the value passed to
+    UniformHandleui64NV{v} directly specifies a texture object by handle, as
+    defined in Section 3.9.X (Bindless Textures).  When a program is linked,
+    all sampler uniforms are initialized to zero and considered to be
+    references to texture image units.  When used as shader inputs, outputs,
     uniform block members, or temporaries, the value of the sampler is a 64-
     bit unsigned integer handle and never refers to a texture image unit.
 
@@ -316,8 +328,8 @@ Additions to Chapter 2 of the OpenGL 4.0 (Compatibility Profile) Specification
     must be in the range from zero to the implementation-dependent maximum
     supported number of image units.  The error INVALID_VALUE is generated if
     a Uniform1i{v} call is used to set an image uniform to a value less than
-    zero or greater than or equal to the value of MAX_IMAGE_UNITS_EXT.  Note 
-    that image units used for image variables are independent from the texture 
+    zero or greater than or equal to the value of MAX_IMAGE_UNITS_EXT.  Note
+    that image units used for image variables are independent from the texture
     image units used for sampler variables; the number of units provided by the
     implementation may differ.  Textures are bound independently and
     separately to image and texture image units.  If an image uniform value is
@@ -348,7 +360,7 @@ Additions to Chapter 2 of the OpenGL 4.0 (Compatibility Profile) Specification
     variables.  Active image variables used as shader inputs, shader outputs,
     or uniforms in the default uniform block are counted toward
     implementation-dependent limits on the total number of input, output, or
-    uniform components supported by the program.  Each active sampler variable
+    uniform components supported by the program.  Each active image variable
     may count as two components against such limits.
 
 
@@ -401,7 +413,7 @@ Additions to Chapter 3 of the OpenGL 4.0 Specification (Rasterization)
     non-sampler state from the texture named <texture> and the sampler state
     from the sampler object <sampler>.  In both cases, a 64-bit unsigned
     integer handle is returned.  The error INVALID_VALUE is generated if
-    <texture> is zero or is not the name of an existing texture object of if
+    <texture> is zero or is not the name of an existing texture object or if
     <sampler> is zero or is not the name of an existing sampler object.  The
     error INVALID_OPERATION is generated if the texture object <texture> is
     not complete (section 3.9.14).  If an error occurs, a handle of zero is
@@ -423,10 +435,18 @@ Additions to Chapter 3 of the OpenGL 4.0 Specification (Rasterization)
     CompressedTexSubImage*, and by rendering to a framebuffer object, even if
     the texture object is referenced by one or more texture handles.
 
+    The error INVALID_OPERATION is generated by BufferData if it is called to
+    modify a buffer object bound to a buffer texture while that texture object
+    is referenced by one or more texture handles.  The contents of the buffer
+    object may still be updated via buffer update commands such as
+    BufferSubData and MapBuffer*, or via the texture update commands, even if
+    the buffer is bound to a texture while that buffer texture object is
+    referenced by one or more texture handles.
+
     When a sampler object is referenced by one or more texture handles, the
     sampler parameters of the object may not be changed.  The error
-    INVALID_OPERATION is when calling SamplerParameter* functions to modify a
-    sampler object referenced by one or more texture handles.
+    INVALID_OPERATION is generated when calling SamplerParameter* functions to
+    modify a sampler object referenced by one or more texture handles.
 
     To make a texture handle accessible to shaders for texture mapping
     operations, a texture handle must first be made resident by calling:
@@ -443,7 +463,7 @@ Additions to Chapter 3 of the OpenGL 4.0 Specification (Rasterization)
     already resident in the current GL context.
 
     A texture handle may be made inaccessible to shaders by calling:
-    
+
         void MakeTextureHandleNonResidentNV(uint64 handle);
 
     The error INVALID_OPERATION is generated if <handle> is not a valid
@@ -452,7 +472,7 @@ Additions to Chapter 3 of the OpenGL 4.0 Specification (Rasterization)
 
     Modify Section 3.9.10, Cube Map Texture Selection, p. 291
 
-    (insert new paragraph before last paragraph of section, p. 293)  
+    (insert new paragraph before last paragraph of section, p. 293)
 
     When accessing cube map textures using texture handles, the seamless cube
     map enable is ignored and treated as disabled.
@@ -460,6 +480,7 @@ Additions to Chapter 3 of the OpenGL 4.0 Specification (Rasterization)
 
     Modify Section 3.9.11, Texture Minification, p. 293
 
+    [[Compatibility profile-only]]
     (modify last paragraph, p. 293) ... <bias_texunit> is zero for textures
     referred to by handle, and is otherwise the value of TEXTURE_LOD_BIAS for
     the current texture unit (as described in section 3.9.16). ...
@@ -475,17 +496,17 @@ Additions to Chapter 3 of the OpenGL 4.0 Specification (Rasterization)
     an associated image format.  The handle zero is reserved and will never be
     assigned to a valid image handle.  The command
 
-        uint64 GetImageHandleNV(uint texture, int level, boolean layered, 
+        uint64 GetImageHandleNV(uint texture, int level, boolean layered,
                                 int layer, enum format);
 
-    creates and returns an image handle from level <level> of the texture
-    <program>.  If <layered> is TRUE, a handle is created for the entire
-    texture level.  If <layered> is FALSE, a handle is create for only the
-    layer <layer> of the texture level.  <format> specifies a format used to
-    interpret the texels of the image when used for image loads, stores, and
-    atomics, and has the same meaning as the <format> parameter of
-    BindImageTextureEXT().  A 64-bit unsigned integer handle is returned if
-    the command succeeds; otherwise, zero is returned.
+    creates and returns an image handle for level <level> of the texture
+    named <texture>. If <layered> is TRUE, a handle is created for the
+    entire texture level. If <layered> is FALSE, a handle is created for
+    only the layer <layer> of the texture level. <format> specifies a
+    format used to interpret the texels of the image when used for image
+    loads, stores, and atomics, and has the same meaning as the <format>
+    parameter of BindImageTextureEXT(). A 64-bit unsigned integer handle
+    is returned if the command succeeds; otherwise, zero is returned.
 
     The error INVALID_VALUE is generated by GetImageHandleNV if:
 
@@ -495,7 +516,7 @@ Additions to Chapter 3 of the OpenGL 4.0 Specification (Rasterization)
         size of zero in <texture>); or
 
       * <layered> is FALSE and <layer> is greater than or equal to
-        the number of layers in the image at level <level>.  
+        the number of layers in the image at level <level>.
 
     The error INVALID_OPERATION is generated by GetImageHandleNV if:
 
@@ -515,6 +536,14 @@ Additions to Chapter 3 of the OpenGL 4.0 Specification (Rasterization)
     still be updated via commands such as TexSubImage*, CopyTexSubImage*, and
     CompressedTexSubImage*, and by rendering to a framebuffer object, even if
     the texture object is referenced by one or more image handles.
+
+    The error INVALID_OPERATION is generated by BufferData if it is called to
+    modify a buffer object bound to a buffer texture while that texture object
+    is referenced by one or more image handles.  The contents of the buffer
+    object may still be updated via buffer update commands such as
+    BufferSubData and MapBuffer*, or via the texture update commands, even if
+    the buffer is bound to a texture while that buffer texture object is
+    referenced by one or more image handles.
 
     The handle returned for each combination of <texture>, <level>, <layered>,
     <layer>, and <format> is unique; the same handle will be returned if
@@ -541,7 +570,7 @@ Additions to Chapter 3 of the OpenGL 4.0 Specification (Rasterization)
     resident for the purposes of the AreTexturesResident command.
 
     An image handle may be made inaccessible to shaders by calling:
-    
+
         void MakeImageHandleNonResidentNV(uint64 handle);
 
     The error INVALID_OPERATION is generated if <handle> is not a valid image
@@ -582,8 +611,10 @@ Additions to Chapter 6 of the OpenGL 4.0 Specification (Queries)
       boolean IsImageHandleResidentNV(uint64 handle);
 
     return TRUE if the specified texture or image handle is resident in the
-    current context.  The error INVALID_OPERATION will be generated by if
-    <handle> is not a valid texture or image handle, respectively.
+    current context.  The error INVALID_OPERATION will be generated by
+    IsTextureHandleResidentNV or IsImageHandleResidentNV if <handle> is not
+    a valid texture or image handle, respectively.  In the case of an error,
+    FALSE is returned.
 
 
 Additions to Appendix D of the OpenGL 4.0 Specification (Shared Objects and
@@ -715,7 +746,7 @@ Modifications to The OpenGL Shading Language Specification, Version 4.00
     resident image handle produces undefined results including possible
     program termination.
 
-    
+
     Modify Section 4.3.4, Inputs, p. 34
 
     (modify third paragraph of the section to allow sampler and image types)
@@ -757,13 +788,13 @@ Modifications to The OpenGL Shading Language Specification, Version 4.00
 
     (add the following constructors:)
 
-      uint64_t(any sampler type)  // Converts a sampler type to a 
+      uint64_t(any sampler type)  // Converts a sampler type to a
                                   //   64-bit unsigned integer
       any sampler type(uint64_t)  // Converts a 64-bit unsigned integer to
                                   //   a sampler type
       uint64_t(any image type)    // Converts an image type to a
                                   //   64-bit unsigned integer
-      any image type(uint64_t)    // Converts a 64-bit unsigned integer to 
+      any image type(uint64_t)    // Converts a 64-bit unsigned integer to
                                   //   an image type
 
 
@@ -775,7 +806,8 @@ Interactions with OpenGL 4.0 (Core Profile)
 
     If the core profile of OpenGL 4.0 (or any version since 3.0) is supported,
     references to fixed-function fragment processing and display lists should
-    be removed.
+    be removed.  References to the TEXTURE_LOD_BIAS for the current texture
+    unit should also be removed.
 
 Interactions with OpenGL 3.3 and ARB_sampler_objects
 
@@ -784,10 +816,10 @@ Interactions with OpenGL 3.3 and ARB_sampler_objects
     3.3 should be removed.  In particular, the GetTextureSamplerHandleNV API
     will not be supported.
 
-Interactions with OpenGL 4.2, ARB_shader_image_load_store, and
+Interactions with OpenGL 4.2, OpenGL ES 3.1, ARB_shader_image_load_store, and
 EXT_shader_image_load_store
 
-    If OpenGL 4.2, ARB_shader_image_load_store, and
+    If OpenGL 4.2, OpenGL ES 3.1, ARB_shader_image_load_store, and
     EXT_shader_image_load_store are not supported, the portion of this
     extension supporting image handles and image loads, stores, and atomics
     should be removed.  In particular, the functions GetImageHandleNV,
@@ -808,12 +840,19 @@ Interactions with NV_vertex_attrib_integer_64bit
 Interactions with NV_gpu_shader5
 
     If NV_gpu_shader5 or similar functionality providing 64-bit integer types
-    is not supported, the GLSL portion of this extension should be removed.
-    In particular, UniformHandleui64*NV and ProgramUniformHandleui64*NV will
-    not be supported, GLSL shaders will not support the use of sampler or
-    image types as inputs, outputs, and temporary values, and GLSL
-    sampler/image uniforms may only be specified as references to texture
-    image units or image units.
+    in the shading language is not supported, the GLSL portion of this
+    extension should be modified.  In particular, references to 64-bit integer
+    scalars, vectors or other 64-bit types should be deleted, and the
+    constructors to convert 64-bit unsigned integer handles to and from sampler
+    and image data types (as added in Section 5.4.1), should be removed.
+
+    Default block sampler and image uniforms can still be assigned handles via
+    the UniformHandleui64*NV and ProgramUniformHandleui64*NV functions, and
+    sampler and image types can continue to be used as shader inputs and
+    outputs, uniforms in user-defined blocks, and temporaries. Such uses of
+    these types may consume two components against any relevant limits.
+    Extracting these types from memory locations will be done as if reading
+    a uvec2-typed value at the specified location.
 
     Additionally, edits to Section 4.1.7 of the GLSL Specification describing
     sampler indexing should be changed to read "Samplers aggregated into
@@ -887,7 +926,7 @@ EXT_shader_image_load_store
 
     Section 2.X.5.Y, Program Options
 
-    If a program (in any shader stage) specifies the option 
+    If a program (in any shader stage) specifies the option
     "NV_bindless_texture", the grammar edits described in section 2.X.2
     will apply.
 
@@ -924,18 +963,68 @@ EXT_shader_image_load_store
     corresponding to the image unit specified by <imageUnit> is used.  The
     atomic operation is performed in the manner described in Section 3.9.X.
 
-Interactions with GLSL 4.20
+Interactions with GLSL 4.20 and GLSL ES 3.10
 
-    Without GLSL 4.20 support, sampler and image uniforms may only be 
-    initialized through the OpenGL API. With GLSL 4.20, sampler and image 
-    uniforms may be initialized in the shader using 
-    
+    Without GLSL 4.20 or GLSL ES 3.10 support, sampler and image uniforms
+    may only be initialized through the OpenGL API. With GLSL 4.20 and GLSL
+    ES 3.1, sampler and image uniforms may be initialized in the shader using
+
         layout(binding = integer-constant)
 
     as described in section 4.4.4 "Opaque-Uniform Layout Qualifiers". When
-    NV_bindless_texture is supported, these initial binding values are always 
+    NV_bindless_texture is supported, these initial binding values are always
     taken to mean a texture image or image unit number, not a bindless handle.
 
+Interactions with OpenGL ES
+
+    If implemented in an OpenGL ES context, references to the following
+    should be removed:
+      - assembly-based shaders,
+      - display lists,
+      - fixed-function fragment processing,
+      - double-precision floating-point values,
+      - 1D and 1D-array textures and images,
+      - TEXTURE_LOD_BIAS for the current texture unit,
+      - the AreTexturesResident command,
+    unless subsequently added by a later extension or version.
+
+    Modify the edits to Section to 3.9.10 to state that when accessing cube
+    map textures using texture handles in an OpenGL ES context, the cube maps
+    are always treated as seamless.
+
+Interactions with OpenGL ES 3.1
+
+    If OpenGL ES 3.1 is supported, replace references to EXT_image_load_store
+    and BindImageTextureEXT with appropriate references to OpenGL ES 3.1
+    functionality and BindImageTexture. References to assigning a default
+    block image uniform an image unit number from the OpenGL API with the
+    Uniform* commands (but not the UniformHandle* commands) should be
+    removed since OpenGL ES only supports assigning image unit numbers
+    with the 'binding' layout qualifier in the shading language.
+
+    Ignore references to 2DMSArray and 2DMS images as they are not supported
+    in OpenGL ES.
+
+Interactions with OES_shader_image_atomic
+
+    If OES_shader_image_atomic or equivalent functionality is not supported,
+    ignore all references to atomic image operations.
+
+Interactions with EXT_texture_cube_map_array
+
+    If EXT_texture_cube_map_array or equivalent functionality is not supported,
+    ignore all references to cube map array textures.
+
+Interactions with EXT_texture_buffer
+
+    If EXT_texture_buffer or equivalent functionality is not supported,
+    ignore all references to buffer textures and related buffer functionality.
+
+Interactions with EXT_shader_io_blocks
+
+    If EXT_shader_io_blocks or equivalent functionality is supported, sampler
+    and image types are allowed in interface blocks. Otherwise ignore all
+    references to interface blocks.
 
 Errors
 
@@ -954,6 +1043,11 @@ Errors
     CompressedTexImage*, TexBuffer*, TexParameter*, as well as other functions
     defined in terms of these, if the texture object to be modified is
     referenced by one or more texture or image handles.
+
+    The error INVALID_OPERATION is generated by BufferData, or any function
+    defined in terms of this, if the buffer object to be modified is bound
+    to a buffer texture that is referenced by one or more texture or image
+    handles.
 
     The error INVALID_OPERATION is generated by SamplerParameter* if <sampler>
     identifies a sampler object referenced by one or more texture handles.
@@ -1008,9 +1102,9 @@ Examples
         // Get a handle for the texture.
         texHandles[i] = glGetTextureHandleNV(textures[i]);
 
-        // At this point, it's no longer possible to resize/reallocate 
+        // At this point, it's no longer possible to resize/reallocate
         // texture images or modify texture parameters for "textures[i]".
-        // However, it's still possible to update texture data via 
+        // However, it's still possible to update texture data via
         // glTexSubImage.
 
         // Make the handle resident before using it.
@@ -1038,14 +1132,14 @@ Examples
       glMakeTextureHandleNonResidentNV(texHandles[10]);
 
       // After this point, the texture data associated with texHandles[10] is
-      // not guaranteed to be resident, and using it in a draw call could 
+      // not guaranteed to be resident, and using it in a draw call could
       // result in exceptions.  Use glMakeTextureHandleResidentNV() to make it
       // resident again before it's needed for rendering.
 
     The GLSL portion of this extension removes the restriction that sampler
     variables must be uniforms in the default block.  You can store a large
     collection of samplers in a uniform block, pass them through the pipeline
-    as 64-bit integers.  
+    as 64-bit integers.
 
     To use a "dictionary" of samplers in a uniform block, you could use a
     shader like:
@@ -1097,7 +1191,7 @@ New State
                         HandleNV
     -            Z+           -                  n/a      texture object used         3.9.X      -
     -            Z+           -                  n/a      sampler object used         3.9.X      -
-    -            nxB    IsTextureHandle-        FALSE     is bindless texture handle  3.9.X      - 
+    -            nxB    IsTextureHandle-        FALSE     is bindless texture handle  3.9.X      -
                          ResidentNV                       resident for the current
                                                           context (separate state per
                                                           context/handle pair)
@@ -1114,9 +1208,9 @@ New State
     -            Z+           -                  n/a      selected layer for non-     3.9.X      -
                                                            layered images
     -            Z_<n>        -                  n/a      image internal format enum  3.9.X      -
-    -            nxB   IsImageHandle-           FALSE     is bindless image handle    3.9.X      - 
+    -            nxB   IsImageHandle-           FALSE     is bindless image handle    3.9.X      -
                          ResidentNV                        resident for the current
-                                                           context (separate state 
+                                                           context (separate state
                                                            per context/handle pair)
 
 Issues
@@ -1269,7 +1363,7 @@ Issues
       specified handle will be used for texture access.  Otherwise, the value
       of the uniform is treated as a texture image unit when the texture is
       accessed, and is resolved to refer to the appropriate texture bound to
-      that unit.  
+      that unit.
 
       We expect that implementations will distinguish between the two types of
       uniform values either by a per-uniform flag or by reserving a subset of
@@ -1281,10 +1375,10 @@ Issues
       uniforms via UniformHandle*NV and others via Uniform1i.  We don't expect
       such mixing and matching to be common.
 
-      When a sampler or image uniform's value is queried via any of the 
-      GetUniform* commands, the returned value will reflect the most recently 
-      set value through either UniformHandle* or Uniform1i*, converted to the 
-      requested type. 
+      When a sampler or image uniform's value is queried via any of the
+      GetUniform* commands, the returned value will reflect the most recently
+      set value through either UniformHandle* or Uniform1i*, converted to the
+      requested type.
 
     (13) Should UniformHandleui64{v}NV check the provided uniform value(s) to
          determine if they are valid handles?
@@ -1327,7 +1421,7 @@ Issues
 
       RESOLVED:  For (a), we specify undefined behavior including possible
       program termination.  Such accesses are effectively equivalent to
-      chasing an invalid pointer.  
+      chasing an invalid pointer.
 
       For (b), we treat non-resident handles as invalid.  Note that this
       extension doesn't require that accesses to non-resident handles fail.
@@ -1401,6 +1495,14 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+     3    06/12/14  dkoch     Add interactions with OpenGL ES.
+                              Define better functionality when NV_gpu_shader5
+                              is not supported.
+                              Fix a variety of typos and missing words.
+                              Merge in typo fixes from v3 of the ARB extn.
+                              Add missing error condition for BufferData and
+                              buffer textures.
+
      2    05/16/13  pbrown    Fix typo in spec language.
 
      1              jbolz     Internal revisions.

@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 28986 $ on $Date: 2014-11-18 18:43:15 -0800 (Tue, 18 Nov 2014) $
+** Khronos $Revision: 29324 $ on $Date: 2015-01-04 17:42:37 -0800 (Sun, 04 Jan 2015) $
 */
 
 #if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
@@ -53,7 +53,7 @@ extern "C" {
 #define GLAPI extern
 #endif
 
-#define GL_GLEXT_VERSION 20141118
+#define GL_GLEXT_VERSION 20150104
 
 /* Generated C header for:
  * API: gl
@@ -10819,6 +10819,10 @@ GLAPI void APIENTRY glVideoCaptureStreamParameterfvNV (GLuint video_capture_slot
 GLAPI void APIENTRY glVideoCaptureStreamParameterdvNV (GLuint video_capture_slot, GLuint stream, GLenum pname, const GLdouble *params);
 #endif
 #endif /* GL_NV_video_capture */
+
+#ifndef GL_NV_viewport_array2
+#define GL_NV_viewport_array2 1
+#endif /* GL_NV_viewport_array2 */
 
 #ifndef GL_OML_interlace
 #define GL_OML_interlace 1

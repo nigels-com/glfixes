@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 29114 $ on $Date: 2014-12-04 01:44:15 -0800 (Thu, 04 Dec 2014) $
+** Khronos $Revision: 29318 $ on $Date: 2015-01-02 03:16:10 -0800 (Fri, 02 Jan 2015) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20141203
+#define EGL_EGLEXT_VERSION 20150102
 
 /* Generated C header for:
  * API: egl
@@ -438,6 +438,11 @@ EGLAPI EGLBoolean EGLAPIENTRY eglQuerySurfacePointerANGLE (EGLDisplay dpy, EGLSu
 #ifndef EGL_ANGLE_surface_d3d_texture_2d_share_handle
 #define EGL_ANGLE_surface_d3d_texture_2d_share_handle 1
 #endif /* EGL_ANGLE_surface_d3d_texture_2d_share_handle */
+
+#ifndef EGL_ANGLE_window_fixed_size
+#define EGL_ANGLE_window_fixed_size 1
+#define EGL_FIXED_SIZE_ANGLE              0x3201
+#endif /* EGL_ANGLE_window_fixed_size */
 
 #ifndef EGL_ARM_pixmap_multisample_discard
 #define EGL_ARM_pixmap_multisample_discard 1
