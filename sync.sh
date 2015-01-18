@@ -66,6 +66,7 @@ rm egl/robots.txt
 
 find . -mindepth 2 -type f | xargs grep -l 'Page not found - Error 404' | xargs rm
 find . -mindepth 2 -type f | xargs grep -l '404 ERROR - PAGE NOT FOUND' | xargs rm
+find . -mindepth 2 -type f | xargs grep -l '404… Oops' | xargs rm
 
 #
 # XML specs

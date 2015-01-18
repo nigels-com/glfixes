@@ -41,7 +41,8 @@ Version
 
 Number
 
-    410
+    OpenGL Extension #410
+    OpenGL ES Extension #199
 
 Dependencies
 

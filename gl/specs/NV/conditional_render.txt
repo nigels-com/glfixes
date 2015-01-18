@@ -11,26 +11,49 @@ Contact
     Eric Werness, NVIDIA (ewerness 'at' nvidia.com)
     Pat Brown, NVIDIA (pbrown 'at' nvidia.com)
 
+Contributors
+
+    Daniel Koch, NVIDIA
+
 Status
 
     Shipping.
 
 Version
 
-    Last Modified Date:         08/07/2012
-    NVIDIA Revision:            5
+    Last Modified Date:         05/26/2014
+    NVIDIA Revision:            6
 
 Number
 
-    346
+    OpenGL Extension #346
+    OpenGL ES Extension #198
 
 Dependencies
 
     The extension is written against the OpenGL 2.0 Specification.
 
-    ARB_occlusion_query or OpenGL 1.5 is required.
+    ARB_occlusion_query or OpenGL 1.5 is required in an OpenGL
+    implementation.
 
     This extension interacts with NVX_conditional_render.
+
+    This extension interacts with ARB_occlusion_query2.
+
+    This extension interacts with ARB_ES3_compatibility.
+
+    This extension interacts trivially with the OpenGL compatibility profile.
+
+    This extension interacts with OpenGL 3.0, 3.2, 3.3, and 4.3
+
+    EXT_occlusion_query_boolean or OpenGL ES 3.0 is required in an OpenGL ES
+    implementation.
+
+    This extension interacts with EXT_occlusion_query_boolean.
+
+    This extension interacts with NV_occlusion_query_samples.
+
+    This extension interacts with OpenGL ES 3.0.
 
 Overview
 
@@ -79,13 +102,13 @@ New Tokens
 
 Additions to Chapter 2 of the OpenGL 2.0 Specification (OpenGL Operation)
 
-   (Incorporate the spec edits from the EXT_transform_feedback specification
-   that move the "Occlusion Queries" Section 4.1.7 -- to between Section 2.11,
-   Coordinate Transforms and Section 2.12, Clipping, and rename it to
-   "Asynchronous Queries".  Insert a new section immediately after the moved
-   "Asynchronous Queries" section.  If EXT_transform_feedback is incorporated,
-   this section should be inserted prior the the "Transform Feedback"
-   section.)
+    (Incorporate the spec edits from the EXT_transform_feedback specification
+    that move the "Occlusion Queries" Section 4.1.7 -- to between Section 2.11,
+    Coordinate Transforms and Section 2.12, Clipping, and rename it to
+    "Asynchronous Queries".  Insert a new section immediately after the moved
+    "Asynchronous Queries" section.  If EXT_transform_feedback is incorporated,
+    this section should be inserted prior the the "Transform Feedback"
+    section.)
 
     (also modify the BeginQuery language to disallow BeginQuery while the
      query object is being used for conditional rendering)
@@ -109,15 +132,20 @@ Additions to Chapter 2 of the OpenGL 2.0 Specification (OpenGL Operation)
 
     <id> specifies the name of an occlusion query object whose results are
     used to determine if the rendering commands are discarded.  If the result
-    (SAMPLES_PASSED) of the query is zero, all rendering commands between
-    BeginConditionalRenderNV and the corresponding EndConditionalRenderNV
-    are discarded.  In this case, Begin, End, all vertex array commands
-    performing an implicit Begin and End, DrawPixels (section 3.6), Bitmap
-    (section 3.7), Clear (section 4.2.3), Accum (section 4.2.4), CopyPixels
-    (section 4.3.3), EvalMesh1, and EvalMesh2 (section 5.1) have no effect.
-    The effect of commands setting current vertex state (e.g., Color,
-    VertexAttrib) is undefined.  If the result of the occlusion query is
-    non-zero, such commands are not discarded.
+    (SAMPLES_PASSED) of the query is zero, or if the result
+    (ANY_SAMPLES_PASSED or ANY_SAMPLES_PASSED_CONSERVATIVE) is false, all
+    rendering commands between BeginConditionalRenderNV and the corresponding
+    EndConditionalRenderNV are discarded.  In this case, Begin, End, all
+    vertex array commands performing an implicit Begin and End, DrawPixels
+    (section 3.6), Bitmap (section 3.7), Clear (section 4.2.3), Accum
+    (section 4.2.4), CopyPixels (section 4.3.3), EvalMesh1 and EvalMesh2
+    (section 5.1), BlitFramebuffer, ClearBuffer*, and DispatchCompute* have
+    no effect.
+
+    The effect of commands setting current vertex state (e.g., Color or
+    VertexAttrib) is undefined.  If the result (SAMPLES_PASSED) of the
+    query is non-zero, or if the result (ANY_SAMPLES_PASSED or
+    ANY_SAMPLES_PASSED_CONSERVATIVE) is true, such commands are not discarded.
 
     <mode> specifies how BeginConditionalRenderNV interprets the results of
     the occlusion query given by <id>.  If <mode> is QUERY_WAIT_NV, the GL
@@ -125,7 +153,7 @@ Additions to Chapter 2 of the OpenGL 2.0 Specification (OpenGL Operation)
     results to determine if subsequent rendering commands are discarded.  If
     <mode> is QUERY_NO_WAIT_NV, the GL may choose to unconditionally execute
     the subsequent rendering commands without waiting for the query to
-    complete.  
+    complete.
 
     If <mode> is QUERY_BY_REGION_WAIT_NV, the GL will also wait for occlusion
     query results and discard rendering commands if the result of the
@@ -146,7 +174,8 @@ Additions to Chapter 2 of the OpenGL 2.0 Specification (OpenGL Operation)
     The error INVALID_VALUE is generated if <id> is not the name of an
     existing query object query.  The error INVALID_OPERATION is generated if
     <id> is the name of a query object with a target other than
-    SAMPLES_PASSED, or <id> is the name of a query currently in progress.
+    SAMPLES_PASSED, ANY_SAMPLES_PASSED, or ANY_SAMPLES_PASSED_CONSERVATIVE, or
+    if <id> is the name of a query currently in progress.
 
 
 Additions to Chapter 3 of the OpenGL 2.0 Specification (Rasterization)
@@ -205,6 +234,48 @@ Dependencies on NVX_conditional_render
       glBeginConditionalRenderNV(id, QUERY_WAIT_NV);
       glEndConditionalRenderNV();
 
+Dependencies on ARB_occlusion_query2 and OpenGL 3.3
+
+    If ARB_occlusion_query2 or OpenGL 3.3 is not supported in an OpenGL
+    implementation, ignore references to the ANY_SAMPLES_PASSED query type.
+
+Dependencies on ARB_ES3_compatibility and OpenGL 4.3
+
+    If ARB_ES3_compatibility or OpenGL 4.3 is not supported in an OpenGL
+    implementation, ignore references to the ANY_SAMPLES_PASSED_CONSERVATIVE
+    query type.
+
+Dependencies on the OpenGL compatibility profile
+
+    In contexts which support the core profile only (for GL) or OpenGL ES,
+    ignore references to the following commands: Begin, End, DrawPixels,
+    Bitmap, Accum, Color, CopyPixels, EvalMesh1 and EvalMesh2.
+
+Dependencies on OpenGL 3.0 and OpenGL ES 3.0
+
+    If OpenGL 3.0 or OpenGL ES 3.0 is not supported, ignore references to
+    the BlitFramebuffer and ClearBuffer* commands, unless provided by
+    other extensions.
+
+Dependencies on OpenGL 4.3 and OpenGL ES 3.1
+
+    If OpenGL 4.3 or OpenGL ES 3.1 is not supported, ignore references to
+    DispatchCompute* commands.
+
+Dependencies on EXT_occlusion_query_boolean and OpenGL ES 3.0
+
+    In an OpenGL ES implementation, if OpenGL ES 3.0 is not supported
+    replace references to query functionality in OpenGL ES 3.0 with
+    the query functionality provided by EXT_occlusion_query_boolean.
+
+Dependencies on NV_occlusion_query_samples
+
+    If NV_occlusion_query_samples is not supported in an OpenGL ES
+    implementation, ignore all references to SAMPLES_PASSED.
+
+    If NV_occlusion_query_samples is supported, replaces references to
+    SAMPLES_PASSED with SAMPLES_PASSED_NV.
+
 Errors
 
     INVALID_OPERATION is generated by BeginConditionalRenderNV if a previous
@@ -218,7 +289,8 @@ Errors
     name of an existing occlusion query object.
 
     INVALID_OPERATION is generated by BeginConditionalRenderNV if <id> is the
-    name of a query object with a <target> other than SAMPLES_PASSED.
+    name of a query object with a <target> other than SAMPLES_PASSED,
+    ANY_SAMPLES_PASSED, or ANY_SAMPLES_PASSED_CONSERVATIVE.
 
     INVALID_OPERATION is generated by BeginConditionalRenderNV if the query
     identified by <id> is still in progress.
@@ -238,7 +310,7 @@ Issues
       rasterized.  While a GPU is rasterizing a primitive, it may be
       simultaneously transforming the vertices of the next primitive provided
       to the GL.  At the same time, the CPU may be preparing hardware commands
-      to process primitives following that one.  
+      to process primitives following that one.
 
       Conditional rendering uses the results of rasterizing one primitive (an
       occlusion query) to determine whether it will process subsequent ones.
@@ -312,7 +384,7 @@ Issues
 
     (6) Should conditional rendering work with any type of query other than
     SAMPLES_PASSED (occlusion)?
-   
+
       RESOLVED:  Not in this extension.  The spec currently requires that <id>
       be the name of an occlusion query.  There might be other query types
       where such an operation would make sense, but there aren't any in the
@@ -356,11 +428,11 @@ Usage Example
     GLuint queryID = 0x12345678;
 
     // Use an occlusion query while rendering the bounding box of the real
-    // object. 
+    // object.
     glBeginQuery(GL_SAMPLES_PASSED, queryID);
        drawBoundingBox();
     glEndQuery(GL_SAMPLES_PASSED);
- 
+
     // Do some unrelated rendering in hope that the query result will be
     // available by the time we call glBeginConditionalRenderNV.
 
@@ -375,6 +447,11 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  --------------------------------------------
+     6    05/26/14  dkoch     Add interactions with later GL extensions and
+                              core versions.
+                              Add interactions with OpenGL ES extensions
+                              and versions.
+
      5    08/07/12  pbrown    Fix minor typos; added interaction with the
                               older NVX_conditional_render extension.
 

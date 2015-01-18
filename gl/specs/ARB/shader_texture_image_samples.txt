@@ -14,7 +14,7 @@ Contact
 Contributors
 
     Tristan Lorach, NVIDIA (tlorach@nvidia.com)
-    Christophe Riccio, Unity3D (christophe.riccio@unity3d.com)
+    Christophe Riccio, Unity (christophe.riccio@unity3d.com)
     Evan Hart, NVIDIA (ehart@nvidia.com)
     Jeannot Breton, NVIDIA (jbreton@nvidia.com)
     

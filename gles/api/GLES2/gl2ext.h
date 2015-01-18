@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 28985 $ on $Date: 2014-11-18 18:42:43 -0800 (Tue, 18 Nov 2014) $
+** Khronos $Revision: 29429 $ on $Date: 2015-01-14 00:13:40 -0800 (Wed, 14 Jan 2015) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20141118 */
+/* Generated on date 20150114 */
 
 /* Generated C header for:
  * API: gles2
@@ -261,6 +261,14 @@ GL_APICALL void GL_APIENTRY glEGLImageTargetRenderbufferStorageOES (GLenum targe
 #define GL_PALETTE8_RGB5_A1_OES           0x8B99
 #endif /* GL_OES_compressed_paletted_texture */
 
+#ifndef GL_OES_copy_image
+#define GL_OES_copy_image 1
+typedef void (GL_APIENTRYP PFNGLCOPYIMAGESUBDATAOESPROC) (GLuint srcName, GLenum srcTarget, GLint srcLevel, GLint srcX, GLint srcY, GLint srcZ, GLuint dstName, GLenum dstTarget, GLint dstLevel, GLint dstX, GLint dstY, GLint dstZ, GLsizei srcWidth, GLsizei srcHeight, GLsizei srcDepth);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glCopyImageSubDataOES (GLuint srcName, GLenum srcTarget, GLint srcLevel, GLint srcX, GLint srcY, GLint srcZ, GLuint dstName, GLenum dstTarget, GLint dstLevel, GLint dstX, GLint dstY, GLint dstZ, GLsizei srcWidth, GLsizei srcHeight, GLsizei srcDepth);
+#endif
+#endif /* GL_OES_copy_image */
+
 #ifndef GL_OES_depth24
 #define GL_OES_depth24 1
 #define GL_DEPTH_COMPONENT24_OES          0x81A6
@@ -275,6 +283,44 @@ GL_APICALL void GL_APIENTRY glEGLImageTargetRenderbufferStorageOES (GLenum targe
 #define GL_OES_depth_texture 1
 #endif /* GL_OES_depth_texture */
 
+#ifndef GL_OES_draw_buffers_indexed
+#define GL_OES_draw_buffers_indexed 1
+#define GL_MIN                            0x8007
+#define GL_MAX                            0x8008
+typedef void (GL_APIENTRYP PFNGLENABLEIOESPROC) (GLenum target, GLuint index);
+typedef void (GL_APIENTRYP PFNGLDISABLEIOESPROC) (GLenum target, GLuint index);
+typedef void (GL_APIENTRYP PFNGLBLENDEQUATIONIOESPROC) (GLuint buf, GLenum mode);
+typedef void (GL_APIENTRYP PFNGLBLENDEQUATIONSEPARATEIOESPROC) (GLuint buf, GLenum modeRGB, GLenum modeAlpha);
+typedef void (GL_APIENTRYP PFNGLBLENDFUNCIOESPROC) (GLuint buf, GLenum src, GLenum dst);
+typedef void (GL_APIENTRYP PFNGLBLENDFUNCSEPARATEIOESPROC) (GLuint buf, GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha);
+typedef void (GL_APIENTRYP PFNGLCOLORMASKIOESPROC) (GLuint index, GLboolean r, GLboolean g, GLboolean b, GLboolean a);
+typedef GLboolean (GL_APIENTRYP PFNGLISENABLEDIOESPROC) (GLenum target, GLuint index);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glEnableiOES (GLenum target, GLuint index);
+GL_APICALL void GL_APIENTRY glDisableiOES (GLenum target, GLuint index);
+GL_APICALL void GL_APIENTRY glBlendEquationiOES (GLuint buf, GLenum mode);
+GL_APICALL void GL_APIENTRY glBlendEquationSeparateiOES (GLuint buf, GLenum modeRGB, GLenum modeAlpha);
+GL_APICALL void GL_APIENTRY glBlendFunciOES (GLuint buf, GLenum src, GLenum dst);
+GL_APICALL void GL_APIENTRY glBlendFuncSeparateiOES (GLuint buf, GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha);
+GL_APICALL void GL_APIENTRY glColorMaskiOES (GLuint index, GLboolean r, GLboolean g, GLboolean b, GLboolean a);
+GL_APICALL GLboolean GL_APIENTRY glIsEnablediOES (GLenum target, GLuint index);
+#endif
+#endif /* GL_OES_draw_buffers_indexed */
+
+#ifndef GL_OES_draw_elements_base_vertex
+#define GL_OES_draw_elements_base_vertex 1
+typedef void (GL_APIENTRYP PFNGLDRAWELEMENTSBASEVERTEXOESPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLint basevertex);
+typedef void (GL_APIENTRYP PFNGLDRAWRANGEELEMENTSBASEVERTEXOESPROC) (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void *indices, GLint basevertex);
+typedef void (GL_APIENTRYP PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXOESPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei instancecount, GLint basevertex);
+typedef void (GL_APIENTRYP PFNGLMULTIDRAWELEMENTSBASEVERTEXOESPROC) (GLenum mode, const GLsizei *count, GLenum type, const void *const*indices, GLsizei primcount, const GLint *basevertex);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glDrawElementsBaseVertexOES (GLenum mode, GLsizei count, GLenum type, const void *indices, GLint basevertex);
+GL_APICALL void GL_APIENTRY glDrawRangeElementsBaseVertexOES (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void *indices, GLint basevertex);
+GL_APICALL void GL_APIENTRY glDrawElementsInstancedBaseVertexOES (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei instancecount, GLint basevertex);
+GL_APICALL void GL_APIENTRY glMultiDrawElementsBaseVertexOES (GLenum mode, const GLsizei *count, GLenum type, const void *const*indices, GLsizei primcount, const GLint *basevertex);
+#endif
+#endif /* GL_OES_draw_elements_base_vertex */
+
 #ifndef GL_OES_element_index_uint
 #define GL_OES_element_index_uint 1
 #endif /* GL_OES_element_index_uint */
@@ -286,6 +332,51 @@ GL_APICALL void GL_APIENTRY glEGLImageTargetRenderbufferStorageOES (GLenum targe
 #ifndef GL_OES_fragment_precision_high
 #define GL_OES_fragment_precision_high 1
 #endif /* GL_OES_fragment_precision_high */
+
+#ifndef GL_OES_geometry_point_size
+#define GL_OES_geometry_point_size 1
+#endif /* GL_OES_geometry_point_size */
+
+#ifndef GL_OES_geometry_shader
+#define GL_OES_geometry_shader 1
+#define GL_GEOMETRY_SHADER_OES            0x8DD9
+#define GL_GEOMETRY_SHADER_BIT_OES        0x00000004
+#define GL_GEOMETRY_LINKED_VERTICES_OUT_OES 0x8916
+#define GL_GEOMETRY_LINKED_INPUT_TYPE_OES 0x8917
+#define GL_GEOMETRY_LINKED_OUTPUT_TYPE_OES 0x8918
+#define GL_GEOMETRY_SHADER_INVOCATIONS_OES 0x887F
+#define GL_LAYER_PROVOKING_VERTEX_OES     0x825E
+#define GL_LINES_ADJACENCY_OES            0x000A
+#define GL_LINE_STRIP_ADJACENCY_OES       0x000B
+#define GL_TRIANGLES_ADJACENCY_OES        0x000C
+#define GL_TRIANGLE_STRIP_ADJACENCY_OES   0x000D
+#define GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_OES 0x8DDF
+#define GL_MAX_GEOMETRY_UNIFORM_BLOCKS_OES 0x8A2C
+#define GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS_OES 0x8A32
+#define GL_MAX_GEOMETRY_INPUT_COMPONENTS_OES 0x9123
+#define GL_MAX_GEOMETRY_OUTPUT_COMPONENTS_OES 0x9124
+#define GL_MAX_GEOMETRY_OUTPUT_VERTICES_OES 0x8DE0
+#define GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_OES 0x8DE1
+#define GL_MAX_GEOMETRY_SHADER_INVOCATIONS_OES 0x8E5A
+#define GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_OES 0x8C29
+#define GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_OES 0x92CF
+#define GL_MAX_GEOMETRY_ATOMIC_COUNTERS_OES 0x92D5
+#define GL_MAX_GEOMETRY_IMAGE_UNIFORMS_OES 0x90CD
+#define GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_OES 0x90D7
+#define GL_FIRST_VERTEX_CONVENTION_OES    0x8E4D
+#define GL_LAST_VERTEX_CONVENTION_OES     0x8E4E
+#define GL_UNDEFINED_VERTEX_OES           0x8260
+#define GL_PRIMITIVES_GENERATED_OES       0x8C87
+#define GL_FRAMEBUFFER_DEFAULT_LAYERS_OES 0x9312
+#define GL_MAX_FRAMEBUFFER_LAYERS_OES     0x9317
+#define GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_OES 0x8DA8
+#define GL_FRAMEBUFFER_ATTACHMENT_LAYERED_OES 0x8DA7
+#define GL_REFERENCED_BY_GEOMETRY_SHADER_OES 0x9309
+typedef void (GL_APIENTRYP PFNGLFRAMEBUFFERTEXTUREOESPROC) (GLenum target, GLenum attachment, GLuint texture, GLint level);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glFramebufferTextureOES (GLenum target, GLenum attachment, GLuint texture, GLint level);
+#endif
+#endif /* GL_OES_geometry_shader */
 
 #ifndef GL_OES_get_program_binary
 #define GL_OES_get_program_binary 1
@@ -299,6 +390,10 @@ GL_APICALL void GL_APIENTRY glGetProgramBinaryOES (GLuint program, GLsizei bufSi
 GL_APICALL void GL_APIENTRY glProgramBinaryOES (GLuint program, GLenum binaryFormat, const void *binary, GLint length);
 #endif
 #endif /* GL_OES_get_program_binary */
+
+#ifndef GL_OES_gpu_shader5
+#define GL_OES_gpu_shader5 1
+#endif /* GL_OES_gpu_shader5 */
 
 #ifndef GL_OES_mapbuffer
 #define GL_OES_mapbuffer 1
@@ -322,6 +417,15 @@ GL_APICALL void GL_APIENTRY glGetBufferPointervOES (GLenum target, GLenum pname,
 #define GL_UNSIGNED_INT_24_8_OES          0x84FA
 #define GL_DEPTH24_STENCIL8_OES           0x88F0
 #endif /* GL_OES_packed_depth_stencil */
+
+#ifndef GL_OES_primitive_bounding_box
+#define GL_OES_primitive_bounding_box 1
+#define GL_PRIMITIVE_BOUNDING_BOX_OES     0x92BE
+typedef void (GL_APIENTRYP PFNGLPRIMITIVEBOUNDINGBOXOESPROC) (GLfloat minX, GLfloat minY, GLfloat minZ, GLfloat minW, GLfloat maxX, GLfloat maxY, GLfloat maxZ, GLfloat maxW);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glPrimitiveBoundingBoxOES (GLfloat minX, GLfloat minY, GLfloat minZ, GLfloat minW, GLfloat maxX, GLfloat maxY, GLfloat maxZ, GLfloat maxW);
+#endif
+#endif /* GL_OES_primitive_bounding_box */
 
 #ifndef GL_OES_required_internalformat
 #define GL_OES_required_internalformat 1
@@ -361,6 +465,10 @@ GL_APICALL void GL_APIENTRY glMinSampleShadingOES (GLfloat value);
 #define GL_OES_shader_image_atomic 1
 #endif /* GL_OES_shader_image_atomic */
 
+#ifndef GL_OES_shader_io_blocks
+#define GL_OES_shader_io_blocks 1
+#endif /* GL_OES_shader_io_blocks */
+
 #ifndef GL_OES_shader_multisample_interpolation
 #define GL_OES_shader_multisample_interpolation 1
 #define GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES 0x8E5B
@@ -388,6 +496,61 @@ GL_APICALL void GL_APIENTRY glMinSampleShadingOES (GLfloat value);
 #define GL_FRAMEBUFFER_UNDEFINED_OES      0x8219
 #endif /* GL_OES_surfaceless_context */
 
+#ifndef GL_OES_tessellation_point_size
+#define GL_OES_tessellation_point_size 1
+#endif /* GL_OES_tessellation_point_size */
+
+#ifndef GL_OES_tessellation_shader
+#define GL_OES_tessellation_shader 1
+#define GL_PATCHES_OES                    0x000E
+#define GL_PATCH_VERTICES_OES             0x8E72
+#define GL_TESS_CONTROL_OUTPUT_VERTICES_OES 0x8E75
+#define GL_TESS_GEN_MODE_OES              0x8E76
+#define GL_TESS_GEN_SPACING_OES           0x8E77
+#define GL_TESS_GEN_VERTEX_ORDER_OES      0x8E78
+#define GL_TESS_GEN_POINT_MODE_OES        0x8E79
+#define GL_ISOLINES_OES                   0x8E7A
+#define GL_QUADS_OES                      0x0007
+#define GL_FRACTIONAL_ODD_OES             0x8E7B
+#define GL_FRACTIONAL_EVEN_OES            0x8E7C
+#define GL_MAX_PATCH_VERTICES_OES         0x8E7D
+#define GL_MAX_TESS_GEN_LEVEL_OES         0x8E7E
+#define GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS_OES 0x8E7F
+#define GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_OES 0x8E80
+#define GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_OES 0x8E81
+#define GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_OES 0x8E82
+#define GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS_OES 0x8E83
+#define GL_MAX_TESS_PATCH_COMPONENTS_OES  0x8E84
+#define GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_OES 0x8E85
+#define GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_OES 0x8E86
+#define GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS_OES 0x8E89
+#define GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS_OES 0x8E8A
+#define GL_MAX_TESS_CONTROL_INPUT_COMPONENTS_OES 0x886C
+#define GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS_OES 0x886D
+#define GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_OES 0x8E1E
+#define GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_OES 0x8E1F
+#define GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_OES 0x92CD
+#define GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_OES 0x92CE
+#define GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS_OES 0x92D3
+#define GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS_OES 0x92D4
+#define GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS_OES 0x90CB
+#define GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS_OES 0x90CC
+#define GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_OES 0x90D8
+#define GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_OES 0x90D9
+#define GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED_OES 0x8221
+#define GL_IS_PER_PATCH_OES               0x92E7
+#define GL_REFERENCED_BY_TESS_CONTROL_SHADER_OES 0x9307
+#define GL_REFERENCED_BY_TESS_EVALUATION_SHADER_OES 0x9308
+#define GL_TESS_CONTROL_SHADER_OES        0x8E88
+#define GL_TESS_EVALUATION_SHADER_OES     0x8E87
+#define GL_TESS_CONTROL_SHADER_BIT_OES    0x00000008
+#define GL_TESS_EVALUATION_SHADER_BIT_OES 0x00000010
+typedef void (GL_APIENTRYP PFNGLPATCHPARAMETERIOESPROC) (GLenum pname, GLint value);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glPatchParameteriOES (GLenum pname, GLint value);
+#endif
+#endif /* GL_OES_tessellation_shader */
+
 #ifndef GL_OES_texture_3D
 #define GL_OES_texture_3D 1
 #define GL_TEXTURE_WRAP_R_OES             0x8072
@@ -412,6 +575,54 @@ GL_APICALL void GL_APIENTRY glFramebufferTexture3DOES (GLenum target, GLenum att
 #endif
 #endif /* GL_OES_texture_3D */
 
+#ifndef GL_OES_texture_border_clamp
+#define GL_OES_texture_border_clamp 1
+#define GL_TEXTURE_BORDER_COLOR_OES       0x1004
+#define GL_CLAMP_TO_BORDER_OES            0x812D
+typedef void (GL_APIENTRYP PFNGLTEXPARAMETERIIVOESPROC) (GLenum target, GLenum pname, const GLint *params);
+typedef void (GL_APIENTRYP PFNGLTEXPARAMETERIUIVOESPROC) (GLenum target, GLenum pname, const GLuint *params);
+typedef void (GL_APIENTRYP PFNGLGETTEXPARAMETERIIVOESPROC) (GLenum target, GLenum pname, GLint *params);
+typedef void (GL_APIENTRYP PFNGLGETTEXPARAMETERIUIVOESPROC) (GLenum target, GLenum pname, GLuint *params);
+typedef void (GL_APIENTRYP PFNGLSAMPLERPARAMETERIIVOESPROC) (GLuint sampler, GLenum pname, const GLint *param);
+typedef void (GL_APIENTRYP PFNGLSAMPLERPARAMETERIUIVOESPROC) (GLuint sampler, GLenum pname, const GLuint *param);
+typedef void (GL_APIENTRYP PFNGLGETSAMPLERPARAMETERIIVOESPROC) (GLuint sampler, GLenum pname, GLint *params);
+typedef void (GL_APIENTRYP PFNGLGETSAMPLERPARAMETERIUIVOESPROC) (GLuint sampler, GLenum pname, GLuint *params);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glTexParameterIivOES (GLenum target, GLenum pname, const GLint *params);
+GL_APICALL void GL_APIENTRY glTexParameterIuivOES (GLenum target, GLenum pname, const GLuint *params);
+GL_APICALL void GL_APIENTRY glGetTexParameterIivOES (GLenum target, GLenum pname, GLint *params);
+GL_APICALL void GL_APIENTRY glGetTexParameterIuivOES (GLenum target, GLenum pname, GLuint *params);
+GL_APICALL void GL_APIENTRY glSamplerParameterIivOES (GLuint sampler, GLenum pname, const GLint *param);
+GL_APICALL void GL_APIENTRY glSamplerParameterIuivOES (GLuint sampler, GLenum pname, const GLuint *param);
+GL_APICALL void GL_APIENTRY glGetSamplerParameterIivOES (GLuint sampler, GLenum pname, GLint *params);
+GL_APICALL void GL_APIENTRY glGetSamplerParameterIuivOES (GLuint sampler, GLenum pname, GLuint *params);
+#endif
+#endif /* GL_OES_texture_border_clamp */
+
+#ifndef GL_OES_texture_buffer
+#define GL_OES_texture_buffer 1
+#define GL_TEXTURE_BUFFER_OES             0x8C2A
+#define GL_TEXTURE_BUFFER_BINDING_OES     0x8C2A
+#define GL_MAX_TEXTURE_BUFFER_SIZE_OES    0x8C2B
+#define GL_TEXTURE_BINDING_BUFFER_OES     0x8C2C
+#define GL_TEXTURE_BUFFER_DATA_STORE_BINDING_OES 0x8C2D
+#define GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_OES 0x919F
+#define GL_SAMPLER_BUFFER_OES             0x8DC2
+#define GL_INT_SAMPLER_BUFFER_OES         0x8DD0
+#define GL_UNSIGNED_INT_SAMPLER_BUFFER_OES 0x8DD8
+#define GL_IMAGE_BUFFER_OES               0x9051
+#define GL_INT_IMAGE_BUFFER_OES           0x905C
+#define GL_UNSIGNED_INT_IMAGE_BUFFER_OES  0x9067
+#define GL_TEXTURE_BUFFER_OFFSET_OES      0x919D
+#define GL_TEXTURE_BUFFER_SIZE_OES        0x919E
+typedef void (GL_APIENTRYP PFNGLTEXBUFFEROESPROC) (GLenum target, GLenum internalformat, GLuint buffer);
+typedef void (GL_APIENTRYP PFNGLTEXBUFFERRANGEOESPROC) (GLenum target, GLenum internalformat, GLuint buffer, GLintptr offset, GLsizeiptr size);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glTexBufferOES (GLenum target, GLenum internalformat, GLuint buffer);
+GL_APICALL void GL_APIENTRY glTexBufferRangeOES (GLenum target, GLenum internalformat, GLuint buffer, GLintptr offset, GLsizeiptr size);
+#endif
+#endif /* GL_OES_texture_buffer */
+
 #ifndef GL_OES_texture_compression_astc
 #define GL_OES_texture_compression_astc 1
 #define GL_COMPRESSED_RGBA_ASTC_3x3x3_OES 0x93C0
@@ -435,6 +646,19 @@ GL_APICALL void GL_APIENTRY glFramebufferTexture3DOES (GLenum target, GLenum att
 #define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x5_OES 0x93E8
 #define GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x6_OES 0x93E9
 #endif /* GL_OES_texture_compression_astc */
+
+#ifndef GL_OES_texture_cube_map_array
+#define GL_OES_texture_cube_map_array 1
+#define GL_TEXTURE_CUBE_MAP_ARRAY_OES     0x9009
+#define GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_OES 0x900A
+#define GL_SAMPLER_CUBE_MAP_ARRAY_OES     0x900C
+#define GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_OES 0x900D
+#define GL_INT_SAMPLER_CUBE_MAP_ARRAY_OES 0x900E
+#define GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_OES 0x900F
+#define GL_IMAGE_CUBE_MAP_ARRAY_OES       0x9054
+#define GL_INT_IMAGE_CUBE_MAP_ARRAY_OES   0x905F
+#define GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_OES 0x906A
+#endif /* GL_OES_texture_cube_map_array */
 
 #ifndef GL_OES_texture_float
 #define GL_OES_texture_float 1
@@ -475,6 +699,19 @@ typedef void (GL_APIENTRYP PFNGLTEXSTORAGE3DMULTISAMPLEOESPROC) (GLenum target, 
 GL_APICALL void GL_APIENTRY glTexStorage3DMultisampleOES (GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLboolean fixedsamplelocations);
 #endif
 #endif /* GL_OES_texture_storage_multisample_2d_array */
+
+#ifndef GL_OES_texture_view
+#define GL_OES_texture_view 1
+#define GL_TEXTURE_VIEW_MIN_LEVEL_OES     0x82DB
+#define GL_TEXTURE_VIEW_NUM_LEVELS_OES    0x82DC
+#define GL_TEXTURE_VIEW_MIN_LAYER_OES     0x82DD
+#define GL_TEXTURE_VIEW_NUM_LAYERS_OES    0x82DE
+#define GL_TEXTURE_IMMUTABLE_LEVELS       0x82DF
+typedef void (GL_APIENTRYP PFNGLTEXTUREVIEWOESPROC) (GLuint texture, GLenum target, GLuint origtexture, GLenum internalformat, GLuint minlevel, GLuint numlevels, GLuint minlayer, GLuint numlayers);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glTextureViewOES (GLuint texture, GLenum target, GLuint origtexture, GLenum internalformat, GLuint minlevel, GLuint numlevels, GLuint minlayer, GLuint numlayers);
+#endif
+#endif /* GL_OES_texture_view */
 
 #ifndef GL_OES_vertex_array_object
 #define GL_OES_vertex_array_object 1
@@ -929,8 +1166,6 @@ GL_APICALL void GL_APIENTRY glDrawBuffersEXT (GLsizei n, const GLenum *bufs);
 
 #ifndef GL_EXT_draw_buffers_indexed
 #define GL_EXT_draw_buffers_indexed 1
-#define GL_MIN                            0x8007
-#define GL_MAX                            0x8008
 typedef void (GL_APIENTRYP PFNGLENABLEIEXTPROC) (GLenum target, GLuint index);
 typedef void (GL_APIENTRYP PFNGLDISABLEIEXTPROC) (GLenum target, GLuint index);
 typedef void (GL_APIENTRYP PFNGLBLENDEQUATIONIEXTPROC) (GLuint buf, GLenum mode);
@@ -1516,7 +1751,6 @@ GL_APICALL void GL_APIENTRY glTextureStorage3DEXT (GLuint texture, GLenum target
 #define GL_TEXTURE_VIEW_NUM_LEVELS_EXT    0x82DC
 #define GL_TEXTURE_VIEW_MIN_LAYER_EXT     0x82DD
 #define GL_TEXTURE_VIEW_NUM_LAYERS_EXT    0x82DE
-#define GL_TEXTURE_IMMUTABLE_LEVELS       0x82DF
 typedef void (GL_APIENTRYP PFNGLTEXTUREVIEWEXTPROC) (GLuint texture, GLenum target, GLuint origtexture, GLenum internalformat, GLuint minlevel, GLuint numlevels, GLuint minlayer, GLuint numlayers);
 #ifdef GL_GLEXT_PROTOTYPES
 GL_APICALL void GL_APIENTRY glTextureViewEXT (GLuint texture, GLenum target, GLuint origtexture, GLenum internalformat, GLuint minlevel, GLuint numlevels, GLuint minlayer, GLuint numlayers);

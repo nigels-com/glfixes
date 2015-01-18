@@ -461,7 +461,8 @@
             <unused start="0x3137"/>
         <enum value="0x3138" name="EGL_CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY_EXT"/>
             <unused start="0x3139" end="0x313C"/>
-        <enum value="0x313D" name="EGL_BUFFER_AGE_EXT"/>
+        <enum value="0x313D" name="EGL_BUFFER_AGE_KHR"/>
+        <enum value="0x313D" name="EGL_BUFFER_AGE_EXT" alias="EGL_BUFFER_AGE_KHR"/>
             <unused start="0x313E" end="0x313F"/>
         <enum value="0x313F" name="EGL_PLATFORM_DEVICE_EXT"/>
     </enums>
@@ -558,7 +559,8 @@
 
     <enums namespace="EGL" start="0x3200" end="0x320F" vendor="ANGLE" comment="Reserved for Daniel Koch, ANGLE Project (Khronos bug 7139)">
         <enum value="0x3200" name="EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE"/>
-            <unused start="0x3201" end="0x320F"/>
+        <enum value="0x3201" name="EGL_FIXED_SIZE_ANGLE"/>
+            <unused start="0x3202" end="0x320F"/>
     </enums>
 
     <enums namespace="EGL" start="0x3210" end="0x321F" vendor="KHR">
@@ -664,6 +666,14 @@
             <unused start="0x3300" end="0x331F"/>
     </enums>
 
+    <enums namespace="EGL" start="0x3320" end="0x339F" vendor="NV" comment="Reserved for James Jones (Bug 13209)">
+            <unused start="0x3320" end="0x339F"/>
+    </enums>
+
+    <enums namespace="EGL" start="0x33A0" end="0x33AF" vendor="ANGLE" comment="Reserved for Shannon Woods (Bug 13175)">
+            <unused start="0x33A0" end="0x33AF"/>
+    </enums>
+
 <!-- Please remember that new enumerant allocations must be obtained by
      request to the Khronos API registrar (see comments at the top of this
      file) File requests in the Khronos Bugzilla, EGL project, Registry
@@ -671,11 +681,10 @@
      Khronos APIs, and new ranges should be allocated with such overlaps in
      mind. -->
 
-<!-- Reservable for future use: 0x3320-0x3FFF.
-     To generate a new range, allocate multiples of 16 starting at the
-     lowest available point in this block. -->
-    <enums namespace="EGL" start="0x3320" end="0x3FFF" vendor="KHR">
-            <unused start="0x3320" end="0x3FFF" comment="Reserved for future use"/>
+<!-- Reservable for future use. To generate a new range, allocate multiples
+     of 16 starting at the lowest available point in this block. -->
+    <enums namespace="EGL" start="0x33B0" end="0x3FFF" vendor="KHR">
+            <unused start="0x33B0" end="0x3FFF" comment="Reserved for future use"/>
     </enums>
 
     <enums namespace="EGL" start="0x8F70" end="0x8F7F" vendor="HI" comment="For Mark Callow, Khronos bug 4055. Shared with GL.">
@@ -757,7 +766,7 @@
             <param><ptype>EGLContext</ptype> <name>ctx</name></param>
             <param><ptype>EGLenum</ptype> <name>target</name></param>
             <param><ptype>EGLClientBuffer</ptype> <name>buffer</name></param>
-            <param>const <ptype>EGLint</ptype> *<name>attrib_list</name></param>
+            <param>const <ptype>EGLAttrib</ptype> *<name>attrib_list</name></param>
         </command>
         <command>
             <proto><ptype>EGLImageKHR</ptype> <name>eglCreateImageKHR</name></proto>
@@ -766,7 +775,6 @@
             <param><ptype>EGLenum</ptype> <name>target</name></param>
             <param><ptype>EGLClientBuffer</ptype> <name>buffer</name></param>
             <param>const <ptype>EGLint</ptype> *<name>attrib_list</name></param>
-            <alias name="eglCreateImage"/>
         </command>
         <command>
             <proto><ptype>EGLSurface</ptype> <name>eglCreatePbufferFromClientBuffer</name></proto>
@@ -1206,6 +1214,13 @@
             <param><ptype>EGLGetBlobFuncANDROID</ptype> <name>get</name></param>
         </command>
         <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglSetDamageRegionKHR</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>                                     
+            <param><ptype>EGLSurface</ptype> <name>surface</name></param>                                 
+            <param><ptype>EGLint</ptype> *<name>rects</name></param>                                      
+            <param><ptype>EGLint</ptype> <name>n_rects</name></param>
+        </command>
+        <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglSignalSyncKHR</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLSyncKHR</ptype> <name>sync</name></param>
@@ -1258,6 +1273,13 @@
         </command>
         <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglSwapBuffersWithDamageEXT</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLSurface</ptype> <name>surface</name></param>
+            <param><ptype>EGLint</ptype> *<name>rects</name></param>
+            <param><ptype>EGLint</ptype> <name>n_rects</name></param>
+        </command>
+        <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglSwapBuffersWithDamageKHR</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLSurface</ptype> <name>surface</name></param>
             <param><ptype>EGLint</ptype> *<name>rects</name></param>
@@ -1624,6 +1646,11 @@
                 <enum name="EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE"/>
             </require>
         </extension>
+        <extension name="EGL_ANGLE_window_fixed_size" supported="egl">
+            <require>
+                <enum name="EGL_FIXED_SIZE_ANGLE"/>
+            </require>
+        </extension>
         <extension name="EGL_ARM_pixmap_multisample_discard" supported="egl">
             <require>
                 <enum name="EGL_DISCARD_SAMPLES_ARM"/>
@@ -1953,6 +1980,12 @@
                 <command name="eglQuerySurface64KHR"/>
             </require>
         </extension>
+        <extension name="EGL_KHR_partial_update" supported="egl">
+            <require>
+                <enum name="EGL_BUFFER_AGE_KHR"/>
+                <command name="eglSetDamageRegionKHR"/> 
+            </require>
+        </extension>
         <extension name="EGL_KHR_platform_android" supported="egl">
             <require>
                 <enum name="EGL_PLATFORM_ANDROID_KHR"/>
@@ -2047,6 +2080,11 @@
             </require>
         </extension>
         <extension name="EGL_KHR_surfaceless_context" supported="egl" comment="Just relaxes an error condition"/>
+        <extension name="EGL_KHR_swap_buffers_with_damage" supported="egl">
+            <require>
+                <command name="eglSwapBuffersWithDamageKHR"/>
+            </require>
+        </extension>
         <extension name="EGL_KHR_vg_parent_image" supported="egl">
             <require>
                 <enum name="EGL_VG_PARENT_IMAGE_KHR"/>
