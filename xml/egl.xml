@@ -674,6 +674,10 @@
             <unused start="0x33A0" end="0x33AF"/>
     </enums>
 
+    <enums namespace="EGL" start="0x33B0" end="0x33BF" vendor="KHR" comment="Reserved for Jeff Vigil (Bug 13357)">
+            <unused start="0x33B0" end="0x33BF"/>
+    </enums>
+
 <!-- Please remember that new enumerant allocations must be obtained by
      request to the Khronos API registrar (see comments at the top of this
      file) File requests in the Khronos Bugzilla, EGL project, Registry
@@ -683,8 +687,8 @@
 
 <!-- Reservable for future use. To generate a new range, allocate multiples
      of 16 starting at the lowest available point in this block. -->
-    <enums namespace="EGL" start="0x33B0" end="0x3FFF" vendor="KHR">
-            <unused start="0x33B0" end="0x3FFF" comment="Reserved for future use"/>
+    <enums namespace="EGL" start="0x33C0" end="0x3FFF" vendor="KHR">
+            <unused start="0x33C0" end="0x3FFF" comment="Reserved for future use"/>
     </enums>
 
     <enums namespace="EGL" start="0x8F70" end="0x8F7F" vendor="HI" comment="For Mark Callow, Khronos bug 4055. Shared with GL.">
