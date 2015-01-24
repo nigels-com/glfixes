@@ -38,7 +38,7 @@ extern "C" {
 
 #include <GLES3/gl3platform.h>
 
-/* Generated on date 20141118 */
+/* Generated on date 20150122 */
 
 /* Generated C header for:
  * API: gles2

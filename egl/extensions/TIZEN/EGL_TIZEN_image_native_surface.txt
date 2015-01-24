@@ -15,12 +15,12 @@ Contributors
 
 Contact
 
-    Zeeshan Anwar, Samsung Electronics (z.anwar 'at' samsung.com)
     Dongyeon Kim, Samsung Electronics (dy5.kim 'at' samsung.com)
+    Zeeshan Anwar, Samsung Electronics (z.anwar 'at' samsung.com)
 
 Status
 
-    Proposal
+    Complete
 
 Version
 

@@ -26,7 +26,7 @@ Status
 
 Version
 
-    Version 15, 2013/03/27
+    Version 16, 2015/01/15
 
 Number
 
@@ -561,7 +561,25 @@ Issues
     older EGL driver should generate an error. The OpenGL ES Working
     Group considers this benign behavior.
 
+ 10) Which error should be generated if robust buffer access or reset
+     notifications are requested under OpenGL ES?
+
+    As per Issue 6, this extension does not support creating robust contexts
+    for OpenGL ES. This is only supported via the EGL_EXT_create_context_-
+    robustness extension.
+
+    Attempting to use this extension to create robust OpenGL ES context
+    will generate an EGL_BAD_ATTRIBUTE error. This specific error is generated
+    because this extension does not define the EGL_CONTEXT_OPENGL_ROBUST_-
+    ACCESS_BIT_KHR and EGL_CONTEXT_OPENGL_RESET_NOTIFICATION_STRATEGY_KHR bits
+    for OpenGL ES contexts. Thus, use of these bits fall under condition
+    described by: "If an attribute is specified that is not meaningful for
+    the client API type.." in the above specification.
+
 Revision History
+
+    Version 16, 2015/01/15
+      - Add issue 10.
 
     Version 15, 2013/03/27
       - Add OpenGL ES support for debug contexts (Bug 10035).

@@ -20,7 +20,8 @@ Contact
 
 Status
 
-    Proposal
+    This extension is obsolete and has been replaced by 
+	EGL_TIZEN_image_native_buffer
 
 Version
 

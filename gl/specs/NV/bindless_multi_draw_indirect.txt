@@ -23,8 +23,8 @@ Status
 
 Version
 
-    Last Modified Date: July 12, 2013
-    Revision: 1
+    Last Modified Date: January 5, 2015
+    Revision: 2
 
 Number
 
@@ -108,7 +108,6 @@ Specification and Drawing Commands)
     
         typedef struct {
           DrawArraysIndirectCommand   cmd;
-          GLuint                      reserved; 
           BindlessPtrNV               vertexBuffers[];
         } DrawArraysIndirectBindlessCommandNV;
 
@@ -308,9 +307,19 @@ Issues
        
     RESOLVED: All pointers should be reset to what was last
     specified by the client side using BufferAddressRangeNV.
+    
+    4) How does this extension relate to the newer NV_command_list?
+    
+    NV_command_list provides a more flexible draw indirect mechnanism. It
+    can be more efficient if there are redundancies in the vertex and index
+    buffer addresses, as it allows specifying addresses and drawcalls with
+    different frequencies in the command stream.
 
 Revision History
 
     Rev.    Date      Author    Changes
     ----  --------    --------  -----------------------------------------
      1                ckubisch  Internal revisions
+     2    1/5/2015    ckubisch  bugfix, remove of "reserved" in
+                                DrawArraysIndirectBindlessCommandNV
+                                added reference to NV_command_list
