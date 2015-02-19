@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 29537 $ on $Date: 2015-01-22 02:32:35 -0800 (Thu, 22 Jan 2015) $
+** Khronos $Revision: 29588 $ on $Date: 2015-01-26 16:42:32 -0800 (Mon, 26 Jan 2015) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20150122 */
+/* Generated on date 20150126 */
 
 /* Generated C header for:
  * API: gles2
@@ -237,6 +237,10 @@ GL_APICALL void GL_APIENTRY glEGLImageTargetRenderbufferStorageOES (GLenum targe
 #define GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES 0x8D68
 #define GL_SAMPLER_EXTERNAL_OES           0x8D66
 #endif /* GL_OES_EGL_image_external */
+
+#ifndef GL_OES_EGL_image_external_essl3
+#define GL_OES_EGL_image_external_essl3 1
+#endif /* GL_OES_EGL_image_external_essl3 */
 
 #ifndef GL_OES_compressed_ETC1_RGB8_sub_texture
 #define GL_OES_compressed_ETC1_RGB8_sub_texture 1

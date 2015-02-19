@@ -36,8 +36,8 @@ Status
 
 Version
 
-    Last Modified Date:         September 26, 2014
-    Author Revision:            43
+    Last Modified Date:         January 27, 2015
+    Author Revision:            44
 
 Number
 
@@ -490,7 +490,6 @@ New Tokens
         TEXTURE_BINDING_CUBE_MAP                            <existing>
         TEXTURE_BINDING_CUBE_MAP_ARRAY                      <existing>
         TEXTURE_BINDING_RECTANGLE                           <existing>
-        TEXTURE_BINDING                                     0x82EB
 
 Additions to Chapter 2 of the OpenGL 4.4 (core) Specification (OpenGL
 Fundamentals)
@@ -1012,23 +1011,6 @@ Additions to Chapter 8 of the OpenGL 4.4 (core) Specification (Textures and
 Samplers)
 
     Modifications to Section 8.1, "Texture Objects"
-
-    (Insert the following after the description of BindTexture, p. 163)
-
-    (Modify the paragraph:
-
-    BindTexture may also be used to bind an existing texture object to any
-    of these targets. If the bind is successful no change is made to the
-    state of the bound texture object, and any previous binding to target
-    is broken.
-
-    with the following, p. 162)
-
-    BindTexture may also be used to bind an existing texture object to any
-    of these targets. If the bind is successful no change is made to the
-    state of the bound texture object, the name of the bound texture object
-    may be queried with TEXTURE_BINDING, and any previous binding to
-    <target> is broken.
 
     (Insert the following after the description of BindTextures, p. 164)
 
@@ -2873,8 +2855,8 @@ Queries"
     TEXTURE_BINDING_1D_ARRAY, TEXTURE_BINDING_2D, TEXTURE_BINDING_2D_ARRAY,
     TEXTURE_BINDING_2D_MULTISAMPLE, TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY,
     TEXTURE_BINDING_3D, TEXTURE_BINDING_BUFFER, TEXTURE_BINDING_CUBE_MAP,
-    TEXTURE_BINDING_CUBE_MAP_ARRAY, TEXTURE_BINDING_RECTANGLE or
-    TEXTURE_BINDING. Likewise, the current sampler bound to the active
+    TEXTURE_BINDING_CUBE_MAP_ARRAY, or TEXTURE_BINDING_RECTANGLE.
+    Likewise, the current sampler bound to the active
     texture unit may be queried by calling GetIntegerv with <pname>
     SAMPLER_BINDING.
 
@@ -2901,16 +2883,6 @@ New State
     | TEXTURE_TARGET                    | E     | GetTexParameteriv      | NONE                | Target of texture object           | 8.11    |
     |                                   |       | GetTextureParameteriv  |                     |                                    |         |
     +-----------------------------------+-------+------------------------+---------------------+------------------------------------+---------+
-
-
-    Append to Table 23.12. "Textures (state per texture unit)"
-
-    +-----------------------------------+---------+--------------------+--------------------------------+-----------------------------------+-------+
-    | Get Value                         | Type    | Get Command        | Initial Value                  | Description                       | Sec.  |
-    +-----------------------------------+---------+--------------------+--------------------------------+-----------------------------------+-------+
-    | TEXTURE_BINDING                   | 16 x Z+ | GetIntegerv        | NONE                           | Texture object bound to the       | 8.11  |
-    |                                   |         | GetIntegeri_v      |                                | texture unit                      |       |
-    +-----------------------------------+---------+--------------------+--------------------------------+-----------------------------------+-------+
 
 
     Append to Table 23.44, "Query Object State"
@@ -3240,11 +3212,11 @@ Usage Examples
         }
 
         // Direct State Access
-        // No need of the target
-        GLuint GetBoundTexture(GLuint unit)
+        // target_binding is e.g. GL_TEXTURE_BINDING_2D for the 2D texture
+        GLuint GetBoundTexture(GLenum target_binding, GLuint unit)
         {
           GLuint name = 0;
-          glGetIntegeri_v(GL_TEXTURE_BINDING, unit, &name);
+          glGetIntegeri_v(target_binding, unit, &name);
           return name;
         }
 
@@ -3770,34 +3742,30 @@ Issues
         not an input.
         
         An approach to resolve this issue is using glGetIntegeri_v for
-        textures and introducing a new GL_TEXTURE_BINDING value.
+        textures:
         
-        void glGetIntegeri_v(GLenum target,
+        void glGetIntegeri_v(GLenum target_binding,
           GLuint index,
           GLint * data);
         
-        Instead of using GL_TEXTURE0, we can use an integer to identify a
+        <target_binding> is e.g. GL_TEXTURE_BINDING_2D for the
+        two-dimensional texture binding.
+        
+        Instead of using GL_TEXTURE0, an integer <index> identifies a
         texture unit.
         
-        This is made possible thanks to the following language in the OpenGL
-        4.4 specification:
+        NOTE: In the initially released version of this extension,
+        queries of form
         
-        "BindTexture may also be used to bind an existing texture object to
-        any of these targets. If the bind is successful no change is made to
-        the state of the bound texture object, and any previous binding to
-        target is broken."
+            glGetIntegeri_v(GL_TEXTURE_BINDING, index, &texname);
         
-        furthermore the sepecification says:
-        
-        "When an entry in textures is zero, each of the targets enumerated at
-        the beginning of this section is reset to its default texture for the
-        corresponding texture image unit.""
-        
-        Hence functionaly, there is only the need of a single active target per
-        texture unit that should be directly accessible.
-        
-        RESOLVED: Add GL_TEXTURE_BINDING and use glGetIntegeri_v to query the
-        bound texture objects.
+        were supported. This was a mistake and was not implementable,
+        because there can always be multiple different bindings to a
+        texture unit for different targets. This token and the
+        corresponding state has been removed from this extension and
+        from the OpenGL 4.5 API Specification. The glGetIntegeri_v query
+        is still supported, but the target-specific binding tokens must
+        be passed.
         
     23) Do state tables chapter 23 needs to be updated to contain DSA queries too?
 
@@ -4161,7 +4129,10 @@ Issues
 Revision History
 
     Rev.    Date        Author    Changes
-    ----  -----------   --------  ----------------------------------------------
+    ----  -----------   --------- ---------------------------------------------
+    44    27 Jan 2015   Jon Leech Remove unimplementable TEXTURE_BINDING token
+                                  and state, and update Issue 22 (Bug 13278).
+
     43    26 Sep 2014   Jon Leech Add GetQueryBufferObject* to New Commands +
                                   minor spacing fixes.
 

@@ -678,6 +678,14 @@
             <unused start="0x33B0" end="0x33BF"/>
     </enums>
 
+    <enums namespace="EGL" start="0x33C0" end="0x33DF" vendor="BCOM" comment="Reserved for Gary Sweet (Bug 12203)">
+            <unused start="0x33C0" end="0x33DF"/>
+    </enums>
+
+    <enums namespace="EGL" start="0x33E0" end="0x341F" vendor="QCOM" comment="Reserved for Jeff Vigil (Bug 13364)">
+            <unused start="0x33E0" end="0x341F"/>
+    </enums>
+
 <!-- Please remember that new enumerant allocations must be obtained by
      request to the Khronos API registrar (see comments at the top of this
      file) File requests in the Khronos Bugzilla, EGL project, Registry
@@ -687,8 +695,8 @@
 
 <!-- Reservable for future use. To generate a new range, allocate multiples
      of 16 starting at the lowest available point in this block. -->
-    <enums namespace="EGL" start="0x33C0" end="0x3FFF" vendor="KHR">
-            <unused start="0x33C0" end="0x3FFF" comment="Reserved for future use"/>
+    <enums namespace="EGL" start="0x3420" end="0x3FFF" vendor="KHR">
+            <unused start="0x3420" end="0x3FFF" comment="Reserved for future use"/>
     </enums>
 
     <enums namespace="EGL" start="0x8F70" end="0x8F7F" vendor="HI" comment="For Mark Callow, Khronos bug 4055. Shared with GL.">
@@ -1861,12 +1869,16 @@
         </extension>
         <extension name="EGL_KHR_fence_sync" protect="KHRONOS_SUPPORT_INT64" supported="egl">
             <require>
-                <!-- @ Most interfaces defined by EGL_KHR_reusable sync -->
+                <!-- Most interfaces also defined by EGL_KHR_reusable sync -->
                 <enum name="EGL_SYNC_PRIOR_COMMANDS_COMPLETE_KHR"/>
                 <enum name="EGL_SYNC_CONDITION_KHR"/>
                 <enum name="EGL_SYNC_FENCE_KHR"/>
-            </require>
-        </extension>
+                <command name="eglCreateSyncKHR"/>
+                <command name="eglDestroySyncKHR"/>
+                <command name="eglClientWaitSyncKHR"/>
+                <command name="eglGetSyncAttribKHR"/>
+            </require>        
+        </extension>          
         <extension name="EGL_KHR_get_all_proc_addresses" supported="egl"/>
         <extension name="EGL_KHR_gl_colorspace" supported="egl">
             <require>
