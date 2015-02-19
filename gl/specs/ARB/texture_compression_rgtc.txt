@@ -28,8 +28,8 @@ Status
 
 Version
 
-    Last Modified Date: April 17, 2014
-    Revision: 1.6
+    Last Modified Date: January 27, 2015
+    Revision: 1.7
 
 Number
 
@@ -92,8 +92,8 @@ Additions to Chapter 3 of the OpenGL 2.0 Specification (Rasterization)
 
         Compressed Internal Format              Base Internal Format
         ---------------------------------       --------------------
-        COMPRESSED_RED_RGTC1                    RGB
-        COMPRESSED_SIGNED_RED_RGTC1             RGB
+        COMPRESSED_RED_RGTC1                    RED
+        COMPRESSED_SIGNED_RED_RGTC1             RED
         COMPRESSED_RG_RGTC2                     RG
         COMPRESSED_SIGNED_RG_RGTC2              RG
 
@@ -826,3 +826,7 @@ Revision History
     Revision 1.6, April 17, 2014: jleech
         - Fix table 3.17 so base type for COMRPESSED*RG_RGTC2 formats
           is RG instead of RGB, matching core GL spec (Bug 7812).
+
+    Revision 1.7, January 27, 2015: jleech
+        - Fix table 3.17 so base type for COMRPESSED*RED_RGTC1 formats 
+          is RED instead of RGB, matching core GL spec (Bug 13260).
