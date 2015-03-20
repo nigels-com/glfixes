@@ -43,8 +43,8 @@ Status
         
 Version
     
-    Last Modified Date: March 4, 2014
-    Author Revision: 15
+    Last Modified Date: March 11, 2015
+    Author Revision: 16
 
 Number
 
@@ -1011,10 +1011,15 @@ Dependencies on GL and ES profiles, versions, and other extensions
           Add the same language to corresponding sections of other
           specifications.
 
-    Dependencies on OpenGL 4.2 Compatibility specification and any other
-    versions or extensions
+Dependencies on program pipeline objects
 
-        - Remove PROGRAM_PIPELINE of table 5.1 from this specification.          
+    If program pipeline objects are not supported, remove PROGRAM_PIPELINE
+    from table 5.1. 
+
+    Program pipeline objects are supported starting with OpenGL 4.2 and
+    OpenGL ES 3.1. They are also supported if the OpenGL
+    GL_ARB_separate_shader_objects or OpenGL ES
+    GL_EXT_separate_shader_objects extensions are supported.
       
 Errors
     
@@ -1557,6 +1562,10 @@ Issues
     to be resolved.
 
 Revision History
+
+    Revision 16, 2015/03/11 (Jon Leech)
+      - Clarify dependencies required to support PROGRAM_PIPELINE (Bug
+        13545).
 
     Revision 15, 2014/03/04 (Jon Leech)
       - Minor changes to clean up expected message output format in example

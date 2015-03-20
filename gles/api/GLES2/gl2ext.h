@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 29588 $ on $Date: 2015-01-26 16:42:32 -0800 (Mon, 26 Jan 2015) $
+** Khronos $Revision$ on $Date$
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20150126 */
+/* Generated on date 20150311 */
 
 /* Generated C header for:
  * API: gles2
@@ -117,6 +117,7 @@ typedef void (GL_APIENTRY  *GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,
 #define GL_PROGRAM_KHR                    0x82E2
 #define GL_VERTEX_ARRAY_KHR               0x8074
 #define GL_QUERY_KHR                      0x82E3
+#define GL_PROGRAM_PIPELINE_KHR           0x82E4
 #define GL_SAMPLER_KHR                    0x82E6
 #define GL_MAX_LABEL_LENGTH_KHR           0x82E8
 #define GL_MAX_DEBUG_MESSAGE_LENGTH_KHR   0x9143
@@ -1015,6 +1016,11 @@ GL_APICALL void GL_APIENTRY glGetSyncivAPPLE (GLsync sync, GLenum pname, GLsizei
 #define GL_SHADER_BINARY_DMP              0x9250
 #endif /* GL_DMP_shader_binary */
 
+#ifndef GL_EXT_YUV_target
+#define GL_EXT_YUV_target 1
+#define GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT    0x8BE7
+#endif /* GL_EXT_YUV_target */
+
 #ifndef GL_EXT_base_instance
 #define GL_EXT_base_instance 1
 typedef void (GL_APIENTRYP PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEEXTPROC) (GLenum mode, GLint first, GLsizei count, GLsizei instancecount, GLuint baseinstance);
@@ -1704,6 +1710,16 @@ GL_APICALL void GL_APIENTRY glTexBufferRangeEXT (GLenum target, GLenum internalf
 #define GL_R8_EXT                         0x8229
 #define GL_RG8_EXT                        0x822B
 #endif /* GL_EXT_texture_rg */
+
+#ifndef GL_EXT_texture_sRGB_R8
+#define GL_EXT_texture_sRGB_R8 1
+#define GL_SR8_EXT                        0x8FBD
+#endif /* GL_EXT_texture_sRGB_R8 */
+
+#ifndef GL_EXT_texture_sRGB_RG8
+#define GL_EXT_texture_sRGB_RG8 1
+#define GL_SRG8_EXT                       0x8FBE
+#endif /* GL_EXT_texture_sRGB_RG8 */
 
 #ifndef GL_EXT_texture_sRGB_decode
 #define GL_EXT_texture_sRGB_decode 1
