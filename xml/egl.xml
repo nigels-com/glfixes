@@ -682,8 +682,8 @@
             <unused start="0x33C0" end="0x33DF"/>
     </enums>
 
-    <enums namespace="EGL" start="0x33E0" end="0x341F" vendor="QCOM" comment="Reserved for Jeff Vigil (Bug 13364)">
-            <unused start="0x33E0" end="0x341F"/>
+    <enums namespace="EGL" start="0x33E0" end="0x342F" vendor="QCOM" comment="Reserved for Jeff Vigil (Bugs 10663,13364)">
+            <unused start="0x33E0" end="0x342F"/>
     </enums>
 
 <!-- Please remember that new enumerant allocations must be obtained by
