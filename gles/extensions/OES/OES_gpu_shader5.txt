@@ -39,8 +39,8 @@ Status
 
 Version
 
-    Last Modified Date: June 18, 2014
-    Revision: 1
+    Last Modified Date: March 27, 2015
+    Revision: 2
 
 Number
 
@@ -95,6 +95,13 @@ Overview
           the four texels returned, instead of requiring a fixed 2x2
           footprint.
 
+New Procedures and Functions
+
+    None
+
+New Tokens
+
+    None
 
 Additions to the OpenGL ES 3.1 Specification
 
@@ -432,7 +439,8 @@ Issues
 
 Revision History
 
-    Rev.    Date    Author    Changes
-    ----  --------  --------- -------------------------------------------------
-     1    06/18/2014   dkoch     Initial OES version based on EXT.
-                                 No functional changes.
+    Rev.    Date      Author    Changes
+    ----  ----------  --------- -------------------------------------------------
+     1    06/18/2014  dkoch     Initial OES version based on EXT.
+                                No functional changes.
+     2    03/27/2015  dkoch     Add missing function and token sections.

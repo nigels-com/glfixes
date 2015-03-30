@@ -13,6 +13,7 @@ Contributors
 
     Gregory Roth, NVIDIA
     Mathias Heyer, NVIDIA
+    Xi Chen, NVIDIA
 
 Contacts
 
@@ -24,8 +25,8 @@ Status
 
 Version
 
-    Last Modified Date: August 29, 2012
-    Author Revision: #4
+    Last Modified Date: March 03, 2015
+    Author Revision: #5
 
 Number
 
@@ -42,6 +43,8 @@ Dependencies
 
     OES_texture_3D affects the definition of this extension.
     NV_texture_array affects the definition of this extension.
+
+    This extension interacts with OpenGL ES 3.0 and later versions.
 
 Overview
 
@@ -231,6 +234,38 @@ Requests)
     number of samples, respectively, of the image of the renderbuffer
     currently bound to <target>."
 
+Dependencies on OpenGL ES 3.0 and later
+
+    If OpenGL ES 3.0 or later is supported, the described modifications to
+    language for BlitFramebufferNV also apply to BlitFramebuffer:
+
+    (Add to the end of the section describing BlitFramebuffer)
+
+    "If SAMPLE_BUFFERS for the read framebuffer is zero and
+    SAMPLE_BUFFERS for the draw framebuffer is greater than zero, the
+    value of the source sample is replicated in each of the destination
+    samples.
+
+    If SAMPLE_BUFFERS for both the read and draw framebuffers are
+    greater than zero, and the values of SAMPLES for the read and draw
+    framebuffers are identical, the samples are copied without
+    modification from the read framebuffer to the draw framebuffer.
+    Otherwise, no copy is performed and an INVALID_OPERATION error is
+    generated."
+
+    (In the error list for BlitFramebuffer, modify the item "An
+    INVALID_OPERATION error is generated if the draw framebuffer is
+    multisampled.")
+
+        * An INVALID_OPERATION error is generated if both the read and
+          draw buffers are multisampled, and SAMPLE_BUFFERS for the read and
+          draw buffers are not identical.
+
+    (In the error list for BlitFramebuffer, add to the list)
+
+        * An INVALID_OPERATION error is generated if either the read or draw
+          buffer is multisampled, and the formats of the read and draw
+          framebuffers are not identical.
 
 Dependencies on NV_framebuffer_blit
 
@@ -324,6 +359,8 @@ Issues
             b) the blit region may be relocated during the blit
 
 Revision History
+    Revision 5, 2015/03/03
+      - add interaction with OpenGL ES 3.0 and later
     Revision 4, 2012/08/31
       - add interaction with NV_texture_array
     Revision 3, 2012/08/29
