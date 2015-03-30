@@ -6,9 +6,12 @@ Name Strings
 
     GL_NV_fbo_color_attachments
 
+Contributors
+    Marek Zylak
+
 Contact
 
-    Marek Zylak, NVIDIA Corporation (mzylak 'at' nvidia.com)
+    James Helferty, NVIDIA Corporation (jhelferty 'at' nvidia.com)
 
 Status
 
@@ -16,8 +19,8 @@ Status
 
 Version
 
-    Last Modified Date: May 10, 2010
-    NVIDIA Revision: 3.0
+    Last Modified Date: Feb 2, 2015
+    NVIDIA Revision: 4.0
 
 Number
 
@@ -26,6 +29,8 @@ Number
 Dependencies
 
     The extension is written against the OpenGLES 2.0 specification.
+
+    EXT_discard_framebuffer affects the definition of this extension
 
 Overview
 
@@ -100,6 +105,14 @@ New Implementation Dependent State
     MAX_COLOR_ATTACHMENTS_NV Z+   GetIntegerv 1             Number of framebuffer   4.4.1
                                                             color attachment points
 
+Interactions with EXT_discard_framebuffer
+
+    If EXT_discard_framebuffer is present, in Section 4.5 modify the
+    arguments accepted by DiscardFramebufferEXT as follows: If a
+    framebuffer object is bound to <target>,  <attachments> may also
+    contain tokens COLOR_ATTACHMENTm_NV where <m> is greater than or
+    equal to 0 and less than MAX_COLOR_ATTACHMENTS_NV.
+
 Interactions with other extensions
 
     Rendering to color attachments COLOR_ATTACHMENT[1..15]_NV can be
@@ -113,6 +126,7 @@ Revision History
 
     Rev.    Date      Author       Changes
     ----   --------   ---------    -------------------------------------
+     4     02/02/15   jhelferty    Add interaction with DiscardFramebuffer.
      3     05/10/10   mzylak       Fixed references to core specification.
      2     05/06/10   mzylak       Small fixes and clarifications.
      1     05/05/10   mzylak       First revision.

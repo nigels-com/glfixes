@@ -4,7 +4,7 @@ Name
 
 Name Strings
 
-    OES_texture_storage_multisample_2d_array
+    GL_OES_texture_storage_multisample_2d_array
 
 Contact
 
@@ -25,8 +25,8 @@ Status
 
 Version
 
-    Last Modified Date: March 6, 2014
-    Revision: 4
+    Last Modified Date: March 26, 2014
+    Revision: 5
 
 Number
 
@@ -357,6 +357,7 @@ Revision History
 
     Rev.    Date     Author     Changes
     ----  ---------- ---------  --------------------------------------------
+    5     2014/03/26 Jon Leech  Add missing GL_ prefix to the name string.
     4     2014/03/06 Jon Leech  Change limit on TexStorage3DMultisampleOES
                                 <depth> parameter to the value of
                                 MAX_ARRAY_TEXTURE_LAYERS (Bug 11135).

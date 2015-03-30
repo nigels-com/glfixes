@@ -31,7 +31,7 @@ Status
 
 Version
 
-    October 15, 2014 (version 7)
+    February 6, 2015 (version 8)
 
 Number
 
@@ -162,7 +162,7 @@ Language specification
 
     - Add to the table the following sampler functions:
 
-      "highp vec2 textureSize(samplerExternalOES sampler, int lod)
+      "highp ivec2 textureSize(samplerExternalOES sampler, int lod)
        vec4 texture(samplerExternalOES sampler, vec2 P [, float bias] )
        vec4 textureProj(samplerExternalOES sampler, vec3 P [, float bias] )
        vec4 textureProj(samplerExternalOES sampler, vec4 P [, float bias])
@@ -360,6 +360,7 @@ Issues
 
 Revision History
 
+    #8 - (Feb 6, 2015) Fixed typo in return value of textureSize (vec2-Â>ivec2)
     #7 - (Oct 15, 2014) Resolved issue 10. Added interaction with EXT_gpu_shader5.
     #6 - (Oct 10, 2014) Added issue 10 and its tentative resolution.
     #5 - (Sep 25, 2014) Updated resolution of issue 7.

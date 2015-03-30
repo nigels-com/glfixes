@@ -11,6 +11,7 @@ Contributors
     Contributors to  EXT_framebuffer_blit, ARB_framebuffer_object
     and ANGLE_framebuffer_blit
     Greg Roth, NVIDIA
+    Xi Chen, NVIDIA
 
 Contact
 
@@ -22,8 +23,8 @@ Status
 
 Version
 
-    Last Modified Date: 09 Jan 2013
-    Author Revision: 03
+    Last Modified Date: 03 Mar 2015
+    Author Revision: 06
 
 Number
 
@@ -39,6 +40,8 @@ Dependencies
 
     EXT_color_buffer_half_float affects the definition of this extension
 
+    EXT_discard_framebuffer affects the definition of this extension
+
     NV_fbo_color_attachments affects the definition of this extension
 
     NV_framebuffer_multisample affects the definition of this extension
@@ -46,6 +49,8 @@ Dependencies
     NV_read_buffer affects the definition of this extension
 
     NV_draw_buffers affects the definition of this extension
+
+    This extension interacts with OpenGL ES 3.0 and later versions.
 
 Overview
 
@@ -374,6 +379,50 @@ State Requests)
     "<target> must be DRAW_FRAMEBUFFER_NV, READ_FRAMEBUFFER_NV or
     FRAMEBUFFER.  FRAMEBUFFER is equivalent to DRAW_FRAMEBUFFER_NV."
 
+Dependencies on OpenGL ES 3.0 and later
+
+    If OpenGL ES 3.0 or later is supported, the described modifications to
+    language for BlitFramebufferNV also apply to BlitFramebuffer.
+
+    (Add to the end of the section describing BlitFramebuffer)
+
+    "If SAMPLE_BUFFERS for both the read and draw framebuffers are
+    greater than zero, and the values of SAMPLES for the read and draw
+    framebuffers are identical, the samples are copied without
+    modification from the read framebuffer to the draw framebuffer.
+    Otherwise, no copy is performed and an INVALID_OPERATION error is
+    generated. Note that the samples in the draw buffer are not
+    guaranteed to be at the same sample location as the read buffer,
+    so rendering using this newly created buffer can potentially
+    have geometry cracks or incorrect antialiasing. This may occur
+    if the sizes of the framebuffers do not match, if the
+    formats differ, or if the source and destination rectangles are
+    not defined with the same (X0,Y0) and (X1,Y1) bounds.
+
+    If SAMPLE_BUFFERS for either the read framebuffer or
+    draw framebuffer is greater than zero, no copy is performed and an
+    INVALID_OPERATION error is generated if the dimensions of the source
+    and destination rectangles provided to BlitFramebuffer are not
+    identical, or if the formats of the read and draw framebuffers are
+    not identical."
+
+    (In the error list for BlitFramebuffer, modify the item "An
+     INVALID_OPERATION error is generated if the draw framebuffer is
+     multisampled.")
+
+         * An INVALID_OPERATION error is generated if both the read and
+           draw buffers are multisampled, and SAMPLE_BUFFERS for the read and
+           draw buffers are not identical.
+
+    (In the error list for BlitFramebuffer, modify the item "An
+     INVALID_OPERATION error is generated if the read framebuffer is
+     multisampled, and the source and destination rectangles are not defined
+     with the same (X0, Y0) and (X1, Y1) bounds.")
+
+         * An INVALID_OPERATION error is generated if either the read or draw
+           buffer is multisampled, and the dimensions of the source and
+           destination rectangles are not identical, or if the formats of the
+           read and draw framebuffers are not identical.
 
 Dependencies on EXT_sRGB:
 
@@ -384,6 +433,20 @@ Dependencies on EXT_color_buffer_half_float:
 
     If EXT_color_buffer_half_float is not supported, remove any language
     referring to floating point conversion during a BlitFramebufferNV operation.
+
+Dependencies on EXT_discard_framebuffer:
+
+    If EXT_discard_framebuffer is supported, in Section 4.5 replace
+    the sentence:
+    
+    "<target> must be FRAMEBUFFER."
+
+    with
+
+    "<target> must be DRAW_FRAMEBUFFER_NV, READ_FRAMEBUFFER_NV, or
+    FRAMEBUFFER. FRAMEBUFFER is equivalent to DRAW_FRAMEBUFFER_NV."
+
+    and relax the error to match.
 
 Dependencies on NV_fbo_color_attachments:
 
@@ -494,6 +557,10 @@ Issues
 
 
 Revision History
+    #06    03 Mar 2015    Xi Chen
+        Add interaction with OpenGL ES 3.0 and later.
+    #05    02 Feb 2015    James Helferty
+        Add interaction with DiscardFramebuffer.
     #04    31 Jan 2013    Greg Roth
         Rewrote section 4.4.1 to better jibe with ES2.0
     #03    09 Jan 2013    Greg Roth

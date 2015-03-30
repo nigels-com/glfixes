@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision$ on $Date$
+** Khronos $Revision: 30423 $ on $Date: 2015-03-27 17:59:41 -0700 (Fri, 27 Mar 2015) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20150311 */
+/* Generated on date 20150327 */
 
 /* Generated C header for:
  * API: gles2
@@ -1220,6 +1220,10 @@ GL_APICALL void GL_APIENTRY glDrawElementsInstancedEXT (GLenum mode, GLsizei cou
 #endif
 #endif /* GL_EXT_draw_instanced */
 
+#ifndef GL_EXT_float_blend
+#define GL_EXT_float_blend 1
+#endif /* GL_EXT_float_blend */
+
 #ifndef GL_EXT_geometry_point_size
 #define GL_EXT_geometry_point_size 1
 #endif /* GL_EXT_geometry_point_size */
@@ -1351,6 +1355,10 @@ GL_APICALL void GL_APIENTRY glGetIntegeri_vEXT (GLenum target, GLuint index, GLi
 #define GL_ANY_SAMPLES_PASSED_CONSERVATIVE_EXT 0x8D6A
 #endif /* GL_EXT_occlusion_query_boolean */
 
+#ifndef GL_EXT_post_depth_coverage
+#define GL_EXT_post_depth_coverage 1
+#endif /* GL_EXT_post_depth_coverage */
+
 #ifndef GL_EXT_primitive_bounding_box
 #define GL_EXT_primitive_bounding_box 1
 #define GL_PRIMITIVE_BOUNDING_BOX_EXT     0x92BE
@@ -1369,6 +1377,20 @@ GL_APICALL void GL_APIENTRY glPrimitiveBoundingBoxEXT (GLfloat minX, GLfloat min
 #define GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG 0x93F0
 #define GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG 0x93F1
 #endif /* GL_EXT_pvrtc_sRGB */
+
+#ifndef GL_EXT_raster_multisample
+#define GL_EXT_raster_multisample 1
+#define GL_RASTER_MULTISAMPLE_EXT         0x9327
+#define GL_RASTER_SAMPLES_EXT             0x9328
+#define GL_MAX_RASTER_SAMPLES_EXT         0x9329
+#define GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT 0x932A
+#define GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT 0x932B
+#define GL_EFFECTIVE_RASTER_SAMPLES_EXT   0x932C
+typedef void (GL_APIENTRYP PFNGLRASTERSAMPLESEXTPROC) (GLuint samples, GLboolean fixedsamplelocations);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glRasterSamplesEXT (GLuint samples, GLboolean fixedsamplelocations);
+#endif
+#endif /* GL_EXT_raster_multisample */
 
 #ifndef GL_EXT_read_format_bgra
 #define GL_EXT_read_format_bgra 1
@@ -1690,6 +1712,10 @@ GL_APICALL void GL_APIENTRY glTexBufferRangeEXT (GLenum target, GLenum internalf
 #define GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT 0x84FF
 #endif /* GL_EXT_texture_filter_anisotropic */
 
+#ifndef GL_EXT_texture_filter_minmax
+#define GL_EXT_texture_filter_minmax 1
+#endif /* GL_EXT_texture_filter_minmax */
+
 #ifndef GL_EXT_texture_format_BGRA8888
 #define GL_EXT_texture_format_BGRA8888 1
 #endif /* GL_EXT_texture_format_BGRA8888 */
@@ -1989,6 +2015,18 @@ GL_APICALL void GL_APIENTRY glEndConditionalRenderNV (void);
 #endif
 #endif /* GL_NV_conditional_render */
 
+#ifndef GL_NV_conservative_raster
+#define GL_NV_conservative_raster 1
+#define GL_CONSERVATIVE_RASTERIZATION_NV  0x9346
+#define GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV 0x9347
+#define GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV 0x9348
+#define GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV 0x9349
+typedef void (GL_APIENTRYP PFNGLSUBPIXELPRECISIONBIASNVPROC) (GLuint xbits, GLuint ybits);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glSubpixelPrecisionBiasNV (GLuint xbits, GLuint ybits);
+#endif
+#endif /* GL_NV_conservative_raster */
+
 #ifndef GL_NV_copy_buffer
 #define GL_NV_copy_buffer 1
 #define GL_COPY_READ_BUFFER_NV            0x8F36
@@ -2106,6 +2144,25 @@ GL_APICALL void GL_APIENTRY glSetFenceNV (GLuint fence, GLenum condition);
 #endif
 #endif /* GL_NV_fence */
 
+#ifndef GL_NV_fill_rectangle
+#define GL_NV_fill_rectangle 1
+#define GL_FILL_RECTANGLE_NV              0x933C
+#endif /* GL_NV_fill_rectangle */
+
+#ifndef GL_NV_fragment_coverage_to_color
+#define GL_NV_fragment_coverage_to_color 1
+#define GL_FRAGMENT_COVERAGE_TO_COLOR_NV  0x92DD
+#define GL_FRAGMENT_COVERAGE_COLOR_NV     0x92DE
+typedef void (GL_APIENTRYP PFNGLFRAGMENTCOVERAGECOLORNVPROC) (GLuint color);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glFragmentCoverageColorNV (GLuint color);
+#endif
+#endif /* GL_NV_fragment_coverage_to_color */
+
+#ifndef GL_NV_fragment_shader_interlock
+#define GL_NV_fragment_shader_interlock 1
+#endif /* GL_NV_fragment_shader_interlock */
+
 #ifndef GL_NV_framebuffer_blit
 #define GL_NV_framebuffer_blit 1
 #define GL_READ_FRAMEBUFFER_NV            0x8CA8
@@ -2117,6 +2174,26 @@ typedef void (GL_APIENTRYP PFNGLBLITFRAMEBUFFERNVPROC) (GLint srcX0, GLint srcY0
 GL_APICALL void GL_APIENTRY glBlitFramebufferNV (GLint srcX0, GLint srcY0, GLint srcX1, GLint srcY1, GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1, GLbitfield mask, GLenum filter);
 #endif
 #endif /* GL_NV_framebuffer_blit */
+
+#ifndef GL_NV_framebuffer_mixed_samples
+#define GL_NV_framebuffer_mixed_samples 1
+#define GL_COVERAGE_MODULATION_TABLE_NV   0x9331
+#define GL_COLOR_SAMPLES_NV               0x8E20
+#define GL_DEPTH_SAMPLES_NV               0x932D
+#define GL_STENCIL_SAMPLES_NV             0x932E
+#define GL_MIXED_DEPTH_SAMPLES_SUPPORTED_NV 0x932F
+#define GL_MIXED_STENCIL_SAMPLES_SUPPORTED_NV 0x9330
+#define GL_COVERAGE_MODULATION_NV         0x9332
+#define GL_COVERAGE_MODULATION_TABLE_SIZE_NV 0x9333
+typedef void (GL_APIENTRYP PFNGLCOVERAGEMODULATIONTABLENVPROC) (GLsizei n, const GLfloat *v);
+typedef void (GL_APIENTRYP PFNGLGETCOVERAGEMODULATIONTABLENVPROC) (GLsizei bufsize, GLfloat *v);
+typedef void (GL_APIENTRYP PFNGLCOVERAGEMODULATIONNVPROC) (GLenum components);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glCoverageModulationTableNV (GLsizei n, const GLfloat *v);
+GL_APICALL void GL_APIENTRY glGetCoverageModulationTableNV (GLsizei bufsize, GLfloat *v);
+GL_APICALL void GL_APIENTRY glCoverageModulationNV (GLenum components);
+#endif
+#endif /* GL_NV_framebuffer_mixed_samples */
 
 #ifndef GL_NV_framebuffer_multisample
 #define GL_NV_framebuffer_multisample 1
@@ -2132,6 +2209,10 @@ GL_APICALL void GL_APIENTRY glRenderbufferStorageMultisampleNV (GLenum target, G
 #ifndef GL_NV_generate_mipmap_sRGB
 #define GL_NV_generate_mipmap_sRGB 1
 #endif /* GL_NV_generate_mipmap_sRGB */
+
+#ifndef GL_NV_geometry_shader_passthrough
+#define GL_NV_geometry_shader_passthrough 1
+#endif /* GL_NV_geometry_shader_passthrough */
 
 #ifndef GL_NV_image_formats
 #define GL_NV_image_formats 1
@@ -2457,6 +2538,25 @@ GL_APICALL void GL_APIENTRY glGetProgramResourcefvNV (GLuint program, GLenum pro
 #endif
 #endif /* GL_NV_path_rendering */
 
+#ifndef GL_NV_path_rendering_shared_edge
+#define GL_NV_path_rendering_shared_edge 1
+#define GL_SHARED_EDGE_NV                 0xC0
+#endif /* GL_NV_path_rendering_shared_edge */
+
+#ifndef GL_NV_polygon_mode
+#define GL_NV_polygon_mode 1
+#define GL_POLYGON_MODE_NV                0x0B40
+#define GL_POLYGON_OFFSET_POINT_NV        0x2A01
+#define GL_POLYGON_OFFSET_LINE_NV         0x2A02
+#define GL_POINT_NV                       0x1B00
+#define GL_LINE_NV                        0x1B01
+#define GL_FILL_NV                        0x1B02
+typedef void (GL_APIENTRYP PFNGLPOLYGONMODENVPROC) (GLenum face, GLenum mode);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glPolygonModeNV (GLenum face, GLenum mode);
+#endif
+#endif /* GL_NV_polygon_mode */
+
 #ifndef GL_NV_read_buffer
 #define GL_NV_read_buffer 1
 #define GL_READ_BUFFER_NV                 0x0C02
@@ -2495,6 +2595,30 @@ GL_APICALL void GL_APIENTRY glReadBufferNV (GLenum mode);
 #define GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_NV 0x8C4F
 #define GL_ETC1_SRGB8_NV                  0x88EE
 #endif /* GL_NV_sRGB_formats */
+
+#ifndef GL_NV_sample_locations
+#define GL_NV_sample_locations 1
+#define GL_SAMPLE_LOCATION_SUBPIXEL_BITS_NV 0x933D
+#define GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_NV 0x933E
+#define GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_NV 0x933F
+#define GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_NV 0x9340
+#define GL_SAMPLE_LOCATION_NV             0x8E50
+#define GL_PROGRAMMABLE_SAMPLE_LOCATION_NV 0x9341
+#define GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV 0x9342
+#define GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV 0x9343
+typedef void (GL_APIENTRYP PFNGLFRAMEBUFFERSAMPLELOCATIONSFVNVPROC) (GLenum target, GLuint start, GLsizei count, const GLfloat *v);
+typedef void (GL_APIENTRYP PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVNVPROC) (GLuint framebuffer, GLuint start, GLsizei count, const GLfloat *v);
+typedef void (GL_APIENTRYP PFNGLRESOLVEDEPTHVALUESNVPROC) (void);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glFramebufferSampleLocationsfvNV (GLenum target, GLuint start, GLsizei count, const GLfloat *v);
+GL_APICALL void GL_APIENTRY glNamedFramebufferSampleLocationsfvNV (GLuint framebuffer, GLuint start, GLsizei count, const GLfloat *v);
+GL_APICALL void GL_APIENTRY glResolveDepthValuesNV (void);
+#endif
+#endif /* GL_NV_sample_locations */
+
+#ifndef GL_NV_sample_mask_override_coverage
+#define GL_NV_sample_mask_override_coverage 1
+#endif /* GL_NV_sample_mask_override_coverage */
 
 #ifndef GL_NV_shader_noperspective_interpolation
 #define GL_NV_shader_noperspective_interpolation 1
@@ -2557,6 +2681,10 @@ GL_APICALL void GL_APIENTRY glDisableiNV (GLenum target, GLuint index);
 GL_APICALL GLboolean GL_APIENTRY glIsEnablediNV (GLenum target, GLuint index);
 #endif
 #endif /* GL_NV_viewport_array */
+
+#ifndef GL_NV_viewport_array2
+#define GL_NV_viewport_array2 1
+#endif /* GL_NV_viewport_array2 */
 
 #ifndef GL_QCOM_alpha_test
 #define GL_QCOM_alpha_test 1
