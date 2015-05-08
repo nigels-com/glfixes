@@ -42,8 +42,8 @@ Status
 
 Version
 
-    Last Modified Date: April 29, 2014
-    Revision: 17
+    Last Modified Date: April 20, 2014
+    Revision: 18
 
 Number
 
@@ -1825,8 +1825,8 @@ New Implementation Dependent State
                                                                                   vertex outputs in TCS
     MAX_TESS_PATCH_COMPONENTS_EXT                       Z+    GetIntegerv   120   No. components for per-patch    11.1ts.1.2
                                                                                   output varyings for TCS
-    MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_EXT        Z+    GetIntegerv   4096  No. components for per-patch    11.1ts.1.2
-                                                                                  output varyings for TCS
+    MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_EXT        Z+    GetIntegerv   4096  Total no. components for TCS    11.1ts.1.2
+                                                                                  outputs
     MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_EXT           Z+    GetIntegerv   128   No. components for per-vertex   11.1ts.3.2
                                                                                   outputs in TES
     MAX_TESS_CONTROL_INPUT_COMPONENTS_EXT               Z+    GetIntegerv   128   No. components for per-vertex   11.1ts.1.2
@@ -2684,6 +2684,10 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------- -------------------------------------------------
+     18   04/20/15  Jon Leech Remove "per-patch" part of description of
+                              MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS
+                              (Bug 13765).
+
      17   04/29/14  dkoch     Add missing edits to Section 12.1 for XFB
 
      16   04/25/14  dkoch     Allow compile-time error for improperly sized

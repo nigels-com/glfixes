@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 30423 $ on $Date: 2015-03-27 17:59:41 -0700 (Fri, 27 Mar 2015) $
+** Khronos $Revision: 30969 $ on $Date: 2015-04-28 21:32:44 -0700 (Tue, 28 Apr 2015) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20150327 */
+/* Generated on date 20150428 */
 
 /* Generated C header for:
  * API: gles2
@@ -1039,6 +1039,23 @@ GL_APICALL void GL_APIENTRY glDrawElementsInstancedBaseVertexBaseInstanceEXT (GL
 #define GL_MAX_EXT                        0x8008
 #endif /* GL_EXT_blend_minmax */
 
+#ifndef GL_EXT_buffer_storage
+#define GL_EXT_buffer_storage 1
+#define GL_MAP_READ_BIT                   0x0001
+#define GL_MAP_WRITE_BIT                  0x0002
+#define GL_MAP_PERSISTENT_BIT             0x0040
+#define GL_MAP_COHERENT_BIT               0x0080
+#define GL_DYNAMIC_STORAGE_BIT            0x0100
+#define GL_CLIENT_STORAGE_BIT             0x0200
+#define GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT 0x00004000
+#define GL_BUFFER_IMMUTABLE_STORAGE       0x821F
+#define GL_BUFFER_STORAGE_FLAGS           0x8220
+typedef void (GL_APIENTRYP PFNGLBUFFERSTORAGEEXTPROC) (GLenum target, GLsizeiptr size, const void *data, GLbitfield flags);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glBufferStorageEXT (GLenum target, GLsizeiptr size, const void *data, GLbitfield flags);
+#endif
+#endif /* GL_EXT_buffer_storage */
+
 #ifndef GL_EXT_color_buffer_half_float
 #define GL_EXT_color_buffer_half_float 1
 #define GL_RGBA16F_EXT                    0x881A
@@ -1577,6 +1594,27 @@ GL_APICALL void GL_APIENTRY glProgramUniformMatrix4x3fvEXT (GLuint program, GLin
 #define GL_COMPARE_REF_TO_TEXTURE_EXT     0x884E
 #define GL_SAMPLER_2D_SHADOW_EXT          0x8B62
 #endif /* GL_EXT_shadow_samplers */
+
+#ifndef GL_EXT_sparse_texture
+#define GL_EXT_sparse_texture 1
+#define GL_TEXTURE_SPARSE_EXT             0x91A6
+#define GL_VIRTUAL_PAGE_SIZE_INDEX_EXT    0x91A7
+#define GL_NUM_SPARSE_LEVELS_EXT          0x91AA
+#define GL_NUM_VIRTUAL_PAGE_SIZES_EXT     0x91A8
+#define GL_VIRTUAL_PAGE_SIZE_X_EXT        0x9195
+#define GL_VIRTUAL_PAGE_SIZE_Y_EXT        0x9196
+#define GL_VIRTUAL_PAGE_SIZE_Z_EXT        0x9197
+#define GL_TEXTURE_2D_ARRAY               0x8C1A
+#define GL_TEXTURE_3D                     0x806F
+#define GL_MAX_SPARSE_TEXTURE_SIZE_EXT    0x9198
+#define GL_MAX_SPARSE_3D_TEXTURE_SIZE_EXT 0x9199
+#define GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_EXT 0x919A
+#define GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_EXT 0x91A9
+typedef void (GL_APIENTRYP PFNGLTEXPAGECOMMITMENTARBPROC) (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLboolean commit);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glTexPageCommitmentARB (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLboolean commit);
+#endif
+#endif /* GL_EXT_sparse_texture */
 
 #ifndef GL_EXT_tessellation_point_size
 #define GL_EXT_tessellation_point_size 1
@@ -2685,6 +2723,21 @@ GL_APICALL GLboolean GL_APIENTRY glIsEnablediNV (GLenum target, GLuint index);
 #ifndef GL_NV_viewport_array2
 #define GL_NV_viewport_array2 1
 #endif /* GL_NV_viewport_array2 */
+
+#ifndef GL_OVR_multiview
+#define GL_OVR_multiview 1
+#define GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR 0x9630
+#define GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR 0x9632
+#define GL_MAX_VIEWS_OVR                  0x9631
+typedef void (GL_APIENTRYP PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC) (GLenum target, GLenum attachment, GLuint texture, GLint level, GLint baseViewIndex, GLsizei numViews);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glFramebufferTextureMultiviewOVR (GLenum target, GLenum attachment, GLuint texture, GLint level, GLint baseViewIndex, GLsizei numViews);
+#endif
+#endif /* GL_OVR_multiview */
+
+#ifndef GL_OVR_multiview2
+#define GL_OVR_multiview2 1
+#endif /* GL_OVR_multiview2 */
 
 #ifndef GL_QCOM_alpha_test
 #define GL_QCOM_alpha_test 1

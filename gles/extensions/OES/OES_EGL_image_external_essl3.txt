@@ -31,7 +31,7 @@ Status
 
 Version
 
-    February 6, 2015 (version 8)
+    April 10, 2015 (version 9)
 
 Number
 
@@ -147,15 +147,12 @@ specification
 Changes to section 4.5.4 ("Default Precision Qualifiers") of the OpenGL ES
 Shading Language specification
 
-    - Add to the list of "vertex language has the following predeclared
-    globally scoped default precision statements:"
+    - Add the following paragraph:
 
-        "precision lowp samplerExternalOES;"
+      "All languages have the following predeclared globally scoped default
+       precision statements:
 
-    - Add to the list of "fragment language has the following predeclared
-    globally scoped default precision statements:"
-
-        "precision lowp samplerExternalOES;"
+        precision lowp samplerExternalOES;"
 
 Changes to section 8.8 ("Texture Lookup Functions") of the OpenGL ES Shading
 Language specification
@@ -347,7 +344,7 @@ Issues
         RESOLVED: Yes, in a limited form.
 
         Allowing image / load store on external textures enables compute
-        shaders to access external textures.
+        shaders to write to these textures.
 
         A limited set of use-cases is enabled by making glImageBindTexture
         accept external textures. Shaders can access such external textures
@@ -356,11 +353,15 @@ Issues
         Since the image format must be specified by the shader, no additional
         format conversion is done for external textures accessed via image
         load/store. This implies that the shader author must know the format of
-        the external texture in order to do useful work.
+        the external texture in order to do useful work. Also, only the image
+        formats already supported by image load store are available (i.e, there
+        is no automatic conversion to, for example, YUV formats.)
 
 Revision History
 
-    #8 - (Feb 6, 2015) Fixed typo in return value of textureSize (vec2-Â>ivec2)
+    #9 - (Apr 10, 2015) Clarified issue 10. Specified default precision for
+                        samplerExternalOES as lowp for all shader stages.
+    #8 - (Feb 6, 2015) Fixed typo in return value of textureSize (vec2->ivec2)
     #7 - (Oct 15, 2014) Resolved issue 10. Added interaction with EXT_gpu_shader5.
     #6 - (Oct 10, 2014) Added issue 10 and its tentative resolution.
     #5 - (Sep 25, 2014) Updated resolution of issue 7.

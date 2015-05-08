@@ -21,7 +21,7 @@ Status
 
 Version
 
-    Last Modified Date: November 8, 2007
+    Version 2, April 16, 2015
 
 Number
 
@@ -225,7 +225,7 @@ Additions to Chapter 3 of the 1.5 Specification (Rasterization)
 
      "In a similiar fashion, the maximum allowable width and height
      (they must be the same) of a cube map texture must be at least
-     2^(k-lod)+2bt for image arrays level 0 through k, where k is the
+     2^(k-lod) for image arrays level 0 through k, where k is the
      log base 2 of MAX_CUBE_MAP_TEXTURE_SIZE_OES."
 
  --  Section 3.8.2 "Alternate Texture Image Specification Commands"
@@ -454,4 +454,5 @@ MAX_CUBE_MAP_TEXTURE_SIZE_OES   Z+      GetIntegerv   16              Maximum cu
 
 Revision History
 
-11/08/2007    Benj Lipchak    First version cleaned up for ES
+Version 1, November 8, 2007 (Benj Lipchak) - First version cleaned up for ES
+Version 2, April 16, 2015 (Jon Leech) - Remove border width term bt (nonexistent in ES)

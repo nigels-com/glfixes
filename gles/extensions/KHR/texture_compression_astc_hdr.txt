@@ -44,7 +44,8 @@ Status
 
 Version
 
-    Last Modified Date: June 25, 2013
+    Revision: 2
+    Date: April 28, 2015
 
 Number
 
@@ -110,8 +111,8 @@ New Procedures and Functions
 New Tokens
 
     Accepted by the <internalformat> parameter of CompressedTexImage2D,
-    CompressedTexSubImage2D, TexStorage2D, TextureStorage2D, TexStorage3D,
-    and TextureStorage3D:
+    CompressedTexSubImage2D, CompressedTexImage3D, CompressedTexSubImage3D,
+    TexStorage2D, TextureStorage2D, TexStorage3D, and TextureStorage3D:
 
     COMPRESSED_RGBA_ASTC_4x4_KHR            0x93B0
     COMPRESSED_RGBA_ASTC_5x4_KHR            0x93B1
@@ -2080,3 +2081,9 @@ Additions to Appendix E of the OpenGL ES 3.0 Specification (Version 3.0
     and before)
 
     None
+
+Revision History
+
+    Revision 2, April 28, 2015 - added CompressedTex{Sub,}Image3D to
+    commands accepting ASTC format tokens in the New Tokens section (Bug
+    10183).

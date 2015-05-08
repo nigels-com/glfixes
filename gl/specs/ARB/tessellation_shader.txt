@@ -27,7 +27,7 @@ Contributors
 
 Notice
 
-    Copyright (c) 2010-2013 The Khronos Group Inc. Copyright terms at
+    Copyright (c) 2010-2015 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
 Status
@@ -37,8 +37,8 @@ Status
     
 Version
 
-    Last Modified Date:         April 25, 2014
-    NVIDIA Revision:            20
+    Last Modified Date:         April 20, 2015
+    Revision: 22
 
 Number
 
@@ -679,7 +679,8 @@ Operation)
     as arrays or inside input blocks declared as arrays.  Declaring an array
     size is optional.  If no size is specified, it will be taken from the
     implementation-dependent maximum patch size (gl_MaxPatchVertices).  If a
-    size is specified, it must match the maximum patch size; otherwise, a link
+    size is specified, it must match the maximum patch size; otherwise, a
+    compile or link
     error will occur.  Since the array size may be larger than the number of
     vertices found in the input patch, behavior is undefined if a per-vertex
     input variable is accessed using an index greater than or equal to the
@@ -739,9 +740,9 @@ Operation)
     with the qualifier "out" and have a value for each vertex in the output
     patch.  Such variables must be declared as arrays or inside output blocks
     declared as arrays.  Declaring an array size is optional.  If no size is
-    specified, it will be taken from output patch size (gl_VerticesOut)
+    specified, it will be taken from the output patch size (gl_VerticesOut)
     declared in the shader.  If a size is specified, it must match the maximum
-    patch size; otherwise, a link error will occur.  The OpenGL Shading
+    patch size; otherwise, a compile or link link error will occur.  The OpenGL Shading
     Language doesn't support multi-dimensional arrays; therefore, user-defined
     per-vertex tessellation control shader outputs with multiple elements per
     vertex must be declared as array members of an output block that is itself
@@ -1343,7 +1344,7 @@ Operation)
     declared as arrays.  Declaring an array size is optional.  If no size is
     specified, it will be taken from the implementation-dependent maximum
     patch size (gl_MaxPatchVertices).  If a size is specified, it must match
-    the maximum patch size; otherwise, a link error will occur.  Since the
+    the maximum patch size; otherwise, a compile or link error will occur.  Since the
     array size may be larger than the number of vertices found in the input
     patch, behavior is undefined if a per-vertex input variable is accessed
     using an index greater than or equal to the number of vertices in the
@@ -2509,9 +2510,9 @@ New Implementation Dependent State
     MAX_TESS_PATCH_            Z+    GetIntegerv   120   num. components for per-     2.X.1.2
       COMPONENTS                                         patch output varyings
                                                          for tess. control shaders
-    MAX_TESS_CONTROL_TOTAL_    Z+    GetIntegerv   4096  num. components for per-     2.X.1.2
-      OUTPUT_COMPONENTS                                  patch output varyings
-                                                         for tess. control shaders
+    MAX_TESS_CONTROL_TOTAL_    Z+    GetIntegerv   4096  Total num components for     2.X.1.2
+      OUTPUT_COMPONENTS                                  tess. control shader
+                                                         outputs
     MAX_TESS_EVALUATION_       Z+    GetIntegerv   128   num. components for per-     2.X.3.2
       OUTPUT_COMPONENTS                                  vertex outputs in tess. 
                                                          evaluation shaders
@@ -3506,7 +3507,16 @@ Issues
 Revision History
 
     Rev.    Date    Author    Changes
-    ----  --------  --------  -----------------------------------------
+    ----  --------  --------- -----------------------------------------
+     22   04/21/15  Jon Leech Allow user-defined TCS input and output,
+                              and TES input variable array size mismatches
+                              to be detected at compile as well as link time
+                              (Bug 12185).
+
+     21   04/20/15  Jon Leech Remove "per-patch" part of description of
+                              MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS
+                              (Bug 13765).
+
      20   04/25/14  pbrown    Clarify that the tessellation primitive
                               generator may produce multiple vertices with 
                               the same gl_TessCoord values in point mode when

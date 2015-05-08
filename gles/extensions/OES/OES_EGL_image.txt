@@ -28,7 +28,7 @@ Status
 
 Version
 
-    April 17, 2014 (version 7)
+    April 23, 2015 (version 8)
 
 Number
 
@@ -204,7 +204,7 @@ Issues
          i.   Generate an error if a context share group attempts to create
               two EGLImage siblings (either source or target) .
 
-              This limits error checking to just EGLImageTargetTexture / 
+              This limits error checking to just EGLImageTargetTexture /
               EGLImageTargetRenderbufferStorage, which should be infrequent
               calls, particularly during run-time.  However, some potentially
               valuable use cases are restricted with this approach, such
@@ -295,7 +295,7 @@ Issues
         / performance- of implementation) versus the costs (specification
         ugliness), the specification has currently selected option (i),
         favoring compatibility and performance.
-        
+
 
     5.  What should the entry point for referencing 2D textures be named?
 
@@ -329,7 +329,7 @@ Issues
         functions; however, unlike {Copy,Compressed}TexImage, which
         specify only a single mipmap level-of-detail, the referencing
         entry point respecifies all image arrays in the texture object.
-        
+
         (b2) and (b3) address the issues with (b1).  The OpenGL
         specification interchangeably uses "texture" and "texture object"
         to refer to the entire collection of image arrays, so either
@@ -358,7 +358,7 @@ Dependencies on EGL_KHR_image, EGL_KHR_image_base, and EGL 1.2
     If EGL 1.2 is not supported, or if neither the EGL_OES_image nor
     EGL_OES_image_base extensions is supported, all discussion of
     EGLImages should be ignored, and any calls to either
-    EGLImageTargetTexImage2DOES or EGLImageTargetRenderbufferStorageOES
+    EGLImageTargetTexture2DOES or EGLImageTargetRenderbufferStorageOES
     should generate the error INVALID_OPERATION.
 
 Dependencies on OES_framebuffer_object
@@ -369,6 +369,10 @@ Dependencies on OES_framebuffer_object
     INVALID_OPERATION.
 
 Revision History
+
+    #8 (April 23, 2015, Jon Leech)
+       - Fix typo EGLImageTargetTexImage2DOES -> EGLImageTargetTexture2DOES
+         (Bug 8114).
 
     #7 (April 17, 2014, Jon Leech)
        - Add missing error for invalid <image> parameter to

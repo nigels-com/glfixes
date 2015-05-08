@@ -22,8 +22,8 @@ Status
 
 Version
 
-    Last Modifed Date: 16 June 2004
-    Author Revision: 0.8
+    Last Modifed Date: 27 April 2015
+    Author Revision: 1.0
 
 Number
 
@@ -136,7 +136,7 @@ New Procedures and Functions
 
     void Fogx[v]OES(enum pname, T param);
 
-    void SampleCoverageOES(clampx value, boolean invert);
+    void SampleCoveragexOES(clampx value, boolean invert);
     void AlphaFuncxOES(enum func, clampx ref);
 
     void BlendColorxOES(clampx red, clampx green, clampx blue, clampx alpha);
@@ -184,7 +184,7 @@ Additions to Chapter 2 of the OpenGL 1.3 Specification (OpenGL Operation)
       0 = 0 + x = x. 0^0 = 1. Fixed-point computations may lead to
       overflows or underflows.  The results of such computations are
       undefined, but must not lead to GL interruption or termination.
-    
+
 
     Section 2.3 GL Command Syntax
 
@@ -264,7 +264,7 @@ Additions to Chapter 2 of the OpenGL 1.3 Specification (OpenGL Operation)
 Additions to Chapter 3 of the OpenGL 1.3 Specification (Rasterization)
 
     Section 3.3 Points
-        
+
       Add alternate suffixed PointSize command.
 
     Section 3.4 Line Segments
@@ -310,8 +310,8 @@ Operations and the Frame Buffer)
 
     Section 4.1 Fragment Operations
 
-      Add alternate suffixed SampleCoverage command (Section 4.1.3),
-      AlphaFunc command (Section 4.1.4), BlendColor command (Section 4.1.7).
+      Add alternate suffixed SampleCoveragex (Section 4.1.3), AlphaFunc
+      (Section 4.1.4), and BlendColor (Section 4.1.7) commands.
 
     Section 4.2 Whole Framebuffer Operations
 
@@ -426,3 +426,7 @@ Revision History
 
     06/16/2004    0.8
         - Added ClipPlanex, and various Get functions
+
+    04/27/2015    1.0 (Jon Leech)
+        - Replace SampleCoverageOES with SampleCoveragexOES, to match the
+          specfile / headers (Bug 13591).
