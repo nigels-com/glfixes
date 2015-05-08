@@ -42,7 +42,7 @@ extern "C" {
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20150311 */
+/* Generated on date 20150428 */
 
 /* Generated C header for:
  * API: gles2

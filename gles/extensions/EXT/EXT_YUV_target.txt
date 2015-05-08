@@ -32,7 +32,7 @@ Status
 
 Version
 
-    February 10, 2015 (version 14)
+    April 23, 2015 (version 15)
 
 Number
 
@@ -64,16 +64,16 @@ Dependencies
 
 Overview
 
-    This extension adds support for three new YUV related items: first 
+    This extension adds support for three new YUV related items: first
     rendering to YUV images, second sampling from YUV images while keeping the
     data in YUV space, third it defines a new built in function that does
     conversion from RGB to YUV with controls to choose ITU-R BT.601-7,
     ITU-R BT.601-7 Full range (JFIF images), or ITU-R BT.709-5 standard.
 
-    This new functionality is layered on top of the OES_EGL_image_external 
+    This new functionality is layered on top of the OES_EGL_image_external
     extension.
 
-    To perform the YUV rendering capability in this extension an application 
+    To perform the YUV rendering capability in this extension an application
     will attach a texture to the framebuffer object as the color attachment.
     If the texture has a target type of TEXTURE_EXTERNAL_OES with YUV color
     format then the GL driver can use this framebuffer object as the render
@@ -86,7 +86,7 @@ New Types & Keywords
 
         #extension GL_EXT_YUV_target
 
-    When the above GLSL extension is specified, one new sampler type 
+    When the above GLSL extension is specified, one new sampler type
     will be available for sampling the 2D texture:
 
         __samplerExternal2DY2YEXT
@@ -94,8 +94,8 @@ New Types & Keywords
     The "__samplerExternal2DY2YEXT" is used to sample a YUV texture image and
     output color value without any color conversion.
 
-    Whenever a YUV sample is output from the sampler, the format of the YUV 
-    will be as if YUV 4:4:4 format is output. This also means that the Y 
+    Whenever a YUV sample is output from the sampler, the format of the YUV
+    will be as if YUV 4:4:4 format is output. This also means that the Y
     sample maps to component R, the U sample maps to component G, the V sample
     maps to component B, and the component A will be 1.0f.
 
@@ -110,8 +110,8 @@ New Types & Keywords
 
         yuvCscStandardEXT
 
-    The value of new type can be specified using one of three new keywords 
-    itu_601, itu_601_full_range and itu_709. 
+    The value of new type can be specified using one of three new keywords
+    itu_601, itu_601_full_range and itu_709.
 
     For example:
 
@@ -120,7 +120,7 @@ New Types & Keywords
     yuvCscStandardEXT conv_standard = itu_709;
 
     Keyword itu_601 means color conversion is required using the formula
-    specified in the ITU-R BT.601. Similarly keyword itu_601_full_range 
+    specified in the ITU-R BT.601. Similarly keyword itu_601_full_range
     means conversion is done using ITU BT.601 full range formula as specified
     in JFIF standard while keyword itu_709 specify ITU-R BT.709 standard. Note
     that new yuvCscStandardEXT type can't be use for any other purpose apart
@@ -129,24 +129,24 @@ New Types & Keywords
 
 New Built-in function
 
-    When the new GLSL extension is specified, two new built in functions 
+    When the new GLSL extension is specified, two new built in functions
     will be available for rgb to yuv or yuv to rgb color space conversion.
 
         vec3 rgb_2_yuv(vec3 color, yuvCscStandardEXT conv_standard);
 
-    The function rgb_2_yuv will apply rgb to yuv color conversion 
+    The function rgb_2_yuv will apply rgb to yuv color conversion
     transformation on "color" value using the formula specified as per new type
-    yuvCscStandardEXT variable. The first input parameter supposed to specify 
+    yuvCscStandardEXT variable. The first input parameter supposed to specify
     rgb value using x, y & z channels of a vec3 variable, correspondingly
     return value of this function will have transformed y, u and v value in its
     x, y and z channel. Precision of the input color will define the precision
     used for color space conversion and for output yuv color value.
 
         vec3 yuv_2_rgb (vec3 color, yuvCscStandardEXT conv_standard);
-        
-    The function yuv_2_rgb will apply yuv to rgb color conversion 
+
+    The function yuv_2_rgb will apply yuv to rgb color conversion
     transformation on "color" value using the formula specified as per new type
-    yuvCscStandardEXT variable. The first input parameter supposed to specify 
+    yuvCscStandardEXT variable. The first input parameter supposed to specify
     yuv value using x, y & z channels of a vec3 variable, correspondingly
     return value of this function will have transformed r, g and b value in its
     x, y and z channel. Precision of the input color will define the precision
@@ -172,7 +172,7 @@ New Tokens
         SAMPLER_EXTERNAL_2D_Y2Y_EXT                         0x8BE7
 
 Reuse tokens as in extension "OES_EGL_image_external."
- 
+
     Accepted as a target in the <target> parameter of BindTexture,
     EGLImageTargetTexture2DOES, and FramebufferTexture2D:
 
@@ -188,7 +188,7 @@ Reuse tokens as in extension "OES_EGL_image_external."
 
 Addition to Chapter 3 of the OpenGL ES 3.0 specification
 
-    Add a new section: "3.8.18 External Textures," which follows section 
+    Add a new section: "3.8.18 External Textures," which follows section
     "3.8.17 Shader Exponent Texture Color Conversion." The wording will
     be the same as in extension "OES_EGL_image_external."
 
@@ -201,8 +201,8 @@ Changes to Section 4.4.2 "Attaching Images to Framebuffer Objects"
         "If texture is not zero, then texture must either name an existing
         two dimensional texture object and textarget must be TEXTURE_2D or
         texture must name an existing cube map...."
-        
-      to 
+
+      to
         "If texture is not zero, then texture must either name an existing
         two dimensional texture object and textarget must be TEXTURE_2D or
         TEXTURE_EXTERNAL_OES or texture must name an existing cube map...."
@@ -404,7 +404,7 @@ Issues
     9. Should sampling return samples converted in to linear space or raw
     samples?
 
-    RESOLVED: This extension will return raw samples. If the YUV data is 
+    RESOLVED: This extension will return raw samples. If the YUV data is
     encoded in a non-linear space, as is common, the returned samples will be
     in the non-linear space. If the data is encoded linearly, the returned
     samples will be linear.
@@ -412,7 +412,7 @@ Issues
     10. Are there specific requirements on how a lower resolution UV plane must
     be sampled during rendering?
 
-    RESOLVED: To allow maximum flexibility in hardware at this time this 
+    RESOLVED: To allow maximum flexibility in hardware at this time this
     extension does not define how this sampling must be performed. Even if we
     decide to define this behaviour in future, it would be more appropriate to
     do it via a separate EGL extension.
@@ -467,12 +467,12 @@ Issues
 
 Known Quality Issues
 
-    Since YUV is a lossy compressed format and UV values represent sampling at 
+    Since YUV is a lossy compressed format and UV values represent sampling at
     even locations, there may be minor quality issues along the primitive edges
     or for scissor when its X or Y set to an odd value. In case of YUV
     primitive rendering if geometry is animated, there may be more artifacts as
     edges might flicker and sparkle frame to frame.  Another way to explain
-    this corruption is that sometimes the different planes are stored at 
+    this corruption is that sometimes the different planes are stored at
     different resolutions so the different interpolation for different planes
     causes these artifacts.
 
@@ -492,7 +492,7 @@ Dependencies on EGL_KHR_image, EGL_KHR_image_base, and EGL 1.4
     If EGL 1.2 is not supported, or if neither the EGL_OES_image nor
     EGL_OES_image_base extensions is supported, all discussion of
     EGLImages should be ignored, and any calls to either
-    EGLImageTargetTexImage2DOES or FramebufferTexture2D with
+    EGLImageTargetTexture2DOES or FramebufferTexture2D with
     TEXTURE_EXTERNAL_OES textarget should generate the error
     INVALID_OPERATION.
 
@@ -503,7 +503,11 @@ Dependencies on OES_EGL_image_external
 
 Revision History
 
-    +14 (February 10, 2015, Amit Bansal)
+    #15 (April 23, 2015, Jon Leech)
+        - Fix typo EGLImageTargetTexImage2DOES -> EGLImageTargetTexture2DOES
+          (Bug 8114).
+
+    #14 (February 10, 2015, Amit Bansal)
         - Removed YUV_EXT and Y_EXT tokens hard requirement for ReadPixels,
           current plan is to propose it later as separate extension once we
           have more corresponding compelling use cases.
@@ -511,12 +515,12 @@ Revision History
         - Removed duplicated image load store issue.
         - Further clarification about usgae of yuv layout qualifier
 
-    +13 (January 23, 2015, Amit Bansal)
+    #13 (January 23, 2015, Amit Bansal)
         - added texture built in functions from OES_EGL_image_external_essl3
         - Added explicit clarification in overview section about RGB external images
         - Interaction with geometry & tessellation shaders w.r.t. issue 1
 
-    +12 (December 12, 2014, Amit Bansal)
+    #12 (December 12, 2014, Amit Bansal)
         - Added new yuv qualifiers and corresponding draw time checks
           requirement issues
         - Clarification regarding yuvCscStandardEXT type usage
@@ -525,16 +529,16 @@ Revision History
         - Changed blending & color mask behaviour to draw time error.
         - Some language clean up
 
-    +11 (September 30, 2014, Amit Bansal)
+    #11 (September 30, 2014, Amit Bansal)
         - Changed couple of issues to spec language
         - Reworded some issues after recent spec updates
 
-    +10 (August 12, 2013, Maurice Ribble)
+    #10 (August 12, 2013, Maurice Ribble)
        - Changed from QCOM to EXT extension
        - Reworded issue 16 based on Mark Callow's suggestion
-       - Updated names of SAMPLER_EXTERNAL_2D_Y2Y_EXT, 
+       - Updated names of SAMPLER_EXTERNAL_2D_Y2Y_EXT,
          __samplerExternal2DY2YEXT, and yuvCscStandardEXT
-       
+
     #9  (August 6, 2013, Maurice Ribble)
        - Added issues 15-18
 
@@ -556,28 +560,28 @@ Revision History
        - Modified issues to reflect layout and built in function update
        - Changed proposed to resolved for finalized issues
        - Move precision issue to the description of built in function
-           
+
     #5  (March 14, 2013, Jing zhou)
        - Minor rewording on same of proposals for the Issues
        - Assign new token IDs from reserved QCOM ID block
 
     #4  (March 4, 2013, Maurice Ribble)
        - First round of cleanup and todos
-       
+
     #3  (February 19, 2013, Amit Bansal)
        - Modified glReadPixels()issue section
-       
+
     #2  (January 9, 2013, Amit Bansal)
-       - Changed the OES suffix to QCOM as extension is still pending to be 
+       - Changed the OES suffix to QCOM as extension is still pending to be
          approved.
        - Removed EGLImageTargetTexture2DOES from New Procedures and Functions
          category
        - Corrected error in FramebufferRenderbuffer2DExternalQCOM name at line
-         167. 
+         167.
        - Modified description of FramebufferTexture2DExternalQCOM to reflect
          argument changes correctly
        - Corrected typo extension to extension
        - Finished the documentation of final proposal for issue 2 & 3.
-       - Added a new Known Quality Issue section and text corresponding to it 
-       
+       - Added a new Known Quality Issue section and text corresponding to it
+
     #1 - (Oct 1, 2012) Original Draft

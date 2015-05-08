@@ -20,13 +20,13 @@ Contributors
 
 Status
 
-    Complete. 
+    Complete.
     Ratified by the Khronos Board of Promoters on 2014/03/14.
 
 Version
 
-    Last Modified Date: March 26, 2014
-    Revision: 5
+    Last Modified Date: April 16, 2014
+    Revision: 6
 
 Number
 
@@ -113,7 +113,7 @@ Additions to Chapter 3 of the OpenGL ES 3.0.2 Specification (Rasterization)
 
     In a similar fashion, the maximum allowable width and height of a texel
     array for a ... or two-dimensional multisample array texture must each
-    be at least 2^(k-lod)+2*b_t ...
+    be at least 2^(k-lod) ...
 
 
     Modify the introduction of section 3.9.7 "Multisample Textures":
@@ -357,6 +357,8 @@ Revision History
 
     Rev.    Date     Author     Changes
     ----  ---------- ---------  --------------------------------------------
+    6     2015/04/16 Jon Leech  Remove texture border width term b_t, which
+                                doesn't exist in OpenGL ES.
     5     2014/03/26 Jon Leech  Add missing GL_ prefix to the name string.
     4     2014/03/06 Jon Leech  Change limit on TexStorage3DMultisampleOES
                                 <depth> parameter to the value of

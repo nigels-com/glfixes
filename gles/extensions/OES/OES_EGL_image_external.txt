@@ -33,7 +33,7 @@ Status
 
 Version
 
-    July 19, 2012 (version 23)
+    April 23, 2015 (version 24)
 
 Number
 
@@ -111,7 +111,8 @@ New Tokens
     (OpenGL ES 2.x only) Returned in the <type> parameter of GetActiveUniform:
         SAMPLER_EXTERNAL_OES                                0x8D66
 
-    Accepted as <value> in GetIntegerv() and GetFloatv() queries:
+    Accepted as the <pname> parameter of GetBooleanv, GetIntegerv,
+    GetFloatv, and GetFixedv:
         TEXTURE_BINDING_EXTERNAL_OES                        0x8D67
 
     Accepted as <value> in GetTexParameter*() queries:
@@ -791,7 +792,7 @@ Issues
         In the native code, add a function which takes as a
         parameter an array of pixels.  The function returns an EGLImage which
         contains the pixels in some unspecified format.  A test can call this
-        function, call glEGLImageTargetTexImage2DOES() to associate it with an
+        function, call glEGLImageTargetTexture2DOES() to associate it with an
         external texture, and render using this texture, and read back the
         framebuffer to confirm that the result is the expected result.
 
@@ -877,19 +878,23 @@ Dependencies on EGL_OES_image_base and EGL 1.1
 
     If either EGL 1.1 or the EGL_OES_image extension is not supported, all
     discussion of EGLImages should be ignored, and any calls to
-    EGLImageTargetTexImage2DOES should generate the error INVALID_OPERATION.
+    EGLImageTargetTexture2DOES should generate the error INVALID_OPERATION.
 
 Dependencies on GL_OES_EGL_image
 
     If GL_OES_EGL_image is supported then change the text in both extensions
     to allow either TEXTURE_2D or TEXTURE_EXTERNAL_OES to be passed as the
-    <target> parameter to EGLImageTargetTexImage2DOES().  When <target> is
-    TEXTURE_2D, behavior of EGLImageTargetTexImage2DOES() is as described in
+    <target> parameter to EGLImageTargetTexture2DOES().  When <target> is
+    TEXTURE_2D, behavior of EGLImageTargetTexture2DOES() is as described in
     the GL_OES_EGL_image spec.  When <target> is TEXTURE_EXTERNAL_OES,
-    behavior of EGLImageTargetTexImage2DOES() is as described in this spec.
+    behavior of EGLImageTargetTexture2DOES() is as described in this spec.
 
 Revision History
 
+    #24 - (April 23, 2015) Jon Leech)
+        - Fix typo EGLImageTargetTexImage2DOES -> EGLImageTargetTexture2DOES
+          (Bug 8114). Improve description of supported queries for new
+          tokens (Bug 8118).
     #23 - (July 19, 2012) Acorn Pooley
         - fix extension name from OES_EGL_image_external to
            GL_OES_EGL_image_external

@@ -35,8 +35,8 @@ Version
     Based on the ATI_pixel_format_float extension, version 5
     Enables based on work by Pat Brown from the color_clamp_control proposal
 
-    Last Modified Date:  February 15, 2007
-    Version:             8
+    Last Modified Date:  April 1, 2015
+    Version:             9
 
 Number
 
@@ -481,11 +481,11 @@ New Tokens
     Accepted as values of the <render_type> arguments in the
     glXCreateNewContext and glXCreateContext functions
 
-        GLX_RGBA_FLOAT_TYPE                     0x20B9
+        GLX_RGBA_FLOAT_TYPE_ARB                 0x20B9
 
     Accepted as a bit set in the GLX_RENDER_TYPE variable
 
-        GLX_RGBA_FLOAT_BIT                      0x00000004
+        GLX_RGBA_FLOAT_BIT_ARB                  0x00000004
 
 Additions to Chapter 2 of the OpenGL 2.0 Specification (OpenGL Operation)
 
@@ -853,10 +853,10 @@ Errors)
     The attribute GLX_RENDER_TYPE has as its value a mask
     indicating what type of GLXContext a drawable created with
     the corresponding GLXFBConfig can be bound to. The following
-    bit settings are supported: GLX_RGBA_BIT, GLX_RGBA_FLOAT_BIT,
-    GLX_COLOR_INDEX_BIT.  If combinations of bits are set in the
-    mask then drawables created with the GLXFBConfig can be
-    bound to those corresponding types of rendering contexts.
+    bit settings are supported: GLX_RGBA_BIT, GLX_RGBA_FLOAT_BIT_ARB, and
+    GLX_COLOR_INDEX_BIT. If combinations of bits are set in the mask then
+    drawables created with the GLXFBConfig can be bound to those
+    corresponding types of rendering contexts.
 
     Add to Section 3.3.3 (p.15) after first paragraph:
 
@@ -864,14 +864,13 @@ Errors)
     GLXPbuffer drawables.  The GLX_DRAWABLE_TYPE attribute of
     the GLXFBConfig must have the GLX_PBUFFER_BIT bit set and
     the GLX_RENDER_TYPE attribute must have the
-    GLX_RGBA_FLOAT_BIT set.
+    GLX_RGBA_FLOAT_BIT_ARB set.
 
     Modify Section 3.3.7 (p.25 Rendering Contexts) remove period
     at end of second paragraph and replace with:
 
-    ;  if render_type is set to GLX_RGBA_FLOAT_TYPE then a
-    context that supports floating point RGBA rendering is
-    created.
+    ; if render_type is set to GLX_RGBA_FLOAT_TYPE_ARB, then a context that
+    supports floating point RGBA rendering is created.
 
 Additions to Chapter 4 of the GLX 1.3 Specification (Encoding on the
 X Byte Stream)
@@ -896,18 +895,17 @@ Additions to the GLX Specification
     Modify the bit field GLX_RENDER_TYPE to:
 
     GLX_RENDER_TYPE
-    The type of pixel data.  This bit field can have the
-    following bit set: GLX_RGBA_BIT, GLX_RGBA_FLOAT_BIT,
-    GLX_COLOR_INDEX_BIT
+    The type of pixel data. This bit field can have one of the following
+    bits set: GLX_RGBA_BIT, GLX_RGBA_FLOAT_BIT_ARB, GLX_COLOR_INDEX_BIT
 
     Adds to the accepted values of the <render_type> argument
     in the glXCreateNewContext and glXCreateContextWithSGIX
     functions to:
 
     <render_type>
-    Type of rendering context requested.  This argument
-    can have the following values: GLX_RGBA_TYPE,
-    GLX_RGBA_FLOAT_TYPE, GLX_COLOR_INDEX_TYPE
+    Type of rendering context requested. This argument can have the
+    following values: GLX_RGBA_TYPE, GLX_RGBA_FLOAT_TYPE_ARB,
+    GLX_COLOR_INDEX_TYPE
 
 GLX Protocol
 
@@ -1041,3 +1039,7 @@ Revision History
                               at NVIDIA.
 
       8   2/15/07  Jon Leech  Assign GLX rendering opcode.
+
+      9   4/1/15   Jon Leech  Add missing _ARB suffix to 
+                              GLX_RGBA_FLOAT_TYPE and GLX_RGBA_FLOAT_BIT
+                              (bug 13717).
