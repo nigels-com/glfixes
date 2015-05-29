@@ -89,18 +89,26 @@
       <div class="refsect1" id="description">
         <h2>Description</h2>
         <p><code class="function">glReadBuffer</code> specifies a color buffer as the
-    source for subsequent <a class="citerefentry" href="glReadPixels.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>, <a class="citerefentry" href="glCopyTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>, <a class="citerefentry" href="glCopyTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>, <a class="citerefentry" href="glCopyTexSubImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>, <a class="citerefentry" href="glCopyTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>, and <a class="citerefentry" href="glCopyTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a> commands. <em class="parameter"><code>mode</code></em> accepts one of
-    twelve or more predefined values. In a fully configured system,
+    source for subsequent
+    <a class="citerefentry" href="glReadPixels.xhtml"><span class="citerefentry"><span class="refentrytitle">glReadPixels</span></span></a>,
+    <a class="citerefentry" href="glCopyTexImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage1D</span></span></a>,
+    <a class="citerefentry" href="glCopyTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexImage2D</span></span></a>,
+    <a class="citerefentry" href="glCopyTexSubImage1D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage1D</span></span></a>,
+    <a class="citerefentry" href="glCopyTexSubImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage2D</span></span></a>,
+    and
+    <a class="citerefentry" href="glCopyTexSubImage3D.xhtml"><span class="citerefentry"><span class="refentrytitle">glCopyTexSubImage3D</span></span></a>
+    commands. <em class="parameter"><code>mode</code></em> accepts one of twelve or more
+    predefined values. In a fully configured system,
     <code class="constant">GL_FRONT</code>, <code class="constant">GL_LEFT</code>, and
     <code class="constant">GL_FRONT_LEFT</code> all name the front left buffer,
-    <code class="constant">GL_FRONT_RIGHT</code> and <code class="constant">GL_RIGHT</code> name
-    the front right buffer, and <code class="constant">GL_BACK_LEFT</code> and
-    <code class="constant">GL_BACK</code> name the back left buffer. Further more, the
-    constants <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span>
-    may be used to indicate the
-    <span class="emphasis"><em>i</em></span><sup>th</sup> color attachment where
-    <span class="emphasis"><em>i</em></span> ranges from zero to the value of
-    <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code> minus one.</p>
+    <code class="constant">GL_FRONT_RIGHT</code> and <code class="constant">GL_RIGHT</code>
+    name the front right buffer, and <code class="constant">GL_BACK_LEFT</code> and
+    <code class="constant">GL_BACK</code> name the back left buffer. Further more,
+    the constants
+    <code class="constant">GL_COLOR_ATTACHMENT</code><span class="emphasis"><em>i</em></span> may be
+    used to indicate the <span class="emphasis"><em>i</em></span><sup>th</sup>
+    color attachment where <span class="emphasis"><em>i</em></span> ranges from zero to the
+    value of <code class="constant">GL_MAX_COLOR_ATTACHMENTS</code> minus one.</p>
         <p>Nonstereo double-buffered configurations have only a front left and
     a back left buffer. Single-buffered configurations have a front left and a
     front right buffer if stereo, and only a front left buffer if nonstereo.
@@ -130,7 +138,8 @@
       </div>
       <div class="refsect1" id="associatedgets">
         <h2>Associated Gets</h2>
-        <p><a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a> with argument <code class="constant">GL_READ_BUFFER</code></p>
+        <p><a class="citerefentry" href="glGet.xhtml"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+    with argument <code class="constant">GL_READ_BUFFER</code></p>
       </div>
       <div class="refsect1" id="versions">
         <h2>Version Support</h2>

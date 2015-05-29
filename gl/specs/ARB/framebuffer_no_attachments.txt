@@ -26,8 +26,8 @@ Status
 
 Version
 
-    Last Modified Date:         September 12, 2012
-    Revision:                   4
+    Last Modified Date:         May 7, 2015
+    Revision:                   5
 
 Number
 
@@ -224,14 +224,14 @@ Additions to Chapter 4 of the OpenGL 4.2 (Compatibility Profile) Specification
 
     (add new bullets to the end of the list, p. 441)
 
-    * If <image> is a three-dimensional texture or a one- or two-dimensional
-      array texture and the attachment is not layered, the selected layer is
-      less than the depth or layer count of the texture.
+    * If <image> is a three-dimensional, one- or two-dimensional array, or
+      cube map array texture and the attachment is not layered, the selected
+      layer is less than the depth or layer count of the texture.
 
-    * If <image> is a three-dimensional texture or a one- or two-dimensional
-      array texture and the attachment is layered, the depth or layer count of
-      the texture is less than or equal to the implementation-dependent limit
-      MAX_FRAMEBUFFER_LAYERS.
+    * If <image> is a three-dimensional, one- or two-dimensional array, or
+      cube map array texture and the attachment is layered, the depth or
+      layer count of the texture is less than or equal to the
+      implementation-dependent limit MAX_FRAMEBUFFER_LAYERS.
 
     * If <image> has multiple samples, its sample count is less than or equal
       to the implementation-dependent limit MAX_FRAMEBUFFER_SAMPLES.
@@ -248,7 +248,7 @@ Additions to Chapter 4 of the OpenGL 4.2 (Compatibility Profile) Specification
 Additions to Chapter 5 of the OpenGL 4.2 (Compatibility Profile) Specification
 (Special Functions)
 
-    None. 
+    None.
 
     (NOTE:  GetFramebufferParameteriv is not compiled in a display list, but
     no spec language is required due to the blanket language covering all Get*
@@ -266,7 +266,7 @@ Additions to Chapter 6 of the OpenGL 4.2 (Compatibility Profile) Specification
       void GetFramebufferParameteriv(enum target, enum pname, int *params)
 
     returns the values of the framebuffer parameter <pname> of the framebuffer
-    object bound to <target>.  
+    object bound to <target>.
 
     <target> must be DRAW_FRAMEBUFFER, READ_FRAMEBUFFER, or FRAMEBUFFER.
     FRAMEBUFFER is equivalent to DRAW_FRAMEBUFFER. <pname> specifies the
@@ -349,7 +349,7 @@ New State
     FRAMEBUFFER_DEFAULT_HEIGHT    Z+   GetFramebuffer-    0     default height of frame-  4.4.1     -
                                        Parameteriv              buffer w/o attachments
     FRAMEBUFFER_DEFAULT_LAYERS    Z+   GetFramebuffer-    0     default layer count of    4.4.1     -
-                                       Parameteriv              framebuffer w/o 
+                                       Parameteriv              framebuffer w/o
                                                                 attachments
     FRAMEBUFFER_DEFAULT_SAMPLES   Z+   GetFramebuffer-    0     default sample count of   4.4.1     -
                                        Parameteriv              framebuffer w/o
@@ -361,7 +361,7 @@ New State
 
 New Implementation Dependent State
 
-    Get Value                         Type  Get Command    Minimum Value  Description                Sec. 
+    Get Value                         Type  Get Command    Minimum Value  Description                Sec.
     -----------------------           ----  -----------    -------------  -------------------------  -----
     MAX_FRAMEBUFFER_WIDTH             Z+    GetIntegerv    16384 (*)      maximum width for          4.4.1
                                                                           framebuffer object
@@ -454,7 +454,7 @@ Issues
       this case, as there are no enabled color buffers with non-fixed-point
       components:
 
-        If clamp is FIXED_ONLY, fragment color clamping is enabled if 
+        If clamp is FIXED_ONLY, fragment color clamping is enabled if
         all enabled color buffers have fixed-point components.
 
       This isn't really a new issue in this extension; it could also arise
@@ -475,6 +475,10 @@ Issues
 
 Revision History
 
+    Revision 5, May 7, 2015 (Jon Leech)
+      - Restore missing cube map arrays to new framebuffer attachment
+        completeness conditions (Bug 11201).
+
     Revision 4, September 12, 2012 (Jon Leech)
       - Clarify legal <target> values (Bug 9344).
 
@@ -483,7 +487,7 @@ Revision History
 
     Revision 2, June 1, 2012 (pbrown)
       - Add new implementation-dependent limits on framebuffer width, height,
-        layer count, and sample count.  
+        layer count, and sample count.
       - Assign enumerant values for all the new tokens.
       - Specify that the default framebuffer parameters are error-checked
         against the new implementation limits.

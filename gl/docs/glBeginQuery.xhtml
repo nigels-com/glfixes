@@ -67,7 +67,7 @@
             <dd>
               <p>
                     Specifies the target type of query object established between
-                    <code class="function">glBeginQuery</code> and the subsequent <a class="citerefentry" href="glEndQuery.xhtml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a>.
+                    <code class="function">glBeginQuery</code> and the subsequent  <code class="function">glEndQuery</code>.
                     The symbolic constant must be one of <code class="constant">GL_SAMPLES_PASSED</code>, <code class="constant">GL_ANY_SAMPLES_PASSED</code>,
                     <code class="constant">GL_ANY_SAMPLES_PASSED_CONSERVATIVE</code>,
                     <code class="constant">GL_PRIMITIVES_GENERATED</code>, <code class="constant">GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN</code>, or
@@ -115,7 +115,7 @@
       <div class="refsect1" id="description">
         <h2>Description</h2>
         <p>
-            <code class="function">glBeginQuery</code> and <a class="citerefentry" href="glEndQuery.xhtml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a> delimit the
+            <code class="function">glBeginQuery</code> and  <code class="function">glEndQuery</code> delimit the
             boundaries of a query object.  <em class="parameter"><code>query</code></em> must be a name previously returned from a call to
             <a class="citerefentry" href="glGenQueries.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>. If a query object with name <em class="parameter"><code>id</code></em>
             does not yet exist it is created with the type determined by <em class="parameter"><code>target</code></em>. <em class="parameter"><code>target</code></em> must
@@ -217,7 +217,7 @@
             a query object of the same <em class="parameter"><code>target</code></em> is already active.
         </p>
         <p>
-            <code class="constant">GL_INVALID_OPERATION</code> is generated if <a class="citerefentry" href="glEndQuery.xhtml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if  <code class="function">glEndQuery</code>
             is executed when a query object of the same <em class="parameter"><code>target</code></em> is not active.
         </p>
         <p>
@@ -345,7 +345,7 @@
         <p>
             <a class="citerefentry" href="glBeginQueryIndexed.xhtml"><span class="citerefentry"><span class="refentrytitle">glBeginQueryIndexed</span></span></a>,
             <a class="citerefentry" href="glDeleteQueries.xhtml"><span class="citerefentry"><span class="refentrytitle">glDeleteQueries</span></span></a>,
-            <a class="citerefentry" href="glEndQuery.xhtml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a>,
+             <code class="function">glEndQuery</code>,
             <a class="citerefentry" href="glGenQueries.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>,
             <a class="citerefentry" href="glGetQueryObject.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a>,
             <a class="citerefentry" href="glGetQueryiv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a>,

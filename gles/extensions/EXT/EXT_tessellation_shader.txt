@@ -42,8 +42,8 @@ Status
 
 Version
 
-    Last Modified Date: April 20, 2014
-    Revision: 18
+    Last Modified Date: May 5, 2015
+    Revision: 19
 
 Number
 
@@ -2068,9 +2068,9 @@ Additions to the OpenGL ES Shading Language 3.10 Specification
     not allowed. Per-patch output variables must be declared using the
     "patch out" qualifier. Per-vertex and per-patch output variables can
     only be floating-point scalars, vectors, or matrices, signed or unsigned
-    integers or integer vectors, or structures of these. Since tessellation
-    control shaders produce an arrayed primitive comprising multiple
-    vertices, each per-vertex output variable (or output block, see
+    integers or integer vectors, or arrays or structures of these. Since
+    tessellation control shaders produce an arrayed primitive comprising
+    multiple vertices, each per-vertex output variable (or output block, see
     interface blocks below) needs to be declared as an array. For example,
 
         out float foo[];         // feeds next stage input "in float foo[]"
@@ -2458,9 +2458,8 @@ Issues
             compatibility profile.
           * gl_ClipDistance shader inputs and outputs.
           * While multi-dimensional arrays are supported by GLSL-ES 3.10,
-            they are explicitly not supported
-            as shader inputs and outputs, and that decision is respected
-            here.
+            they are explicitly not supported as shader inputs and outputs,
+            and that decision is respected here.
           * Using a tessellation evaluation shader without a tessellation
             control shader is not allowed. See issue 13.
           * PATCH_DEFAULT_*_LEVEL parameters (issue 13).
@@ -2638,7 +2637,7 @@ Issues
 
     RESOLVED. Yes they can.  OpenGL ES 3.1 disallows passing arrays of
     structures between stages. However, since vertex shader outputs
-    can be an array of structures we need to add the extra level of
+    can be structures we need to add the extra level of
     array-ness when these are accessed from a tessellation control shader.
     Similarly this applies to outputs from a tessellation control shader
     and inputs to a tessellation evaluation shader. However as in GL,
@@ -2684,6 +2683,11 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------- -------------------------------------------------
+     19   05/05/15  dkoch     Allow arrays for both per-patch and per-vertex
+                              TCS outputs (Bug 13658).
+                              Fix typo in issue 15 suggesting that VS outputs
+                              could be an array of structures (Bug 13824).
+
      18   04/20/15  Jon Leech Remove "per-patch" part of description of
                               MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS
                               (Bug 13765).

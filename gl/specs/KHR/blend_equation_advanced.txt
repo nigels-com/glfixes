@@ -11,6 +11,11 @@ Contact
 
     Pat Brown, NVIDIA Corporation (pbrown 'at' nvidia.com)
 
+Notice
+
+    Copyright (c) 2012-2015 The Khronos Group Inc. Copyright terms at
+        http://www.khronos.org/registry/speccopyright.html
+
 Contributors
 
     OpenGL ES Working Group in Khronos
@@ -23,17 +28,17 @@ Contributors
 
 Status
 
-    Complete. 
+    Complete.
     Ratified by the Khronos Board of Promoters on 2014/03/14.
 
 Version
 
-    Last Modified Date:         March 14, 2014
-    Revision:                   14
+    Last Modified Date:         May 9, 2014
+    Revision:                   15
 
 Number
 
-    OpenGL Extension #458
+    ARB Extension #174
     OpenGL ES Extension #168
 
 Dependencies
@@ -946,6 +951,12 @@ Issues
       input.
 
 Revision History
+
+    Revision 15, May 9, 2015
+
+      Renumber as OpenGL ARB extension instead of vendor extension, by
+      symmetry with other KHR Khronos-approved extensions. Add copyright
+      notice.
 
     Revision 14, March 14, 2014
 

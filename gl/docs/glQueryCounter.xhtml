@@ -80,7 +80,7 @@
             <em class="parameter"><code>target</code></em> must be <code class="constant">GL_TIMESTAMP</code>. The time is recorded after all previous commands on the
             GL client and server state and the framebuffer have been fully realized. When the time is recorded, the query result for that object
             is marked available. <code class="function">glQueryCounter</code> timer queries can be used within a <a class="citerefentry" href="glBeginQuery.xhtml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a> /
-            <a class="citerefentry" href="glEndQuery.xhtml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a> block where the target is <code class="constant">GL_TIME_ELAPSED</code> and it does
+             <code class="function">glEndQuery</code> block where the target is <code class="constant">GL_TIME_ELAPSED</code> and it does
             not affect the result of that query object.
         </p>
       </div>
@@ -95,7 +95,7 @@
         <p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>id</code></em> is the name
             of a query object that is already in use within a <a class="citerefentry" href="glBeginQuery.xhtml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a> /
-            <a class="citerefentry" href="glEndQuery.xhtml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a> block.
+             <code class="function">glEndQuery</code> block.
         </p>
         <p>
             <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>id</code></em> is not the name of a query object returned
@@ -202,7 +202,7 @@
         <p>
             <a class="citerefentry" href="glGenQueries.xhtml"><span class="citerefentry"><span class="refentrytitle">glGenQueries</span></span></a>,
             <a class="citerefentry" href="glBeginQuery.xhtml"><span class="citerefentry"><span class="refentrytitle">glBeginQuery</span></span></a>,
-            <a class="citerefentry" href="glEndQuery.xhtml"><span class="citerefentry"><span class="refentrytitle">glEndQuery</span></span></a>,
+             <code class="function">glEndQuery</code>,
             <a class="citerefentry" href="glDeleteQueries.xhtml"><span class="citerefentry"><span class="refentrytitle">glDeleteQueries</span></span></a>,
             <a class="citerefentry" href="glGetQueryObject.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetQueryObject</span></span></a>,
             <a class="citerefentry" href="glGetQueryiv.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetQueryiv</span></span></a>,
