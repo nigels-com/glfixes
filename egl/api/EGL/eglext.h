@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 31039 $ on $Date: 2015-05-04 17:01:57 -0700 (Mon, 04 May 2015) $
+** Khronos $Revision$ on $Date$
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20150504
+#define EGL_EGLEXT_VERSION 20150508
 
 /* Generated C header for:
  * API: egl
@@ -93,6 +93,11 @@ EGLAPI EGLSyncKHR EGLAPIENTRY eglCreateSync64KHR (EGLDisplay dpy, EGLenum type, 
 #define EGL_CONTEXT_OPENGL_COMPATIBILITY_PROFILE_BIT_KHR 0x00000002
 #define EGL_OPENGL_ES3_BIT_KHR            0x00000040
 #endif /* EGL_KHR_create_context */
+
+#ifndef EGL_KHR_create_context_no_error
+#define EGL_KHR_create_context_no_error 1
+#define EGL_CONTEXT_OPENGL_NO_ERROR_KHR   0x31B3
+#endif /* EGL_KHR_create_context_no_error */
 
 #ifndef EGL_KHR_fence_sync
 #define EGL_KHR_fence_sync 1

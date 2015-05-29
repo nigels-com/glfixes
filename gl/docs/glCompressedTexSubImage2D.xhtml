@@ -274,10 +274,15 @@
     image format (such as <code class="constant">GL_RGTC</code>) or an
     extension-specified compressed-texture format. The
     <em class="parameter"><code>format</code></em> of the compressed texture image is selected
-    by the GL implementation that compressed it (see <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>) and should be queried at the time the texture was
-    compressed with <a class="citerefentry" href="glGetTexLevelParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a>.</p>
+    by the GL implementation that compressed it (see
+    <a class="citerefentry" href="glTexImage2D.xhtml"><span class="citerefentry"><span class="refentrytitle">glTexImage2D</span></span></a>)
+    and should be queried at the time the texture was
+    compressed with
+    <a class="citerefentry" href="glGetTexLevelParameter.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetTexLevelParameter</span></span></a>.</p>
         <p>If a non-zero named buffer object is bound to the
-    <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target (see <a class="citerefentry" href="glBindBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>) while a texture image is specified,
+    <code class="constant">GL_PIXEL_UNPACK_BUFFER</code> target (see
+    <a class="citerefentry" href="glBindBuffer.xhtml"><span class="citerefentry"><span class="refentrytitle">glBindBuffer</span></span></a>)
+    while a texture image is specified,
     <em class="parameter"><code>data</code></em> is treated as a byte offset into the buffer
     object's data store.</p>
       </div>

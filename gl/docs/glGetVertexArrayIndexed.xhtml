@@ -97,8 +97,8 @@
             </dt>
             <dd>
               <p>Specifies the index of the vertex array object attribute. Must
-          be a number between 0 and
-          (<code class="constant">GL_MAX_VERTEX_ATTRIBS</code> - 1).</p>
+	  be a number between 0 and
+	  (<code class="constant">GL_MAX_VERTEX_ATTRIBS</code> - 1).</p>
             </dd>
             <dt>
               <span class="term">
@@ -109,19 +109,19 @@
             </dt>
             <dd>
               <p>Specifies the property to be used for the query. For
-          <code class="function">glGetVertexArrayIndexediv</code>, it must be one of
-          the following values:
-          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_ENABLED</code>,
-          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_SIZE</code>,
-          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_STRIDE</code>,
-          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_TYPE</code>,
-          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_NORMALIZED</code>,
-          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_INTEGER</code>,
-          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_LONG</code>,
-          <code class="constant">GL_VERTEX_ATTRIB_ARRAY_DIVISOR</code>, or
-          <code class="constant">GL_VERTEX_ATTRIB_RELATIVE_OFFSET</code>. For
-          <code class="function">glGetVertexArrayIndexed64v</code>, it must be equal to
-          <code class="constant">GL_VERTEX_BINDING_OFFSET</code>.</p>
+	  <code class="function">glGetVertexArrayIndexediv</code>, it must be one of
+	  the following values:
+	  <code class="constant">GL_VERTEX_ATTRIB_ARRAY_ENABLED</code>,
+	  <code class="constant">GL_VERTEX_ATTRIB_ARRAY_SIZE</code>,
+	  <code class="constant">GL_VERTEX_ATTRIB_ARRAY_STRIDE</code>,
+	  <code class="constant">GL_VERTEX_ATTRIB_ARRAY_TYPE</code>,
+	  <code class="constant">GL_VERTEX_ATTRIB_ARRAY_NORMALIZED</code>,
+	  <code class="constant">GL_VERTEX_ATTRIB_ARRAY_INTEGER</code>,
+	  <code class="constant">GL_VERTEX_ATTRIB_ARRAY_LONG</code>,
+	  <code class="constant">GL_VERTEX_ATTRIB_ARRAY_DIVISOR</code>, or
+	  <code class="constant">GL_VERTEX_ATTRIB_RELATIVE_OFFSET</code>. For
+	  <code class="function">glGetVertexArrayIndexed64v</code>, it must be equal to
+	  <code class="constant">GL_VERTEX_BINDING_OFFSET</code>.</p>
             </dd>
             <dt>
               <span class="term">
@@ -151,77 +151,77 @@
           <ul class="itemizedlist" style="list-style-type: disc; ">
             <li class="listitem">
               <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_ENABLED</code>:
-          <em class="parameter"><code>param</code></em> returns a value that is non-zero (true)
-          if the vertex attribute array for index is enabled and 0 (false) if
-          it is disabled. The initial value is
-          <code class="constant">GL_FALSE</code>.</p>
+	  <em class="parameter"><code>param</code></em> returns a value that is non-zero (true)
+	  if the vertex attribute array for index is enabled and 0 (false) if
+	  it is disabled. The initial value is
+	  <code class="constant">GL_FALSE</code>.</p>
             </li>
             <li class="listitem">
               <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_SIZE</code>:
-          <em class="parameter"><code>param</code></em> returns a single value, the size of the
-          vertex attribute array for index. The size is the number of values
-          for each element of the vertex attribute array, and it will be 1, 2,
-          3 or 4. The initial value is 4.</p>
+	  <em class="parameter"><code>param</code></em> returns a single value, the size of the
+	  vertex attribute array for index. The size is the number of values
+	  for each element of the vertex attribute array, and it will be 1, 2,
+	  3 or 4. The initial value is 4.</p>
             </li>
             <li class="listitem">
               <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_STRIDE</code>:
-          <em class="parameter"><code>param</code></em> returns a single value, the array
-          stride for (number of bytes between successive elements in) the
-          vertex attribute array for index. A value of 0 indicates the array
-          elements are stored sequentially in memory. The initial value is
-          0.</p>
+	  <em class="parameter"><code>param</code></em> returns a single value, the array
+	  stride for (number of bytes between successive elements in) the
+	  vertex attribute array for index. A value of 0 indicates the array
+	  elements are stored sequentially in memory. The initial value is
+	  0.</p>
             </li>
             <li class="listitem">
               <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_TYPE</code>:
-          <em class="parameter"><code>param</code></em> returns a single value, a symbolic
-          constant indicating the array type for the vertex attribute array
-          for index. Possible values are <code class="constant">GL_BYTE</code>,
-          <code class="constant">GL_DOUBLE</code>, <code class="constant">GL_FIXED</code>,
-          <code class="constant">GL_FLOAT</code>, <code class="constant">GL_HALF_FLOAT</code>,
-          <code class="constant">GL_INT</code>,
-          <code class="constant">GL_INT_2_10_10_10_REV</code>,
-          <code class="constant">GL_SHORT</code>,
-          <code class="constant">GL_UNSIGNED_BYTE</code>,
-          <code class="constant">GL_UNSIGNED_SHORT</code>,
-          <code class="constant">GL_UNSIGNED_INT</code>,
-          <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>, and
-          <code class="constant">GL_UNSIGNED_INT_10F_11F_11F_REV</code> . The initial
-          value is <code class="constant">GL_FLOAT</code>.</p>
+	  <em class="parameter"><code>param</code></em> returns a single value, a symbolic
+	  constant indicating the array type for the vertex attribute array
+	  for index. Possible values are <code class="constant">GL_BYTE</code>,
+	  <code class="constant">GL_DOUBLE</code>, <code class="constant">GL_FIXED</code>,
+	  <code class="constant">GL_FLOAT</code>, <code class="constant">GL_HALF_FLOAT</code>,
+	  <code class="constant">GL_INT</code>,
+	  <code class="constant">GL_INT_2_10_10_10_REV</code>,
+	  <code class="constant">GL_SHORT</code>,
+	  <code class="constant">GL_UNSIGNED_BYTE</code>,
+	  <code class="constant">GL_UNSIGNED_SHORT</code>,
+	  <code class="constant">GL_UNSIGNED_INT</code>,
+	  <code class="constant">GL_UNSIGNED_INT_2_10_10_10_REV</code>, and
+	  <code class="constant">GL_UNSIGNED_INT_10F_11F_11F_REV</code> . The initial
+	  value is <code class="constant">GL_FLOAT</code>.</p>
             </li>
             <li class="listitem">
               <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_NORMALIZED</code>:
-          <em class="parameter"><code>param</code></em> returns a single value that is non-zero
-          (true) if fixed-point data types for the vertex attribute array
-          indicated by index are normalized when they are converted to
-          floating-point, and 0 (false) otherwise. The initial value is
-          <code class="constant">GL_FALSE</code>.</p>
+	  <em class="parameter"><code>param</code></em> returns a single value that is non-zero
+	  (true) if fixed-point data types for the vertex attribute array
+	  indicated by index are normalized when they are converted to
+	  floating-point, and 0 (false) otherwise. The initial value is
+	  <code class="constant">GL_FALSE</code>.</p>
             </li>
             <li class="listitem">
               <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_INTEGER</code>:
-          <em class="parameter"><code>param</code></em> returns a single value that is non-zero
-          (true) if fixed-point data types for the vertex attribute array
-          indicated by index have integer data type, and 0 (false) otherwise.
-          The initial value is 0 (<code class="constant">GL_FALSE</code>).</p>
+	  <em class="parameter"><code>param</code></em> returns a single value that is non-zero
+	  (true) if fixed-point data types for the vertex attribute array
+	  indicated by index have integer data type, and 0 (false) otherwise.
+	  The initial value is 0 (<code class="constant">GL_FALSE</code>).</p>
             </li>
             <li class="listitem">
               <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_LONG</code>:
-          <em class="parameter"><code>param</code></em> returns a single value that is non-zero
-          (true) if a vertex attribute is stored as an unconverted double, and
-          0 (false) otherwise. The initial value is 0
-          (<code class="constant">GL_FALSE</code>).</p>
+	  <em class="parameter"><code>param</code></em> returns a single value that is non-zero
+	  (true) if a vertex attribute is stored as an unconverted double, and
+	  0 (false) otherwise. The initial value is 0
+	  (<code class="constant">GL_FALSE</code>).</p>
             </li>
             <li class="listitem">
               <p><code class="constant">GL_VERTEX_ATTRIB_ARRAY_DIVISOR</code>:
-          <em class="parameter"><code>param</code></em> returns a single value that is the
-          frequency divisor used for instanced rendering. See
-          glVertexAttribDivisor. The initial value is 0.</p>
+	  <em class="parameter"><code>param</code></em> returns a single value that is the
+	  frequency divisor used for instanced rendering. See
+	  glVertexAttribDivisor. The initial value is 0.</p>
             </li>
             <li class="listitem">
               <p><code class="constant">GL_VERTEX_ATTRIB_RELATIVE_OFFSET</code>:
-          <em class="parameter"><code>param</code></em> returns a single value that is the byte
-          offset of the first element relative to the start of the vertex
-          buffer binding specified attribute fetches from. The initial value
-          is 0.</p>
+	  <em class="parameter"><code>param</code></em> returns a single value that is the byte
+	  offset of the first element relative to the start of the vertex
+	  buffer binding specified attribute fetches from. The initial value
+	  is 0.</p>
             </li>
           </ul>
         </div>
@@ -357,16 +357,20 @@
       </div>
       <div class="refsect1" id="seealso">
         <h2>See Also</h2>
-        <p><a class="citerefentry" href="glGetVertexAttrib.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttrib</span></span></a>, <a class="citerefentry" href="glVertexAttribBinding.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribBinding</span></span></a>, <a class="citerefentry" href="glVertexAttribIPointer.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribIPointer</span></span></a>, <a class="citerefentry" href="glVertexAttribLPointer.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribLPointer</span></span></a>, <a class="citerefentry" href="glVertexAttribPointer.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a></p>
+        <p><a class="citerefentry" href="glGetVertexAttrib.xhtml"><span class="citerefentry"><span class="refentrytitle">glGetVertexAttrib</span></span></a>,
+      <a class="citerefentry" href="glVertexAttribBinding.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribBinding</span></span></a>,
+       <code class="function">glVertexAttribIPointer</code>,
+       <code class="function">glVertexAttribLPointer</code>,
+      <a class="citerefentry" href="glVertexAttribPointer.xhtml"><span class="citerefentry"><span class="refentrytitle">glVertexAttribPointer</span></span></a></p>
       </div>
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>
         <p>
-            Copyright <span class="trademark"/>© 2014 Khronos Group.
-            This material may be distributed subject to the terms and conditions set forth in
-            the Open Publication License, v 1.0, 8 June 1999.
-            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
-        </p>
+	    Copyright <span class="trademark"/>© 2014 Khronos Group.
+	    This material may be distributed subject to the terms and conditions set forth in
+	    the Open Publication License, v 1.0, 8 June 1999.
+	    <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+	</p>
       </div>
     </div>
     <footer/>
