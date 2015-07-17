@@ -152,7 +152,7 @@ Section 8.13.1 Derivative Functions
     Change the last paragraph before the table to say
 
     "In some implementations, varying degrees of derivative accuracy for dFdx 
-    and dFdy may be obtained by providing GL hints (section 21.4 “Hints” of the
+    and dFdy may be obtained by providing GL hints (section 21.4 "Hints" of the
     OpenGL Graphics System Specification), allowing a user to make an image 
     quality versus speed trade off.These hints have no effect on dFdxCoarse, 
     dFdyCoarse, dFdxFineand dFdyFine."

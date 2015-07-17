@@ -14,7 +14,7 @@ Contributors
 
     Timo Suoranta, Broadcom
     Piers Daniell, NVIDIA
-    Stefan Dösinger, CodeWeavers
+    Stefan DÃ¶singer, CodeWeavers
     Jeff Bolz, NVIDIA
     John McDonald, NVIDIA
     Brian Paul, VMware, Mesa3D

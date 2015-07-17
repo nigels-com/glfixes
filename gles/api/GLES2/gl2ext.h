@@ -6,7 +6,7 @@ extern "C" {
 #endif
 
 /*
-** Copyright (c) 2013-2014 The Khronos Group Inc.
+** Copyright (c) 2013-2015 The Khronos Group Inc.
 **
 ** Permission is hereby granted, free of charge, to any person obtaining a
 ** copy of this software and/or associated documentation files (the
@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 31190 $ on $Date: 2015-05-14 03:29:28 -0700 (Thu, 14 May 2015) $
+** Khronos $Revision: 31642 $ on $Date: 2015-07-07 23:55:32 -0700 (Tue, 07 Jul 2015) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20150514 */
+/* Generated on date 20150707 */
 
 /* Generated C header for:
  * API: gles2
@@ -1048,13 +1048,13 @@ GL_APICALL void GL_APIENTRY glDrawElementsInstancedBaseVertexBaseInstanceEXT (GL
 #define GL_EXT_buffer_storage 1
 #define GL_MAP_READ_BIT                   0x0001
 #define GL_MAP_WRITE_BIT                  0x0002
-#define GL_MAP_PERSISTENT_BIT             0x0040
-#define GL_MAP_COHERENT_BIT               0x0080
-#define GL_DYNAMIC_STORAGE_BIT            0x0100
-#define GL_CLIENT_STORAGE_BIT             0x0200
-#define GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT 0x00004000
-#define GL_BUFFER_IMMUTABLE_STORAGE       0x821F
-#define GL_BUFFER_STORAGE_FLAGS           0x8220
+#define GL_MAP_PERSISTENT_BIT_EXT         0x0040
+#define GL_MAP_COHERENT_BIT_EXT           0x0080
+#define GL_DYNAMIC_STORAGE_BIT_EXT        0x0100
+#define GL_CLIENT_STORAGE_BIT_EXT         0x0200
+#define GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT 0x00004000
+#define GL_BUFFER_IMMUTABLE_STORAGE_EXT   0x821F
+#define GL_BUFFER_STORAGE_FLAGS_EXT       0x8220
 typedef void (GL_APIENTRYP PFNGLBUFFERSTORAGEEXTPROC) (GLenum target, GLsizeiptr size, const void *data, GLbitfield flags);
 #ifdef GL_GLEXT_PROTOTYPES
 GL_APICALL void GL_APIENTRY glBufferStorageEXT (GLenum target, GLsizeiptr size, const void *data, GLbitfield flags);

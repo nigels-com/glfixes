@@ -711,7 +711,7 @@ Revision History
     24    06/09/2014  Jon Leech Change query commands for buffer storage
                                 state to GetBufferParameteriv (Bug 12307).
 
-    25    04/20/2015  Jon Leech Change description of MAP_COHERENT_BIT} for
+    25    04/20/2015  Jon Leech Change description of MAP_COHERENT_BIT for
                                 buffer storage so that barriers with
                                 CLIENT_MAPPED_BUFFER_BARRIER_BIT do not need
                                 to make CPU writes visible to the GPU in

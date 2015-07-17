@@ -995,7 +995,7 @@ Issues
        RESOLVED:  Just as with any other shader stage. Exactly one of the
        shaders must provide the 'main' entry point. All shaders attached to a
        program object effectively get compiled into a single, large program at
-       link time.  The program is dispatched as one big entity. Über shader
+       link time.  The program is dispatched as one big entity. Ãœber shader
        type functionality can be achieved through the use of subroutine
        uniforms, which also work exactly as for other shader stages.
 
