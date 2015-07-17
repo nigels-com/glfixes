@@ -43,8 +43,8 @@ Status
         
 Version
     
-    Last Modified Date: March 11, 2015
-    Author Revision: 16
+    Last Modified Date: July 2, 2015
+    Author Revision: 17
 
 Number
 
@@ -963,6 +963,13 @@ Interactions with OpenGL ES
     OpenGL. However, when implemented in an OpenGL ES context, all new entry
     points, types, and tokens are given KHR suffixes.
 
+    In OpenGL ES versions prior to and including ES 3.1 there is no
+    CONTEXT_FLAGS state and therefore the CONTEXT_FLAG_DEBUG_BIT cannot be
+    queried. GLES contexts must act as if this state existed as described
+    in this specification even if the state itself is not visible to
+    applications. For example, DEBUG_OUTPUT must still be enabled by default
+    if the context was created with debug enabled.
+
 Interactions with GLX_ARB_create_context_robustness
 
     If the GLX window-system binding API is used to create a context,
@@ -1562,6 +1569,10 @@ Issues
     to be resolved.
 
 Revision History
+
+    Revision 17, 2015/07/02 (Jan-Harald Fredriksen)
+      - Clarify CONTEXT_FLAGS state for ES3.1 and earlier in the Interactions
+        section (Bug 13104).
 
     Revision 16, 2015/03/11 (Jon Leech)
       - Clarify dependencies required to support PROGRAM_PIPELINE (Bug

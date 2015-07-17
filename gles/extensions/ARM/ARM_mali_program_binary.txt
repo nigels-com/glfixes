@@ -21,7 +21,7 @@ Status
 
 Version
 
-    Last Modified Date: September 1, 2012
+    Last Modified Date: June 26, 2015
 
 Number
 
@@ -64,7 +64,7 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted by the <binaryFormat> parameter of ShaderBinary:
+    Accepted by the <binaryFormat> parameter of ProgramBinaryOES:
 
         MALI_PROGRAM_BINARY_ARM              0x8F61
 
@@ -125,3 +125,4 @@ Revision History
     #2  26/03/2012   Jan-Harald Fredriksen    Completed internal review.
     #3  24/06/2012   Jan-Harald Fredriksen    Clarified behavior for incompatible binaries.
     #4  01/09/2012   Jan-Harald Fredriksen    Updated status.
+    #5  25/06/2015   Jan-Harald Fredriksen    Fixed typo.

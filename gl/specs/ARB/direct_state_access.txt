@@ -36,8 +36,8 @@ Status
 
 Version
 
-    Last Modified Date:         April 20, 2015
-    Author Revision:            45
+    Last Modified Date:         June 25, 2015
+    Author Revision:            46
 
 Number
 
@@ -3003,13 +3003,6 @@ Modified state tables
     the table.
 
 
-    Modify Table 23.24, "Framebuffer (state per framebuffer object)"
-
-    Add GetNamedFramebufferParameteriv in 'Get Command' for
-    DRAW_BUFFERi and
-    READ_BUFFER states
-
-
     Modify Table 23.25. "Framebuffer (state per attachment point)"
 
     Add GetNamedFramebufferAttachmentParameteriv in 'Get Command'
@@ -4125,11 +4118,32 @@ Issues
         with the non-DSA functions in this case, and the resolution of issue
         19 is that DSA functions *can* be used on default objects.
 
+    41) Can READ_BUFFER and DRAW_BUFFERi state be queried with
+        GetNamedFramebufferParameteriv?
+
+        RESOLVED: No. The non-DSA query does not support these
+        tokens so neither does the DSA query.
+
+        Previous versions of the extension contained the following state
+        table additions:
+
+           "Modify Table 23.24, "Framebuffer (state per framebuffer object)"
+
+            Add GetNamedFramebufferParameteriv in 'Get Command' for
+            DRAW_BUFFERi and READ_BUFFER states"
+
+        However, there was no corresponding spec language change explaining
+        how these additional tokens worked, and vendors did not implement
+        support for it.
 
 Revision History
 
     Rev.    Date        Author    Changes
     ----  -----------   --------- ---------------------------------------------
+    46    25 Jun 2015   Jon Leech Add issue 41 noting that read and drawbuffer
+                                  state cannot be queried with
+                                  GetNamedFramebufferParameteriv (Bug 14207).
+
     45    20 Apr 2015   Jon Leech Change generated error fo *TexSubImage* with
                                   invalid <target> to INVALID_ENUM instead of
                                   INVALID_VALUE (Bug 13563).

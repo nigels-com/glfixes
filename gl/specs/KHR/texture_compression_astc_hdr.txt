@@ -10,6 +10,7 @@ Name Strings
 Contact
 
     Sean Ellis (sean.ellis 'at' arm.com)
+    Jon Leech (oddhack 'at' sonic.net)
 
 Contributors
 
@@ -22,8 +23,9 @@ Contributors
     Robert Simpson, Qualcomm
     Maurice Ribble, Qualcomm
     Larry Seiler, Intel
-    Daniel Koch, Transgaming
+    Daniel Koch, NVIDIA
     Anthony Wood, Imagination Technologies
+    Jon Leech
 
 IP Status
 
@@ -31,7 +33,7 @@ IP Status
 
 Notice
 
-    Copyright (c) 2012-2013 The Khronos Group Inc. Copyright terms at
+    Copyright (c) 2012-2015 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
 Status
@@ -44,8 +46,7 @@ Status
 
 Version
 
-    Revision: 2
-    Date: April 28, 2015
+    Version 4, June 24, 2015
 
 Number
 
@@ -54,55 +55,33 @@ Number
 
 Dependencies
 
-    Written based on the wording of the OpenGL ES 3.0 specification
+    Written based on the wording of the OpenGL ES 3.1 (April 29, 2015)
+    Specification
+
+    May be implemented against any version of OpenGL or OpenGL ES supporting
+    compressed textures.
+
+    Some of the functionality of these extensions is not supported if the
+    underlying implementation does not support cube map array textures.
+
 
 Overview
 
     Adaptive Scalable Texture Compression (ASTC) is a new texture
-    compression technology that offers unprecendented flexibility,
-    while producing better or comparable results than existing texture
+    compression technology that offers unprecendented flexibility, while
+    producing better or comparable results than existing texture
     compressions at all bit rates. It includes support for 2D and
-    slice-based 3D textures, with low and high dynamic range, at
-    bitrates from below 1 bit/pixel up to 8 bits/pixel in fine steps.
+    slice-based 3D textures, with low and high dynamic range, at bitrates
+    from below 1 bit/pixel up to 8 bits/pixel in fine steps.
 
-    The goal of this extension is to support the full 2D profile of the
-    ASTC texture compression specification, and allow construction of
-    3D textures from multiple 2D slices.
+    The goal of these extensions is to support the full 2D profile of the
+    ASTC texture compression specification, and allow construction of 3D
+    textures from multiple compressed 2D slices.
 
-    ASTC-compressed textures are handled in OpenGL ES and OpenGL by
-    adding new supported formats to the existing mechanisms for handling
-    compressed textures.
-
-Issues
-
-    The block-based 3D part of this specification is still undergoing
-    detailed evaluation by members of the OpenGL ES working group.
-
-Interactions with Other Extensions
-
-    Will interact with EXT_texture_storage.
-
-    Extends extension KHR_texture_compression_astc_ldr.
-
-Interactions with OpenGL 4.2
-
-    OpenGL 4.2 supports the feature that compressed textures can be
-    compressed online, by passing the compressed texture format enum as
-    the internal format when uploading a texture using TexImage1D,
-    TexImage2D or TexImage3D (see Section 3.9.3, Texture Image
-    Specification, subsection Encoding of Special Internal Formats).
-
-    Due to the complexity of the ASTC compression algorithm, it is not
-    usually suitable for online use, and therefore ASTC support will be
-    limited to pre-compressed textures only. Where on-device compression
-    is required, a domain-specific limited compressor will typically
-    be used, and this is therefore not suitable for implementation in
-    the driver.
-
-    In particular, the ASTC format specifiers will not be added to
-    Table 3.14, and thus will not be accepted by the TexImage*D
-    functions, and will not be returned by the (already deprecated)
-    COMPRESSED_TEXTURE_FORMATS query.
+    ASTC-compressed textures are handled in OpenGL ES and OpenGL by adding
+    new supported formats to the existing commands for defining and updating
+    compressed textures, and defining the interaction of the ASTC formats
+    with each texture target.
 
 New Procedures and Functions
 
@@ -148,127 +127,113 @@ New Tokens
     accepted by TexStorage2DEXT, TextureStorage2DEXT, TexStorage3DEXT and
     TextureStorage3DEXT.
 
-Additions to Chapter 2 of the OpenGL ES 3.0 Specification (OpenGL ES
-Operation)
+Additions to Chapter 8 of the OpenGL ES 3.1 Specification (Textures and Samplers)
 
-    None
+    Add to Section 8.7 Compressed Texture Images:
 
-Additions to Chapter 3 of the OpenGL ES 3.0 Specification (Rasterization)
+    Modify table 8.19 (Compressed internal formats) to add all the ASTC
+    format tokens in the New Tokens section. The "Base Internal Format"
+    column is RGBA for all ASTC formats.
 
-    Added to Section 3.8.6, Compressed Texture Images
+    Add a new column "Block Width x Height", which is 4x4 for all non-ASTC
+    formats in the table, and matches the size in the token name for ASTC
+    formats (e.g. COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR has a block size of
+    10 x 8).
 
-    Add the tokens specified above to Table 3.16, Compressed Internal Formats.
-    In all cases, the base internal format will be RGBA. The encoding allows
-    images to be encoded with fewer channels, but this is always presented as
-    RGBA to the sampler.
-
-    After the paragraph discussing ETC2/EAC formats, add:
-
-    "If internalformat is one of the ASTC formats described in table 3.16,
-     the compressed image data is stored using one of the ASTC compressed
-     texture image encodings (see appendix C). The ASTC texture compression
-     algorithm supports both two- and three-dimensional images, but the 3D
-     block-based compression is not supported by this extension. If
-     internalformat is a 2D ASTC format, CompressedTexImage3D will accept an
-     array of compressed data consisting of multiple rows of compressed
-     blocks laid out as described in Section 3.8.3. The width and height of
-     each sub-image must be a multiple of the ASTC block size."
-
-    At the end of the section, add:
-
-    "If internalformat is one of the ASTC formats described in table 3.16, the
-     texture is stored using one of the ASTC compressed texture image
-     encodings (see appendix C). Since ASTC images are easily edited along
-     block footprint boundaries, the limitations on subimage location and size
-     are as follows for CompressedTexSubImage2D and CompressedTexSubImage3D.
-     These commands will result in an INVALID_OPERATION error if one of the
-     following conditions occurs:
-     * width is not a multiple of the block width, and width + xoffset is not
-       equal to the width of the texture level.
-     * height is not a multiple of block height, and height+yoffset is not
-       equal to the height of the texture level.
-     * depth is not a multiple of block depth, and depth+zoffset is not
-       equal to the depth of the texture level.
-     * xoffset, yoffset or zoffset is not a multiple of the corresponding
-       block dimension.
-     The contents of any block of texels of an ASTC compressed texture
-     image that does not intersect the area being modified are preserved
-     during valid CompressedTexSubImage* calls.
-
-     The block width and height for each ASTC format are determined according
-     to Table 3.17:
-
-     ------------------------------------------------------
-                                                      Block
-     Compressed Internal Format              Width   Height
-     ------------------------------------------------------
-     COMPRESSED_RGBA_ASTC_4x4_KHR               4       4
-     COMPRESSED_RGBA_ASTC_5x4_KHR               5       4
-     COMPRESSED_RGBA_ASTC_5x5_KHR               5       5
-     COMPRESSED_RGBA_ASTC_6x5_KHR               6       5
-     COMPRESSED_RGBA_ASTC_6x6_KHR               6       6
-     COMPRESSED_RGBA_ASTC_8x5_KHR               8       5
-     COMPRESSED_RGBA_ASTC_8x6_KHR               8       6
-     COMPRESSED_RGBA_ASTC_8x8_KHR               8       8
-     COMPRESSED_RGBA_ASTC_10x5_KHR             10       5
-     COMPRESSED_RGBA_ASTC_10x6_KHR             10       6
-     COMPRESSED_RGBA_ASTC_10x8_KHR             10       8
-     COMPRESSED_RGBA_ASTC_10x10_KHR            10      10
-     COMPRESSED_RGBA_ASTC_12x10_KHR            12      10
-     COMPRESSED_RGBA_ASTC_12x12_KHR            12      12
-
-     COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR       4       4
-     COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR       5       4
-     COMPRESSED_SRGB8_ALPHA8_ASTC_5x5_KHR       5       5
-     COMPRESSED_SRGB8_ALPHA8_ASTC_6x5_KHR       6       5
-     COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR       6       6
-     COMPRESSED_SRGB8_ALPHA8_ASTC_8x5_KHR       8       5
-     COMPRESSED_SRGB8_ALPHA8_ASTC_8x6_KHR       8       6
-     COMPRESSED_SRGB8_ALPHA8_ASTC_8x8_KHR       8       8
-     COMPRESSED_SRGB8_ALPHA8_ASTC_10x5_KHR     10       5
-     COMPRESSED_SRGB8_ALPHA8_ASTC_10x6_KHR     10       6
-     COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR     10       8
-     COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR    10      10
-     COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR    12      10
-     COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR    12      12
-     ------------------------------------------------------
-
-     Table 3.17: Compressed ASTC Format Block Sizes"
-
-    Added to Section 3.8.15:
-
-    The list of converted internal formats at the start of this section must
-    be expanded to include all of the COMPRESSED_SRGB8_ALPHA8_ASTC_*_KHR
+    Add a second new column "3D Tex." which is empty for all non-ASTC
+    formats. If only the LDR profile is supported by the implementation,
+    this column is also empty for all ASTC formats. If both the LDR and HDR
+    profiles are supported only, this column is checked for all ASTC
     formats.
 
-Additions to Chapter 4 of the OpenGL ES 3.0 Specification (Per-Fragment
-    Operations and the Framebuffer)
+    Add a third new column "Cube Map Array Tex." which is empty for all
+    non-ASTC formats, and checked for all ASTC formats.
 
-    None
+    Append to the table caption:
 
-Additions to Chapter 5 of the OpenGL ES 3.0 Specification (Special Functions)
+   "The "Block Size" column specifies the compressed block size of the
+    format. Modifying compressed images along aligned block boundaries is
+    possible, as described in this section. The "3D Tex." and "Cube Map
+    Array Tex." columns determine if 3D images composed of compressed 2D
+    slices, and cube map array textures respectively can be specified using
+    CompressedTexImage3D."
 
-    None
+    Append to the paragraph at the bottom of p. 168:
 
-Additions to Chapter 6 of the OpenGL ES 3.0 Specification (State and
-    State Requests)
+   "If <internalformat> is one of the specific ... supports only
+    two-dimensional images. However, if the "3D Tex." column of table 8.19
+    is checked, CompressedTexImage3D will accept a three-dimensional image
+    specified as an array of compressed data consisting of multiple rows of
+    compressed blocks laid out as described in section 8.5. The width and
+    height of each sub-image must be a multiple of the block size for the
+    format, shown in the same table."
 
-    None
+    Modify the second and third errors in the Errors section for
+    CompressedTexImage[2d]D on p. 169, and add a new error:
 
-Additions to Appendix A of the OpenGL ES 3.0 Specification (Invariance)
+   "An INVALID_VALUE error is generated by
 
-    None
+      * CompressedTexImage2D if <target> is
+        one of the cube map face targets from table 8.21, and
+      * CompressedTexImage3D if <target> is TEXTURE_CUBE_MAP_ARRAY,
 
-Additions to Appendix B of the OpenGL ES 3.0 Specification (Corollaries)
+    and <width> and <height> are not equal.
 
-    None
+    An INVALID_OPERATION error is generated by CompressedTexImage3D if
+    <internalformat> is one of the the formats in table 8.19 and <target> is
+    not TEXTURE_2D_ARRAY, TEXTURE_CUBE_MAP_ARRAY, or TEXTURE_3D.
 
-Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
-    Texture Image Formats)
+    An INVALID_OPERATION error is generated by CompressedTexImage3D if
+    <internalformat> is TEXTURE_CUBE_MAP_ARRAY and the "Cube Map Array"
+    column of table 8.19 is *not* checked, or if <internalformat> is
+    TEXTURE_3D and the "3D Tex." column of table 8.19 is *not* checked"
+
+    Modify the fifth and sixth paragraphs on p. 170:
+
+   "Since these specific compressed formats are easily edited along texel
+    block boundaries, the limitations on subimage location and size are
+    relaxed for CompressedTexSubImage2D and CompressedTexSubImage3D.
+
+    The block width and height varies for different formats, as described in
+    table 8.19. The contents of any block of texels of a compressed texture
+    image in these specific compressed formats that does not intersect the
+    area being modified are preserved during CompressedTexSubImage* calls."
+
+    Modify the second error in the Errors section for
+    CompressedTexSubImage[23]D on p. 170, and add a new error:
+
+   "An INVALID_OPERATION error is generated by CompressedTexSubImage3D if
+    <format> is one of the formats in table 8.19 and <target> is not
+    TEXTURE_2D_ARRAY, TEXTURE_CUBE_MAP_ARRAY, or TEXTURE_3D.
+
+    An INVALID_OPERATION error is generated by CompressedTexSubImage3D if
+    <format> is TEXTURE_CUBE_MAP_ARRAY and the "Cube Map Array" column of
+    table 8.19 is *not* checked, or if <format> is TEXTURE_3D and the "3D
+    Tex." column of table 8.19 is *not* checked"
+
+    Modify the final error in the same section, on p. 171:
+
+   "An INVALID_OPERATION error is generated if format is one of the formats
+    in table 8.19 and any of the following conditions occurs. The block
+    width and height refer to the values in the corresponding column of the
+    table.
+
+      * <width> is not a multiple of the format's block width, and <width> +
+        <xoffset> is not equal to the value of TEXTURE_WIDTH.
+      * height is not a multiple of the format's block height, and <height>
+        + <yoffset> is not equal to the value of TEXTURE_HEIGHT.
+      * <xoffset> or <yoffset> is not a multiple of the block width or
+        height, respectively."
+
+    Modify table 8.24 (sRGB texture internal formats) to add all of the
+    COMPRESSED_SRGB8_ALPHA8_ASTC_*_KHR formats defined above.
+
+Additions to Appendix C of the OpenGL ES 3.1 Specification (Compressed
+Texture Image Formats)
 
     Add a new sub-section on ASTC image formats, as follows:
 
-    C.2 ASTC Compressed Texture Image Formats
+   "C.2 ASTC Compressed Texture Image Formats
     =========================================
 
     C.2.1   What is ASTC?
@@ -278,33 +243,34 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     The ASTC formats form a family of related compressed texture image
     formats. They are all derived from a common set of definitions.
 
-    ASTC textures may be either 2D or 3D.
+    ASTC textures may be encoded using either high or low dynamic range,
+    corresponding to the "HDR profile" and "LDR profile". Support for the
+    HDR profile is indicated by the "GL_KHR_texture_compression_astc_hdr"
+    extension string, and support for the LDR profile is indicated by the
+    "GL_KHR_texture_compression_astc_ldr" extension string.
 
-    ASTC textures may be encoded using either high or low dynamic range.
-    Low dynamic range images may optionally be specified using the sRGB
-    color space.
+    The LDR profile supports two-dimensional images for texture targets
+    TEXTURE_2D. TEXTURE_2D_ARRAY, the six texture cube map face targets, and
+    TEXTURE_CUBE_MAP_ARRAY. These images may optionally be specified using
+    the sRGB color space.
 
-    A sub-profile ("HDR Profile") is defined, which supports only 2D images
-    (and 3D images made up of multiple 2D slices) at low or high dynamic
-    range. This is the profile supported by this extension.
-
-    Support for this profile is indicated by the presence of the extension
-    string "GL_KHR_texture_compression_astc_hdr". If, in future, the
-    full profile is supported, "GL_KHR_texture_compression_astc_hdr" must
-    still be published, in order to ensure backward compatibility.
-
-    A lower sub-profile ("LDR Profile") may be implemented, which supports
-    only 2D images at low dynamic range. This is indicated by the presence of
-    the extension string "GL_KHR_texture_compression_astc_ldr". If either the
-    HDR or full profile are implemented, then both name strings
-    "GL_KHR_texture_compression_astc_ldr" and
-    "GL_KHR_texture_compression_astc_hdr" must be published.
+    The HDR profile is a superset of the LDR profile, and also supports
+    texture target TEXTURE_3D for images made up of multiple two-dimensional
+    slices of compressed data. HDR images may be a mix of low and high
+    dynamic range data. If the HDR profile is supported, the LDR profile and
+    its extension string must also be supported.
 
     ASTC textures may be encoded as 1, 2, 3 or 4 components, but they are
     all decoded into RGBA.
 
-    ASTC has a variable block size, and this is specified as part of the
-    name of the token passed to CompressedImage2D and its related functions.
+    Different ASTC formats have different block sizes, specified as part of
+    the name of the format token passed to CompressedImage2D and its related
+    functions, and in table 8.19.
+
+    Additional ASTC formats (the "Full profile") exist which support 3D data
+    specified as compressed 3D blocks. However, such formats are not defined
+    by either the LDR or HDR profiles, and are not described in this
+    specification.
 
     C.2.2   Design Goals
     --------------------
@@ -475,7 +441,7 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
 
     The global configuration data for the format is as follows:
 
-    *   Block dimension (always 2D for HDR profile)
+    *   Block dimension (always 2D for both LDR and HDR profiles)
     *   Block footprint size
     *   sRGB output enabled or not
 
@@ -495,13 +461,11 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     ------------------------
 
     To decode one texel:
-    (Optimization: If within known void-extent, immediately return single
-        color)
 
     Find block containing texel
     Read block mode
     If void-extent block, store void extent and immediately return single
-        color
+        color (optimization)
 
     For each plane in image
       If block mode requires infill
@@ -550,9 +514,9 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
         -------------------------------------
         Table C.2.2 - 2D Footprint and Bit Rates
 
-    The block footprint is shown as width x height in the format enumerator,
-    so for example the enumerator COMPRESSED_RGBA_ASTC_8x6_KHR specifies an
-    image with a block width of 8 texels, and a block height of 6 texels.
+    The block footprint is shown as <width>x<height> in the format name. For
+    example, the format COMPRESSED_RGBA_ASTC_8x6_KHR specifies an image with
+    a block width of 8 texels, and a block height of 6 texels.
 
     The "Increment" column indicates the ratio of bit rate against the next
     lower available rate. A consistent value in this column indicates an even
@@ -595,7 +559,7 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     lowest address contains bits 0..7. Bit 0 is the least significant bit in the
     byte.
 
-    Each block has the same basic layout:
+    Each block has the same basic layout, as shown in figure C.1.
 
     127 126 125 124 123 122 121 120 119 118 117 116 115 114 113 112
      --------------------------------------------------------------
@@ -637,7 +601,7 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
        Extra  | Part  | Block mode                                 |
      --------------------------------------------------------------
 
-        Table C.2.4 - Block Layout Overview
+        Figure C.1 - Block Layout Overview
 
     Dotted partition lines indicate that the split position is not fixed.
 
@@ -649,8 +613,8 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     texels in the block.
 
     The size and layout of the extra configuration data depends on the
-    number of partitions, and the number of planes in the image, as follows
-    (only the bottom 32 bits are shown):
+    number of partitions, and the number of planes in the image, as shown in
+    figures C.2 and C.3 (only the bottom 32 bits are shown):
 
     31  30  29  28  27  26  25  24  23  22  21  20  19  18  17  16
     --------------------------------------------------------------
@@ -662,7 +626,7 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
       CEM     | 0   0 |              Block Mode                   |
     --------------------------------------------------------------
 
-        Table C.2.5 - Single-partition Block Layout
+        Figure C.2 - Single-partition Block Layout
 
     CEM is the color endpoint mode field, which determines how the Color
     Endpoint Data is encoded.
@@ -680,7 +644,7 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
       Partition Index |              Block Mode                   |
     --------------------------------------------------------------
 
-        Table C.2.6 - Multi-partition Block Layout
+        Figure C.3 - Multi-partition Block Layout
 
     The Partition Index field specifies which partition layout to use. CEM is
     the first 6 bits of color endpoint mode information for the various
@@ -708,18 +672,18 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
     The weight ranges are encoded using a 3 bit value R, which is interpreted
     together with a precision bit H, as follows:
 
-    Low Precision Range (H=0)               High Precision Range (H=1)
-R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
------------------------------------------------------------------------------
-000 Invalid                                 Invalid
-001 Invalid                                 Invalid
-010 0..1                          1         0..9                   1      1
-011 0..2            1                       0..11           1             2
-100 0..3                          2         0..15                         4
-101 0..4                   1                0..19                  1      2
-110 0..5            1             1         0..23           1             3
-111 0..7                          3         0..31                         5
------------------------------------------------------------------------------
+        Low Precision Range (H=0)           High Precision Range (H=1)
+    R   Weight Range  Trits  Quints  Bits   Weight Range  Trits  Quints  Bits
+    -------------------------------------------------------------------------
+    000 Invalid                             Invalid
+    001 Invalid                             Invalid
+    010 0..1                          1     0..9                   1      1
+    011 0..2            1                   0..11           1             2
+    100 0..3                          2     0..15                         4
+    101 0..4                   1            0..19                  1      2
+    110 0..5            1             1     0..23           1             3
+    111 0..7                          3     0..31                         5
+    -------------------------------------------------------------------------
     Table C.2.7 - Weight Range Encodings
 
     Each weight value is encoded using the specified number of Trits, Quints
@@ -795,7 +759,12 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
     14  HDR RGB, direct + LDR Alpha         3
     15  HDR RGB, direct + HDR Alpha         3
     ---------------------------------------------
-    Table C.2.10 - Color Endpoint Modes
+    Table C.2.10 - Color Endpoint Modes.
+      [[ If the HDR profile is not implemented, remove from table C.2.10
+         all rows whose description starts with "HDR", and add to the
+         caption: ]]
+    Modes not described in the CEM column are reserved for HDR modes, and
+    will generate errors in an unextended OpenGL ES implementation.
 
     In multi-partition mode, the CEM field is of variable width, from 6 to 14
     bits. The lowest 2 bits of the CEM field specify how the endpoint mode
@@ -816,6 +785,7 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
     If the CEM selector value in bits [24:23] is not 00,
     then data layout is as follows:
 
+    ---------------------------------------------------
     Part            n   m   l   k   j   i   h   g
             ------------------------------------------
     2   ... Weight :  M1   :                         ...
@@ -833,15 +803,15 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
             ----------------------
     4      |C3 |C2 |C1 |C0 | CEM  |
             ----------------------
+    ---------------------------------------------------
+    Figure C.4 - Multi-Partition Color Endpoint Modes
 
-    Table C.2.12 - Multi-Partition Color Endpoint Modes
-
-    In this view, each partition i has two fields. Ci is the class selector
-    bit, choosing between the two possible CEM classes (0 indicates the
-    lower of the two classes), and Mi is a two-bit field specifying the low
-    bits of the color endpoint mode within that class. The additional bits
-    appear at a variable bit position, immediately below the texel weight
-    data.
+    In this view, each partition i has two fields. C<i> is the class
+    selector bit, choosing between the two possible CEM classes (0 indicates
+    the lower of the two classes), and M<i> is a two-bit field specifying
+    the low bits of the color endpoint mode within that class. The
+    additional bits appear at a variable bit position, immediately below the
+    texel weight data.
 
     The ranges used for the data values are not explicitly specified.
     Instead, they are derived from the number of available bits remaining
@@ -866,16 +836,16 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
     In a sequence, each value has an identical range. The range is specified
     in one of the following forms:
 
-    Value range         MSB encoding            LSB encoding
-    0 .. 2^n-1          -                       n bit value m (n <= 8)
-    0 .. (3 * 2^n)-1    Base-3 "trit" value t   n bit value m (n <= 6)
-    0 .. (5 * 2^n)-1    Base-5 "quint" value q  n bit value m (n <= 5)
-
-    Value range         Value           Block   Packed block size
-    0 .. 2^n-1          m               1       n
-    0 .. (3 * 2^n)-1    t * 2^n + m     5       8 + 5*n
-    0 .. (5 * 2^n)-1    q * 2^n + m     3       7 + 3*n
-
+    Value range      MSB encoding   LSB encoding Value       Block Packed
+                                                                   block size
+    -----------      ------------   ------------ ----------- ----- ----------
+    0 .. 2^n-1       -              n bit value  m           1     n
+                                    m (n <= 8)
+    0 .. (3 * 2^n)-1 Base-3 "trit"  n bit value  t * 2^n + m 5     8 + 5*n
+                     value t        m (n <= 6)
+    0 .. (5 * 2^n)-1 Base-5 "quint" n bit value  q * 2^n + m 3     7 + 3*n
+                     value q        m (n <= 5)
+    -------------------------------------------
     Table C.2.13 -Encoding for Different Ranges
 
     Since 3^5 is 243, it is possible to pack five trits into 8 bits(which has
@@ -915,7 +885,7 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
     |    m2        |T3  T2 |      m1       |T1  T0 |      m0       |
      --------------------------------------------------------------
 
-    Table C.2.14 - Trit-based Packing
+    Figure C.5 - Trit-based Packing
 
     The five trits t0 to t4 are obtained by bit manipulations of the 8 bits
     T[7:0] as follows:
@@ -952,7 +922,7 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
       m2       |Q4  Q3 |     m1        |Q2  Q1  Q0 |      m0       |
     ---------------------------------------------------------------
 
-    Table C.2.15 - Quint-based Packing
+    Figure C.6 - Quint-based Packing
 
     The three quints q0 to q2 are obtained by bit manipulations of the 7 bits
     Q[6:0] as follows:
@@ -1061,7 +1031,12 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
     15  HDR RGB + HDR Alpha                         8
     -------------------------------------------------
     Table C.2.17 -Color Endpoint Modes
+      [[ If the HDR profile is not implemented, remove from table C.2.17
+         all rows whose description starts with "HDR", and add to the
+         caption: ]]
+    Modes not described are reserved, as described in table C.2.10.
 
+      [[ HDR profile only ]]
     Mode 14 is special in that the alpha values are interpolated linearly,
     but the color components are interpolated logarithmically. This is the
     only endpoint format with mixed-mode operation, and will return the
@@ -1177,6 +1152,9 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
             if(c.b < 0) {c.b=0;} else if(c.b > 255) {c.b=255;}
             if(c.a < 0) {c.a=0;} else if(c.a > 255) {c.a=255;}
         }
+
+      [[ If the HDR profile is not implemented, do not include section
+         C.2.15 ]]
 
     C.2.15 HDR Endpoint Decoding
     -------------------------
@@ -1769,7 +1747,7 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
     2         RGA        B
     3         RGB        A
     --------------------------
-    Table C.2.28 -Dual Plane Color Component Selector Values
+    Table C.2.28 - Dual Plane Color Component Selector Values
 
     The CCS bits are stored at a variable position directly below the weight
     bits and any additional CEM bits.
@@ -1926,39 +1904,39 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
      ---------------------------------------------------------------
 
     111 110 109 108 107 106 105 104 103 102 101 100 99  98  97  96
-     ---------------------------------------------------------------
+    ----------------------------------------------------------------
     |                 Block color B component                       |
-     ---------------------------------------------------------------
+    ----------------------------------------------------------------
 
     95  94  93  92  91  90  89  88  87  86  85  84  83  82  81  80
-     ---------------------------------------------------------------
+    ----------------------------------------------------------------
     |                 Block color G component                       |
-     ---------------------------------------------------------------
+    ----------------------------------------------------------------
     79  78  77  76  75  74  73  72  71  70  69  68  67  66  65  64
-     ---------------------------------------------------------------
+    ----------------------------------------------------------------
     |                 Block color R component                       |
-     ---------------------------------------------------------------
+    ----------------------------------------------------------------
 
     63  62  61  60  59  58  57  56  55  54  53  52  51  50  49  48
-     ---------------------------------------------------------------
-    |    Void-extent maximum T coordinate              |    Min T
-     ---------------------------------------------------------------
+    ----------------------------------------------------------------
+    |    Void-extent maximum T coordinate              |    Min T   |
+    ----------------------------------------------------------------
 
     47  46  45  44  43  42  41  40  39  38  37  36  35  34  33  32
-     ---------------------------------------------------------------
-    Void-extent minimum T coordinate       |   Void-extent max S
-     ---------------------------------------------------------------
+    ----------------------------------------------------------------
+    Void-extent minimum T coordinate       |   Void-extent max S    |
+    ----------------------------------------------------------------
 
     31  30  29  28  27  26  25  24  23  22  21  20  19  18  17  16
-     ---------------------------------------------------------------
-    Void-extent max S coord    |  Void-extent minimum S coordinate
-     ---------------------------------------------------------------
-    15  14  13  12  11  10  9   8   7   6   5   4   3   2   1   0
-     --------------------------------------------------------------
-    Min S coord    | 1 | 1 | D | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 0 |
-     --------------------------------------------------------------
-
-    Table C.2.29 - 2D Void-Extent Block Layout Overview
+    ----------------------------------------------------------------
+    Void-extent max S coord    |  Void-extent minimum S coordinate  |
+    ----------------------------------------------------------------
+    15  14  13  12  11  10   9   8   7   6   5   4   3   2   1   0
+    ----------------------------------------------------------------
+    Min S coord    | 1 | 1 | D | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 0  |
+    ----------------------------------------------------------------
+    -------------------------------------------------
+    Figure C.7 - 2D Void-Extent Block Layout Overview
 
     Bit 9 is the Dynamic Range flag, which indicates the format in which
     colors are stored. A 0 value indicates LDR, in which case the color
@@ -2045,10 +2023,9 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
 
     C.2.25  LDR PROFILE SUPPORT
     ---------------------------
-    In order to ease verification and accelerate adoption, an LDR-only
-    subset of the full ASTC specification has been made available.
 
-    Implementations of this LDR Profile must satisfy the following requirements:
+    Implementations of the LDR Profile must satisfy the following requirements:
+
     *   All textures with valid encodings for LDR Profile must decode
         identically using either a LDR Profile, HDR Profile, or Full Profile
         decoder.
@@ -2060,7 +2037,9 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
         given a texture encoded for the LDR Profile.
 
     The feature subset for the LDR profile is:
-    *   2D textures only.
+
+    *   2D textures only, including 2D, 2D array, cube map face,
+        and cube map array texture targets.
     *   Only those block sizes listed in Table C.2.2 are supported.
     *   LDR operation mode only.
     *   Only LDR endpoint formats must be supported, namely formats
@@ -2069,20 +2048,77 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
     *   Interpolation returns UNORM8 results when used in conjunction
         with sRGB.
     *   LDR void extent blocks must be supported, but void extents
-        may not be checked.
+        may not be checked."
 
+    If only the LDR profile is supported, read this extension by striking
+    all descriptions of HDR modes and decoding algorithms. The extension
+    documents how to modify the document for some particularly tricky cases,
+    but the general rule is as described in this paragraph.
 
-Additions to Appendix D of the OpenGL ES 3.0 Specification (Shared
-    Objects and Multiple Contexts)
+Interactions with immutable-format texture images
 
-    None
+    ASTC texture formats are supported by immutable-format textures only if
+    such textures are supported by the underlying implementation (e.g.
+    OpenGL 4.1 or later, OpenGL ES 3.0 or later, or earlier versions
+    supporting the GL_EXT_texture_storage extension). Otherwise, remove all
+    references to the Tex*Storage* commands from this specification.
 
-Additions to Appendix E of the OpenGL ES 3.0 Specification (Version 3.0
-    and before)
+Interactions with texture cube map arrays
 
-    None
+    ASTC textures are supported for the TEXTURE_CUBE_MAP_ARRAY target only
+    when cube map arrays are supported by the underlying implementation
+    (e.g. OpenGL 4.0 or later, or an OpenGL or OpenGL ES version supporting
+    an extension defining cube map arrays). Otherwise, remove all references
+    to texture cube map arrays from this specification.
+
+Interactions with OpenGL 4.2
+
+    OpenGL 4.2 supports the feature that compressed textures can be
+    compressed online, by passing the compressed texture format enum as
+    the internal format when uploading a texture using TexImage1D,
+    TexImage2D or TexImage3D (see Section 3.9.3, Texture Image
+    Specification, subsection Encoding of Special Internal Formats).
+
+    Due to the complexity of the ASTC compression algorithm, it is not
+    usually suitable for online use, and therefore ASTC support will be
+    limited to pre-compressed textures only. Where on-device compression
+    is required, a domain-specific limited compressor will typically
+    be used, and this is therefore not suitable for implementation in
+    the driver.
+
+    In particular, the ASTC format specifiers will not be added to
+    Table 3.14, and thus will not be accepted by the TexImage*D
+    functions, and will not be returned by the (already deprecated)
+    COMPRESSED_TEXTURE_FORMATS query.
+
+Issues
+
+ 1) Three-dimensional block ASTC formats (e.g. formats whose block depth
+    is greater than one) are not supported by these extensions.
+
+ 2) The first release of the extension was not clear about the
+    restrictions of the LDR profile and did not document interactions
+    with cube map array textures.
+
+    RESOLVED. This extension has been rewritten to be based on OpenGL ES
+    3.1, to clearly document LDR restrictions, and to add cube map array
+    texture interactions.
 
 Revision History
+
+    Revision 4, June 24, 2015 - minor cleanup from feedback. Move Issues and
+    Interactions sections to the end of the document. Merge some language
+    from OpenGL ES specification edits and rename some tables to figures,
+    due to how they're generated in the core specifications. Include a
+    description of the "Cube Map Array Texture" column added to table 3.19
+    and expand the description of how to read this document when supporting
+    only the LDR profile (Bug 13921).
+
+    Revision 3, May 28, 2015 - rebase extension on OpenGL ES 3.1. Clarify
+    texture formats and targets supported by LDR and HDR profiles. Add cube
+    map array targets and an Interactions section defining when they are
+    supported. Add an Interactions section for immutable-format textures
+    (Bug 13921).
 
     Revision 2, April 28, 2015 - added CompressedTex{Sub,}Image3D to
     commands accepting ASTC format tokens in the New Tokens section (Bug

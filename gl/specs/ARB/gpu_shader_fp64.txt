@@ -429,8 +429,8 @@ Modifications to The OpenGL Shading Language Specification, Version 1.50
 
     (modify the first paragraph of the section)
 
-    The OpenGL Shading Language has built-in types for 2×2, 2×3, 2×4, 3×2,
-    3×3, 3×4, 4×2, 4×3, and 4×4 matrices of single- and double-precision
+    The OpenGL Shading Language has built-in types for 2Ã—2, 2Ã—3, 2Ã—4, 3Ã—2,
+    3Ã—3, 3Ã—4, 4Ã—2, 4Ã—3, and 4Ã—4 matrices of single- and double-precision
     floating-point numbers.  Matrix types beginning with "mat" have
     single-precision components; matrix types beginning with "dmat" have
     double-precision components.  The first number in the type is the number
