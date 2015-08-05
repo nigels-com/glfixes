@@ -39,8 +39,8 @@ Status
 
 Version
 
-    Last Modified Date: October 8, 2014
-    Revision: 19
+    Last Modified Date: July 23, 2015
+    Revision: 20
 
 Number
 
@@ -1760,7 +1760,7 @@ New Implementation Dependent State
     MAX_GEOMETRY_INPUT_COMPONENTS_EXT        Z+   GetIntegerv  64    Max number of comp.     11.1gs.4
                                                                      of inputs read by a
                                                                      geom. shader
-    MAX_GEOMETRY_OUTPUT_COMPONENTS_EXT       Z+   GetIntegerv  128   Max number of comp.     11.1gs.4
+    MAX_GEOMETRY_OUTPUT_COMPONENTS_EXT       Z+   GetIntegerv  64    Max number of comp.     11.1gs.4
                                                                      of outputs written
                                                                      by a geom. shader
     MAX_GEOMETRY_OUTPUT_VERTICES_EXT         Z+   GetIntegerv  256   Max number of vertices  11.1gs.4
@@ -2417,7 +2417,9 @@ Issues
     (9) What should the minimum value of MAX_GEOMETRY_OUTPUT_COMPONENTS_EXT
     be?
 
-    RESOLVED: GL 4.4 has 128, we also use 128.
+    RESOLVED: This was reduced to 64 in revision 20, from an initial value
+    of 128 (matching GL 4.4), to match the limits on vertex shader outputs
+    and fragment shader inputs (Bug 12823).
 
     (10) What naming and token values should we use for
     GEOMETRY_VERTICES_OUT_EXT, GEOMETRY_INPUT_TYPE_EXT, and
@@ -2548,8 +2550,11 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------- -------------------------------------------------
+     20   07/23/15  Jon Leech Reduce minimum value of
+                              MAX_GEOMETRY_OUTPUT_COMPONENTS_EXT to 64 (Bug
+                              12823).
      19   10/08/14  dkoch     change max_vertices identifier to integer-constant
-                              to match rest of ES layout-qualifier-id's 
+                              to match rest of ES layout-qualifier-id's
                               (Bug 12878)
      18   04/23/14  dkoch     Add GetProgramPipelineiv to the list of functions
                               which accept GEOMETRY_SHADER token. Add issue 14.

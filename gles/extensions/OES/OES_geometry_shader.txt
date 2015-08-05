@@ -28,7 +28,7 @@ Contributors
 
 Notice
 
-    Copyright (c) 2008-2013 The Khronos Group Inc. Copyright terms at
+    Copyright (c) 2008-2015 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
     Portions Copyright (c) 2013-2014 NVIDIA Corporation.
@@ -40,8 +40,8 @@ Status
 
 Version
 
-    Last Modified Date: October 8, 2014
-    Revision: 2
+    Last Modified Date: July 23, 2015
+    Revision: 3
 
 Number
 
@@ -1767,7 +1767,7 @@ New Implementation Dependent State
     MAX_GEOMETRY_INPUT_COMPONENTS_OES        Z+   GetIntegerv  64    Max number of comp.     11.1gs.4
                                                                      of inputs read by a
                                                                      geom. shader
-    MAX_GEOMETRY_OUTPUT_COMPONENTS_OES       Z+   GetIntegerv  128   Max number of comp.     11.1gs.4
+    MAX_GEOMETRY_OUTPUT_COMPONENTS_OES       Z+   GetIntegerv  64    Max number of comp.     11.1gs.4
                                                                      of outputs written
                                                                      by a geom. shader
     MAX_GEOMETRY_OUTPUT_VERTICES_OES         Z+   GetIntegerv  256   Max number of vertices  11.1gs.4
@@ -2424,7 +2424,9 @@ Issues
     (9) What should the minimum value of MAX_GEOMETRY_OUTPUT_COMPONENTS_OES
     be?
 
-    RESOLVED: GL 4.4 has 128, we also use 128.
+    RESOLVED: This was reduced to 64 in revision 3, from an initial value of
+    128 (matching GL 4.4), to match the limits on vertex shader outputs and
+    fragment shader inputs (Bug 12823).
 
     (10) What naming and token values should we use for
     GEOMETRY_VERTICES_OUT_OES, GEOMETRY_INPUT_TYPE_OES, and
@@ -2553,10 +2555,13 @@ Issues
 
 Revision History
 
-    Rev.    Date    Author    Changes
-    ----  --------  --------- -------------------------------------------------
-     2    10/08/2014 Olson   change max_vertices identifier to integer-constant
+    Rev.    Date   Author    Changes
+    ----  -------- --------- -------------------------------------------------
+     3    07/23/15 Jon Leech Reduce minimum value of
+                             MAX_GEOMETRY_OUTPUT_COMPONENTS_OES to 64 (Bug
+                             12823).
+     2    10/08/14 Olson     change max_vertices identifier to integer-constant
                              to match other ES layout-qualifier-ids
                              (Bug 12878)
-     1    06/18/2014 dkoch   Initial OES version based on EXT.
+     1    06/18/14 dkoch     Initial OES version based on EXT.
                              No functional changes.

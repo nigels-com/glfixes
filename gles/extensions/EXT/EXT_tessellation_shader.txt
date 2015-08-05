@@ -42,8 +42,8 @@ Status
 
 Version
 
-    Last Modified Date: May 5, 2015
-    Revision: 19
+    Last Modified Date: July 23, 2015
+    Revision: 20
 
 Number
 
@@ -1821,17 +1821,17 @@ New Implementation Dependent State
     MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT          Z+    GetIntegerv   1024  No. of words for TES uniforms   11.1ts.3.1
     MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_EXT            Z+    GetIntegerv   16    No. of tex. image units for TCS 11.1.3.5
     MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_EXT         Z+    GetIntegerv   16    No. of tex. image units for TES 11.1.3.5
-    MAX_TESS_CONTROL_OUTPUT_COMPONENTS_EXT              Z+    GetIntegerv   128   No. components for per-patch    11.1ts.1.2
+    MAX_TESS_CONTROL_OUTPUT_COMPONENTS_EXT              Z+    GetIntegerv   64    No. components for per-patch    11.1ts.1.2
                                                                                   vertex outputs in TCS
     MAX_TESS_PATCH_COMPONENTS_EXT                       Z+    GetIntegerv   120   No. components for per-patch    11.1ts.1.2
                                                                                   output varyings for TCS
     MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_EXT        Z+    GetIntegerv   4096  Total no. components for TCS    11.1ts.1.2
                                                                                   outputs
-    MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_EXT           Z+    GetIntegerv   128   No. components for per-vertex   11.1ts.3.2
+    MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_EXT           Z+    GetIntegerv   64    No. components for per-vertex   11.1ts.3.2
                                                                                   outputs in TES
-    MAX_TESS_CONTROL_INPUT_COMPONENTS_EXT               Z+    GetIntegerv   128   No. components for per-vertex   11.1ts.1.2
+    MAX_TESS_CONTROL_INPUT_COMPONENTS_EXT               Z+    GetIntegerv   64    No. components for per-vertex   11.1ts.1.2
                                                                                   inputs in TCS
-    MAX_TESS_EVALUATION_INPUT_COMPONENTS_EXT            Z+    GetIntegerv   128   No. components for per-vertex   11.1ts.3.2
+    MAX_TESS_EVALUATION_INPUT_COMPONENTS_EXT            Z+    GetIntegerv   64    No. components for per-vertex   11.1ts.3.2
                                                                                   inputs in TES
     MAX_TESS_CONTROL_UNIFORM_BLOCKS_EXT                 Z+    GetIntegerv   12    No. of supported uniform        7.6.2
                                                                                   blocks for TCS
@@ -2683,6 +2683,10 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------- -------------------------------------------------
+     20   07/23/15  Jon Leech Reduce minimum value of
+                              MAX_TESS_{CONTROL,EVALUATION}_{IN,OUT}PUT_COMPONENTS
+                              to 64 (Bug 12823)
+
      19   05/05/15  dkoch     Allow arrays for both per-patch and per-vertex
                               TCS outputs (Bug 13658).
                               Fix typo in issue 15 suggesting that VS outputs
