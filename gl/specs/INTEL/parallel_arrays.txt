@@ -18,35 +18,6 @@ Dependencies
 
     OpenGL 1.1
 
-Overview
-
-        This extension adds the ability to format vertex arrays in a way that's 
-efficient for SIMD architectures as well as caching.  In addition to storing 
-vertex data in staggered in a single array, or sparsely in separate arrays as 
-possible with existing vertex arrays, coordinates may be stored in individual 
-arrays.  
-The parallel array mode is enabled using Enable(PARALLEL_ARRAYS).
-Pointers to the coordinate arrays are specified using new vector versions of the
-Pointer functions.
-
-Issues
-
-        Should an Enable/Disbale be used to switch to/from parallel arrays, or 
-        just infer it from the last type of Pointer called?
-
-        Is stride needed for anything?
-
-        Should this be called Coordinate Arrays?
-
-        Should the <pointer> to the Pointerv funcions be (void *) or (void **)?
-
-Reasoning
-
-        Alternative methods for specifying vertex data are provided for
-        vertex, normal, color, and texture pointers.  Need to put in argument   
-        for why this is faster on some architectures (cache lines, etc).
-
-
 New Procedures and Functions
 
     void VertexPointervINTEL(int size,

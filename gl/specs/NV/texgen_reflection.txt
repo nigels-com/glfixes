@@ -40,51 +40,6 @@ Dependencies
     Written based on the wording of the OpenGL 1.2 specification but
     not dependent on it.
 
-Overview
-
-    This extension provides two new texture coordinate generation modes
-    that are useful texture-based lighting and environment mapping.
-    The reflection map mode generates texture coordinates (s,t,r)
-    matching the vertex's eye-space reflection vector.  The reflection
-    map mode is useful for environment mapping without the singularity
-    inherent in sphere mapping.  The normal map mode generates texture
-    coordinates (s,t,r) matching the vertex's transformed eye-space
-    normal.  The normal map mode is useful for sophisticated cube map
-    texturing-based diffuse lighting models.
-
-Issues
-
-    Should we place the normal/reflection vector in the (s,t,r) texture
-    coordinates or (s,t,q) coordinates?
-
-      RESOLUTION:  (s,t,r).  Even if the proposed hardware uses "q" for
-      the third component, the API should claim to support generation of
-      (s,t,r) and let the texture matrix (through a concatenation with
-      the user-supplied texture matrix) move "r" into "q".
-
-    Should you be able to have some texture coordinates computing
-    REFLECTION_MAP_NV and others not?  Same question with NORMAL_MAP_NV.
-
-      RESOLUTION:  YES. This is the way that SPHERE_MAP works.  It is
-      not clear that this would ever be useful though.
-
-    Should something special be said about the handling of the q
-    texture coordinate for this spec?
-
-      RESOLUTION:  NO.  But the following paragraph is useful for
-      implementors concerned about the handling of q.
-
-      The REFLECTION_MAP_NV and NORMAL_MAP_NV modes are intended to supply
-      reflection and normal vectors for cube map texturing hardware.
-      When these modes are used for cube map texturing, the generated
-      texture coordinates can be thought of as a reflection vector.
-      The value of the q texture coordinate then simply scales the
-      vector but does not change its direction.  Because only the vector
-      direction (not the vector magnitude) matters for cube map texturing,
-      implementations are free to leave q undefined when any of the s,
-      t, or r texture coordinates are generated using REFLECTION_MAP_NV
-      or NORMAL_MAP_NV.
-
 New Procedures and Functions
 
     None

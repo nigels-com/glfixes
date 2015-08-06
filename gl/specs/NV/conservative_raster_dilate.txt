@@ -36,19 +36,6 @@ Dependencies
     applied to OpenGL 4.3 specification (Compatibility Profile) but may be 
     used with the Core profile or OpenGL ES 2.0 or later.
     
-Overview
-
-    This extension extends the conservative rasterization funtionality 
-    provided by NV_conservative_raster. It provides a new control to generate 
-    an "over-conservative" rasterization by dilating primitives prior to 
-    rasterization.
-
-    When using conservative raster to bin geometry, this extension provides a 
-    programmable overlap region between adjacent primitives.  Regular 
-    rasterization bins triangles with a shared edge uniquely into pixels. 
-    Conservative raster has a one-pixel overlap along the shared edge.  Using 
-    a half-pixel raster dilation, this overlap region increases to two pixels.
-
 New Procedures and Functions
     
     void ConservativeRasterParameterfNV(enum pname, float value);

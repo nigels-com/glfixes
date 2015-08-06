@@ -27,34 +27,6 @@ Dependencies
 
     ARB_texture_compression affects the definition of this extension.
 
-Overview
-
-    This extension implements the same functionality for texture
-    updates that glColorMask implements for color buffer updates.
-    Masks for updating textures with indexed internal formats
-    (the analog for glIndexMask) should be supported by a separate extension.
-
-    The extension allows an application to update a subset of
-    components in an existing texture.	The masks are applied after
-    all pixel transfer operations have been performed, immediately
-    prior to writing the texel value into texture memory.  They
-    apply to all texture updates.
-
-IP Status
-
-    No issues.
-
-Issues
-
-    * The functionality provided by this extension can already be
-      performed by using the color mask when rendering to the frame
-      buffer and then using CopyTexture to load the texture.
-
-    * This functionality may be hard to achieve with compressed textures.
-      It will require a read->decompress->modify->compress->write
-      operation.  This may be slower than the DrawPixels/CopyTexture
-      approach.
-
 New Procedures and Functions
 
     void TextureColorMaskSGIS(boolean r, boolean g, boolean, b, boolean a );

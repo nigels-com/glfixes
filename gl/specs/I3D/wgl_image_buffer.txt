@@ -29,40 +29,6 @@ Dependencies
 
     The WGL_EXT_extensions_string extension is required.
 
-Overview
-
-    The image buffer extension provides an interface to allocate one
-    or more memory buffers to be used for GL image functions.  These
-    functions include DrawPixels, ReadPixels, TexImage*D, and
-    TexSubImage*D.
-
-    The advantage of an image buffer over normal allocated memory is
-    as follows:
-
-      o The image buffer may be allocated on the graphics adapter.
-
-      o The image buffer may be locked once by the implementation thus
-        avoiding a call to the OS to lock the memory down each use.
-
-      o The data in the image buffer may be transferred to the adapter
-        using non-snooping accesses.
-
-      o Multiple events may be associated with the image buffer so that
-        the data can be transferred asynchronously.
-
-    Since the image buffer is created and maintained by a specific
-    graphics driver, a DC is required to create the image buffer.
-    However, the image buffer can be used with any RC created for the
-    graphics driver associated with the DC.
-
-IP Status
-
-    None
-
-Issues
-
-    None
-
 New Procedures and Functions
 
     LPVOID wglCreateImageBufferI3D(HDC hDC,

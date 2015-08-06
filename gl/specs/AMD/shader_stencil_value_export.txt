@@ -35,32 +35,6 @@ Dependencies
     This extension is written against the OpenGL Shading Language (GLSL)
     Specification, Version 4.00.7.
 
-Overview
-
-    OpenGL includes stencil testing functionality that allows an application
-    specified value (the reference value) to be compared against the content
-    of a stencil buffer and fragments kept or discarded based on the results
-    of this test. In addition to updating the stencil buffer with simple
-    operations such as inversion or incrementation, this reference value may be
-    written directly into the stencil buffer.
-
-        AMD_stencil_operation_extended further extended the number of
-    operations that may be performed on the stencil buffer to include logical
-    and arithmetic operations. It also introduced new state, the stencil
-    operation source value, to allow these new operations to be performed on
-    the stencil buffer using an application supplied constant value as a source
-    value, rather than the reference value used in the stencil test.
-
-        The AMD_shader_stencil_export extension allowed the reference value
-    used for the stencil test to be generated and exported from a fragment
-    shader. This extension provides similar functionality for the stencil
-    operation source value, allowing it to be generated in and exported from
-    the fragment shader too.
-
-IP Status
-
-    None.
-
 New Procedures and Functions
 
     None.

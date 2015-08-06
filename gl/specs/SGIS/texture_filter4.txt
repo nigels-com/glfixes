@@ -18,42 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extension allows 1D and 2D textures to be filtered using an
-    application-defined, four sample per dimension filter.  (In addition to
-    the NEAREST and LINEAR filters defined in the original GL Specification.)
-    Such filtering results in higher image quality.  It is defined only
-    for non-mipmapped filters.  The filter that is specified must be
-    symmetric and separable (in the 2D case).
-
-Issues
-
-    *	What should the default filter function be?
-        -   Implementation dependent.
-
-    *	Should this extension define 2-wide texture borders?  Do we really
-	want to aggrandize this border stuff :-(
-        -   No.
-
-    *	Should this extension define 2D filtering only (and not 1D)?
-        -   No.
-
-    *	A GLU function that accepts Mitchell parameters and a texture
-	target should be defined.
-
-    *	This specification retains a separate filter function description
-	with every texture.  In conjunction with EXT_texture_object, this
-	may result in a lot of filter functions.  Implementations should
-	optimize for the default filter function to save storage cost.
-
-Reasoning
-
-    *	The name is changed from "cubic" to "filter4" because the table
-	allows the specification of filters that are not at all cubic in
-	nature.  A true cubic filter extension would define the filter
-	function as a cubic polynomial.
-
 New Procedures and Functions
 
     void TexFilterFuncSGIS(enum target,

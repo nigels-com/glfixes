@@ -18,18 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extends color index lighting to include a way for the current
-    index to contribute to the color index produced by lighting.  This
-    works much like ColorMaterial does for RGBA lighting by allowing
-    one or more color index material properties to be attached to the
-    current index.
-
-    The color index lighting formula is also modified so that the lit
-    color index may be bitwise shifted in order to allow greater control
-    when using lighting and fog together in color index mode.
-
 New Procedures and Functions
 
     void IndexMaterialEXT (enum face, enum mode )

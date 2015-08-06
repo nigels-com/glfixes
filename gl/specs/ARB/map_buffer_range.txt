@@ -46,47 +46,6 @@ Dependencies
     Written based on the wording of the OpenGL 2.1 specification.
 
 
-Overview
-
-    ARB_map_buffer_range expands the buffer object API to allow greater
-    performance when a client application only needs to write to a sub-range
-    of a buffer object. To that end, this extension introduces two new buffer
-    object features: non-serialized buffer modification and explicit sub-range
-    flushing for mapped buffer objects.
-
-    OpenGL requires that commands occur in a FIFO manner meaning that any
-    changes to buffer objects either block until the data has been processed by
-    the OpenGL pipeline or else create extra copies to avoid such a block.  By
-    providing a method to asynchronously modify buffer object data, an
-    application is then able to manage the synchronization points themselves
-    and modify ranges of data contained by a buffer object even though OpenGL
-    might still be using other parts of it.
-
-    This extension also provides a method for explicitly flushing ranges of a
-    mapped buffer object so OpenGL does not have to assume that the entire
-    range may have been modified.  Further, it allows the application to more
-    precisely specify its intent with respect to reading, writing, and whether
-    the previous contents of a mapped range of interest need be preserved
-    prior to modification.
-
-    Affects ARB_vertex_buffer_object, ARB_pixel_buffer_object and OpenGL 1.5
-    Buffer Objects.
-
-
-Issues
-
-    (1) Why don't the new tokens and entry points in this extension have
-       "ARB" suffixes like other ARB extensions?
-
-        RESOLVED: Unlike a normal ARB extension, this is a strict subset
-        of functionality already approved in OpenGL 3.0. This extension
-        exists only to support that functionality on older hardware that
-        cannot implement a full OpenGL 3.0 driver. Since there are no
-        possible behavior changes between the ARB extension and core
-        features, source code compatibility is improved by not using
-        suffixes on the extension.
-
-
 New Procedures and Functions
 
     void *MapBufferRange( enum target, intptr offset, sizeiptr length,

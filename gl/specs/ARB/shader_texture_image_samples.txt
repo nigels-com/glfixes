@@ -50,11 +50,6 @@ Dependencies
     This extension interacts with NV_gpu_program5, EXT_shader_image_load_store 
     and NV_texture_multisample.
     
-Overview
-
-    This extension provides GLSL built-in functions allowing shaders to query
-    the number of samples of a texture.
-
 New Procedures and Functions
 
     None.

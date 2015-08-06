@@ -30,53 +30,6 @@ Dependencies
     and the GLX 1.3 Specification, although it should work on previous
     versions of these specifications.
 
-Overview
-
-    This extension provides the control necessary to ensure
-    synchronization between events on the graphics card (such as
-    vertical retrace) and other parts of the system. It provides support
-    for applications with real-time rendering requirements by providing
-    precise synchronization between graphics and streaming video or
-    audio.
-
-    This extension incorporates the use of three counters that provide
-    the necessary synchronization. The Unadjusted System Time (or UST)
-    is a 64-bit monotonically increasing counter that is available
-    throughout the system. UST is not a resource that is controlled
-    by OpenGL, so it is not defined further as part of this extension.
-    The graphics Media Stream Counter (or graphics MSC) is a counter
-    that is unique to the graphics subsystem and increments for each
-    vertical retrace that occurs. The Swap Buffer Counter (SBC) is an
-    attribute of a GLXDrawable and is incremented each time a swap
-    buffer action is performed on the associated drawable.
-
-    The use of these three counters allows the application to
-    synchronize graphics rendering to vertical retraces and/or swap
-    buffer actions, and to synchronize other activities in the system
-    (such as streaming video or audio) to vertical retraces and/or
-    swap buffer actions.
-
-    Functions are provided to allow an application to detect when an
-    MSC or SBC has reached a certain value. This function will block
-    until the specified value has been reached. Applications that want
-    to continue other processing while waiting are expected to call
-    these blocking functions from a thread that is separate from the
-    main processing thread(s) of the application.
-
-    This extension carefully defines the observable order in which
-    things occur in order to allow implementations to perform
-    optimizations and avoid artifacts such as tearing, while at the
-    same time providing a framework for consistent behavior from the
-    point of view of an application.
-
-Issues
-
-    None.
-
-IP Status
-
-    No known issues.
-
 New Procedures and Functions
 
     Bool glXGetSyncValuesOML(Display* dpy,

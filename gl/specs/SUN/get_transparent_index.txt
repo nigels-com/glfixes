@@ -28,10 +28,6 @@ Dependencies
 
     None
 
-Overview
-
-    Gets the transparent pixel index for an overlay/underlay window pair.
-
 New Procedures and Functions
 
     Status glXGetTransparentIndexSUN(Display *dpy,

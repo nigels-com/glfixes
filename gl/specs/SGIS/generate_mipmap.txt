@@ -21,17 +21,6 @@ Dependencies
     EXT_texture_object affects the definition of this extension
     SGIS_texture_lod affects the definition of this extension
 
-Overview
-
-    This extension defines a mechanism by which OpenGL can derive the
-    entire set of mipmap arrays when provided with only the base level
-    array.  Automatic mipmap generation is particularly useful when
-    texture images are being provided as a video stream.
-
-Issues
-
-    *   How are edges handled?
-
 New Procedures and Functions
 
     None

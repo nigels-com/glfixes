@@ -33,20 +33,6 @@ Dependencies
     This extension is written against the EXT_geometry_shader4 and OpenGL 2.0
     specifications.
 
-Overview
-
-    This extension builds upon the EXT_geometry_shader4 specification to
-    provide two additional capabilities:
-
-        * Support for QUADS, QUAD_STRIP, and POLYGON primitive types when
-          geometry shaders are enabled.  Such primitives will be tessellated
-          into individual triangles.
-
-        * Setting the value of GEOMETRY_VERTICES_OUT_EXT will take effect
-          immediately.  It is not necessary to link the program object in
-          order for this change to take effect, as is the case in the EXT
-          version of this extension.
-
 New Procedures and Functions
 
     None

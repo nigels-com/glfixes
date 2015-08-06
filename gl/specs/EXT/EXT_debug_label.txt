@@ -52,21 +52,6 @@ Dependencies
     
     OpenGL 3.3+ and 4.0+ affect the definition of this extension.
 
-Overview
-
-    This extension defines a mechanism for OpenGL and OpenGL ES applications to 
-    label their objects (textures, buffers, shaders, etc.) with a descriptive 
-    string. 
-    
-    When profiling or debugging such an application within a debugger or 
-    profiler it is difficult to identify resources from their object names. 
-    Even when the resource itself is viewed it can be problematic to 
-    differentiate between similar resources. Attaching a label to an object         
-    helps obviate this difficulty.
-    
-    The intended purpose of this is purely to improve the user experience 
-    within OpenGL and OpenGL ES development tools.
-
 New Procedures and Functions
 
     void LabelObjectEXT(enum type, uint object, sizei length, 

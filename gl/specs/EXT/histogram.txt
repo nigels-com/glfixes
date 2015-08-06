@@ -19,15 +19,6 @@ Dependencies
     EXT_abgr affects the definition of this extension
     EXT_texture is required
 
-Overview
-
-    This extension defines pixel operations that count occurences of
-    specific color component values (histogram) and that track the minimum
-    and maximum color component values (minmax).  An optional mode allows
-    pixel data to be discarded after the histogram and/or minmax operations
-    are completed.  Otherwise the pixel data continue on to the next
-    operation unaffected.
-
 New Procedures and Functions
 
     void HistogramEXT(enum target,

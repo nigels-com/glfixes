@@ -40,17 +40,6 @@ Dependencies
     Written based on the wording of the OpenGL 3.0 (August 11, 2008 draft)
     specification.
 
-Overview
-
-    This extension provides a mechanism to do an accelerated copy from one
-    buffer object to another. This may be useful to load buffer objects
-    in a "loading thread" while minimizing cost and synchronization effort
-    in the "rendering thread."
-
-IP Status
-
-    No known IP claims.
-
 New Tokens
 
 

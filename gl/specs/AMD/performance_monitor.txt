@@ -35,50 +35,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extension enables the capture and reporting of performance monitors.
-    Performance monitors contain groups of counters which hold arbitrary counted 
-    data.  Typically, the counters hold information on performance-related
-    counters in the underlying hardware.  The extension is general enough to
-    allow the implementation to choose which counters to expose and pick the
-    data type and range of the counters.  The extension also allows counting to 
-    start and end on arbitrary boundaries during rendering.
-
-Issues
-
-    1.  Should this be an EGL or OpenGL/OpenGL ES extension?
-
-        Decision - Make this an OpenGL/OpenGL ES extension
-        
-        Reason - We would like to expose this extension in both OpenGL and 
-        OpenGL ES which makes EGL an unsuitable choice.  Further, support for 
-        EGL is not a requirement and there are platforms that support OpenGL ES 
-        but not EGL, making it difficult to make this an EGL extension.
-        
-    2.  Should the API support multipassing?
-    
-        Decision - No.
-        
-        Reason - Multipassing should really be left to the application to do.  
-        This makes the API unnecessarily complicated.  A major issue is that 
-        depending on which counters are to be sampled, the # of passes and which 
-        counters get selected in each pass can be difficult to determine.  It is 
-        much easier to give a list of counters categorized by groups with 
-        specific information on the number of counters that can be selected from 
-        each group.
-
-    3.  Should we define a 64-bit data type for UNSIGNED_INT64_AMD?
-
-        Decision - No.
-
-        Reason - While counters can be returned as 64-bit unsigned integers, the
-        data is passed back to the application inside of a void*.  Therefore,
-        there is no need in this extension to define a 64-bit data type (e.g.,
-        GLuint64).  It will be up the application to declare a native 64-bit
-        unsigned integer and cast the returned data to that type.
-
-
 New Procedures and Functions
 
     void GetPerfMonitorGroupsAMD(int *numGroups, sizei groupsSize, 

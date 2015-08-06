@@ -43,17 +43,6 @@ Dependencies
     The presence of an OpenGL 3.2 or later implementation determines
     whether or not WGL_ARB_create_context_profile is required.
 
-Overview
-
-    With the advent of new versions of OpenGL which deprecate features
-    and/or break backward compatibility with older versions, there is a
-    need and desire to indicate at context creation which interface will
-    be used. These extensions add a new context creation routine with
-    attributes specifying the GL version and context properties
-    requested for the context, and additionally add an attribute
-    specifying the GL profile requested for a context of OpenGL 3.2 or
-    later.
-
 New Procedures and Functions
 
     HGLRC wglCreateContextAttribsARB(HDC hDC, HGLRC hShareContext,

@@ -42,15 +42,6 @@ Dependencies
     The extension is written against the OpenGL 4.4 Specification, Core
     Profile, March 19, 2014.
 
-Overview
-
-    This extension adds a new function to get sub-regions of texture
-    images.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     void GetTextureSubImage(uint texture, int level,

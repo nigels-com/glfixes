@@ -18,16 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extension adds two object space tessellation methods for GLU nurbs 
-    surfaces. The existing tessellation methods GLU_PATH_LENGTH and 
-    GLU_PARAMETRIC_ERROR are view dependent since the error tolerance is 
-    measured in the screen space (in pixels), while the corresponding object
-    space tessellation methods are view independent in that the error tolerance
-    measurement is in the object space.
-  
-
 New Procedures and Functions
 
    None

@@ -27,58 +27,6 @@ Dependencies
 
     None.
 
-Overview
-
-    This extension provides a way to interlace rows of pixels when
-    drawing, reading, or copying pixel rectangles or texture images. In
-    this context, interlacing means skiping over rows of pixels or
-    texels in the destination. This is useful for dealing with video
-    data since a single frame of video is typically composed from two
-    images or fields: one image specifying the data for even rows of the
-    frame and the other image specifying the data for odd rows of the
-    frame.
-
-    The functionality provided by this extension is a combination
-    of the older SGIX_interlace and INGR_interlace_read extensions,
-    with  changes applying interlacing to texture image queries.
-
-Issues
-
-  * Should there be a single enumerant controlling both draw and read
-    operations? For the moment, we continue using separate enums, for
-    backwards compatibility with SGIX_interlace and INGR_interlace_read.
-
-  * Can we use the same enum values as the older extensions? Possibly,
-    depending on the resolution of issues of exactly which operations
-    interlacing is applied to. For the moment we assume the same
-    values cannot be used.
-
-  * Are there any GLX protocol issues relating to the actual vs.
-    specified size of the image being transferred? Probably not, since
-    unlike the effects of convolution, the image being transferred over
-    the wire is always the specified size; all that changes is where the
-    pixels are positioned in the frame buffer.
-
-  * Discreet requested that INTERLACE_READ_OML apply to GetTexImage. The
-    extension does not support this because there's no easy way to
-    support it with any generality: with only the binary
-    INTERLACE_READ_OML setting available, the implementation could
-    return only the even rows, but would have no way of indicating that
-    only the odd rows should be returned. This is non-orthogonal
-    probably more frustrating than useful; a generic solution would
-    require creation of a GetTexSubImage call.
-
-  * We may need to be more precise about exactly which operations
-    interlacing is and is not applied to. Currently it must be inferred
-    from other parts of the OpenGL Specification, and different
-    implementations are likely to disagree on this. Some language has
-    been added to section 6.1.4 to deal explicitly with GetTexImage, but
-    may be needed elsewhere as well.
-
-IP Status
-
-    No known issues.
-
 New Procedures and Functions
 
     None.

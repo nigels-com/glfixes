@@ -35,31 +35,6 @@ Dependencies
     This extension interacts with GLX_EXT_create_context_es2_profile and
     GLX_EXT_create_context_es_profile.
 
-Overview
-
-    In many situations, applications want to detect characteristics of a
-    rendering device before creating a context for that device.  Information
-    gathered at this stage may guide choices the application makes about
-    color depth, number of samples per-pixel, texture quality, and so on.
-    In addition, versions of supported APIs and implementation API
-    preference may also guide start-up decisions made by the application.
-    For example, one implementation may prefer vertex data be supplied using
-    methods only available in a compatibility profile, but another
-    implementation may only support the desired version in a core profile.
-
-    There are also cases where more than one renderer may be available per
-    display.  For example, there is typically a hardware implementation and
-    a software based implementation.  There are cases where an application
-    may want to pick one over the other.  One such situation is when the
-    software implementation supports more features than the hardware
-    implementation.  Another situation is when a particular version of the
-    hardware implementation is blacklisted due to known bugs.
-
-    This extension provides a mechanism for the application to query all of
-    the available renderers for a particular display and screen.  In
-    addition, this extension provides a mechanism for applications to create
-    contexts with respect to a specific renderer.
-
 New Procedures and Functions
 
     Bool glXQueryRendererIntegerMESA(Display *dpy, int screen,

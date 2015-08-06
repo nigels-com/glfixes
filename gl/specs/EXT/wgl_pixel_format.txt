@@ -18,53 +18,6 @@ Dependencies
 
     WGL_EXT_extensions_string is required.
 
-Overview
-
-    This extension adds functions to query pixel format attributes
-    and to choose from the list of pixel formats supported by a device.
-
-    These functions treat pixel formats as opaque types: attributes
-    are specified by name rather than by accessing them directly as
-    fields in a structure.  Thus the list of attributes can be easily
-    extended.
-    
-    Attribute names are defined which correspond to all of the values
-    in the PIXELFORMATDESCRIPTOR and LAYERPLANEDESCRIPTOR data structures.
-    Additionally this interface allows pixel formats to be supported
-    which have attributes that cannot be represented using the standard
-    pixel format functions, i.e. DescribePixelFormat, DescribeLayerPlane,
-    ChoosePixelFormat, SetPixelFormat, and GetPixelFormat.
-
-Issues
-
-    1. No provision is made to support extended pixel format attributes in
-       metafiles.
-    2. The transparent value pixel format attribute doesn't have separate red,
-       green and blue values. This is OK since this can be done as an
-       additional extension.
-    3. Should we add DONT_CARE values for some of the pixel format attributes?
-       No we should just ignore attributes that aren't specified in the list
-       passed to wglChoosePixelFormatEXT.
-    4. Should wglGetPixelFormatAttrib*vEXT ignore the <iLayerPlane> parameter
-       when the attribute specified only applies to the main planes (e.g.,
-       when the attribute is set to WGL_NUMBER_OVERLAYS) or should it require
-       <iLayerPlane> to be set to zero? It will just ignore the parameter.
-    5. Should wglGetPixelFormatAttribivEXT convert floating point values to
-       fixed point? No, wglChoosePixelFormatEXT needs a way to accept floating
-       point values. pfAttribFList accomplishes this.
-    6. Should wglChoosePixelFormatEXT take an <iLayerPlane> parameter? Typically
-       <iLayerPlane> would be set to zero and a pixel format would be selected
-       based on the attributes of the main plane, so there is no <iLayerPlane>
-       parameter. This should be OK; applications won't typically select a
-       pixel format on the basis of overlay attributes. They can always call
-       wglGetPixelFormatAttrib*vEXT to get a pixel format that has the desired
-       overlay values.
-    7. Application programmers must check to see if a particular extension
-       is supported before using any pixel format attributes associated with
-       the extension. For example, if WGL_EXT_pbuffer is not supported then
-       it is an error to specify WGL_DRAW_TO_PBUFFER_EXT in the attribute list
-       to wglGetPixelFormatAttrib*vEXT or wglChoosePixelFormatEXT.
-
 New Procedures and Functions
 
     BOOL wglGetPixelFormatAttribivEXT(HDC hdc,

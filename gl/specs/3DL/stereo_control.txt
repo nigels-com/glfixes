@@ -30,20 +30,6 @@ Dependencies
 
     The WGL_EXT_extensions_string extension is required.
 
-Overview
-
-    The stereo extension provides an interface for manipulating the 
-    emitter signal from the video adapter used to drive lcd shutter 
-    glasses used for stereoscopic viewing.
-
-IP Status
-
-    None
-
-Issues
-
-    None
-
 New Procedures and Functions
 
     BOOL wglSetStereoEmitterState3DL(HDC hDC, UINT uState)

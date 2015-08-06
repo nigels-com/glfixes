@@ -53,19 +53,6 @@ Dependencies
 
     This extension interacts trivially with EXT_separate_shader_objects.
 
-Overview
-
-    This extension adds support to shaders for "indirect subroutine calls", 
-    where a single shader can include many subroutines and dynamically select
-    through the API which subroutine is called from each call site. 
-    Switching subroutines dynamically in this fashion can avoid the cost of 
-    recompiling and managing multiple shaders, while still retaining most of
-    the performance of specialized shaders.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     int GetSubroutineUniformLocation(uint program, enum shadertype, 

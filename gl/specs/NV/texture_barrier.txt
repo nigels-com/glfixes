@@ -27,12 +27,6 @@ Dependencies
 
     This extension is written against the OpenGL 3.0 specification.
 
-Overview
-
-    This extension relaxes the restrictions on rendering to a currently
-    bound texture and provides a mechanism to avoid read-after-write
-    hazards.
-
 New Procedures and Functions
 
     void TextureBarrierNV(void);

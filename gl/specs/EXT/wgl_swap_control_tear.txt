@@ -37,14 +37,6 @@ Dependencies
     
     WGL_EXT_swap_control is required.
 
-Overview
-
-    This extension extends the existing WGL_EXT_swap_control extension
-    by allowing a negative <interval> parameter to wglSwapIntervalEXT.
-    The negative <interval> allows late swaps to occur without
-    synchronization to the video frame. This reduces the visual stutter
-    on late frames and reduces the stall on subsequent frames.
-
 New Procedures and Functions
 
     None

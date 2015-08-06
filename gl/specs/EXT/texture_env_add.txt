@@ -27,15 +27,6 @@ Dependencies
 
     None
 
-Overview
-
-    New texture environment function ADD is supported with the following 
-    equation: 
-                        Cv = min(1, Cf + Ct)
-
-    New function may be specified by calling TexEnv with ADD token.
-    
-
 New Procedures and Functions
 
     None

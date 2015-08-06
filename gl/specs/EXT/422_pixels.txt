@@ -18,24 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extension provides support for converting 422 pixels in host
-    memory to 444 pixels as part of the pixel storage operation.
-
-    The pixel unpack storage operation treats a 422 pixel as a 2 element
-    format where the first element is C (chrominance) and the second
-    element is L (luminance). Luminance is present on all pixels; a full
-    chrominance value requires two pixels.
-
-    The pixel pack storage operation converts RGB to a 422 pixel defined as
-    a 2 element format where the first element stored is C (chrominance)
-    and the second element stored is L (luminance).  Luminance is present
-    on all pixels; a full chrominance value requires two pixels.
-
-    Both averaging and non-averaging is supported for green and blue
-    assignments for pack and unpack operations.
-
 New Procedures and Functions
 
     None

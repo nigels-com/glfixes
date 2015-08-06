@@ -21,46 +21,6 @@ Dependencies
     EXT_copy_texture affects the definition of this extension
     EXT_texture_object affects the definition of this extension
 
-Overview
-
-    This extension introduces texture magnification filters that blend
-    between the level 0 image and a separately defined "detail" image.
-    The detail image represents the characteristics of the high frequency
-    subband image above the band-limited level 0 image.  The detail image is
-    typically a rectangular portion of the subband image which is modified
-    so that it can be repeated without discontinuities along its edges.
-    Detail blending can be enabled for all color channels, for the alpha
-    channel only, or for the red, green, and blue channels only.  It is
-    available only for 2D textures.
-
-    WARNING - Silicon Graphics has filed for patent protection for some
-	      of the techniques described in this extension document.
-
-Issues
-
-    *	Should detail textures be supported in 1D?  3D?  (Currently
-	written to support 2D only)
-
-    *	Is there any need to support detail textures with NEAREST
-	or FILTER4 filtering?  (No)
-
-    *	How does detail texture interact with a texture whose
-	minimum LOD image is not layer zero?  (Handle this in the LOD
-	extension.)
-
-    *	Should six detail filters be defined, so that the MODE is part
-	of the filter name?  (LINEAR_ADD_DETAIL_SGIS,
-	LINEAR_ADD_DETAIL_ALPHA_SGIS, ...)  (No)
-
-    *	I have scaled and biased the detail texture value to the range [-1,1]
-	in this specification.	I believe that Iris GL scaled and biased to
-	[-0.5,0.5].  The [-1,1] range seems clearer to me, if it allows F()
-	to be limited to [0,1].  Is this acceptable?
-
-    *	Should detail texture objects and 2D texture objects be separate
-	sets, or should it be possible to use the same texture object both
-	as a detail texture and as a 2D texture?  (Keep them separate)
-
 New Procedures and Functions
 
     void DetailTexFuncSGIS(enum target,

@@ -37,37 +37,6 @@ Dependencies
 
     Support for NV_fence is recommended but not required.
 
-Overview
-
-    Enabling and disabling the vertex array range is specified by the
-    original NV_vertex_array_range extension specification to flush the
-    vertex array range implicitly.  In retrospect, this semantic is
-    extremely misconceived and creates terrible performance problems
-    for any application that wishes to mix conventional vertex arrays
-    with vertex arrange range-enabled vertex arrays.
-
-    This extension provides a new token for enabling/disabling the
-    vertex array range that does NOT perform an implicit vertex array
-    range flush when the enable/disable is performed.
-
-Issues
-
-    Should this extension expose a new enable that enables/disables the
-    vertex array range enable/disable semantic of performing an implicit
-    'vertex array range flush' when GL_VERTEX_ARRAY_RANGE_NV is enabled
-    or disabled, OR should it add a new enable token that acts identically
-    to GL_VERTEX_ARRAY_RANGE_NV without the implicit flush?
-
-      RESOLUTION:  The second option.  Enabling/disabling
-      GL_VERTEX_ARRAY_RANGE_WITHOUT_FLUSH_NV acts identically to
-      enabling/disabling GL_VERTEX_ARRAY_RANGE_NV, just without the
-      implicit flush.
-
-    Should GL_VERTEX_ARRAY_RANGE_WITHOUT_FLUSH_NV work with glIsEnabled?
-
-      RESOLUTION:  NO.  There is still just a single state boolean to
-      query.
-
 New Procedures and Functions
 
     None

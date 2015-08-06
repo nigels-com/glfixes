@@ -21,49 +21,6 @@ Dependencies
     the "Color Sum" stage and other handling of the secondary color. This is
     written against the 1.2 specification (available from www.opengl.org).
 
-Overview
-
-    This extension allows specifying the RGB components of the secondary
-    color used in the Color Sum stage, instead of using the default
-    (0,0,0,0) color. It applies only in RGBA mode and when LIGHTING is
-    disabled.
-
-Issues
-
-  * Can we use the secondary alpha as an explicit fog weighting factor?
-
-        ISVs prefer a separate interface (see GL_EXT_fog_coord). The current
-        interface specifies only the RGB elements, leaving the option of a
-        separate extension for SecondaryColor4() entry points open (thus
-        the apparently useless ARRAY_SIZE state entry).
-
-        There is an unpleasant asymmetry with Color3() - one assumes A =
-        1.0, the other assumes A = 0.0 - but this appears unavoidable given
-        the 1.2 color sum specification language. Alternatively, the color
-        sum language could be rewritten to not sum secondary A.
-
-  * What about multiple "color iterators" for use with aggrandized
-    multitexture implementations?
-
-        We may need this eventually, but the secondary color is well defined
-        and a more generic interface doesn't seem justified now.
-
-  * Interleaved array formats?
-
-        No. The multiplicative explosion of formats is too great.
-
-  * Do we want to be able to query the secondary color value? How does it
-    interact with lighting?
-
-        The secondary color is not part of the GL state in the
-        separate_specular_color extension that went into OpenGL 1.2. There,
-        it can't be queried or obtained via feedback.
-
-        The secondary_color extension is slightly more general-purpose, so
-        the secondary color is explicitly in the GL state and can be queried
-        - but it's still somewhat limited and can't be obtained via
-        feedback, for example.
-
 New Procedures and Functions
 
     void SecondaryColor3[bsifd ubusui]EXT(T components)

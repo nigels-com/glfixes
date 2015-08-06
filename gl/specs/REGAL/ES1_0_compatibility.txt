@@ -36,14 +36,6 @@ Dependencies
     This extension is written against the OpenGL 4.2
     Specification (April 27, 20012).
 
-Overview
-
-    OpenGL ES 1.0
-
-IP Status
-
-    Not known.
-
 New Procedures and Functions
 
     void glAlphaFuncx (GLenum func, GLclampx ref)

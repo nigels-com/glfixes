@@ -32,13 +32,6 @@ Dependencies
     GLX 1.3 is required.
     OML_sync_control affects the definition of this extension.
 
-Overview
-
-    This extension adds a new event type, GLX_BUFFER_SWAP_COMPLETE_INTEL,
-    which is sent to the client via the X11 event stream and
-    selected/consumed by the normal GLX event mask mechanisms, to indicate
-    when a previously queued swap has completed.
-
 New Procedures and Functions
 
     None

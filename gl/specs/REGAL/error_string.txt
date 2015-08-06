@@ -36,25 +36,6 @@ Dependencies
     This extension is written against the OpenGL 4.2
     Specification (April 27, 20012).
 
-Overview
-
-    This extension provides the same functionality as
-    gluErrorString as specified in Chapter 8 of The
-    OpenGL Graphics System Utility Library, Version 1.3.
-
-    It is provided as part of Regal for the purpose of
-    easing the retargeting of desktop OpenGL code
-    to platforms without GLU library support, such as
-    ES.
-
-IP Status
-
-    No known IP claims.
-
-    gluErrorString was part of the OpenGL Graphics System
-    Utility Library, Version 1.3 as specific by Silicon
-    Graphics Inc.
-
 New Procedures and Functions
 
     const char *ErrorStringREGAL(enum error);

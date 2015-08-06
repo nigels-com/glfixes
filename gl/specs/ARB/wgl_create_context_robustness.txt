@@ -36,16 +36,6 @@ Dependencies
 
     An OpenGL implementation supporting GL_ARB_robustness is required.
 
-Overview
-
-    This extension allows creating an OpenGL context supporting robust
-    buffer access behavior and a specified graphics reset notification
-    behavior.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     None

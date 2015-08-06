@@ -23,62 +23,6 @@ Dependencies
     SGIX_shadow affects the definition of this extension.
     SGIX_color_range affects the definition of this extension.
 
-Overview
-
-    This extension defines a general mechanism for substituting the
-    fragment color computed during texture environment processing in
-    place of other fragment attributes such as the fragment normal, or
-    as sources for some of the computations in the fragment processing
-    pipeline, for example as material or light parameters in the
-    fragment lighting computations.
-
-
-    Cf ----------------------+
-                             |                 +-> to lighting parameters
-                             v                 |
-    +------------+        +--------+     +-------------+
-    |            |        |        |     |             |
-    | texel      |------->| texenv |-----| texture     |---> Cf' (to Light Environment
-    | generation |        |        |     | application |          or Fog)
-    |            |        |        |     |             |
-    +------------+        +--------+     +-------------+
-
-
-Patent Note
-
-    To the extent that SGI has patent rights that are unavoidably
-    infringed by all implementations of this extension, SGI will, upon
-    request, grant a license under such patent rights to the requesting
-    party subject to reasonable terms and conditions, and without
-    incremental charge or fee. Such license shall be non-exclusive, and
-    non-transferable, and shall be limited to implementations of the
-    extension in combination with any conformance certified
-    implementation of the OpenGL API. Such license is expressly
-    contingent upon a grant back of a non-exclusive, royalty-free,
-    perpetual, worldwide license to SGI and its OpenGL licensees under
-    the requesting party's patent rights that are unavoidably infringed
-    by all implementations of this extension or OpenGL.
-
-Issues
-
-    *  normal3 rather than normal?
-
-    *  other parameters, spotlight fall off, ...
-
-    *  implications of extended range colors. (do we clamp to [0,1]?)
-
-    *  TexturePath or DirectTexture rather than ApplyTexture?
-
-    *  special handling for alpha or luminance textures? (colormask?)
-
-    *  more tokens for driving multiple inputs, e.g. AMBIENT_DIFFUSE_AND_SPECULAR
-
-    *  normals need to be in the range [-1,1]
-        
-        when a texture is used as a normal, its components are scaled
-        and biased to the range [-1,1].
-
-
 New Procedures and Functions
 
     void ApplyTextureEXT(enum mode);

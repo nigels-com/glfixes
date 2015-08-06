@@ -32,26 +32,6 @@ Dependencies
 
     This extension is written against the OpenGL ES 2.0 Specification.
 
-Overview
-
-    In some implementations it is advantageous to know the expected
-    usage of a texture before the backing storage for it is allocated.  
-    This can help to inform the implementation's choice of format
-    and type of memory used for the allocation. If the usage is not
-    known in advance, the implementation essentially has to make a 
-    guess as to how it will be used.  If it is later proven wrong,
-    it may need to perform costly re-allocations and/or reformatting 
-    of the texture data, resulting in reduced performance.
-
-    This extension adds a texture usage flag that is specified via
-    the TEXTURE_USAGE_ANGLE TexParameter.  This can be used to 
-    indicate that the application knows that this texture will be 
-    used for rendering.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     None

@@ -30,20 +30,6 @@ Dependencies
     This extension is written against the OpenGL Shading Language
     Specification, Version 4.30.
 
-Overview
-
-    This extension introduces three new trinary built-in functions to the
-    OpenGL Shading Languages. These functions allow the minimum, maximum
-    or median of three inputs to be found with a single function call. These
-    operations may be useful for sorting and filtering operations, for example.
-    By explicitly performing a trinary operation with a single built-in
-    function, shader compilers and optimizers may be able to generate better
-    instruction sequences for perform sorting and other multi-input functions.
-
-IP Status
-
-    None.
-
 New Procedures and Functions
 
     None.

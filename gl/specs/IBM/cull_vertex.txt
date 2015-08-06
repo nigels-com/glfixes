@@ -18,36 +18,6 @@ Dependencies
 
     EXT_cull_vertex affects the definition of this extension
 
-Overview
-
-    IBM_cull_vertex provides a subset of the vertex culling functionality
-    found in EXT_cull_vertex without providing a guarantee that faces will
-    be culled because of it.  EXT_cull_vertex is a technically superior
-    solution, but the vertex culling aspect of IBM_cull_vertex provides
-    generally useful function cheaply (without imposing the mandated
-    culling found in EXT_cull_vertex).
-
-Issues
-
-  * Should the application be allowed to specify eye direction explicitly,
-    as is the case in EXT_cull_vertex?  Not in this specification;
-    addressed by the full EXT_cull_vertex extension.
-
-  * Should a control be provided to reverse the eye direction, which would
-    be necessary to cull correctly if DepthRange is specified with near >
-    far?  Or if the normals specified were reversed?  FrontFace could be
-    used in combination with two sided lighting to produce realistic
-    lighting effects if the normals were consistenly reversed.  Neither is
-    addressed in the current specification.  Both are addressed by
-    EXT_cull_vertex. 
-
-  * Should a control be provided to perform vertex culling with a local eye
-    position?  Not in this specification; addressed by EXT_cull_vertex.
-
-  * Should forward compatibility between IBM_cull_vertex and
-    EXT_cull_vertex be provided (i.e., applications must change if/when we
-    fully implement EXT_cull_vertex)?  Probably not.
-
 New Procedures and Functions
 
     None

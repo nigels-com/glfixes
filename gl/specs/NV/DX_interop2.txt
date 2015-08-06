@@ -37,11 +37,6 @@ Dependencies
     Direct3D 10-capable GPU required for ID3D10Device usage.
     Direct3D 11-capable GPU required for ID3D11Device usage.
 
-Overview
-
-    This extension expands on the specification of WGL_NV_DX_interop
-    to add support for DirectX version 10, 10.1 and 11 resources.
-
 New Procedures and Functions
 
     None

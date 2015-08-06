@@ -36,67 +36,6 @@ Dependencies
 
     Written based on the wording of the OpenGL ES 1.0 specification
 
-Overview
-
-    The goal of this extension is to allow direct support of palettized
-    textures in OpenGL ES.
-
-    Palettized textures are implemented in OpenGL ES using the
-    CompressedTexImage2D call. The definition of the following parameters
-    "level" and "internalformat" in the CompressedTexImage2D call have
-    been extended to support paletted textures.
-
-    A paletted texture is described by the following data:
-
-        palette format
-            can be R5_G6_B5, RGBA4, RGB5_A1, RGB8, or RGBA8
-
-        number of bits to represent texture data
-            can be 4 bits or 8 bits per texel.  The number of bits
-            also detemine the size of the palette.  For 4 bits/texel
-            the palette size is 16 entries and for 8 bits/texel the
-            palette size will be 256 entries.
-
-            The palette format and bits/texel are encoded in the
-            "internalformat" parameter.
-
-        palette data and texture mip-levels
-            The palette data followed by all necessary mip levels are
-            passed in "data" parameter of CompressedTexImage2D.
-
-            The size of palette is given by palette format and bits / texel.
-            A palette format of RGB_565 with 4 bits/texel imply a palette
-            size of 2 bytes/palette entry * 16 entries = 32 bytes.
-
-            The level value is used to indicate how many mip levels
-            are described.  Negative level values are used to define
-            the number of miplevels described in the "data" component.
-            A level of zero indicates a single mip-level.
-
-Issues
-
-    *   Should glCompressedTexSubImage2D be allowed for modifying paletted
-        texture data.
-
-        RESOLVED:  No, this would then require implementations that do not
-        support paletted formats internally to also store the palette
-        per texture.  This can be a memory overhead on platforms that are
-        memory constrained.
-
-    *   Should palette format and number of bits used to represent each
-        texel be part of data or internal format.
-
-        RESOLVED:  Should be part of the internal format since this makes
-        the palette format and texture data size very explicit for the
-        application programmer.
-
-    *   Should the size of palette be fixed i.e 16 entries for 4-bit texels
-        and 256 entries for 8-bit texels or be programmable.
-
-        RESOLVED:  Should be fixed.  The application can expand the palette
-        to 16 or 256 if internally it is using a smaller palette.
-
-
 New Procedures and Functions
 
     None

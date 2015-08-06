@@ -18,22 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    IBM_rasterpos_clip extends the semantics of the RasterPos functions.  It
-    provides an enable that allows a raster position that would normally be
-    clipped to be treated as a valid (albeit out-of-viewport) position.
-
-    This extension allows applications to specify geometry-aligned pixel
-    primitives that may be partially off-screen.  These primitives are
-    tested on a pixel-by-pixel basis without being rejected completely
-    because of an invalid raster position.
-
-Issues
-
-    Currently, clipping is disabled only in X and Y.  If disabling Z
-    clipping is required, the behavior needs to be specified.
-
 New Procedures and Functions
 
     None

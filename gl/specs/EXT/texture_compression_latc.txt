@@ -40,22 +40,6 @@ Dependencies
 
     This extension interacts with OpenGL 2.0 and ARB_texture_non_power_of_two.
 
-Overview
-
-    This extension introduces four new block-based texture compression
-    formats suited for unsigned and signed luminance and luminance-alpha
-    textures (hence the name "latc" for Luminance-Alpha Texture
-    Compression).
-
-    These formats are designed to reduce the storage requirements and
-    memory bandwidth required for luminance and luminance-alpha textures
-    by a factor of 2-to-1 over conventional uncompressed luminance and
-    luminance-alpha textures with 8-bit components (GL_LUMINANCE8 and
-    GL_LUMINANCE8_ALPHA8).
-
-    The compressed signed luminance-alpha format is reasonably suited
-    for storing compressed normal maps.
-
 New Procedures and Functions
 
     None.

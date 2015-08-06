@@ -33,10 +33,6 @@ Dependencies
 
     This extension interacts with EXT_direct_state_access.
 
-Overview
-
-    Extend GL_ARB_copy_buffer to have GLX bindings. 
-
 New Procedures and Functions
 
     void glXCopyBufferSubDataNV(Display *dpy,

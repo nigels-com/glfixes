@@ -31,24 +31,6 @@ Dependencies
 
     None.
 
-Overview
-
-    This extension provides the same functionality as
-    glutGetProcAddress as implemented by The OpenGL Utility
-    Toolkit (GLUT) and freeglut.
-
-    It is provided as part of Regal for the purpose of
-    easing the retargeting of desktop OpenGL code
-    without requiring GLUT or freeglut for procedure
-    address query purposes.
-
-IP Status
-
-    No known IP claims.
-
-    glutGetProcAddress is implemented by The OpenGL Utility
-    Toolkit (GLUT) and freeglut.
-
 New Procedures and Functions
 
     void *glGetProcAddressREGAL(const char *name);

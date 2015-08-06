@@ -20,23 +20,6 @@ Dependencies
     EXT_texture_3D
     IBM_texture_edge_clamp
 
-Overview
-
-    IBM_texture_mirrored_repeat extends the set of texture wrap modes to
-    include a mode (GL_MIRRORED_REPEAT_IBM) that effectively uses a texture
-    map twice as large at the original image in which the additional half of
-    the new image is a mirror image of the original image.
-
-    This new mode relaxes the need to generate images whose opposite edges
-    match by using the original image to generate a matching "mirror image".
-
-Issues
-
-  * The spec clamps the final (u,v) coordinates to the range [0.5, 2^n-0.5].
-    This will produce the same effect as trapping a sample of the border texel
-    and using the corresponding edge texel.  The choice of technique is purely
-    an implementation detail.
-
 New Procedures and Functions
 
     None

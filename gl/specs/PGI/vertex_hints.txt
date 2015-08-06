@@ -18,11 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    The extension allows the app to give hints regarding what kinds of
-    OpenGL function calls will happen between Begin/End pairs.
-
 New Procedures and Functions
 
     None

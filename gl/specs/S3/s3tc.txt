@@ -41,17 +41,6 @@ Dependencies
     OpenGL 1.1 is required.
     The extension is not specified; only the new tokens are known.
 
-Overview
-
-    This extension allows specifying texture data in compressed S3TC
-    format.
-
-Issues
-
-  * Need a specification, at least at a functional level. No
-    detailed online documentation can be found in Google, only
-    enum values.
-
 New Procedures and Functions
 
     None.

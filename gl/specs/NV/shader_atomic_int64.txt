@@ -40,13 +40,6 @@ Dependencies
      This extension interacts with NV_gpu_program5, NV_compute_program5, and
      NV_shader_storage_buffer_object.
 
-Overview
-
-     This extension provides additional GLSL built-in functions and assembly
-     opcodes allowing shaders to perform additional atomic read-modify-write
-     operations on 64-bit signed and unsigned integers stored in buffer object
-     memory.
-
 New Procedures and Functions
 
      None.

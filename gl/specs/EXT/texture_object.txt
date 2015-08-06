@@ -18,43 +18,6 @@ Dependencies
 
     EXT_texture3D affects the definition of this extension
 
-Overview
-
-    This extension introduces named texture objects.  The only way to name
-    a texture in GL 1.0 is by defining it as a single display list.  Because
-    display lists cannot be edited, these objects are static.  Yet it is
-    important to be able to change the images and parameters of a texture.
-
-Issues
-
-    *   Should the dimensions of a texture object be static once they are
-        changed from zero?  This might simplify the management of texture
-        memory.  What about other properties of a texture object?
-
-        No.
-
-Reasoning
-
-    *   Previous proposals overloaded the <target> parameter of many Tex
-        commands with texture object names, as well as the original
-        enumerated values.  This proposal eliminated such overloading,
-        choosing instead to require an application to bind a texture object,
-        and then operate on it through the binding reference.  If this
-        constraint ultimately proves to be unacceptable, we can always
-        extend the extension with additional binding points for editing and
-        querying only, but if we expect to do this, we might choose to bite
-        the bullet and overload the <target> parameters now.
-
-    *   Commands to directly set the priority of a texture object and to
-        query the resident status of a texture object are included.  I feel
-        that binding a texture object would be an unacceptable burden for
-        these management operations.  These commands also allow queries and
-        operations on lists of texture objects, which should improve
-        efficiency.
-
-    *   GenTexturesEXT does not return a success/failure boolean because
-        it should never fail in practice.
-
 New Procedures and Functions
 
     void GenTexturesEXT(sizei n,

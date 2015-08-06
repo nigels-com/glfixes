@@ -53,17 +53,6 @@ Dependencies
     support for context flags (as defined in the OpenGL 4.5 core spec) or an
     extension supporting equivalent functionality is exposed.
 
-Overview
-
-    With this extension enabled any behavior that generates a GL error will
-    have undefined behavior.  The reason this extension exists is performance
-    can be increased and power usage decreased.  When this mode is used, a GL
-    driver can have undefined behavior where it would have generated a GL error
-    without this extension.  This could include application termination.  In
-    general this extension should be used after you have verified all the GL
-    errors are removed, and an application is not the kind that would check
-    for GL errors and adjust behavior based on those errors.
-
 New Procedures and Functions
 
     None

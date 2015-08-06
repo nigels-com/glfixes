@@ -33,12 +33,6 @@ Dependencies
     This extension is written against The OpenGL 4.4 (Compatibility Profile)
     specification.
 
-Overview
-
-    This extension relaxes the restrictions on rendering to a currently
-    bound texture and provides a mechanism to avoid read-after-write
-    hazards.
-
 New Procedures and Functions
 
     void TextureBarrier(void);

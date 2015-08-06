@@ -18,35 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extension introduces a method for culling vertexes in object
-    space based on the value of the dot product between the normal at
-    the vertex and a culling eye direction.
-
-    Culling a polygon by examining its vertexes in object space can be
-    more efficient than screen space polygon culling since the transformation
-    to screen space (which may include a division by w) can be avoided for
-    culled vertexes.  Also, vertex culling can be computed before vertexes
-    are assembled into primitives.  This is a useful property when drawing
-    meshes with shared vertexes, since a vertex can be culled once, and the
-    resulting state can be used for all primitives which share the vertex.
-
-Issues
-
-    * Should FrontFace affect the comparison of the dot product?
-      It may be useful.  For non-local eye positions it is easy for
-      the application to flip the eye direction in order to cull
-      either front or back faces.  This doesn't work as well for
-      local eye positions.  We'll defer this for now; it is easy
-      to add as an extension later.
-
-    * Could determine the eye position/direction in object space
-      by transforming the vector (0, 0, 1, 0) by the inverse of
-      the composite of the modelview and projection transformations.
-      Seems better to have the application provide the eye position/direction
-      than to have OpenGL pick one arbitrarily.
-
 New Procedures and Functions
 
     void CullParameterfvEXT (enum pname, float *params)

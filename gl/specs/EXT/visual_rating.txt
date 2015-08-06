@@ -18,47 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extension allows servers to identify a particular GLX visual as 
-    undesirable. A new visual attribute is introduced, providing a way
-    for servers to specify caveats (e.g., slow) for a visual. The attribute 
-    may be queried using glXGetConfig, and can therefore be used by 
-    application-specific visual selection routines. The new attribute is 
-    also used by glXChooseVisual to discriminate against visuals with
-    caveats.
-
-    This extension allows servers to export visuals with improved features
-    or image quality, but lower performance or greater system burden,
-    without having to have these visuals selected preferentially.  It is
-    intended to insure that most applications get the "right" visual, not
-    that all applications do.
-
-Issues
-
-    It is possible for an application to unknowingly select a visual with 
-    caveats, if it is unaware of the GLX_VISUAL_CAVEAT_EXT attribute. Also, if 
-    the server supports this extension but the client library does not, then 
-    glXChooseVisual may select a visual with caveats. The latter problem can be 
-    rectified if/when this extension is incorporated into GLX 1.3, since the 
-    server knows the clients version and can avoid exporting visuals with 
-    caveats to client libraries that don't know how to handle them. (Note that 
-    the server does not know which GLX extensions a client supports.)
-
-Reasoning
-
-    This extension is designed to be automatic -- applications don't have
-    to use it explicitly. glXChooseVisual always prefers visuals with
-    no caveats.
-
-    Because visuals that don't have a GLX_VISUAL_CAVEAT_EXT attribute are 
-    treated as good visuals, applications need not concern themselves with 
-    whether a server supports EXT_visual_rating or not.  This allows 
-    operation to be automatic.
-
-    The new visual attribute is defined as an enumerated type so additional
-    caveats, such as GLX_RESOURCE_HOG_EXT, can be introduced in the future.
-
 New Procedures and Functions
 
     None

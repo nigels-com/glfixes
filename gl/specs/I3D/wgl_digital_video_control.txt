@@ -31,20 +31,6 @@ Dependencies
 
     WGL_I3D_gamma affects the definition of this extension.
 
-Overview
-
-    The digital video control extension controls digital video data,
-    such as whether it is gamma corrected or the cursor is injected
-    into the video stream.
-
-IP Status
-
-    None
-
-Issues
-
-    None
-
 New Procedures and Functions
 
     BOOL wglGetDigitalVideoParametersI3D(HDC hDC,

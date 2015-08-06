@@ -36,18 +36,6 @@ Dependencies
     This extension is written against the OpenGL 3.2 (Core Profile) and
     OpenGL Shading Language 1.50 Specifications.
 
-Overview
-
-    This extension introduces a #include GLSL directive to allow reusing
-    the same shader text in multiple shaders and defines the semantics
-    and syntax of the names allowed in #include directives. It also
-    defines API mechanisms to define the named string backing a
-    #include.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     void NamedStringARB(enum type, int namelen, const char *name,

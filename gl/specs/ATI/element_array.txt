@@ -37,56 +37,6 @@ Dependencies
     definition of this extension.
 
     
-Overview
-
-    This extension provides a mechanism for an application to create
-    an array of index data for use in specifying geometric primitives.
-    
-    This extension is most useful when used in conjunction with the
-    ATI_vertex_array_object extension. ATI_vertex_array_object
-    provides an interface for storing vertex array data in persistent,
-    hardware-addressable memory. In cases where large amounts of
-    vertex data are in use, the index data used to construct
-    primitives (typically as passed to the GL through DrawElements)
-    can impose a significant bandwidth burden. ATI_element_array
-    allows the application to specify independent arrays of elements,
-    which can then be cached using ATI_vertex_array_object.
-
-    
-Issues
-
-    Should we allow ElementPointerATI to specify a stride?
-    
-        No, the expectation is that the indices are always packed
-        together. 
-    
-    Should we allow ElementPointerATI to accept more types than those
-    accepted by DrawElements and DrawRangeElements?
-    
-        No, it doesn't seem useful to allow float indices, they have
-        to get converted to some kind of int anyways.
-    
-    Should the element count be specified in the draw command, or as
-    part of the definition of the element array.
-    
-        As part of the draw command. Specifying it as part of the
-        definition of element array sort of makes sense, but it
-        doesn't really fit with the way that vertex arrays currently
-        work.
-
-    Do we want to specify new entry points for the draw commands?
-
-        Yes. The alternative is to overload DrawElements and
-        DrawRangeElements by doing something funky like passing a null
-        pointer. This seems like it would be too confusing.
-
-    Is it useful to have the draw commands do something (other than
-    return an error) when the element array is disabled?
-
-        No. It's very hard to ascertain the intent of the application
-	at this point, so it's probably best to not draw anything.
-
-    
 New Procedures and Functions
     
     void ElementPointerATI(enum type, const void *pointer)

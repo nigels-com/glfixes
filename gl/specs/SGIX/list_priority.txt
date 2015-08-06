@@ -18,33 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extension provides a mechanism for specifying the relative
-    importance of display lists.  This information can be used by
-    an OpenGL implementation to guide the placement of display
-    list data in a storage hierarchy.
-
-Issues
-
-    *	Should we also add some hints to guide compilation strategies
-    	For example a hint could give us the equivalent of the iris gl
-	compactify command.  Generally hints could control compilation
-	speed versus memory consumption, degree of optimization, etc.
-
-	yes, in another spec
-    
-    *   Should we go ahead and add a ListParameter command rather than a
-	PrioritorizeList command just in case some other list attribute
-	needs to be added.  Do we go ahead and finish the job with
-	f,i,iv functions?
-
-	yes
-    
-    *	Is 1.0 a reasonable default?
-
-    *	Should it be an SGI rather than SGIX extension?
-    
 New Procedures and Functions
 
     ListParameterfSGIX(uint list,

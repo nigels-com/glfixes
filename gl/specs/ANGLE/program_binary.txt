@@ -34,12 +34,6 @@ Dependencies
     OES_get_program_binary is required.
     This extension is written against the OpenGL ES 2.0.25 specification.
 
-Overview
-
-    This extension makes available a program binary format,
-    PROGRAM_BINARY_ANGLE. It enables retrieving and loading of pre-linked
-    ANGLE program objects.
-
 New Procedures and Functions
 
     None

@@ -38,23 +38,6 @@ Dependencies
 
     This extension interacts with EXT_direct_state_access.
 
-Overview
-
-    This specification extends NV_gpu_program4 to support per-sample fetching
-    from multisample textures described in ARB_texture_multisample.
-    Specifically, it adds:
-
-      * The TXFMS sample fetch instruction.
-
-      * Texture targets corresponding to the multisample textures added by
-        ARB_texture_multisample.
-
-      * A program option to enable these features.
-      
-    This specification also extends the ARB_texture_multisample extension
-    by adding support for EXT_direct_state_access and VCAA multisample
-    coverage with seperate <colorSamples> and <coverageSamples> parameters.
-
 New Procedures and Functions
 
     void TexImage2DMultisampleCoverageNV(enum target,

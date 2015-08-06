@@ -44,13 +44,6 @@ Dependencies
     This extension is written against The OpenGL 4.1 (Compatibility Profile)
     specification.
 
-Overview
-
-    This extension adds a requirement to the pointer returned by MapBuffer
-    and MapBufferRange that they provide a minimum of 64 byte alignment to
-    support processing of the data directly with special CPU instructions
-    like SSE and AVX.
-
 New Procedures and Functions
 
     None

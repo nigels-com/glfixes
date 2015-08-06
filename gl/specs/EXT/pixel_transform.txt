@@ -18,16 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extension provides support for scaling, rotation, translation and
-    shearing of two-dimensional pixel rectangles in the pixel rasterizer.
-    The transformation is defined via a 4x4 matrix, where only those entries
-    which apply as a 2D affine transformation will be accepted and used.
-    These matrices can be manipulated using the same functions as the other 
-    OpenGL matrix stacks.
-   
-
 New Procedures and Functions
 
     void PixelTransformParameteriEXT(enum target,

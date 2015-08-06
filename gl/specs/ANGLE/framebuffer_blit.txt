@@ -39,19 +39,6 @@ Dependencies
 
     OES_texture_3D affects the definition of this extension.
 
-Overview
-
-    This extension modifies framebuffer objects by splitting the
-    framebuffer object binding point into separate DRAW and READ
-    bindings.  This allows copying directly from one framebuffer to
-    another.  In addition, a new high performance blit function is
-    added to facilitate these blits and perform some data conversion
-    where allowed.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     void BlitFramebufferANGLE(int srcX0, int srcY0, int srcX1, int srcY1,

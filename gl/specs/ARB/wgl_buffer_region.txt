@@ -35,64 +35,6 @@ Dependencies
 
     The WGL_EXT_extensions_string extension is required.
 
-Overview
-
-    The buffer region extension is a mechanism that allows an area of
-    an OpenGL window to be saved in off-screen memory for quick
-    restores.  The off-screen memory can either be frame buffer memory
-    or system memory, although frame buffer memory might offer optimal
-    performance.
-
-    A buffer region can be created for the front color, back color,
-    depth, and/or stencil buffer.  Multiple buffer regions for the same
-    buffer type can exist.
-
-IP Status
-
-    None
-
-Issues
-
-    1. Do we need the glBufferRegionEnabled call that is in the
-       Kinetix extensions?
-
-       The reason behind this function was so that a single driver
-       could be used on adapters with various amounts of memory -- the
-       extension would always be present but its use would depend on a
-       separate call.  The same functionality could be achieved by not
-       advertising this extension or always returning a value of NULL
-       from wglCreateBufferRegionARB.
-
-    2. Should the width/height be specified on the create.
-
-       Because applications create regions that are not used, it would
-       be better to leave the size as a parameter on the save.
-
-    3. Should information be added to the create to allow for layer
-       support?
-
-       Layer support has been added.
-
-    4. Which DC gets used for buffer region operations?
-
-       The DC that was allocated on the CreateBufferRegionARB call is
-       saved and used for subsequent save and restore operations.  It
-       must remain valid during the life of the buffer region.  This is
-       analogous to the RC method for handling the DC.
-
-    5. Does the driver do a flush before the save and restore?
-
-       In keeping with the same paradigm as SwapBuffers, a flush will
-       be made by the driver for the RC bound to the calling thread
-       before the save and restore operations.
-
-    6. Which coordinate system is used?
-
-       The KTX_buffer_region and WIN_swap_hint extensions specify the
-       (x,y) origin as the lower left corner of the rectangle.  This
-       extension adopts the same philosophy.
-
-
 New Procedures and Functions
 
     HANDLE wglCreateBufferRegionARB(HDC hDC,

@@ -20,19 +20,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extension allows the color components of pixel groups to be used as
-    texture coordinates, effectively converting a color image into a texture
-    coordinate image.  Because texture mapping is essentially a
-    multidimensional table lookup, this conversion supports multidimensional
-    color lookups for images.  Such multidimensional lookups can be used to
-    implement very accurate color space conversions.
-
-Issues
-
-    *	Should LOD be supported?
-
 New Procedures and Functions
 
     void PixelTexGenSGIX(enum mode);

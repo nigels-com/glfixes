@@ -31,22 +31,6 @@ Dependencies
 
     OpenGL 1.1 is required.
 
-Overview
-
-    This extension allows specifying, additionally to all existing 
-    values, byte-valued vertex and texture coordinates to be used.
-
-    The main reason for introducing the byte-argument is to allow 
-    storing data more compactly on memory-restricted environments.
-
-IP Status
-
-    There is no intellectual property associated with this extension.
-
-Issues
-
-    None known.
-
 New Procedures and Functions
 
     None

@@ -18,12 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extension provides a way to discard fragments when a comparison
-    between the fragment's index value and a reference index fails.  This
-    may be used similarly to the alpha test which is available in RGBA mode.
-
 New Procedures and Functions
 
     void IndexFuncEXT (enum func, float ref)

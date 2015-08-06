@@ -27,12 +27,6 @@ Dependencies
 
     SUN_triangle_list affects part of the definition of this extension
 
-Overview
-
-    This extension provides new GL commands to specify vertex data such as 
-    color and normal along with the vertex in one single GL command in order to
-    minimize the overhead in making GL commands for each set of vertex data.
-
 New Procedures and Functions
 
     void Color4ubVertex2fSUN(ubyte r, ubyte g, ubyte b, ubyte a,

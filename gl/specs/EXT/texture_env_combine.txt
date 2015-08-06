@@ -29,57 +29,6 @@ Dependencies
     SGI_texture_color_table affects the definition of this extension
     SGIX_texture_scale_bias affects the definition of this extension
 
-Overview
-
-    New texture environment function COMBINE_EXT allows programmable
-    texture combiner operations, including:
-
-        REPLACE                 Arg0
-        MODULATE                Arg0 * Arg1
-        ADD                     Arg0 + Arg1
-        ADD_SIGNED_EXT          Arg0 + Arg1 - 0.5
-        INTERPOLATE_EXT         Arg0 * (Arg2) + Arg1 * (1-Arg2)
-
-    where Arg0, Arg1 and Arg2 are derived from
-
-        PRIMARY_COLOR_EXT       primary color of incoming fragment
-        TEXTURE                 texture color of corresponding texture unit
-        CONSTANT_EXT            texture environment constant color
-        PREVIOUS_EXT            result of previous texture environment; on
-                                texture unit 0, this maps to PRIMARY_COLOR_EXT
-
-    and Arg2 is restricted to the alpha component of the corresponding source.
-
-    In addition, the result may be scaled by 1.0, 2.0 or 4.0.
-
-Issues
-
-    Should the explicit bias be removed in favor of an implcit bias as
-    part of a ADD_SIGNED_EXT function?
-
-     - Yes.  This pre-scale bias is a special case and will be treated
-       as such.
-
-    Should the primary color of the incoming fragment be available to
-    all texture environments?  Currently it is only available to the
-    texture environment of texture unit 0.
-
-     - Yes, PRIMARY_COLOR_EXT has been added as an input source.
-
-    Should textures from other texture units be allowed as sources?
-
-     - No, not in the base spec.  Too many vendors have expressed
-       concerns about the scalability of such functionality.  This can
-       be added as a subsequent extension.
-
-    All of the 1.2 modes except BLEND can be expressed in terms of
-    this extension.  Should texture color be allowed as a source for
-    Arg2, so all of the 1.2 modes can be expressed?  If so, should all
-    color sources be allowed, to maintain orthogonality?
-
-     - No, not in the base spec.  This can be added as a subsequent
-       extension.
-
 New Procedures and Functions
 
     None

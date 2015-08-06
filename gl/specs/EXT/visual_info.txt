@@ -18,42 +18,6 @@ Dependencies
 
     SGIS_multisample affects the definition of this extension
 
-Overview
-
-    This extension allows the user to request a particular X visual 
-    type to be associated with a GLX visual, and allows the user
-    to query the X visual type underlying a GLX visual.
-
-    In addition, this extension provides a means to request a visual
-    with a transparent pixel and to query whether a visual supports a
-    transparent pixel value and the value of the transparent pixel.
-    Note that the notion of level and transparent pixels are orthogonal as
-    both layer 1 and layer 0 visuals may or may not have a transparent pixel
-    value.
-
-Issues
-    The X server allows two types of transparency: pixel and mask.
-    For mask, any pixel matching the transparency mask is transparent.
-    Do we want to include masks? GLX_TRANSPARENT_PIXEL has been changed
-    from a boolean to an enum to allow for this possibility.
-
-    Alpha is no longer included in the transparent pixel, although it 
-    may be useful in the future. Thus, we allow the TRANSPARENT_ALPHA_VALUE
-    to be queried -- even though it is not used. In the future
-    a GLX_TRANSPARENT_ALPHA or GLX_TRANSPARENT_RGBA transparency
-    mode could be added.
-
-    Keep tokens for GRAY_SCALE and STATIC_GRAY for future use, even
-    though they don't match visuals now.
-
-    Should glXChooseVisual ignore GLX_TRANSPARENT_INDEX_VALUE_EXT,
-    GLX_TRANSPARENT_RED_VALUE_EXT, GLX_TRANSPARENT_GREEN_VALUE_EXT,
-    GLX_TRANSPARENT_BLUE_VALUE_EXT, and GLX_TRANSPARENT_ALPHA_VALUE_EXT
-    settings in attrib_list if GLX_TRANSPARENT_TYPE_EXT is not set (either 
-    explicitly or implicitly) to a value other than GLX_NONE_EXT? Maybe it 
-    should just match the requested attributes -- even if the request doesn't 
-    make sense.
-
 New Procedures and Functions
 
     None

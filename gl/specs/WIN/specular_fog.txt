@@ -18,59 +18,6 @@ Dependencies
 
     none
 
-Overview
-
-    Specularly lit textures enhance the realism of a scene greatly.
-    Using the current OpenGL lighting model, one cannot obtain specularly lit 
-    textures. This is because in the current OpenGL lighting model lighting
-    is done ahead of texturing and texture-functions such as modulate are 
-    inadequate for such a simulation. What needs to be addressed is that, 
-    somehow an additional interpolant (specular color of that material) needs 
-    to be propagated till that stage of the pipeline where texture-mapping is
-    performed. This interpolant is then added on to the fragment's color
-    resulting from the texturing process before proceeding with the rest of 
-    the pipeline.
-
-    This can be addressed very easily in software, but hardware
-    is not so malleable. Currently most hardware does not support such a
-
-    lighting model. However, some current hardware does support fogging,
-    which takes place in the pipeline after texturing. This hardware 
-    assumes that the fog blend factor f is computed per-vertex and
-    interpolates the value across the primitive. The WIN_specular_fog
-    extension enables the use of such existing fog circuitry to obtain 
-    specularly lit textures without much performance degradation. 
-
-    To use it the programmer simply enables the extension with a call to
-    Enable with the appropriate enumerant and sets the fog color to the 
-    desired specular color.
-
-Issues
-
-    1) This extension works only if: 
-                * Lighting is enabled.
-                * Texturing is enabled.
-                * Texture function is MODULATE.
-                * Two sided lighting is disabled.
-                * RenderMode is RENDER.
-
-    2) When both fogging and the extension are enabled, the FOG_HINT bit
-       is ignored.
-
-    3) One limitation is that the FOG_COLOR is used as the specular-highlight
-       color. 
-
-    4) PushAttrib and PopAttrib calls save and restore the extension related
-       state when the FOG_BIT is set, along with the rest of the fog related
-       state information. 
-    
-    5) The highlight computed by this extension is linear-interpolation based 
-       and therefore appears similar to the highlights available for untextured 
-       Gouraud polygons. If Phong shading (ext #113) is enabled this similarity
-       will no longer hold as the Phong highlight is computed per-pixel.  This
-       can result in the enabling of texture causing the highlight to move and 
-       change shape.
-
 New Procedures and Functions
 
     None

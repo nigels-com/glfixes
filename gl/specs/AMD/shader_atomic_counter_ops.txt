@@ -35,21 +35,6 @@ Dependencies
     This extension is written against the OpenGL 4.3 (core) specification
     and the GLSL 4.30.7 specification.
 
-Overview
-
-    The ARB_shader_atomic_counters extension introduced atomic counters, but
-    it limits list of potential operations that can be performed on them to
-    increment, decrement, and query. This extension extends the list of GLSL
-    built-in functions that can operate on atomic counters. The list of new
-    operations include:
-
-      * Increment and decrement with wrap
-      * Addition and subtraction
-      * Minimum and maximum
-      * Bitwise operators (AND, OR, XOR, etc.)
-      * Masked OR operator
-      * Exchange, and compare and exchange operators
-
 New Procedures and Functions
 
     None.

@@ -46,13 +46,6 @@ Dependencies
 
     This extension interacts with NV_compute_program5. 
 
-Overview
-
-    This extension provides GLSL built-in functions and assembly opcodes
-    allowing shaders to perform a limited set of atomic read-modify-write 
-    operations to buffer or texture memory with 16-bit floating point vector 
-    surface formats. 
-
 New Procedures and Functions
 
     None.

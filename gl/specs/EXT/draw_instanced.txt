@@ -32,13 +32,6 @@ Dependencies
     
     OES_element_index_uint affects the definition of this extension.
 
-Overview
-
-    This extension provides the means to render multiple instances of
-    an object with a single draw call, and an "instance ID" variable
-    which can be used by the vertex program to compute per-instance
-    values, typically an object's transform.
-
 New Tokens
 
 

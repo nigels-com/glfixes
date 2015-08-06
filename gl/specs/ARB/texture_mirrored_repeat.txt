@@ -34,40 +34,6 @@ Dependencies
     This extension is written against the OpenGL 1.3 Specification.
     However, this extension does not require OpenGL 1.3.
 
-Overview
-
-    ARB_texture_mirrored_repeat extends the set of texture wrap modes to
-    include a mode (GL_MIRRORED_REPEAT_ARB) that effectively uses a texture
-    map twice as large at the original image in which the additional half,
-    for each coordinate, of the new image is a mirror image of the original
-    image.
-
-    This new mode relaxes the need to generate images whose opposite edges
-    match by using the original image to generate a matching "mirror image".
-
-Issues
-
- 1. The spec clamps the final (u,v) coordinates to the range [0.5, 2^n-0.5].
-    This will produce the same effect as trapping a sample of the border texel
-    and using the corresponding edge texel.  The choice of technique is purely
-    an implementation detail.
-
-
- 2. The IBM_texture_mirrored_repeat extension inadvertantly used an HP
-    enumerant value (0x8370) allocated by HP as an interleaved array format.
-    Should the enumerant value be changed if this becomes an ARB extension?
-
-    No, it is not worth the confusion created by having two different
-    enumerant value for the same token.
-
- 3. Should additional mirroring functions be added to this extension and
-    perhaps rename it to ARB_texture_mirror. For example, include the two
-    mirror modes (MIRROR_CLAMP_ATI and MIRROR_CLAMP_TO_EDGE_ATI) provided
-    for in the GL_ATI_texture_mirror_once extension.
-
-    No, these extensions are not interdependent and inclusion of the
-    mirror once will likely hinder the adoption of this extension.
-
 New Procedures and Functions
 
     None

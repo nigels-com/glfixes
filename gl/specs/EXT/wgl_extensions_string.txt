@@ -18,20 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extension provides a way for applications to determine which
-    WGL extensions are supported by a device.  This is the foundation
-    upon which other WGL extensions are built.
-
-Issues
-
-    Note that extensions that were previously advertised via glGetString
-    (e.g., the swap interval extension) should continue to be advertised
-    there so existing applications don't break.  They should also be
-    advertised via wglGetExtensionsStringEXT so new applications can make
-    one call to find out which WGL extensions are supported.
-
 New Procedures and Functions
 
     const char *wglGetExtensionsStringEXT(void);

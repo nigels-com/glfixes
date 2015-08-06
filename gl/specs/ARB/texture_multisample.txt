@@ -32,21 +32,6 @@ Dependencies
 
     This extension is written against the OpenGL 3.1 specification.
 
-Overview
-
-    This extension provides support for two new types of "multisample
-    textures" - two-dimensional and two-dimensional array - as well as
-    mechanisms to fetch a specific sample from such a texture in a shader,
-    and to attach such textures to FBOs for rendering.
-
-    This extension also includes the following functionality, first described
-    in NV_explicit_multisample:
-
-     * A query in the API to query the location of samples within the pixel
-
-     * An explicit control for the multisample sample mask to augment the
-       control provided by SampleCoverage
-
 New Procedures and Functions
 
     void TexImage2DMultisample(enum target, sizei samples, enum internalformat,

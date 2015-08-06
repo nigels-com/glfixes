@@ -18,15 +18,6 @@ Dependencies
 
     SGIS_multisample is required.
 
-Overview
-
-    The extensions defines a special purpose fast multisample clear.
-    This clear can be used with some restrictions as a significantly
-    faster alternative to Clear(DEPTH_BUFFER_BIT).
-     
-    The extension is based on the RealityEngine architecture and will
-    probably never be supported by any other architecture.
-
 New Procedures and Functions
 
     void TagSampleBufferSGIX(void);

@@ -20,24 +20,6 @@ Dependencies
     SGI_cushion affects the definition of this extension
     SGIX_swap_group is required
 
-Overview
-
-    This extension provides the capability to sychronize the buffer
-    swaps of different swap groups.
-
-    A swap group is bound to a _swap_barrier_.  The buffer swaps of each 
-    swap group using that barrier will wait until every swap group using 
-    that barrier is ready to swap (where readiness is defined below), after
-    which time all buffer swaps of all groups using that barrier will
-    take place concurrently.
-
-    This extension extends the set of conditions that must be met before
-    a buffer swap can take place. 
-
-Issues
-
-    * Should we have a query for the maximum number of supported barriers?
-
 New Procedures and Functions
 
     void BindSwapBarrierSGIX(Display *dpy, 

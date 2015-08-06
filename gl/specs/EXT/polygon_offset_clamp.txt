@@ -34,22 +34,6 @@ Dependencies
     This extension is written against the OpenGL 3.3 (Core Profile)
     Specification (March 11, 2010).
 
-Overview
-
-    This extension adds a new parameter to the polygon offset function
-    that clamps the calculated offset to a minimum or maximum value.
-    The clamping functionality is useful when polygons are nearly
-    parallel to the view direction because their high slopes can result
-    in arbitrarily large polygon offsets. In the particular case of
-    shadow mapping, the lack of clamping can produce the appearance of
-    unwanted holes when the shadow casting polygons are offset beyond
-    the shadow receiving polygons, and this problem can be alleviated by
-    enforcing a maximum offset value.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     void PolygonOffsetClampEXT(float factor, float units, float clamp);

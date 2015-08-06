@@ -29,20 +29,6 @@ Dependencies
 
     The WGL_EXT_extensions_string extension is required.
 
-Overview
-
-    The gamma extension provides an interface to read and load the
-    gamma table.  Other options such as having gamma only affect
-    OpenGL windows can also be set.
-
-IP Status
-
-    None
-
-Issues
-
-    None
-
 New Procedures and Functions
 
     BOOL wglGetGammaTableParametersI3D(HDC hDC,

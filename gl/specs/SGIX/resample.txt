@@ -24,50 +24,6 @@ Dependencies
 	EXT_convolution affects the definition of this extension
 	SGI_color_table affects the definition of this extension
 
-Overview
-
-	This extension enhances the unpacking resampling capabilities
-	of the SGIX_subsample extension.
-
-	When pixel data is received from the client and an unpacking
-	upsampling mode other than PIXEL_SUBSAMPLE_RATE_4444_SGIX is
-	specified, the upsampling is performed via one of two methods:
-	RESAMPLE_REPLICATE_SGIX, RESAMPLE_ZERO_FILL_SGIX.
-	Replicate and zero fill are provided to
-	give the application greatest performance and control over the
-	filtering process.
-
-	However, when pixel data is read back to the client and a
-	packing downsampling mode other than PIXEL_SUBSAMPLE_RATE_4444_SGIX
-	is specified, downsampling is
-	performed via simple component decimation (point sampling). That is,
-	only the RESAMPLE_DECIMATE_SGIX is valid.
-
-
-Issues
-
-	* this spec omits the packing downsampling mode.  But I think
-	we will have to address it at some point, so I'm adding the
-	RESAMPLE_DECIMATE_SGIX as another tag to complement the unpacking
-	resample modes.
-
-        * In the public Khronos spec files and headers, these values
-          used to be used for some of the tokens: 
-
-            #define GL_PACK_RESAMPLE_SGIX        0x842C 
-            #define GL_UNPACK_RESAMPLE_SGIX      0x842D 
-            #define GL_RESAMPLE_REPLICATE_SGIX   0x842E 
-            #define GL_RESAMPLE_ZERO_FILL_SGIX   0x842F 
-            #define GL_RESAMPLE_DECIMATE_SGIX    0x8430 
-               
-          These values corresponded to the internal SGI spec files and
-          (probably) to what was shipped on SGI IRIX systems supporting this
-          extension, but the spec was always inconsistent with these values.
-          Since SGI is long out of the graphics business, in order to reduce
-          incompatibility between tools pulling from the Khronos spec file
-          and tools pulling from the extension spec, the spec file has been
-          changed to match the extension.
-
 New Procedures and Functions
 
 	None.

@@ -30,23 +30,6 @@ Dependencies
     This spec is written against the 1.2.1 version of the GL spec.
     This spec requires OpenGL 1.0
 
-Overview
-
-    This extension provides the ability to modify the stencil buffer
-    differently based on the facing direction of the primitive that
-    generated the fragment.
-
-Issues
-
-    
-
-
-New Procedure and Functions
-
-    StencilOpSeparateATI( GLenum face, GLenum sfail, GLenum dpfail, GLenum dppass)
-    StencilFuncSeparateATI( GLenum frontfunc, GLenum backfunc, GLint ref,
-                            GLuint mask)
-
 New Tokens
 
       

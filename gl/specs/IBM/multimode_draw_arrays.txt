@@ -23,19 +23,6 @@ Dependencies
     OpenGL 1.1 is required. The language is written against the OpenGL 1.2
     specification.
 
-Overview
-
-    These functions behave identically to the standard OpenGL 1.1 functions
-    glDrawArrays() and glDrawElements() except they handle multiple lists of
-    vertices and multiple primitive modes in one call. Their main purpose is
-    to allow one function call to render more than one primitive regardless
-    of the primitive mode. 
-
-    This extension is similar to the EXT_multi_draw_arrays extension 
-    except that it accomodates the specification of a  unique mode for
-    each primitive.
-
-
 New Procedures and Functions
 
     void glMultiModeDrawArraysIBM(const GLenum *mode,

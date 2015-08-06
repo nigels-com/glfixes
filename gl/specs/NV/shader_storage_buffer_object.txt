@@ -36,17 +36,6 @@ Dependencies
 
     This specification interacts with NV_shader_atomic_float.
 
-Overview
-
-    This extension provides assembly language support for shader storage
-    buffers (from the ARB_shader_storage_buffer_object extension) for all
-    program types supported by NV_gpu_program5, including compute programs
-    added by the NV_compute_program5 extension.
-
-    Assembly programs using this extension can read and write to the memory of
-    buffer objects bound to the binding points provided by
-    ARB_shader_storage_buffer_object.
-
 New Procedures and Functions
 
     None.

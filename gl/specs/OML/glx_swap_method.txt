@@ -27,24 +27,6 @@ Dependencies
 
     GLX 1.3 is required.
 
-Overview
-
-    This extension adds a new attribute, GLX_SWAP_METHOD, for a
-    GLXFBConfig. The GLX_SWAP_METHOD indicates how front and back
-    buffers are swapped when the GLXFBConfig is double-buffered.
-
-IP Status
-
-    No known issues.
-
-Issues and Notes
-
-  * Some hardware supports different swap methods in full screen mode
-    vs. windowed mode. How should this be handled? This is not handled
-    by this extension. GLX does not support the notion of fullscreen vs.
-    windowed mode. A separate extension is required to properly support
-    fullscreen mode.
-
 New Procedures and Functions
 
     None.

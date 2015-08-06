@@ -19,56 +19,11 @@ Dependencies
 
     OpenGL 1.1 is required. Written against the OpenGL 1.2 Specification.
 
-Overview
-
-    This extension allows to define application-specific fog blend-factor
-    function.  Function is defined by the set of the "control" points and
-    should be monotonic. Each control point represented as a pair of the
-    eye-space distance value and corresponding value of the fog blending 
-    factor. The minimum number of control points is one. The maximum 
-    number is implementation dependent.
-    
-
 New Procedures and Functions
 
     void FogFuncSGIS(sizei n, const float* points);
 
     void GetFogFuncSGIS(float *points);
-
-Issues
-
-   - The Bali team introduced 2 new features in this spec. 1) the
-   GetFogFuncSGIS procedure that allows to querry automatically
-   the current number of contol points. It is much nicer than
-   the previous spec that was using gets. 2) If the user give
-   fog blending factor ouside the [0.0, 1.0] range it should not
-   generate an error but the valuse should be calmed instead.
-
-   However, this extension has already been shipped and it is a
-   problem. We would like to see this extension to be an EXT to
-   be able to do the right thing.
-
-   - If the above changes are not acceptable, the sentence "All the points
-   of the current fog factor function are queried by calling 
-   GetFogFuncSGIS." in section "Additions to Chapter 6 of the 1.2 
-   Specification (State and State Requests)" should be replaced by:
-   "All the points of the current fog factor function are queried by 
-   calling GetFloatv or GetDoublev with <pname> set to FOG_FUNC_SGIS."
-   Also, the sentence "INVALID_OPERATION is generated if GetFogFuncSGIS
-   is executed between execution of Begin and the corresponding
-   execution to End. " in the "Errors" section should be ignored.
-
-   The sentences "The first value of each value pair in <points>
-   specifies a value of eye-space distance (should be not negative),
-   and the second value of each value pair specifies the corresponding
-   value of the fog blend factor. The fog blend factor values are
-   clamped to [0.0, 1.0]." should be replced by "The first 
-   value of each value pair in <points> specifies a value of eye-space 
-   distance (should be not negative), and the second value of each value pair 
-   specifies the corresponding value of the fog blend factor (should be in 
-   [0.0, 1.0] range)." Also "INVALID_VALUE is generated if fog factor
-   value out of [0.0, 1.0] range." should be added to the error section.
-
 
 New Tokens
 

@@ -18,13 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    Blending capability is extended by defining a constant color that can
-    be included in blending equations.  A typical usage is blending two
-    RGB images.  Without the constant blend factor, one image must have
-    an alpha channel with each pixel set to the desired blend factor.
-
 New Procedures and Functions
 
     void BlendColorEXT(clampf red,

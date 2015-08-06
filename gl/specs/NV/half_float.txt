@@ -48,65 +48,6 @@ Dependencies
 
     NV_vertex_program affects the definition of this extension.
 
-Overview
-
-    This extension introduces a new storage format and data type for
-    half-precision (16-bit) floating-point quantities.  The floating-point
-    format is very similar to the IEEE single-precision floating-point
-    standard, except that it has only 5 exponent bits and 10 mantissa bits.
-    Half-precision floats are smaller than full precision floats and provide a
-    larger dynamic range than similarly-sized normalized scalar data types.
-
-    This extension allows applications to use half-precision floating point
-    data when specifying vertices or pixel data.  It adds new commands to
-    specify vertex attributes using the new data type, and extends the
-    existing vertex array and image specification commands to accept the new
-    data type.
-
-    This storage format is also used to represent 16-bit components in the
-    floating-point frame buffers, as defined in the NV_float_buffer extension.
-
-Issues
-
-    What should the new data type be called?  "half"?  "hfloat"?  In addition,
-    what should the immediate mode function suffix be?  "h"?  "hf"?
-
-        RESOLVED:  half and "h".  This convention builds on the convention of
-        using the type "double" to describe double-precision floating-point
-        numbers.  Here, "half" will refer to half-precision floating-point
-        numbers.
-
-        Even though the 16-bit float data type is a first-class data type, it
-        is still more problematic than the other types in the sense that no
-        native programming languages support the data type.  "hfloat/hf" would
-        have reflected a second-class status better than "half/h".
-
-        Both names are not without conflicting precedents.  The name "half" is
-        used to connote 16-bit scalar values on some 32-bit CPU architectures
-        (e.g., PowerPC).  The name "hfloat" has been used to describe 128-bit
-        floating-point data on VAX systems.
-
-    Should we provide immediate-mode entry points for half-precision
-    floating-point data types?
-
-        RESOLVED:  Yes, for orthogonality.  Also useful as a fallback for the
-        "general" case for ArrayElement.
-
-    Should we support half-precision floating-point color index data?
-
-        RESOLVED:  No.
-
-    Should half-precision data be accepted by all commands that accept pixel
-    data or only a subset?
-
-        RESOLVED:  All functions.  Note that some textures or frame buffers
-        may store the half-precision floating-point data natively.
-
-        Since half float data would be accepted in some cases, it will be
-        necessary for drivers to provide some data conversion code.  This code
-        can be reused to handle the less common commands.
-
-
 New Procedures and Functions
 
     void Vertex2hNV(half x, half y);

@@ -28,57 +28,6 @@ Dependencies
     GL_ARB_texture_compression is required.
     This extension is written against the OpenGL 1.2.1 Specification.
 
-Overview
-
-    This extension additional texture compression functionality 's FXT1
-    format, specific to 3dfxsubject to all the requirements and
-    limitations described by the extension GL_ARB_texture_compression.
-    The FXT1 texture format supports only 2D and 3D images without
-    borders.
-
-    Because 3dfx expects to make continual improvement to its FXT1
-    compressor implementation, 3dfx recommends that to achieve best
-    visual quality applications adopt the following procedure with
-    respect to reuse of textures compressed by the GL:
-
-	1) Save the RENDERER and VERSION strings along with images
-	   compressed by the GL;
-	2) Before reuse of the textures, compare the stored strings with
-	   strings newly returned from the current GL;
-	3) If out-of-date, repeat the compression and storage steps.
-
-IP Status
-
-    A royalty-free license is available from 3dfx Interactive
-    (http://www.3dfx.com/).
-
-Issues
-
-    (1) Two or only one internalformat tokens:
-	GL_COMPRESSED_RGBA_FXT1_3DFX and GL_COMPRESSED_RGB_FXT1_3DFX, or
-	GL_COMPRESSED_RGBA_FXT1_3DFX only. These names are placeholders,
-	the point in question is whether there should be separate tokens
-	reflecting extrinsic knowledge of whether the image contains any
-	non-unity alpha values. This arises because the FXT1 image
-	format distinguishes non-unity alpha only at the level of an
-	individual 8x4 compression block. If there are two distinct
-	tokens, passing GL_COMPRESSED_RGB_FXT1_3DFX to
-	CompressedTexImage with an image that contained non-unity-alpha
-	blocks would be an error.
-
-	RESOLVED. Two distinct tokens specified. This is largely to
-	follow the usual usage by apps of non-compressed tokens.
-
-    (2) Support for borders.
-
-	RESOLVED.  Not supported.
-
-    (3) Support for TexSubImage at a level more general than that
-	guaranteed by ARB_texture_compression.
-
-	RESOLVED. Not supported; See issue (5) of the
-	GL_ARB_texture_compression spec.
-
 New Procedures and Functions
 
     None

@@ -48,14 +48,6 @@ Dependencies
 
     Written based on the wording of the OpenGL 3.0 specification.
 
-Overview
-
-    This extension provides a mechanism for streaming video data
-    directly into texture objects and buffer objects.  Applications can
-    then display video streams in interactive 3D scenes and/or
-    manipulate the video data using the GL's image processing
-    capabilities.
-
 New Procedures and Functions
 
     void BeginVideoCaptureNV(uint video_capture_slot);

@@ -19,32 +19,6 @@ Dependencies
     WGL_EXT_extensions_string is required.
     WGL_EXT_swap_control affects the definition of this extension
 
-Overview
-
-    This extension allows an application to obtain the percent of time
-    used to draw a frame.  A floating-point value in the range [0,max]
-    is returned which is calculated as follows:
-
-                              td
-                   percent = ----
-                              tf
-
-    where td is the time measured from the last buffer swap (or call to
-    enable the statistic) to when the application issued a buffer swap,
-    tf is the entire time for a frame which may be multiple screen
-    refreshes depending on the swap interval as set by the
-    WGL_swap_control extension.
-
-    The value, percent, indicates the amount of time spent during the
-    draw.  If the value is in the range [0,1], the buffer swap occurred
-    within the time period required to maintain a constant frame rate.
-    If the value is in the range (1,max], a constant frame rate was not
-    achieved.  The value indicates the number of frames required to
-    draw.
-
-    There is also a mechanism to determine whether a frame swap was
-    missed.
-
 New Procedures and Functions
 
     BOOL wglGetFrameUsageI3D(float *pUsage)

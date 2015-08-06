@@ -20,13 +20,6 @@ Dependencies
     EXT_texture3D affects the definition of this extension
     EXT_texture_object affects the definition of this extension
 
-Overview
-
-    This extension introduces texture magnification filters that sharpen
-    the resulting image by extrapolating from the level 1 image to the
-    level 0 image.  Sharpening can be enabled for all color channels, for
-    the alpha channel only, or for the red, green, and blue channels only.
-
 New Procedures and Functions
 
     void SharpenTexFuncSGIS(enum target,

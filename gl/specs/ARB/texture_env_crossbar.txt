@@ -35,39 +35,6 @@ Dependencies
     OpenGL 1.1, ARB_multitexture and ARB_texture_env_combine are required 
     by this extension.
 
-Overview
-
-    This extension adds the capability to use the texture color from
-    other texture units as sources to the COMBINE_ARB enviornment
-    function. The ARB_texture_env_combine extension defined texture 
-    enviornment functions which could use the color from the 
-    current texture unit as a source. This extension adds
-    the ability to use the color from any texture unit as a source.
-
-Issues
-
- 1. Should only "upstream" textures be allowed as inputs to a
-    given texture unit? (Texture inputs to unit <m> are restricted to
-    the range TEXTURE0_ARB to TEXTURE<m>_ARB).
-
-    - RESOLVED: No. Most vendors support this functionality.
-
-
- 2. Do we still need TEXTURE as a source if we allow TEXTURE<n>_ARB?
-
-    - RESOLVED: Yes, since this allows backwards compatibility.
-
- 3. What should be the behavior when the texture environment 
-    references a texture unit that is not enabled or does not have a
-    valid texture object bound to it?
-
-    - RESOLVED: Texture blending should be disabled on the texture 
-      unit that is referencing the invalid or disabled texture. This 
-      seems to be a reasonable compromise between disabling all 
-      texturing and generating "default" texel values. Also, this 
-      behavior is more easily forward compatible to an extension 
-      which separates the texture lookup and texture blend units.
-
 New Procedures and Functions
 
     None

@@ -20,14 +20,6 @@ Dependencies
     EXT_texture_color_table affects the definition of this extension
     EXT_copy_texture affects the definition of this extension
 
-Overview
-
-    This extension allows a portion of a color table to be redefined.
-    If EXT_copy_texture is implemented, this extension also defines a
-    method to load a portion of a color lookup table from the 
-    framebuffer.
-
-
 New Procedures and Functions
 
     void ColorSubTableEXT( enum target,

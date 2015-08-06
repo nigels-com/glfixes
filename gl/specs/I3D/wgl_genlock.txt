@@ -29,29 +29,6 @@ Dependencies
 
     The WGL_EXT_extensions_string extension is required.
 
-Overview
-
-    The genlock extensions allows application control of the genlock
-    features.  Genlock is used to synchronize the refresh of the
-    monitor to an external signal.
-
-    There are five different parameters that can be used to control
-    genlock:
-
-         Enable/Disable
-         Source Selection
-         Source Sample Edge
-         Source Sample Rate
-         Source Delay
-
-IP Status
-
-    None
-
-Issues
-
-    None
-
 New Procedures and Functions
 
     BOOL wglEnableGenlockI3D(HDC hDC)

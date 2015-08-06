@@ -33,30 +33,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extension provides a way for applications to determine which
-    WGL extensions are supported by a device. This is the foundation
-    upon which other WGL extensions are built.
-
-IP Status
-
-    No issues.
-
-Issues
-
-  1. Note that extensions that were previously advertised via
-     glGetString (e.g., the swap interval extension) should continue to
-     be advertised there so existing applications don't break. They
-     should also be advertised via wglGetExtensionsStringARB so new
-     applications can make one call to find out which WGL extensions are
-     supported.
-
-  2. Should this function take an hdc? It seems like a good idea. At
-     some point MS may want to incorporate this into OpenGL32. If they
-     do this and and they want to support more than one ICD, then an HDC
-     would be needed.
-
 New Procedures and Functions
 
     const char *wglGetExtensionsStringARB(HDC hdc);

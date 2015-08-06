@@ -18,11 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    The extension allows the app to give various hints regarding 
-    desired level of conformance, performance, features, etc.
-
 New Procedures and Functions
 
     HintPGI

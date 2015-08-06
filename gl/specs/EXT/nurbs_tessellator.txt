@@ -17,23 +17,6 @@ Dependencies
 
         None
 
-Overview
-
-       This extension provides a mechanism for applications to retrieve a
-       tessellation of a GLU NURBS curve or surface.  The tessellation consists of
-       OpenGL Begin,End,Color,Normal,Texture, and Vertex data.
-
-       This feature is useful for those applications which need to cache
-       the primitives to use their own advanced shading model, or to
-       accelerate frame rate or to perform other computations on the surface or
-       curve data.
-
-Issues
-
-   * Is it a good idea to transform all the homogeneous coordinates into
-     affine ones? Are there any circumstances where the user prefers
-     to have the homogeneous coordinates?
-
 New Procedures and Functions    
 
      gluNurbsCallbackDataEXT(GLUnurbsObj* theNurb, 

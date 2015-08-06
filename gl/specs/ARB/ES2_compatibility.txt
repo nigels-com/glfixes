@@ -43,16 +43,6 @@ Dependencies
 
     This extension interacts with ARB_tessellation_shader or OpenGL 4.0.
 
-Overview
-
-    This extension adds support for features of OpenGL ES 2.0 that are
-    missing from OpenGL 3.x. Enabling these features will ease the process
-    of porting applications from OpenGL ES 2.0 to OpenGL.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     void ReleaseShaderCompiler(void);

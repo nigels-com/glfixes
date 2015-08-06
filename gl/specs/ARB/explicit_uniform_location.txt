@@ -44,18 +44,6 @@ Dependencies
     This extension is written against the OpenGL 4.2 (Compatibility Profile)
     and the OpenGL Shading Language 4.20.11 specification.
 
-Overview
-
-    This extension provides a method to pre-assign uniform locations to
-    uniform variables in the default uniform block, including subroutine
-    uniforms. This allows an application to modify the uniform values without
-    requiring a GL query like GetUniformLocation, GetSubroutineUniformLocation
-    and GetSubroutineIndex.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     None

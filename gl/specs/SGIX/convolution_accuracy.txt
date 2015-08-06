@@ -26,11 +26,6 @@ Dependencies
 
     EXT_convolution or ARB_imaging is required.
 
-Overview
-
-    This extension adds an accuracy hint for convolution.  It
-    allows the program to trade off precision for speed.
-
 New Procedures and Functions
 
     None

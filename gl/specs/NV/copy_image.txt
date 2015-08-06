@@ -43,15 +43,6 @@ Dependencies
 
     The extension is written against the OpenGL 3.1 Specification.
 
-Overview
-
-    This extension enables efficient image data transfer between image
-    objects (i.e. textures and renderbuffers) without the need to bind
-    the objects or otherwise configure the rendering pipeline.  The
-    WGL and GLX versions allow copying between images in different
-    contexts, even if those contexts are in different sharelists or
-    even on different physical devices.
-
 New Procedures and Functions
 
     void CopyImageSubDataNV(

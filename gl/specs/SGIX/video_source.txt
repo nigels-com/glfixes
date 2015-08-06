@@ -18,21 +18,6 @@ Dependencies
 
     SGI_make_current_read is required.
 
-Overview
-
-    This extension provides the capability to source pixel data from a
-    video stream.  A new type of GLXDrawable (GLXVideoSourceSGIX) is
-    introduced which represents the drain node of a Video Library (VL)
-    path.  A GLXVideoSourceSGIX may be specified as the <read> parameter
-    to glXMakeCurrentReadSGI to indicate that pixel data should be read
-    from the specified video source instead of from the framebuffer.  A
-    GLXVideoSourceSGIX may only be specified as a <read> drawable.
-
-Issues
-
-    * Should there be a way to query the configuration
-      of a GLXVideoSourceSGIX?
-
 New Procedures and Functions
 
     typedef XID GLXVideoSourceSGIX;

@@ -47,44 +47,6 @@ Dependencies
 
     This extension interacts with WGL_AMD_gpu_association.
 
-Overview
-
-
-    There currently is no way for applications to efficiently use GPU
-    resources in systems that contain more than one GPU. Vendors have
-    provided methods that attempt to split the workload for an
-    application among the available GPU resources. This has proven to be
-    very inefficient because most applications were never written with
-    these sorts of optimizations in mind.
-
-    This extension provides a mechanism for applications to explicitly
-    use the GPU resources on a given system individually. By providing
-    this functionality, a driver allows applications to make appropriate
-    decisions regarding where and when to distribute rendering tasks.
-
-    The set of GPUs available on a system can be queried by calling
-    glXGetGPUIDsAMD. The current GPU assigned to a specific context
-    can be determined by calling glXGetContextGPUIDAMD. Each GPU in a
-    system may have different performance characteristics in addition
-    to supporting a different version of OpenGL. The specifics of each
-    GPU can be obtained by calling glXGetGPUInfo. This will allow
-    applications to pick the most appropriate GPU for each rendering
-    task.
-
-    Once all necessary GPU information has been obtained, a context tied
-    to a specific GPU can be created with glXCreateAssociatedContextAMD.
-    These associated contexts can be made current with
-    glXMakeAssociatedContextCurrentAMD and deleted with
-    glXDeleteAssociatedContextAMD. Only one GPU associated or
-    non-associated context can be current at one time per thread.
-
-    To provide an accelerated path for blitting data from one context
-    to another, the new blit function BlitContextFramebufferAMD has
-    been added.
-
-
-
-
 New Procedures and Functions
 
     unsigned int glXGetGPUIDsAMD(unsigned int maxCount, unsigned int *ids);

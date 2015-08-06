@@ -18,43 +18,6 @@ Dependencies
 
     GL_SGIS_texture_filter4
 
-Overview
-
-    This extension provides interpolation coefficients just as they are required
-    for GL_FILTER4_SGIS filtering in glTexFilterFuncSGIS.  The interpolation
-    weights themselves are typically a set of equidistant samples along a
-    smooth curve defined by several piecewise cubic polynomials, representing a
-    two pixel wide span.  By reflecting these across the X axis, a four pixel
-    wide span is produced, supporting 4x1 1D texture filtering.
-
-    By calculating the cross product of coefficients in 2D or 3D, 4x4 and 4x4x4
-    interpolation coefficients can be derived by other software, using this two
-    pixel wide span of filter function.
-
-    The coefficients are produced by one or another mathematical scheme.
-    According to Mitchell-Netravali, many of the desired characteristics of
-    other 4x1 interpolation schemes can be accomplished by setting B and C in
-    their piecewise cubic formula.  Notably, the blurriness/sharpness of the
-    resulting image can be adjusted with B and C. The reference is:
-    Mitchell, Don. and Netravali, Arun, "Reconstruction Filters for Computer 
-    Graphics", SIGGRAPH '88, p. 221-228.
-
-    According to Lagrange interpolation, four piecewise cubic polynomials (two
-    redundant ones) are used to produce coefficients resulting in images at a
-    high sharpness level. The reference is: Dahlquist and Bjorck, 
-    "Numerical Methods", Prentice-Hall, 1974, pp 284-285.
-
-Issues
-
-    What other types of 4x1 interpolation formulas should be supported, if any?
-
-    Should TexFilterFuncSGIS be called for the user?
-
-	- yes, TexFilterFuncSGIS should be called instead of having the user
-	  do this. This is to be consistent with the rest of GLU, i.e., 
-    	  mipmap utilities. Note that GLU was designed this way so that it
-	  could be accelerated.   
-
 New Procedures and Functions
 
     GLint gluTexFilterFuncSGI(GLenum target, GLenum filtertype, 

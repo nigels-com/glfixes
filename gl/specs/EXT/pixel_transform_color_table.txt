@@ -19,11 +19,6 @@ Dependencies
     SGI_color_table is required
     EXT_pixel_transform is required
 
-Overview
-
-    This extension defines a color table that is applied immediately
-    after the pixel transformation operation.
-
 New Procedures and Functions
 
     None.

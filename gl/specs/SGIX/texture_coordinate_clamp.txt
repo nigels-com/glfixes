@@ -18,56 +18,6 @@ Dependencies
 
     EXT_texture3D affects the definition of this extension
 
-Overview
-
-    This extension provides a mechanism to specify the maximum texture coordinate
-    clamping values. Standard OpenGL always clamps the upper bound to 1.0 when
-    the wrap mode is set to CLAMP. This mechanism can be used to  guarantee 
-    that non-existent texel data will not be accessed when the texture image has 
-    dimensions that are not a power of 2.
-
-Issues
-
-    *	What is the effect of wrap modes?
-        -- This mode is only effective when the wrap mode is set to clamp
-    
-    *   Are border modes supported?
-	-- Border modes are independent of texture coordinate clamping. Borders
-	   live outside the 0.0 to 1.0 texture coordinate range. However, a
-	   particular filtering method may access texels beyond the clamped
-	   values. It is the users responsibility to ensure that adequate
-	   texels are defined or to set the border mode to CLAMP_TO_EDGE_SGIS
-	   to prevent access outside this range. The texel value used past
-	   the clamped edge is otherwise undefined.
-
-    *   Can defining the clamp values before the texture is defined be used to
-	allocate less texture memory for the texture?
-	-- Maybe. This is an implementation issue that the hardware may or may
-	   not take advantage of. However, the clamp value may be increased
-	   later to download data into a larger region.
-    
-    *   Does subloading a texture image to a region outside the clamped area 
-	preserve the contents in the outside area?
-	-- Yes. Downloading texels outside the clamped region should make the 
-	   data be preserved. 
-
-    *   Only the upper limit of the clamp region may be specified. Might 
-	other more generic needs be met by allowing both min and max to be 
-	defined? For example, you could define a large texture of smaller 
-	"tiles" that could be selected for various surfaces.
-	-- Intel has a pending spec to do texture clipping. This is somewhat
-	   similar to what is mentioned above. This extension defines a 
-	   mechanism to clamp and also provides a hint to the size of the
-	   texture to be allocated.
-
-    *   Since wrapped textures aren't supported, the only real functionality
-	this appears to add is when the geometry (s,t,r) ranges are not 
-	aligned with or matching the (x,y,z) ranges. For example, mapping 
-	video to a sphere.  Is this correct? Otherwise, one could just define
-	a rectangle with the right (s,t) ranges.
-	-- Yes. However that does not provide OpenGL any hint as to the size
-	   of texture that actually needs to be allocated.
-
 New Procedures and Functions
 
     None

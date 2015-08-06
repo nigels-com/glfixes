@@ -43,10 +43,6 @@ Dependencies
 
     An OpenGL ES implementation is required.
 
-Overview
-
-    This extension allows creating an OpenGL ES context.
-
 New Procedures and Functions
 
     None

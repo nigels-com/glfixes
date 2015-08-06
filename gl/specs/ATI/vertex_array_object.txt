@@ -69,55 +69,6 @@ Dependencies
     definition of this extension.
 
 
-Overview
-
-    This extension defines an interface that allows multiple sets of
-    vertex array data to be cached in persistent server-side memory.
-    It is intended to allow client data to be stored in memory that
-    can be directly accessed by graphics hardware.
-
-
-Issues
-
-    Should this extension include support for allowing vertex indices
-    to be stored on the server?
-    
-        RESOLUTION: NO. This might not be universally supported, and
-        seems simple enough to layer on top of this extension.
-
-    Is there a better name for this extension?
-
-        RESOLUTION: YES. The ArrayStore vs. StoredArray terminology
-        was confusing. StoredArrays have been changed to be
-        ArrayObjects. Since any type of object could be stored in the
-        ArrayStore, these have been changed to ObjectBuffers.
-
-    Should the layout of an array store be defined at array store
-    creation time?
-
-        RESOLUTION: NO. This could provide better performance if the
-        client specifies a data type that the hardware doesn't
-        support, but this isn't a performance path anyways, and it
-        adds a cumbersome interface on top of the extension.
-
-    Should the client be able to retrieve a pointer to the array store
-    instead of a handle?
-
-        RESOLUTION: NO. For now, it doesn't seem like this is a big
-        win, and it presents problems on certain OS's. It also
-        requires using an explicit synchronization mechanism. This
-        would be pretty trivial to add, however.
-
-    Should this just sit on top of the existing vertex array
-    implementation, instead of introducing a new set of API calls?
-
-        RESOLUTION: NO. Trying to fit something on top existing vertex
-        arrays introduces a lot of confusion as to where the data is
-        stored (on the client side vs. on the server side). Adding new
-        API that mirrors traditional vertex arrays doesn't seem to
-        cumbersome.
-
-
 New Procedures and Functions
 
   For creating, updating, and querying object buffers:

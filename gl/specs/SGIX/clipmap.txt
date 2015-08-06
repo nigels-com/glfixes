@@ -22,19 +22,6 @@ Dependencies
     SGI_detail_texture affects the definition of this extension
     SGI_sharpen_texture affects the definition of this extension
 
-Overview
-
-    Mipmaps provide a general but expensive solution when the texture image
-    is very large.  This extension defines clipmaps, which occupy a small
-    subset of the memory required by equivalent mipmaps, but provide much
-    of the mipmap rendering capabilities.  Clipmaps are especially useful
-    for rendering terrain.
-
-Issues
-
-    *   Is lod clamping treated properly if we have no texel data?
-    *   Should we always have to specify a virtual depth?
-
 New Procedures and Functions
 
     None

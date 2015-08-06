@@ -19,58 +19,6 @@ Dependencies
 
     OpenGL 1.1 is required.
 
-Overview
-
-    This extension provides BeginScene/EndScene markers to allow buffering
-    and sorting of the OpenGL command sequence needed to construct and
-    entire frame. Scene markers are useful for region (aka tile) rendering
-    architectures, in which all of the geometry for a region a window must
-    be known before any can be rasterized. It may also be applicable to
-    other architectures requiring a scene database, such as scanline depth
-    buffers.
-
-Issues
-
-    *  Region architectures usually generate only a color buffer. Depth,
-       stencil, and other ancillary buffers, if they exist, are instantiated
-       only for the screen region being rasterized at any given time, and
-       are not retained after all geometry for that region has been
-       processed. As a consequence, ancillary buffers are usually
-       inaccessible via Read/Copy/Draw operations. Implementations may
-       choose to relax this restriction.
-
-    *  State changes affecting primitives are buffered and may need to be
-       processed for every screen region. This makes "large" state changes,
-       such as DrawPixels or TexImage2D, likely to be prohibitively
-       expensive within a scene.
-
-    *  State queries within a scene may also be very expensive, if they are
-       deferred to hardware which normally would not process them until
-       EndSceneEXT. As with large state changes, it seems preferable to
-       allow state queries within a scene, but document that they may be
-       costly.
-
-    *  Initial buffer state after BeginSceneEXT is undefined, forcing the
-       application to overwrite all pixels. This implies that multiple
-       scenes may not be merged into a single visible frame without software
-       intervention to read back and combine scenes.
-
-    *  SCENE_REQUIRED_EXT is a property of the visual or pixel format,
-       rather than an Enable. Making it an Enable would probably force a
-       switch between hardware and software paths.
-
-    *  2D (X or GDI or Quickdraw) rendering is probably only allowed after
-       EndSceneEXT, to prevent synchronization issues. It's unclear how to
-       phrase this in the spec, however.
-
-    *  Reads and copies between BeginSceneEXT and EndSceneEXT are made
-       illegal, since there are many sensible interpretations of what the
-       buffer contents might be during this period.
-
-    *  Add mechanism to allow out-of-order rendering, etc.
-
-        No.
-
 New Procedures and Functions
 
     void BeginSceneEXT(void);

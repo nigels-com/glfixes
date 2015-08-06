@@ -40,12 +40,6 @@ Dependencies
     This extension is written against the OpenGL 4.3 specification
     (Compatibility Profile).
 
-Overview
-
-    This extension accepts STENCIL_INDEX8 as a texture internal format, and
-    adds STENCIL_INDEX8 to the required internal format list. This removes the
-    need to use renderbuffers if a stencil-only format is desired.
-
 New Procedures and Functions
 
     None.

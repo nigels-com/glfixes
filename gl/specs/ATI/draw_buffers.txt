@@ -36,22 +36,6 @@ Dependencies
     ARB_fragment_program affects the definition of this extension.
 
 
-Overview
-
-    This extension extends ARB_fragment_program to allow multiple output 
-    colors, and provides a mechanism for directing those outputs to 
-    multiple color buffers.
-
-
-Issues
-
-    (1) How many GL_DRAW_BUFFER#_ATI enums should be reserved?  
-
-      RESOLVED: We only need 4 currently, but for future expandability 
-      it would be nice to keep the enums in sequence.  We'll specify
-      16 for now, which will be more than enough for a long time.
-
-
 New Procedures and Functions
 
     void DrawBuffersATI(sizei n, const enum *bufs);

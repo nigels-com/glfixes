@@ -45,16 +45,6 @@ Dependencies
     OpenGL 4.0 and ARB_transform_feedback3 affect the definition of this
     extension.
 
-Overview
-
-    This extension adds new query types which can be used to detect overflow
-    of transform feedback buffers. The new query types are also accepted by
-    conditional rendering commands.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     None.

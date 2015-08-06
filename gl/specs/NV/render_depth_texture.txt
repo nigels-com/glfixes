@@ -37,61 +37,6 @@ Dependencies
 
     NV_render_texture_rectangle affects the definition of this extension.  
 
-Overview 
-
-    This extension allows a depth buffer to be used for both rendering and
-    texturing.  It is built upon the ARB_render_texture extension; the only
-    addition in this extension is the ability to use a depth buffer as a
-    DEPTH_COMPONENT texture map.
-
-Issues 
-
-    In the ARB_render_texture spec, the number and size of physical depth
-    buffers in a rendered texture is left undefined.  From the
-    ARB_render_texture specification:
-
-        The contents of the depth and stencil buffers may not be preserved 
-        when rendering a texture to the pbuffer and switching which image 
-        of the texture is rendered to (e.g., switching from rendering one 
-        mipmap level to rendering another). 
-
-    That behavior is clearly unacceptable in an implementation where the
-    rendered texture IS the depth buffer.
-
-      RESOLVED:  Yes, it needs to be fixed.  This extension specifies that
-      each mipmap level and cube map face gets its own depth buffer, whose
-      contents are preserved when switching render targets.
-    
-    Should there be separate pixel format attributes for BIND_TO_TEXTURE_DEPTH
-    and BIND_TO_TEXTURE_RECTANGLE_DEPTH?  Or is a single attribute sufficient?
-
-      RESOLVED:  We should support separate capabilities, as done with the
-      other formats.  See the NV_render_texture_rectangle spec for more info.
-
-    Should it be possible to have a single pbuffer support binding both color
-    and depth buffers to textures?
-
-      RESOLVED:  Yes.  This means that we must provide a separate
-      DEPTH_TEXTURE_FORMAT attribute that must be set at pbuffer creation
-      time, since using only the TEXTURE_FORMAT attribute would allow you to
-      create a pbuffer supporting either color or depth textures, but not
-      both.
-
-    For double-buffered or stereo pixel formats that support binding to depth
-    textures, how many depth buffers do you have?
-
-      RESOLVED:  There is only a single depth buffer for double-buffered or
-      stereo pixel formats.  Double buffering refers only to the number of
-      color buffers.  There will be multiple depth buffers only if the pbuffer
-      is specified to support mipmaps or cube maps.
-
-    What happens with multisample pixel formats, where the only depth buffer
-    contains multiple samples per pixel?  This issue is slightly different for
-    rendered depth textures, since multisample pixel formats do contain
-    "normal" color buffers in addition to the multisample buffer.
-
-      UNRESOLVED.
-
 New Procedures and Functions 
 
     None.

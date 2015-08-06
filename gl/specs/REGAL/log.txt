@@ -36,15 +36,6 @@ Dependencies
     This extension is written against the OpenGL 4.2
     Specification (April 27, 20012).
 
-Overview
-
-    This extension provides runtime configuration of
-    the Regal logging facilities.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     void LogMessageCallbackREGAL(LOGPROCREGAL callback);

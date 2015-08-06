@@ -18,14 +18,6 @@ Dependencies
 
         None.
 
-Overview
-
-        This extension defines two new operations to be performed on texture
-        values before they are passed on to the filtering subsystem.  These
-        operations perform either a <= or >= test on the value from texture
-        memory and the iterated R value, and return 1.0 or 0.0 if the test
-        passes or fails, respectively.
-        
 New Procedures and Functions
 
         None

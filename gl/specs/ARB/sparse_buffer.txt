@@ -45,15 +45,6 @@ Dependencies
 
     This extension is written against the OpenGL 4.4 (core) specification.
 
-Overview
-
-    The ARB_sparse_texture extension adds to GL a mechanism to decouple the
-    virtual and physical storage requirements of textures and allows an
-    application to create partially populated textures that would
-    over-subscribe available graphics memory if made fully resident. This
-    extension provides like functionality for buffer objects, allowing
-    applications to manage buffer object storage in a similar manner.
-
 New Procedures and Functions
 
         void BufferPageCommitmentARB(enum target,

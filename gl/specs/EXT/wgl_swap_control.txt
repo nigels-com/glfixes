@@ -18,11 +18,6 @@ Dependencies
 
     WGL_EXT_extensions_string is required.
 
-Overview
-
-    This extension allows an application to specify a minimum periodicity
-    of color buffer swaps, measured in video frame periods.
-
 New Procedures and Functions
 
     BOOL wglSwapIntervalEXT(int interval)

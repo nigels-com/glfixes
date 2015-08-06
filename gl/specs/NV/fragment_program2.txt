@@ -30,67 +30,6 @@ Dependencies
     ARB_fragment_program is required.
     NV_fragment_program_option is required.
 
-Overview
-
-    This extension, like the NV_fragment_program_option extension, provides
-    additional fragment program functionality to extend the standard
-    ARB_fragment_program language and execution environment.  ARB programs
-    wishing to use this added functionality need only add:
-
-        OPTION NV_fragment_program2;
-
-    to the beginning of their fragment programs.
-
-    New functionality provided by this extension, above and beyond that
-    already provided by the NV_fragment_program_option extension, includes:
-
-
-      * structured branching support, including data-dependent IF tests, loops
-        supporting a fixed number of iterations, and a data-dependent loop
-        exit instruction (BRK),
-
-      * subroutine calls,
-
-      * instructions to perform vector normalization, divide vector components
-        by a scalar, and perform two-component dot products (with or without a
-        scalar add),
-
-      * an instruction to perform a texture lookup with an explicit LOD,
-
-      * a loop index register for indirect access into the texture coordinate
-        attribute array, and
-
-      * a facing attribute that indicates whether the fragment is generated
-        from a front- or back-facing primitive.
-
-
-Issues
-
-    * Should this extension expose projective forms of the LOD-modifying
-      texture instructions?
-
-        RESOLVED: No. The user can manually add a DIV instruction to achieve
-        the same effect.
-
-    * Should this extension expose precision explicitly?
-
-        RESOLVED: Only for storage using the SHORT TEMP and LONG TEMP syntax
-        (similar to NV_fragment_program_option).
-
-    * How are resources (such as registers and condition codes) scoped?
-
-        RESOLVED: All resources are globally scoped. This means that if, for
-        instance, a subroutine modifies a condition code, that modification
-        effects both the caller and the callee.
-
-    * How is the scope determined for instructions required to be within a
-      specific loop construct?
-
-        RESOLVED: The scope is determined statically at compile time. This means
-        that calling BRK and using A0 from a subroutine called within a loop is
-        a compile error.
-
-
 New Procedures and Functions
 
     None.

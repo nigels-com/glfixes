@@ -18,23 +18,9 @@ Dependencies
 
     SGIX_swap_control affects the definition of this extension
 
-Overview
-
-    This extension provides the capability to synchronize the buffer swaps
-    of a group of GLX drawables.  A swap group is created, and drawables are 
-    added as members to the swap group.  Buffer swaps to members of the swap 
-    group will then take place concurrently.
-
-    This extension extends the set of conditions that must be met before
-    a buffer swap can take place. 
-
 Dependencies
 
     SGIX_swap_control affects the definition of this extension
-
-Issues
-
-    * Do we need a query to ask whether a window is in a group?
 
 New Procedures and Functions
 

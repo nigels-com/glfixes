@@ -40,44 +40,6 @@ Dependencies
 
     OpenGL 4.0 and GLSL 4.00 or later are required.
 
-Overview
-
-    This extension provides control over the spacial granularity at which the
-    underlying implementation computes derivatives.  
-
-    For example, for the coarse-granularity derivative, a single x derivative
-    could be computed for each 2x2 group of pixels, using that same derivative
-    value for all 4 pixels.  For the fine-granularity derivative, two
-    derivatives could be computed for each 2x2 group of pixels; one for the top
-    row and one for the bottom row.  Implementations vary somewhat on how this
-    is done.
-
-    To select the coarse derivative, use:
-
-        dFdxCoarse(p)
-        dFdyCoarse(p)
-        fwidthCoarse(p)
-
-    To select the fine derivative, use:
-
-        dFdxFine(p)
-        dFdyFine(p)
-        fwidthFine(p)
-
-    To select which ever is "better" (based on performance, API hints, or other
-    factors), use:
-
-        dFdx(p)
-        dFdy(p)
-        fwidth(p)
-
-    This last set is the set of previously existing built-ins for derivatives,
-    and continues to work in a backward compatible way.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     None.

@@ -20,25 +20,6 @@ Dependencies
 
     There is an interaction with OpenGL ES.
 
-Overview
-
-    Blending capability is extended by respecifying the entire blend
-    equation.  While this document defines only two new equations, the
-    BlendEquationEXT procedure that it defines will be used by subsequent
-    extensions to define additional blending equations.
-
-    The two new equations defined by this extension produce the minimum
-    (or maximum) color components of the source and destination colors.
-    Taking the maximum is useful for applications such as maximum projection
-    in medical imaging.
-
-Issues
-
-    *   I've prefixed the ADD token with FUNC, to indicate that the blend
-        equation includes the parameters specified by BlendFunc.  (The min
-        and max equations don't.)  Is this necessary?  Is it too ugly?
-        Is there a better way to accomplish the same thing?
-    
 New Procedures and Functions
 
     void BlendEquationEXT(enum mode);

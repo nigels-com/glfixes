@@ -57,15 +57,6 @@ Dependencies
     This extension is written against The OpenGL 4.2 (Compatibility Profile)
     specification.
 
-Overview
-
-    This extension adds support for features of OpenGL ES 3.0 that are
-    missing from OpenGL 3.x. Enabling these features will ease the process
-    of porting applications from OpenGL ES 3.0 to OpenGL. These features
-    include conservative boolean occlusion queries, primitive restart with a
-    fixed index, the OpenGL ES Shading Language 3.00 specification, and the
-    dependencies stated above.
-
 New Procedures and Functions
 
     None

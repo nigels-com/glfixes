@@ -27,21 +27,6 @@ Dependencies
     OpenGL 1.0 or later is required.
     GLX 1.0 or later is required.
 
-Overview
-
-    The glxCopySubBufferMESA() function copies a rectangular region
-    of the back color buffer to the front color buffer.  This can be
-    used to quickly repaint 3D windows in response to expose events
-    when the back color buffer cannot be damaged by other windows.
-
-IP Status
-
-    Open-source; freely implementable.
-
-Issues
-
-    None.
-
 New Procedures and Functions
 
     void glXCopySubBufferMESA( Display *dpy, GLXDrawable drawable,

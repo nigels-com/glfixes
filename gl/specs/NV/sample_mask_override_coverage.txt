@@ -45,16 +45,6 @@ Dependencies
 
     If implemented in OpenGL ES 3.0 or 3.1, OES_sample_variables is required.
 
-Overview
-
-    This extension allows the fragment shader to control whether the
-    gl_SampleMask output can enable samples that were not covered by the
-    original primitive, or that failed the early depth/stencil tests.
-    This can be enabled by redeclaring the gl_SampleMask output with the
-    "override_coverage" layout qualifier:
-
-        layout(override_coverage) out int gl_SampleMask[];
-
 New Procedures and Functions
 
     None.

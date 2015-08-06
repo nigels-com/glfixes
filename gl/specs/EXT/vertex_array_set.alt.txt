@@ -19,19 +19,6 @@ Dependencies
 
     EXT_static_vertex_array   
 
-Overview
-
-    This extension introduces named vertex array sets which encapsulate
-    vertex array state on the client side. The main purpose of these 
-    sets is to keep pointers to static vertex data and provide a name 
-    for different sets of static vertex data. The specification of 
-    static vertex data is done through EXT_static_vertex_array extension.
-
-Issues
-
-    *   Should we allow vertex array sets to be shared between
-    client side contexts? 
-
 New Procedures and Functions
 
     const void *CreateArraySetExt(void);

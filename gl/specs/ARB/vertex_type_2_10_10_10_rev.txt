@@ -52,22 +52,6 @@ Dependencies
 
     This extension interacts with the EXT_vertex_array_bgra extension.
 
-Overview
-
-    This extension adds the following data formats:
-
-    Two new vertex attribute data formats: a signed 2.10.10.10 and an
-    unsigned 2.10.10.10 vertex data format. These vertex data formats
-    describe a 4 component stream which can be used to store normals or
-    other attributes in a quantized form. Normals, tangents, binormals
-    and other vertex attributes can often be specified at reduced
-    precision without introducing noticeable artifacts, reducing the
-    amount of memory and memory bandwidth they consume.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     void VertexP2ui(enum type, uint value);

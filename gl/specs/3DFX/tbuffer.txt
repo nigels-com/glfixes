@@ -28,21 +28,6 @@ Dependencies
     Either SGIS_multisample or 3DFX_multisample is required.
     This specification is written against OpenGL 1.2.
 
-Overview
-
-    This extension allows a write mask to be defined for the fragment
-    mask which is created during multisample rendering. This can be used
-    to create effects such as motion blur and depth of field.
-
-IP Status
-
-    3DFX has filed for patent protection for some of the techniques
-    described in this extension document.
-
-Issues
-
-    None.
-
 New Procedures and Functions
 
     void TbufferMask3DFX(uint mask);

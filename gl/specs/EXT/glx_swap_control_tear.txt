@@ -39,24 +39,6 @@ Dependencies
 
     This extension affects GLX_NV_swap_group.
 
-Overview
-
-    This extension extends the existing GLX_EXT_swap_control extension by
-    allowing a negative <interval> parameter to glXSwapIntervalEXT. The
-    negative <interval> allows late swaps to occur without synchronization
-    to the video frame. This reduces the visual stutter on late frames and
-    reduces the stall on subsequent frames.
-
-IP Status
-
-    There are no known IP issues.
-
-Issues
-
-    This extension is incompatible with GLX_NV_swap_group. If a drawable is
-    currently part of a swap group, late unsynchronized swaps will implicitly be
-    disabled for that drawable.
-
 New Procedures and Functions
 
     None

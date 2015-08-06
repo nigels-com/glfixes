@@ -34,57 +34,6 @@ Dependencies
 
     Requires support for the NV_texture_shader extension.
 
-Overview
-
-    This extension extends the NV_texture_shader functionality to
-    support texture shader operations for 3D textures.
-
-    See the NV_texture_shader extension for information about the
-    texture shader operational model.
-
-    The two new texture shader operations are:
-
-    <conventional textures>
-
-    22.  TEXTURE_3D - Accesses a 3D texture via (s/q,t/q,r/q).
-
-    <dot product textures>
-
-    23.  DOT_PRODUCT_TEXTURE_3D_NV - When preceded by two DOT_PRODUCT_NV
-         programs in the previous two texture shader stages, computes a
-         third similar dot product and composes the three dot products
-         into (s,t,r) texture coordinate set to access a 3D non-projective
-         texture.
-
-Issues
-
-    Why a separate extension?
-
-      Not all implementations of NV_texture_shader will support 3D
-      textures in hardware.
-
-      Breaking this extension out into a distinct extension allows OpenGL
-      programs that only would use 3D textures if they are supported
-      in hardware to determine whether hardware support is available by
-      explicitly looking for the NV_texture_shader2 extension.
-
-    What if an implementation wanted to support NV_texture_shader2
-    operations within a software rasterizer?
-
-      Implementations should be free to implement the 3D texture texture
-      shader operations in software.  In this case, the implementation
-      should NOT advertise the NV_texture_shader2 extension, but should
-      still accept the GL_TEXTURE_3D and GL_DOT_PRODUCT_TEXTURE_3D_NV
-      texture shader operations without an error.  Likewise, the
-      glTexImage3D command should accept the new internal texture formats,
-      formats, and types allowed by this extension should be accepted
-      without an error.
-
-      When NV_texture_shader2 is not advertised in the GL_EXTENSIONS
-      string, but the extension functionality works without GL errors,
-      programs should expect that these two texture shader operations
-      are slow.
-
 New Procedures and Functions
 
     None.

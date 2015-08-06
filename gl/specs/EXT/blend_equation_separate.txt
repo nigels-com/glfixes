@@ -37,59 +37,6 @@ Dependencies
 
     EXT_blend_logic_op interacts with this extension.
 
-Overview
-
-    EXT_blend_func_separate introduced separate RGB and alpha blend
-    factors.  EXT_blend_minmax introduced a distinct blend equation for
-    combining source and destination blend terms.  (EXT_blend_subtract &
-    EXT_blend_logic_op added other blend equation modes.)  OpenGL 1.4
-    integrated both functionalities into the core standard.
-
-    While there are separate blend functions for the RGB and alpha blend
-    factors, OpenGL 1.4 provides a single blend equation that applies
-    to both RGB and alpha portions of blending.
-
-    This extension provides a separate blend equation for RGB and alpha
-    to match the generality available for blend factors.
-
-IP Status
-
-    No known IP issues.
-
-Issues
-
-    Why not use ATI_blend_equation_separate?
-
-        Apple supports this extension in OS X 10.2 but the extension
-        lacks a specification and, as explained in subsequent issues,
-        the token naming is inconsistent with OpenGL conventions.
-
-    What should the token names be?
-
-        RESOLVED:  Follow the precedent of EXT_blend_equation_separate.
-        For example, GL_BLEND_DST becomes GL_BLEND_DST_RGB
-        and GL_BLEND_DST_ALPHA.  So GL_BLEND_EQUATION becomes
-        GL_BLEND_EQUATION_RGB (same value as GL_BLEND_EQUATION) and
-        GL_BLEND_EQUATION_ALPHA.
-
-        This is different from the ATI_blend_equation_separate approach
-        which introduces the single name GL_ALPHA_BLEND_EQUATION_ATI
-        (no RGB name is introduced).  The existing OpenGL convention
-        (example: ARB_texture_env_combine) is to use _RGB and _ALPHA as
-        a suffix for enumerants, not a prefix.
-
-    How should get token values be assigned?
-
-        RESOLVED:  GL_BLEND_EQUATION_RGB_EXT has the same value as
-        GL_BLEND_EQUATION.  See "Compatibility" section.
-
-        For compatibility with ATI_blend_equation_separate,
-        GL_BLEND_EQUATION_ALPHA_EXT shares the same value (0x883D)
-        with the ATI_blend_equation_separate's GL_ALPHA_BLEND_EQUATION_ATI
-        token.  The GL_BLEND_EQUATION_ALPHA_EXT name uses the suffixing
-        convention (rather than prefixing) for adding _ALPHA addition
-        as done by ARB_texture_env_combine and EXT_blend_func_separate.
-
 New Procedures and Functions
 
     void BlendEquationSeparateEXT(enum modeRGB,

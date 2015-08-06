@@ -37,13 +37,6 @@ Dependencies
 
     Requires extension OVR_multiview to be implemented.
 
-Overview
-
- 
-	This extension relaxes the restriction in OVR_multiview that only gl_Position
-	can depend on ViewID in the vertex shader.  With this change, view-dependent
-	outputs like reflection vectors and similar are allowed.
-
 New Tokens
 
 

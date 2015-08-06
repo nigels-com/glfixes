@@ -18,16 +18,6 @@ Dependencies
 
     OpenGL 1.1
 
-Overview
-
-    This extension defines a mechanism for applications to request
-    that color originating from specular lighting be added to
-    the fragment color _after_ texture application.
-
-New Procedures And Functions
-
-    None
-
 New Tokens
 
 

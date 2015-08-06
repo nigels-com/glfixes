@@ -46,20 +46,6 @@ Dependencies
     If implemented in OpenGL ES 3.1, OES_sample_variables (providing
     gl_SampleMaskIn) is required.
 
-Overview
-
-    This extension allows the fragment shader to control whether values in
-    gl_SampleMaskIn[] reflect the coverage after application of the early
-    depth and stencil tests.  This feature can be enabled with the following
-    layout qualifier in the fragment shader:
-
-        layout(post_depth_coverage) in;
-
-    To use this feature, early fragment tests must also be enabled in the
-    fragment shader via:
-
-        layout(early_fragment_tests) in;
-
 New Procedures and Functions
 
     None.

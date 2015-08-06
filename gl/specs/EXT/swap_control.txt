@@ -42,43 +42,6 @@ Dependencies
     Based on GLX_MESA_swap_control version 1.1, GLX_SGI_swap_control
     version 1.9, and WGL_EXT_swap_control version 1.5.
 
-Overview
-
-    This extension allows an application to specify a minimum
-    periodicity of color buffer swaps, measured in video frame periods,
-    for a particular drawable. It also allows an application to query
-    the swap interval and the implementation-dependent maximum swap
-    interval of a drawable.
-
-IP Status
-
-    There are no known IP issues.
-
-Issues
-
-    1. Should implementations that export GLX_EXT_swap_control also
-    export GL_EXT_swap_control?
-
-    RESOLVED: No. GL_EXT_swap_control is exported by WGL_EXT_swap_control
-    because of shortcomings in the WGL extension querying mechanisms. GLX
-    has no such shortcomings, so exporting only a GLX extension is
-    sufficient.
-
-    2. How should the swap interval interact with non-visible drawables?
-
-    RESOLVED: The definition of the swap interval does not make sense
-    when applied to drawables that are not visible on a display device,
-    so it makes no sense to modify or query the swap interval of such
-    drawables.  BadWindow should be returned if the <drawable> argument
-    of glXSwapIntervalEXT is not a window, and the result of querying
-    the swap interval of a non-window drawable should be undefined.
-
-    3. How should the implementations maximum swap interval and current
-    swap interval be exposed?
-
-    RESOVLED: These are both properties of a GLX drawable, so they are
-    exposed through glXQueryDrawable.
-
 New Procedures and Functions
 
     void glXSwapIntervalEXT(Display *dpy,

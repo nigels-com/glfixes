@@ -26,25 +26,6 @@ Dependencies
     ARB_vertex_blend is required.
     This extension is written against the OpenGL 1.2.1 Specification.
 
-Overview
-
-    This extension adds the ability to handle sets of auxilliary
-    vertex and normal coordinates. These sets of auxilliary
-    coordinates are termed streams, and can be routed selectively
-    into the blend stages provided by the vertex blending extension.
-    This functionality enables software animation techniques such
-    as keyframe vertex morphing.
-
-    
-
-IP Status
-
-    Unknown, but believed to be none. 
-
-Issues
-
-     
-
 New Procedures and Functions
 
     void VertexStream{1234}{sifd}(enum stream, T coords)

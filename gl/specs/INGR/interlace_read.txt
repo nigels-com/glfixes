@@ -18,13 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extension provides a way to skip rows of pixels when reading
-    or copying pixel rectangles.  This extension is complementary to
-    the EXT_interlace extension except that it has no affect on getting
-    texture images.
-
 New Procedures and Functions
 
     None

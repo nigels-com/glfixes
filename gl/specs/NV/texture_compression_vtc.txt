@@ -37,42 +37,6 @@ Dependencies
 
     ARB_texture_non_power_of_two interacts with this extension.
 
-Overview
-
-    This extension adds support for the VTC 3D texture compression
-    formats, which are analogous to the S3TC texture compression formats,
-    with the addition of some retiling in the Z direction.  VTC has the
-    same compression ratio as S3TC and uses 4x4x1, 4x4x2, (4x4x3 when
-    non-power-of-two textures are supported), or 4x4x4 blocks.
-
-Issues
-
-    *   Should the enumerants' (1) values and (2) names be reused from
-        the S3TC extension?
-
-        RESOLVED: Yes and yes.  There is such a close correspondence
-        between the formats that introducing new values or names would
-        serve no purpose.
-
-    *   Should the block alignment restrictions differ in any way from
-        the block alignment restrictions in the S3TC extension?
-
-        RESOLVED: No, except for the addition of the Z-direction block
-        alignment restriction for CompressedTexSubImage3D, which is
-        analogous to the X and Y restrictions.
-
-    *   Should VTC compression work with the ARB_texture_non_power_of_two
-        functionality?
-
-        RESOLVED: Yes.  The blockIndex computation works for
-        non-power-of-two width, height, and depth dimensions.
-
-        Consider a 31x25x11 3D texture to be stored using VTC.
-        The initial 31x25x8 portion of the volume is bricked up using
-        VTC with 4x4x4 blocks where the 31x25 dimensions are rounded
-        up to 32x28.  Following the expanded 32x28x8 initial volume are
-        the final texels arranged as 32x28x3 with 4x4x3 blocks.
-
 New Procedures and Functions
 
     None.

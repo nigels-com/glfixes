@@ -30,22 +30,6 @@ Dependencies
     GLX_NV_vertex_array_range is required.
     This extensions is written against the OpenGL 1.4 Specification.
 
-Overview
-
-    This extensions provides a way to convert pointers in an AGP memory
-    region into byte offsets into the AGP aperture.
-    Note, this extension depends on GLX_NV_vertex_array_range, for which
-    no real specification exists.  See GL_NV_vertex_array_range for more
-    information.
-
-IP Status
-
-    None
-
-Issues
-
-    None
-
 New Procedures and Functions
 
     unsigned int glXGetAGPOffsetMESA( const void *pointer )

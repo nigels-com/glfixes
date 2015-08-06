@@ -18,35 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    EXT_misc_attribute extends the list of attribute groups. It provides
-    a miscellaneous group, controlled by the MISC_BIT_EXT bit, that contains
-    the attribute state of extensions that don't logically fit in any other
-    group. 
-
-Reasoning
-
-    In general, an extension's attributes are assigned to a similar
-    attribute group. If an extension is developed that doesn't fit in
-    any of the GL's existing attribute groups, the extension's attributes
-    should be added to the miscellaneous group.
-        
-    The GL sample implementation incorrectly checks the bits in
-    the <mask> argument to PushAttrib and glXCopyContext,
-    generating an error if any unused bits are set. This
-    behavior causes interoperability problems between GLs with
-    different sets of attribute groups. This error checking
-    should be removed from all implementations. The reference
-    to this error checking should also be removed from the GLX
-    specification.
-
-    Because of the bit checking described above, ALL_ATTRIB_BITS
-    can't include MISC_BIT_EXT without risking GL interoperability
-    problems. Not including MISC_BIT_EXT changes the semantics of
-    ALL_ATTRIB_BITS, but is considered the lesser of two evils.
-    These problems should be fixed in the next GL version.
-
 New Procedures and Functions
 
     None

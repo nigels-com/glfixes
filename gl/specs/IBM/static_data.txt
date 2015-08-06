@@ -19,37 +19,6 @@ Dependencies
 
     None
 
-Overview
-
-    The OpenGL specification requires that data be bound at call time.	The
-    IBM_static_data extension relaxes the bind-at-call semantics allowing
-    an implementation to dereference pointers some time after the
-    corresponding calls.
-
-    Because of the bind-at-call sematics of standard OpenGL, an
-    implementation is required to either copy or fully process data at the
-    time it is provided by the application.  Copying data substantially
-    increases the demands on the memory subsystem; processing the data may
-    result in ineffective amortization of fixed costs.	Neither copying nor
-    processing allows multiple rendering threads to operate on the original
-    data.
-
-Issues
-
-  * Indirect rendering is ignored; is there anything useful we can do?
-
-  * This specification has been designed to be generic, but at this time
-    only allows vertex array data to be noted as static.  Should the
-    specification be extended to include data specified in one or more
-    of the following ways:
-      pixel data [glBitmap, glDrawPixels]
-      pixel maps [glPixelMap*]
-      vertex data [glVertex*v, glColor*v, glNormal*v, etc.]
-      evaluator maps [glMap*]
-      texture maps [glTexImage*, glTexSubImage*]
-      matrices [glLoadMatrix*, glMultMatrix*]
-      other attribute calls [glMaterial*v, glLight*v, etc.]
-
 New Procedures and Functions
 
     FlushStaticDataIBM(GLenum target)

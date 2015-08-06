@@ -24,23 +24,6 @@ Dependencies
     SGI_color_table affects the definition of this extension
     SGIS_texture4D affects the definition of this extension
 
-Overview
-
-    This extension provides a simple method for OpenGL to read and store
-    images whose pixels have CMYK or CMYKA formats.  The algorithms used to
-    convert to RGBA from CMYKA and to convert back from RGBA to CMYKA are of
-    the "black-box" nature, meaning that the application has little control
-    over how the conversion is done.  Also, this black-box mechanism is
-    available only for transfers to or from memory, not for internal copies
-    of pixel data (such as invoked by CopyPixels, CopyTexImage1D, etc.)
-    However, the defined mechanism nicely handles 5-component CMYKA images,
-    and it is very easy to use.
-
-    A more configurable and potentially higher quality color conversion can
-    be implemented using the color tables, the color matrix, and possibly 3D
-    and 4D texture lookup.  Such a color conversion also applies to copied
-    pixel data.
-
 New Procedures and Functions
 
     None

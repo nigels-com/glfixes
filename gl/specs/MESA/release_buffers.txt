@@ -27,25 +27,6 @@ Dependencies
     OpenGL 1.0 or later is required.
     GLX 1.0 or later is required.
 
-Overview
-
-    Mesa's implementation of GLX is entirely implemented on the client side.
-    Therefore, Mesa cannot immediately detect when an X window or pixmap is
-    destroyed in order to free any ancilliary data associated with the window
-    or pixmap.
-
-    The glxMesaReleaseBuffers() function can be used to explicitly indicate
-    when the back color buffer, depth buffer, stencil buffer, and/or accum-
-    ulation buffer associated with a drawable can be freed.
-
-IP Status
-
-    Open-source; freely implementable.
-
-Issues
-
-    None.
-
 New Procedures and Functions
 
     Bool glXReleaseBuffersMESA( Display *dpy, GLXDrawable d );

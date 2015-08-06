@@ -35,14 +35,6 @@ Dependencies
     OpenGL 1.1 is required. The language is written against the OpenGL 1.2
     specification.
 
-Overview
-
-    These functions behave identically to the standard OpenGL 1.1 functions
-    glDrawArrays() and glDrawElements() except they handle multiple lists of
-    vertices in one call. Their main purpose is to allow one function call
-    to render more than one primitive such as triangle strip, triangle fan,
-    etc.
-
 New Procedures and Functions
 
     void glMultiDrawArraysEXT( GLenum mode,

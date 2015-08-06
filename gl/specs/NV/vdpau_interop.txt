@@ -38,29 +38,6 @@ Dependencies
     GL_ARB_texture_non_power_of_two affects the definition of this
     extension.
 
-Overview
-
-    This extension allows VDPAU video and output surfaces to be used
-    for texturing and rendering.
-
-    This allows the GL to process and display the content of video
-    streams decoded using VDPAU.
-
-    Alternatively, the GL may modify VDPAU surfaces in-place, and VDPAU
-    may then process and/or display those surfaces itself.
-
-    This allows the GL to be used to combine application user-interface
-    elements with decoded video, implement custom video-processing
-    algorithms, etc.
-
-IP Status
-
-    There are no known IP issues. 
-
-New Types
-
-    typedef GLintptr GLvdpauSurfaceNV;
-
 New Procedures and Functions
 
     void VDPAUInitNV (const void *vdpDevice,

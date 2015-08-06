@@ -21,51 +21,6 @@ Dependencies
     EXT_light_texture is required.
     The language is written against the OpenGL 1.2 specification.
 
-Overview
-
-    This extension defines a mechanism for using texture values to perturb
-    the fragment normal vector prior to fragment lighting.  It enables a
-    direct implementation of the original formulation of bump mapping by
-    Blinn.
-
-Patent Note
-
-    To the extent that SGI has patent rights that are unavoidably
-    infringed by all implementations of this extension, SGI will, upon
-    request, grant a license under such patent rights to the requesting
-    party subject to reasonable terms and conditions, and without
-    incremental charge or fee. Such license shall be non-exclusive, and
-    non-transferable, and shall be limited to implementations of the
-    extension in combination with any conformance certified
-    implementation of the OpenGL API. Such license is expressly
-    contingent upon a grant back of a non-exclusive, royalty-free,
-    perpetual, worldwide license to SGI and its OpenGL licensees under
-    the requesting party's patent rights that are unavoidably infringed
-    by all implementations of this extension or OpenGL.
-
-Issues
-
-    *  do we need to specify how evaluators compute the tangent and binormal
-       in a way different than the EXT_coordinate_frame spec does?
-
-    *  TextureLightEXT effectively defines a set of orthogonal binding
-       points.  TextureNormalEXT defines modes for how the NORMAL binding
-       works, either as a perturbation or a straight replacement.  An
-       alternate way to define TextureNormalEXT which might be more
-       symmetric is to allow it to define two binding points: the
-       base normal and the perturbation and allow binding to either.
-       If no texture is bound to the perturbation, it is treated as
-       zero.  A disadvantage is that it provides generality that may be
-       unwarranted such as the ability to bind one texture to the base
-       and another texture to the perturbation.  Which way should we
-       do this?
-
-    *  the naming scheme doesn't seem consistent.  light_texture.spec
-       defines TextureLightEXT and the extension name EXT_light_texture.
-       texture_perturb_normal.spec defines TextureNormalEXT and the extension
-       name EXT_texture_perturb_normal.  Perhaps light_texture should be
-       renamed EXT_texture_light or rename this one?
-
 New Procedures and Functions
 
     void TextureNormalEXT(enum mode)

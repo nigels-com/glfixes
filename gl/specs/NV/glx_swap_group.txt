@@ -29,32 +29,6 @@ Dependencies
 
     SGIX_swap_control affects the definition of this extension
 
-Overview
-
-    This extension provides the capability to synchronize the buffer
-    swaps of a group of OpenGL windows. A swap group is created, and
-    windows are added as members to the swap group.  Buffer swaps to
-    members of the swap group will then take place concurrently.
-
-    This extension also provides the capability to sychronize the buffer
-    swaps of different swap groups, which may reside on distributed
-    systems on a network. For this purpose swap groups can be bound to
-    a swap barrier.
-
-    This extension extends the set of conditions that must be met before
-    a buffer swap can take place.
-
-Issues
-
-    An implementation can not guarantee that the initialization of the swap
-    groups or barriers will succeed because the state of the window system may
-    restrict the usage of these features. Once a swap group or barrier has 
-    been sucessfully initialized, the implementation can only guarantee to
-    sustain swap group functionality as long as the state of the window system
-    does not restrict this. An example for a state that does typically not
-    restrict swap group usage is the use of one fullscreen sized window per
-    desktop.
-
 New Procedures and Functions
 
     Bool glXJoinSwapGroupNV(Display *dpy,

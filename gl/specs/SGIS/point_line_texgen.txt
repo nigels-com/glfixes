@@ -19,12 +19,6 @@ Dependencies
 
     OpenGL 1.1 is required.
 
-Overview
-
-    This extension adds two texture coordinate generation modes, both
-    which generate a texture coordinate based on the minimum distance 
-    from a vertex to a specified line.
-
 New Procedures and Functions
 
     None

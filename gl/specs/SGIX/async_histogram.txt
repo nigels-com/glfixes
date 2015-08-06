@@ -19,13 +19,6 @@ Dependencies
     SGIX_async is required.
     EXT_histogram is required.
 
-Overview
-
-    This extension introduces a new asynchronous mode for histogram
-    and minmax readbacks.  It allows programs to get the contents of a
-    histogram or minmax table without blocking and to continue issuing
-    graphics commands during the readback.
-
 New Procedures and Functions
 
     None

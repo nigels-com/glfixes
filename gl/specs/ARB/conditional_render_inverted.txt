@@ -42,15 +42,6 @@ Dependencies
     The extension is written against the OpenGL 4.4 Specification, Core
     Profile, March 19, 2014.
 
-Overview
-
-    This extension adds new modes to BeginConditionalRender which invert
-    the condition used to determine whether to draw or not.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     None.
@@ -75,59 +66,3 @@ New Implementation Dependent State
 
     None.
 
-Issues
-
-    (1) Why is this extension necessary?
-
-      RESOLVED:  A competing graphics API supports this feature.  This
-      extension will allow one to easier implement that API's features
-      on top of OpenGL. Also, with the GL_ARB_transform_feedback_overflow_query
-      extension, it's not obvious whether conditional rendering should
-      discard drawing if a transform feedback buffer overflow occurs or
-      doesn't occur. This extension allows both possibilities.
-
-    (2) Should there be QUERY_NO_WAIT_INVERTED and
-        QUERY_BY_REGION_NO_WAIT_INVERTED queries?
-
-      RESOLVED: Yes. Suppose we issue a SAMPLES_PASSED query and begin
-      conditional rendering with QUERY_NO_WAIT_INVERTED. If the query
-      it not ready yet, the GL might render the subsequent primitives even
-      if they might have been visible. There may be a non-obvious use for
-      this.
-
-    (3) What gets inverted, the condition or the behavior?
-
-      DISCUSSION: For QUERY_WAIT_INVERTED and QUERY_BY_REGION_WAIT_INVERTED
-      it doesn't really matter, but for the other two modes there are two
-      possibilities:
-
-        (a) Inverted condition, in which case the GL renders subsequent
-            primitives if the query is not complete yet.
-
-        (b) Inverted behavior, in which case the GL discards subsequent
-            primitives if the query is not complete yet.
-
-      RESOLVED: We chose option (a). The condition is inverted.
-
-Revision History
-
-    Revision 5, 2014/06/09 (Jon Leech)
-      - Assign enums per bug 12362
-
-    Revision 4, 2014/04/25 (Daniel Rakos)
-      - Renamed to ARB_conditional_render_inverted.
-      - Removed suffixes.
-      - Resolved isues (2) and (3).
-
-    Revision 3, 2014/04/16 (Daniel Rakos)
-      - Renamed extension to EXT_conditional_render_inverted.
-      - Marked issue (2) unresolved, changed the behavior for incomplete
-        queries, and added issue (3).
-      - Clarified language regarding what gets inverted and how issue (2)
-        affects the behavior.
-
-    Revision 2, 2014/04/10 (Brian Paul)
-      - Added issue (2) to justify QUERY_NO_WAIT_INVERTED_EXT.
-
-    Revision 1, 2014/02/03 (Brian Paul)
-      - Initial revision.

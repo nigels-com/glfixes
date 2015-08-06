@@ -32,13 +32,6 @@ Dependencies
 
     OpenGL 2.1 is required.
 
-Overview
-
-    This extension allows OpenGL to directly access DirectX buffers
-    and surfaces.  A DirectX vertex buffer may be shared as an OpenGL
-    buffer object and a DirectX surface may be shared as an OpenGL
-    texture or renderbuffer object.
-
 New Procedures and Functions
 
     BOOL wglDXSetResourceShareHandleNV(void *dxObject, HANDLE shareHandle);

@@ -30,39 +30,6 @@ Dependencies
     ARB_shadow is required.
     This extension is written against the OpenGL 1.3 Specification. 
 
-Overview
-
-    This extension generalizes the GL_ARB_shadow extension to support all
-    eight binary texture comparison functions rather than just GL_LEQUAL
-    and GL_GEQUAL.
-
-IP Status
-
-    None.
-
-Issues
-
-    (1) What should this extension be called?
-
-      RESOLUTION: EXT_shadow_funcs.  The extension adds new texture
-      compare (shadow) comparison functions to ARB_shadow.
-
-    (2) Are there issues with GL_EQUAL and GL_NOTEQUAL?
-
-      The GL_EQUAL mode (and GL_NOTEQUAL) may be difficult to obtain
-      well-defined behavior from. This is because there is no guarantee
-      that the divide done by the shadow mapping r/q division is going
-      to exactly match the z/w perspective divide and depth range scale
-      & bias used to generate depth values.  Perhaps it can work in a
-      well-defined manner in orthographic views or if you can guarantee
-      that the texture hardware's r/q is computed with the same hardware
-      used to compute z/w (NVIDIA's NV_texture_shader extension can
-      provide such a guarantee).
-
-      Similiarly, GL_LESS and GL_GREATER or only different from GL_LEQUAL
-      and GL_GEQUAL respectively by a single unit of depth precision
-      which may make the difference between these modes very subtle.
-
 New Procedures and Functions
 
     None

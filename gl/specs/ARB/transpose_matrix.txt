@@ -33,56 +33,6 @@ Dependencies
     This extensions is written against the OpenGL 1.2 Specification.
     May be implemented in any version of OpenGL.
 
-Overview
-
-    New functions and tokens are added allowing application matrices
-    stored in row major order rather than column major order to be
-    transferred to the OpenGL implementation.  This allows an application
-    to use standard C-language 2-dimensional arrays (m[row][col]) and
-    have the array indices match the expected matrix row and column indexes.
-    These arrays are referred to as transpose matrices since they are
-    the transpose of the standard matrices passed to OpenGL.
-
-    This extension adds an interface for transfering data to and from the
-    OpenGL pipeline, it does not change any OpenGL processing or imply any
-    changes in state representation.
-
-IP Status
-
-    No IP is believed to be involved.
-
-Issues
-
-    * Why do this?
-
-        It's very useful for layered libraries that desire to use two
-        dimensional C arrays as matrices.  It avoids having the layered
-        library perform the transpose itself before calling OpenGL since
-        most OpenGL implementations can efficiently perform the transpose
-        while reading the matrix from client memory.
-
-    * Why not add a mode?
-
-        It's substantially more confusing and complicated to add a mode.
-        Simply adding two new entry points saves considerable confusion
-        and avoids having layered libraries need to query the current mode
-        in order to send a matrix with the correct memory layout.
-
-    * Why not a utility routine in GLU
-
-        It costs some performance.  It is believed that most OpenGL
-        implementations can perform the transpose in place with negligble
-        performance penalty.
-
-    * Why use the name transpose?
-
-        It's sure a lot less confusing than trying to ascribe unambiguous
-        meaning to terms like row and column.  It could be matrix_transpose
-        rather than transpose_matrix though.
-
-    * Short Transpose to Trans?
-
-
 New Procedures and Functions
 
     void LoadTransposeMatrix{fd}ARB(T m[16]);

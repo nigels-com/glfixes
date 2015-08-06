@@ -21,66 +21,6 @@ Dependencies
     EXT_texture_object
     SGIS_detail_texture
 
-Overview
-
-    This extension introduces several new texture internal formats.  The
-    purpose of these new formats is to reorganize the components of a
-    texture into groups of components.  The currently selected group
-    effectively becomes the internal format.
-
-    Also, two new texture parameters are introduced that control the
-    selection of these groups of components.
-
-    For example, assume a texture internal format of DUAL_LUMINANCE4_SGIS is
-    specified.  Now there are two groups of components, where each group has
-    a format of LUMINANCE4.  One of the two LUMINANCE groups is always
-    selected.  components can be selected and then interpreted as a LUMINANCE
-    texture.
-
-    The purpose of this extension is allow better utilization of texture
-    memory by subdividing the internal representation of a texel into 1, 2,
-    or 4 smaller texels.  Additionally, this may improve performance of
-    texture downloads.
-
-Issues
-
-    *	This spec still needs values for the enumerants.  Also, the GLX
-	section is empty.
-
-    *	This extension was formerly named SGIS_component_select.  The
-	reference to "component" was confusing so we changed it.
-
-    *	We have removed the ability to "alias" or reinterpret groups of
-	components.  Specifically, once a texture is defined with a DUAL*
-	or QUAD* internal format, the fact that it is ALPHA, LUMINANCE,
-	INTENSITY, or LUMINANCE_ALPHA is not changeable.  a previous version
-	of this spec allowed this.  IrisGL on RealityEngine allowed it as
-	well.  Since this function might be useful, it should be revisited
-	in a separate spec that allows this for all internal formats, not
-	just the ones defined here.  Additionally, any porting document
-	should mention this subtle point.  
-
-    *	Should we include versions of these new internal formats that don't 
-	specify bit resolution?  (e.g. DUAL_ALPHA_SGIS)  It would add the
-	ability to be vague about the actual resolution and would make it
-	appear consistent with internal formats from EXT_texture.  Can
-	someone make a good argument for adding these?
-
-    *	Do we need a new query to determine component bit resolution?
-	A. No.  The existing queries defined by EXT_texture are sufficient.
-	The query applies to the selected group of components.
-
-    *	Need to review dependencies on detail_texture, sharpen, etc.  Can
-	one create a detail texture using these new formats?  A. The
-	dependency on SGIS_detail_texture is mentioned below.
-
-    *	Is there an easy way to know whether this extension is actually
-	"enabled"?  A. This extension is enabled when the current texture
-	format is one of the new internal formats defined here.  An
-	additional query is required to determine which group of components 
-	is selected. 
-
-
 New Procedures and Functions
 
     None

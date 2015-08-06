@@ -36,19 +36,6 @@ Dependencies
 
     None
 
-Overview
-
-    New texture environment function ADD is supported with the following
-    equation:
-                        Cv = min(1, Cf + Ct)
-
-    New function may be specified by calling TexEnv with ADD token.
-
-    One possible application is to add a specular highlight texture to
-    a Gouraud-shaded primitive to emulate Phong shading, in a single
-    pass.
-
-
 New Procedures and Functions
 
     None

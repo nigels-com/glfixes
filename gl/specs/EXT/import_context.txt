@@ -18,21 +18,6 @@ Dependencies
 
         This extension affects the definition of SGIX_FBConfig.
 
-Overview
-
-        This extension allows multiple X clients to share an indirect
-        rendering context.
-
-        Additional convenience procedures to get the current Display*
-        bound to a context as well as other context information are
-        also added.
-
-Issues
-
-        Does glXImportGLXContext also need to take an XVisualInfo*?
-
-        No.  This information will be retrieved from the server.
-
 New Procedures and Functions
 
         Display *glXGetCurrentDisplayEXT();

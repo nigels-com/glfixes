@@ -19,36 +19,6 @@ Dependencies
     WGL_EXT_extensions_string is required.
     WGL_EXT_swap_control affects this extension.
 
-Overview
-
-    This extension allows an application to synchronize color buffer swaps
-    across multiple systems.  Applications that run simultaneously on
-    multiple systems can use this extension to synchronize the buffer swap
-    across each of these systems.
-
-    The mechanism used to implement synchronization of multiple displays
-    depends on an external sync signal.  This resource can only be used by a
-    single application at a time.
-
-    Each system running the application must have frame lock enabled in
-    order for their system to participate in the frame lock.  If frame
-    lock for a system is not enabled, that system will have no affect on
-    other systems.
-
-    For each of the systems to swap at the correct position, it is
-    required that all of the systems genlock together.  Genlock is
-    controlled through the Video Applet.
-
-    The frame lock extension can also be used in conjunction with the swap
-    control extension to control the swap rate.  The interval rate of the
-    "master" system (i.e., the system at the start of the cabled systems)
-    controls the swap rate.
-
-    An implementation-dependent timeout is set when a swap is requested.
-    If the timeout expires before all systems are ready to swap, the swap
-    will occur.  The prevents a system hang if the cable becomes
-    disconnected or an application hangs.
-
 New Procedures and Functions
 
     BOOL wglEnableFrameLockI3D(VOID)

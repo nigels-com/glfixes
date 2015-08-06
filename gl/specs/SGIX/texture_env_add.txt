@@ -18,17 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    New texture environment function ADD is supported with the following 
-    equation: 
-	 		Cv = Cf + CcCt + Cb
-
-    New function may be specified by calling glTexEnv with GL_ADD token.
-    New parameter Cb (bias) may be specified by calling TexEnv with
-    TEXTURE_ENV_BIAS_SGIX token. 
-    
-
 New Procedures and Functions
 
     None

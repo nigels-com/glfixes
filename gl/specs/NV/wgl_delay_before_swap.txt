@@ -36,16 +36,6 @@ Dependencies
 
     OpenGL 2.1 is required.
 
-Overview
-
-    For most interactive applications, the standard rendering loop responding
-    to input events on a frame granularity is sufficient.  Some more demanding
-    applications may want to exchange performance for the ability to sample
-    input closer to the final frame swap and adjust rendering accordingly. 
-    This extension adds functionality to allow the application to wait until a
-    specified time before a swapbuffers command would be able to execute.
-    
-    
 New Procedures and Functions
 
     BOOL wglDelayBeforeSwapNV(HDC hDC, GLfloat seconds)

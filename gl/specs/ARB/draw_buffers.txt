@@ -48,57 +48,6 @@ Dependencies
     ARB_fragment_shader affects the definition of this extension.
 
 
-Overview
-
-    This extension extends ARB_fragment_program and ARB_fragment_shader
-    to allow multiple output colors, and provides a mechanism for
-    directing those outputs to multiple color buffers.
-
-
-Issues
-
-    (1) How many GL_DRAW_BUFFER#_ARB enums should be reserved?  
-
-      RESOLVED: We only need 4 currently, but for future expandability 
-      it would be nice to keep the enums in sequence.  We'll specify
-      16 for now, which will be more than enough for a long time.
-
-    (2) How should multisample work when there are multiple output
-        colors being rendered to multiple draw buffers?
-
-      Basic options are:
-        (a) Color 0 is written to the multisample buffer and then the
-            multisample buffer is resolved to all the color buffers.
-            This option would be consistent with GL's idea of a single
-            multisample buffer, but would be really useless and defeat
-            the purpose of multiple output colors.
-        (b) Have a separate multisample color buffer for each output
-            color/draw buffer.  This would be useful but would all
-            implementations be able to handle it?
-        (c) Don't allow multiple output colors and multisampling to
-            be combined by restricting MAX_DRAW_BUFFERS_ARB to 1
-            for contexts with multisample buffers.  This is simple
-            and would allow a future extension to allow (b).
-
-      RESOLUTION: (b) and (c).  Samples will contain separate color
-      values for each output color.  Implementations that can not
-      support this can restrict MAX_DRAW_BUFFERS_ARB to 1 for contexts
-      with multisample buffers.
-
-    (3) Should gl_FragColor be aliased to gl_FragData[0]?
-
-      RESOLUTION: No.  A shader should write either gl_FragColor, or
-      gl_FragData[n], but not both.
-
-      Writing to gl_FragColor will write to all draw buffers specified
-      with DrawBuffersARB.
-
-    (4) Should gl_FragData[n] be clamped?
-
-      RESOLUTION: They will be clamped if fragment color clamping is
-      enabled.
-
-
 New Procedures and Functions
 
     void DrawBuffersARB(sizei n, const enum *bufs);

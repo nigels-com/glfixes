@@ -35,12 +35,6 @@ Dependencies
 
     WGL_ARB_extensions_string is required.
 
-Overview
-
-    The association of a separate "read" and "draw" DC with the current
-    context allows for preprocessing of image data in an "off screen"
-    DC which is then read into a visible DC for final display.
-
 New Procedures and Functions
 
     BOOL wglMakeContextCurrentARB(HDC hDrawDC,

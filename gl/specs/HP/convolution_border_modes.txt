@@ -18,11 +18,6 @@ Dependencies
 
     EXT_convolution is required
 
-Overview
-
-    This extension provides some additional border modes for the
-    EXT_convolution extension.
-
 New Procedures and Functions
 
     None

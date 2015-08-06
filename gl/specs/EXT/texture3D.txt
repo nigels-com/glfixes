@@ -19,16 +19,6 @@ Dependencies
     EXT_abgr affects the definition of this extension
     EXT_texture is required
 
-Overview
-
-    This extension defines 3-dimensional texture mapping.  In order to
-    define a 3D texture image conveniently, this extension also defines the
-    in-memory formats for 3D images, and adds pixel storage modes to support
-    them.
-    
-    One important application of 3D textures is rendering volumes of image
-    data.
-
 New Procedures and Functions
 
     void TexImage3DEXT(enum target,

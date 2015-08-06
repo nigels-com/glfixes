@@ -18,16 +18,6 @@ Dependencies
 
 	None.
 
-Overview
-
-	This extension allows a value other than 0.0 to be returned by the
-	SGIX_shadow operation in the case when the shadow test passes.
-	With this extension any floating point value in the range [0.0,
-	1.0] can be returned as the texture value when an object is in
-	shadow.  This allows the (untextured) ambient lighting and direct
-	shadowed lighting from a single light source to be computed in a
-	single pass.
-	
 New Procedures and Functions
 
 	None

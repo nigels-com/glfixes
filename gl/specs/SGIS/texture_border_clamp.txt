@@ -19,28 +19,6 @@ Dependencies
     EXT_texture3D affects the definition of this extension
     SGIS_texture_filter4 affects the definition of this extension
 
-Overview
-
-    The base OpenGL provides clamping such that the texture coordinates are
-    limited to exactly the range [0,1].  When a texture coordinate is
-    clamped using this algorithm, the texture sampling filter straddles the
-    edge of the texture image, taking 1/2 its sample values from within the
-    texture image, and the other 1/2 from the texture border.  It is
-    sometimes desirable for a texture to be clamped to the border color,
-    rather than to an average of the border and edge colors.
-
-    This extension defines an additional texture clamping algorithm.
-    CLAMP_TO_BORDER_SGIS clamps texture coordinates at all mipmap levels
-    such that NEAREST and LINEAR filters return the color of the border
-    texels.  When used with FILTER4 filters, the filter operation of
-    CLAMP_TO_BORDER_SGIS is defined but doesn't result in a nice
-    clamp-to-border color.
-
-Issues
-
-    *   Is the arithmetic for FILTER4 filters correct?  Is this the right
-	thing to do?
-
 New Procedures and Functions
 
     None

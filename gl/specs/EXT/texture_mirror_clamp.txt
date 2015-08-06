@@ -28,102 +28,6 @@ Number
 
     298
 
-Issues
-
-    How does EXT_texture_mirror_clamp extend ATI_texture_mirror_once?
-
-        This EXT extension provides the two wrap modes that
-        ATI_texture_mirror_once adds but also adds a third new wrap mode
-        (GL_MIRROR_CLAMP_TO_BORDER_EXT).  This extension uses the same
-        enumerant values for the ATI_texture_mirror_once modes.
-
-    Why is the GL_MIRROR_CLAMP_TO_BORDER_EXT mode more interesting than
-    the two other modes?
-
-        Rather than clamp to 100% of the edge of the texture
-        (GL_MIRROR_CLAMP_TO_EDGE_EXT) or to 50% of the edge and border
-        color (GL_MIRROR_CLAMP), it is preferable to clamp to 100%
-        of the border color (GL_MIRROR_CLAMP_TO_BORDER_EXT).  This
-        avoids "bleeding" at smaller mipmap levels.
-
-        Consider a texture that encodes a circular fall-off pattern such
-        as for a projected spotlight.  A circular pattern is bi-symmetric
-        so a "mirror clamp" wrap modes can reduce the memory footprint
-        of the texture by a fourth.  Far outside the spotlight pattern,
-        you'd like to sample 100% of the border color (typically black
-        for a spotlight texture).  The way to achieve this without any
-        bleeding of edge texels is with GL_MIRROR_CLAMP_TO_BORDER_EXT.
-
-    Does this extension complete the orthogonality of the current five
-    OpenGL 1.5 wrap modes?
-
-         Yes.  There are two ways for repetition to operate (repeated
-         & mirrored) and four ways for texture coordinate clamping to
-         operate (unclamped, clamp, clamp to edge, & clamp to border).
-         The complete table of all 8 modes looks like this:
-
-                          Repeat            Mirror
-                         +----------------  ----------------------
-         Unclamped       | REPEAT           MIRRORED_REPEAT
-         Clamp           | CLAMP            MIRROR_CLAMP
-         Clamp to edge   | CLAMP_TO_EDGE    MIRROR_CLAMP_TO_EDGE
-         Clamp to border | CLAMP_TO_BORDER  MIRROR_CLAMP_TO_BORDER
-
-         OpenGL 1.0 introduced REPEAT & CLAMP.
-         OpenGL 1.2 introduced CLAMP_TO_EDGE
-         OpenGL 1.3 introduced CLAMP_TO_BORDER
-         OpenGL 1.4 introduced MIRRORED_REPEAT
-         ATI_texture_mirror_once introduced MIRROR_CLAMP & MIRROR_CLAMP_TO_EDGE
-         EXT_texture_mirror_clamp introduces MIRROR_CLAMP_TO_BORDER
-
-    Do these three new wrap modes work with 1D, 2D, 3D, and cube map
-    texture targets?
-
-         RESOLUTION: Yes.
-
-    Do these three new wrap modes work with ARB_texture_non_power_of_two
-    functionality?
-    
-         RESOLUTION: Yes.
-
-    Do these three new wrap modes interact with NV_texture_rectangle?
-
-         RESOLUTION:  Mirroring wrap modes are not supported by
-         GL_TEXTURE_RECTANGLE_NV textures.  Conventional mirroring is
-         already not supported for texture rectangles so supporting
-         clamped mirroring modes should not be supported either.
-
-    Does the specification of MIRROR_CLAMP_EXT & MIRROR_CLAMP_TO_EDGE_EXT
-    match the ATI_texture_mirror_once specification?
-
-         I believe yes.  The ATI_texture_mirror_once specification is
-         somewhat vague what happens to texture coordinates at or very
-         near (within half a texel of) zero.  The presumption is that a
-         CLAMP_TO_EDGE behavior is used.  This specification is quite
-         explicit that values near zero are clamped to plus or minus
-         1/(2*N) respectively so that the CLAMP_TO_EDGE behavior is
-         explicit.
-
-    What should this extension be called?
-
-         Calling the extension EXT_texture_mirror_once might cause
-         confusion since this extension has additional functionality.
-         Also, "once" never appears in the specification.
-         EXT_texture_mirror_clamp is a good name because it implies
-         support for all the clamped versions of mirroring.
-
-    There is GL_MIRRORED_REPEAT and then GL_MIRROR_CLAMP_EXT,
-    GL_MIRROR_CLAMP_TO_EDGE_EXT, and GL_MIRROR_CLAMP_TO_BORDER_EXT.
-    Why does the first enumerant name say "MIRRORED" while the other
-    three say "MIRROR"?
-
-         This extension follows the naming precedent set by the
-         ATI_texture_mirror_once specification.
-
-         Moreover, MIRRORED_REPEAT uses "mirrored" to help that the
-         mirroring repeats infinitely.  For the other three modes,
-         there is just one mirror that occurs and then a clamp.
-
 Dependencies
 
     Written based on the wording of the OpenGL 1.4.
@@ -133,23 +37,6 @@ Dependencies
 
     NV_texture_rectangle trivially affects the definition of this
     extension.
-
-Overview
-
-    EXT_texture_mirror_clamp extends the set of texture wrap modes to
-    include three modes (GL_MIRROR_CLAMP_EXT, GL_MIRROR_CLAMP_TO_EDGE_EXT,
-    GL_MIRROR_CLAMP_TO_BORDER_EXT) that effectively use a texture map
-    twice as large as the original image in which the additional half
-    of the new image is a mirror image of the original image.
-
-    This new mode relaxes the need to generate images whose opposite
-    edges match by using the original image to generate a matching
-    "mirror image".  This mode allows the texture to be mirrored only
-    once in the negative s, t, and r directions.
-
-New Procedure and Functions
-
-    None
 
 New Tokens
 

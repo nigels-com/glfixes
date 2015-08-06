@@ -40,19 +40,6 @@ Dependencies
     An OpenCL implementation supporting sharing event objects
     with OpenGL is required.
 
-Overview
-
-    This extension allows creating OpenGL sync objects linked to OpenCL
-    event objects, potentially improving efficiency of sharing images
-    and buffers between the two APIs. The companion cl_khr_gl_event
-    OpenCL extension provides the complementary functionality of
-    creating an OpenCL event object from an OpenGL fence sync object.
-    That extension is located in the OpenCL API Registry.
-
-IP Status
-
-    No known IP claims.
-
 New Procedures and Functions
 
     sync CreateSyncFromCLeventARB(cl_context context, cl_event event,

@@ -27,26 +27,6 @@ Dependencies
     OpenGL 1.0 or later is required.
     GLX 1.0 or later is required.
 
-Overview
-
-    Since Mesa allows RGB rendering into drawables with PseudoColor,
-    StaticColor, GrayScale and StaticGray visuals, Mesa needs a colormap
-    in order to compute pixel values during rendering.
-
-    The colormap associated with a window can be queried with normal
-    Xlib functions but there is no colormap associated with pixmaps.
-
-    The glXCreateGLXPixmapMESA function is an alternative to glXCreateGLXPixmap
-    which allows specification of a colormap.
-
-IP Status
-
-    Open-source; freely implementable.
-
-Issues
-
-    None.
-
 New Procedures and Functions
 
     GLXPixmap glXCreateGLXPixmapMESA( Display *dpy, XVisualInfo *visual,

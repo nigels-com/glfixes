@@ -18,34 +18,6 @@ Dependencies
 
     OpenGL 1.1 is required.
 
-Overview
-
-    This extension allows specifying a per-vertex tangent and binormal
-    vector in addition to the normal vector, defining a coordinate frame.
-    The coordinate frame is used in additional extensions which also build
-    on fragment lighting to achieve bump mapping.
-
-Patent Note
-
-    To the extent that SGI has patent rights that are unavoidably
-    infringed by all implementations of this extension, SGI will, upon
-    request, grant a license under such patent rights to the requesting
-    party subject to reasonable terms and conditions, and without
-    incremental charge or fee. Such license shall be non-exclusive, and
-    non-transferable, and shall be limited to implementations of the
-    extension in combination with any conformance certified
-    implementation of the OpenGL API. Such license is expressly
-    contingent upon a grant back of a non-exclusive, royalty-free,
-    perpetual, worldwide license to SGI and its OpenGL licensees under
-    the requesting party's patent rights that are unavoidably infringed
-    by all implementations of this extension or OpenGL.
-
-Issues
-
-    * Evaluators.
-
-    We need to address how evaluators can generate these values.
-
 New Procedures and Functions
 
     void Tangent3{bdfis}EXT(T coords);

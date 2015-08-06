@@ -50,13 +50,6 @@ Dependencies
     This extension is written against the OpenGL 2.0 specification and
     version 1.30 of the OpenGL Shading Language Specification.
 
-Overview
-
-    This extension provides a new set of fragment shader texture
-    functions (textureLOD) that return the results of automatic
-    level-of-detail computations that would be performed if a texture
-    lookup were performed.
-
 New Procedures and Functions
 
     None.

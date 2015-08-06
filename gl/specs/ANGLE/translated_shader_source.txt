@@ -36,25 +36,6 @@ Dependencies
 
     The extension is written against the OpenGL ES 2.0 specification.
 
-Overview
-
-    WebGL uses the GLSL ES 2.0 spec on all platforms, and translates these
-    shaders to the host platform's native language (HLSL, GLSL, and even GLSL
-    ES). For debugging purposes, it is useful to be able to examine the shader
-    after translation.
-
-    This extension addes a new function to query the translated shader source,
-    and adds a new enum for GetShaderiv's <pname> parameter to query the
-    translated shader source length. 
-
-IP Status
-
-    No known IP claims.
-
-New Types
-
-    None
-
 New Procedures and Functions
 
     void GetTranslatedShaderSourceANGLE(uint shader, sizei bufsize,

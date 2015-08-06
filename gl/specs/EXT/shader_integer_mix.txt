@@ -37,13 +37,6 @@ Dependencies
     This extension is written against the OpenGL 4.4 (core) specification
     and the GLSL 4.40 specification.
 
-Overview
-
-    GLSL 1.30 (and GLSL ES 3.00) expanded the mix() built-in function to
-    operate on a boolean third argument that does not interpolate but
-    selects. This extension extends mix() to select between int, uint,
-    and bool components.
-
 New Procedures and Functions
 
     None.

@@ -41,58 +41,6 @@ Dependencies
 
     EXT_paletted_texture is required.
 
-Overview
-
-    EXT_shared_texture_palette defines a shared texture palette which may be
-    used in place of the texture object palettes provided by
-    EXT_paletted_texture. This is useful for rapidly changing a palette
-    common to many textures, rather than having to reload the new palette
-    for each texture. The extension acts as a switch, causing all lookups
-    that would normally be done on the texture's palette to instead use the
-    shared palette.
-
-IP Status
-
-    None.
-
-Issues
-
-    *  Do we want to use a new <target> to ColorTable to specify the
-       shared palette, or can we just infer the new target from the
-       corresponding Enable?
-
-    *  A future extension of larger scope might define a "texture palette
-       object" and bind these objects to texture objects dynamically, rather
-       than making palettes part of the texture object state as the current
-       EXT_paletted_texture spec does.
-
-    *  Should there be separate shared palettes for 1D, 2D, and 3D
-       textures?
-
-       Probably not; palette lookups have nothing to do with the
-       dimensionality of the texture. If multiple shared palettes
-       are needed, we should define palette objects.
-
-    *  There's no proxy mechanism for checking if a shared palette can
-       be defined with the requested parameters. Will it suffice to
-       assume that if a texture palette can be defined, so can a shared
-       palette with the same parameters?
-
-    *  The changes to the spec are based on changes already made for
-       EXT_paletted_texture, which means that all three documents must
-       be referred to. This is quite difficult to read.
-
-    *  The changes to section 3.8.6, defining how shared palettes are
-       enabled and disabled, might be better placed in section 3.8.1.
-       However, the underlying EXT_paletted_texture does not appear to
-       modify these sections to define exactly how palette lookups are
-       done, and it's not clear where to put the changes.
-
-    *  How does the shared texture palette interact with multitexture
-       support?  There is a single global shared texture palette that
-       all texture units utilize (as opposed to a shared texture palette
-       per texture unit).
-
 New Procedures and Functions
 
     None

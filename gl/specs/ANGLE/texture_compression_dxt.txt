@@ -37,23 +37,6 @@ Dependencies
 
     The extension is written against the OpenGL ES 2.0 specification.
 
-Overview
-
-    These extensions are exactly the same as EXT_texture_compression_dxt1
-    except they additionally expose the COMPRESSED_RGBA_S3TC_DXT3_ANGLE and
-    COMPRESSED_RGBA_S3TC_DXT5_ANGLE formats and have a size restrictions
-    such that the size must be a multiple of four (except for mip levels
-    where the dimensions are either 2 or 1).
-
-    See EXT_texture_compression_dxt1 for the full list of changes. Also
-    see EXT_texture_compression_s3tc for a description of the formats.
-
-IP Status
-
-    A license to the S3TC Intellectual Property may be necessary for 
-    implementation of this extension.  You should consult with your 
-    Attorney to determine the need for a license.
-
 New Procedures and Functions
 
     None.

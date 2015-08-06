@@ -18,12 +18,6 @@ Dependencies
 
     None
 
-Overview
-
-    This extends the number of packed vertex formats accepted by
-    InterleavedArrays to include formats which specify color indexes
-    rather than RGBA colors.
-
 New Procedures and Functions
 
     None
