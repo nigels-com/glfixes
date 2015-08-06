@@ -10,14 +10,6 @@ Contact
 
     Ian Romanick, IBM (idr 'at' us.ibm.com)
 
-IP Status
-
-    No known IP issues.
-
-Status
-
-    TBD
-
 Version
 
     $Date: 2005/12/12$ $Revision: 0.3$

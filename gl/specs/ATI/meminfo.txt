@@ -17,10 +17,6 @@ Contact
 
     Bruno Stefanizzi, AMD (bruno.stefanizzi 'at' amd.com)
 
-Status
-
-    ???
-
 Version
 
     Date: March 2, 2009

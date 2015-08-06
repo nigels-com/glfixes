@@ -16,10 +16,6 @@ Contributors
     Graham Sellers, AMD
     Christophe Riccio, AMD
 
-Status
-
-    Shipping in Catalyst 12.6
-
 Version
 
     Last Modified Date:         06/01/2012

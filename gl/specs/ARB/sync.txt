@@ -27,17 +27,6 @@ Notice
     Copyright (c) 2009-2013 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-IP Status
-
-    US patent #6025855 may bear on this extension (based on ARB
-    discussion in March, 2003).
-
-    The related NV_fence extension is marked "NVIDIA Proprietary".
-
-Status
-
-    Complete. Approved by the ARB on July 3, 2009.
-
 Version
 
     September 18, 2009 (version 25)

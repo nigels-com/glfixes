@@ -11,12 +11,6 @@ Contact
     Barthold Lichtenbelt, NVIDIA (blichtenbelt 'at' nvidia.com)
     Pat Brown, NVIDIA (pbrown 'at' nvidia.com)
 
-Status
-
-    Multi vendor extension
- 
-    Shipping for GeForce 8 Series (November 2006) 
-
 Version
 
     Last Modified Date:         12/14/2009

@@ -15,18 +15,6 @@ Notice
 
     Copyright NVIDIA Corporation, 2000, 2001.
 
-IP Status
-
-    NVIDIA Proprietary.
-
-Status
-
-    Discontinued.
-
-    NVIDIA no longer supports this extension in driver updates after
-    November 2002.  Instead, use conventional OpenGL evaluators or
-    tessellate surfaces within your application.
-
 Version
 
     NVIDIA Date: January 3, 2003

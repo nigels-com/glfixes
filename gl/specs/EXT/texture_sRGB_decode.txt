@@ -25,10 +25,6 @@ Contact
 
     Matt Collins, Apple Inc (matthew.collins 'at' apple.com)
 
-Status
-
-    Shipping on OS X 10.7
-
 Version
 
     Date: August 14, 2013

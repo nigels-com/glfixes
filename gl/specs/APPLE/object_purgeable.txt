@@ -20,10 +20,6 @@ Contact
 
     Charlie Lao, Apple Computer Inc. (clao 'at' apple.com)
 
-Status
-
-    TBD
-
 Version
 
     Last Modified Date: September 29, 2006

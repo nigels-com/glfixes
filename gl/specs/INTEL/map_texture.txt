@@ -13,9 +13,6 @@ Contributors
     Aneta Roztkowska, INTEL
     Piotr Uminski, INTEL
 
-Status
-    Draft.
-
 Version
     Last Modified Date: June 5, 2012
     Author Revision: 1

@@ -18,10 +18,6 @@ Contact
 
     Mark Young, AMD (mark.young 'at' amd.com)
 
-Status
-
-    In progress
-
 Version
 
     Last Modified Date:         July 10, 2009

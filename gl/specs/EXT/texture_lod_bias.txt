@@ -14,15 +14,6 @@ Contact
 
     Mark Kilgard, NVIDIA (mjk 'at' nvidia.com)
 
-Status
-
-    Shipping since late 1999.
-
-    The texture LOD bias functionality in OpenGL 1.4 is based on this
-    extension though the OpenGL 1.4 functionality added the ability to
-    specify a second per-texture object bias term.  The OpenGL 1.4 enum
-    values match the EXT enum values.
-
 Version
 
     Last Modified Date: June 23, 2009

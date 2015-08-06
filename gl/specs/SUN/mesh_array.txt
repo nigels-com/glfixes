@@ -10,10 +10,6 @@ Contact
 
     Jack Middleton, Sun (Jack.Middleton 'at' sun.com)
 
-Status
-
-    Shipping (version 1.1)
-
 Version
    
     $Date: 02/03/14 08:48:06  $Revision: 1.3 $

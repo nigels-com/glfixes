@@ -21,11 +21,6 @@ Notice
     Copyright (c) 1999-2013 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-Status
-
-    Approved by ARB on 12/8/1999.
-    GLX protocol must still be defined.
-
 Version
 
     Last Modified Date: March 12, 2002

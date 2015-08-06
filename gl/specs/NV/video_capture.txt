@@ -19,10 +19,6 @@ Contact
 
     James Jones, NVIDIA Corporation (jajones 'at' nvidia.com)
 
-Status
-
-    Complete.  Shipping in NVIDIA 190.XX drivers
-
 Version
 
     Last Modified Date: Jul 8, 2011

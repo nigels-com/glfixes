@@ -10,10 +10,6 @@ Contact
 
     Jon Leech, Silicon Graphics (ljp 'at' sgi.com)
 
-Status
-
-    Shipping (version 1.6)
-
 Version
 
     $Date: 1999/06/21 19:57:19 $ $Revision: 1.11 $

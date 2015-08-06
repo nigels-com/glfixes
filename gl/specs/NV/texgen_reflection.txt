@@ -14,19 +14,6 @@ Notice
 
     Copyright NVIDIA Corporation, 1999.
 
-Status
-
-    Shipping (version 1.0)
-    NVIDIA, Mesa 3.1, and ATI support this.
-
-    This extension's texture coordinate generation functionality is
-    incoporated into the ARB_texture_cube_map extension.  The same
-    enumerant values are used.
-
-    The ARB_texture_cube_map functionality, including this texgen
-    reflection functionality, is part of OpenGL 1.3 and subsequent
-    revisions of the core OpenGL standard.
-
 Version
 
     June 17, 2003 (version 1.0)

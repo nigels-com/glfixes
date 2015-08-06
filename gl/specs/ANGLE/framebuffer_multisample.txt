@@ -18,10 +18,6 @@ Contacts
 
     Daniel Koch, TransGaming Inc. (daniel 'at' transgaming 'dot' com)
 
-Status
-
-    Implemented in ANGLE ES2
-
 Version
 
     Last Modified Date: Aug 6, 2010 

@@ -10,10 +10,6 @@ Contact
 
     Dale Kirkland, NVIDIA (dkirkland 'at' nvidia.com)
 
-Status
-
-    Shipping
-
 Version
 
     Date: 4/4/2002  Version 1.2

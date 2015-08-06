@@ -24,11 +24,6 @@ Contact
 
     Michael Gold, NVIDIA Corporation (gold 'at' nvidia.com)
 
-Status
-
-    Complete.  Approved by the ARB "superbuffers" working group on
-    November 8, 2005.
-
 Version
 
     Last Modified Date: April 5, 2007

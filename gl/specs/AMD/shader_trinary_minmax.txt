@@ -10,10 +10,6 @@ Contact
 
     Graham Sellers, AMD (graham.sellers 'at' amd.com)
 
-Status
-
-    Shipping
-
 Version
 
     Last Modified Date:         10/01/2012

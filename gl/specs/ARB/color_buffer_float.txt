@@ -26,10 +26,6 @@ Notice
     Copyright (c) 2004-2013 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-Status
-
-    Complete. Approved by the ARB on October 22, 2004.
-
 Version
 
     Based on the ATI_pixel_format_float extension, version 5

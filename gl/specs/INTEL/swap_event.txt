@@ -15,10 +15,6 @@ Contributors
     Kristian Høgsberg (kristian.h.kristensen 'at' intel.com)
     Ian Romanick (ian.d.romanick 'at' intel.com)
 
-Status
-
-    Proof of concept implementation available for the Intel stack.
-
 Version
 
     Last Modified Date: May 3, 2011

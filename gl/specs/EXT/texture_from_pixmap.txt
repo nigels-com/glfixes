@@ -16,10 +16,6 @@ Contact
 
     David Reveman, Novell, Inc. (davidr 'at' novell.com)
 
-Status
-
-    Complete
-
 Version
 
     17 (10 Feb 2009)

@@ -46,13 +46,6 @@ Contacts
     Jeff Juliano, NVIDIA Corporation (jjuliano 'at' nvidia.com)
     Jeremy Sandmel, Apple Computer (jsandmel 'at' apple.com)
 
-Status
-
-    Complete. 
-    Approved by the ARB "superbuffers" Working Group on January 31, 2005.
-    Despite being controlled by the ARB WG, this is not an officially
-    approved ARB extension at this time, thus the "EXT" tag.
-
 Version
 
     Last Modified Date: September 23, 2013

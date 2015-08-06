@@ -14,10 +14,6 @@ Contributors
 
     Sergey Leontyev, AMD
 
-Status
-
-    Shipping
-
 Version
 
     Last Modified Date: 2 May 2013

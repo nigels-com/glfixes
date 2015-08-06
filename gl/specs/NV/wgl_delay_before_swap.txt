@@ -19,10 +19,6 @@ Contact
 
     Jeannot Breton, NVIDIA Corporation (jbreton 'at' nvidia.com)
 
-Status
-
-    Shipping.
-
 Version
 
     Last Modified Date:         02/04/2013

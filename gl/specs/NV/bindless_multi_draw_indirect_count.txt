@@ -14,10 +14,6 @@ Contributors
 
     Piers Daniell, NVIDIA
 
-Status
-
-     DRAFT SPECIFICATION
-
 Version
 
     Last Modified Date: June 24, 2013

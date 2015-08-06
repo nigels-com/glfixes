@@ -21,18 +21,6 @@ Notice
 
     Copyright NVIDIA Corporation, 2000, 2001.
 
-IP Status
-
-    NVIDIA Proprietary.
-
-Status
-
-    Shipping as of June 8, 2000 (version 1.0)
-
-    Shipping as of November, 2003 (version 1.1)
-
-    Version 1.2 adds ES support and clarification; otherwise identical to 1.1.
-
 Version
 
     December 17, 2008 (version 1.2)

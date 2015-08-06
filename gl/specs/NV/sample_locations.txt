@@ -15,10 +15,6 @@ Contributors
     Pat Brown, NVIDIA
     Mathias Heyer, NVIDIA
 
-Status
-
-    Shipping
-
 Version
 
     Last Modified Date:         March 27, 2015

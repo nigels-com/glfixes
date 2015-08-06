@@ -14,10 +14,6 @@ Contributors
 
     Graham Sellers
 
-Status
-
-    Complete, shipping.
-
 Version
 
     Last Modified Date: Febuary 14, 2011

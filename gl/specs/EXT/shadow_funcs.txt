@@ -10,10 +10,6 @@ Contact
 
     Mark J. Kilgard (mjk 'at' nvidia.com)
 
-Status
-
-    Complete
-
 Version
 
     Last Modified Date:  $Date: 2002/03/22 $

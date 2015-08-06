@@ -14,16 +14,6 @@ Notice
 
     Copyright NVIDIA Corporation, 1999, 2000, 2001.
 
-IP Status
-
-    NVIDIA Proprietary.
-
-Status
-
-    Shipping (version 1.1)
-
-    Existing functionality is augmented by NV_vertex_array_range2.
-
 Version
 
     NVIDIA Date: September 17, 2001 (version 1.1)

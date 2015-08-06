@@ -17,10 +17,6 @@ Contact
 
     Benj Lipchak, Apple (lipchak 'at' apple.com)
 
-Status
-    
-    Complete
-
 Version
 
     Date: October 7, 2013

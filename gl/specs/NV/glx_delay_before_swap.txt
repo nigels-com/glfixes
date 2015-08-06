@@ -20,10 +20,6 @@ Contact
 
     Miguel Angel Vico, NVIDIA Corporation (mvicomoya 'at' nvidia.com)
 
-Status
-
-    Complete.
-
 Version
 
     Last Modified Date:         11/08/2013

@@ -19,10 +19,6 @@ Contributors
     Larry Seiler, Intel
     Tomasz Poniecki, Intel
 
-Status
-
-    Draft.
-
 Version
 
     Last Modified Date:        08/29/2013

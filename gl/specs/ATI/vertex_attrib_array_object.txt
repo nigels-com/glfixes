@@ -10,10 +10,6 @@ Contact
 
     Chuck Smith, AMD (chuck.smith 'at' amd.com)
 
-Status
-
-    Complete.
-
 Version
   
     Last Modified Date: November 4, 2006

@@ -11,10 +11,6 @@ Contact
     Pat Brown, NVIDIA (pbrown 'at' nvidia.com)
     Barthold Lichtenbelt, NVIDIA (blichtenbelt 'at' nvidia.com)
 
-Status
-
-    Shipping for GeForce 8 Series (November 2006)
-
 Version
 
     Last Modified Date:         11/09/2009

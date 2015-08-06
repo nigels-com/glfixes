@@ -10,10 +10,6 @@ Contact
 
     Jon Leech, SGI (ljp 'at' sgi.com)
 
-Status
-
-    Shipping on SGI Infinite Reality and Ultimate Vision systems.
-
 Version
 
     Last Modified Date: 2004/07/21

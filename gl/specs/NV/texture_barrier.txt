@@ -10,10 +10,6 @@ Contact
 
     Jeff Bolz, NVIDIA Corporation (jbolz 'at' nvidia.com)
 
-Status
-
-    Shipping (August 2009, Release 190)
-
 Version
 
     Last Modified Date:         April 8,2011

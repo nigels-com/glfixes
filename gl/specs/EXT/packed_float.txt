@@ -12,10 +12,6 @@ Contact
 
     Mark J. Kilgard, NVIDIA Corporation (mjk 'at' nvidia.com)
 
-Status
-
-    Preliminary
-
 Version
 
     Date: February 15, 2006

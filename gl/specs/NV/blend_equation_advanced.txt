@@ -19,11 +19,6 @@ Contributors
     Daniel Koch, NVIDIA Corporation
     Rik Cabanier, Adobe
 
-Status
-
-    NV_blend_equation_advanced is released in NVIDIA Driver Release
-    326.xx (June 2013).
-
 Version
 
     Last Modified Date:         February 26, 2014

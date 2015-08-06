@@ -14,10 +14,6 @@ Contributors
 
     Eric Lengyel, Terathon Software
 
-Status
-
-    Complete.
-
 Version
 
     Last Modified Date: August 27, 2014

@@ -10,10 +10,6 @@ Contact
 
     Chris Niederauer, Apple (ccn 'at' apple.com)
 
-Status
-
-    Shipping on Mac OS X.
-
 Version
 
     Last Modified Date: 19 March 2008

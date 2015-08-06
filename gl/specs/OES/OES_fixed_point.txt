@@ -15,11 +15,6 @@ Notice
     Copyright (c) 2002-2013 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-Status
-
-    Ratified by the Khronos BOP, July 23, 2003.
-    Ratified by the Khronos BOP, Aug 5, 2004.
-
 Version
 
     Last Modifed Date: 27 April 2015

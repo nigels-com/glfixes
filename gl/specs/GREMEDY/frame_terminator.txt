@@ -14,10 +14,6 @@ Contact
 
     Yaki Tebeka, Graphic Remedy (yaki 'at' gremedy.com)
 
-Status
-
-    Implemented by gDEBugger (Version 3.2 or later)
-
 Version
 
     Last Modified Date: September 20, 2007

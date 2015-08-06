@@ -24,10 +24,6 @@ Contributors
     Eric Werness, NVIDIA Corporation (ewerness 'at' nvidia.com)
     Shazia Rahman, NVIDIA Corporation (srahman 'at' nvidia.com)
 
-Status
-
-    Shipping (July 2009, Release 190)
-
 Version
 
     Last Modified Date:         8/7/2012

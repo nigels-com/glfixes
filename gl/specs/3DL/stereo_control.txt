@@ -11,10 +11,6 @@ Contact
     Seth Williams, 3Dlabs (seth.williams 'at' 3dlabs.com)
     Harald Smit, 3Dlabs (harald.smit 'at' 3dlabs.com)
 
-Status
-
-    Complete
-
 Version
 
     Date: 10/05/2005   Revision 1.0

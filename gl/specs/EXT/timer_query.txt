@@ -17,12 +17,6 @@ Contributors
     Pat Brown, NVIDIA
     Remi Arnaud, Sony
 
-Status
-
-    Shipping (version 1.0)
-
-    Supported by NVIDIA Release 80 drivers.
-
 Version
 
     Last Modified Date:         2013/06/25

@@ -23,17 +23,6 @@ Contributors
     Bas Schouten, Mozilla
     Sandeep Shinde, NVIDIA
 
-Status
-
-    Released in NVIDIA Driver Release 275.33 (June 2011).
-
-    Substantially optimized in NVIDIA Driver Release 301.42 (May 2012).
-
-    Further optimized in NVIDIA Driver Release 314.xx (February 2013).
-
-    Version 1.3 functionality shipping in NVIDIA Driver Release 337.88
-    and on (May, 27 2014).
-
 Version
 
     Last Modified Date:  September 9, 2014

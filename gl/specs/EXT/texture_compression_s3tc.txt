@@ -20,10 +20,6 @@ Contact
     Pat Brown, NVIDIA Corporation (pbrown 'at' nvidia.com)
     Slawomir Grajewski, INTEL (slawomir.grajewski 'at' intel.com)
 
-Status
-
-    FINAL
-
 Version
 
     1.6, 15 July 2013

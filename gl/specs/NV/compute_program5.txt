@@ -10,10 +10,6 @@ Contact
 
     Pat Brown, NVIDIA Corporation (pbrown 'at' nvidia.com)
 
-Status
-
-    Complete
-
 Version
 
     Last Modified Date:         10/23/2012

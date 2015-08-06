@@ -16,12 +16,6 @@ Contributors
     Evan Hart
     Mark Kilgard
 
-Status
-
-    Complete.  Shipping in NVIDIA 195.XX drivers
-
-    NVIDIA's Tegra drivers will not expose this extensions.
-
 Version
 
     Last Modified Date: October 3, 2013

@@ -10,10 +10,6 @@ Contact
 
     SGI
 
-Status
-
-    XXX - Not complete yet!!!
-
 Version
 
     $Date: 1999/03/08 21:20:19 $ $Revision: 1.2 $

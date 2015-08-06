@@ -15,10 +15,6 @@ Contact
 
     John Rosasco, Apple Computer (jdr 'at' apple.com)
 
-Status
-
-    TBD
-
 Version
 
     Last Modified: October 17, 2006

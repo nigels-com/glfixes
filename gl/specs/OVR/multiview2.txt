@@ -17,10 +17,6 @@ Contributors
     Jan-Harald Fredriksen, ARM
     Sam Holmes, Qualcomm
 
-Status
-
-    Incomplete.
-
 Version
 
     Last Modified Date:  Mar 18, 2015

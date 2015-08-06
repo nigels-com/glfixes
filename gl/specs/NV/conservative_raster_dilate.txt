@@ -17,10 +17,6 @@ Contributors
     Mark Kilgard, NVIDIA Corporation (mkilgard 'at' nvidia.com)
     Eric Werness, NVIDIA Corporation (ewerness 'at' nvidia.com)
 
-Status
-
-    Shipping in Nvidia release 352.XX drivers and up.
-
 Version
 
     Last Modified Date:         June 02, 2015

@@ -22,10 +22,6 @@ Contributors
     Pierre Boudier, AMD
     Piers Daniell, NVIDIA
 
-Status
-
-    Shipping.
-
 Version
 
     Last Modified Date:         10/16/2013

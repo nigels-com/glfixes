@@ -10,10 +10,6 @@ Contact
 
     Eric Werness, NVIDIA Corporation (ewerness 'at' nvidia.com)
 
-Status
-
-    Shipping.
-
 Version
 
     Last Modified Date:         April 12, 2010

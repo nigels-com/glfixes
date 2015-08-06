@@ -14,18 +14,6 @@ Notice
 
     Copyright NVIDIA Corporation, 1999, 2001.
 
-IP Status
-
-    NVIDIA Proprietary.
-
-Status
-
-    Discontinued.
-
-    NVIDIA no longer supports this extension in driver updates
-    after November 2002.  Instead, use either ARB_vertex_program &
-    NV_vertex_program.
-
 Version
 
     NVIDIA Date: January 3, 2003

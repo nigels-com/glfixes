@@ -10,10 +10,6 @@ Contact
 
     Bob Beretta, Apple Computer (beretta 'at' apple.com)
 
-Status
-
-    Complete
-
 Version
 
     $Date: 2002/09/23 04:37:25 $ $Revision: 1.9 $

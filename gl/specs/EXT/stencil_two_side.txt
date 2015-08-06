@@ -14,11 +14,6 @@ Notice
 
     Copyright NVIDIA Corporation, 2001-2002.
 
-Status
-
-    Implemented in CineFX (NV30) Emulation driver, August 2002.
-    Shipping in Release 40 NVIDIA driver for CineFX hardware, January 2003.
-
 Version
 
     Last Modified Date:  09/15/2005

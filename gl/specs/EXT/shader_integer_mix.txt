@@ -15,10 +15,6 @@ Contributors
     Matt Turner, Intel
     Ian Romanick, Intel
 
-Status
-
-    Shipping
-
 Version
 
     Last Modified Date:         09/12/2013

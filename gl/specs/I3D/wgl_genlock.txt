@@ -10,10 +10,6 @@ Contact
 
     Dale Kirkland, Intense3D (kirkland 'at' intense3d.com)
 
-Status
-
-    Complete
-
 Version
 
     Date: 04/17/2000   Revision 1.0

@@ -15,10 +15,6 @@ Contributors
     Markus Tavenrath, NVIDIA
     Christoph Kubisch, NVIDIA
 
-Status
-
-    SHIPPING 
-
 Version
 
     Last Modified Date: August 28, 2014

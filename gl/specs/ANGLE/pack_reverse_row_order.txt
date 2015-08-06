@@ -15,10 +15,6 @@ Contributors
     Brian Salomon
     Daniel Koch
 
-Status
-
-    Implemented in ANGLE ES2
-
 Version
 
     Last Modified Date: February 22, 2011

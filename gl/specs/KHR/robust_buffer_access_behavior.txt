@@ -23,13 +23,6 @@ Notice
     Copyright (c) 2012-2014 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-Status
-
-    Complete. 
-    Approved by the OpenGL ES Working Group on June 25, 2014.
-    Approved by the ARB on June 26, 2014.
-    Ratified by the Khronos Board of Promoters on August 7, 2014.
-
 Version
 
     Version 7, June 26, 2014

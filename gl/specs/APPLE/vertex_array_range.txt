@@ -10,10 +10,6 @@ Contact
 
     Geoff Stahl, Apple Computer (gstahl 'at' apple.com)
 
-Status
-
-    Complete
-
 Version
 
     $Date: 2009/01/07 22:05:21 $ $Revision: 1.13 $

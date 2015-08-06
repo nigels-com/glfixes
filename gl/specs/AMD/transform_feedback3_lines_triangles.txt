@@ -14,10 +14,6 @@ Contact
 
     Graham Sellers, AMD (graham.sellers 'at' amd.com)
 
-Status
-
-    Complete. Shipping in ATI Catalyst 10.6 Drivers.
-
 Version
 
     Last Modified Date:         03/22/2010

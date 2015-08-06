@@ -11,10 +11,6 @@ Contact
     Michael Gold (gold 'at' nvidia.com)
     Tom Frisinger, AMD (tom.frisinger 'at' amd.com)
 
-Status
-
-    Shipping (NVIDIA, ATI)
-
 Version
 
     $Date$ $Revision$

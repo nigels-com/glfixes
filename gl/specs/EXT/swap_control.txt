@@ -18,10 +18,6 @@ Contact
 
     Brian Nguyen, NVIDIA, brnguyen at nvidia.com
 
-Status
-
-    Completed.
-
 Version
 
     Version 8 (November 8, 2011)

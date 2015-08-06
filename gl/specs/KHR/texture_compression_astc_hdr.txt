@@ -27,22 +27,10 @@ Contributors
     Anthony Wood, Imagination Technologies
     Jon Leech
 
-IP Status
-
-    No known issues.
-
 Notice
 
     Copyright (c) 2012-2015 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
-
-Status
-
-    Complete.
-    Approved by the ARB on 2012/06/18.
-    Approved by the OpenGL ES WG on 2012/06/15.
-    Ratified by the Khronos Board of Promoters on 2012/07/27 (LDR profile).
-    Ratified by the Khronos Board of Promoters on 2013/09/27 (HDR profile).
 
 Version
 

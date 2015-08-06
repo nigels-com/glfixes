@@ -17,10 +17,6 @@ Contributors
     Pat Brown, NVIDIA
     Eric Werness, NVIDIA
 
-Status
-
-    Shipping in October, 2008.
-
 Version
 
     Last Modified Date: September 9, 2008

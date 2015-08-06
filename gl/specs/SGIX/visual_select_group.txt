@@ -11,10 +11,6 @@ Contact
     David Gorgen, Silicon Graphics (dgorgen 'at' sgi.com)
     Wei Li, Silicon Graphics (weili 'at' sgi.com)
 
-Status
-
-    Complete
-
 Version
 
     Last Modified Date: November 28, 2000

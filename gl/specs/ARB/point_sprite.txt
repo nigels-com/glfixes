@@ -17,14 +17,6 @@ Notice
     Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-IP Status
-
-    No known IP issues.
-
-Status
-
-    Approved by the ARB on July 24, 2003.
-
 Version
 
     Last Modified Date:  July 22, 2003

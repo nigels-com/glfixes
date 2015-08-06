@@ -11,10 +11,6 @@ Contact
     Geoff Stahl, Apple (gstahl 'at' apple.com)
     Jeremy Sandmel, Apple (jsandmel 'at' apple.com)
 
-Status
-
-    Shipping Mac OS X v10.2.3 (version 1.0)
-
 Version
 
     1.0

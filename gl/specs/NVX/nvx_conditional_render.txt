@@ -11,10 +11,6 @@ Contact
     Eric Werness, NVIDIA (ewerness 'at' nvidia.com)
     Pat Brown, NVIDIA (pbrown 'at' nvidia.com)
 
-Status
-
-    Shipping.
-
 Version
 
     Last Modified Date:         08/07/2012

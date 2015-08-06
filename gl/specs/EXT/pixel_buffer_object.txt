@@ -6,26 +6,10 @@ Name Strings
 
     GL_EXT_pixel_buffer_object
 
-Status
-
-    Implemented by NVIDIA drivers (Release 55).
-
-Contributors
-
-    Ralf Biermann
-    Derek Cornish
-    Matt Craighead
-    Bill Licea-Kane
-    Brian Paul
-
 Contact
 
     Ralf Biermann, NVIDIA Corporation (rbiermann 'at' nvidia.com)
     Derek Cornish, NVIDIA Corporation (dcornish 'at' nvidia.com)
-
-IP Status
-
-    Unknown.
 
 Version
 
@@ -34,10 +18,6 @@ Version
 Number
 
     302
-
-Status
-
-    NVIDIA Release 55 (early 2004) drivers support this extension.
 
 Dependencies
 

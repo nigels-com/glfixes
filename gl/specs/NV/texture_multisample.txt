@@ -10,10 +10,6 @@ Contact
 
     Jeff Bolz, NVIDIA Corporation (jbolz 'at' nvidia.com)
 
-Status
-
-    Shipping on NVIDIA GPUs (GeForce 8 and up) since Release 190.
-
 Version
 
     Last Modified Date:         09/10/09

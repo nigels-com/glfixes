@@ -18,10 +18,6 @@ Version
 
     Date: 12/23/2003  Version 1.0
 
-Status
-
-    Shipping as of May 2004 for GeForce6.
-
 Number
 
     299

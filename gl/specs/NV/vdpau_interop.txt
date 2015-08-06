@@ -15,10 +15,6 @@ Contact
 
     Stephen Warren, NVIDIA (swarren 'at' nvidia.com)
 
-Status
-
-    Complete.
-
 Version
 
     11 (2 Jan 2014)

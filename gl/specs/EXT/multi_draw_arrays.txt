@@ -17,10 +17,6 @@ Contact
     Ron Bielaski, Sun (Ron.Bielaski 'at' eng.sun.com)
     Jack Middleton, Sun (Jack.Middleton 'at' eng.sun.com)
 
-Status
-
-    Shipping
-
 Version
 
     Version 4, June 18, 2013

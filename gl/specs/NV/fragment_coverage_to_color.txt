@@ -19,10 +19,6 @@ Contributors
     Mark Kilgard, NVIDIA Corporation
     James Helferty, NVIDIA Corporation
 
-Status
-
-    Shipping
-
 Version
 
     Last Modified Date:         March 27, 2015

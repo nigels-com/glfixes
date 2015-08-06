@@ -12,10 +12,6 @@ Contact
     John Francis, Silicon Graphics (jfrancis 'at' sgi.com)
     Dave Gorgen, Silicon Graphics (dgorgen 'at' sgi.com)
 
-Status
-
-    XXX - Not complete yet!!!
-
 Version
 
     Last Modified Date: April 19, 2000

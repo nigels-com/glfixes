@@ -15,10 +15,6 @@ Contact
 
     Nuno Subtil, NVIDIA Corporation (nsubtil 'at' nvidia.com)
 
-Status
-
-    Complete. Shipping with NVIDIA release 265 drivers, November 2010.
-
 Version
 
     Last Modified Date:         10/11/2010

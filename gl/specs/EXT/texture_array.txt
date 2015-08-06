@@ -15,10 +15,6 @@ Contributors
     Jon Leech, Khronos
     Mark Kilgard, NVIDIA
 
-Status
-
-    Shipping for GeForce 8 Series (November 2006, Release 95)
-
 Version
 
     Last Modified Date:         9/16/2008

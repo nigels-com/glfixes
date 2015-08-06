@@ -15,12 +15,6 @@ Notice
 
     Copyright NVIDIA Corporation, 2002, 2003.
 
-Status
-
-    Implemented in GeForce FX 5900 (NV35) drivers as of June 2003.
-
-    Also supported by GeForce FX 5700 (NV36) and GeForce6 (NV4x).
-
 Version
 
     Last Modified Date:  2004/05/17

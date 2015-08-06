@@ -10,10 +10,6 @@ Contact
 
     Brian Paul, brianp 'at' mesa3d.org
 
-Status
-
-    Shipping (since Mesa version 1.2.8)
-
 Version
 
     $Date$ $Revision$

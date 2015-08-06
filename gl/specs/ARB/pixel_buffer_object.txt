@@ -11,34 +11,11 @@ Notice
     Copyright (c) 2004-2013 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-Status
-
-    Complete. Approved by ARB on December 7, 2004.
-
-Contributors
-
-    Ralf Biermann
-    Nick Carter
-    Derek Cornish
-    Matt Craighead
-    Mark Kilgard
-    Dale Kirkland
-    Jon Leech
-    Brian Paul
-    Thomas Roell
-    Ian Romanick
-    Jeremy Sandmel
-    Shazia Rahman
-
 Contact
 
     Mark J. Kilgard, NVIDIA Corporation (mjk 'at' nvidia.com)
     Ralf Biermann, NVIDIA Corporation (rbiermann 'at' nvidia.com)
     Derek Cornish, NVIDIA Corporation (dcornish 'at' nvidia.com)
-
-IP Status
-
-    None.
 
 Version
 

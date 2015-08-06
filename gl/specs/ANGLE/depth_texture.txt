@@ -21,10 +21,6 @@ Contact
 
     Shannon Woods, TransGaming (shannon 'dot' woods 'at' transgaming.com)
 
-Status
-
-    Implemented in ANGLE.
-
 Version
 
     Last Modified Date: February 25, 2013

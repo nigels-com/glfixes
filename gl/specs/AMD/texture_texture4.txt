@@ -21,10 +21,6 @@ Contributors
     Benj Lipchak
     Lijun Qu
 
-Status
-
-    Complete
-
 Version
 
     Last Modified Date: Mar 6, 2009

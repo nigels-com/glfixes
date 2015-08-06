@@ -10,10 +10,6 @@ Contact
 
     Nick Haemel, AMD (nick.haemel 'at' amd.com)
 
-Status
-
-    Complete
-
 Version
 
     Last Modified Date: March 03, 2009

@@ -15,10 +15,6 @@ Contributors
     Graham Sellers, AMD
     Daniel Rakos, AMD
 
-Status
-
-    Shipping
-
 Version
 
     Last Modified Date: 03/17/2014

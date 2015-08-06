@@ -10,10 +10,6 @@ Contact
 
     David Mao, AMD (david.mao 'at' amd.com)
 
-Status
-
-    Complete
-
 Version
 
     Last Modified Date: September 18, 2014

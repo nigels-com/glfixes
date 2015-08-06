@@ -14,10 +14,6 @@ Contributors
 
     Jeff Bolz, NVIDIA Corporation
 
-Status
-
-    Shipping
-
 Version
 
     Last Modified Date:         September 12, 2014

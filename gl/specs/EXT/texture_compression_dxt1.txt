@@ -19,10 +19,6 @@ Notice
 
     Copyright NVIDIA Corporation, 2004.
 
-Status
-
-    Shipping in an NVIDIA OpenGL ES 1.x implementation
-
 Version
 
     1.0, August 12, 2008

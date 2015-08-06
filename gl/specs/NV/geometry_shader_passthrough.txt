@@ -17,10 +17,6 @@ Contributors
     Christoph Kubisch, NVIDIA Corporation
     Mathias Heyer, NVIDIA Corporation
 
-Status
-
-    Shipping
-
 Version
 
     Last Modified Date:         March 27, 2015

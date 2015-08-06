@@ -23,11 +23,6 @@ Notice
     Copyright (c) 2011-2013 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-Status
-
-    Complete. Approved by the ARB on 2011/06/20.
-    Approved by the Khronos Promoters on 2011/07/29.
-
 Version
 
     Last Modified Date:         April 26, 2011

@@ -10,10 +10,6 @@ Contact
 
     Jon Leech, SGI (ljp 'at' sgi.com)
 
-Status
-
-    Complete. Not shipping yet.
-
 Version
 
     Last Modified Date: December 13, 2004

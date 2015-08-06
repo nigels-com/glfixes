@@ -18,10 +18,6 @@ Contact
 
     Daniel Koch, TransGaming Inc. (daniel 'at' transgaming.com)
 
-Status
-
-    Implemented in ANGLE r976.
-
 Version
 
     Last Modified Date: February 8, 2012

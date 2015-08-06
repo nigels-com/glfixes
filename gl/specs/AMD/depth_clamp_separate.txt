@@ -15,10 +15,6 @@ Contributors
     Pierre Boudier, AMD
     Graham Sellers, AMD
 
-Status
-
-    In Progress
-
 Version
 
     Last Modified Date:         09/15/2010

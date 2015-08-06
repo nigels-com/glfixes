@@ -17,10 +17,6 @@ Contributors
      Cyril Crassin, NVIDIA
      Christoph Kubisch, NVIDIA
 
-Status
-
-     Shipping
-
 Version
 
      Last Modified Date:	March 13, 2014

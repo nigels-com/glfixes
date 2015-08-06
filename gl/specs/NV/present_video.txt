@@ -22,10 +22,6 @@ Contact
 
     James Jones, NVIDIA (jajones 'at' nvidia.com)
 
-Status
-
-    Implemented in 165.33 driver for NVIDIA SDI devices.
-
 Version
 
     Last Modified Date: July 8, 2011

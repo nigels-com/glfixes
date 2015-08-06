@@ -31,16 +31,6 @@ Notice
     Copyright (c) 2004-2013 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-Status
-
-     Complete. Approved by the ARB on June 8, 2004.
-
-     Amended language re-voted by the ARB on November 3, 2005.
-
-     Functionally identical to EXT_texture_rectangle and
-     NV_texture_rectangle extensions currently shipping, except for
-     the additions to the OpenGL Shading Language.
-
 Version
 
      Date: October 4, 2005

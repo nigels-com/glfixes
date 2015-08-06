@@ -14,15 +14,6 @@ Notice
 
     Copyright NVIDIA Corporation, 2002.
 
-IP Status
-
-    NVIDIA Proprietary.
-
-Status
-
-    Implemented in CineFX (NV30) Emulation driver, August 2002.
-    Shipping in Release 40 NVIDIA driver for CineFX hardware, January 2003.
-
 Version
 
     NVIDIA Date: August 29, 2002 (version 0.1)

@@ -16,10 +16,6 @@ Contact
 
     James Jones, NVIDIA, jajones at nvidia.com
 
-Status
-
-    Complete
-
 Version
 
     1

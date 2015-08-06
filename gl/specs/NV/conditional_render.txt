@@ -15,10 +15,6 @@ Contributors
 
     Daniel Koch, NVIDIA
 
-Status
-
-    Shipping.
-
 Version
 
     Last Modified Date:         05/26/2014

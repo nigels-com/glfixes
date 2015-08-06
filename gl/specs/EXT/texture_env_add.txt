@@ -11,10 +11,6 @@ Contact
     Michael Gold, NVIDIA (gold 'at' nvidia.com)
     Tom Frisinger, ATI (tfrisinger 'at' atitech.com)
 
-Status
-
-    Shipping (version 1.7)
-
 Version
 
     $Date: 1999/03/22 17:28:00 $ $Revision: 1.1 $

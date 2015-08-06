@@ -15,10 +15,6 @@ Notice
 
     Copyright ATI Technologies, 2000.
 
-IP Status
-
-    None
-
 Version
 
     Last Modified Date: 2006/11/04 13:54:17 Revision: 1.3

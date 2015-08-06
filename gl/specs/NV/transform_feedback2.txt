@@ -10,10 +10,6 @@ Contact
 
     Pat Brown, NVIDIA Corporation (pbrown 'at' nvidia.com)
 
-Status
-
-    Shipping for GeForce GTX 280 & 260, June 16, 2008
-
 Version
 
     Last Modified Date:         11/19/2008

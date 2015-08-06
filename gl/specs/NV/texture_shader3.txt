@@ -14,10 +14,6 @@ Notice
 
     Copyright NVIDIA Corporation, 2001.
 
-IP Status
-
-    NVIDIA Proprietary.
-
 Version
 
     NVIDIA Date:  March 5, 2007

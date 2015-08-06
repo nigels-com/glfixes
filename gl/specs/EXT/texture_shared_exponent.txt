@@ -16,10 +16,6 @@ Contributors
     Jon Leech
     Bruce Merry, ARM
 
-Status
-
-    Shipping
-
 Version
 
     Date: July 18, 2008

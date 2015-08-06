@@ -13,10 +13,6 @@ Contact
     Martin Schwarzer, Nvidia, mschwarzer@nvidia.com
     Andy Ritger, Nvidia, aritger@nvidia.com
 
-Status 
-
-    Shipping since 2004 for NVIDIA Quadro SDI (Serial Digital Interface)
-
 Version 
     Last Modified:      2014/06/04
     NVIDIA Revision:    8

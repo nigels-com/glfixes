@@ -11,10 +11,6 @@ Contact
     Brian Paul, Tungsten Graphics, Inc. (brian 'at' tungstengraphics.com)
     Keith Whitwell, Tungsten Graphics, Inc.  (keith 'at' tungstengraphics.com)
 
-Status
-
-    Shipping (Mesa 4.0.4 and later)
-
 Version
 
     1.0

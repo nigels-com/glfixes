@@ -16,10 +16,6 @@ Contributors
     Eric Werness, NVIDIA
     Jeff Bolz, NVIDIA
 
-Status
-
-    Shipping
-
 Version
 
     Last Modified Date:         August 13, 2012

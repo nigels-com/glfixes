@@ -15,10 +15,6 @@ Contributors
     Piers Daniell, NVIDIA
     Weiwan Liu, NVIDIA
 
-Status
-
-    Complete
-
 Version
 
     Last Modified Date: October 10, 2014

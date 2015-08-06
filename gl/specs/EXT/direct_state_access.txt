@@ -36,13 +36,6 @@ Contact
 
     Mark J. Kilgard, NVIDIA Corporation (mjk 'at' nvidia.com)
 
-Status
-
-    Complete, except for GLX protocol
-
-    Version 1.0 implemented by NVIDIA, shipping November 2008
-    Version 1.1 implemented by NVIDIA, shipping January 2009
-
 Version
 
     Last Modified Date:         02/24/2014

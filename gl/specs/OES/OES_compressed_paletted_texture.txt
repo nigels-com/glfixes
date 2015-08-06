@@ -15,14 +15,6 @@ Notice
     Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-IP Status
-
-    No known IP issues
-
-Status
-
-    Ratified by the Khronos BOP, July 23, 2003.
-
 Version
 
     Last Modifed Date: 12 November 2005

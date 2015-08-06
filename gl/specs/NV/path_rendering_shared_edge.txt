@@ -15,10 +15,6 @@ Contributors
 
     Michael Chock, NVIDIA (mchock 'at' nvidia.com)
 
-Status
-
-    Shipping
-
 Version
 
     Last Modified Date:  March 27, 2015

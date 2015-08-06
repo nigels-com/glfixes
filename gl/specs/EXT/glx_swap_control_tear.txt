@@ -14,10 +14,6 @@ Contact
 
     Brian Nguyen, NVIDIA, brnguyen at nvidia.com
 
-Status
-
-    Complete.
-
 Version
 
     Version 1 (November 4, 2011)

@@ -17,10 +17,6 @@ Contact
 
     James Jones, NVIDIA corporation (jajones 'at' nvidia.com)
 
-Status
-
-    Complete.
-
 Version
 
     Last Modified Date: Jan 26, 2011

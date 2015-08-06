@@ -14,10 +14,6 @@ Contributors
 
     Pat Brown, NVIDIA
 
-Status
-
-    Shipping
-
 Version
 
     Last Modified Date:         03/21/2010

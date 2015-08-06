@@ -16,10 +16,6 @@ Contributors
     Jason Sams, NVIDIA
     Eric Werness, NVIDIA
 
-Status
-
-    Complete
-
 Version
 
     Last Modified Date: September 9, 2009

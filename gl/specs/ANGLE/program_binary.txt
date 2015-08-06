@@ -15,10 +15,6 @@ Contact
 
     Alastair Patrick, Google Inc. (apatrick 'at' google 'dot' com)
 
-Status
-
-    Under development.
-
 Version
 
     Last Modifed Date: June 6, 2012

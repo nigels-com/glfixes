@@ -11,10 +11,6 @@ Contact
     Pat Brown, NVIDIA Corporation (pbrown 'at' nvidia.com)
     Eric Werness, NVIDIA Corporation (ewerness 'at' nvidia.com)
 
-Status
-
-    Shipping.
-
 Version
 
     Last Modified:      08/04/2004

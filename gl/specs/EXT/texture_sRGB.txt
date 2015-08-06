@@ -23,12 +23,6 @@ Contact
 
     Mark J. Kilgard, NVIDIA Corporation (mjk 'at' nvidia.com)
 
-Status
-
-    Implemented by NVIDIA's Release 80 driver series for GeForce FX
-    (NV3x), GeForce 6 and 7 Series (NV4x and G7x), and Quadro FX (NV3xGL,
-    NV4xGL, G7xGL).
-
 Version
 
     Date: January 24, 2007

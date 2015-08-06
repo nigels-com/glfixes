@@ -16,21 +16,6 @@ Notice
 
     Copyright NVIDIA Corporation.
 
-IP Status
-
-    NVIDIA Proprietary.
-
-Status
-
-    Implemented in CineFX (NV30) Emulation driver, August 2002.
-    Shipping in Release 40 NVIDIA driver for CineFX hardware, January 2003.
-
-    Superseded by the more general ARB_texture_float and
-    ARB_color_buffer_float extensions.  However, NV3x-based GPUs are not
-    capable enough to support the generality of the ARB extensions so
-    the NV_float_buffer extension remains available for NV3x development
-    and backward compatibility.
-
 Version
 
     Last Modified:      2006/11/03

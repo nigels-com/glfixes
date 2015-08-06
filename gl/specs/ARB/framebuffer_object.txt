@@ -55,10 +55,6 @@ Notice
     Copyright (c) 2008-2013 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-Status
-
-    Approved by the ARB on August 4, 2008
-
 Version
 
     Last Modified Date: September 23, 2013

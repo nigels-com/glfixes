@@ -11,10 +11,6 @@ Contact
     Michael Gold, NVIDIA Corporation (gold 'at' nvidia.com)
     Pat Brown, NVIDIA Corporation (pbrown 'at' nvidia.com)
 
-Status
-
-    Shipping for GeForce 8 Series (November 2006)
-
 Version
 
     Last Modified Date:         05/20/2010

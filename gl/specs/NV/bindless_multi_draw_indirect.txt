@@ -17,10 +17,6 @@ Contributors
     Markus Tavenrath, NVIDIA
     Eric Werness, NVIDIA
 
-Status
-
-    Complete
-
 Version
 
     Last Modified Date: January 5, 2015

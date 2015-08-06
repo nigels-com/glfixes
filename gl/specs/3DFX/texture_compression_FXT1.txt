@@ -10,10 +10,6 @@ Contact
 
     Don Mullis, 3dfx Interactive (dwm 'at' 3dfx.com)
 
-Status
-
-    CANDIDATE FOR FINAL DRAFT -- NOT YET COMPLETE
-
 Version
 
     Draft 0.4, 12 Apr 2000

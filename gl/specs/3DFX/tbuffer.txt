@@ -10,10 +10,6 @@ Contact
 
     Paula Womack, 3dfx Interactive (paulaw 'at' 3dfx.com)
 
-Status
-
-    Complete
-
 Version
 
     Date: April 13, 2000; Revision: 1.0

@@ -18,10 +18,6 @@ Contact
 
     Ben Vanik, Google Inc. (benvanik 'at' google 'dot' com)
 
-Status
-
-    Draft
-
 Version
 
     Last Modified Date: Apr 28, 2011

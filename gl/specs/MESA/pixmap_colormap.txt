@@ -10,10 +10,6 @@ Contact
 
     Brian Paul (brian 'at' mesa3d.org)
 
-Status
-
-    Shipping since Mesa 1.2.8 in May, 1996.
-
 Version
 
     Last Modified Date:  8 June 2000

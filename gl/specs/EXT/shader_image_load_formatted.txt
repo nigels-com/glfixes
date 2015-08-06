@@ -13,10 +13,6 @@ Contact
 
 Contributors
 
-Status
-
-    Complete.
-
 Version
 
     Last Modified Date:         March 11, 2014

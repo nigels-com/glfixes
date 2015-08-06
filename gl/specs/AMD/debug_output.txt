@@ -16,10 +16,6 @@ Contributors
     Mark Young, AMD
     Ahmet Oguz Akyuz, AMD
     
-Status
-    
-    Experimental
-    
 Version
     
     Last Modified Date: May 7, 2010

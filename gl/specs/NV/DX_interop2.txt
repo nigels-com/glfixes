@@ -15,10 +15,6 @@ Contact
 
     Nuno Subtil, NVIDIA Corporation (nsubtil 'at' nvidia.com)
 
-Status
-
-    Complete. Shipping with NVIDIA release 275 drivers, June 2011.
-
 Version
 
     Last Modified Date:   October 4, 2011

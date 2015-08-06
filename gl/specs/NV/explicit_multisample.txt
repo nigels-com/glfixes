@@ -19,10 +19,6 @@ Contact
     Eric Werness, NVIDIA Corporation (ewerness 'at' nvidia.com)
     Pat Brown, NVIDIA Corporation (pbrown 'at' nvidia.com)
 
-Status
-
-    Shipping in NVIDIA's Release 180 drivers (October 2008)
-
 Version
 
     Last Modified Date:         10/27/08

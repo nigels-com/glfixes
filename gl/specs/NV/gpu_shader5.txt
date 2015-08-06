@@ -20,10 +20,6 @@ Contributors
     Piers Daniell, NVIDIA
     Daniel Rakos, AMD
 
-Status
-
-    Shipping.
-
 Version
 
     Last Modified Date:         09/11/2014

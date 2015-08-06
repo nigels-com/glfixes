@@ -10,12 +10,6 @@ Contact
 
     Mike Strauss, NVIDIA Corporation (mstrauss 'at' nvidia.com)
 
-Status
-
-    Shipping in NVIDIA Release 95 drivers (November 2006)
-
-    Functionality supported by GeForce 8800
-
 Version
 
     Last Modified Date:  May 31, 2008

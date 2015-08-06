@@ -15,14 +15,6 @@ Contact
 
     Pierre Boudier, AMD (pierre.boudier 'at' amd.com)
 
-IP Status
-
-    None.
-
-Status
-
-    Shipping
-
 Version
 
     Last Modified Date: June 4, 2013

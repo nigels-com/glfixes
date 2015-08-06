@@ -26,11 +26,6 @@ Contributors
     Rik Cabanier, Adobe
     Slawek Grajewski, Intel
 
-Status
-
-    Complete.
-    Ratified by the Khronos Board of Promoters on 2014/03/14.
-
 Version
 
     Last Modified Date:         May 9, 2014

@@ -18,10 +18,6 @@ Contributors
     Gareth Hughes, NVIDIA
     Eric Werness, NVIDIA
 
-Status
-
-    Complete.
-
 Version
 
     Last Modified Date:         07/05/11

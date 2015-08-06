@@ -25,10 +25,6 @@ Contributors
     Jonas Gustavsson, Sony Mobile
     Sam Holmes, Qualcomm
 
-Status
-
-    Incomplete.
-
 Version
 
     Last Modified Date:  Apr 15, 2015

@@ -18,10 +18,6 @@ Contact
 
     Mark J. Kilgard, NVIDIA Corporation (mjk 'at' nvidia.com)
 
-Status
-
-    Shipping for GeForce 8 Series (November 2006)
-
 Version
 
     Last Modified Date:         4/14/2009

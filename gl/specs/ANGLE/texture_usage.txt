@@ -15,10 +15,6 @@ Contact
 
     Daniel Koch, TransGaming (daniel 'at' transgaming.com)
 
-Status
-
-    Complete
-
 Version
 
     Last Modified Date:  November 10, 2011

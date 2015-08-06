@@ -16,10 +16,6 @@ Contributors
 
     None.
 
-Status
-
-    XXX - Experimental - not approved by Khronos.
-
 Version
 
     Last Modified Date: June 21, 2013

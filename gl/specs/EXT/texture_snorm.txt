@@ -17,10 +17,6 @@ Contact
 
      Bill Licea-Kane, (bill.licea-kane 'at' amd.com)
 
-Status
-
-     Draft for OpenGL 3.1
-
 Version
 
      Last Modified Date:  2009-07-10

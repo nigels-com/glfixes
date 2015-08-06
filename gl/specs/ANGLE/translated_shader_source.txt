@@ -17,10 +17,6 @@ Contact
 
     Zhenyao Mo, Google Inc. (zmo 'at' google 'dot' com)
 
-Status
-
-    Implemented in ANGLE ES2
-
 Version
 
     Last Modified Date: October 5, 2011

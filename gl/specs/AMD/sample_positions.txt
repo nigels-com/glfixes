@@ -16,10 +16,6 @@ Contributors
     Graham Sellers, AMD
     Nick Haemel, AMD
 
-Status
-
-    Complete, shipping.
-
 Version
 
     Last Modified Date:         04/06/11

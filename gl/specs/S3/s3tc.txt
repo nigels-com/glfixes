@@ -10,24 +10,6 @@ Contact
 
     Unknown.
 
-IP Status
-
-    There is significant IP associated with the S3TC format. In 1999 S3
-    told the OpenGL ARB that they would not license it for general use
-    in OpenGL. IHVs shipping this extension probably have executed
-    licenses directly with S3 or its successors (Sonic Blue, S3
-    Graphics).
-
-    The current ownership of the S3TC IP is unknown to the ARB. It is
-    known that when S3 exited the graphics hardware business, part of
-    their operations were sold to ATI and part were spun off to a joint
-    Taiwanese venture with Via Technologies, called S3 Graphics.
-
-Status
-
-    Shipping in several vendor drivers.
-    Deprecated in favor of EXT_texture_compression_s3tc.
-
 Version
 
     Unknown

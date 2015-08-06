@@ -19,10 +19,6 @@ Contact
 
     Mark Kilgard, NVIDIA (mjk 'at' nvidia.com)
 
-Status
-
-    Implemented by NVIDIA, October 2008
-
 Version
 
     Last Modified Date:  October 28, 2008

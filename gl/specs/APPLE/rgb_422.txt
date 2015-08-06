@@ -10,10 +10,6 @@ Contact
 
     Ken Dyke, Apple (kdyke 'at' apple.com)
 
-Status
-
-    Shipping as of August 28, 2009 (Mac OS X v10.6)
-
 Version
 
     Last Modified Date: June 26, 2013

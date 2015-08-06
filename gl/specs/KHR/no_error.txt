@@ -27,11 +27,6 @@ Notice
     Copyright (c) 2012-2014 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-Status
-
-    Complete.
-    Approved by the Khronos Board of Promoters on May 8, 2015.
-
 Version
 
     Version 6, February 25, 2015

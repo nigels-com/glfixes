@@ -18,10 +18,6 @@ Contacts
 
     Gregg Tavares, Google Inc. (gman 'at' google 'dot' com)
 
-Status
-
-    Implemented in ANGLE ES2
-
 Version
 
     Last Modified Date: Sept 22, 2012

@@ -10,10 +10,6 @@ Contact
 
     Michael Gold, NVIDIA Corporation (gold 'at' nvidia.com)
 
-Status
-
-    Shipping for GeForce 8 Series (November 2006)
-
 Version
 
     Last Modified Date:  June 26, 2013

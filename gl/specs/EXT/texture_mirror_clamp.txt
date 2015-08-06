@@ -15,10 +15,6 @@ Contact
 
     Mark J. Kilgard, NVIDIA Corporation (mjk 'at' nvidia.com)
 
-Status
-
-    Shipping as of May 2004 for GeForce6.
-
 Version
 
     Last Modified Date:  2004/05/17

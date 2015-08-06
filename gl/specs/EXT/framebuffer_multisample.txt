@@ -25,11 +25,6 @@ Contacts
     Jeff Juliano, NVIDIA Corporation (jjuliano 'at' nvidia.com)
     Jeremy Sandmel, Apple Computer (jsandmel 'at' apple.com)
 
-Status
-
-    Complete
-    Approved by the ARB "superbuffers" Working Group on November 8, 2005
-
 Version
 
     Last Modified Date: January 10, 2007

@@ -11,10 +11,6 @@ Contact
     Silicon Graphics, Inc.
     Brian Paul (brian_e_paul 'at' yahoo.com)
 
-Status
-
-    Shipping.
-
 Version
 
     $Date: 1998/03/14 07:42:15 $ $Revision: 1.1 $

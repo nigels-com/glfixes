@@ -14,13 +14,6 @@ Notice
 
     Copyright NVIDIA Corporation, 2004.
 
-Status
-
-    Implemented, September 2004
-
-    Advertised and hardware-supported on NVIDIA GeForce 6 TurboCache
-    GPUs.
-
 Version
 
     Last Modified:      10/15/2004

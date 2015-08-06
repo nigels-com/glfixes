@@ -10,10 +10,6 @@ Contact
 
     Randi Rost, 3Dlabs (rost 'at' 3dlabs.com)
 
-Status
-
-    Complete. Approved by the Khronos SIG on July 19, 2001.
-
 Version
 
     Last Modified Date: 07/23/2001   Revision: 6.0

@@ -17,14 +17,6 @@ Contact
     Jon Leech (jon 'at' alumni.caltech.edu)
     Piers Daniell (pdaniell 'at' nvidia.com)
 
-IP Status
-
-    No known IP claims.
-
-Status
-
-    Complete.
-
 Version
 
     Version 5, April 6, 2012

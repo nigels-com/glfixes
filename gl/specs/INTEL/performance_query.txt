@@ -15,10 +15,6 @@ Contributors
     Piotr Uminski, Intel
     Slawomir Grajewski, Intel
 
-Status
-
-    Complete, shipping on selected Intel graphics.
-
 Version
 
     Last Modified Date: December 20, 2013

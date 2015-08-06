@@ -10,10 +10,6 @@ Contact
 
     Jon Leech, SGI (ljp 'at' sgi.com)
 
-Status
-
-    Complete. Approved by the Khronos SIG on July 19, 2001.
-
 Version
 
     Last Modified Date: 07/23/2001

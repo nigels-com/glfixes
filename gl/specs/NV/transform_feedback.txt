@@ -17,10 +17,6 @@ Contact
     Pat Brown (pbrown 'at' nvidia.com)
     Eric Werness (ewerness 'at' nvidia.com)
 
-Status
-
-    Shipping for GeForce 8 Series (November 2006) 
-
 Version
 
     Last Modified Date:         03/09/2011

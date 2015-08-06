@@ -17,11 +17,6 @@ Contributors
     Pat Brown, NVIDIA
     Udo Lugauer, NVIDIA
 
-Status
-
-    Complete. Shipping with NVIDIA Forceware 285.62 and AMD Catalyst 11.10
-    drivers. 
-
 Version
 
     Last Modified Date:         03/16/2011

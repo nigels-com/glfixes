@@ -14,10 +14,6 @@ Contributors
 
     Alex Goins
 
-Status
-
-    Complete
-
 Version
 
     Last Modified Date:         July 15, 2014

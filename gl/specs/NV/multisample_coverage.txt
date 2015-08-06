@@ -12,11 +12,6 @@ Contact
 
     Mike Strauss (mstrauss 'at' nvidia.com)
 
-Status
-
-    Shipping in NVIDIA release 169.xx drivers (May 2008) for GeForce
-    8 and up
-
 Version
 
     Revision:                   4

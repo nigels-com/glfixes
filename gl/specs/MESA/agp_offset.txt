@@ -11,11 +11,6 @@ Contact
     Brian Paul, Tungsten Graphics, Inc. (brian.paul 'at' tungstengraphics.com)
     Keith Whitwell, Tungsten Graphics, Inc.  (keith 'at' tungstengraphics.com)
 
-Status
-
-    Shipping (Mesa 4.0.4 and later.  Only implemented in particular
-    XFree86/DRI drivers.)
-
 Version
 
     1.0

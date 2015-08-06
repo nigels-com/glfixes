@@ -16,10 +16,6 @@ Contact
     Dirk Reiners, Iowa State University (dreiners 'at' iastate.edu)
     Yaki Tebeka, Graphic Remedy (yaki 'at' gremedy.com)
 
-Status
-
-    Implemented by gDEBugger (Version 1.2.1 or later)
-
 Version
 
     Last Modified Date: October 16, 2007

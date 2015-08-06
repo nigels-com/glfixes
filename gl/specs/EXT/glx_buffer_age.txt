@@ -20,10 +20,6 @@ Contacts
 
     Robert Bragg, Intel (robert.bragg 'at' intel.com)
 
-Status
-
-    Draft
-
 Version
 
     8 - Sept 20, 2012

@@ -24,10 +24,6 @@ Contact
     Benj Lipchak, AMD (benj.lipchak 'at' amd.com)
     Jeremy Sandmel, Apple Computer (jsandmel 'at' apple.com)
 
-Status
-
-    Shipping on MacOS X, version 10.2
-
 Version
 
     Last Modified Date: November 4, 2006

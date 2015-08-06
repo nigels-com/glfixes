@@ -16,10 +16,6 @@ Contact
 
     Benj Lipchak, AMD (benj.lipchak 'at' amd.com)
 
-Status
-
-    Shipping (version 1.0)
-
 Version
 
     Last Modified Date: November 4, 2006

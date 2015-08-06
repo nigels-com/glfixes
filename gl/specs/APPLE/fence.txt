@@ -10,10 +10,6 @@ Contact
 
     Geoff Stahl, Apple (gstahl 'at' apple.com)
 
-Status
-
-    Shipping as of August 24, 2002 (Mac OS X v10.2)
-
 Version
 
     $Date: 2002/08/23 00:31:45 $ $Revision: 1.3 $

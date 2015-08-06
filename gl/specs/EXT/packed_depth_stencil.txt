@@ -29,10 +29,6 @@ Contact
 
     Jeff Juliano, NVIDIA Corporation (jjuliano 'at' nvidia.com)
 
-Status
-
-    Incomplete
-
 Version
     
     Last Modified Date: September 26, 2005

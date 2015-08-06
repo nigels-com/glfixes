@@ -25,16 +25,6 @@ Notice
     Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-IP Status
-
-    Unknown, but Microsoft claims to own intellectual property
-    related to ARB_fragment_program.  This extension is
-    an extension to ARB_fragment_program.
-
-Status
-
-    Complete.  Approved by ARB on December 16, 2003
-
 Version
 
     Last Modified Date: November 4, 2006

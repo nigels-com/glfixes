@@ -49,16 +49,6 @@ Notice
     Copyright (c) 2003-2013 The Khronos Group Inc. Copyright terms at
         http://www.khronos.org/registry/speccopyright.html
 
-IP Status
-
-    As described in the Contributor License, which can be found at
-    http://www.3dlabs.com/support/developer/ogl2/specs/3dlabs_contributor.pdf.
-
-Status
-
-    Complete. Approved by the ARB on June 11, 2003.
-    Updated revision 0.89 approved by the ARB on June 17, 2004.
-
 Version
 
     Last Modified Date: December 14, 2009

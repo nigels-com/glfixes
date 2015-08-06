@@ -10,10 +10,6 @@ Notice
 
     Copyright NVIDIA Corporation, 2003.
 
-Status
-
-    Shipping since 2003 on Quadro GPUs with framelock support
-
 Version
 
     Date: 09/08/2009   Revision: 1.0

@@ -14,10 +14,6 @@ Notice
 
     Copyright NVIDIA Corporation, 2001.
 
-Status
-
-    Shipping
-
 Version
 
     Last Modified Date:  2003/01/08
