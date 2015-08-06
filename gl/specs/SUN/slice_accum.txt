@@ -48,53 +48,6 @@ New Procedures and Functions
 
 New Tokens
 
-   Accepted by the <op> parameter of Accum,
 
    SLICE_ACCUM_SUN                0x85CC
 
-Additions to Chapter 2 of the 1.3 GL Specification (OpenGL Operation)
-
-    None 
-
-Additions to Chapter 3 of the 1.3 GL Specification (Rasterization)
-
-    None
-
-
-Additions to Chapter 4 of the 1.3 GL Specification (Per-Fragment Operations
-and the Framebuffer)
-
-    Section 4.2.4 The Accumulation Buffer:
-
-    The possible operations are ACCUM, LOAD, RETURN, MULT, ADD and SLICE_ACCUM_SUN.
-
-    The SLICE_ACCUM_SUN operation has the same effect as ACCUM except that the
-    accumulation buffer color value is computed:
-
-    AccumRGB = (FrameBuffAlpha * FrameBuffRGB) + ((1 - FrameBuffAlpha) * AccumRGB)
-
-
-Additions to Chapter 5 of the 1.3 GL Specification (Special Functions)
-
-    None
-
-
-Additions to Chapter 6 of the 1.3 GL Specification (State and State Requests)
-
-    None
-
-Additions to the GLX / WGL / AGL Specifications
-
-    None
-
-GLX Protocol
-
-    None
-
-Errors
-   
-    None
- 
-New State
-
-    None

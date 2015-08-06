@@ -52,82 +52,12 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted by the <mode> parameter of ApplyTextureEXT:
 
     FRAGMENT_FOG_SGIX                           0xXXXX
 
-    Accepted by the <pname> parameter of GetBooleanv, GetIntegerv, GetFloatv,
-    and GetDoublev:
 
     TEXTURE_FOG_SGIX                            0xXXXX
 
-    Accepted by the <pname> parameter of TextureFogSGIX:
 
     FOG_PATCHY_FACTOR_SGIX                      0xXXXX
-
-Additions to Chapter 2 of the 1.0 Specification (OpenGL Operation)
-
-    None
-
-Additions to Chapter 3 of the 1.1 Specification (Rasterization)
-
-    Add at the end of Section 3.X.1 Texture Application
-
-    If <mode> is FRAGMENT_FOG_SGIX then the post-texture-environment
-    color substitutes one of fragment fog parameters during the fog
-    computation of the fragment. The fragment fog parameters
-    substituted are specified by the command TextureFogSGIX
-    described in section 3.X.5.
-
-    Add section 3.X.4 and replace 3.X.4 with 3.X.5 for
-    Interactions with multiple textures
-
-    3.X.4 Texture Applied to Fog Parameters
-
-    TextureFogSGIX(enum pname) determines which fog fragment parameters
-    is substituted with the post-texture-environment color, when the
-    texture application mode is FRAGMENT_FOG_SGIX. <pname>  is one of
-    FOG_COLOR, FOG_DENSITY or FOG_PATCHY_FACTOR_SGIX. FOG_COLOR can be
-    applied with a texture image of any number of components. FOG_DENSITY
-    and FOG_PATCHY_FACTOR_SGIX are scalar entities derived from the
-    texture red component.
-
-Additions to Chapter 4 of the 1.1 Specification (Per-Fragment Operations
-and the Framebuffer)
-
-Additions to Chapter 5 of the 1.1 Specification (Special Functions)
-
-Additions to Chapter 6 of the 1.1 Specification (State and State Requests)
-
-Additions to the GLX Specification
-
-    None
-
-GLX Protocol
-
-    TBD
-
-Dependencies on SGIX_light_texture
-    EXT_light_texture is required since this extension adds
-    an enumerant parameter to the ApplyTextureEXT command.
-
-Dependencies on EXT_multitexture
-    If EXT_multitexture is not supported only the single
-    post-texture-environment color is available for substitution and the
-    discussion of multiple textures in section 3.X.5 is void.
-
-Errors
-    INVALID_ENUM is generated if TextureFogSGIX parameter
-    is not FOG_COLOR, FOG_DENSITY, or FOG_PATCHY_FACTOR_SGIX.
-
-New State
-
-    Get Value        Get Command     Type    Initial Value    Attribute
-    ---------        -----------     ----    -------------    ---------
-
-    TEXTURE_FOG_SGIX GetIntegerv     Z10     FOG_COLOR        texture
-
-New Implementation Dependent State
-
-    None
 

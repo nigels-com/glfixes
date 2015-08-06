@@ -55,8 +55,6 @@ New Types
 
 New Tokens
 
-    Accepted by the <cap> parameter of Enable, Disable, and
-    IsEnabled:
 
     ERROR_REGAL        0x9322
     DEBUG_REGAL        0x9323
@@ -69,35 +67,3 @@ New Tokens
     CODE_REGAL         0x9363
     STATISTICS_REGAL   0x9364
 
-Additions to Chapter x of the OpenGL 4.2 (Core Profile) Specification
-(OpenGL Operation)
-
-    TODO
-
-Errors
-
-    None.
-
-New State
-
-    None.
-
-New Implementation Dependent State
-
-    None.
-
-Issues
-
-    None.
-
-Revision History
-
-    Revision 2, 2013/06/21
-      - Added MISSING_REGAL, TRACE_REGAL, CACHE_REGAL, CODE_REGAL
-        and STATISTICS_REGAL.
-
-    Revision 2, 2012/08/22
-      - LOADER_REGAL renamed to DRIVER_REGAL
-
-    Revision 1, 2012/08/14
-      - Initial revision.

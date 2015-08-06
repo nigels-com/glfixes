@@ -64,8 +64,6 @@ New Types
 
 New Tokens
 
-    Accepted by the <cap> parameter of Enable, Disable, and
-    IsEnabled:
 
     LOG_ERROR_REGAL    0x9319
     LOG_WARNING_REGAL  0x931A
@@ -77,31 +75,3 @@ New Tokens
     LOG_STATUS_REGAL   0x9320
     LOG_HTTP_REGAL     0x9321
 
-Additions to Chapter x of the OpenGL 4.2 (Core Profile) Specification
-(OpenGL Operation)
-
-    TODO
-
-Errors
-
-    None.
-
-New State
-
-    None.
-
-New Implementation Dependent State
-
-    None.
-
-Issues
-
-    None.
-
-Revision History
-
-    Revision 2, 2012/08/12
-      - Add LogMessageCallbackREGAL.
-
-    Revision 1, 2012/07/23
-      - Initial revision.

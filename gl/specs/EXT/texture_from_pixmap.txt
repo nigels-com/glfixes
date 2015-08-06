@@ -245,8 +245,6 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted by the <Attribute> parameter of glXGetFBConfigAttrib and 
-    the <attrib_list> parameter of glXChooseFBConfig:
 
         GLX_BIND_TO_TEXTURE_RGB_EXT        0x20D0
         GLX_BIND_TO_TEXTURE_RGBA_EXT       0x20D1
@@ -254,44 +252,31 @@ New Tokens
         GLX_BIND_TO_TEXTURE_TARGETS_EXT    0x20D3
         GLX_Y_INVERTED_EXT                 0x20D4
 
-    Accepted as an attribute in the <attrib_list> parameter of
-    glXCreatePixmap, and by the <attribute> parameter of glXQueryDrawable:
 
         GLX_TEXTURE_FORMAT_EXT             0x20D5
         GLX_TEXTURE_TARGET_EXT             0x20D6
         GLX_MIPMAP_TEXTURE_EXT             0x20D7
 
-    Accepted as a value in the <attrib_list> parameter of glXCreatePixmap
-    and returned in the <value> parameter of glXQueryDrawable when
-    <attribute> is GLX_TEXTURE_FORMAT_EXT:
 
         GLX_TEXTURE_FORMAT_NONE_EXT        0x20D8
         GLX_TEXTURE_FORMAT_RGB_EXT         0x20D9
         GLX_TEXTURE_FORMAT_RGBA_EXT        0x20DA
 
-    Accepted as bits in the GLX_BIND_TO_TEXTURE_TARGETS_EXT variable:
 
         GLX_TEXTURE_1D_BIT_EXT             0x00000001
         GLX_TEXTURE_2D_BIT_EXT             0x00000002
         GLX_TEXTURE_RECTANGLE_BIT_EXT      0x00000004
 
-    Accepted as a value in the <attrib_list> parameter of glXCreatePixmap
-    and returned in the <value> parameter of glXQueryDrawable when
-    <attribute> is GLX_TEXTURE_TARGET_EXT:
 
         GLX_TEXTURE_1D_EXT                 0x20DB
         GLX_TEXTURE_2D_EXT                 0x20DC
         GLX_TEXTURE_RECTANGLE_EXT          0x20DD
 
-    Accepted by the <Buffer> parameter of glXBindTexImageEXT and 
-    glXReleaseTexImageEXT: 
 
         GLX_FRONT_LEFT_EXT                 0x20DE
         GLX_FRONT_RIGHT_EXT                0x20DF
         GLX_BACK_LEFT_EXT                  0x20E0
         GLX_BACK_RIGHT_EXT                 0x20E1
-        GLX_FRONT_EXT                      GLX_FRONT_LEFT_EXT
-        GLX_BACK_EXT                       GLX_BACK_LEFT_EXT
         GLX_AUX0_EXT                       0x20E2
         GLX_AUX1_EXT                       0x20E3 
         GLX_AUX2_EXT                       0x20E4 
@@ -304,489 +289,20 @@ New Tokens
         GLX_AUX9_EXT                       0x20EB
 
 
-GLX Protocol
 
-    Two new GLX protocol commands are added.
 
-        BindTexImageEXT
             1           CARD8                   opcode (X assigned)
             1           16                      GLX opcode (glXVendorPrivate)
             2           6+n                     request length
             4           1330                    vendor specific opcode
             4           CARD32                  context tag
-            4           GLX_DRAWABLE            drawable
-            4           INT32                   buffer
             4           CARD32                  num_attributes
-            4*n         LISTofATTRIBUTE_PAIR    attribute, value pairs.
 
-        ReleaseTexImageEXT
             1           CARD8           opcode (X assigned)
             1           16              GLX opcode (glXVendorPrivate)
             2           5               request length
             4           1331            vendor specific opcode
             4           CARD32          context tag
-            4           GLX_DRAWABLE    drawable
-            4           INT32           buffer
 
 
-Errors
 
-Additions to Chapter 2 of the OpenGL 1.2.1 Specification (OpenGL Operation) 
-
-    None. 
-
-Additions to Chapter 3 of the OpenGL 1.2.1 Specification (Rasterization) 
-
-    None. 
-
-Additions to Chapter 4 of the OpenGL 1.2.1 Specification (Per-Fragment 
-Operations and the Frame Buffer) 
-
-    None. 
-
-Additions to Chapter 5 of the OpenGL 1.2.1 Specification (Special Functions) 
-
-    None. 
-
-Additions to Chapter 6 of the OpenGL 1.2.1 Specification (State and State 
-Requests) 
-
-    None. 
-
-Additions to the GLX Specification
-
-    Add to table 3.1, GLXFBConfig Attributes:
-
-    Attribute                       Type    Notes
-    ------------------------------- ------- -------------------------------------------------------------------
-    GLX_BIND_TO_TEXTURE_RGB_EXT     boolean True if color buffers can be bound to RGB texture
-    GLX_BIND_TO_TEXTURE_RGBA_EXT    boolean True if color buffers can be bound to RGBA texture
-    GLX_BIND_TO_MIPMAP_TEXTURE_EXT  boolean True if color buffers can be bound to textures with multiple levels
-    GLX_BIND_TO_TEXTURE_TARGETS_EXT bitmask Bitmask of texture targets color buffers can be bound to
-    GLX_Y_INVERTED_EXT              boolean True if the drawable's framebuffer is y-inverted.  This can be used to determine if y-inverted texture coordinates need to be used when texturing from this drawable when it is bound to a texture target.
-
-    Additions to table 3.4, Default Match Criteria for GLXFBConfig attributes:
-
-    Attribute                       Default              Selection Criteria Priority
-    ------------------------------- -------------------- ------------------ ---------
-    GLX_BIND_TO_TEXTURE_RGB_EXT     GLX_DONT_CARE        Exact
-    GLX_BIND_TO_TEXTURE_RGBA_EXT    GLX_DONT_CARE        Exact
-    GLX_BIND_TO_MIPMAP_TEXTURE_EXT  GLX_DONT_CARE        Exact
-    GLX_BIND_TO_TEXTURE_TARGETS_EXT -                    Mask
-    GLX_Y_INVERTED_EXT              GLX_DONT_CARE        Exact
-
-    Modifications to 3.3.3, "Configuration Management"
-
-    Add after paragraph 17 in the description of FBConfigs:
-
-    GLX_Y_INVERTED_EXT is a boolean describing the memory layout used for
-    drawables created with the GLXFBConfig.  The attribute is True if the
-    drawable's framebuffer will be y-inverted.  This can be used to determine
-    if y-inverted texture coordinates need to be used when texturing from this
-    drawable when it is bound to a texture target.
-
-    Modifications to 3.3.5, "Offscreen Rendering"
-
-    Modify paragraph 3 of the description of glXCreatePixmap:
-
-    <attrib_list> specifies a list of attributes for the pixmap.  The list has
-    the same structure as described for glXChooseFBConfig.  Currently the
-    following attributes can be specified in attrib_list:
-    GLX_TEXTURE_FORMAT_EXT, GLX_TEXTURE_TARGET_EXT, GLX_MIPMAP_TEXTURE_EXT,
-    attrib_list may be NULL or empty (first attribute of None), in which case
-    all attributes assume their default values as described below.
-
-    GLX_TEXTURE_FORMAT_EXT describes the texture format this pixmap can be
-    bound to.  Valid values are GLX_TEXTURE_FORMAT_RGB_EXT,
-    GLX_TEXTURE_FORMAT_RGBA_EXT, and GLX_TEXTURE_FORMAT_NONE_EXT.
-
-    GLX_TEXTURE_TARGET_EXT can be set to GLX_TEXTURE_1D_EXT,
-    GLX_TEXTURE_2D_EXT, or GLX_TEXTURE_RECTANGLE_EXT; it indicates the type
-    of texture that will be created when GLX_TEXTURE_FORMAT_EXT is not
-    GLX_TEXTURE_FORMAT_NONE_EXT.  The default value of GLX_TEXTURE_TARGET_EXT
-    depends on the capabilities in <config> and the dimensions of the pixmap.
-    If <config> has GLX_TEXTURE_2D_BIT set and one or more of the following is
-    true:
-
-        * GLX_TEXTURE_RECTANGLE_BIT_EXT is not set in <config>
-
-        * GL_ARB_texture_non_power_of_two is supported
-
-        * the pixmap's width and height are powers of 2
-
-    the default value for GLX_TEXTURE_TARGET_EXT is GLX_TEXTURE_2D_EXT.
-
-    Otherwise, the first supported target is chosen in this order:
-    GLX_TEXTURE_RECTANGLE_EXT, GLX_TEXTURE_1D_EXT.
-
-    GLX_MIPMAP_TEXTURE_EXT indicates that storage for mipmaps should be
-    allocated.  Space for mipmaps will be set aside if GLX_TEXTURE_FORMAT_EXT
-    is not GLX_TEXTURE_FORMAT_NONE_EXT and GLX_MIPMAP_TEXTURE_EXT is TRUE.
-    The default value is FALSE.
-
-    Modify paragraph 5 of the description of glXCreatePixmap:
-
-    ...If <pixmap> is not a valid Pixmap XID, then a BadPixmap error is
-    generated.  A BadConfig error is generated if any of the following
-    conditions are true:
-
-        * GLX_TEXTURE_FORMAT_EXT is GLX_TEXTURE_FORMAT_RGB_EXT and
-          <config> does not have GLX_BIND_TO_TEXTURE_RGB set to TRUE.
-
-        * GLX_TEXTURE_FORMAT_EXT is GLX_TEXTURE_FORMAT_RGBA_EXT and
-          <config> does not have GLX_BIND_TO_TEXTURE_RGBA set to TRUE.
-
-        * GLX_MIPMAP_TEXTURE_EXT is set to TRUE and <config> does not
-          have GLX_BIND_TO_MIPMAP_EXT set to TRUE.
-
-        * GLX_TEXTURE_TARGET_EXT is set to GLX_TEXTURE_1D_EXT
-          and <config> does not have GLX_TEXTURE_1D_BIT_EXT set.
-
-        * GLX_TEXTURE_TARGET_EXT is set to GLX_TEXTURE_2D_EXT
-          and <config> does not have GLX_TEXTURE_2D_BIT_EXT set.
-
-        * GLX_TEXTURE_TARGET_EXT is set to GLX_TEXTURE_RECTANGLE_EXT
-          and <config> does not have GLX_TEXTURE_RECTANGLE_BIT_EXT set.
-
-    A BadValue error is generated if GLX_TEXTURE_FORMAT_EXT is not
-    GLX_TEXTURE_FORMAT_NONE_EXT and the width or height of <pixmap> are
-    incompatible with the specified value of GLX_TEXTURE_TARGET_EXT on this
-    implementation. (e.g., the pixmap size is not a power of 2 and
-    GL_ARB_texture_rectangle is not supported).
-
-    Modify paragraph 1 of the description of glXDestroyPixmap:
-
-    ...The storage for the GLX pixmap will be freed when it is not current
-    to any client and all color buffers that are bound to a texture object
-    have been released.
-
-
-    Modifications to seciton 3.3.6, "Querying Attributes"
-
-    Modify paragraph 1 of the description of glXQueryDrawable:
-
-    ...<attribute> must be set to one of GLX_WIDTH, GLX_HEIGHT,
-    GLX_PRESERVED_CONTENTS, GLX_LARGEST_PBUFFER, GLX_FBCONFIG_ID,
-    GLX_TEXTURE_FORMAT_EXT, GLX_TEXTURE_TARGET_EXT or GLX_MIPMAP_TEXTURE_EXT
-    or a BadValue error is generated.
-
-    Modify paragraph 3 of the description of glXQueryDrawable:
-
-    ...If <draw> is a GLXWindow or GLXPixmap and <attribute> is set to
-    GLX_PRESERVED_CONTENTS or GLX_LARGEST_PBUFFER, or if <draw> is a
-    GLXWindow or GLXPbuffer and <attribute> is set to GLX_TEXTURE_FORMAT_EXT,
-    GLX_TEXTURE_TARGET_EXT, or GLX_MIPMAP_TEXTURE_EXT, the contents of <value>
-    are undefined.
-
-    Add a new section 3.3.6.1, "Texturing From Drawables"
-
-    The command
-
-        void glXBindTexImageEXT (Display *dpy,
-                                 GLXDrawable draw,
-                                 int buffer,
-                                 int *attrib_list);
-
-    defines a one- or two-dimensional texture image.  The texture image is taken
-    from <buffer> and need not be copied.  The texture target, the texture
-    format, and the size of the texture components are derived from attributes
-    of <draw>.
-
-    The drawable attribute GLX_TEXTURE_FORMAT_EXT determines the base internal
-    format of the texture.  The component sizes are also determined by drawable
-    attributes as shown in table 3.4a.
-
-    Add new table 3.4a: Size of texture components:
-
-    Texture component Size
-    ----------------- --------------
-    R                 GLX_RED_SIZE
-    G                 GLX_GREEN_SIZE
-    B                 GLX_BLUE_SIZE
-    A                 GLX_ALPHA_SIZE
-
-    The texture target is derived from the GLX_TEXTURE_TARGET_EXT attribute of
-    <draw>.  If the texture target for the drawable is GLX_TEXTURE_2D_EXT or
-    GLX_TEXTURE_RECTANGLE_EXT, then buffer defines a 2D texture for the current
-    2D or rectangle texture object respectively; if the texture target is
-    GLX_TEXTURE_1D_EXT, then buffer defines a 1D texture for the current 1D
-    texture object.
-
-    If <buffer> is not one of GLX_FRONT_LEFT_EXT, GLX_FRONT_RIGHT_EXT,
-    GLX_BACK_LEFT_EXT, GLX_BACK_RIGHT_EXT, or GLX_AUX0_EXT through
-    GLX_AUXn_EXT, where n is one less than the number of AUX buffers supported
-    by the FBConfig used to create <draw>, or if the requested buffer is
-    missing, a BadValue error is generated.
-
-    <attrib_list> specifies a list of attributes for the texture.  The list has
-    the same structure as described for glXChooseFBConfig.  If <attrib_list> is
-    NULL or empty (first attribute of None), then all attributes assume their
-    default values.  <attrib_list> must be NULL or empty.
-
-    If <dpy> and <draw> are the display and drawable for the calling thread's
-    current context, glXBindTexImageEXT performs an implicit glFlush.
-
-    The contents of the texture after the drawable has been bound are defined
-    as the result of all rendering that has completed before the call to
-    glXBindTexImageEXT.  In other words, the results of any operation which
-    has caused damage on the drawable prior to the glXBindTexImageEXT call
-    will be represented in the texture.
-
-    Rendering to the drawable while it is bound to a texture will leave the
-    contents of the texture in an undefined state.  However, no
-    synchronization between rendering and texturing is done by GLX.  It is
-    the application's responsibility to implement any synchronization
-    required.
-
-    If a texture object is deleted before glXReleaseTexImageEXT is called,
-    the color buffer is released.
-
-    It is not an error to call TexImage2D, TexImage1D, CopyTexImage1D, or
-    CopyTexImage2D to replace an image of a texture object that has a color
-    buffer bound to it.  However, these calls will cause the color buffer to be
-    released and new memory to be allocated for the texture.  Note that the
-    color buffer is released even if the image that is being defined is a mipmap
-    level that was not defined by the color buffer.  GenerateMipmapEXT is an
-    exception.  GenerateMipmapEXT can be used to define mipmap levels for
-    drawables that have been created with GLX_MIPMAP_TEXTURE_EXT set.  Calling
-    GenerateMipmapEXT on a drawable that was created without
-    GLX_MIPMAP_TEXTURE_EXT is undefined.
-
-    The results of calling glXBindTexImageEXT when GENERATE_MIPMAP_SGIS is TRUE
-    are undefined.
-
-    If glXBindTexImageEXT is called and the drawable attribute
-    GLX_TEXTURE_FORMAT_EXT is GLX_TEXTURE_FORMAT_NONE_EXT, then a BadMatch
-    error is generated.
-
-    Currently, only pixmaps can be bound to textures.  If <draw> is not a
-    valid GLXPixmap, then a GLXBadPixmap error is generated.
-
-    glXBindTexImageEXT is ignored if there is no current GLX rendering context.
-
-    To release a color buffer that is being used as a texture, call
-
-       void glXReleaseTexImageEXT (Dislpay *dpy, GLXDrawable draw, int buffer);
-
-    <buffer> must be one of GLX_FRONT_LEFT_EXT, GLX_FRONT_RIGHT_EXT,
-    GLX_BACK_LEFT_EXT, GLX_BACK_RIGHT_EXT, and GLX_AUX0_EXT through
-    GLX_AUXn_EXT, where n is one less than the number of AUX buffers
-    supported by the FBConfig used to create <draw> or a BadValue error
-    is generated.
-
-    The contents of the color buffer are unaffected by glXReleaseTexImageEXT.
-
-    If the specified color buffer is no longer bound to a texture (e.g.,
-    because the texture object was deleted), then glXReleaseTexImageEXT has no effect;
-    no error is generated.
-
-    When a color buffer is released (e.g., by calling glXReleaseTexImageEXT or
-    implicitly by calling a routine such as TexImage2D), all textures that were
-    defined by the color buffer become NULL.
-
-    If glXReleaseTexImageEXT is called and the drawable attribute
-    GLX_TEXTURE_FORMAT_EXT is GLX_TEXTURE_FORMAT_NONE_EXT, then a BadMatch
-    error is generated.
-
-    Currently, only pixmaps can be bound to textures.  If <draw> is not a
-    valid GLXPixmap, then a GLXBadPixmap error is generated.
-
-
-Usage Examples
-
-    Example 1: Bind redirected window to texture:
-
-    XGetWindowAttributes (display, window, &attrib);
-
-    visualid = XVisualIDFromVisual (attrib.visual);
-
-    fbconfigs = glXGetFBConfigs (display, screen, &nfbconfigs);
-    for (i = 0; i < nfbconfigs; i++)
-    {
-        visinfo = glXGetVisualFromFBConfig (display, fbconfigs[i]);
-        if (!visinfo || visinfo->visualid != visualid)
-            continue;
-
-        glXGetFBConfigAttrib (display, fbconfigs[i], GLX_DRAWABLE_TYPE, &value);
-        if (!(value & GLX_PIXMAP_BIT))
-            continue;
-
-        glXGetFBConfigAttrib (display, fbconfigs[i],
-                              GLX_BIND_TO_TEXTURE_TARGETS_EXT,
-                              &value);
-        if (!(value & GLX_TEXTURE_2D_BIT_EXT))
-            continue;
-
-        glXGetFBConfigAttrib (display, fbconfigs[i],
-                              GLX_BIND_TO_TEXTURE_RGBA_EXT,
-                              &value);
-        if (value == FALSE)
-        {
-            glXGetFBConfigAttrib (display, fbconfigs[i],
-                                  GLX_BIND_TO_TEXTURE_RGB_EXT,
-                                  &value);
-            if (value == FALSE)
-                continue;
-        }
-
-        glXGetFBConfigAttrib (display, fbconfigs[i],
-                              GLX_Y_INVERTED_EXT,
-                              &value);
-        if (value == TRUE)
-        {
-            top = 0.0f;
-            bottom = 1.0f;
-        }
-        else
-        {
-            top = 1.0f;
-            bottom = 0.0f;
-        }
-
-        break;
-    }
-
-    if (i == nfbconfigs)
-        /* error 1 */
-
-    pixmap = XCompositeNameWindowPixmap (display, window);
-    pixmapAttribs = { GLX_TEXTURE_TARGET_EXT, GLX_TEXTURE_2D_EXT,
-                      GLX_TEXTURE_FORMAT_EXT, GLX_TEXTURE_FORMAT_RGBA_EXT,
-                      None };
-    glxpixmap = glXCreatePixmap (display, fbconfigs[i], pixmap, pixmapAttribs);
-
-    glGenTextures (1, &texture);
-    glBindTexture (GL_TEXTURE_2D, texture);
-
-    glXBindTexImageEXT (display, glxpixmap, GLX_FRONT_LEFT_EXT, NULL);
-
-    glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri (GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-    /* draw using pixmap as texture */
-    glBegin (GL_QUADS);
-
-    glTexCoord2d (0.0f, bottom);
-    glVertex2d (0.0f, 0.0f);
-
-    glTexCoord2d (0.0f, top);
-    glVertex2d (0.0f, 1.0f);
-
-    glTexCoord2d (1.0f, top);
-    glVertex2d (1.0f, 1.0f);
-
-    glTexCoord2d (1.0f, bottom);
-    glVertex2d (1.0f, 0.0f);
-
-    glEnd ();
-
-    glXReleaseTexImageEXT (display, glxpixmap, GLX_FRONT_LEFT_EXT);
-
-
-Version History
-    
-    1. 26 Nov 2005 - DavidR
-        Initial version
-    2. 01 Dec 2005 - JamesJ
-        -Adapted spec language from draft version of GLX_ARB_render_texture.
-        -Added glXDrawableAttribute to set attributes.
-        -Modified glXBindTexImageEXT to take an attrib_list parameter.
-        -Added support for cubemap and 1D texture targets.
-        -Added attribute to set the texture target when creating the
-         drawable.
-        -Updated the issues section.
-        -Added mipmap support.  Support is not required.
-        -Specified results of texturing from a drawable when it has been
-         rendered to while bound to a texture as undefined until
-         glXReleaseTexImageEXT has been called.  Allows implementations
-         that need to perform an implicit copy after rendering occurs
-         to be compatible with this specification.
-    3. 04 Dec 2005 - DavidR
-        -Changed name to GLX_EXT_texture_from_pixmap.
-        -Changed spec regarding what happens when a pixmap that is bound
-         to a texture is rendered to. Having textures be undefined once
-         they are rendered to makes it useless for a compositing manager,
-         which is a major use case for this extension.
-        -Added support for not specifying texture target when creating a
-         pixmap. Allows implementations to select whatever target it
-         finds most suitable.
-    4. 05 Dec 2005 - JamesJ
-        -Changed the default value of GLX_TEXTURE_TARGET_EXT from
-         GLX_NO_TEXTURE_EXT to something usable.  Eliminated
-         GLX_NO_TEXTURE_EXT.
-        -Eliminated GLX_TEXTURE_NONE_EXT.
-        -Removed language referring to sharing of color buffers when
-         pixmaps are bound to textures.
-        -Updated issues.
-
-    5. 13 Dec 2005 - JamesJ
-        -Removed cube map support and rendering to multiple mipmap
-         levels support.
-
-    6. 20 Jan 2006 - JamesJ
-        -Specified textures are y-inverted.
-
-    7. 23 Jan 2006 - AaronP
-        -Fix typos, make some things clearer.  Replace ocurrences of "released
-         back to the drawable" with "released".
-
-    8. 01 Feb 2006 - AndyR
-        -Fix minor typos.
-
-    9. 03 Feb 2006 - JamesJ
-        -Added some new issues and their resolutions.
-        -Finalized some issues that had been in discussion.
-        -Made drawable y-inversion a queryable attribute of the drawable.
-        -Moved detailed explanation of y-inverted addressing to the issues
-         section
-        -Updated example to demonstrate proper use of the y-inverted
-         attribute.
-
-    10. 06 Feb 2006 - DavidR
-        -Made GLX_Y_INVERTED_EXT an FBConfig attribute instead of a drawable
-         attribute.
-        -Removed GLX_TEXTURE_CUBE_MAP_EXT.
-        -Fix minor typo.
-
-    11. 07 Feb 2006 - JamesJ
-        -Added description of GLX_Y_INVERTED_EXT GLXFBConfig attribute, based
-         on description of the drawable attribute of the same name from
-         and earlier version of the specification.
-        -Removed language requiring applications to re-bind a pixmap to a
-         texture to gurantee contents of the texture are updated after a
-         pixmap has been rendered to.
-        -Added Aaron Plattner and Andy Ritger to contributors section.
-
-    12. 14 Feb 2006 - JamesJ
-        -Disallowed rendering to a drawable while it is bound as a texture
-         and defined the exact contents of a texture after a drawable has
-         been bound to it.
-
-    13. 09 Mar 2006 - JamesJ
-        -Add a context tag member to the vendor private requests.  This field
-         is part of the vendor private header, and is needed to specify which
-         context the BindTexImageEXT and ReleaseTexImageEXT requests correspond
-         to.
-        -Changed texture target bitfield values to not skip numbers removed in
-         earlier updates.
-
-    14. 13 Mar 2006 - JamesJ
-        -Only require GLX_SGIX_fbconfig + GLX 1.2.
-        -Clarify language regarding the result of rendering to drawables bound
-         to textures.
-        -Added GLX_FRONT_EXT and GLX_BACK_EXT tokens.
-
-    15. 18 Apr 2006 - JamesJ
-        -Allocated enum values and opcodes.
-        -Require GLX 1.3.  GLX_SGIX_fbconfig doesn't allow creating pixmaps
-         with attributes.
-        -Added more arguments for not supporting rendering to multiple levels
-         of a texture with this extension.
-        -Fixed the inconsistencies in the return type of glXBindTexImageEXT
-         and glXReleaseTexImageEXT.  It is now listed as void throughout.
-
-    16. 12 Sep 2006 - JamesJ
-        -Fix ordering of GLX protocol
-
-    17. 10 Feb 2009 - Jon Leech
-	-Fix typo reported by Jonathan Knispel.

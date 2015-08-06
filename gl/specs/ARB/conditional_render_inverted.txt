@@ -57,31 +57,11 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted by the <mode> parameter of BeginConditionalRender:
 
         QUERY_WAIT_INVERTED                             0x8E17
         QUERY_NO_WAIT_INVERTED                          0x8E18
         QUERY_BY_REGION_WAIT_INVERTED                   0x8E19  
         QUERY_BY_REGION_NO_WAIT_INVERTED                0x8E1A  
-
-Additions to Chapter 10 of the OpenGL 4.4 (Core Profile) Specification (Vertex Specification and Drawing Commands)
-
-    Modify Section 10.10, Conditional Rendering
-
-    (add before the errors section for BeginConditionalRender on p. 339)
-
-    If <mode> is QUERY_WAIT_INVERTED, QUERY_NO_WAIT_INVERTED,
-    QUERY_BY_REGION_WAIT_INVERTED, or QUERY_BY_REGION_NO_WAIT_INVERTED
-    then the condition used to determine whether or not to render subsequent
-    drawing commands is negated with respect to QUERY_WAIT, QUERY_NO_WAIT,
-    QUERY_BY_REGION_WAIT, or QUERY_BY_REGION_NO_WAIT, respectively. If <mode>
-    is QUERY_NO_WAIT_INVERTED or QUERY_BY_REGION_NO_WAIT_INVERTED
-    the GL may choose to unconditionally execute the subsequent rendering
-    commands without waiting for the query to complete.
-
-Additions to the AGL/EGL/GLX/WGL Specifications
-
-    None.
 
 Dependencies
 

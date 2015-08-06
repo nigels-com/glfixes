@@ -1,4 +1,3 @@
-
 Name
 
     SUN_mesh_array
@@ -57,61 +56,7 @@ New Procedures and Functions
 
 New Tokens
 
-   Accepted by the <mode> parameter of DrawMeshArraysSun,
 
    QUAD_MESH_SUN               0x8614
    TRIANGLE_MESH_SUN           0x8615
 
-Additions to Chapter 2 of the 1.3 GL Specification (OpenGL Operation)
-
-  Section 2.8 Vertex Arrays:
-
-  The command 
-
-     void DrawMeshArraysSUN( enum mode, int first, sizei count, sizei width );
-
-  constructs a mesh primitive using the elements first through first+count-1
-  of each enabled array. The mode specifies if it is a quad mesh or triangle
-  mesh. The only token values accepted by mode are QUAD_MESH_SUN and 
-  TRIANGLE_MESH_SUN. Width specifies how many vertices are in each row 
-  of the mesh. The elements must be arranged in row major order within the
-  arrays.
-
-Additions to Chapter 3 of the 1.3 GL Specification (Rasterization)
-
-    None
-
-
-Additions to Chapter 4 of the 1.3 GL Specification (Per-Fragment Operations
-and the Framebuffer)
-
-    None
-
-Additions to Chapter 5 of the 1.3 GL Specification (Special Functions)
-
-    None
-
-
-Additions to Chapter 6 of the 1.3 GL Specification (State and State Requests)
-
-    None
-
-Additions to the GLX / WGL / AGL Specifications
-
-    None
-
-GLX Protocol
-
-    None
-
-Errors
-
-    INVALID_VALUE is generated if <count> is not an even multiple of
-    width.
- 
-    INVALID_ENUM is generated if <mode> is not QUAD_MESH_SUN or
-    TRIANGLE_MESH_SUN.
- 
-New State
-
-   None

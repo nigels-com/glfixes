@@ -72,90 +72,9 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted by the <mode> parameter of TextureNormalEXT:
 
     PERTURB_EXT                         0x85AE
 
-    Accepted by the <pname> parameter of GetBooleanv, GetIntegerv, GetFloatv,
-    and GetDoublev:
 
     TEXTURE_NORMAL_EXT                  0x85AF
 
-Additions to Chapter 2 of the 1.2 Specification (OpenGL Operation)
-
-    None
-
-Additions to Chapter 3 of the 1.2 Specification (Rasterization)
-
-    The command
-
-    TextureNormalEXT(enum mode)
-
-    determines how the fragment normal vector is modified by the post-
-    texture-environment color when the texture application mode is
-    FRAGMENT_NORMAL_EXT.  <mode> is one of REPLACE or PERTURB_EXT.
-
-    If <mode> is REPLACE, then the R, G, and B components of the
-    post-texture-environment color replace the normal for the fragment,
-    as defined in the light_texture specification.  This is the default
-    behavior.
-
-    If <mode> is PERTURB_EXT, then the R and A components of the
-    post-texture-environment color are used, along with the tangent and
-    binormal vectors of the fragment, to perturb the normal vector of the
-    fragment.  The tangent vector for the fragment is multiplied by the
-    range-shifted R component (2*R-1) of the post-texture-environment
-    color, and the binormal vector for the fragment is multiplied by the
-    range-shifted A component (2*A-1) of the post-texture-environment
-    color.  The vectors thus obtained are added to the normal for the
-    fragment and the resultant vector is normalized. This normalized
-    resultant vector replaces the normal for the fragment.
-
-Additions to Chapter 4 of the 1.2 Specification (Per-Fragment Operations
-and the Framebuffer)
-
-Additions to Chapter 5 of the 1.2 Specification (Special Functions)
-
-Additions to Chapter 6 of the 1.2 Specification (State and State Requests)
-
-    The texture normal mode is queried using GetBooleanv, GetIntegerv,
-    GetFloatv, and GetDoublev with the <pname> parameter set to
-    TEXTURE_NORMAL_EXT.
-
-Additions to the GLX Specification
-
-    None
-
-GLX Protocol
-
-    TBD
-
-Dependencies on EXT_coordinate_frame
-
-    EXT_coordinate_frame is required since this extension requires
-    the tangent and binormal to perturb the normal vector and this
-    extension makes no sense without the tangent and binormal.
-
-Dependencies on EXT_light_texture
-
-    EXT_light_texture is required since this extension pertains to how
-    textures are used in the fragment lighting computations and makes
-    no sense without light texture.
-
-Errors
-
-    INVALID_ENUM is generated if TextureNormalEXT parameter <pname> is
-    not REPLACE or PERTURB_EXT.
-
-    INVALID_OPERATION is generated if TextureNormalEXT is executed between
-    execution of Begin and the corresponding execution of End.
-
-New State
-
-    Get Value           Get Command     Type    Initial Value       Attribute
-    ---------           -----------     ----    -------------       ---------
-    TEXTURE_NORMAL_EXT  GetIntegerv     Z2      REPLACE             texture
-
-New Implementation Dependent State
-
-    None

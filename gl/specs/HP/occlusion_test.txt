@@ -1,7 +1,3 @@
-GL_HP_occlusion_test - PRELIMINARY
-----------------------------------
-XXX - Not complete yet!!!
-
 Name
 
     HP_occlusion_test
@@ -70,53 +66,14 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted by the <cap> parameter of Enable, Disable, and IsEnabled, by
-    the <pname> of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev :
-
-        OCCLUSION_TEST_HP           0x????
-
-    Accepted by the <pname> of GetBooleanv, GetIntegerv, GetFloatv, and 
-    GetDoublev :
-
-        OCCLUSION_TEST_RESULT_HP    0x????
-
-New State
-
-    Boolean result of occlusion test, initial value of FALSE. The result is
-    set to FALSE as a side effect of reading it (executing a Get call).
-
-Issue
-
-    - should the interface allow for multiple occlusion tests to be enabled
-        possible extension :
-            add MAX_OCCLUSION_TESTS
-            add OCCLUSION_TESTn_HP where n is 1 to MAX_OCCLUSION_TESTS
-            add OCCLUSION_TEST_RESULTn_HP where n is 1 to MAX_OCCLUSION_TESTS
-            define semantics of multiple tests enables (ex. there exists 
-                precedence of tests, ie. TEST7 overrides TEST1 thru 6)
-            define how mulitple test results returned (ex. bit encoded in
-                return word, 32 per word)
-            define disable(OCCLUSION_TEST_HP) (un-numbered test) to disable
-                all currently enabled
-            resulting usage :
-                disable update to color and depth buffer
-                enable occlusion test 1
-                render bounding box 1
-                enable occlusion test 2
-                render bounding box 2
-                    ...
-                enable occlusion test n
-                render bounding box n
-                disable all occlusion tests
-                enable updates to color and depth buffer
-                read occlusion test results
-                for each result 
-                    if (result) render internal geometry
-                    else don't render
-
-   - should the interface be based on render mode semantics
-        no proposal at this time
 
 
 
---------------64E073B876D--
+
+
+
+
+
+
+
+

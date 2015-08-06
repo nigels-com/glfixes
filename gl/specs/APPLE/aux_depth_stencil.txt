@@ -90,22 +90,12 @@ New Procedures and Functions
  
 New Tokens
 
-    Accepted by the <pname> parameter of GetIntegerv. 
     
     AUX_DEPTH_STENCIL_APPLE          0x8A14
 
-Errors
 
-    None
 
-New State
 
-    None
 
-New Implementation Dependent State
 
-Get Value                        Type    Get Command    Values        Description         Section
--------------------------------  ------  -------------  ------------- ------------------  ------------
-AUX_DEPTH_STENCIL_APPLE          Z2      GetIntegerv    True or False aux depth stencil   -
-                                                                      enabled
 

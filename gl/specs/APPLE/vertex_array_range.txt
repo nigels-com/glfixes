@@ -196,187 +196,21 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted by the <cap> parameter of EnableClientState, DisableClientState,
-    and IsEnabled:
 
         VERTEX_ARRAY_RANGE_APPLE              0x851D
 
-    Accepted by the <pname> parameter of GetBooleanv, GetIntegerv, GetFloatv,
-    and GetDoublev:
 
         VERTEX_ARRAY_RANGE_LENGTH_APPLE       0x851E
         MAX_VERTEX_ARRAY_RANGE_ELEMENT_APPLE  0x8520
 
-    Accepted by the <pname> parameter of GetPointerv:
 
         VERTEX_ARRAY_RANGE_POINTER_APPLE      0x8521
 
-    Accepted by the <pname> parameter of VertexArrayParameteriAPPLE,
-	GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev:
 
         VERTEX_ARRAY_STORAGE_HINT_APPLE       0x851F
 
-    Accepted by the <param> parameter of VertexArrayParameteriAPPLE:
 
         STORAGE_CLIENT_APPLE                  0x85B4
         STORAGE_CACHED_APPLE                  0x85BE
         STORAGE_SHARED_APPLE                  0x85BF
 
-Additions to Chapter 2 of the OpenGL 1.1 Specification (OpenGL Operation)
-
-    After the discussion of vertex arrays (Section 2.8) add a
-    description of the vertex array range:
-
-    "The command 
-
-       void VertexArrayRangeAPPLE(sizei length, void *pointer)
-
-    specifies the current vertex array range.  When the vertex array range is
-    specified and valid, vertex transfers from within the vertex array
-    range are potentially faster.  The vertex array range is a contiguous
-    region of address space for placing vertex arrays.  The "pointer" parameter
-    is a pointer to the base of the vertex array range.  The "length" pointer is
-    the length of the vertex array range in basic machine units (typically
-    unsigned bytes).  Memory associated with a vertex array range should be
-    allocated by the client and the responsibility for maintaining it rests with
-    the client as long as it is being used as a vertex array range.
-
-    The vertex array range address space region extends from "pointer" to
-    "pointer + length - 1" inclusive.  When specified, vertex array vertex
-    transfers from within the vertex array range are potentially faster.
-
-    There is some system burden associated with establishing a vertex array
-    range (typically, the memory range must be locked down). If either the
-    vertex array range pointer or size is set to zero, the previously
-    established vertex array range is released (typically, unlocking the
-    memory).  This should always be done prior to freeing of the memory by the
-    client.
-
-    The vertex array range may not be established for operating system dependent
-    reasons, and therefore, not valid.  Reasons that a vertex array range cannot
-    be established include exceeding the maximum vertex array range size, the
-    memory could not be locked down, etc.
-
-    The vertex array range is considered enabled after VERTEX_ARRAY_RANGE_APPLE
-    client state is enabled and as soon as a valid vertex array range is
-    specified and disabled once the size length and/or pointer is set to zero or
-    VERTEX_ARRAY_RANGE_APPLE client state is disabled.
-
-    When the vertex array range is enabled, ArrayElement commands may generate
-    undefined vertices if and only if any indexed elements of the enabled arrays
-    are not within the vertex array range or if the index is negative or greater
-    or equal to the implementation-dependent value of
-    MAX_VERTEX_ARRAY_RANGE_ELEMENT_APPLE.  If an undefined vertex is generated,
-    an INVALID_OPERATION error may or may not be generated.
-
-    The vertex array coherency model specifies when vertex data must be extracted
-    from the vertex array memory.  When the vertex array range is not valid,
-    (quoting the specification) `Changes made to array data between the
-    execution of Begin and the corresponding execution of End may effect calls
-    to ArrayElement that are made within the same Begin/End period in
-    non-sequential ways.  That is, a call to ArrayElement that precedes a change
-    to array data may access the changed data, and a call that follows a change
-    to array data may access the original data.'
-
-    When the vertex array range is valid, the vertex array coherency model is
-    relaxed so that changes made to array data may affect calls to ArrayElement
-    in non-sequential ways. That is a call to ArrayElement that precedes a
-    change to array data may access the changed data, and a call that follows a
-    change to array data may access original data.  This requires in two points
-    of synchronization to maintain coherency.
-
-    The first point where synchronization must occur to maintain coherency is
-    post data modification, prior to drawing.  FlushVertexArrayRangeAPPLE should
-    be used by the client on all ranges of memory which have been modified since
-    the last call to VertexArrayRangeAPPLE or FlushVertexArrayRangeAPPLE.
-
-    The second point of synchronization is after drawing with a vertex array
-    range and prior to modifying it's data.  In this case either Finish or a
-    fence must be used.  Finish will create a synchronization point for all
-    drawing an may not be the optimal method to ensure drawing completion prior
-    to data modification.  A fence, defined in the APPLE_fence extension, on the
-    other hand allows more selective synchronization. The client can set a fence
-    immediately after drawing with the data in question and test or finish that
-    fence prior to modifying the data.  See the APPLE_fence extension for more
-    details.
-
-    To maintain full coherency, once a vertex array range is enabled, requires
-    the client to both flush the vertex array after data modification, prior to
-    drawing, and synchronize with Finish or a fence after drawing, prior to
-    modifying the data.
-
-    The command 
-
-        void VertexArrayParameteriAPPLE(enum pname, int param)
-
-    allows the client to hint at the expected use of the vertex array range.
-    pname must be VERTEX_ARRAY_STORAGE_HINT_APPLE.  param can either be
-    STORAGE_CACHED_APPLE or STORAGE_SHARED_APPLE and can be used by the system
-    to tune the handling of the vertex array range data. These
-    parameters are just hints and require no specific handling by the system. 
-    The default state is STORAGE_SHARED_APPLE which, indicates that the vertex
-    data is expected to be dynamic and should be handled in a way to optimize
-    modification and flushing of the vertex array range, if possible.
-    STORAGE_CACHED_APPLE indicates the data is expected to static and techniques
-    such as VRAM caching could be employed to optimize memory bandwidth to the
-    vertex array range.  Proper use of FlushVertexArrayRangeAPPLE guarantees
-    memory coherency in all cases and will result in deterministic defined
-    behavior in all cases, whether hints are employed or not.
-
-    The client state required to implement the vertex array range consists of an
-    enable bit, a memory pointer, an integer size, and a valid bit."
-
-Additions to Chapter 5 of the OpenGL 1.1 Specification (Special Functions)
-
-    Add to the end of Section 5.4 "Display Lists"
-
-    "VertexArrayRangeAPPLE and FlushVertexArrayRangeAPPLE are not complied into
-    display lists but are executed immediately.
-
-    If a display list is compiled while VERTEX_ARRAY_RANGE_APPLE is enabled, the
-    commands ArrayElement, DrawArrays, DrawElements, and DrawRangeElements are
-    accumulated into a display list as if VERTEX_ARRAY_RANGE_APPLE is disabled."
-
-Additions to the CGL interface:
-
-    None
-
-Additions to the WGL interface:
-
-    None
-
-Additions to the GLX Specification
-
-    None
-
-GLX Protocol
-
-    None
-
-Errors
-
-    INVALID_OPERATION is generated if VertexArrayRangeAPPLE or
-    FlushVertexArrayRangeAPPLE is called between the execution of Begin and the
-    corresponding execution of End.
-
-    INVALID_OPERATION may be generated if an undefined vertex is generated.
-
-New State
-
-                                                              Initial
-   Get Value                          Get Command     Type    Value                Attrib
-   ---------                          -----------     ----    -------              ------------
-   VERTEX_ARRAY_RANGE_APPLE           IsEnabled       B       False                vertex-array
-   VERTEX_ARRAY_RANGE_POINTER_APPLE   GetPointerv     Z+      0                    vertex-array
-   VERTEX_ARRAY_RANGE_LENGTH_APPLE    GetIntegerv     Z+      0                    vertex-array
-   VERTEX_ARRAY_STORAGE_HINT_APPLE    GetIntegerv     Z3      STORAGE_CLIENT_APPLE vertex-array
-
-New Implementation Dependent State
-
-    Get Value                              Get Command     Type    Minimum Value
-    ---------                              -----------     -----   -------------
-    MAX_VERTEX_ARRAY_RANGE_ELEMENT_APPLE   GetIntegerv     Z+      65535
-
-Revision History
-
-    None

@@ -135,8 +135,6 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted by the <internalformat> parameter of TexImage1D, TexImage2D,
-    TexImage3DEXT, TexImage4DSGIS, CopyTexImage1D, and CopyTexImage2D:
 
     RGB_SIGNED_SGIX				0x85E0
     RGBA_SIGNED_SGIX				0x85E1
@@ -163,110 +161,9 @@ New Tokens
     INTENSITY16_EXTENDED_RANGE_SGIX		0x85F6
     LUMINANCE16_ALPHA16_EXTENDED_RANGE_SGIX	0x85F7
 
-    Accepted by the <value> parameter of of GetTexLevelParameterfv and
-    GetTexLevelParameteriv:
 
     MIN_LUMINANCE_SGIS				0x85F8
     MAX_LUMINANCE_SGIS				0x85F9
     MIN_INTENSITY_SGIS				0x85FA
     MAX_INTENSITY_SGIS				0x85FB
-
-Additions to Chapter 2 of the 1.2 Specification (OpenGL Operation)
-
-    None
-
-Additions to Chapter 3 of the 1.2 Specification (Rasterization)
-
-    The following is added to Section 3.8.1:
-
-    "... just before final conversion.  Each R, G, B, and A value so
-    generated is clamped to [min, max].  The minimum is implementation-
-    dependent for extended range and precision internal formats, but at most
-    0.	It is -1 for signed internal formats, and is 0 for all other
-    formats.  The maximum is implementation-dependent for extended range and
-    precision formats, but is at least 1, and is 1 for all other formats.
-
-
-    The following is added to Table 3.16:
-
-    Sized				     Base				   R	   G	   B	   A	   L	   I
-    Internal Format			     Internal Format			  Bits	  Bits	  Bits	  Bits	  Bits	  Bits
-    ---------------			     -----------------------------------  ----	  ----	  ----	  ----	  ----	  ----
-    RGB16_SIGNED_SGIX		     RGB_SIGNED_SGIX				   16	   16	   16
-    RGBA16_SIGNED_SGIX		     RGBA_SIGNED_SGIX				   16	   16	   16	   16
-    ALPHA16_SIGNED_SGIX		     ALPHA_SIGNED_SGIX							   16
-    LUMINANCE16_SIGNED_SGIX	     LUMINANCE_SIGNED_SGIX						   16
-    INTENSITY16_SIGNED_SGIX	     INTENSITY_SIGNED_SGIX								   16
-    LUMINANCE16_ALPHA16_SIGNED_SGIX  LUMINANCE_ALPHA_SIGNED_SGIX					   16	   16
-    RGB16_EXTENDED_RANGE_SGIX		     RGB_EXTENDED_RANGE_SGIX		   16	   16	   16
-    RGBA16_EXTENDED_RANGE_SGIX		     RGBA_EXTENDED_RANGE_SGIX		   16	   16	   16	   16
-    ALPHA16_EXTENDED_RANGE_SGIX		     ALPHA_EXTENDED_RANGE_SGIX					   16
-    LUMINANCE16_EXTENDED_RANGE_SGIX	     LUMINANCE_EXTENDED_RANGE_SGIX					   16
-    INTENSITY16_EXTENDED_RANGE_SGIX	     INTENSITY_EXTENDED_RANGE_SGIX						   16
-    LUMINANCE16_ALPHA16_EXTENDED_RANGE_SGIX  LUMINANCE_ALPHA_EXTENDED_RANGE_SGIX			   16	   16
-
-
-    The following is added to Section 3.8.3:
-
-    "... values to floating point.  Each of the four values set by
-    TEXTURE_BORDER_COLOR is clamped to lie in [min, max], where min and max
-    are based upon the internal format of the image in level-of-detail 0, as
-    specified in section 3.8.1"
-
-
-Additions to Chapter 4 of the 1.2 Specification (Per-Fragment Operations
-and the Frame Buffer)
-
-    None
-
-Additions to Chapter 5 of the 1.2 Specification (Special Functions)
-
-    None
-
-Additions to Chapter 6 of the 1.2 Specification (State and State Requests)
-
-    The following is added to Section 6.1.3:
-
-    "...when the image array was defined.  Queries of MIN_RED_SGIS,
-    MAX_RED_SGIS, MIN_GREEN_SGIS, MAX_GREEN_SGIS, MIN_BLUE_SGIS,
-    MAX_BLUE_SGIS, MIN_ALPHA_SGIS, MAX_ALPHA_SGIS, MIN_LUMINANCE_SGIS,
-    MAX_LUMINANCE_SGIS, MIN_INTENSITY_SGIS, and MAX_INTENSITY_SGIS
-    return the minimum and maximum expressable values of the internal
-    format of the image.  Queries of TEXTURE_WIDTH ..."
-
-Additions to the GLX Specification
-
-    None
-
-Dependencies on SGIS_texture4D
-
-    If SGIS_texture4D is not supported, all references to TexImage4DSGIS,
-    TexSubImage4DSGIS, and CopyTexSubImage4DSGIS are ignored.
-
-Errors
-
-    None
-
-New State
-
-    Get Value		Get Command	       Type  Initial Value
-    ---------		-----------	       ----  -------------
-    MIN_RED_SGIS	GetTexLevelParameterfv	R	  0.0
-    MAX_RED_SGIS	GetTexLevelParameterfv	R+	  1.0
-    MIN_GREEN_SGIS	GetTexLevelParameterfv	R	  0.0
-    MAX_GREEN_SGIS	GetTexLevelParameterfv	R+	  1.0
-    MIN_BLUE_SGIS	GetTexLevelParameterfv	R	  0.0
-    MAX_BLUE_SGIS	GetTexLevelParameterfv	R+	  1.0
-    MIN_ALPHA_SGIS	GetTexLevelParameterfv	R	  0.0
-    MAX_ALPHA_SGIS	GetTexLevelParameterfv	R+	  1.0
-    MIN_LUMINANCE_SGIS	GetTexLevelParameterfv	R	  0.0
-    MAX_LUMINANCE_SGIS	GetTexLevelParameterfv	R+	  1.0
-    MIN_INTENSITY_SGIS	GetTexLevelParameterfv	R	  0.0
-    MAX_INTENSITY_SGIS	GetTexLevelParameterfv	R+	  1.0
-
-New Implementation Dependent State
-
-    Get Value		Get Command	       Type
-    ---------		-----------	       ----
-    TEXTURE_RANGE_SGIX	GetBooleanv		B
 

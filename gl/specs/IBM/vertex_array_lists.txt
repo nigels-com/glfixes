@@ -1,5 +1,3 @@
-
-
 Name
 
     IBM_vertex_array_lists
@@ -158,7 +156,6 @@ New Procedures and Functions
 
 New Tokens
 
-  Accepted by the <pname> parameter of GetPointerv:
 
   VERTEX_ARRAY_LIST_IBM			103070
   NORMAL_ARRAY_LIST_IBM			103071
@@ -169,8 +166,6 @@ New Tokens
   FOG_COORDINATE_ARRAY_LIST_IBM		103076
   SECONDARY_COLOR_ARRAY_LIST_IBM	103077
 
-  Accepted by the <pname> parameter of GetBooleanv, GetIntegerv,
-  GetFloatv, and GetDoublev:
 
   VERTEX_ARRAY_LIST_STRIDE_IBM		103080
   NORMAL_ARRAY_LIST_STRIDE_IBM		103081
@@ -180,70 +175,5 @@ New Tokens
   EDGE_FLAG_ARRAY_LIST_STRIDE_IBM	103085
   FOG_COORDINATE_ARRAY_LIST_STRIDE_IBM	103086
   SECONDARY_COLOR_ARRAY_LIST_STRIDE_IBM	103087
-
-
-Additions to Chapter 2 of the 1.2 Specification (OpenGL Operation)
-
-    Section 2.8 Vertex Arrays:
-
-	??? yet to be written ???
-
-Additions to Chapter 3 of the 1.2 Specification (Rasterization)
-
-    None.
-
-Additions to Chapter 4 of the 1.2 Specification (Per-Fragment Operations and
-
-    None.
-
-Additions to Chapter 5 of the 1.2 Specification (Special Functions)
-
-    None.
-
-Additions to Chapter 6 of the 1.2 Specification (State and State Requests)
-
-    Additional table entries for Table 6.6. Vertex Array Data
-
-                                            Get          Initial
-       Get Value                       Type Cmnd         Value     Description                   Sec  Attribute
-    ---------------------------------  ---- -----------  ------- ------------------------------  --- -----------
-    VERTEX_ARRAY_LIST_IBM	        Y   GetPointerv  &NULL   Ptr to list of vertex arrays    2.8 vertex-array
-    NORMAL_ARRAY_LIST_IBM	        Y   GetPointerv  &NULL   Ptr to list of normal arrays    2.8 vertex-array
-    COLOR_ARRAY_LIST_IBM	        Y   GetPointerv  &NULL   Ptr to list of color arrays     2.8 vertex-array
-    INDEX_ARRAY_LIST_IBM                Y   GetPointerv  &NULL   Ptr to list of index arrays     2.8 vertex-array
-    TEXTURE_COORD_ARRAY_LIST_IBM        Y   GetPointerv  &NULL   Ptr to list of texture arrays   2.8 vertex-array
-    EDGE_FLAG_ARRAY_LIST_IBM            Y   GetPointerv  &NULL   Ptr to list of edgeflag arrays  2.8 vertex-array
-    FOG_COORD_ARRAY_LIST_IBM            Y   GetPointerv  &NULL   Ptr to list of fog arrays       2.8 vertex-array
-    SECONDARY_COLOR_ARRAY_LIST_IBM      Y   GetPointerv  &NULL   Ptr to list of secondary arrays 2.8 vertex-array
-    VERTEX_ARRAY_LIST_STRIDE_IBM        Z   GetIntegetv    0     Vertex list ptr stride          2.8 vertex-array
-    NORMAL_ARRAY_LIST_STRIDE_IBM        Z   GetIntegetv    0     Normal list ptr stride          2.8 vertex-array
-    COLOR_ARRAY_LIST_STRIDE_IBM	        Z   GetIntegetv    0     Color list ptr stride           2.8 vertex-array
-    INDEX_ARRAY_LIST_STRIDE_IBM	        Z   GetIntegetv    0     Index list ptr stride           2.8 vertex-array
-    TEXTURE_COORD_ARRAY_LIST_STRIDE_IBM	Z   GetIntegetv    0     Texture coord list ptr stride   2.8 vertex-array
-    EDGE_FLAG_ARRAY_LIST_STRIDE_IBM	Z   GetIntegetv    0     Edgeflag list ptr stride        2.8 vertex-array
-    FOG_COORD_ARRAY_LIST_STRIDE_IBM	Z   GetIntegetv    0     Fog coord list ptr stride       2.8 vertex-array
-    SECONDARY_COLOR_ARRAY_LIST_STRIDE_IBM Z GetIntegetv    0     Secondary color list ptr stride 2.8 vertex-array
-
-    Notes:
-    1) The initial list pointer values point to a NULL pointer.
-
-
-Additions to the GLX Specification
-
-    None.
-
-GLX Protocol
-
-    None.
-
-Errors
-
-    GL_INVALID_VALUE is generated if <size> is not an accepted value.
-
-    GL_INVALID_ENUM is generated if <type> is not an accepted value.
-
-New State
-
-    None.
 
 

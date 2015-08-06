@@ -102,103 +102,10 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted by the <pname> parameters of Fogf, Fogi, Fogfv, Fogiv,
-    GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev:
 
         FOG_DISTANCE_MODE_NV               0x855A
 
-    When the <pname> parameter of Fogf, Fogi, Foggv, and Fogiv, is
-    FOG_DISTANCE_MODE_NV, then the value of <param> or the value pointed
-    to by <params> may be:
 
         EYE_RADIAL_NV                      0x855B
-        EYE_PLANE
         EYE_PLANE_ABSOLUTE_NV              0x855C
 
-Additions to Chapter 2 of the 1.2 Specification (OpenGL Operation)
-
-     None
-
-Additions to Chapter 3 of the 1.2 Specification (Rasterization)
-
- --  Section 3.10 "Fog"
- 
-    Add to the end of the 3rd paragraph:
-
-    "If pname is FOG_DISTANCE_MODE_NV, then param must be, or params
-    must point to an integer that is one of the symbolic constants
-    EYE_PLANE_ABSOLUTE_NV, EYE_PLANE, or EYE_RADIAL_NV and this symbolic
-    constant determines how the fog distance should be computed."
-
-    Replace the 4th paragraph beginning "An implementation may choose
-    to approximate ..." with:
-
-    "When the fog distance mode is EYE_PLANE_ABSOLUTE_NV, the fog
-    distance z is approximated by abs(ze) [where ze is the Z component
-    of the fragment's eye position].  When the fog distance mode is
-    EYE_PLANE, the fog distance z is approximated by ze.  When the
-    fog distance mode is EYE_RADIAL_NV, the fog distance z is computed
-    as the Euclidean distance from the center of the fragment in eye
-    coordinates to the eye position.  Specifically:
-
-      z  =  sqrt( xe*xe + ye*ye + ze*ze );
-
-    In the EYE_RADIAL_NV fog distance mode, the Euclidean distance
-    is permitted to be computed per-vertex, and then interpolated
-    per-fragment."
-
-    Change the last paragraph to read:
-
-    "The state required for fog consists of a three valued integer to
-    select the fog equation, a three valued integer to select the fog
-    distance mode, three floating-point values d, e, and s, and RGBA fog
-    color and a fog color index, and a single bit to indicate whether
-    or not fog is enabled.  In the initial state, fog is disabled,
-    FOG_MODE is EXP, FOG_DISTANCE_NV is implementation defined, d =
-    1.0, e = 1.0, and s = 0.0; Cf = (0,0,0,0) and if = 0." 
-
-Additions to Chapter 4 of the 1.2 Specification (Per-Fragment Operations
-and the Frame Buffer)
-
-    None
-
-Additions to Chapter 5 of the 1.2 Specification (Special Functions)
-
-    None
-
-Additions to Chapter 6 of the 1.2 Specification (State and State Requests)
-
-    None
-
-Additions to the AGL/GLX/WGL Specifications
-
-    None
-
-GLX Protocol
-
-    None
-
-Errors
-
-    INVALID_ENUM is generated when Fog is called with a <pname> of
-    FOG_DISTANCE_MODE_NV and the value of <param> or what is pointed
-    to by <params> is not one of EYE_PLANE_ABSOLUTE_NV, EYE_PLANE,
-    or EYE_RADIAL_NV.
-
-New State
-
-(table 6.8, p198) add the entry:
-
-Get Value              Type    Get Command  Initial Value      Description      Sec     Attribute
---------------------   ----    -----------  ---------------    -----------      -----   ---------
-FOG_DISTANCE_MODE_NV   Z3      GetIntegerv  implementation     Determines how   3.10    fog
-                                            dependent          fog distance      
-                                                               is computed
-
-New Implementation State
-
-    None
-
-Revision History
-
-    None

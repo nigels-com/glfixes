@@ -1,5 +1,3 @@
-XXX - Not complete.
-
 Name
 
     SGIX_dmbuffer
@@ -82,113 +80,7 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted by the <attrib_list> parameter of glXCreateGLXPbufferSGIX
-    and by the <attribute> parameter of glXQueryGLXPbufferSGIX:
 
         GLX_DIGITAL_MEDIA_PBUFFER_SGIX             0x8024
 
-
-Additions to Chapter 2 of the 1.0 Specification (OpenGL Operation)
-
-    None
-
-Additions to Chapter 3 of the 1.0 Specification (Rasterization)
-
-    None
-
-Additions to Chapter 4 of the 1.0 Specification (Per-Fragment Operations
-and the Frame buffer)
-
-Additions to Chapter 5 of the 1.0 Specification (Special Functions)
-
-    None.
-
-Additions to Chapter 6 of the 1.0 Specification (State and State Requests)
-
-    None.
-
-Additions to the GLX Specification
-
-    XXX - not complete yet
-
-    [Add the following to section 3.2.3 on Offscreen Rendering]
-
-    To create a GLXPbuffer call:
-
-        GLXPbuffer glXCreateGLXPbufferSGIX(Display *dpy,
-                                           GLXFBConfig config,
-                                           unsigned int width,
-                                           unsigned int height,
-                                           int *attrib_list);
-
-    This creates a single GLXPbuffer and returns its XID. <width> and <height>
-    specify the pixel width and height of the rectangular pbuffer and
-    <attrib_list> specifies a list of attributes for the pbuffer. Currently
-    only three attributes can be specified in <attrib_list>:
-    GLX_PRESERVED_CONTENTS_SGIX, GLX_LARGEST_PBUFFER_SGIX and
-    GLX_DIGITAL_MEDIA_PBUFFER_SGIX.
-
-    [Add following the section on the GLX_PRESERVED_CONTENTS_SGIX attrib]
-
-    The resulting pbuffer, when made current, will contain color buffers 
-    and ancillary buffers as specified by <config>. It is possible to create 
-    a pbuffer with back buffers and to swap the front and back buffers by 
-    calling glXSwapBuffers. Note that some pbuffers use framebuffer resources 
-    so applications should consider deallocating them when they are not in use.
-
-    If the GLX_DIGITAL_MEDIA_PBUFFER_SGIX attribute is set to True in
-    <attrib_list>, then one or more of the pbuffer's color or ancillary 
-    buffers may be shared with those of a currently associated DMbuffer.  
-    Buffers described by the pbuffer's GLXFBConfig which are not defined
-    by the DMbuffer, are GLX resources that remain associated with the
-    DM pbuffer until it is destroyed.
-    An implementation may fail glXCreateGLXPbufferSGIX and generate a
-    BadMatch error when the sepcified <config> does not describe a  
-    drawable that is compatible with any supported DMbuffers.
-
-    The GLXPbuffer is associated with a DMbuffer by calling:
-
-        Bool glXAssociateDMPbufferSGIX(Display *dpy,
-                                       GLXPbufferSGIX pbuffer,
-                                       DMparams *params,
-                                       DMbuffer dmbuffer);
-
-    The parameter <display> specifies a connection to an X server, and must 
-    match the display used to create the GLXPbuffer <pbuffer>.  The 
-    DMparams <params> arg specifies the digital media characteristics
-    of the <dmbuffer> that will be associated with the DM pbuffer.  
-    If glXAssociateDMbufferSGIX succeeds, any previously associated DMbuffer
-    is released and a value of True is returned.  Subsequent GL commands 
-    effect <dmbuffer> as they would any standard pbuffer.  If a newly 
-    released DMbuffer has no remaining clients, its buffers will also be freed. 
-    A BadMatch error is generated when the specified DMparams or DMbuffer
-    are not compatible with the <pbuffer>, and a value of False is returned.
-
-    Before the DM pbuffer can be made current to a GLXContext, it must 
-    be associated with a compatible DMbuffer.  glXMakeCurrentReadSGI will 
-    return False and generate a GLXBadDrawable error when a DM pbuffer 
-    drawable has no associated DMbuffer.
-
-    A GLXPbuffer is destroyed by calling:
-
-        void glXDestroyGLXPbufferSGIX(Display *dpy,
-                                      GLXPbuffer pbuf);
-
-    The GLXPbuffer will be destroyed once it is no longer current to any
-    client. When a GLXPbuffer is destroyed, any memory resources that
-    attached to it, are freed, and its XID is made available for reuse.
-    Associated DMbuffers are released, and if they no lonnger have a 
-    client, are also freed. 
-
-Errors
-
-    XXX - not complete yet
-
-New State
-
-    None.
-
-New Implementation Dependent State
-
-    None.
 

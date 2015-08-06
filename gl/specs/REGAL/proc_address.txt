@@ -59,30 +59,4 @@ New Types
 
 New Tokens
 
-    None
 
-Additions to Chapter x of the OpenGL 4.2 (Core Profile) Specification
-(OpenGL Operation)
-
-    TODO
-
-Errors
-
-    None.
-
-New State
-
-    None.
-
-New Implementation Dependent State
-
-    None.
-
-Issues
-
-    None.
-
-Revision History
-
-    Revision 1, 2014/01/14
-      - Initial revision.

@@ -1,4 +1,3 @@
-
 Name
     
     EXT_texture_lod_bias
@@ -136,130 +135,12 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted by the <target> parameters of GetTexEnvfv, GetTexEnviv,
-    TexEnvi, TexEnvf, Texenviv, and TexEnvfv:
 
         TEXTURE_FILTER_CONTROL_EXT          0x8500
 
-    When the <target> parameter of GetTexEnvfv, GetTexEnviv, TexEnvi,
-    TexEnvf, TexEnviv, and TexEnvfv is TEXTURE_FILTER_CONTROL_EXT, then
-    the value of <pname> may be:
         
         TEXTURE_LOD_BIAS_EXT                0x8501
 
-    Accepted by the <pname> parameters of GetBooleanv, GetIntegerv,
-    GetFloatv, and GetDoublev:
 
         MAX_TEXTURE_LOD_BIAS_EXT            0x84FD
-
-Additions to Chapter 2 of the 1.2 Specification (OpenGL Operation)
-
-     None
-
-Additions to Chapter 3 of the 1.2 Specification (Rasterization)
-
- --  Section 3.8.5 "Texture Minification"
- 
-     Change the first formula under "Scale Factor and Level of Detail" to read:
-
-     "The choice is governed by a scale factor p(x,y), the level of detail
-     parameter lambda(x,y), defined as
-
-                 lambda'(x,y) = log2[p(x,y)] + lodBias
-
-     where lodBias is the texture unit's (signed) texture lod bias parameter
-     (as described in Section 3.8.9) clamped between the positive and negative
-     values of the implementation defined constant MAX_TEXTURE_LOD_BIAS_EXT."
-
- --  Section 3.8.9 "Texture Environments and Texture Functions"
-
-     Change the first paragraph to read:
-
-     "The command
-
-        void TexEnv{if}(enum target, enum pname, T param);
-        void TexEnv{if}v(enum target, enum pname, T params);
-
-     sets parameters of the texture environment that specifies how texture
-     values are interepreted when texturing a fragment or sets per-texture
-     unit texture filtering parameters.  The possible target parameters
-     are TEXTURE_ENV or TEXTURE_FILTER_CONTROL_EXT.  ...  When target is
-     TEXTURE_ENV, the possible environment parameters are TEXTURE_ENV_MODE
-     and TEXTURE_ENV_COLOR. ... When target is TEXTURE_FILTER_CONTROL_EXT,
-     the only possible texture filter parameter is TEXTURE_LOD_BIAS_EXT.
-     TEXTURE_LOD_BIAS_EXT is set to a signed floating point value that
-     is used to bias the level of detail parameter, lambda, as described
-     in Section 3.8.5."
-
-     Add a final paragraph at the end of the section:
-
-     "The state required for the per-texture unit filtering parameters
-     consists of one floating-point value."
-
-Additions to Chapter 4 of the 1.2 Specification (Per-Fragment Operations
-and the Frame Buffer)
-
-     None
-
-Additions to Chapter 5 of the 1.2 Specification (Special Functions)
-
-     None
-
-Additions to Chapter 6 of the 1.2 Specification (State and State Requests)
-
- --  Section 6.1.3 "Texture Environments and Texture Functions"
-
-     Change the third sentence of the third paragraph to read:
-
-     "The env argument to GetTexEnv must be either TEXTURE_ENV or
-     TEXTURE_FILTER_CONTROL_EXT."
-
-Additions to the GLX Specification
-
-     None
-
-Dependencies on OpenGL ES 1.1
-
-     If the GL is OpenGL ES 1.1, omit reference to GetDoublev.
-
-Errors
-
-     INVALID_ENUM is generated when TexEnv is called with a <pname> of
-     TEXTURE_FILTER_CONTROL_EXT and the value of <param> or what is pointed to
-     by <params> is not TEXTURE_LOD_BIAS_EXT.
-
-New State
-
-(table 6.14, p204) add the entry:
-
-Get Value                 Type   Get Command  Initial Value     Description      Sec     Attribute
------------------------   ----   -----------  --------------    ---------------  -----   ---------
-TEXTURE_LOD_BIAS_EXT      R      GetTexEnvfv  0.0               Biases texture   3.8.9    texture
-                                                                level of detail
-
-(When ARB_multitexture is supported, the TEXTURE_LOD_BIAS_EXT state is per-texture unit.)
-
-New Implementation State
-
-(table 6.24, p214) add the following entries:
-
-Get Value                    Type    Get Command   Minimum Value   Description         Sec     Attribute
---------------------------   ----    -----------   -------------   -----------------   ------  --------------
-MAX_TEXTURE_LOD_BIAS_EXT     R+      GetFloatv     4.0             Maximum             3.8.9   -
-                                                                   absolute texture
-                                                                   lod bias
-
-Revision History
-
-    6/23/09 (Jon Leech) - assign OpenGL ES extension number.
-
-    4/29/09 (Benj Lipchak) - add interaction with OpenGL ES 1.1.
-
-    8/27/03 - updated status to mention OpenGL 1.4 functionality.
-
-    8/26/03 - fixed incorrect enum name (TEXTURE_FILTER_CONTROL_EXT is
-    correct) in the Errors section.
-
-    6/2/00 - add spec language to allow GetTexEnv to accept
-    TEXTURE_FILTER_CONTROL_EXT.
 

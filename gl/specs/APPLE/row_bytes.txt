@@ -128,36 +128,12 @@ New Types
 
 New Tokens
 
-    Accepted by the <pname> parameter of PixelStorei and the <pname>
-    parameter of GetIntegerv:
 
         PACK_ROW_BYTES_APPLE          0x8A15
         UNPACK_ROW_BYTES_APPLE        0x8A16
 
 
-New State
-
-    Get Value               Get Command     Type    Value       Attrib
-    ---------               -----------     ----    -------     ------
-    PACK_ROW_BYTES_APPLE    GetIntegerv     Z+      0           client_pixel_store   
-    UNPACK_ROW_BYTES_APPLE  GetIntegerv     Z+      0           client_pixel_store  
 
 
 
-Additions to table 3.1 of the 2.1 specification (PixelStore parameters (write)):
 
-    Parameter Name          Type        Initial Value   Valid Range
-    UNPACK_ROW_BYTES_APPLE  integer     0               [0, inf]
-
-
-Additions to table 4.5 of the 2.1 specification (PixelStore parameters (read)):
-
-    Parameter Name          Type        Initial Value   Valid Range
-    PACK_ROW_BYTES_APPLE    integer     0               [0, inf]
-
-
-Version History
-
-#1 - Initial document.
-
-#2 - Added state segment.

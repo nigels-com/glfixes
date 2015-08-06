@@ -51,33 +51,4 @@ New Procedures and Functions
 
 New Tokens
 
-    none
 
-Additions to the OpenGL Specification (no particular section)
-
-    The glResizeBuffersMESA command may be called when the client
-    determines that a window has been resized.	Calling
-    glResizeBuffersMESA causes Mesa to query the current window size
-    and adjust its internal data structures.  This may include
-    reallocating depth, stencil, alpha and accumulation buffers.
-
-Additions to the AGL/GLX/WGL Specifications
-
-    None
-
-Errors
-
-    INVALID_OPERATION is generated if ResizeBuffersMESA is called betweeen
-    Begin and End.
-
-New State
-
-    None.
-
-New Implementation Dependent State
-
-    None.
-
-Revision History
-
-  * Revision 1.0 - Initial specification

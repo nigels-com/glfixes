@@ -46,25 +46,8 @@ Overview
 
 New Tokens
 
-    None.
 
 New Procedures and Functions
 
     None.
 
-Modifications to The OpenGL ES Shading Language Specification, Version 3.00.04
-
-	Including the following line in a shader can be used to control the language
-	features described in this extension:
-
-      #extension GL_OVR_multiview2
-
-Errors
-
-Issues
-
-Revision History
-
-      Rev.    Date    Author    Changes
-      ----  --------  --------  -----------------------------------------
-      0.1   03/18/15  cass      Initial draft

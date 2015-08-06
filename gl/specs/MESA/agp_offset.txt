@@ -52,44 +52,4 @@ New Procedures and Functions
 
 New Tokens
 
-    None
 
-Additions to the OpenGL 1.4 Specification
-
-    None
-
-Additions to Chapter 3 the GLX 1.4 Specification (Functions and Errors)
-
-    Add a new section, 3.6 as follows:
-
-    3.6 AGP Memory Access
-
-    On "PC" computers, AGP memory can be allocated with glXAllocateMemoryNV
-    and freed with glXFreeMemoryNV.  Sometimes it's useful to know where a
-    block of AGP memory is located with respect to the start of the AGP
-    aperature.  The function
-
-        GLuint glXGetAGPOffsetMESA( const GLvoid *pointer )
-
-    Returns the offset of the given memory block from the start of AGP
-    memory in basic machine units (i.e. bytes).  If pointer is invalid
-    the value ~0 will be returned.
-
-GLX Protocol
-
-    None.  This is a client side-only extension.
-
-Errors
-
-    glXGetAGPOffsetMESA will return ~0 if the pointer does not point to
-    an AGP memory region.
-
-New State
-
-    None
-
-Revision History
-
-    20 September 2002 - Initial draft
-    2 October 2002 - finished GLX chapter 3 additions
-    27 July 2004 - use unsigned int instead of GLuint, void instead of GLvoid

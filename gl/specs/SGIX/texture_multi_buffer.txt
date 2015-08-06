@@ -54,35 +54,6 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted by the <target> parameter of Hint, and by the <pname>
-    parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev:
 
 	GL_TEXTURE_MULTI_BUFFER_HINT_SGIX		0x812E
 
-Additions to the Specification
-
-    TBD
-
-
-Additions to the GLX Specification
-
-    None
-
-Dependencies on EXT_texture_object
-
-    If EXT_texture_object is not implemented, then references to 
-    GL_TEXTURE_MULTI_BUFFER_HINT_SGIX in this specification are void.
-
-Errors
-
-    None
-
-New State
-
-    Get Value		        	Get Command	Type	Initial Value	Attrib
-    ---------		        	-----------	----	-------------	------
-    GL_TEXTURE_MULTI_BUFFER_HINT_SGIX	GetIntegerv	Z3	DONT_CARE	   -
-
-New Implementation Dependent State
-
-    None
