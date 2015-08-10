@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 31566 $ on $Date: 2015-06-23 08:48:48 -0700 (Tue, 23 Jun 2015) $
+** Khronos $Revision: 31811 $ on $Date: 2015-08-10 00:01:11 -0700 (Mon, 10 Aug 2015) $
 */
 
 #include <GLES3/gl3platform.h>
@@ -42,12 +42,12 @@ extern "C" {
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20150623 */
+/* Generated on date 20150809 */
 
 /* Generated C header for:
  * API: gles2
  * Profile: common
- * Versions considered: 2\.[0-9]|3.0
+ * Versions considered: 2\.[0-9]|3\.0
  * Versions emitted: .*
  * Default extensions included: None
  * Additional extensions included: _nomatch_^
