@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 31642 $ on $Date: 2015-07-07 23:55:32 -0700 (Tue, 07 Jul 2015) $
+** Khronos $Revision: 31811 $ on $Date: 2015-08-10 00:01:11 -0700 (Mon, 10 Aug 2015) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20150707 */
+/* Generated on date 20150809 */
 
 /* Generated C header for:
  * API: gles2
@@ -1061,6 +1061,10 @@ GL_APICALL void GL_APIENTRY glBufferStorageEXT (GLenum target, GLsizeiptr size, 
 #endif
 #endif /* GL_EXT_buffer_storage */
 
+#ifndef GL_EXT_color_buffer_float
+#define GL_EXT_color_buffer_float 1
+#endif /* GL_EXT_color_buffer_float */
+
 #ifndef GL_EXT_color_buffer_half_float
 #define GL_EXT_color_buffer_half_float 1
 #define GL_RGBA16F_EXT                    0x881A
@@ -1901,6 +1905,14 @@ GL_APICALL void GL_APIENTRY glFramebufferTexture2DMultisampleIMG (GLenum target,
 #define GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG 0x9137
 #define GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG 0x9138
 #endif /* GL_IMG_texture_compression_pvrtc2 */
+
+#ifndef GL_INTEL_framebuffer_CMAA
+#define GL_INTEL_framebuffer_CMAA 1
+typedef void (GL_APIENTRYP PFNGLAPPLYFRAMEBUFFERATTACHMENTCMAAINTELPROC) (void);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glApplyFramebufferAttachmentCMAAINTEL (void);
+#endif
+#endif /* GL_INTEL_framebuffer_CMAA */
 
 #ifndef GL_INTEL_performance_query
 #define GL_INTEL_performance_query 1
