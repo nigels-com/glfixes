@@ -90,75 +90,11 @@
         <h2>Description</h2>
         <p>
             <code class="function">cross</code> returns the cross product of two vectors, <em class="parameter"><code>x</code></em> and <em class="parameter"><code>y</code></em>. i.e.,
-        </p>
-        <p>
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                <mml:vector>
-                    <mml:csymbol encoding="" definitionURL="">
-                      <mml:mi>x</mml:mi>
-                      <mml:mo stretchy="false">[</mml:mo>
-                      <mml:mn>1</mml:mn>
-                      <mml:mo stretchy="false">]</mml:mo>
-                      <mml:mo lspace="2px" rspace="2px">⋅</mml:mo>
-                      <mml:mi>y</mml:mi>
-                      <mml:mo stretchy="false">[</mml:mo>
-                      <mml:mn>2</mml:mn>
-                      <mml:mo stretchy="false">]</mml:mo>
-                      <mml:mo>−</mml:mo>
-                      <mml:mi>y</mml:mi>
-                      <mml:mo stretchy="false">[</mml:mo>
-                      <mml:mn>1</mml:mn>
-                      <mml:mo stretchy="false">]</mml:mo>
-                      <mml:mo lspace="2px" rspace="2px">⋅</mml:mo>
-                      <mml:mi>x</mml:mi>
-                      <mml:mo stretchy="false">[</mml:mo>
-                      <mml:mn>2</mml:mn>
-                      <mml:mo stretchy="false">]</mml:mo>
-                    </mml:csymbol>
-                    <mml:csymbol encoding="" definitionURL="">
-                      <mml:mi>x</mml:mi>
-                      <mml:mo stretchy="false">[</mml:mo>
-                      <mml:mn>2</mml:mn>
-                      <mml:mo stretchy="false">]</mml:mo>
-                      <mml:mo lspace="2px" rspace="2px">⋅</mml:mo>
-                      <mml:mi>y</mml:mi>
-                      <mml:mo stretchy="false">[</mml:mo>
-                      <mml:mn>0</mml:mn>
-                      <mml:mo stretchy="false">]</mml:mo>
-                      <mml:mo>−</mml:mo>
-                      <mml:mi>y</mml:mi>
-                      <mml:mo stretchy="false">[</mml:mo>
-                      <mml:mn>2</mml:mn>
-                      <mml:mo stretchy="false">]</mml:mo>
-                      <mml:mo lspace="2px" rspace="2px">⋅</mml:mo>
-                      <mml:mi>x</mml:mi>
-                      <mml:mo stretchy="false">[</mml:mo>
-                      <mml:mn>0</mml:mn>
-                      <mml:mo stretchy="false">]</mml:mo>
-                    </mml:csymbol>
-                    <mml:csymbol encoding="" definitionURL="">
-                      <mml:mi>x</mml:mi>
-                      <mml:mo stretchy="false">[</mml:mo>
-                      <mml:mn>0</mml:mn>
-                      <mml:mo stretchy="false">]</mml:mo>
-                      <mml:mo lspace="2px" rspace="2px">⋅</mml:mo>
-                      <mml:mi>y</mml:mi>
-                      <mml:mo stretchy="false">[</mml:mo>
-                      <mml:mn>1</mml:mn>
-                      <mml:mo stretchy="false">]</mml:mo>
-                      <mml:mo>−</mml:mo>
-                      <mml:mi>y</mml:mi>
-                      <mml:mo stretchy="false">[</mml:mo>
-                      <mml:mn>0</mml:mn>
-                      <mml:mo stretchy="false">]</mml:mo>
-                      <mml:mo lspace="2px" rspace="2px">⋅</mml:mo>
-                      <mml:mi>x</mml:mi>
-                      <mml:mo stretchy="false">[</mml:mo>
-                      <mml:mn>1</mml:mn>
-                      <mml:mo stretchy="false">]</mml:mo>
-                    </mml:csymbol>
-                  </mml:vector>
-            </mml:math>
+                $\begin{pmatrix}
+                    { x[1] \times y[2] - y[1] \times x[2] } \\
+                    { x[2] \times y[0] - y[2] \times x[0] } \\
+                    { x[0] \times y[1] - y[1] \times x[0] }
+                 \end{pmatrix}$.
         </p>
       </div>
       <div class="refsect1" id="versions">

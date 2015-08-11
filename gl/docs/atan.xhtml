@@ -99,47 +99,19 @@
       <div class="refsect1" id="description">
         <h2>Description</h2>
         <p>
-            <code class="function">atan</code> returns the angle whose trigonometric arctangent is
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                
-                <mml:mfrac>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">y</mml:mi>
-                    </mml:mrow>
-                    <mml:mrow>
-                        <mml:mi mathvariant="italic">x</mml:mi>
-                    </mml:mrow>
-                </mml:mfrac>
-            </mml:math> or <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y_over_x</mml:mi></mml:math>,
-            depending on which overload is invoked. In the first overload, the signs of <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y</mml:mi></mml:math>
-            and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math> are used to determine the quadrant
-            that the angle lies in. The values returned by <code class="function">atan</code> in this case are in the range
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                <mml:list order="numeric">
-                    <mml:mrow><mml:mo>−</mml:mo><mml:pi definitionURL="" encoding=""/></mml:mrow>
-                    <mml:pi definitionURL="" encoding=""/>
-                </mml:list>
-            </mml:math>. Results are undefined if <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math> is zero.
+            <code class="function">atan</code> returns either the angle whose
+            trigonometric arctangent is $y \over x$ or
+            <em class="parameter"><code>y_over_x</code></em>, depending on which overload is
+            invoked. In the first overload, the signs of $y$ and $x$ are
+            used to determine the quadrant that the angle lies in. The value
+            returned by <code class="function">atan</code> in this case is in the
+            range $[-\pi,\pi]$. The result is undefined if $x == 0$.
         </p>
         <p>
-            For the second overload, <code class="function">atan</code> returns the angle whose tangent is
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">y_over_x</mml:mi></mml:math>. Values
-            returned in this case are in the range
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                <mml:list order="numeric">
-                    <mml:mrow>
-                        <mml:mo>−</mml:mo>
-                        <mml:mfrac>
-                            <mml:pi definitionURL="" encoding=""/>
-                            <mml:mn>2</mml:mn>
-                        </mml:mfrac>
-                    </mml:mrow>
-                    <mml:mfrac>
-                        <mml:pi definitionURL="" encoding=""/>
-                        <mml:mn>2</mml:mn>
-                    </mml:mfrac>
-                </mml:list>
-            </mml:math>.
+            For the second overload, <code class="function">atan</code> returns the
+            angle whose tangent is <em class="parameter"><code>y_over_x</code></em>. The
+            value returned in this case is in the range
+            $[-{\pi \over 2 },{\pi \over 2}]$.
         </p>
       </div>
       <div class="refsect1" id="versions">
