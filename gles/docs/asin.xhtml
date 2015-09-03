@@ -14,7 +14,7 @@
                 }
             });
         </script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/1.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"/>
   </head>
   <body>
     <header/>
@@ -60,26 +60,10 @@
       <div class="refsect1" id="description">
         <h2>Description</h2>
         <p>
-            <code class="function">atan</code> returns the angle whose trigonometric sine is
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:mi mathvariant="italic">x</mml:mi></mml:math>.
-            The range of values returned by <code class="function">asin</code> is
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll">
-                <mml:list order="numeric">
-                    <mml:mrow>
-                        <mml:mo>−</mml:mo>
-                        <mml:mfrac>
-                            <mml:pi definitionURL="" encoding=""/>
-                            <mml:mn>2</mml:mn>
-                        </mml:mfrac>
-                    </mml:mrow>
-                    <mml:mfrac>
-                        <mml:pi definitionURL="" encoding=""/>
-                        <mml:mn>2</mml:mn>
-                    </mml:mfrac>
-                </mml:list>
-            </mml:math>.
-            The result is undefined if
-            <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" overflow="scroll"><mml:apply><mml:gt definitionURL="" encoding=""/><mml:apply><mml:abs definitionURL="" encoding=""/><mml:mi mathvariant="italic">x</mml:mi></mml:apply><mml:mn>1</mml:mn></mml:apply></mml:math>.
+            <code class="function">atan</code> returns the angle whose trigonometric
+            sine is $x$. The range of values returned by
+            <code class="function">asin</code> is $[-{\pi \over 2}, {\pi \over 2}]$.
+            The result is undefined if $\left| x \right| &gt; 1$.
         </p>
       </div>
       <div class="refsect1" id="versions">

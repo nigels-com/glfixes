@@ -28,8 +28,8 @@ Status
 
 Version
 
-    Last Modified Date: 06/23/2015
-    Revision: 5
+    Last Modified Date: 09/01/2015
+    Revision: 6
 
 Number
 
@@ -55,7 +55,8 @@ New Procedures and Functions
 
 New Tokens
 
-    Accepted as part of the <pname> parameter to GetIntegerv():
+    Accepted by the <pname> parameter of GetBooleanv, GetIntegerv,
+    GetInteger64v, GetFloatv, and GetDoublev:
 
         MAX_SHADER_COMPILER_THREADS_ARB   0x91B0
 
@@ -144,3 +145,5 @@ Revision History
       3  04/20/2015  tlottes   Updated tokens and functions
       4  06/18/2015  tlottes   Added New State, noted per context, issues
       5  06/23/2015  ewerness  Clarify the spec is a hint, other language fixes
+      6  09/01/2015  pdaniell  Fix the functions that can be used to query
+                               MAX_SHADER_COMPILER_THREADS_ARB.

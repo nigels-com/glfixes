@@ -32,8 +32,8 @@ Status
 
 Version
 
-    Last Modified Date: 07/31/2015
-    Revision: 6
+    Last Modified Date: 08/25/2015
+    Revision: 7
 
 Number
 
@@ -161,18 +161,21 @@ Additions to Chapter 8 of the OpenGL Shading Language Specification
         genIType readFirstInvocationARB(genIType value);
         genUType readFirstInvocationARB(genUType value);
 
-    The function readInvocation() returns the <value> from a given
+    The function readInvocationARB() returns the <value> from a given
     <invocationIndex> to all active invocations in the sub-group.
     The <invocationIndex> must be the same for all active invocations
     in the sub-group otherwise results are undefined.
 
-    The function readFirstInvocation() returns the <value> from the first
+    The function readFirstInvocationARB() returns the <value> from the first
     active invocation to all active invocations in the sub-group.
 
 Revision History
 
     Rev  Date        Author    Changes
     ---  ----------  --------  ---------------------------------------------
+      7  08/25/2015  nhenning  Add ARB suffix on documentation for
+                               readInvocation and readFirstInvocation
+                               functions.
       6  07/31/2015  pdaniell  Add ARB suffix on the readInvocation and
                                readFirstInvocation functions.
       5  07/30/2015  pdaniell  Update the function definition syntax to use
@@ -183,5 +186,3 @@ Revision History
       2  04/20/2015  tlottes   Updated spec language.
       1  03/09/2015  tlottes   Initial revision based on AMD_gcn_shader and
                                NV_shader_thread_group.
-
-
