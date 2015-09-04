@@ -40,12 +40,12 @@ Number
 
 Dependencies
 
-    OpenGL 4.3 is required.
-
-    OpenGL Shading Language 4.30 is required
+    Either GLSL 1.50 or ARB_texture_multisample is required.
 
     This extension is written against the OpenGL 4.4 specification and 
     version 4.40 of the OpenGL Shading Language Specification.
+
+    This extension interacts with ARB_shader_image_load_store and GLSL 4.20.
 
     This extension interacts with NV_gpu_program5, EXT_shader_image_load_store 
     and NV_texture_multisample.
@@ -113,6 +113,11 @@ Add to table in section 8.12 "Image Functions"
 
         Returns the number of samples of the image or images bound to <image>. 
      
+Dependencies on ARB_shader_image_load_store and GLSL 4.20.
+
+    If neither ARB_shader_image_load_store nor GLSL 4.20 is enabled in the
+    shader, then all overloads of imageSamples are removed.
+
 Dependencies on NV_gpu_program5, EXT_shader_image_load_store and 
 NV_texture_multisample
 
@@ -243,7 +248,11 @@ Issues
 
         What's the minimal GL/GLSL version we need to depend on.
         
-        RESOLVED: Defined as an extension to OpenGL 4.4 and GLSL 440 for now.
+        RESOLVED: The functionality added by this extension is
+        perfectly well defined in any shading language version that
+        supports multisample textures.  If the shading language, with
+        extensions, does not support images, then imageSamples is not
+        available.
     
     (5) Do we need overloads for non-MS textures and images
 
@@ -261,6 +270,10 @@ Issues
         queries.
         
 Revision History
+    Revision 8, 2015/09/08 (idr)
+      - Add interactions with various GLSL versions and extensions so
+        that this extension can be used with any GLSL version.
+
     Revision 7, 2014/05/28 (mschott)
       - Minor cleanups of NV_gpu_program5 dependencies in issue 5 and the introduction
 

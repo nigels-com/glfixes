@@ -46,7 +46,7 @@ Status
 
 Version
 
-    Version 4, June 24, 2015
+    Version 5, September 15, 2015
 
 Number
 
@@ -143,8 +143,7 @@ Additions to Chapter 8 of the OpenGL ES 3.1 Specification (Textures and Samplers
     Add a second new column "3D Tex." which is empty for all non-ASTC
     formats. If only the LDR profile is supported by the implementation,
     this column is also empty for all ASTC formats. If both the LDR and HDR
-    profiles are supported only, this column is checked for all ASTC
-    formats.
+    profiles are supported, this column is checked for all ASTC formats.
 
     Add a third new column "Cube Map Array Tex." which is empty for all
     non-ASTC formats, and checked for all ASTC formats.
@@ -2105,6 +2104,9 @@ Issues
     texture interactions.
 
 Revision History
+
+    Revision 5, September 15, 2015 - fix typo in third paragraph of section
+    8.7.
 
     Revision 4, June 24, 2015 - minor cleanup from feedback. Move Issues and
     Interactions sections to the end of the document. Merge some language

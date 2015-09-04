@@ -61,6 +61,8 @@
         <type>typedef void *<name>EGLDisplay</name>;</type>
         <type>typedef void *<name>EGLImage</name>;</type>
         <type>typedef void *<name>EGLImageKHR</name>;</type>
+        <type>typedef void *<name>EGLLabelKHR</name>;</type>
+        <type>typedef void *<name>EGLObjectKHR</name>;</type>
         <type>typedef void *<name>EGLOutputLayerEXT</name>;</type>
         <type>typedef void *<name>EGLOutputPortEXT</name>;</type>
         <type>typedef void *<name>EGLStreamKHR</name>;</type>
@@ -84,6 +86,7 @@
     EGLint iHeight;
     EGLint iStride;
 };</type>
+        <type>typedef void (<apientry/> *<name>EGLDEBUGPROC</name>)(EGLenum error,const char *command,EGLint messageType,EGLLabelKHR threadLabel,EGLLabelKHR objectLabel,const char* message);</type>
     </types>
 
     <!-- SECTION: EGL enumerant (token) definitions. -->
@@ -705,8 +708,21 @@
             <unused start="0x33A2" end="0x33AF"/>
     </enums>
 
-    <enums namespace="EGL" start="0x33B0" end="0x33BF" vendor="KHR" comment="Reserved for Jeff Vigil (Bug 13357)">
-            <unused start="0x33B0" end="0x33BF"/>
+    <enums namespace="EGL" start="0x33B0" end="0x33BF" vendor="KHR" comment="Reserved for EGL_KHR_debug / Jeff Vigil (Bug 13357)">
+        <enum value="0x33B0" name="EGL_OBJECT_THREAD_KHR"/>
+        <enum value="0x33B1" name="EGL_OBJECT_DISPLAY_KHR"/>
+        <enum value="0x33B2" name="EGL_OBJECT_CONTEXT_KHR"/>
+        <enum value="0x33B3" name="EGL_OBJECT_SURFACE_KHR"/>
+        <enum value="0x33B4" name="EGL_OBJECT_IMAGE_KHR"/>
+        <enum value="0x33B5" name="EGL_OBJECT_SYNC_KHR"/>
+        <enum value="0x33B6" name="EGL_OBJECT_STREAM_KHR"/>
+            <unused start="0x33B7"/>
+        <enum value="0x33B8" name="EGL_DEBUG_CALLBACK_KHR"/>
+        <enum value="0x33B9" name="EGL_DEBUG_MSG_CRITICAL_KHR"/>
+        <enum value="0x33BA" name="EGL_DEBUG_MSG_ERROR_KHR"/>
+        <enum value="0x33BB" name="EGL_DEBUG_MSG_WARN_KHR"/>
+        <enum value="0x33BC" name="EGL_DEBUG_MSG_INFO_KHR"/>
+            <unused start="0x33BD" end="0x33BF"/>
     </enums>
 
     <enums namespace="EGL" start="0x33C0" end="0x33DF" vendor="BCOM" comment="Reserved for Gary Sweet (Bug 12203)">
@@ -925,6 +941,11 @@
             <param>const <ptype>EGLint</ptype> *<name>attrib_list</name></param>
         </command>
         <command>
+            <proto><ptype>EGLint</ptype> <name>eglDebugMessageControlKHR</name></proto>
+            <param><ptype>EGLDEBUGPROC</ptype> <name>callback</name></param>
+            <param>const <ptype>EGLAttrib</ptype> *<name>attrib_list</name></param>
+        </command>
+        <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglDestroyContext</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLContext</ptype> <name>ctx</name></param>
@@ -1099,6 +1120,13 @@
             <param><ptype>EGLint</ptype> *<name>minor</name></param>
         </command>
         <command>
+            <proto><ptype>EGLint</ptype> <name>eglLabelObjectKHR</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>display</name></param>
+            <param><ptype>EGLenum</ptype> <name>objectType</name></param>
+            <param><ptype>EGLObjectKHR</ptype> <name>object</name></param>
+            <param><ptype>EGLLabelKHR</ptype> <name>label</name></param>
+        </command>
+        <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglLockSurfaceKHR</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLSurface</ptype> <name>surface</name></param>
@@ -1143,6 +1171,11 @@
             <param><ptype>EGLContext</ptype> <name>ctx</name></param>
             <param><ptype>EGLint</ptype> <name>attribute</name></param>
             <param><ptype>EGLint</ptype> *<name>value</name></param>
+        </command>
+        <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglQueryDebugKHR</name></proto>
+            <param><ptype>EGLint</ptype> <name>attribute</name></param>
+            <param><ptype>EGLAttrib</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglQueryDeviceAttribEXT</name></proto>
@@ -1967,6 +2000,28 @@
         <extension name="EGL_KHR_create_context_no_error" supported="egl">
             <require>
                 <enum name="EGL_CONTEXT_OPENGL_NO_ERROR_KHR"/>
+            </require>
+        </extension>
+        <extension name="EGL_KHR_debug" supported="egl">
+            <require>
+                    <!-- Explicit dependencies require to get EGLDEBUGPROCKHR dependencies correct -->
+                <type name="EGLLabelKHR"/>
+                <type name="EGLObjectKHR"/>
+                <enum name="EGL_OBJECT_THREAD_KHR"/>
+                <enum name="EGL_OBJECT_DISPLAY_KHR"/>
+                <enum name="EGL_OBJECT_CONTEXT_KHR"/>
+                <enum name="EGL_OBJECT_SURFACE_KHR"/>
+                <enum name="EGL_OBJECT_IMAGE_KHR"/>
+                <enum name="EGL_OBJECT_SYNC_KHR"/>
+                <enum name="EGL_OBJECT_STREAM_KHR"/>
+                <enum name="EGL_DEBUG_MSG_CRITICAL_KHR"/>
+                <enum name="EGL_DEBUG_MSG_ERROR_KHR"/>
+                <enum name="EGL_DEBUG_MSG_WARN_KHR"/>
+                <enum name="EGL_DEBUG_MSG_INFO_KHR"/>
+                <enum name="EGL_DEBUG_CALLBACK_KHR"/>
+                <command name="eglDebugMessageControlKHR"/>
+                <command name="eglQueryDebugKHR"/>
+                <command name="eglLabelObjectKHR"/>
             </require>
         </extension>
         <extension name="EGL_KHR_fence_sync" protect="KHRONOS_SUPPORT_INT64" supported="egl">
