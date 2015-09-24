@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 31566 $ on $Date: 2015-06-23 08:48:48 -0700 (Tue, 23 Jun 2015) $
+** Khronos $Revision: 32040 $ on $Date: 2015-09-22 15:57:58 -0700 (Tue, 22 Sep 2015) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20150623
+#define EGL_EGLEXT_VERSION 20150922
 
 /* Generated C header for:
  * API: egl
@@ -98,6 +98,33 @@ EGLAPI EGLSyncKHR EGLAPIENTRY eglCreateSync64KHR (EGLDisplay dpy, EGLenum type, 
 #define EGL_KHR_create_context_no_error 1
 #define EGL_CONTEXT_OPENGL_NO_ERROR_KHR   0x31B3
 #endif /* EGL_KHR_create_context_no_error */
+
+#ifndef EGL_KHR_debug
+#define EGL_KHR_debug 1
+typedef void *EGLLabelKHR;
+typedef void *EGLObjectKHR;
+typedef void (EGLAPIENTRY  *EGLDEBUGPROC)(EGLenum error,const char *command,EGLint messageType,EGLLabelKHR threadLabel,EGLLabelKHR objectLabel,const char* message);
+#define EGL_OBJECT_THREAD_KHR             0x33B0
+#define EGL_OBJECT_DISPLAY_KHR            0x33B1
+#define EGL_OBJECT_CONTEXT_KHR            0x33B2
+#define EGL_OBJECT_SURFACE_KHR            0x33B3
+#define EGL_OBJECT_IMAGE_KHR              0x33B4
+#define EGL_OBJECT_SYNC_KHR               0x33B5
+#define EGL_OBJECT_STREAM_KHR             0x33B6
+#define EGL_DEBUG_MSG_CRITICAL_KHR        0x33B9
+#define EGL_DEBUG_MSG_ERROR_KHR           0x33BA
+#define EGL_DEBUG_MSG_WARN_KHR            0x33BB
+#define EGL_DEBUG_MSG_INFO_KHR            0x33BC
+#define EGL_DEBUG_CALLBACK_KHR            0x33B8
+typedef EGLint (EGLAPIENTRYP PFNEGLDEBUGMESSAGECONTROLKHRPROC) (EGLDEBUGPROC callback, const EGLAttrib *attrib_list);
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLQUERYDEBUGKHRPROC) (EGLint attribute, EGLAttrib *value);
+typedef EGLint (EGLAPIENTRYP PFNEGLLABELOBJECTKHRPROC) (EGLDisplay display, EGLenum objectType, EGLObjectKHR object, EGLLabelKHR label);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLint EGLAPIENTRY eglDebugMessageControlKHR (EGLDEBUGPROC callback, const EGLAttrib *attrib_list);
+EGLAPI EGLBoolean EGLAPIENTRY eglQueryDebugKHR (EGLint attribute, EGLAttrib *value);
+EGLAPI EGLint EGLAPIENTRY eglLabelObjectKHR (EGLDisplay display, EGLenum objectType, EGLObjectKHR object, EGLLabelKHR label);
+#endif
+#endif /* EGL_KHR_debug */
 
 #ifndef EGL_KHR_fence_sync
 #define EGL_KHR_fence_sync 1
