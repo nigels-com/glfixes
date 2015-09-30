@@ -24,6 +24,7 @@ Contributors
     Mark Callow, HI Corporation
     Patrick Doane, Blizzard
     Pat Brown, NVIDIA
+    Brano Kemen
 
 Notice
 
@@ -32,14 +33,14 @@ Notice
 
 Status
 
-    Complete. 
+    Complete.
     Approved by the ARB on June 26, 2014.
     Ratified by the Khronos Board of Promoters on August 7, 2014.
 
 Version
 
-    Last Modified Date:  2014/07/30
-    NVIDIA Revision:     17
+    Last Modified Date:  2015/09/17
+    NVIDIA Revision:     18
 
 Number
 
@@ -87,7 +88,7 @@ Overview
     conventions.  For example, the viewport rectangle in Direct3D needs to be
     inverted within the window to work properly in OpenGL windowed rendering:
 
-       glViewport(d3d_viewport_x, 
+       glViewport(d3d_viewport_x,
                   window_height - (d3d_viewport_y + d3d_viewport_height),
                   d3d_viewport_width, d3d_viewport_height);
 
@@ -172,7 +173,7 @@ Specification (Fixed-Function Vertex Post-Processing)
         -w_c <= x_c <= w_c
         -w_c <= y_c <= w_c
           zm <= z_c <= w_c
-         
+
      where zm is -w_c when the clip control depth mode is
      NEGATIVE_ONE_TO_ONE or zero when the mode is ZERO_TO_ONE."
 
@@ -238,7 +239,7 @@ Additions to the AGL/GLX/WGL Specifications
 
 GLX Protocol
 
-    A new GL rendering command is added. The following command is sent to the 
+    A new GL rendering command is added. The following command is sent to the
     server as part of a glXRender request:
 
         ClipControl
@@ -342,7 +343,7 @@ Issues
         See how the modifications to section 14.6.1 "Basic Polygon
         Rasterization" negate the sign of the polygon area when the clip
         control origin is GL_UPPER_LEFT.
-        
+
         Since culling behavior is specified as CW (clockwise) or CCW
         (counter-clockwise) different triangle faces would be culled
         when the clip origin is changed, which would be an unacceptable
@@ -352,7 +353,7 @@ Issues
         appropriate when the clip Z mode is GL_ZERO_TO_ONE?
 
         RESOLVED:  No.
-        
+
     6)  Should the behavior of glFrustum and glOrtho change?
 
         RESOLVED:  No.
@@ -403,7 +404,7 @@ Issues
         RESOLVED:  Yes, see:
 
         "Maximizing Depth Buffer Range and Precision"
-        Laco Hrabcak
+        Brano Kemen
         http://outerra.blogspot.co.uk/2012/11/maximizing-depth-buffer-range-and.html
         November 28, 2012
 
@@ -415,8 +416,8 @@ Issues
         "Tightening the Precision of Perspective Rendering"
         Paul Upchurch and Mathieu Desbrun
         http://www.geometry.caltech.edu/pubs/UD12.pdf
-        Journal of Graphics Tools, Volume 16, Issue 1, 2012. 
- 
+        Journal of Graphics Tools, Volume 16, Issue 1, 2012.
+
     8)  How does this extension interact with the unclamped depth range
         parameters of NV_depth_buffer_float's glDepthRangedNV and OpenGL
         4.3?
@@ -491,7 +492,7 @@ Issues
         RESOLVED: Yes, the initial state (GL_LOWER_LEFT/
         GL_NEGATIVE_ONE_TO_ONE) corresponds to OpenGL's traditional
         behavior.
-    
+
         The state GL_LOWER_LEFT/GL_ZERO_TO_ONE corresponds to OpenGL's
         traditional origin and Direct3D's depth mode.
 
@@ -550,7 +551,7 @@ Issues
 
         RESOLVED:  Yes, if you use a floating-point depth buffer and
         place the near and far values at 1.0 and 0.0 (reversed from the
-        normal convention).  
+        normal convention).
 
         But not much if you use a conventional fixed-point depth buffer.
 
@@ -664,12 +665,12 @@ Issues
 
            gl_Position.z = 0.5*gl_Positon.z + 0.5*gl_Position.w;
 
-        Because 
+        Because
 
            z_ndc = z_c / w_c
 
         so the epilogue above computes an adjusted z_ndc':
-           
+
            z_ndc' = (0.5*z_c + 0.5+w_c)/w_c
 
         which is the same as:
@@ -707,7 +708,7 @@ Issues
         GL_NEGATIVE_ONE_TO_ONE depth mode with the mapping:
 
            z_w =  (f-n)/2 * z_d + (n+f)/2
-        
+
         and when near (n) is 0.0 and far (f) is 1.0, this becomes simply:
 
            z_w = 0.5 * z_d + 0.5
@@ -734,7 +735,7 @@ Issues
         integer pixel center convention?
 
         RESOLVED:  No, because existing functionality covers this...
-        
+
         The EXT_viewport_array extension (made a core part of OpenGL
         with version 4.1) extends the viewport state to be specified as
         floating-point (technically fixed-point) values.  Prior to this
@@ -761,7 +762,7 @@ Issues
         convention.  See that extension for details.
 
     23) Does this extension's state affect user clip planes?
-    
+
         RESOLVED:  No, user clip planes operate on eye-space coordinates
         which are not affected by this extension's state.
 
@@ -769,7 +770,7 @@ Issues
 
         RESOLVED:  No, fixed-function fog operates on eye-space distance
         which is not affected by this extension's state.
-    
+
     25) Does this extension's state affect the point sprite origin?
 
         RESOLVED:  No.
@@ -837,7 +838,7 @@ Issues
 
         Also glClipControl maintains consistency with the existing
         glClipPlane command pattern for the clipping API.
-        
+
         Historically "Parameter" has been used for commands that affect
         managed "object" state and/or have a speciailized "Get" query
         command (glGetColorTableParameter*) rather than fixed-function
@@ -1015,6 +1016,8 @@ Revision History
     14    07/03/13 mjk        D3D off-screen discussion; issue 32 and 33
     15    04/16/14 pdaniell   Prepare spec for OpenGL 4.5
     16    04/17/14 pdaniell   Fixes "UPPER_RIGHT" typos to UPPER_LEFT
-    17    07/30/14 pbrown     Fix incorrect language in the overview 
+    17    07/30/14 pbrown     Fix incorrect language in the overview
                               describing when to use UPPER_LEFT and LOWER_LEFT
                               modes; add detailed examples in issue 34.
+    18    09/17/15 Jon Leech  Correct typo in issue 7 and add contributor
+                              Brano Kemen from that issue.
