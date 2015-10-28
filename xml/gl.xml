@@ -7894,7 +7894,10 @@ typedef unsigned int GLhandleARB;
         <enum value="0x9136" name="GL_TEXTURE_SAMPLES_IMG"/>
         <enum value="0x9137" name="GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG"/>
         <enum value="0x9138" name="GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG"/>
-            <unused start="0x9139" end="0x913F" vendor="IMG"/>
+        <enum value="0x9139" name="GL_CUBIC_IMG"/>
+        <enum value="0x913A" name="GL_CUBIC_MIPMAP_NEAREST_IMG"/>
+        <enum value="0x913B" name="GL_CUBIC_MIPMAP_LINEAR_IMG"/>
+            <unused start="0x913C" end="0x913F" vendor="IMG"/>
     </enums>
 
     <enums namespace="GL" start="0x9140" end="0x923F" vendor="AMD" comment="Khronos bugs 5899, 6004">
@@ -8477,6 +8480,10 @@ typedef unsigned int GLhandleARB;
             <unused start="0x9642" end="0x964F" vendor="Mediatek"/>
     </enums>
 
+    <enums namespace="GL" start="0x9650" end="0x968F" vendor="IMG" comment="Khronos bug 14977">
+            <unused start="0x9650" end="0x968F" vendor="IMG"/>
+    </enums>
+
 <!-- Enums reservable for future use. To reserve a new range, allocate one
      or more multiples of 16 starting at the lowest available point in this
      block and note it in a new <enums> block immediately above.
@@ -8486,8 +8493,8 @@ typedef unsigned int GLhandleARB;
      file) File requests in the Khronos Bugzilla, OpenGL project, Registry
      component. -->
 
-    <enums namespace="GL" start="0x9650" end="99999" vendor="ARB" comment="RESERVED FOR FUTURE ALLOCATIONS BY KHRONOS">
-        <unused start="0x9650" end="99999" comment="RESERVED"/>
+    <enums namespace="GL" start="0x9690" end="99999" vendor="ARB" comment="RESERVED FOR FUTURE ALLOCATIONS BY KHRONOS">
+        <unused start="0x9690" end="99999" comment="RESERVED"/>
     </enums>
 
 <!-- Historical large block allocations, all unused except (in older days) by IBM -->
@@ -9835,7 +9842,8 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glClearNamedFramebufferfi</name></proto>
             <param><ptype>GLuint</ptype> <name>framebuffer</name></param>
             <param><ptype>GLenum</ptype> <name>buffer</name></param>
-            <param>const <ptype>GLfloat</ptype> <name>depth</name></param>
+            <param><ptype>GLint</ptype> <name>drawbuffer</name></param>
+            <param><ptype>GLfloat</ptype> <name>depth</name></param>
             <param><ptype>GLint</ptype> <name>stencil</name></param>
         </command>
         <command>
@@ -13733,6 +13741,16 @@ typedef unsigned int GLhandleARB;
             <param group="CheckedInt32"><ptype>GLint</ptype> <name>level</name></param>
             <param group="CheckedInt32"><ptype>GLint</ptype> <name>layer</name></param>
             <alias name="glFramebufferTextureLayer"/>
+        </command>
+        <command>
+            <proto>void <name>glFramebufferTextureMultisampleMultiviewOVR</name></proto>
+            <param group="FramebufferTarget"><ptype>GLenum</ptype> <name>target</name></param>
+            <param group="FramebufferAttachment"><ptype>GLenum</ptype> <name>attachment</name></param>
+            <param group="Texture"><ptype>GLuint</ptype> <name>texture</name></param>
+            <param group="CheckedInt32"><ptype>GLint</ptype> <name>level</name></param>
+            <param><ptype>GLsizei</ptype> <name>samples</name></param>
+            <param><ptype>GLint</ptype> <name>baseViewIndex</name></param>
+            <param><ptype>GLsizei</ptype> <name>numViews</name></param>
         </command>
         <command>
             <proto>void <name>glFramebufferTextureMultiviewOVR</name></proto>
@@ -42251,6 +42269,13 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_DOT3_RGBA_IMG"/>
             </require>
         </extension>
+        <extension name="GL_IMG_texture_filter_cubic" supported="gles2">
+            <require>
+                <enum name="GL_CUBIC_IMG"/>
+                <enum name="GL_CUBIC_MIPMAP_NEAREST_IMG"/>
+                <enum name="GL_CUBIC_MIPMAP_LINEAR_IMG"/>
+            </require>
+        </extension>
         <extension name="GL_IMG_user_clip_plane" supported="gles1">
             <require>
                 <enum name="GL_CLIP_PLANE0_IMG"/>
@@ -42602,6 +42627,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR"/>
             </require>
         </extension>
+        <extension name="GL_KHR_texture_compression_astc_sliced_3d" supported="gl|glcore|gles2"/>
         <extension name="GL_MESAX_texture_stack" supported="gl">
             <require>
                 <enum name="GL_TEXTURE_1D_STACK_MESAX"/>
@@ -45369,6 +45395,11 @@ typedef unsigned int GLhandleARB;
             </require>
         </extension>
         <extension name="GL_OVR_multiview2" supported="gl|gles2"/>
+        <extension name="GL_OVR_multiview_multisampled_render_to_texture" supported="gles2">
+            <require>
+                <command name="glFramebufferTextureMultisampleMultiviewOVR"/>
+            </require>
+        </extension>
         <extension name="GL_PGI_misc_hints" supported="gl">
             <require>
                 <enum name="GL_PREFER_DOUBLEBUFFER_HINT_PGI"/>

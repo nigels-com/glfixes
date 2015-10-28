@@ -86,7 +86,7 @@
     EGLint iHeight;
     EGLint iStride;
 };</type>
-        <type>typedef void (<apientry/> *<name>EGLDEBUGPROC</name>)(EGLenum error,const char *command,EGLint messageType,EGLLabelKHR threadLabel,EGLLabelKHR objectLabel,const char* message);</type>
+        <type>typedef void (<apientry/> *<name>EGLDEBUGPROCKHR</name>)(EGLenum error,const char *command,EGLint messageType,EGLLabelKHR threadLabel,EGLLabelKHR objectLabel,const char* message);</type>
     </types>
 
     <!-- SECTION: EGL enumerant (token) definitions. -->
@@ -605,7 +605,21 @@
         <enum value="0x323B" name="EGL_CUDA_EVENT_HANDLE_NV"/>
         <enum value="0x323C" name="EGL_SYNC_CUDA_EVENT_NV"/>
         <enum value="0x323D" name="EGL_SYNC_CUDA_EVENT_COMPLETE_NV"/>
-            <unused start="0x323E" end="0x325F"/>
+            <unused start="0x323E" end="0x324F"/>
+        <enum value="0x3250" name="EGL_MAX_STREAM_METADATA_BLOCKS_NV"/>
+        <enum value="0x3251" name="EGL_MAX_STREAM_METADATA_BLOCK_SIZE_NV"/>
+        <enum value="0x3252" name="EGL_MAX_STREAM_METADATA_TOTAL_SIZE_NV"/>
+        <enum value="0x3253" name="EGL_PRODUCER_METADATA_NV"/>
+        <enum value="0x3254" name="EGL_CONSUMER_METADATA_NV"/>
+        <enum value="0x3255" name="EGL_METADATA0_SIZE_NV"/>
+        <enum value="0x3256" name="EGL_METADATA1_SIZE_NV"/>
+        <enum value="0x3257" name="EGL_METADATA2_SIZE_NV"/>
+        <enum value="0x3258" name="EGL_METADATA3_SIZE_NV"/>
+        <enum value="0x3259" name="EGL_METADATA0_TYPE_NV"/>
+        <enum value="0x325A" name="EGL_METADATA1_TYPE_NV"/>
+        <enum value="0x325B" name="EGL_METADATA2_TYPE_NV"/>
+        <enum value="0x325C" name="EGL_METADATA3_TYPE_NV"/>
+            <unused start="0x325D" end="0x325F"/>
     </enums>
 
     <enums namespace="EGL" start="0x3260" end="0x326F" vendor="BCOM" comment="Reserved for Gary Sweet, Broadcom (Public bug 620)">
@@ -699,7 +713,13 @@
     </enums>
 
     <enums namespace="EGL" start="0x3320" end="0x339F" vendor="NV" comment="Reserved for James Jones (Bug 13209)">
-            <unused start="0x3320" end="0x339F"/>
+            <unused start="0x3320" end="0x3327"/>
+        <enum value="0x3328" name="EGL_PENDING_METADATA_NV"/>
+            <unused start="0x3329" end="0x332B"/>
+        <enum value="0x332C" name="EGL_YUV_PLANE0_TEXTURE_UNIT_NV"/>
+        <enum value="0x332D" name="EGL_YUV_PLANE1_TEXTURE_UNIT_NV"/>
+        <enum value="0x332E" name="EGL_YUV_PLANE2_TEXTURE_UNIT_NV"/>
+            <unused start="0x332F" end="0x339F"/>
     </enums>
 
     <enums namespace="EGL" start="0x33A0" end="0x33AF" vendor="ANGLE" comment="Reserved for Shannon Woods (Bug 13175)">
@@ -942,7 +962,7 @@
         </command>
         <command>
             <proto><ptype>EGLint</ptype> <name>eglDebugMessageControlKHR</name></proto>
-            <param><ptype>EGLDEBUGPROC</ptype> <name>callback</name></param>
+            <param><ptype>EGLDEBUGPROCKHR</ptype> <name>callback</name></param>
             <param>const <ptype>EGLAttrib</ptype> *<name>attrib_list</name></param>
         </command>
         <command>
@@ -1201,6 +1221,13 @@
             <param><ptype>EGLAttrib</ptype> *<name>value</name></param>
         </command>
         <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglQueryDisplayAttribNV</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLint</ptype> <name>attribute</name></param>
+            <param><ptype>EGLAttrib</ptype> *<name>value</name></param>
+            <alias name="eglQueryDisplayAttribEXT"/>
+        </command>
+        <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglQueryNativeDisplayNV</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLNativeDisplayType</ptype> *<name>display_id</name></param>
@@ -1249,6 +1276,16 @@
             <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
             <param><ptype>EGLenum</ptype> <name>attribute</name></param>
             <param><ptype>EGLint</ptype> *<name>value</name></param>
+        </command>
+        <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglQueryStreamMetadataNV</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
+            <param><ptype>EGLenum</ptype> <name>name</name></param>
+            <param><ptype>EGLint</ptype> <name>n</name></param>
+            <param><ptype>EGLint</ptype> <name>offset</name></param>
+            <param><ptype>EGLint</ptype> <name>size</name></param>
+            <param>void *<name>data</name></param>
         </command>
         <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglQueryStreamTimeKHR</name></proto>
@@ -1313,6 +1350,15 @@
             <param><ptype>EGLint</ptype> <name>n_rects</name></param>
         </command>
         <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglSetStreamMetadataNV</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
+            <param><ptype>EGLint</ptype> <name>n</name></param>
+            <param><ptype>EGLint</ptype> <name>offset</name></param>
+            <param><ptype>EGLint</ptype> <name>size</name></param>
+            <param>const void *<name>data</name></param>
+        </command>
+        <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglSignalSyncKHR</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLSyncKHR</ptype> <name>sync</name></param>
@@ -1339,6 +1385,12 @@
             <proto><ptype>EGLBoolean</ptype> <name>eglStreamConsumerGLTextureExternalKHR</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
+        </command>
+        <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglStreamConsumerGLTextureExternalAttribsNV</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
+            <param><ptype>EGLAttrib</ptype> <name>*attrib_list</name></param>
         </command>
         <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglStreamConsumerOutputEXT</name></proto>
@@ -2360,6 +2412,37 @@
             <require>
                 <enum name="EGL_POST_SUB_BUFFER_SUPPORTED_NV"/>
                 <command name="eglPostSubBufferNV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_consumer_gltexture_yuv" supported="egl">
+            <require>
+                <enum name="EGL_YUV_PLANE0_TEXTURE_UNIT_NV"/>
+                <enum name="EGL_YUV_PLANE1_TEXTURE_UNIT_NV"/>
+                <enum name="EGL_YUV_PLANE2_TEXTURE_UNIT_NV"/>
+                <enum name="EGL_YUV_NUMBER_OF_PLANES_EXT"/>
+                <enum name="EGL_YUV_BUFFER_EXT"/>
+                <command name="eglStreamConsumerGLTextureExternalAttribsNV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_metadata" supported="egl">
+            <require>
+                <enum name="EGL_MAX_STREAM_METADATA_BLOCKS_NV"/>
+                <enum name="EGL_MAX_STREAM_METADATA_BLOCK_SIZE_NV"/>
+                <enum name="EGL_MAX_STREAM_METADATA_TOTAL_SIZE_NV"/>
+                <enum name="EGL_PRODUCER_METADATA_NV"/>
+                <enum name="EGL_CONSUMER_METADATA_NV"/>
+                <enum name="EGL_PENDING_METADATA_NV"/>
+                <enum name="EGL_METADATA0_SIZE_NV"/>
+                <enum name="EGL_METADATA1_SIZE_NV"/>
+                <enum name="EGL_METADATA2_SIZE_NV"/>
+                <enum name="EGL_METADATA3_SIZE_NV"/>
+                <enum name="EGL_METADATA0_TYPE_NV"/>
+                <enum name="EGL_METADATA1_TYPE_NV"/>
+                <enum name="EGL_METADATA2_TYPE_NV"/>
+                <enum name="EGL_METADATA3_TYPE_NV"/>
+                <command name="eglQueryDisplayAttribNV"/>
+                <command name="eglSetStreamMetadataNV"/>
+                <command name="eglQueryStreamMetadataNV"/>
             </require>
         </extension>
         <extension name="EGL_NV_stream_sync" supported="egl">

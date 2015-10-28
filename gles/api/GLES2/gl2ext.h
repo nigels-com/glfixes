@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 31902 $ on $Date: 2015-09-03 15:44:53 -0700 (Thu, 03 Sep 2015) $
+** Khronos $Revision: 32120 $ on $Date: 2015-10-15 04:27:13 -0700 (Thu, 15 Oct 2015) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20150903 */
+/* Generated on date 20151015 */
 
 /* Generated C header for:
  * API: gles2
@@ -224,6 +224,10 @@ GL_APICALL void GL_APIENTRY glGetnUniformuivKHR (GLuint program, GLint location,
 #ifndef GL_KHR_texture_compression_astc_ldr
 #define GL_KHR_texture_compression_astc_ldr 1
 #endif /* GL_KHR_texture_compression_astc_ldr */
+
+#ifndef GL_KHR_texture_compression_astc_sliced_3d
+#define GL_KHR_texture_compression_astc_sliced_3d 1
+#endif /* GL_KHR_texture_compression_astc_sliced_3d */
 
 #ifndef GL_OES_EGL_image
 #define GL_OES_EGL_image 1
@@ -1933,6 +1937,13 @@ GL_APICALL void GL_APIENTRY glFramebufferTexture2DMultisampleIMG (GLenum target,
 #define GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG 0x9138
 #endif /* GL_IMG_texture_compression_pvrtc2 */
 
+#ifndef GL_IMG_texture_filter_cubic
+#define GL_IMG_texture_filter_cubic 1
+#define GL_CUBIC_IMG                      0x9139
+#define GL_CUBIC_MIPMAP_NEAREST_IMG       0x913A
+#define GL_CUBIC_MIPMAP_LINEAR_IMG        0x913B
+#endif /* GL_IMG_texture_filter_cubic */
+
 #ifndef GL_INTEL_framebuffer_CMAA
 #define GL_INTEL_framebuffer_CMAA 1
 typedef void (GL_APIENTRYP PFNGLAPPLYFRAMEBUFFERATTACHMENTCMAAINTELPROC) (void);
@@ -2782,6 +2793,14 @@ GL_APICALL void GL_APIENTRY glFramebufferTextureMultiviewOVR (GLenum target, GLe
 #ifndef GL_OVR_multiview2
 #define GL_OVR_multiview2 1
 #endif /* GL_OVR_multiview2 */
+
+#ifndef GL_OVR_multiview_multisampled_render_to_texture
+#define GL_OVR_multiview_multisampled_render_to_texture 1
+typedef void (GL_APIENTRYP PFNGLFRAMEBUFFERTEXTUREMULTISAMPLEMULTIVIEWOVRPROC) (GLenum target, GLenum attachment, GLuint texture, GLint level, GLsizei samples, GLint baseViewIndex, GLsizei numViews);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glFramebufferTextureMultisampleMultiviewOVR (GLenum target, GLenum attachment, GLuint texture, GLint level, GLsizei samples, GLint baseViewIndex, GLsizei numViews);
+#endif
+#endif /* GL_OVR_multiview_multisampled_render_to_texture */
 
 #ifndef GL_QCOM_alpha_test
 #define GL_QCOM_alpha_test 1

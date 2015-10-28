@@ -36,8 +36,8 @@ Status
 
 Version
 
-    Last Modified Date:         June 25, 2015
-    Author Revision:            46
+    Last Modified Date:         October 22, 2015
+    Author Revision:            47
 
 Number
 
@@ -210,10 +210,10 @@ New Procedures and Functions
                                   int drawbuffer, const uint *value);
 
     void ClearNamedFramebufferfv(uint framebuffer, enum buffer,
-                                 int drawbuffer, const float *value);
+                                 int drawbuffer, float *value);
 
     void ClearNamedFramebufferfi(uint framebuffer, enum buffer,
-                                 float depth, int stencil);
+                                 int drawbuffer, float depth, int stencil);
 
     void BlitNamedFramebuffer(uint readFramebuffer,
                               uint drawFramebuffer,
@@ -4149,6 +4149,10 @@ Revision History
 
     Rev.    Date        Author    Changes
     ----  -----------   --------- ---------------------------------------------
+    47    22 Oct 2015   Jon Leech Add missing drawbuffer parameter to
+                                  ClearNamedFramebufferfi (public Bug 1394,
+                                  Bug 13469).
+
     46    25 Jun 2015   Jon Leech Add issue 41 noting that read and drawbuffer
                                   state cannot be queried with
                                   GetNamedFramebufferParameteriv (Bug 14207).

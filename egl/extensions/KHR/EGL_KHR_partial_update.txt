@@ -43,7 +43,7 @@ Number
 
 Extension Type
 
-    EGL display extension? (TBD)
+    EGL display extension
 
 Dependencies
 
@@ -54,7 +54,9 @@ Dependencies
     The behavior of part of this extension is different depending on whether the
     EGL_EXT_buffer_age extension is also present.
 
-    This extension trivially interacts with EGL_EXT_swap_buffers_with_damage.
+    This extension trivially interacts with EGL_KHR_swap_buffers_with_damage and
+    EGL_EXT_swap_buffers_with_damage. This extension is worded against the KHR
+    version, but the interactions with the EXT version are identical.
 
 New Procedures and Functions
 
@@ -290,7 +292,7 @@ Add before the final paragraph in section 3.5.6 "Surface Attributes":
         Function name
         --------------------
         eglSwapBuffers
-        eglSwapBuffersWithDamageEXT
+        eglSwapBuffersWithDamageKHR
 
         Table 3.X, Frame Boundary Functions
 
@@ -349,10 +351,10 @@ Add to the end of section 3.10.1.1 "Native Window Resizing":
     undefined. This will effectively cause the entire framebuffer content to
     become undefined until the next frame.
 
-Dependencies on EGL_EXT_swap_buffers_with_damage
+Dependencies on EGL_KHR_swap_buffers_with_damage
 
-    If EGL_EXT_swap_buffers_with_damage is not supported, all references to
-    eglSwapBuffersWithDamageEXT are removed.
+    If EGL_KHR_swap_buffers_with_damage is not supported, all references to
+    eglSwapBuffersWithDamageKHR are removed.
 
 Issues
 
@@ -370,17 +372,17 @@ Issues
     whether EGL_EXT_buffer_age is present or not, making this extension fully
     backwards compatible with EGL_EXT_buffer_age, while not depending on it.
 
- 3) How does this interact with EGL_EXT_swap_buffers_with_damage?
+ 3) How does this interact with EGL_KHR_swap_buffers_with_damage?
 
     RESOLVED: It does not interact materially with
-    EGL_EXT_swap_buffers_with_damage, except for the trivial interaction with
-    eglSwapBuffersWithDamageEXT being a frame boundary function if the extension
+    EGL_KHR_swap_buffers_with_damage, except for the trivial interaction with
+    eglSwapBuffersWithDamageKHR being a frame boundary function if the extension
     is also supported.
 
     DISCUSSION: This extension only provides a way to efficiently update the
     back buffer for a surface. It does not have any effect on the subsequent
     posting of that buffer. For maximum efficiency, applications should use both
-    EGL_KHR_partial_update and EGL_EXT_swap_buffers_with_damage simultaneously.
+    EGL_KHR_partial_update and EGL_KHR_swap_buffers_with_damage simultaneously.
 
  4) How does this interact with EGL_BUFFER_PRESERVED?
 
@@ -493,3 +495,7 @@ Revision History
     Version 12, 12/09/2014
      - Added the restriction that you can only query the age of a surface while
        it is the current draw surface.
+    Version 13, 18/09/2015
+     - Marked as a Display extension
+     - Changed remaining references to EGL_EXT_swap_buffers_with_damage to
+       EGL_KHR_swap_buffers_with_damage

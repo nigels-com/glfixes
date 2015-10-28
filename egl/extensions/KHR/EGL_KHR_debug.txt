@@ -33,7 +33,7 @@ Status
 
 Version
 
-    Version 16, Modified Date: April 15, 2015
+    Version 17, Modified Date: September 23, 2015
 
 Number
 
@@ -96,7 +96,7 @@ IP Status
 New Procedures and Functions
 
     EGLint eglDebugMessageControlKHR(
-            EGLDEBUGPROC callback,
+            EGLDEBUGPROCKHR callback,
             const EGLAttrib* attrib_list);
 
     EGLBoolean eglQueryDebugKHR(
@@ -123,7 +123,7 @@ New Types
     The callback function that applications can define, and is accepted by
     eglDebugMessageControlKHR, is defined as:
 
-        typedef void (APIENTRY *EGLDEBUGPROC)(
+        typedef void (APIENTRY *EGLDEBUGPROCKHR)(
                 EGLenum error,
                 const char *command,
                 EGLint messageType,
@@ -144,7 +144,7 @@ New Tokens
         EGL_OBJECT_SYNC_KHR                              0x33B5
         EGL_OBJECT_STREAM_KHR                            0x33B6
 
-    Tokens provided by the <messageType> parameter of EGLDEBUGPROC
+    Tokens provided by the <messageType> parameter of EGLDEBUGPROCKHR
     or the attributes input to eglControlDebugMessageKHR or attribute
     of eglQueryDebugKHR:
 
@@ -179,13 +179,13 @@ Additions to Chapter 3 of the EGL 1.5 Specification
     Debug output functionality is controlled with:
 
         EGLint eglDebugMessageControlKHR(
-                EGLDEBUGPROC callback,
+                EGLDEBUGPROCKHR callback,
                 const EGLAttrib* attrib_list);
 
     If the <callback> parameter is NULL, then no messages are sent to the
     callback function and the debug message generation is disabled. If the
     <callback> parameter is a pointer to a valid callback function, as defined
-    by EGLDEBUGPROC, then messages will be sent to that callback function.
+    by EGLDEBUGPROCKHR, then messages will be sent to that callback function.
 
     The attribute list <attrib_list> contains a set of message type enums,
     and each has a value of EGL_TRUE to enable that class of messages,
@@ -232,7 +232,7 @@ Additions to Chapter 3 of the EGL 1.5 Specification
     Applications must provide a callback function for receiving debug messages
     of the following type:
 
-        typedef void (APIENTRY *EGLDEBUGPROC)(
+        typedef void (APIENTRY *EGLDEBUGPROCKHR)(
                 EGLenum error,
                 const char *command,
                 EGLint messageType,
@@ -240,7 +240,7 @@ Additions to Chapter 3 of the EGL 1.5 Specification
                 EGLLabelKHR objectLabel,
                 const char* message);
 
-    The function's prototype must follow the type definition of EGLDEBUGPROC.
+    The function's prototype must follow the type definition of EGLDEBUGPROCKHR.
     Only one debug callback can be in-use for the application, and
     further calls overwrite the previous callback. Specifying NULL as the
     value of <callback> clears the current callback and disables message
@@ -436,35 +436,35 @@ Usage Examples
     void MyCallBack(EGLenum error,
                     const char *command,
                     EGLint messageType,
-                    EGLLabel threadLabel,
-                    EGLLabel objectLabel,
+                    EGLLabelKHR threadLabel,
+                    EGLLabelKHR objectLabel,
                     const char* message)
     {
-        printf("Error: %x, With command %s, Type: %d,
-            Thread: %s, Object: %s, Message: %s.",
+        printf("Error: %x, With command %s, Type: %d,"
+            "Thread: %s, Object: %s, Message: %s.",
             error, command, messageType, threadLabel, objectLabel, message);
     }
 
     EGLint result;
 
     // DEBUG_MSG_ERROR and CRITICAL are enabled by default
-    EGLAttrib debugAttribs = {EGL_DEBUG_MSG_WARN, EGL_TRUE, EGL_NONE};
+    EGLAttrib debugAttribs = {EGL_DEBUG_MSG_WARN_KHR, EGL_TRUE, EGL_NONE};
     // Start up debug messaging:
     result = eglDebugMessageControl(MyCallBack, debugAttribs);
 
     // Label for the rendering thread.
-    EGLLabel renderThreadLabel = (EGLLabel)"Render thread";
-    EGLint result eglLabelObject(NULL, EGL_OBJECT_THREAD, NULL, renderThreadLabel);
+    EGLLabelKHR renderThreadLabel = (EGLLabelKHR)"Render thread";
+    result = eglLabelObject(NULL, EGL_OBJECT_THREAD_KHR, NULL, renderThreadLabel);
 
     EGLDisplay dpy = eglGetDisplay(EGL_DEFAULT_DISPLAY);
-    EGLLabel myDisplay = (EGLLabel)“EGL default display”;
-    EGLint result eglLabelObject(dpy, EGL_OBJECT_DISPLAY, dpy, myDisplay);
+    EGLLabelKHR myDisplay = (EGLLabelKHR)"Default display";
+    result = eglLabelObject(dpy, EGL_OBJECT_DISPLAY_KHR, dpy, myDisplay);
 
     eglInitialize(dpy);
 
-    EGLLabel renderContextLabel = (EGLLabel)"Render context";
-    EGLContext ctx = eglCreateContext(dpy, config, null, context_attribs);
-    eglLabelObject(dpy, EGL_OBJECT_CONTEXT, ctx, renderContextLabel);
+    EGLLabelKHR renderContextLabel = (EGLLabelKHR)"Render context";
+    EGLContext ctx = eglCreateContext(dpy, config, NULL, contextAttribs);
+    result = eglLabelObject(dpy, EGL_OBJECT_CONTEXT_KHR, ctx, renderContextLabel);
 
 
 Issues
@@ -489,6 +489,9 @@ Issues
 
 
 Revision History
+
+    Revision 17, 2015-09-23 (Jeff Vigil)
+      - Correct type name to "EGLDEBUGPROCKHR". Updated example code.
 
     Revision 16, 2015-04-15 (Jeff Vigil)
       - Clarified that <objectLabel> maybe NULL in the callback, if an error

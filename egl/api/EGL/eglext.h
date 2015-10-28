@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 32040 $ on $Date: 2015-09-22 15:57:58 -0700 (Tue, 22 Sep 2015) $
+** Khronos $Revision: 32097 $ on $Date: 2015-10-09 01:17:05 -0700 (Fri, 09 Oct 2015) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20150922
+#define EGL_EGLEXT_VERSION 20151009
 
 /* Generated C header for:
  * API: egl
@@ -103,7 +103,7 @@ EGLAPI EGLSyncKHR EGLAPIENTRY eglCreateSync64KHR (EGLDisplay dpy, EGLenum type, 
 #define EGL_KHR_debug 1
 typedef void *EGLLabelKHR;
 typedef void *EGLObjectKHR;
-typedef void (EGLAPIENTRY  *EGLDEBUGPROC)(EGLenum error,const char *command,EGLint messageType,EGLLabelKHR threadLabel,EGLLabelKHR objectLabel,const char* message);
+typedef void (EGLAPIENTRY  *EGLDEBUGPROCKHR)(EGLenum error,const char *command,EGLint messageType,EGLLabelKHR threadLabel,EGLLabelKHR objectLabel,const char* message);
 #define EGL_OBJECT_THREAD_KHR             0x33B0
 #define EGL_OBJECT_DISPLAY_KHR            0x33B1
 #define EGL_OBJECT_CONTEXT_KHR            0x33B2
@@ -116,11 +116,11 @@ typedef void (EGLAPIENTRY  *EGLDEBUGPROC)(EGLenum error,const char *command,EGLi
 #define EGL_DEBUG_MSG_WARN_KHR            0x33BB
 #define EGL_DEBUG_MSG_INFO_KHR            0x33BC
 #define EGL_DEBUG_CALLBACK_KHR            0x33B8
-typedef EGLint (EGLAPIENTRYP PFNEGLDEBUGMESSAGECONTROLKHRPROC) (EGLDEBUGPROC callback, const EGLAttrib *attrib_list);
+typedef EGLint (EGLAPIENTRYP PFNEGLDEBUGMESSAGECONTROLKHRPROC) (EGLDEBUGPROCKHR callback, const EGLAttrib *attrib_list);
 typedef EGLBoolean (EGLAPIENTRYP PFNEGLQUERYDEBUGKHRPROC) (EGLint attribute, EGLAttrib *value);
 typedef EGLint (EGLAPIENTRYP PFNEGLLABELOBJECTKHRPROC) (EGLDisplay display, EGLenum objectType, EGLObjectKHR object, EGLLabelKHR label);
 #ifdef EGL_EGLEXT_PROTOTYPES
-EGLAPI EGLint EGLAPIENTRY eglDebugMessageControlKHR (EGLDEBUGPROC callback, const EGLAttrib *attrib_list);
+EGLAPI EGLint EGLAPIENTRY eglDebugMessageControlKHR (EGLDEBUGPROCKHR callback, const EGLAttrib *attrib_list);
 EGLAPI EGLBoolean EGLAPIENTRY eglQueryDebugKHR (EGLint attribute, EGLAttrib *value);
 EGLAPI EGLint EGLAPIENTRY eglLabelObjectKHR (EGLDisplay display, EGLenum objectType, EGLObjectKHR object, EGLLabelKHR label);
 #endif
@@ -838,6 +838,43 @@ typedef EGLBoolean (EGLAPIENTRYP PFNEGLPOSTSUBBUFFERNVPROC) (EGLDisplay dpy, EGL
 EGLAPI EGLBoolean EGLAPIENTRY eglPostSubBufferNV (EGLDisplay dpy, EGLSurface surface, EGLint x, EGLint y, EGLint width, EGLint height);
 #endif
 #endif /* EGL_NV_post_sub_buffer */
+
+#ifndef EGL_NV_stream_consumer_gltexture_yuv
+#define EGL_NV_stream_consumer_gltexture_yuv 1
+#define EGL_YUV_PLANE0_TEXTURE_UNIT_NV    0x332C
+#define EGL_YUV_PLANE1_TEXTURE_UNIT_NV    0x332D
+#define EGL_YUV_PLANE2_TEXTURE_UNIT_NV    0x332E
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLSTREAMCONSUMERGLTEXTUREEXTERNALATTRIBSNVPROC) (EGLDisplay dpy, EGLStreamKHR stream, EGLAttrib *attrib_list);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglStreamConsumerGLTextureExternalAttribsNV (EGLDisplay dpy, EGLStreamKHR stream, EGLAttrib *attrib_list);
+#endif
+#endif /* EGL_NV_stream_consumer_gltexture_yuv */
+
+#ifndef EGL_NV_stream_metadata
+#define EGL_NV_stream_metadata 1
+#define EGL_MAX_STREAM_METADATA_BLOCKS_NV 0x3250
+#define EGL_MAX_STREAM_METADATA_BLOCK_SIZE_NV 0x3251
+#define EGL_MAX_STREAM_METADATA_TOTAL_SIZE_NV 0x3252
+#define EGL_PRODUCER_METADATA_NV          0x3253
+#define EGL_CONSUMER_METADATA_NV          0x3254
+#define EGL_PENDING_METADATA_NV           0x3328
+#define EGL_METADATA0_SIZE_NV             0x3255
+#define EGL_METADATA1_SIZE_NV             0x3256
+#define EGL_METADATA2_SIZE_NV             0x3257
+#define EGL_METADATA3_SIZE_NV             0x3258
+#define EGL_METADATA0_TYPE_NV             0x3259
+#define EGL_METADATA1_TYPE_NV             0x325A
+#define EGL_METADATA2_TYPE_NV             0x325B
+#define EGL_METADATA3_TYPE_NV             0x325C
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLQUERYDISPLAYATTRIBNVPROC) (EGLDisplay dpy, EGLint attribute, EGLAttrib *value);
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLSETSTREAMMETADATANVPROC) (EGLDisplay dpy, EGLStreamKHR stream, EGLint n, EGLint offset, EGLint size, const void *data);
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLQUERYSTREAMMETADATANVPROC) (EGLDisplay dpy, EGLStreamKHR stream, EGLenum name, EGLint n, EGLint offset, EGLint size, void *data);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglQueryDisplayAttribNV (EGLDisplay dpy, EGLint attribute, EGLAttrib *value);
+EGLAPI EGLBoolean EGLAPIENTRY eglSetStreamMetadataNV (EGLDisplay dpy, EGLStreamKHR stream, EGLint n, EGLint offset, EGLint size, const void *data);
+EGLAPI EGLBoolean EGLAPIENTRY eglQueryStreamMetadataNV (EGLDisplay dpy, EGLStreamKHR stream, EGLenum name, EGLint n, EGLint offset, EGLint size, void *data);
+#endif
+#endif /* EGL_NV_stream_metadata */
 
 #ifndef EGL_NV_stream_sync
 #define EGL_NV_stream_sync 1
