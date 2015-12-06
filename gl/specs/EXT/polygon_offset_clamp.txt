@@ -13,6 +13,7 @@ Contact
 Contributors
 
     Eric Lengyel, Terathon Software
+    Tobias Hector, Imagination Technologies
 
 Status
 
@@ -20,19 +21,22 @@ Status
 
 Version
 
-    Last Modified Date: August 27, 2014
-    Revision: 2
+    Last Modified Date: October 21, 2015
+    Revision: 3
 
 Number
 
     OpenGL Extension #460
+    OpenGL ES Extension #TBD
 
 Dependencies
 
-    OpenGL 3.3 (either core or compatibility profiles) is required.
+    OpenGL 3.3 (either core or compatibility profiles), or OpenGL ES 1.0 is
+    required.
 
     This extension is written against the OpenGL 3.3 (Core Profile)
-    Specification (March 11, 2010).
+    Specification (March 11, 2010) and the OpenGL ES 3.1 Specification (October
+    29, 2014).
 
 Overview
 
@@ -62,9 +66,9 @@ New Tokens
         POLYGON_OFFSET_CLAMP_EXT                0x8E1B
 
 Additions to Chapter 3 of the OpenGL 3.3 (Core Profile) Specification
-(Rasterization)
+(Rasterization), and Chapter 13 of the OpenGL ES Specification (Polygons)
 
- -- Modify section 3.6.4 "Depth Offset"
+ -- Modify Open GL section 3.6.4 and OpenGL ES section 13.5.2, "Depth Offset"
 
     Replace the 1st paragraph...
 
@@ -120,11 +124,19 @@ Errors
 
     None
 
-New State
+New State (OpenGL)
 
     Get Value                Type  Get Command  Initial Value  Description           Sec    Attrib
     ------------------------ ----  -----------  -------------  --------------------  -----  -------
     POLYGON_OFFSET_CLAMP_EXT  R    GetFloatv          0        Polygon offset clamp  3.6.4  polygon
+
+New State (OpenGL ES)
+
+    Add the following to Table 20.6: Rasterization
+
+    Get Value                Type  Get Command  Initial Value  Description           Sec
+    ------------------------ ----  -----------  -------------  --------------------  ------
+    POLYGON_OFFSET_CLAMP_IMG  R    GetFloatv          0        Polygon offset clamp  13.5.2
 
 New Implementation Dependent State
 
@@ -198,6 +210,7 @@ Revision History
 
     Rev.    Date    Author     Changes
     ----  -------- ---------  ------------------------------------------
+    3     10/21/15  thector    Added OpenGL ES interactions.
     2     08/27/14  elengyel   Added enum value for new token, resolved
                                issues, changed status to complete.
     1     08/14/14  elengyel   Initial draft.

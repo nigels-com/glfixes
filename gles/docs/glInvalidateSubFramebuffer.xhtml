@@ -75,7 +75,7 @@
             </dt>
             <dd>
               <p>
-                    Specifies the target of the invalidate operation. Must be <code class="constant">GL_FRAMEBUFFER</code>.
+                    Specifies the target of the invalidate operation.
                 </p>
             </dd>
             <dt>
@@ -158,7 +158,11 @@
         <p>
             <code class="function">glInvalidateSubFramebuffer</code> signals to the
             GL that it need not preserve all pixels of a specified region of
-            a bound framebuffer object. <em class="parameter"><code>attachments</code></em>
+            the framebuffer bound to <em class="parameter"><code>target</code></em>.
+            <em class="parameter"><code>target</code></em> must be <code class="constant">GL_READ_FRAMEBFUFFER</code>,
+            <code class="constant">GL_DRAW_FRAMEBUFFER</code> or <code class="constant">GL_FRAMEBUFFER</code>. The
+            token <code class="constant">GL_FRAMEBUFFER</code> is treated as <code class="constant">GL_DRAW_FRAMEBUFFER</code>.
+			<em class="parameter"><code>attachments</code></em>
             contains a list of <em class="parameter"><code>numAttachments</code></em> to be
             invalidated. If an attachment is specified that does not exist
             in the bound framebuffer, it is ignored.
@@ -204,7 +208,8 @@
       <div class="refsect1" id="errors">
         <h2>Errors</h2>
         <p>
-            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_FRAMEBUFFER</code>.
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_DRAW_FRAMEBUFFER</code>, 
+			<code class="constant">GL_READ_FRAMEBUFFER</code>, or <code class="constant">GL_FRAMEBUFFER</code>.
         </p>
         <p>
             <code class="constant">GL_INVALID_OPERATION</code> is generated if
@@ -268,7 +273,7 @@
       <div class="refsect1" id="Copyright">
         <h2>Copyright</h2>
         <p>
-            Copyright <span class="trademark"/>© 2014 Khronos Group.
+            Copyright <span class="trademark"/>© 2014-2015 Khronos Group.
             This material may be distributed subject to the terms and conditions set forth in
             the Open Publication License, v 1.0, 8 June 1999.
             <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
