@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 32097 $ on $Date: 2015-10-09 01:17:05 -0700 (Fri, 09 Oct 2015) $
+** Khronos $Revision: 32351 $ on $Date: 2016-01-08 18:53:22 -0800 (Fri, 08 Jan 2016) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20151009
+#define EGL_EGLEXT_VERSION 20160108
 
 /* Generated C header for:
  * API: egl
@@ -723,6 +723,12 @@ EGLAPI EGLSurface EGLAPIENTRY eglCreatePixmapSurfaceHI (EGLDisplay dpy, EGLConfi
 #define EGL_CONTEXT_PRIORITY_MEDIUM_IMG   0x3102
 #define EGL_CONTEXT_PRIORITY_LOW_IMG      0x3103
 #endif /* EGL_IMG_context_priority */
+
+#ifndef EGL_IMG_image_plane_attribs
+#define EGL_IMG_image_plane_attribs 1
+#define EGL_NATIVE_BUFFER_MULTIPLANE_SEPARATE_IMG 0x3105
+#define EGL_NATIVE_BUFFER_PLANE_OFFSET_IMG 0x3106
+#endif /* EGL_IMG_image_plane_attribs */
 
 #ifndef EGL_MESA_drm_image
 #define EGL_MESA_drm_image 1

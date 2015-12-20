@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 32120 $ on $Date: 2015-10-15 04:27:13 -0700 (Thu, 15 Oct 2015) $
+** Khronos $Revision: 32347 $ on $Date: 2016-01-08 03:01:49 -0800 (Fri, 08 Jan 2016) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20151015 */
+/* Generated on date 20160108 */
 
 /* Generated C header for:
  * API: gles2
@@ -1412,6 +1412,15 @@ GL_APICALL void GL_APIENTRY glGetIntegeri_vEXT (GLenum target, GLuint index, GLi
 #define GL_ANY_SAMPLES_PASSED_CONSERVATIVE_EXT 0x8D6A
 #endif /* GL_EXT_occlusion_query_boolean */
 
+#ifndef GL_EXT_polygon_offset_clamp
+#define GL_EXT_polygon_offset_clamp 1
+#define GL_POLYGON_OFFSET_CLAMP_EXT       0x8E1B
+typedef void (GL_APIENTRYP PFNGLPOLYGONOFFSETCLAMPEXTPROC) (GLfloat factor, GLfloat units, GLfloat clamp);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glPolygonOffsetClampEXT (GLfloat factor, GLfloat units, GLfloat clamp);
+#endif
+#endif /* GL_EXT_polygon_offset_clamp */
+
 #ifndef GL_EXT_post_depth_coverage
 #define GL_EXT_post_depth_coverage 1
 #endif /* GL_EXT_post_depth_coverage */
@@ -1604,6 +1613,10 @@ GL_APICALL void GL_APIENTRY glProgramUniformMatrix4x3fvEXT (GLuint program, GLin
 #define GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT 0x8A52
 #endif /* GL_EXT_shader_framebuffer_fetch */
 
+#ifndef GL_EXT_shader_group_vote
+#define GL_EXT_shader_group_vote 1
+#endif /* GL_EXT_shader_group_vote */
+
 #ifndef GL_EXT_shader_implicit_conversions
 #define GL_EXT_shader_implicit_conversions 1
 #endif /* GL_EXT_shader_implicit_conversions */
@@ -1622,6 +1635,21 @@ GL_APICALL void GL_APIENTRY glProgramUniformMatrix4x3fvEXT (GLuint program, GLin
 #define GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT 0x8F67
 #define GL_SHADER_PIXEL_LOCAL_STORAGE_EXT 0x8F64
 #endif /* GL_EXT_shader_pixel_local_storage */
+
+#ifndef GL_EXT_shader_pixel_local_storage2
+#define GL_EXT_shader_pixel_local_storage2 1
+#define GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_FAST_SIZE_EXT 0x9650
+#define GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_SIZE_EXT 0x9651
+#define GL_FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT 0x9652
+typedef void (GL_APIENTRYP PFNGLFRAMEBUFFERPIXELLOCALSTORAGESIZEEXTPROC) (GLuint target, GLsizei size);
+typedef GLsizei (GL_APIENTRYP PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGESIZEEXTPROC) (GLuint target);
+typedef void (GL_APIENTRYP PFNGLCLEARPIXELLOCALSTORAGEUIEXTPROC) (GLsizei offset, GLsizei n, const GLuint *values);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glFramebufferPixelLocalStorageSizeEXT (GLuint target, GLsizei size);
+GL_APICALL GLsizei GL_APIENTRY glGetFramebufferPixelLocalStorageSizeEXT (GLuint target);
+GL_APICALL void GL_APIENTRY glClearPixelLocalStorageuiEXT (GLsizei offset, GLsizei n, const GLuint *values);
+#endif
+#endif /* GL_EXT_shader_pixel_local_storage2 */
 
 #ifndef GL_EXT_shader_texture_lod
 #define GL_EXT_shader_texture_lod 1
@@ -1892,6 +1920,20 @@ GL_APICALL void GL_APIENTRY glTextureViewEXT (GLuint texture, GLenum target, GLu
 #define GL_FJ_shader_binary_GCCSO 1
 #define GL_GCCSO_SHADER_BINARY_FJ         0x9260
 #endif /* GL_FJ_shader_binary_GCCSO */
+
+#ifndef GL_IMG_framebuffer_downsample
+#define GL_IMG_framebuffer_downsample 1
+#define GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_AND_DOWNSAMPLE_IMG 0x913C
+#define GL_NUM_DOWNSAMPLE_SCALES_IMG      0x913D
+#define GL_DOWNSAMPLE_SCALES_IMG          0x913E
+#define GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG 0x913F
+typedef void (GL_APIENTRYP PFNGLFRAMEBUFFERTEXTURE2DDOWNSAMPLEIMGPROC) (GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level, GLint xscale, GLint yscale);
+typedef void (GL_APIENTRYP PFNGLFRAMEBUFFERTEXTURELAYERDOWNSAMPLEIMGPROC) (GLenum target, GLenum attachment, GLuint texture, GLint level, GLint layer, GLint xscale, GLint yscale);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glFramebufferTexture2DDownsampleIMG (GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level, GLint xscale, GLint yscale);
+GL_APICALL void GL_APIENTRY glFramebufferTextureLayerDownsampleIMG (GLenum target, GLenum attachment, GLuint texture, GLint level, GLint layer, GLint xscale, GLint yscale);
+#endif
+#endif /* GL_IMG_framebuffer_downsample */
 
 #ifndef GL_IMG_multisampled_render_to_texture
 #define GL_IMG_multisampled_render_to_texture 1
