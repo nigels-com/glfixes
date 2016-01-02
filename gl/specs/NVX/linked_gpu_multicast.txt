@@ -94,7 +94,7 @@ New Procedures and Functions
         int dstX, int dstY, int dstZ,
         sizei width, sizei height, sizei depth);
 
-    void LGPUInterlockNVX();
+    void LGPUInterlockNVX(void);
     
 New Tokens
 
