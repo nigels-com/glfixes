@@ -20,11 +20,11 @@ Status
 
     Complete.
     Approved by the EGL Working Group on January 31, 2014.
-    Ratified by the Khronos Board of Promoters on March 14, 2014. 
+    Ratified by the Khronos Board of Promoters on March 14, 2014.
 
 Version
 
-    Version 2, 2014/02/12
+    Version 3, 2016/01/04
 
 Number
 
@@ -227,6 +227,7 @@ Example Code
 
             if (gbm_format == GBM_FORMAT_XRGB8888) {
                 config.egl = configs[i];
+                free(configs);
                 return config;
             }
         }
@@ -282,6 +283,9 @@ Example Code
     }
 
 Revision History
+
+    Version 3, 2016-01-04 (Jon Leech)
+        - Free config memory allocated in sample code (Public Bug 1445).
 
     Version 2, 2014/02/12 (Chad Versace)
         - Change resolution of issue #1 from "no" to "yes". Now
