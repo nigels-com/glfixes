@@ -1560,7 +1560,6 @@
             <command name="eglGetCurrentSurface"/>
             <command name="eglGetDisplay"/>
             <command name="eglGetError"/>
-            <command name="eglGetProcAddress"/>
             <command name="eglInitialize"/>
             <command name="eglMakeCurrent"/>
             <command name="eglQueryContext"/>
@@ -1828,10 +1827,6 @@
                 <enum name="EGL_NO_DEVICE_EXT"/>
                 <enum name="EGL_BAD_DEVICE_EXT"/>
                 <enum name="EGL_DEVICE_EXT"/>
-                <command name="eglQueryDeviceAttribEXT"/>
-                <command name="eglQueryDeviceStringEXT"/>
-                <command name="eglQueryDevicesEXT"/>
-                <command name="eglQueryDisplayAttribEXT"/>
             </require>
         </extension>
         <extension name="EGL_EXT_device_drm" supported="egl">
@@ -2091,10 +2086,6 @@
                 <enum name="EGL_SYNC_PRIOR_COMMANDS_COMPLETE_KHR"/>
                 <enum name="EGL_SYNC_CONDITION_KHR"/>
                 <enum name="EGL_SYNC_FENCE_KHR"/>
-                <command name="eglCreateSyncKHR"/>
-                <command name="eglDestroySyncKHR"/>
-                <command name="eglClientWaitSyncKHR"/>
-                <command name="eglGetSyncAttribKHR"/>
             </require>
         </extension>
         <extension name="EGL_KHR_get_all_proc_addresses" supported="egl"/>
@@ -2144,8 +2135,6 @@
             <require>
                 <enum name="EGL_IMAGE_PRESERVED_KHR"/>
                 <enum name="EGL_NO_IMAGE_KHR"/>
-                <command name="eglCreateImageKHR"/>
-                <command name="eglDestroyImageKHR"/>
             </require>
         </extension>
         <extension name="EGL_KHR_image_pixmap" supported="egl">
@@ -2209,8 +2198,6 @@
                 <enum name="EGL_BITMAP_POINTER_KHR"/>
                 <enum name="EGL_LOWER_LEFT_KHR"/>
                 <enum name="EGL_UPPER_LEFT_KHR"/>
-                <command name="eglLockSurfaceKHR"/>
-                <command name="eglUnlockSurfaceKHR"/>
                 <command name="eglQuerySurface64KHR"/>
             </require>
         </extension>
