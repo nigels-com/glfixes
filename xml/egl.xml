@@ -441,7 +441,10 @@
         <enum value="0x3101" name="EGL_CONTEXT_PRIORITY_HIGH_IMG"/>
         <enum value="0x3102" name="EGL_CONTEXT_PRIORITY_MEDIUM_IMG"/>
         <enum value="0x3103" name="EGL_CONTEXT_PRIORITY_LOW_IMG"/>
-            <unused start="0x3104" end="0x310F"/>
+            <unused start="0x3104"/>
+        <enum value="0x3105" name="EGL_NATIVE_BUFFER_MULTIPLANE_SEPARATE_IMG"/>
+        <enum value="0x3106" name="EGL_NATIVE_BUFFER_PLANE_OFFSET_IMG"/>
+            <unused start="0x3107" end="0x310F"/>
     </enums>
 
     <enums namespace="EGL" start="0x3110" end="0x311F" vendor="ATX" comment="Reserved for Tim Renouf, Antix (Khronos bug 4949)">
@@ -2006,6 +2009,12 @@
                 <enum name="EGL_CONTEXT_PRIORITY_HIGH_IMG"/>
                 <enum name="EGL_CONTEXT_PRIORITY_MEDIUM_IMG"/>
                 <enum name="EGL_CONTEXT_PRIORITY_LOW_IMG"/>
+            </require>
+        </extension>
+        <extension name="EGL_IMG_image_plane_attribs" supported="egl">
+            <require>
+                <enum name="EGL_NATIVE_BUFFER_MULTIPLANE_SEPARATE_IMG"/>
+                <enum name="EGL_NATIVE_BUFFER_PLANE_OFFSET_IMG"/>
             </require>
         </extension>
         <extension name="EGL_KHR_cl_event" supported="egl">
