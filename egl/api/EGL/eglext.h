@@ -6,7 +6,7 @@ extern "C" {
 #endif
 
 /*
-** Copyright (c) 2013-2015 The Khronos Group Inc.
+** Copyright (c) 2013-2016 The Khronos Group Inc.
 **
 ** Permission is hereby granted, free of charge, to any person obtaining a
 ** copy of this software and/or associated documentation files (the
@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 32351 $ on $Date: 2016-01-08 18:53:22 -0800 (Fri, 08 Jan 2016) $
+** Khronos $Revision: 32543 $ on $Date: 2016-03-16 19:41:06 -0700 (Wed, 16 Mar 2016) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20160108
+#define EGL_EGLEXT_VERSION 20160316
 
 /* Generated C header for:
  * API: egl
@@ -249,6 +249,11 @@ typedef EGLBoolean (EGLAPIENTRYP PFNEGLQUERYSURFACE64KHRPROC) (EGLDisplay dpy, E
 EGLAPI EGLBoolean EGLAPIENTRY eglQuerySurface64KHR (EGLDisplay dpy, EGLSurface surface, EGLint attribute, EGLAttribKHR *value);
 #endif
 #endif /* EGL_KHR_lock_surface3 */
+
+#ifndef EGL_KHR_mutable_render_buffer
+#define EGL_KHR_mutable_render_buffer 1
+#define EGL_MUTABLE_RENDER_BUFFER_BIT_KHR 0x1000
+#endif /* EGL_KHR_mutable_render_buffer */
 
 #ifndef EGL_KHR_partial_update
 #define EGL_KHR_partial_update 1

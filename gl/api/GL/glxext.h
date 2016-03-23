@@ -6,7 +6,7 @@ extern "C" {
 #endif
 
 /*
-** Copyright (c) 2013-2015 The Khronos Group Inc.
+** Copyright (c) 2013-2016 The Khronos Group Inc.
 **
 ** Permission is hereby granted, free of charge, to any person obtaining a
 ** copy of this software and/or associated documentation files (the
@@ -33,10 +33,10 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 31597 $ on $Date: 2015-06-25 16:32:35 -0400 (Thu, 25 Jun 2015) $
+** Khronos $Revision: 32433 $ on $Date: 2016-02-10 02:02:08 -0500 (Wed, 10 Feb 2016) $
 */
 
-#define GLX_GLXEXT_VERSION 20150623
+#define GLX_GLXEXT_VERSION 20160209
 
 /* Generated C header for:
  * API: glx

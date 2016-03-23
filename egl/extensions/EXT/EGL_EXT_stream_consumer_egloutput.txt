@@ -22,7 +22,7 @@ Status
 
 Version
 
-    Version 6 - August 22, 2014
+    Version 7 - December 28th, 2015
 
 Number
 
@@ -117,6 +117,19 @@ the EGL_KHR_stream extension with:
     implementation may scale or letterbox the frames, post a blank image
     to the display, or discard the frames without posting.
 
+    Many display mode setting APIs have a mechanism that restricts
+    which of their clients can modify output attributes.  Since
+    EGLOutput stream consumers will need to modify output attributes,
+    they require access to a display mode setting API handle with the
+    appropriate capabilities.  If the application fails to provide
+    access to such permissions or privileged native objects when creating
+    the EGLDisplay associated with an output stream consumer and EGL is
+    not able to acquire them, the behavior of the stream consumer will be
+    undefined.  Similarly, if the application or operating system revokes
+    the output modification permissions provided to the EGLDisplay, or
+    revokes permissions from the privileged native objects provided to
+    the EGLDisplay, future behavior of the stream consumer is undefined.
+
     If <layer> is rebound to a different stream by a subsequent call
     to eglStreamConumerOutputEXT, then <stream> will be placed into the
     EGL_STREAM_STATE_DISCONNECTED_KHR state.
@@ -182,7 +195,29 @@ Issues
         RESOLVED: EGL_SWAP_INTERVAL_EXT added as an attribute to output
         layers in the EGL_EXT_output_base specification.
 
+    6.  How does EGL acquire the necessary capabilities to modify
+        display attributes from the application?
+
+        RESOLVED: The application provides EGL with the necessary
+        permissions or native object handles when creating its EGLDisplay.
+
+    7.  What is the behavior of EGLOutput stream consumers when EGL does
+        not have the necessary permissions to modify output attributes?
+
+        RESOLVED: The behavior is undefined.  Other options would be to
+        block consumption of frames indefinitely until permissions are
+        acquired via unspecified or native mechanisms, or to return
+        frames to the producer immediately when consumption fails due to
+        lack of permissions.  However, both of these options may rely on
+        assumptions about the behavior of the underlying mode setting
+        APIs.  Future extensions may refined the behavior of streams in
+        this case.
+
 Revision History:
+
+    #7  (December 28th, 2015) James Jones
+        - Added issues 6 and 7.
+        - Added language to document the resolution of issues 6 and 7.
 
     #6  (August 22nd, 2014) James Jones
         - Marked complete.

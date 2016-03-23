@@ -31,7 +31,7 @@ Status
 
 Version
 
-    April 10, 2015 (version 9)
+    January 29, 2016 (version 10)
 
 Number
 
@@ -346,7 +346,7 @@ Issues
         Allowing image / load store on external textures enables compute
         shaders to write to these textures.
 
-        A limited set of use-cases is enabled by making glImageBindTexture
+        A limited set of use-cases is enabled by making glBindImageTexture
         accept external textures. Shaders can access such external textures
         using the existing <image2D> sampler type.
 
@@ -359,6 +359,7 @@ Issues
 
 Revision History
 
+    #10 - (Jan 29, 2016) Fixed typo in issue 10. 
     #9 - (Apr 10, 2015) Clarified issue 10. Specified default precision for
                         samplerExternalOES as lowp for all shader stages.
     #8 - (Feb 6, 2015) Fixed typo in return value of textureSize (vec2->ivec2)
