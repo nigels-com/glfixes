@@ -28,8 +28,8 @@ Status
 
 Version
 
-    Last Modified Date: 2 April 2013
-    Author Revision: 2
+    Last Modified Date: 7 March 2016
+    Author Revision: 3
 
 Number
 
@@ -312,7 +312,7 @@ Usage Examples
 
         // Write query result to the primCount field of the indirect draw command
         glBindBuffer(GL_QUERY_BUFFER, drawIndirectBuffer);
-        glGetQueryObjectuiv(queryId, GL_QUERY_RESULT_AVAILABLE,
+        glGetQueryObjectuiv(queryId, GL_QUERY_RESULT,
                             BUFFER_OFFSET(offsetof(DrawArraysIndirectCommand, primCount)));
 
         // Execute the indirect draw command
@@ -412,6 +412,7 @@ Revision History
     Rev.    Date      Author    Changes
     ----  --------    --------  ----------------------------------------------
 
+      3   03/07/2016  drakos    Fixed typo in example #4
       2   04/02/2013  drakos    Added missing function names to the list of
                                 functions accepting QUERY_BUFFER as parameter
       1   03/08/2013  drakos    Initial draft based on AMD_query_buffer_object

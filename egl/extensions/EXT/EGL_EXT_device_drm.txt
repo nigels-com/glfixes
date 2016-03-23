@@ -24,7 +24,7 @@ Status
 
 Version
 
-    Version 4 - August 22, 2014
+    Version 5 - December 28th, 2015
 
 Number
 
@@ -39,6 +39,8 @@ Extension Type
 Dependencies
 
     EGL_EXT_device_drm requires EGL_EXT_device_base.
+
+    EGL_EXT_device_drm interacts with EGL_EXT_platform_device
 
     EGL_EXT_device_drm requires a DRM driver.
 
@@ -92,6 +94,11 @@ New Tokens
 
         EGL_DRM_DEVICE_FILE_EXT                 0x3233
 
+        If EGL_EXT_platform_device is present, the following is accepted
+        in the <attrib_list> of eglGetPlatformDisplayEXT().
+
+        EGL_DRM_MASTER_FD_EXT                   0x333C
+
     Added by EXT_output_drm:
 
         Accepted in the <attrib_list> of eglGetOutputLayersEXT and as
@@ -113,6 +120,30 @@ New Behavior for EXT_device_drm
     eglQueryDeviceStringEXT with <name> set to EGL_DRM_DEVICE_FILE_EXT.
     The function will return a pointer to a string containing the name
     of the device file (e.g. "/dev/dri/cardN").
+
+If EGL_EXT_platform_device is present, replace the last sentence of the
+third paragraph in section 3.2 "Initialization" with the following:
+
+    When <platform> is EGL_PLATFORM_DEVICE_EXT, the only valid attribute
+    name is EGL_DRM_MASTER_FD_EXT.  If specified, the value must be a file
+    descriptor with DRM master permissions on the DRM device associated
+    with the specified EGLDevice, as determined by EGL_DRM_DEVICE_FILE_EXT.
+    If the file descriptor does not refer to the correct DRM device or
+    does not have master permissions, the behavior is undefined.  Calls to
+    eglGetPlatformDeviceEXT() with the same values for <platform> and
+    <native_display> but distinct EGL_DRM_MASTER_FD_EXT values will return
+    separate EGLDisplays.
+
+    If EGL requires the use of the DRM file descriptor beyond the duration
+    of the call to eglGetPlatformDispay(), it will duplicate it.  If no
+    file descriptor is specified and EGL requires one, it will attempt to
+    open the device itself.  Applications should only need to specify a
+    file descriptor in situations where EGL may fail to open a file
+    descriptor itself, generally due to lack of permissions, or when EGL
+    will fail to acquire DRM master permissions due to conflicts with an
+    existing DRM client.  DRM master permissions are only required when EGL
+    must modify output attributes.  This extension does not define any
+    situations in which output attributes will be modified.
 
 New Behavior for EXT_output_drm
 
@@ -141,9 +172,39 @@ New Behavior for EXT_output_drm
 
 Issues
 
-    None
+    1)  Should different values of EGL_DRM_MASTER_FD_EXT result in separate
+        EGLDisplays?
+
+        RESOLVED: Yes.  Consider an application made up of two independent
+        modules running in two independently scheduled threads.  Each
+        module calls eglGetPlatformDisplayEXT():
+
+          int fd = open("/dev/dri/card0", O_RDWR);
+          int attr1[] = { EGL_DRM_MASTER_FD_EXT, fd };
+          dpy1 = eglGetPlatformDisplayEXT(EGL_PLATFORM_DEVICE_EXT,
+                                          eglDev,
+                                          attr1);
+
+        ...
+                                
+          dpy2 = eglGetPlatformDisplayEXT(EGL_PLATFORM_DEVICE_EXT,
+                                          eglDev,
+                                          NULL);
+
+        Presumably, if dpy1 == dpy2, they would both be using the same DRM
+        fd for output operations internally.  That would mean display
+        attribute updates would likely fail if dpy2 happened to be created
+        before dpy1.  This would be painful to debug.  If dpy2 != dpy1,
+        failure for dpy2 would be consistent and obvious.  The application
+        author would be required to work out a scheme to share the master
+        FD between modules before creating EGL displays.
    
 Revision History:
+
+    #5  (December 28th, 2015) James Jones
+        - Added EGL_DRM_MASTER_FD_EXT and associated
+          language.
+        - Added issue 1.
 
     #4  (August 22nd, 2014) James Jones
         - Marked complete.

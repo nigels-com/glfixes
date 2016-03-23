@@ -24,7 +24,7 @@ Status
 
 Version
 
-    Version 4 - August 22, 2014
+    Version 5 - January 21, 2016
 
 Number
 
@@ -43,6 +43,8 @@ Dependencies
     EGL_EXT_output_openwf requires EGL_EXT_output_base.
 
     Both require OpenWF Display
+
+    EGL_EXT_device_openwf interacts with EGL_EXT_platform_device
 
     An EGLDisplay supporting EGL_EXT_output_openwf must be associated
     with an EGLDevice supporting EGL_EXT_device_openwf.
@@ -86,6 +88,11 @@ New Tokens
 
         EGL_OPENWF_DEVICE_ID_EXT                0x3237
 
+        If EGL_EXT_platform_device is present, the following is accepted
+        in the <attrib_list> of eglGetPlatformDisplayEXT().
+
+        EGL_OPENWF_DEVICE_EXT                   0x333D
+
     Added by EXT_output_openwf:
 
         Accepted in the <attrib_list> of eglGetOutputLayersEXT and as
@@ -105,6 +112,27 @@ New Behavior for EXT_device_openwf
     To obtain a WFD_DEVICE_ID for an EGLDeviceEXT, call
     eglQueryDeviceAtribEXT with <attribute> set to
     EGL_OPENWF_DEVICE_ID_EXT.
+
+If EGL_EXT_platform_device is present, replace the last sentence of the
+third paragraph in section 3.2 "Initialization" with the following:
+
+    When <platform> is EGL_PLATFORM_DEVICE_EXT, the only valid attribute
+    name is EGL_OPENWF_DEVICE_EXT.  If specified, the value must be a
+    WFDDevice created with the device ID returned by querying
+    EGL_OPENWF_DEVICE_ID_EXT from the specified EGLDevice.  If the device
+    handle does not refer to the correct OpenWF device the behavior is
+    undefined.  Calls to eglGetPlatformDeviceEXT() with the same values
+    for <platform> and <native_display> but distinct EGL_OPENWF_DEVICE_EXT
+    values will return separate EGLDisplays.
+
+    EGL may require the use of the OpenWF device beyond the duration of
+    the call to eglGetPlatformDisplayEXT().  The application must ensure
+    the device handle remains valid for the lifetime of the display
+    returned.  If no OpenWF device handle is specified and EGL requires
+    one, it will attempt to create the device itself.  Applications
+    should only need to specify an OpenWF device in situations where EGL
+    may fail to create one itself due to an existing instance of the same
+    underlying device in the process.
 
 New Behavior for EXT_output_openwf
 
@@ -145,10 +173,45 @@ Issues
             application would have to first query EGL to determine
             whether or not it owns the handles, and then be prepared to
             either query them from EGL or create them itself.
+        d)  Require the application to provide its OpenWF device handle
+            if it has one.
 
-        PROPOSED RESOLUTION: (a)
+        RESOLVED: (d), though implementations are free to use (a) when
+        possible.
+
+    2.  Should different values of EGL_OPENWF_DEVICE_EXT result in separate
+        EGLDisplays?
+
+        RESOLVED: Yes.  Consider an application made up of two independent
+        modules running in two independently scheduled threads.  Each
+        module calls eglGetPlatformDisplayEXT():
+
+          WFDDevice wfdDev = wfdCreateDevice(WFD_DEFAULT_DEVICE_ID, NULL);
+          int attr1[] = { EGL_OPENWF_DEVICE_EXT, wfdDev };
+          dpy1 = eglGetPlatformDisplayEXT(EGL_PLATFORM_DEVICE_EXT,
+                                          eglDev,
+                                          attr1);
+
+        ...
+                                
+          dpy2 = eglGetPlatformDisplayEXT(EGL_PLATFORM_DEVICE_EXT,
+                                          eglDev,
+                                          NULL);
+
+        Presumably, if dpy1 == dpy2, they would both be using the same
+        WFDDevice for output operations internally.  That would mean
+        output operations would likely fail if dpy2 happened to be created
+        before dpy1.  This would be painful to debug.  If dpy2 != dpy1,
+        failure for dpy2 would be consistent and obvious.  The application
+        author would be required to work out a scheme to share the WFDDevice
+        between modules before creating EGL displays.
 
 Revision History:
+
+    #5  (January 21st, 2016) James Jones
+        - Add EGL_OPENWF_DEVICE_EXT to resolve issue 1.
+        - Added possible solution (d) to issue 1, and resolve to use it.
+        - Added issue 2.
 
     #4  (August 22nd, 2014) James Jones
         - Marked complete.

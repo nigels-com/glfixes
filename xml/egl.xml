@@ -112,6 +112,7 @@
             <!--
         <enum value="0x0800"      name="EGL_STREAM_BIT_NV" comment="Draft EGL_NV_stream_producer_eglsurface extension (bug 8064)"/>
             -->
+        <enum value="0x1000" name="EGL_MUTABLE_RENDER_BUFFER_BIT_KHR"/>
     </enums>
 
     <enums namespace="EGLRenderableTypeMask" type="bitmask" comment="EGL_RENDERABLE_TYPE bits">
@@ -2212,6 +2213,11 @@
                 <command name="eglLockSurfaceKHR"/>
                 <command name="eglUnlockSurfaceKHR"/>
                 <command name="eglQuerySurface64KHR"/>
+            </require>
+        </extension>
+        <extension name="EGL_KHR_mutable_render_buffer" supported="egl">
+            <require>
+                <enum name="EGL_MUTABLE_RENDER_BUFFER_BIT_KHR"/>
             </require>
         </extension>
         <extension name="EGL_KHR_partial_update" supported="egl">
