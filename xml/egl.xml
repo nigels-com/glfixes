@@ -1941,6 +1941,11 @@
                 <enum name="EGL_PLATFORM_X11_SCREEN_EXT"/>
             </require>
         </extension>
+        <extension name="EGL_EXT_protected_content" supported="egl">
+            <require>
+                <enum name="EGL_PROTECTED_CONTENT_EXT"/>
+            </require>
+        </extension>
         <extension name="EGL_EXT_protected_surface" supported="egl">
             <require>
                 <enum name="EGL_PROTECTED_CONTENT_EXT"/>
