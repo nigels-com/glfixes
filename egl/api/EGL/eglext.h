@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 32543 $ on $Date: 2016-03-16 19:41:06 -0700 (Wed, 16 Mar 2016) $
+** Khronos $Revision: 32637 $ on $Date: 2016-04-14 19:17:52 -0700 (Thu, 14 Apr 2016) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20160316
+#define EGL_EGLEXT_VERSION 20160414
 
 /* Generated C header for:
  * API: egl
@@ -648,9 +648,13 @@ EGLAPI EGLSurface EGLAPIENTRY eglCreatePlatformPixmapSurfaceEXT (EGLDisplay dpy,
 #define EGL_PLATFORM_X11_SCREEN_EXT       0x31D6
 #endif /* EGL_EXT_platform_x11 */
 
+#ifndef EGL_EXT_protected_content
+#define EGL_EXT_protected_content 1
+#define EGL_PROTECTED_CONTENT_EXT         0x32C0
+#endif /* EGL_EXT_protected_content */
+
 #ifndef EGL_EXT_protected_surface
 #define EGL_EXT_protected_surface 1
-#define EGL_PROTECTED_CONTENT_EXT         0x32C0
 #endif /* EGL_EXT_protected_surface */
 
 #ifndef EGL_EXT_stream_consumer_egloutput
