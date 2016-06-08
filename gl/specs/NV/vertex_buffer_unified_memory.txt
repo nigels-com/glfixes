@@ -15,6 +15,7 @@ Contributors
     Mark Kilgard, NVIDIA
     Jason Sams, NVIDIA
     Eric Werness, NVIDIA
+    Christoph Kubisch, NVIDIA
 
 Status
 
@@ -22,8 +23,8 @@ Status
 
 Version
 
-    Last Modified Date: September 9, 2009
-    Author Revision: 1.0
+    Last Modified Date: July 8, 2015
+    Author Revision: 4
 
 Number
 
@@ -38,6 +39,8 @@ Dependencies
     This extension interacts with EXT_direct_state_access. 
 
     This extension interacts with ARB_compatibility.
+    
+    This extension interacts with OpenGL 3.2
 
 Overview
 
@@ -97,12 +100,14 @@ New Tokens
         FOG_COORD_ARRAY_ADDRESS_NV                     0x8F28
         ELEMENT_ARRAY_ADDRESS_NV                       0x8F29
 
-    Accepted by the <target> parameter of GetIntegeri_vNV:    
+    Accepted by the <target> parameter of GetIntegeri_vNV or
+    GetIntegerui64i_vNV:
 
         VERTEX_ATTRIB_ARRAY_LENGTH_NV                  0x8F2A
         TEXTURE_COORD_ARRAY_LENGTH_NV                  0x8F2F
 
-    Accepted by the <value> parameter of GetIntegerv:
+    Accepted by the <value> parameter of GetIntegerv or
+    GetIntegerui64vNV:
 
         VERTEX_ARRAY_LENGTH_NV                         0x8F2B
         NORMAL_ARRAY_LENGTH_NV                         0x8F2C
@@ -227,26 +232,32 @@ New State
     VERTEX_ATTRIB_ARRAY_UNIFIED_NV        B      IsEnabled           FALSE       2.9     none
     ELEMENT_ARRAY_UNIFIED_NV              B      IsEnabled           FALSE       2.9     none
     VERTEX_ATTRIB_ARRAY_ADDRESS_NV     16*Z64+   GetIntegerui64i_vNV   0         2.9     none
-    VERTEX_ATTRIB_ARRAY_LENGTH_NV       16*Z+    GetIntegeri_v         0         2.9     none
+    VERTEX_ATTRIB_ARRAY_LENGTH_NV      16*Z64+   GetIntegeri_v         0         2.9     none
     VERTEX_ARRAY_ADDRESS_NV              Z64+    GetIntegerui64vNV     0         2.9     none
-    VERTEX_ARRAY_LENGTH_NV                Z+     GetIntegerv           0         2.9     none
+    VERTEX_ARRAY_LENGTH_NV               Z64+    GetIntegerv           0         2.9     none
     NORMAL_ARRAY_ADDRESS_NV              Z64+    GetIntegerui64vNV     0         2.9     none
-    NORMAL_ARRAY_LENGTH_NV                Z+     GetIntegerv           0         2.9     none
+    NORMAL_ARRAY_LENGTH_NV               Z64+    GetIntegerv           0         2.9     none
     COLOR_ARRAY_ADDRESS_NV               Z64+    GetIntegerui64vNV     0         2.9     none
-    COLOR_ARRAY_LENGTH_NV                 Z+     GetIntegerv           0         2.9     none
+    COLOR_ARRAY_LENGTH_NV                Z64+    GetIntegerv           0         2.9     none
     INDEX_ARRAY_ADDRESS_NV               Z64+    GetIntegerui64vNV     0         2.9     none
-    INDEX_ARRAY_LENGTH_NV                 Z+     GetIntegerv           0         2.9     none
+    INDEX_ARRAY_LENGTH_NV                Z64+    GetIntegerv           0         2.9     none
     TEXTURE_COORD_ARRAY_ADDRESS_NV      8*Z64+   GetIntegerui64i_vNV   0         2.9     none
-    TEXTURE_COORD_ARRAY_LENGTH_NV        8*Z+    GetIntegeri_v         0         2.9     none
+    TEXTURE_COORD_ARRAY_LENGTH_NV       8*Z64+   GetIntegeri_v         0         2.9     none
     EDGE_FLAG_ARRAY_ADDRESS_NV           Z64+    GetIntegerui64vNV     0         2.9     none
-    EDGE_FLAG_ARRAY_LENGTH_NV             Z+     GetIntegerv           0         2.9     none
+    EDGE_FLAG_ARRAY_LENGTH_NV            Z64+    GetIntegerv           0         2.9     none
     SECONDARY_COLOR_ARRAY_ADDRESS_NV     Z64+    GetIntegerui64vNV     0         2.9     none
-    SECONDARY_COLOR_ARRAY_LENGTH_NV       Z+     GetIntegerv           0         2.9     none
+    SECONDARY_COLOR_ARRAY_LENGTH_NV      Z64+    GetIntegerv           0         2.9     none
     FOG_COORD_ARRAY_ADDRESS_NV           Z64+    GetIntegerui64vNV     0         2.9     none
-    FOG_COORD_ARRAY_LENGTH_NV             Z+     GetIntegerv           0         2.9     none
+    FOG_COORD_ARRAY_LENGTH_NV            Z64+    GetIntegerv           0         2.9     none
     ELEMENT_ARRAY_ADDRESS_NV             Z64+    GetIntegerui64vNV     0         2.9     none
-    ELEMENT_ARRAY_LENGTH_NV               Z+     GetIntegerv           0         2.9     none
+    ELEMENT_ARRAY_LENGTH_NV              Z64+    GetIntegerv           0         2.9     none
 
+Interactions with OpenGL 3.2
+
+    If the context version is greater or equal version 3.2, querying 
+    all *_LENGTH_NV values can be done via GetInteger64v
+    as well as GetInteger64i_v.
+    
 Dependencies on NV_shader_buffer_load:
 
     This extension relies on the mechanisms to get addresses and make
@@ -413,3 +424,4 @@ Revision History
      2    06/30/09  jbolz     Defined interaction with deprecated 
                               client state commands.
      3    09/09/09  mjk       Assigned number + fixed typos
+     4    07/08/15  ckubisch  64-bit Gets for *_LENGTH_NV, interaction with 3.2

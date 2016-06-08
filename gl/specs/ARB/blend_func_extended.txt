@@ -16,6 +16,7 @@ Contributors
     Jeff Bolz, NVIDIA
     Pat Brown, NVIDIA
     Ian Stewart, NVIDIA
+    Mark Kilgard, NVIDIA
 
 Contact
 
@@ -33,8 +34,8 @@ Status
 
 Version
 
-    Last Modified Date:         02/05/2010
-    Author Revision:            12
+    Last Modified Date:         05/22/2015
+    Author Revision:            13
 
 Number
 
@@ -151,7 +152,7 @@ Additions to Chapter 3 of the OpenGL 3.2 Specification (Compatibility Profile) (
       * if more than one varying out variable is bound to the same number and
         index; or
 
-      * if the explicit binding assigments do not leave enough space for the
+      * if the explicit binding assignments do not leave enough space for the
         linker to automatically assign a location for a varying out array,
         which requires multiple contiguous locations.
 
@@ -332,7 +333,7 @@ Errors
     implicitly calls Begin if any draw buffer has a blend function requiring the
     second color input (SRC1_COLOR, ONE_MINUS_SRC1_COLOR, SRC1_ALPHA or
     ONE_MINUS_SRC1_ALPHA), and a framebuffer is bound that has more than
-    the value of MAX_DUAL_SOURCE_DRAW_BUFFERS-1 active color attachements.
+    the value of MAX_DUAL_SOURCE_DRAW_BUFFERS-1 active color attachments.
 
 New State
 
@@ -470,6 +471,7 @@ Revision History
 
     Rev.    Date      Author    Changes
     ----  --------    --------  -----------------------------------------
+    13    05/22/2015  mjk       Fix misspellings
     12    02/05/2010  istewart  Add interactions with NV_gpu_program5.
     11    01/26/2010  pbrown    Assign enum values.
     10    01/14/2010  pbrown    Add spec language allowing for a link error if

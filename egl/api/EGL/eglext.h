@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 32637 $ on $Date: 2016-04-14 19:17:52 -0700 (Thu, 14 Apr 2016) $
+** Khronos $Revision: 32938 $ on $Date: 2016-06-06 17:56:15 -0700 (Mon, 06 Jun 2016) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20160414
+#define EGL_EGLEXT_VERSION 20160606
 
 /* Generated C header for:
  * API: egl
@@ -434,10 +434,27 @@ EGLAPI void EGLAPIENTRY eglSetBlobCacheFuncsANDROID (EGLDisplay dpy, EGLSetBlobF
 #endif
 #endif /* EGL_ANDROID_blob_cache */
 
+#ifndef EGL_ANDROID_create_native_client_buffer
+#define EGL_ANDROID_create_native_client_buffer 1
+#define EGL_NATIVE_BUFFER_USAGE_ANDROID   0x3143
+#define EGL_NATIVE_BUFFER_USAGE_PROTECTED_BIT_ANDROID 0x00000001
+#define EGL_NATIVE_BUFFER_USAGE_RENDERBUFFER_BIT_ANDROID 0x00000002
+#define EGL_NATIVE_BUFFER_USAGE_TEXTURE_BIT_ANDROID 0x00000004
+typedef EGLClientBuffer (EGLAPIENTRYP PFNEGLCREATENATIVECLIENTBUFFERANDROIDPROC) (const EGLint *attrib_list);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLClientBuffer EGLAPIENTRY eglCreateNativeClientBufferANDROID (const EGLint *attrib_list);
+#endif
+#endif /* EGL_ANDROID_create_native_client_buffer */
+
 #ifndef EGL_ANDROID_framebuffer_target
 #define EGL_ANDROID_framebuffer_target 1
 #define EGL_FRAMEBUFFER_TARGET_ANDROID    0x3147
 #endif /* EGL_ANDROID_framebuffer_target */
+
+#ifndef EGL_ANDROID_front_buffer_auto_refresh
+#define EGL_ANDROID_front_buffer_auto_refresh 1
+#define EGL_FRONT_BUFFER_AUTO_REFRESH_ANDROID 0x314C
+#endif /* EGL_ANDROID_front_buffer_auto_refresh */
 
 #ifndef EGL_ANDROID_image_native_buffer
 #define EGL_ANDROID_image_native_buffer 1
@@ -455,6 +472,15 @@ typedef EGLint (EGLAPIENTRYP PFNEGLDUPNATIVEFENCEFDANDROIDPROC) (EGLDisplay dpy,
 EGLAPI EGLint EGLAPIENTRY eglDupNativeFenceFDANDROID (EGLDisplay dpy, EGLSyncKHR sync);
 #endif
 #endif /* EGL_ANDROID_native_fence_sync */
+
+#ifndef EGL_ANDROID_presentation_time
+#define EGL_ANDROID_presentation_time 1
+typedef khronos_stime_nanoseconds_t EGLnsecsANDROID;
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLPRESENTATIONTIMEANDROIDPROC) (EGLDisplay dpy, EGLSurface surface, EGLnsecsANDROID time);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglPresentationTimeANDROID (EGLDisplay dpy, EGLSurface surface, EGLnsecsANDROID time);
+#endif
+#endif /* EGL_ANDROID_presentation_time */
 
 #ifndef EGL_ANDROID_recordable
 #define EGL_ANDROID_recordable 1
@@ -853,6 +879,11 @@ typedef EGLBoolean (EGLAPIENTRYP PFNEGLPOSTSUBBUFFERNVPROC) (EGLDisplay dpy, EGL
 EGLAPI EGLBoolean EGLAPIENTRY eglPostSubBufferNV (EGLDisplay dpy, EGLSurface surface, EGLint x, EGLint y, EGLint width, EGLint height);
 #endif
 #endif /* EGL_NV_post_sub_buffer */
+
+#ifndef EGL_NV_robustness_video_memory_purge
+#define EGL_NV_robustness_video_memory_purge 1
+#define EGL_GENERATE_RESET_ON_VIDEO_MEMORY_PURGE_NV 0x334C
+#endif /* EGL_NV_robustness_video_memory_purge */
 
 #ifndef EGL_NV_stream_consumer_gltexture_yuv
 #define EGL_NV_stream_consumer_gltexture_yuv 1

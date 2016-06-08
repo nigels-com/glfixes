@@ -20,8 +20,8 @@ Status
 
 Version
 
-    Last Modified Date: June 24, 2013
-    Revision: 2
+    Last Modified Date: July 6, 2015
+    Revision: 3
 
 Number
 
@@ -83,7 +83,8 @@ Additions to Chapter 10 of the OpenGL 4.3 (Core) Specification (OpenGL Operation
     defines an offset (in bytes) into the buffer object bound to the
     PARAMETER_BUFFER_ARB binding point at which a single <sizei> typed value
     is stored, which contains the draw count. <maxDrawCount> specifies the
-    maximum number of draws that are expected to be stored in the buffer.
+    maximum number of draws that are expected to be stored in the buffer,
+    and as in ARB_indirect_parameters the buffer must be sized accordingly.
     If the value stored at <drawCount> into the buffer is greater than
     <maxDrawCount>, an implementation may stop processing draws after
     <maxDrawCount> parameter sets.
@@ -111,7 +112,8 @@ Additions to Chapter 10 of the OpenGL 4.3 (Core) Specification (OpenGL Operation
     <drawCount> defines an offset (in bytes) into the buffer object bound
     to the PARAMETER_BUFFER_ARB binding point at which a single <sizei> typed
     value is stored, which contains the draw count. <maxDrawCount> specifies
-    the maximum number of draws that are expected to be stored in the buffer.
+    the maximum number of draws that are expected to be stored in the buffer,
+    and as in ARB_indirect_parameters the buffer must be sized accordingly.
     If the value stored at <drawCount> into the buffer is greater than
     <maxDrawCount>, an implementation may stop processing draws after
     <maxDrawCount> parameter sets.
@@ -174,5 +176,7 @@ Revision History
 
     Rev.    Date      Author	Changes
     ----  --------    --------	-----------------------------------------
+     3    07/06/2015  ckubisch  stress that indirect buffer must be able to 
+                                store <maxDrawCount> commands
      2	  06/24/2013  ckubisch	Sync to ARB_indirect_parameters
      1	  06/14/2013  ckubisch	Initial draft

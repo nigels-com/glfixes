@@ -23,8 +23,8 @@ Status
 
 Version
 
-    Last Modified Date:         2/14/2014
-    NVIDIA Revision:            3
+    Last Modified Date:         7/21/2015
+    NVIDIA Revision:            4
 
 Number
 
@@ -265,7 +265,7 @@ Modifications to The OpenGL Shading Language Specification, Version 4.30
     primitive, fragment shader invocations will still be generated.  The
     implementation may compute differences between values in these threads to
     estimate derivatives for dFdx(), dFdy(), and for texture lookups with
-    automatic LOD calcuations.
+    automatic LOD calculations.
 
     Fragments may have different locations in the quads based on the type of
     render target.
@@ -273,10 +273,10 @@ Modifications to The OpenGL Shading Language Specification, Version 4.30
     When rendering to a window, fragments within a quad follow this pattern:
     
         ---------------------------------------------------
-        | gl_ThreadInWarpNV 4N+2 | gl_ThreadInWarpNV 4N+3 |
+        | gl_ThreadInWarpNV 4N+0 | gl_ThreadInWarpNV 4N+1 |
         |     pixel (X+0,Y+1)    |     pixel (X+1,Y+1)    |
         ---------------------------------------------------
-        | gl_ThreadInWarpNV 4N+0 | gl_ThreadInWarpNV 4N+1 |
+        | gl_ThreadInWarpNV 4N+2 | gl_ThreadInWarpNV 4N+3 |
         |     pixel (X+0,Y+0)    |     pixel (X+1,Y+0)    |
         ---------------------------------------------------
 
@@ -285,10 +285,10 @@ Modifications to The OpenGL Shading Language Specification, Version 4.30
     pattern:
     
         ---------------------------------------------------
-        | gl_ThreadInWarpNV 4N+0 | gl_ThreadInWarpNV 4N+1 |
+        | gl_ThreadInWarpNV 4N+2 | gl_ThreadInWarpNV 4N+3 |
         |     pixel (X+0,Y+1)    |     pixel (X+1,Y+1)    |
         ---------------------------------------------------
-        | gl_ThreadInWarpNV 4N+2 | gl_ThreadInWarpNV 4N+3 |
+        | gl_ThreadInWarpNV 4N+0 | gl_ThreadInWarpNV 4N+1 |
         |     pixel (X+0,Y+0)    |     pixel (X+1,Y+0)    |
         ---------------------------------------------------
     
@@ -994,6 +994,8 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+     4     7/21/15  jbreton    Update the layout of threads within a quad for
+                               window and framebuffer object rendering.
      3     2/14/14  jbreton    Rename the extension from NVX to NV.
      2      9/4/13  jbreton    Add helperThread attribute binding.   
      1    12/19/12  jbreton    Internal revisions.

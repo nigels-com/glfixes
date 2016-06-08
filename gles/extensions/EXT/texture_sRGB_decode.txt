@@ -19,7 +19,7 @@ Contributors
     Dan Omachi, Apple Inc
     Jason Green, TransGaming
     Daniel Koch, NVIDIA
-    Mathias Heyer, NVIDIA    
+    Mathias Heyer, NVIDIA
 
 Contact
 
@@ -31,8 +31,8 @@ Status
 
 Version
 
-    Date: August 14, 2013
-    Revision: 0.89
+    Date: April 27, 2016
+    Revision: 0.90
 
 Number
 
@@ -44,13 +44,13 @@ Dependencies
     OpenGL 2.1 or EXT_texture_sRGB requried for OpenGL
 
     OpenGL ES 3.0 or EXT_sRGB are required for OpenGL ES
-    
+
     OpenGL 3.0 or later interacts with this extension.
 
     OpenGL ES 2.0 interacts with this extension.
 
     OpenGL ES 3.0 interacts with this extension.
-    
+
     ARB_sampler_objects interacts with this extension.
 
     ARB_framebuffer_object interacts with this extension.
@@ -60,11 +60,11 @@ Dependencies
     EXT_texture_compression_s3tc interacts with this extension.
 
     EXT_texture_integer interacts with this extension.
-    
+
     EXT_sRGB interacts with this extension.
-    
+
     NV_sRGB_formats interacts with this extension.
-    
+
     NV_generate_mipmap_sRGB interacts with this extension.
 
     KHR_texture_compression_astc_ldr interacts with this extension.
@@ -73,31 +73,31 @@ Dependencies
 
     This extension is written against the OpenGL 2.1 (December 1, 2006)
     specification.
- 
+
 Overview
- 
+
     The EXT_texture_sRGB extension (promoted to core in OpenGL 2.1)
     provides a texture format stored in the sRGB color space. Sampling one
     of these textures will always return the color value decoded into a
     linear color space. However, an application may wish to sample and
     retrieve the undecoded sRGB data from the texture and manipulate
     that directly.
- 
+
     This extension adds a Texture Parameter and Sampler Object parameter to
     allow sRGB textures to be read directly, without decoding.
-    
-    The new parameter, TEXTURE_SRGB_DECODE_EXT controls whether the 
-    decoding happens at sample time. It only applies to textures with an 
-    internal format that is sRGB and is ignored for all other textures. 
-    This value defaults to DECODE_EXT, which indicates the texture 
+
+    The new parameter, TEXTURE_SRGB_DECODE_EXT controls whether the
+    decoding happens at sample time. It only applies to textures with an
+    internal format that is sRGB and is ignored for all other textures.
+    This value defaults to DECODE_EXT, which indicates the texture
     should be decoded to linear color space.
- 
+
 New Procedures and Functions
- 
+
     None
- 
+
 New Tokens
- 
+
     Accepted by the <pname> parameter of TexParameterf, TexParameteri,
     TexParameterfv, TexParameteriv, TexParameterIiv, TexParameterIuiv,
     TexParameterIivEXT, TexParameterIuivEXT, TextureParameterfEXT,
@@ -117,7 +117,7 @@ New Tokens
     SamplerParameteriv, SamplerParameterfv, SamplerParameterIiv,
     SamplerParameterIuiv, GetSamplerParameteriv, GetSamplerParameterfv,
     GetSamplerParameterIiv, and GetSamplerParameterIuiv:
- 
+
         TEXTURE_SRGB_DECODE_EXT        0x8A48
 
     Accepted by the <param> parameter of TexParameterf, TexParameteri,
@@ -133,15 +133,15 @@ New Tokens
 
         DECODE_EXT             0x8A49
         SKIP_DECODE_EXT        0x8A4A
-        
+
 Additions to Chapter 3 of the 2.1 Specification (Rasterization)
 
     Add 1 new row to Table 3.18 (page 169).
-    
+
     Name                       Type       Initial value     Legal values
     ----                       ----       -------------     ------------
     TEXTURE_SRGB_DECODE_EXT    enum        DECODE_EXT       DECODE_EXT, SKIP_DECODE_EXT
-    
+
 -- OpenGL: Section 3.8.8, Texture Minification
 
     Add to the end of the "Automatic Mipmap Generation" subsection:
@@ -178,7 +178,7 @@ Additions to Chapter 3 of the 2.1 Specification (Rasterization)
     (section was previously titled sRGB Color Conversion)
 
     Replace current text with the following:
-    
+
     If the currently bound texture's internal format is one
     of SRGB_EXT, SRGB8_EXT, SRGB_ALPHA_EXT, SRGB8_ALPHA8_EXT,
     SLUMINANCE_ALPHA_EXT, SLUMINANCE8_ALPHA8_EXT, SLUMINANCE_EXT,
@@ -208,24 +208,40 @@ Additions to Chapter 3 of the 2.1 Specification (Rasterization)
             {  1,                          cs >= 1
 
     Assume cs is the sRGB component in the range [0,1].
-    
-    If the TEXTURE_SRGB_DECODE_EXT parameter is SKIP_DECODE_EXT, the value 
+
+    If the TEXTURE_SRGB_DECODE_EXT parameter is SKIP_DECODE_EXT, the value
     is returned without decoding. The TEXTURE_SRGB_DECODE_EXT
     parameter state is ignored for any texture with an internal format
     not explicitly listed above, as no decoding needs to be done.
-    
+
+--- OpenGL ES 3.2: Section 8.21, sRGB Texture Color Conversion
 --- OpenGL ES 3.0: Section 3.8.16, sRGB Texture Color Conversion
 --- OpenGL ES 2.0: Section 3.7.14, sRGB Texture Color Conversion
 
-    Add to the end of the paragraph:
-    "The conversion of sRGB color space components to linear color space
-     will only be performed if the TEXTURE_SRGB_DECODE_EXT parameter
-     is DECODE_EXT. If the TEXTURE_SRGB_DECODE_EXT parameter is
-     SKIP_DECODE_EXT, the value is returned without decoding.
-     The TEXTURE_SRGB_DECODE_EXT parameter state is ignored for any
-     texture with an internal format not explicitly listed above,
-     as no decoding needs to be done."
-    
+    Add after the first paragraph of the section:
+
+   "The conversion of sRGB color space components to linear color space is
+    always performed if the texel lookup function is one of the texelFetch
+    builtin functions.
+
+    Otherwise, if the texel lookup function is one of the texture builtin
+    functions or one of the texture gather functions, the conversion of sRGB
+    color space components to linear color space is controlled by the
+    TEXTURE_SRGB_DECODE_EXT parameter.
+
+    If the TEXTURE_SRGB_DECODE_EXT parameter is DECODE_EXT, the conversion
+    of sRGB color space components to linear color space is performed.
+
+    If the TEXTURE_SRGB_DECODE_EXT parameter is SKIP_DECODE_EXT, the value
+    is returned without decoding. However, if the texture is also accessed
+    with a texelFetch function, then the result of texture builtin functions
+    and/or texture gather functions may be returned with decoding or without
+    decoding.
+
+    The TEXTURE_SRGB_DECODE_EXT parameter state is ignored for any texture
+    with an internal format not explicitly listed above, as no decoding
+    needs to be done."
+
 Dependencies on ARB_sampler_objects or OpenGL 3.3 or later
 
     If ARB_sampler_objects or OpenGL 3.3 or later is NOT supported,
@@ -239,7 +255,7 @@ Dependencies on ARB_framebuffer_object or OpenGL 3.0 or later
 
 Dependencies on EXT_texture_compression_s3tc
 
-    If EXT_texture_compression_s3tc is NOT supported, delete 
+    If EXT_texture_compression_s3tc is NOT supported, delete
     COMPRESSED_SRGB_S3TC_DXT1_EXT, COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT,
     COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT, and
     COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT from Section 3.8.15.
@@ -270,18 +286,18 @@ Dependencies on OpenGL 3.0
     If OpenGL 3.0 or later is NOT supported, delete references
     to TexParameterIiv, TexParameterIuiv, GetTexParameterIiv,
     and GetTexParameterIuiv.
-    
+
 Interactions with OpenGL ES
 
     If OpenGL ES 3.0 is NOT supported, delete references
     to TexParameterIiv, TexParameterIuiv, GetTexParameterIiv,
     and GetTexParameterIuiv, GetTexParameterfv, GetTexParameteriv.
-    
+
     If OpenGL ES 3.0 or NV_generate_mipmap_sRGB is supported,
-    TEXTURE_SRGB_DECODE_EXT will control the linearization of sRGB 
+    TEXTURE_SRGB_DECODE_EXT will control the linearization of sRGB
     texture levels while generating the mipmap levels. The section
     "Automatic Mipmap Generation" applies to glGenerateMipmap instead.
-    
+
     If neither OpenGL ES 3.0 nor NV_sampler_objects is supported,
     delete all references to SamplerParameter* and GetSamplerParameter*.
 
@@ -290,22 +306,22 @@ Interactions with OpenGL ES
 
 Interactions with KHR_texture_compression_astc_ldr
 
-    If KHR_texture_compression_astc_ldr is supported, the 
+    If KHR_texture_compression_astc_ldr is supported, the
     TEXTURE_SRGB_DECODE_EXT texture and/or sampler parameter affects the
     COMPRESSED_SRGB8_ALPHA8_ASTC_*_KHR formats as described in the Section
     3.8.16 edits.
 
 Interactions with ETC2 compressed texture formats
 
-    If the ETC2 texture compression formats (part of OpenGL ES 3.0 and OpenGL 
-    4.3) are supported, the TEXTURE_SRGB_DECODE_EXT texture and/or sampler 
+    If the ETC2 texture compression formats (part of OpenGL ES 3.0 and OpenGL
+    4.3) are supported, the TEXTURE_SRGB_DECODE_EXT texture and/or sampler
     parameter affects the COMPRESSED_SRGB8_*ETC2* formats as described in the
     Section 3.8.16 edits.
 
 Interactions with NV_sRGB_formats
 
     If NV_sRGB_formats is supported, the TEXTURE_SRGB_DECODE_EXT texture and/or
-    sampler parameter affects the new SRGB and SLUMINANCE formats as described 
+    sampler parameter affects the new SRGB and SLUMINANCE formats as described
     in the Section 3.7.14 edits.
 
 Errors
@@ -356,18 +372,18 @@ Issues
 
     2) Should this allow for filters other than NEAREST on undecoded
        sRGB values?
-    
+
         RESOLVED: YES
-        
+
         Hardware supports this, and it is left up to the programmer.
 
     3) Do we generate an error if TEXTURE_SRGB_DECODE_EXT is changed for normal
        textures?
-       
+
         RESOLVED: NO
-        
+
         This is similar to the ARB_shadow and ARB_framebuffer_sRGB extensions - the flag
-        is ignored for non-sRGB texture internal formats. 
+        is ignored for non-sRGB texture internal formats.
 
     4) Should we add forward-looking support for ARB_sampler_objects?
 
@@ -375,7 +391,7 @@ Issues
 
         If ARB_sampler_objects exists in the implementation, the sampler
         objects should also include this parameter per sampler.
-        
+
     5) What is the expense of changing the sRGB-ness of a texture without
        this extension?
 
@@ -414,12 +430,12 @@ Issues
         fixed-point unsigned textures where sRGB color conversion makes
         sense.  And the initial value of the parameter (GL_DECODE_EXT) would be
         appropriate for sRGB texture formats but not conventional linear
-        texture formats (as no decoding needs to be done). Having the 
-        
+        texture formats (as no decoding needs to be done). Having the
+
         texture parameter apply just to sRGB texture eliminates the ambiguity
         of which conventional texture formats can and cannot have sRGB decoding
         applied to them. This also eliminates the burden of having every future
-        
+
         texture format extension specify whether or not the sRGB decoding parameter
         applies to them.
 
@@ -625,6 +641,8 @@ Revision History
 
         Rev.    Date    Author    Changes
         ----  --------  --------  -------------------------------------
+        0.90  04/27/16  Jon Leech Add interaction with texelFetch builtins
+                                  (Bug 14934)
         0.89  08/14/13  dkoch     Add interactions with ASTC/ETC2/NV_sRGB_formats
         0.88  07/24/13  mheyer    Add OpenGL ES interactions
         0.87  08/22/11  mjk       correction to issue #8 from Jason
@@ -634,11 +652,11 @@ Revision History
                                   fix table Get Command.
         0.83  07/15/11  mjk       "current texture unit" -> "texture
                                   object" for mipmap generation
-        0.82  04/12/11  mjk       Mipmap generation interactions. 
-        0.81  11/18/10  mattc     Fixed language in error section. 
+        0.82  04/12/11  mjk       Mipmap generation interactions.
+        0.81  11/18/10  mattc     Fixed language in error section.
                                   Cleaned up which functions take which tokens.
         0.8   11/18/10  mattc     Added issues from EXT_texture_sRGB_decode
-                                  
+
                                   for background info. Cleaned up layout.
         0.71  11/18/10  mattc     Adapted apple_texture_linearize_srgb into
                                   this specification.

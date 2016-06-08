@@ -16,6 +16,7 @@ Contributors
     Piers Daniell, NVIDIA
     Markus Tavenrath, NVIDIA
     Eric Werness, NVIDIA
+    Vincent Zhang, NVIDIA
 
 Status
 
@@ -23,8 +24,8 @@ Status
 
 Version
 
-    Last Modified Date: January 5, 2015
-    Revision: 2
+    Last Modified Date: July 3rd, 2015
+    Revision: 3
 
 Number
 
@@ -115,10 +116,10 @@ Specification and Drawing Commands)
             generate appropriate error
         else {
             GLuint64 vtxAddresses[MAX_VERTEX_ATTRIBS];
-            GLuint64 vtxLengths[MAX_VERTEX_ATTRIBS];
+            GLsizeiptr vtxLengths[MAX_VERTEX_ATTRIBS];
             for (i = 0; i < MAX_VERTEX_ATTRIBS) {
               GetIntegerui64i_vNV(VERTEX_ATTRIB_ARRAY_ADDRESS_NV,i,&vtxAddresses[i]);
-              GetIntegerui64i_vNV(VERTEX_ATTRIB_ARRAY_LENGTH_NV ,i,&vtxLengths[i]);
+              GetInteger64i_v(VERTEX_ATTRIB_ARRAY_LENGTH_NV ,i,&vtxLengths[i]);
             }
         
             const ubyte * ptr = (const ubyte *)indirect;
@@ -140,7 +141,6 @@ Specification and Drawing Commands)
                 if (stride == 0)
                 {
                     ptr +=  sizeof(DrawArraysIndirectCommand) + 
-                            sizeof(GLuint) +
                            (sizeof(BindlessPtrNV) * vertexBufferCount);
                 } else
                 {
@@ -191,16 +191,16 @@ Specification and Drawing Commands)
         if (<mode> or <type> is invalid)
             generate appropriate error
         else {
-            GLuint64 idxAddress;
-            GLuint64 idxLength;
+            GLuint64   idxAddress;
+            GLsizeiptr idxLength;
             GetIntegerui64vNV(ELEMENT_ARRAY_ADDRESS_NV,&idxAddress);
-            GetIntegerui64vNV(ELEMENT_ARRAY_LENGTH_NV,&idxLength);
+            GetInteger64v(ELEMENT_ARRAY_LENGTH_NV,&idxLength);
             
             GLuint64 vtxAddresses[MAX_VERTEX_ATTRIBS];
-            GLuint64 vtxLengths[MAX_VERTEX_ATTRIBS];
+            GLsizeiptr vtxLengths[MAX_VERTEX_ATTRIBS];
             for (i = 0; i < MAX_VERTEX_ATTRIBS) {
               GetIntegerui64i_vNV(VERTEX_ATTRIB_ARRAY_ADDRESS_NV,i,&vtxAddresses[i]);
-              GetIntegerui64i_vNV(VERTEX_ATTRIB_ARRAY_LENGTH_NV ,i,&vtxLengths[i]);
+              GetInteger64i_v(VERTEX_ATTRIB_ARRAY_LENGTH_NV ,i,&vtxLengths[i]);
             }
             
             const ubyte * ptr = (const ubyte *)indirect;
@@ -228,7 +228,7 @@ Specification and Drawing Commands)
                 
                 if (stride == 0)
                 {
-                    ptr +=  sizeof(DrawArraysIndirectCommand) + 
+                    ptr +=  sizeof(DrawElementsIndirectCommand) + 
                             sizeof(GLuint) +
                             sizeof(BindlessPtrNV) + 
                            (sizeof(BindlessPtrNV) * vertexBufferCount);
@@ -323,3 +323,6 @@ Revision History
      2    1/5/2015    ckubisch  bugfix, remove of "reserved" in
                                 DrawArraysIndirectBindlessCommandNV
                                 added reference to NV_command_list
+     3    7/3/2015    ckubisch  bugfix, wrong math used in the "if (stride == 0)" 
+                                pointer advancing. GLsizeiptr for length instead of
+                                GLuint64

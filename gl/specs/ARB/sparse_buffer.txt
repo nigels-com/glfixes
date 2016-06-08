@@ -22,14 +22,14 @@ Notice
 
 Status
 
-    Complete. 
+    Complete.
     Approved by the ARB on June 26, 2014.
     Ratified by the Khronos Board of Promoters on August 7, 2014.
 
 Version
 
-    Last Modified Date:         5/16/2014
-    Author Revision:            3
+    Last Modified Date:         5/31/2016
+    Author Revision:            4
 
 Number
 
@@ -37,7 +37,7 @@ Number
 
 Dependencies
 
-    OpenGL 1.5 or GL_ARB_vertex_buffer_object is required.
+    OpenGL 4.4 is required.
 
     This extension interacts with EXT_direct_state_access.
 
@@ -230,7 +230,9 @@ Revision History
 
     Rev.    Date      Author    Changes
     ----  --------    --------  ---------------------------------------------
-      3   5/16/2014   criccio   Added interactions with 
+      4   5/31/2016   Jon Leech Change dependency from GL 1.5 + ARB_vbo to
+                                GL 4.4 (Bug 14117).
+      3   5/16/2014   criccio   Added interactions with
                                 GL_ARB_direct_state_access
       2   4/17/2014   gsellers  Make it illegal to create a mappable sparse
                                 buffer. Add DSA entry point. Change name of
