@@ -25,10 +25,11 @@ Contributors
     Larry Seiler, Intel
     Daniel Koch, Transgaming
     Anthony Wood, Imagination Technologies
+    Andrew Garrard, Samsung
 
 Notice
 
-    Copyright (c) 2013 The Khronos Group Inc. Copyright terms at
+    Copyright (c) 2013-2016 The Khronos Group Inc. Copyright terms at
             http://www.khronos.org/registry/speccopyright.html
 
 IP Status
@@ -41,7 +42,7 @@ Status
 
 Version
 
-    Last Modified Date: June 25, 2013
+    Last Modified Date: March 9, 2016
 
 Number
 
@@ -328,7 +329,7 @@ Additions to Appendix C of the OpenGL ES 3.0 Specification (Compressed
 
     ASTC textures may be encoded using either high or low dynamic range.
     Low dynamic range images may optionally be specified using the sRGB
-    color space.
+    color space for the RGB channels.
 
     Two sub-profiles ("LDR Profile" and "HDR Profile") may be implemented,
     which support only 2D images at low or high dynamic range respectively.
@@ -1821,13 +1822,13 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
     For LDR endpoint modes, each color component C is calculated from the
     corresponding 8-bit endpoint components C0 and C1 as follows:
 
-    If sRGB conversion is not enabled, C0 and C1 are first expanded to
-    16 bits by bit replication:
+    If sRGB conversion is not enabled, or for the alpha channel in any case,
+    C0 and C1 are first expanded to 16 bits by bit replication:
 
         C0 = (C0 << 8) | C0;        C1 = (C1 << 8) | C1;
 
-    If sRGB conversion is enabled, C0 and C1 are expanded to 16 bits
-    differently, as follows:
+    If sRGB conversion is enabled, C0 and C1 for the R, G, and B channels
+    are expanded to 16 bits differently, as follows:
 
         C0 = (C0 << 8) | 0x80;  C1 = (C1 << 8) | 0x80;
 
@@ -1836,10 +1837,11 @@ R   Weight Range  Trits  Quints  Bits       Weight Range  Trits  Quints  Bits
         C = floor( (C0*(64-i) + C1*i + 32)/64 )
 
     If sRGB conversion is enabled, the top 8 bits of the interpolation
-    result are passed to the external sRGB conversion block. Otherwise, if
-    C = 65535, then the final result is 1.0 (0x3C00) otherwise C is divided
-    by 65536 and the infinite-precision result of the division is converted
-    to FP16 with round-to-zero semantics.
+    result for the R, G and B channels are passed to the external sRGB
+    conversion block. Otherwise, if C = 65535, then the final result is
+    1.0 (0x3C00) otherwise C is divided by 65536 and the infinite-precision
+    result of the division is converted to FP16 with round-to-zero
+    semantics.
 
     For HDR endpoint modes, color values are represented in a 12-bit
     pseudo-logarithmic representation, and interpolation occurs in a
@@ -2266,3 +2268,8 @@ Additions to Appendix E of the OpenGL ES 3.0 Specification (Version 3.0
     and before)
 
     None
+
+Revision History
+
+    Revision 2, March 8, 2016 - Clarified that sRGB transform is not
+    applied to Alpha channel.

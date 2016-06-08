@@ -26,8 +26,8 @@ Status
 
 Version
 
-    Last Modified Date:         February 26, 2014
-    NVIDIA Revision:            8
+    Last Modified Date:         September 30, 2014
+    NVIDIA Revision:            9
 
 Number
 
@@ -500,6 +500,21 @@ Operations and the Frame Buffer)
         return maxv3(c) - minv3(c);
       }
 
+      // If any color components are outside [0,1], adjust the color to
+      // get the components in range.
+      vec3 ClipColor(vec3 color) {
+        float lum = lumv3(color);
+        float mincol = minv3(color);
+        float maxcol = maxv3(color);
+        if (mincol < 0.0) {
+          color = lum + ((color-lum)*lum) / (lum-mincol);
+        }
+        if (maxcol > 1.0) {
+          color = lum + ((color-lum)*lum) / (maxcol-lum);
+        }
+        return color;
+      }
+
       // Take the base RGB color <cbase> and override its luminosity
       // with that of the RGB color <clum>.
       vec3 SetLum(vec3 cbase, vec3 clum) {
@@ -507,13 +522,7 @@ Operations and the Frame Buffer)
         float llum = lumv3(clum);
         float ldiff = llum - lbase;
         vec3 color = cbase + vec3(ldiff);
-        if (minv3(color) < 0.0) {
-          return llum + ((color-llum)*llum) / (llum-minv3(color));
-        } else if (maxv3(color) > 1.0) {
-          return llum + ((color-llum)*(1-llum)) / (maxv3(color)-llum);
-        } else {
-          return color;
-        }
+        return ClipColor(color);
       }
 
       // Take the base RGB color <cbase> and override its saturation with
@@ -1669,6 +1678,9 @@ Revision History
     
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
+     9    09/30/14  pbrown    Fix incorrectly specified color clamping in
+                              the HSL blend modes.
+
      8    02/26/14  pbrown    For non-coherent blending, clarify that all
                               writes to a sample are considered to "touch"
                               that sample and require a BlendBarrierOES call

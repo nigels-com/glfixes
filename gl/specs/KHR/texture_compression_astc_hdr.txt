@@ -26,6 +26,7 @@ Contributors
     Daniel Koch, NVIDIA
     Anthony Wood, Imagination Technologies
     Jon Leech
+    Andrew Garrard, Samsung
 
 IP Status
 
@@ -33,8 +34,8 @@ IP Status
 
 Notice
 
-    Copyright (c) 2012-2015 The Khronos Group Inc. Copyright terms at
-        http://www.khronos.org/registry/speccopyright.html
+    Copyright (c) 2012-2016 The Khronos Group Inc. Copyright terms at
+            http://www.khronos.org/registry/speccopyright.html
 
 Status
 
@@ -46,7 +47,7 @@ Status
 
 Version
 
-    Version 5, September 15, 2015
+    Version 6, March 8, 2016
 
 Number
 
@@ -251,7 +252,7 @@ Texture Image Formats)
     The LDR profile supports two-dimensional images for texture targets
     TEXTURE_2D. TEXTURE_2D_ARRAY, the six texture cube map face targets, and
     TEXTURE_CUBE_MAP_ARRAY. These images may optionally be specified using
-    the sRGB color space.
+    the sRGB color space for the RGB channels.
 
     The HDR profile is a superset of the LDR profile, and also supports
     texture target TEXTURE_3D for images made up of multiple two-dimensional
@@ -1680,13 +1681,13 @@ Texture Image Formats)
     For LDR endpoint modes, each color component C is calculated from the
     corresponding 8-bit endpoint components C0 and C1 as follows:
 
-    If sRGB conversion is not enabled, C0 and C1 are first expanded to
-    16 bits by bit replication:
+    If sRGB conversion is not enabled, or for the alpha channel in any case,
+    C0 and C1 are first expanded to 16 bits by bit replication:
 
         C0 = (C0 << 8) | C0;        C1 = (C1 << 8) | C1;
 
-    If sRGB conversion is enabled, C0 and C1 are expanded to 16 bits
-    differently, as follows:
+    If sRGB conversion is enabled, C0 and C1 for the R, G, and B channels
+    are expanded to 16 bits differently, as follows:
 
         C0 = (C0 << 8) | 0x80;  C1 = (C1 << 8) | 0x80;
 
@@ -1695,10 +1696,11 @@ Texture Image Formats)
         C = floor( (C0*(64-i) + C1*i + 32)/64 )
 
     If sRGB conversion is enabled, the top 8 bits of the interpolation
-    result are passed to the external sRGB conversion block. Otherwise, if
-    C = 65535, then the final result is 1.0 (0x3C00) otherwise C is divided
-    by 65536 and the infinite-precision result of the division is converted
-    to FP16 with round-to-zero semantics.
+    result for the R, G and B channels are passed to the external sRGB
+    conversion block. Otherwise, if C = 65535, then the final result is
+    1.0 (0x3C00) otherwise C is divided by 65536 and the infinite-precision
+    result of the division is converted to FP16 with round-to-zero
+    semantics.
 
     For HDR endpoint modes, color values are represented in a 12-bit
     pseudo-logarithmic representation, and interpolation occurs in a
@@ -2104,6 +2106,9 @@ Issues
     texture interactions.
 
 Revision History
+
+    Revision 6, March 8, 2016 - Clarified that sRGB transform is not
+    applied to Alpha channel.
 
     Revision 5, September 15, 2015 - fix typo in third paragraph of section
     8.7.
