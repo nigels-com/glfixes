@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 32907 $ on $Date: 2016-05-31 17:15:14 -0700 (Tue, 31 May 2016) $
+** Khronos $Revision: 32953 $ on $Date: 2016-06-09 10:43:20 -0700 (Thu, 09 Jun 2016) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20160531 */
+/* Generated on date 20160609 */
 
 /* Generated C header for:
  * API: gles2
@@ -1940,6 +1940,20 @@ GL_APICALL void GL_APIENTRY glTextureViewEXT (GLuint texture, GLenum target, GLu
 #define GL_UNPACK_SKIP_ROWS_EXT           0x0CF3
 #define GL_UNPACK_SKIP_PIXELS_EXT         0x0CF4
 #endif /* GL_EXT_unpack_subimage */
+
+#ifndef GL_EXT_window_rectangles
+#define GL_EXT_window_rectangles 1
+#define GL_INCLUSIVE_EXT                  0x8F10
+#define GL_EXCLUSIVE_EXT                  0x8F11
+#define GL_WINDOW_RECTANGLE_EXT           0x8F12
+#define GL_WINDOW_RECTANGLE_MODE_EXT      0x8F13
+#define GL_MAX_WINDOW_RECTANGLES_EXT      0x8F14
+#define GL_NUM_WINDOW_RECTANGLES_EXT      0x8F15
+typedef void (GL_APIENTRYP PFNGLWINDOWRECTANGLESEXTPROC) (GLenum mode, GLsizei count, const GLint *box);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glWindowRectanglesEXT (GLenum mode, GLsizei count, const GLint *box);
+#endif
+#endif /* GL_EXT_window_rectangles */
 
 #ifndef GL_FJ_shader_binary_GCCSO
 #define GL_FJ_shader_binary_GCCSO 1
