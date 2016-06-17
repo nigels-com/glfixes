@@ -10,6 +10,7 @@ Contributors
 
     Pat Brown
     Mike Strauss
+    Mark Kilgard
 
 Contact
 
@@ -21,8 +22,8 @@ Status
 
 Version
 
-    Last Modified Date:         07/27/2010
-    NVIDIA Revision:            11
+    Last Modified Date:         06/09/2016
+    NVIDIA Revision:            12
 
 Number
 
@@ -381,13 +382,13 @@ State Requests)
     DEPTH_CLEAR_VALUE  R   GetFloatv    1    Depth buffer clear value 4.2.3 depth-buffer
 
 
-    Add DEPTH_BUFFER_FLOAT_MODE entry to table 6.32 (Implementation Dependent Values) p. 293
+    Add DEPTH_BUFFER_FLOAT_MODE_NV entry to table 6.32 (Implementation Dependent Values) p. 293
 
-                                             Init
-    Get Value               Type Get Command Value Description                 Sec  Attribute
-    ----------------------- ---- ----------- ----  --------------------------- ---- ------------
-    DEPTH_BUFFER_FLOAT_MODE B    GetBooleanv  -    True if depth buffer uses a  4     -
-                                                   floating-point represnetation
+                                                Init
+    Get Value                  Type Get Command Value Description                 Sec  Attribute
+    -------------------------- ---- ----------- ----  --------------------------- ---- ------------
+    DEPTH_BUFFER_FLOAT_MODE_NV B    GetBooleanv  -    True if depth buffer uses a  4     -
+                                                      floating-point represnetation
 
 
 Additions to Appendix A of the OpenGL 2.0 Specification (Invariance)
@@ -567,6 +568,8 @@ Revision History
 
     Rev.    Date    Author       Changes
     ----  --------  --------     -----------------------------------------
+    12    06/09/16  mjk          Added missing _NV suffixing
+
     11    07/27/10  srahman      GLX protocol added. 
 
     10    01/30/09  rsrinivasiah Define interaction with ARB_depth_buffer_float

@@ -15,6 +15,7 @@ Contributors
     Eric Werness, NVIDIA Corporation
     Ingo Esser, NVIDIA Corporation
     Pat Brown, NVIDIA Corporation
+    Mark Kilgard, NVIDIA Corporation
 
 Status
 
@@ -22,8 +23,8 @@ Status
 
 Version
 
-    Last Modified Date:         May 20, 2016
-    NVIDIA Revision:            1
+    Last Modified Date:         June 1, 2016
+    NVIDIA Revision:            2
 
 Number
 
@@ -79,8 +80,8 @@ New Tokens
     Accepted by the <pname> parameter of GetBooleani_v, GetDoublei_v,
     GetIntegeri_v, GetFloati_v, and GetInteger64i_v:
 
-        VIEWPORT_POSITION_W_SCALE_X_COEFF       0x937D
-        VIEWPORT_POSITION_W_SCALE_Y_COEFF       0x937E
+        VIEWPORT_POSITION_W_SCALE_X_COEFF_NV    0x937D
+        VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV    0x937E
 
 Additions to Chapter 13 of the OpenGL 4.5 (Compatibility Profile)
 Specification (Fixed-Function Vertex Post-Processing)
@@ -141,14 +142,15 @@ New Implementation Dependent State
     None.
 
 New State
-                                                               Initial
-    Get Value                           Get Command    Type    Value     Description                  Sec.    Attribute
-    ---------                           -----------    ----    -------   -----------                  ----    ---------
-    VIEWPORT_POSITION_W_SCALE_NV        IsEnabled      B       FALSE     Enable W coordinate Scaling  13.X    enable
-    VIEWPORT_POSITION_W_SCALE_X_COEFF   GetFloati_v    R       0         x coefficient for the w      13.X    viewport
-                                                                         coordinate scaling equation
-    VIEWPORT_POSITION_W_SCALE_Y_COEFF   GetFloati_v    R       0         y coefficient for the w      13.X    viewport
-                                                                         coordinate scaling equation
+
+                                                                 Initial
+    Get Value                             Get Command    Type    Value     Description                  Sec.    Attribute
+    ------------------------------------  -----------    ----    -------   -----------                  ----    ---------
+    VIEWPORT_POSITION_W_SCALE_NV          IsEnabled      B       FALSE     Enable W coordinate Scaling  13.X    enable
+    VIEWPORT_POSITION_W_SCALE_X_COEFF_NV  GetFloati_v    R       0         x coefficient for the w      13.X    viewport
+                                                                           coordinate scaling equation
+    VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV  GetFloati_v    R       0         y coefficient for the w      13.X    viewport
+                                                                           coordinate scaling equation
 
 Additions to the AGL/GLX/WGL/EGL Specifications
 
@@ -224,3 +226,5 @@ Revision History
 
     Revision 1
       - Internal revisions.
+    Revision 2
+      - Add _NV suffixes to _COEFF tokens
