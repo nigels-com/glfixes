@@ -16,6 +16,8 @@ Contributors
     Mark Callow, Khronos
     Chris Dalton, NVIDIA
     Arthur Huillet, NVIDIA
+    Ilia Mirkin
+    Marek Olsak, AMD
     Brian Paul, VMware Inc.
     Brian Salomon, Google
     Walt Steiner, NVIDIA
@@ -28,8 +30,8 @@ Status
 
 Version
 
-    Last Modified Date:  2016/06/09
-    NVIDIA Revision:     12
+    Last Modified Date:  2016/06/27
+    Public Revision:     2
 
 Number
 
@@ -427,7 +429,7 @@ New Implementation Dependent State
 
     Get Value                  Type  Get Command  Minimum Value  Description        Sec     Attribute
     -------------------------  ----  -----------  -------------  -----------------  ------  --------------
-    MAX_WINDOW_RECTANGLES_EXT  Z+    GetIntegerv  8              Maximum num of     17.3.X  -
+    MAX_WINDOW_RECTANGLES_EXT  Z+    GetIntegerv  4              Maximum num of     17.3.X  -
                                                                  window rectangles
 
 Issues
@@ -753,8 +755,17 @@ Issues
 
         RESOLVED:  Yes, the API and functionality is identical.
 
+    28) What should the minimum implementation-dependent limit for
+        GL_MAX_WINDOW_RECTANGLES_EXT be?
+
+        RESOLVED:  4 (was 8 originally).
+
+        While NVIDIA GPUs can support 8 window rectangles, feedback from
+        AMD is they could support the extension if the limit was 4.
+
 Revision History
 
     Rev.    Date    Author     Changes
     ----  -------- ---------  ------------------------------------------------
     1     06/09/16 mjk        Public release
+    2     06/27/16 mjk        Change limit to 4 based on AMD feedback
