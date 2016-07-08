@@ -19,6 +19,7 @@ Contributors
     Markus Tavenrath, NVIDIA
     Mark Kilgard, NVIDIA
     Joseph Emmons, NVIDIA
+    Thomas Ludwig, MAXON
 
 Status
 
@@ -26,8 +27,8 @@ Status
 
 Version
 
-    Last Modified Date: June 18, 2015
-    Revision: 4
+    Last Modified Date: November 3, 2015
+    Revision: 6
 
 Number
 
@@ -220,9 +221,7 @@ Add a new subsection 10.X.1 (State Objects)
 
     This rendering state includes:
 
-    - Vertex attribute enable state, formats, types, relative offsets and strides, but
-      not bound vertex buffers or vertex unified addresses, nor their offsets,
-      nor bound index buffers/addresses.
+    - Vertex attribute enable state, formats, types, relative offsets and strides.
       
     - Primitive state such as primitive restart and patch parameters, provoking vertex.
       
@@ -231,13 +230,12 @@ Add a new subsection 10.X.1 (State Objects)
       
     - All active program binaries except compute (either from the active 
       program pipeline or from UseProgram) with their current subroutine 
-      configuration excluding all default-block uniform values.
+      configuration.
     
     - Rasterization, multisample fragment operation, depth, stencil, and 
       blending state.
       
-    - Rasterization state such as line widths, stippling, polygon modes
-      and offsets.
+    - Rasterization state such as stippling and polygon modes and offsets.
 
     - Viewport, scissor, and depth range state.
 
@@ -245,7 +243,26 @@ Add a new subsection 10.X.1 (State Objects)
       formats, drawbuffer state, and target/layer information, but not including 
       actual attachments or sizes of attachments (these are stored separately).
      
-    - Framebuffer attachment textures (but not residency state).
+    - Framebuffer attachment textures (but not their residency state).
+    
+    It does NOT include:
+
+    - Bound vertex buffers or vertex unified addresses, or their offsets,
+      or bound index buffers/addresses.
+
+    - Other program-related bindings, such as shader storage buffers, atomic counter buffers, texture
+      and sampler bindings.
+
+    - Default-block uniform values from active programs
+
+    - Blending constant color, front and back stencil reference values, alpha test threshold.
+
+    - Polygon offset values.
+
+    - Viewport and scissor rectangle for viewport index zero.
+
+    Essentially all state that can be manupulated by the commands listed in 10.X.2 (Drawing with Commands)
+    is excluded from the state capture.
      
     INVALID_ENUM is generated if <mode> is not a basic primitive mode, as listed
     in Table 10.X.1.2.
@@ -273,12 +290,17 @@ Add a new subsection 10.X.2 (Drawing with Commands)
     offsets <indirects> into a buffer named by <buffer>, or an array of GPU 
     addresses <indirects>), and an array of sequence lengths in <sizes>. 
     All arrays have <count> entries.
+    The current binding state of vertex, element and uniform buffers will not be
+    effective but must be set via commands within the buffer, other state will
+    however be inherited from the current OpenGL context.
+
     INVALID_ENUM is generated if <mode> is not an accepted value.
+    INVALID_VALUE is generated if <buffer> is not a valid buffer object.
     INVALID_OPERATION is generated if a geometry shader is active and <mode> is 
     incompatible with the input primitive type of the geometry shader in the currently
     installed program object.
-    INVALID_OPERATION is generated if a non-zero buffer object name is bound to an
-    enabled array or the element array and the buffer object's data store is currently mapped. 
+    INVALID_OPERATION is generated if the default (zero) frame buffer object is
+    currently bound as DRAW_FRAMEBUFFER, a non-zero frame buffer object is required.
     
     DrawCommandsNV and DrawCommandsAddressNV are equivalent to:
 
@@ -910,7 +932,6 @@ Issues
     aggressive) filtering will also occur in unlisted DrawCommandsStates 
     commands.
 
-
     2) Should binding state be captured?
 
     Binding state should not be captured, for multiple reasons. 
@@ -923,7 +944,6 @@ Issues
     Resource bindings also require behind-the-scenes management of internal
     GPU structures like texture handles. Again, this can be replaced by the 
     bindless APIs.
-
 
     3) What FBO state should be captured?
 
@@ -938,19 +958,11 @@ Issues
     other compatible FBOs during rendering is possible. Furthermore the
     VIEWPORT_COMMAND_NV allows setting the appropriate viewport state.
 
-
     4) Can UBOs be accessed? How?
 
     RESOLVED: We want to encourage the "first level of the scene graph" information read
     by shaders to be accessed with fast UBO memory accesses. 
     UNIFORM_ADDRESS_COMMAND_NV provides this mechanism.
-    
-    5) How can I use textures, images, shader storage or atomic counter buffers in combination with state objects?
-    
-    Textures and images are covered via NV/ARB_bindless_texture, you can store their handles inside uniform buffers.
-    Shader storage and atomic counter buffers are currently not directly exposed, however NV_gpu_shader5 allows 
-    storing pointers to such buffers inside uniform buffers as well. Atomic counters can be replaced by regular
-    atomic increments.
 
     5) What about Compute?
 
@@ -1067,11 +1079,25 @@ Issues
     
     You will find related samples at https://github.com/nvpro-samples
     
+    25) How can I use textures, images, shader storage or atomic counter buffers in combination with state objects?
+
+    Textures and images are covered via NV/ARB_bindless_texture, you can store their handles inside uniform buffers.
+    Shader storage and atomic counter buffers are currently not directly exposed, however NV_gpu_shader5 allows
+    storing pointers to such buffers inside uniform buffers as well. Atomic counters can be replaced by regular
+    atomic increments.
+
+    Alternatively use DrawCommandsNV or DrawCommandsAddressNV, which does support any GLSL programs with these
+    resource bindings, as well as default-block uniforms.
+
 
 Revision History
 
     Rev.    Date      Author    Changes
     ----  --------    --------  -----------------------------------------
+     6    11/3/2015   ckubisch  Rephrase what stateobjects capture and what not
+     5    8/17/2015   ckubisch  correct errors for DrawCommandsNV and DrawCommandsAddressNV
+                                rendering to default framebuffer is not allowed. Clarify
+                                which state is inherited (updated Issue 25).
      4    6/18/2015   ckubisch  Add missing interaction with ARB_shader_draw_parameters
      3    5/27/2015   jemmons   Multiple minor fixes and clarifications
      2    4/16/2015   pboudier  Fix incorrect type (size_t is now sizei) in ListDrawCommandsStatesClientNV

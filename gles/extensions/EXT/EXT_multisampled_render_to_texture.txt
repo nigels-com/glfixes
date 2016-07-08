@@ -21,8 +21,8 @@ Status
 
 Version
 
-    Last Modified Date: April 6, 2016
-    Revision: 6
+    Last Modified Date: June 28, 2016
+    Revision: 7
 
 Number
 
@@ -158,14 +158,17 @@ Additions to Section 4.4.3 of the OpenGL ES 2.0 Specification
                 enum attachment, enum textarget, uint texture, 
                 int level, sizei samples );
         enables multisampled rendering into the images of a texture object.
-			
+
         target, textarget, texture, and level correspond to the same
         parameters for FramebufferTexture2D and have the same restrictions.	
         attachment must be COLOR_ATTACHMENT0. If samples is greater than the 
         value of MAX_SAMPLES_EXT, then the error INVALID_VALUE is generated. 
-        If samples is zero, then TEXTURE_SAMPLES_EXT is set to zero, and 
-        FramebufferTexture2DMultisampleEXT behaves like FramebufferTexture2D.
-		
+        An INVALID_OPERATION error is generated if samples is greater than
+        the maximum number of samples supported for target and its
+        internalformat. If samples is zero, then TEXTURE_SAMPLES_EXT is set
+        to zero, and FramebufferTexture2DMultisampleEXT behaves like
+        FramebufferTexture2D.
+
         Otherwise samples represents a request for a desired minimum number 
         of samples. Since different implementations may support different 
         sample counts for multisampled rendering, the actual number of samples 
@@ -205,6 +208,13 @@ Additions to Section 4.4.3 of the OpenGL ES 2.0 Specification
 	
 Additions to section 4.4.5 of the OpenGL ES 2.0 Specification
 (Framebuffer Completeness)
+
+    Add the following bullet point to the list of conditions for
+    Framebuffer Attachment Completeness:
+
+       * The number of texture samples (as set by FramebufferTexture2DMultisampleEXT)
+         must be less than or equal to the maximum number of samples supported for
+         the  internal format of _image_.
 
     Add the following bullet point after 
         * All attached images have the same width and height.
@@ -260,6 +270,11 @@ Dependencies on GL and ES profiles, versions, and other extensions
            Texture2DMultisampleEXT.
            { GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT }"
 
+       Add to the description of FramebufferTexture2DMultisampleEXT (first
+       paragraph):
+           "The maximum number of samples supported can be determined by calling
+           GetInternalformativ with a pname of SAMPLES."
+
 Errors
 
     The error OUT_OF_MEMORY is generated when 
@@ -282,6 +297,10 @@ Errors
     TEXTURE_CUBE_MAP_POSITIVE_X, TEXTURE_CUBE_MAP_POSITIVE_Y, 
     TEXTURE_CUBE_MAP_POSITIVE_Z, TEXTURE_CUBE_MAP_NEGATIVE_X, 
     TEXTURE_CUBE_MAP_NEGATIVE_Y, or TEXTURE_CUBE_MAP_NEGATIVE_Z.
+
+    The error INVALID_OPERATION is generated if FramebufferTexture2DMultisampleEXT
+    is called with <samples> greater than the maximum number of samples supported
+    for <target> and its internalformat.
 
 New State
 
@@ -468,6 +487,11 @@ Issues
     FramebufferTexture2DMultisampleEXT.
 
 Revision History
+
+    Revision 7, 2016/06/28
+     - Clarified that it is an error to call FramebufferTexture2DMultisampleEXT
+       with a sample count higher than what is supported for the given internalformat.
+     - Added Framebuffer Attachment Completeness rule.
 
     Revision 6, 2016/04/06
      - Updating interactions with OpenGL ES 3.0 and added the related

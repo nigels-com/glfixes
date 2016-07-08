@@ -55,8 +55,8 @@ Status
 
 Version
 
-    Last Modified Date: September 23, 2013
-    Revision: #121
+    Last Modified Date: May 3, 2016
+    Revision: #122
 
 Number
     310
@@ -2108,9 +2108,38 @@ Dependencies on ARB_framebuffer_object and OpenGL 3.0
     GL_EXT_framebuffer_object extension are defined to be shared, while
     FBOs created with commands defined by the OpenGL core or
     GL_ARB_framebuffer_object extension are defined *not* to be shared.
-    Undefined behavior results when using FBOs created by EXT commands
-    through non-EXT interfaces, or vice-versa.
+    However, the following functions are viewed as aliases (in particular
+    the opcodes for X are also the same) between the functions of
+    GL_EXT_framebuffer_object and GL_ARB_framebuffer_object:
 
+      IsRenderbufferEXT             / IsRenderbuffer
+      DeleteRenderbuffersEXT        / DeleteRenderbuffers
+      GenRenderbuffersEXT           / GenRenderbuffers
+      RenderbufferStorageEXT        / RenderbufferStorage
+      GetRenderbufferParameterivEXT / GetRenderbufferParameteriv
+      IsFramebufferEXT              / IsFramebuffer
+      DeleteFramebuffersEXT         / DeleteFramebuffers
+      GenFramebuffersEXT            / GenFramebuffers
+      CheckFramebufferStatusEXT     / CheckFramebufferStatus
+      FramebufferTexture1DEXT       / FramebufferTexture1D
+      FramebufferTexture2DEXT       / FramebufferTexture2D
+      FramebufferRenderbufferEXT    / FramebufferRenderbuffer
+      GenerateMipmapEXT             / GenerateMipmap
+      GetFramebufferAttachmentParameterivEXT / GetFramebufferAttachmentParameteriv
+
+   Since the above pairs are aliases, the functions of a pair are
+   equivalent.  Note that the functions BindFramebuffer and
+   BindFramebufferEXT are not aliases and neither are the functions
+   BindRenderbuffer and BindRenderbufferEXT.  Because object creation
+   occurs when the framebuffer object is bound for the first time, a
+   framebuffer object can be shared across contexts only if it was first
+   bound with BindFramebufferEXT.  Framebuffers first bound with
+   BindFramebuffer may not be shared across contexts.  Framebuffer
+   objects created with BindFramebufferEXT may subsequently be bound
+   using BindFramebuffer.  Framebuffer objects created with
+   BindFramebuffer may be bound with BindFramebufferEXT provided they are
+   bound to the same context they were created on.
+   
 Dependencies on ARB_texture_rectangle
 
     If ARB_texture_rectangle is not supported, then all references to
@@ -6744,10 +6773,9 @@ Issues
 
             ADDITIONAL COMMENTS:
 
-            Undefined behavior results when using FBOs created by EXT
-            commands through non-EXT FBO interfaces, or vice-versa. See
-            the "Dependencies on ARB_framebuffer_object and OpenGL 3.0"
-            section above.
+            See the "Dependencies on ARB_framebuffer_object and OpenGL 3.0"
+            section above for the interaction behaviour between EXT and
+            non-EXT FBO interfaces.
 
     (77) If the application deletes an object and that object contains
          an image which is attached to a framebuffer object, exactly
@@ -7313,6 +7341,10 @@ Issues
          violated.
 
 Revision History
+    #122, May 3, 2016: Kevin Rogvin, James Jones
+        - Specify behaviour of mixing EXT and ARB_framebuffer_object /
+          OpenGL 3.0 framebuffer objects so that the aliases of the
+          functions are correctly observed (Bug 1485)
     #121, September 23, 2013: Jon Leech
         - Specify that undefined behavior results when mixing EXT and
           ARB_framebuffer_object / OpenGL 3.0 API framebuffer objects
