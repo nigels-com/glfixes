@@ -6,7 +6,7 @@
 	<meta name="MSSmartTagsPreventParsing" content="true" />
 	<meta name="viewport" content="width=device-width" />
 
-	<link type="text/css" rel="stylesheet" media="all" href="/assets/tools/min/?g=css_main&amp;1507b" />
+	<link type="text/css" rel="stylesheet" media="all" href="/assets/tools/min/?g=css_main&amp;1609a" />
 
 	<!--[if lt IE 9]><link href="/assets/css/ie.css" rel="stylesheet" type="text/css" media="all" /><![endif]-->
 	<!--[if lt IE 8]><link href="/assets/css/ie7.css" rel="stylesheet" type="text/css" media="all" /><![endif]-->
@@ -114,6 +114,8 @@ ga('require', 'displayfeatures');
                             <li><a href="/developers/library/">Presentation Library</a></li>
                             <li><a href="/developers/reference-cards/">Reference Guides</a></li>
                             <li><a href="/developers/books/">Books</a></li>
+                            <li><a href="/developers/training/">Training &amp; Courses</a></li>
+                            <li><a href="/store/">Store</a></li>
                             <li class="divider"></li>
                             <li><a href="/developers/jobs">Jobs</a></li>
                             <li><a href="/rfq">Request for Quotes</a></li>
@@ -141,9 +143,7 @@ ga('require', 'displayfeatures');
         			<a class="dropdown-toggle" href="/members" title="Khronos Membership information" data-toggle="dropdown">Membership <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                             <li><a href="/members/">Join the Khronos Group</a></li>
-                            <li><a href="/members/academic">Academic Members</a></li>
-                            <li><a href="/members/contributors">Contributor Members</a></li>
-                            <li><a href="/members/promoters">Promoter Members</a></li>
+                            <li><a href="/members/list">Khronos Members</a></li>
                             <li><a href="/members/ip-framework">IP Framework</a></li>
                             <li class="divider"></li>
                             <li><a href="/members/signup"><b>Create an account</b></a></li>
@@ -177,38 +177,6 @@ ga('require', 'displayfeatures');
 	
 </header>
 
-
-<section id="khr_slider" class="slider container shadow closed">
-	<div class="slider_nav_block">
-		<ul class="slider_nav_ctrl">
-		    <li class="icon_25 home_icon"><a href="#slider_khronosgroup">Khronos Group homepage</a></li>
-			<li class="icon_25 toggle_icon"><a href="#top">Toggle Khronos APIs</a></li>
-		</ul>
-		<ul class="slider_nav slider_nav clearfix">
-			<li><a href="/vulkan" title="#slider_vulkan">Vulkan™</a><a style="display: none;" href="/vulkan" title="Vulkan homepage"></a></li>
-			<li><a href="/opencl" title="#slider_opencl">OpenCL™</a></li>
-			<li><a href="/opengl" title="#slider_opengl">OpenGL®</a><a style="display: none;" href="/opengl" title="OpenGL homepage"></a></li>
-			<li><a href="/opengles" title="#slider_opengles">OpenGL® ES</a><a style="display: none;" href="/opengles" title="OpenGL ES homepage"></a></li>
-			<li><a href="/webgl" title="#slider_webgl">WebGL™</a><a style="display: none;" href="/webgl" title="WebGL homepage"></a></li>
-			<li><a href="/webcl" title="#slider_webcl">WebCL™</a><a style="display: none;" href="/webcl" title="WebCL homepage"></a></li>
-			<li><a href="/collada" title="#slider_collada">COLLADA™</a><a style="display: none;" href="/collada" title="COLLADA homepage"></a></li>
-			<li><a href="/gltf" title="#slider_gltf">glTF™</a><a style="display: none;" href="/gltf" title="glTF homepage"></a></li>
-			<li><a href="/egl" title="#slider_egl">EGL™</a><a style="display: none;" href="/egl" title="EGL homepage"></a></li>
-			<li><a href="/opensles" title="#slider_opensles">OpenSL ES™</a><a style="display: none;" href="/opensles" title="OpenSL ES homepage"></a></li>
-			<li><a href="/openmax" title="#slider_openmax">OpenMAX™</a><a style="display: none;" href="/openmax" title="OpenMAX homepage"></a></li>
-			<li><a href="/spir" title="#slider_spir">SPIR™</a><a style="display: none;" href="/spir" title="SPIR homepage"></a></li>
-			<li><a href="/sycl" title="#slider_sycl">SYCL™</a><a style="display: none;" href="/sycl" title="SYCL homepage"></a></li>
-			<li><a href="/streaminput" title="#slider_streaminput">StreamInput™</a><a style="display: none;" href="/streaminput" title="StreamInput homepage"></a></li>
-			<li><a href="/openvx" title="#slider_openvx">OpenVX</a><a style="display: none;" href="/openvx" title="OpenVX homepage"></a></li>
-			<li><a href="/safetycritical" title="#slider_openglsc">Safety Critical</a><a style="display: none;" href="/safetycritical" title="Safety Critical homepage"></a></li>
-			<li><a href="/openkcam" title="#slider_camera">OpenKCam™</a><a style="display: none;" href="/openkcam" title="OpenKCam homepage"></a></li>
-			<li><a href="/openvg" title="#slider_openvg">OpenVG™</a><a style="display: none;" href="/openvg" title="OpenVG homepage"></a></li>
-			<li><a href="/dataformat" title="#slider_dataformat">Data Format</a><a style="display: none;" href="/dataformat" title="Data Format homepage"></a></li>
-			<li><a href="/other" title="#slider_other">Other</a><a style="display: none;" href="/other" title="Other Technologies homepage"></a></li>
-		</ul>
-	</div>
-	<div id="slider_content"></div>
-</section><!-- slider -->
 
 <section>
 	<div class="breadcrumb">
@@ -346,6 +314,7 @@ ga('require', 'displayfeatures');
 <li value=31> <a href="extensions/NV/EGL_NV_system_time.txt">EGL_NV_system_time</a>
 </li>
 <li value=32> <a href="extensions/KHR/EGL_KHR_stream.txt">EGL_KHR_stream</a>
+     <br> <a href="extensions/KHR/EGL_KHR_stream.txt">EGL_KHR_stream_attrib</a>
 </li>
 <li value=33> <a href="extensions/KHR/EGL_KHR_stream_consumer_gltexture.txt">EGL_KHR_stream_consumer_gltexture</a>
 </li>
@@ -484,6 +453,12 @@ ga('require', 'displayfeatures');
 </li>
 <li value=100> <a href="extensions/ANDROID/EGL_ANDROID_front_buffer_auto_refresh.txt">EGL_ANDROID_front_buffer_auto_refresh</a>
 </li>
+<li value=101> <a href="extensions/KHR/EGL_KHR_no_config_context.txt">EGL_KHR_no_config_context</a>
+</li>
+<li value=102> <a href="extensions/KHR/context_flush_control.txt">EGL_KHR_context_flush_control</a>
+</li>
+<li value=103> <a href="extensions/ARM/EGL_ARM_implicit_external_sync.txt">EGL_ARM_implicit_external_sync</a>
+</li>
 </ol>
 </div>
 </div>
@@ -546,7 +521,7 @@ Fax: +1 (707) 202-0030</p>
 	</address>
 </div>
 
-<script type="text/javascript" src="/assets/tools/min/?g=js_main&amp;1408c"></script>
+<script type="text/javascript" src="/assets/tools/min/?g=js_main&amp;1609a"></script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><script type="text/javascript">(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/platform.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 

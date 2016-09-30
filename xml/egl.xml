@@ -173,7 +173,11 @@
          tokens are reused for different purposes in different
          extensions and API versions). -->
 
-    <enums namespace="EGL" start="0x0000" end="0x2FFF" vendor="ARB"/>
+    <enums namespace="EGL" start="0x0000" end="0x2FFF" vendor="KHR" comment="Reserved for enumerants shared with WGL, GLX, and GL">
+        <enum value="0" name="EGL_CONTEXT_RELEASE_BEHAVIOR_NONE_KHR"/>
+        <enum value="0x2097" name="EGL_CONTEXT_RELEASE_BEHAVIOR_KHR"/>
+        <enum value="0x2098" name="EGL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR"/>
+    </enums>
 
     <enums namespace="EGL" group="Boolean" vendor="ARB">
         <enum value="0" name="EGL_FALSE"/>
@@ -199,6 +203,7 @@
         <enum value="((EGLSync)0)" name="EGL_NO_SYNC"/>
         <enum value="((EGLSyncKHR)0)" name="EGL_NO_SYNC_KHR" alias="EGL_NO_SYNC"/>
         <enum value="((EGLSyncNV)0)" name="EGL_NO_SYNC_NV" alias="EGL_NO_SYNC"/>
+        <enum value="((EGLConfig)0)" name="EGL_NO_CONFIG_KHR"/>
         <enum value="10000" name="EGL_DISPLAY_SCALING"/>
         <enum value="0xFFFFFFFFFFFFFFFF" name="EGL_FOREVER" type="ull"/>
         <enum value="0xFFFFFFFFFFFFFFFF" name="EGL_FOREVER_KHR" type="ull" alias="EGL_FOREVER"/>
@@ -663,7 +668,9 @@
         <enum value="0x3284" name="EGL_YUV_CHROMA_SITING_0_EXT"/>
         <enum value="0x3285" name="EGL_YUV_CHROMA_SITING_0_5_EXT"/>
         <enum value="0x3286" name="EGL_DISCARD_SAMPLES_ARM"/>
-            <unused start="0x3287" end="0x328F"/>
+            <unused start="0x3287" end="0x3289"/>
+        <enum value="0x328A" name="EGL_SYNC_PRIOR_COMMANDS_IMPLICIT_EXTERNAL_ARM"/>
+            <unused start="0x328B" end="0x328F"/>
     </enums>
 
     <enums namespace="EGL" start="0x3290" end="0x329F" vendor="MESA" comment="Reserved for John K&#229;re Alsaker (Public bug 757)">
@@ -772,6 +779,10 @@
             <unused start="0x3430" end="0x343F"/>
     </enums>
 
+    <enums namespace="EGL" start="0x3440" end="0x344F" vendor="ANDROID" comment="Reserved for Kristian Kristensen (Bug 16033)">
+            <unused start="0x3440" end="0x344F"/>
+    </enums>
+
 <!-- Please remember that new enumerant allocations must be obtained by
      request to the Khronos API registrar (see comments at the top of this
      file) File requests in the Khronos Bugzilla, EGL project, Registry
@@ -781,8 +792,8 @@
 
 <!-- Reservable for future use. To generate a new range, allocate multiples
      of 16 starting at the lowest available point in this block. -->
-    <enums namespace="EGL" start="0x3440" end="0x3FFF" vendor="KHR">
-            <unused start="0x3440" end="0x3FFF" comment="Reserved for future use"/>
+    <enums namespace="EGL" start="0x3450" end="0x3FFF" vendor="KHR">
+            <unused start="0x3450" end="0x3FFF" comment="Reserved for future use"/>
     </enums>
 
     <enums namespace="EGL" start="0x8F70" end="0x8F7F" vendor="HI" comment="For Mark Callow, Khronos bug 4055. Shared with GL.">
@@ -942,6 +953,11 @@
             <proto><ptype>EGLStreamKHR</ptype> <name>eglCreateStreamKHR</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param>const <ptype>EGLint</ptype> *<name>attrib_list</name></param>
+        </command>
+        <command>
+            <proto><ptype>EGLStreamKHR</ptype> <name>eglCreateStreamAttribKHR</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param>const <ptype>EGLAttrib</ptype> *<name>attrib_list</name></param>
         </command>
         <command>
             <proto><ptype>EGLSurface</ptype> <name>eglCreateStreamProducerSurfaceKHR</name></proto>
@@ -1307,6 +1323,13 @@
             <param><ptype>EGLint</ptype> *<name>value</name></param>
         </command>
         <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglQueryStreamAttribKHR</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
+            <param><ptype>EGLenum</ptype> <name>attribute</name></param>
+            <param><ptype>EGLAttrib</ptype> *<name>value</name></param>
+        </command>
+        <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglQueryStreamMetadataNV</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
@@ -1379,6 +1402,13 @@
             <param><ptype>EGLint</ptype> <name>n_rects</name></param>
         </command>
         <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglSetStreamAttribKHR</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
+            <param><ptype>EGLenum</ptype> <name>attribute</name></param>
+            <param><ptype>EGLAttrib</ptype> <name>value</name></param>
+        </command>
+        <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglSetStreamMetadataNV</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
@@ -1411,6 +1441,12 @@
             <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
         </command>
         <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglStreamConsumerAcquireAttribKHR</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
+            <param>const <ptype>EGLAttrib</ptype> *<name>attrib_list</name></param>
+        </command>
+        <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglStreamConsumerGLTextureExternalKHR</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
@@ -1431,6 +1467,12 @@
             <proto><ptype>EGLBoolean</ptype> <name>eglStreamConsumerReleaseKHR</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
+        </command>
+        <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglStreamConsumerReleaseAttribKHR</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
+            <param>const <ptype>EGLAttrib</ptype> *<name>attrib_list</name></param>
         </command>
         <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglSurfaceAttrib</name></proto>
@@ -1849,6 +1891,11 @@
                 <enum name="EGL_FIXED_SIZE_ANGLE"/>
             </require>
         </extension>
+        <extension name="EGL_ARM_implicit_external_sync" supported="egl">
+            <require>
+                <enum name="EGL_SYNC_PRIOR_COMMANDS_IMPLICIT_EXTERNAL_ARM"/>
+            </require>
+        </extension>
         <extension name="EGL_ARM_pixmap_multisample_discard" supported="egl">
             <require>
                 <enum name="EGL_DISCARD_SAMPLES_ARM"/>
@@ -2090,6 +2137,13 @@
             </require>
         </extension>
         <extension name="EGL_KHR_client_get_all_proc_addresses" supported="egl" comment="Alias of EGL_KHR_get_all_proc_addresses"/>
+        <extension name="EGL_KHR_context_flush_control" supported="egl">
+            <require>
+                <enum name="EGL_CONTEXT_RELEASE_BEHAVIOR_NONE_KHR"/>
+                <enum name="EGL_CONTEXT_RELEASE_BEHAVIOR_KHR"/>
+                <enum name="EGL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR"/>
+            </require>
+        </extension>
         <extension name="EGL_KHR_create_context" supported="egl">
             <require>
                 <enum name="EGL_CONTEXT_MAJOR_VERSION_KHR"/>
@@ -2269,6 +2323,11 @@
                 <enum name="EGL_MUTABLE_RENDER_BUFFER_BIT_KHR"/>
             </require>
         </extension>
+        <extension name="EGL_KHR_no_config_context" supported="egl">
+            <require>
+                <enum name="EGL_NO_CONFIG_KHR"/>
+            </require>
+        </extension>
         <extension name="EGL_KHR_partial_update" supported="egl">
             <require>
                 <enum name="EGL_BUFFER_AGE_KHR"/>
@@ -2335,6 +2394,19 @@
                 <command name="eglStreamAttribKHR"/>
                 <command name="eglQueryStreamKHR"/>
                 <command name="eglQueryStreamu64KHR"/>
+            </require>
+        </extension>
+        <extension name="EGL_KHR_stream_attrib" protect="KHRONOS_SUPPORT_INT64" supported="egl">
+            <require>
+                <enum name="EGL_CONSUMER_LATENCY_USEC_KHR"/>
+                <enum name="EGL_STREAM_STATE_KHR"/>
+                <enum name="EGL_STREAM_STATE_CREATED_KHR"/>
+                <enum name="EGL_STREAM_STATE_CONNECTING_KHR"/>
+                <command name="eglCreateStreamAttribKHR"/>
+                <command name="eglSetStreamAttribKHR"/>
+                <command name="eglQueryStreamAttribKHR"/>
+                <command name="eglStreamConsumerAcquireAttribKHR"/>
+                <command name="eglStreamConsumerReleaseAttribKHR"/>
             </require>
         </extension>
         <extension name="EGL_KHR_stream_consumer_gltexture" protect="EGL_KHR_stream" supported="egl">

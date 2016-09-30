@@ -29,8 +29,8 @@ Status
 
 Version
 
-    Last Modified Date: May 15, 2014
-    Revision: 6
+    Last Modified Date: September 7, 2016
+    Revision: 7
 
 Number
 
@@ -43,6 +43,8 @@ Dependencies
     This specification is written against the OpenGL ES 3.1 (March 17,
     2014) and OpenGL ES 3.10 Shading Language (March 17, 2014)
     Specifications.
+
+    This extension interacts with the OpenGL ES 3.20 Shading Language.
 
     This extension interacts with EXT_tessellation_shader.
 
@@ -238,6 +240,14 @@ Additions to the OpenGL ES Shading Language 3.10 Specification
       patch out highp vec4 gl_BoundingBoxEXT[2];
 
 
+Dependencies on the OpenGL ES 3.20 Shading Language Specification
+
+    If GL_EXT_primitive_bounding_box is enabled in an OpenGL ES 3.20 shader,
+    gl_BoundingBoxEXT is an alias for gl_BoundingBox: the last value written
+    to either variable will be used for bounding box optimizations and for
+    reads from both variables.
+
+
 Issues
 
     (1) What coordinate space should the bounding box be specified in?
@@ -364,6 +374,9 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------- -------------------------------------------------
+      7   09/07/16  jessehall
+        - Added interaction with the OpenGL ES 3.20 Shading Language.
+
       6   05/15/14  jessehall
         - Added missing EXT suffix to gl_BoundingBox[].
         - Added issue 10, and removed the ability for the TES to read the

@@ -36,8 +36,8 @@ Status
 
 Version
 
-    Last Modified Date:         January 20, 2011
-    NVIDIA Revision:            7
+    Last Modified Date:         June 6, 2016
+    Revision:                   8
 
 Number
 
@@ -45,9 +45,7 @@ Number
 
 Dependencies
 
-    OpenGL 3.1 is required.
-
-    GL_ARB_texture_compression is required.
+    OpenGL 1.3 or ARB_texture_compression is required.
 
     This extension is written against the OpenGL 3.2 Specification 
     (Compatibility Profile).
@@ -883,24 +881,26 @@ Issues
 
 Revision History
 
-    Rev.    Date    Author    Changes
-    ----  --------  --------  --------------------------------------------
-     7    01/20/11  pbrown    Change the base internal format of the floating-
-                              point BPTC formats from "RGBA" to "RGB" (bug
-                              7231).
+    Rev.    Date    Author       Changes
+    ----  --------  -----------  --------------------------------------------
+     8    06/06/16  Nanley Chery Reduce the requirements to the minimal set.
 
-     6    01/19/11  Jon Leech Fix state table modification for
-                              TEXTURE_INTERNAL_FORMAT (Bug 7239).
+     7    01/20/11  pbrown       Change the base internal format of the floating-
+                                 point BPTC formats from "RGBA" to "RGB" (bug
+                                 7231).
 
-     5    05/20/10  ewerness  Finalize some UNRESOLVED issues
+     6    01/19/11  Jon Leech    Fix state table modification for
+                                 TEXTURE_INTERNAL_FORMAT (Bug 7239).
 
-     4    04/09/10  pdaniell  Modify for inclusion into OpenGL 4.1.
+     5    05/20/10  ewerness     Finalize some UNRESOLVED issues
 
-     3    12/07/09  pdaniell  ARBify.
+     4    04/09/10  pdaniell     Modify for inclusion into OpenGL 4.1.
 
-     2    10/13/09  ewerness  Fix errors in the anchor index tables caused
-                              by incorrect conversion scripts and a couple 
-                              typos in the input.
+     3    12/07/09  pdaniell     ARBify.
 
-     1              ewerness  Internal revisions.
+     2    10/13/09  ewerness     Fix errors in the anchor index tables caused
+                                 by incorrect conversion scripts and a couple 
+                                 typos in the input.
+
+     1              ewerness     Internal revisions.
 

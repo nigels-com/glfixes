@@ -33,7 +33,7 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 33061 $ on $Date: 2016-07-14 20:14:13 -0400 (Thu, 14 Jul 2016) $
+** Khronos $Revision: 33136 $ on $Date: 2016-09-15 06:33:58 -0400 (Thu, 15 Sep 2016) $
 */
 
 #if defined(_WIN32) && !defined(APIENTRY) && !defined(__CYGWIN__) && !defined(__SCITECH_SNAP__)
@@ -53,7 +53,7 @@ extern "C" {
 #define GLAPI extern
 #endif
 
-#define GL_GLEXT_VERSION 20160714
+#define GL_GLEXT_VERSION 20160915
 
 /* Generated C header for:
  * API: gl
@@ -5378,6 +5378,23 @@ GLAPI void APIENTRY glBlendEquationSeparateIndexedAMD (GLuint buf, GLenum modeRG
 #define GL_AMD_gcn_shader 1
 #endif /* GL_AMD_gcn_shader */
 
+#ifndef GL_AMD_gpu_shader_half_float
+#define GL_AMD_gpu_shader_half_float 1
+#define GL_FLOAT16_NV                     0x8FF8
+#define GL_FLOAT16_VEC2_NV                0x8FF9
+#define GL_FLOAT16_VEC3_NV                0x8FFA
+#define GL_FLOAT16_VEC4_NV                0x8FFB
+#define GL_FLOAT16_MAT2_AMD               0x91C5
+#define GL_FLOAT16_MAT3_AMD               0x91C6
+#define GL_FLOAT16_MAT4_AMD               0x91C7
+#define GL_FLOAT16_MAT2x3_AMD             0x91C8
+#define GL_FLOAT16_MAT2x4_AMD             0x91C9
+#define GL_FLOAT16_MAT3x2_AMD             0x91CA
+#define GL_FLOAT16_MAT3x4_AMD             0x91CB
+#define GL_FLOAT16_MAT4x2_AMD             0x91CC
+#define GL_FLOAT16_MAT4x3_AMD             0x91CD
+#endif /* GL_AMD_gpu_shader_half_float */
+
 #ifndef GL_AMD_gpu_shader_int64
 #define GL_AMD_gpu_shader_int64 1
 typedef int64_t GLint64EXT;
@@ -5405,10 +5422,6 @@ typedef int64_t GLint64EXT;
 #define GL_UNSIGNED_INT64_VEC2_NV         0x8FF5
 #define GL_UNSIGNED_INT64_VEC3_NV         0x8FF6
 #define GL_UNSIGNED_INT64_VEC4_NV         0x8FF7
-#define GL_FLOAT16_NV                     0x8FF8
-#define GL_FLOAT16_VEC2_NV                0x8FF9
-#define GL_FLOAT16_VEC3_NV                0x8FFA
-#define GL_FLOAT16_VEC4_NV                0x8FFB
 typedef void (APIENTRYP PFNGLUNIFORM1I64NVPROC) (GLint location, GLint64EXT x);
 typedef void (APIENTRYP PFNGLUNIFORM2I64NVPROC) (GLint location, GLint64EXT x, GLint64EXT y);
 typedef void (APIENTRYP PFNGLUNIFORM3I64NVPROC) (GLint location, GLint64EXT x, GLint64EXT y, GLint64EXT z);
@@ -5595,6 +5608,10 @@ GLAPI void APIENTRY glSetMultisamplefvAMD (GLenum pname, GLuint index, const GLf
 #ifndef GL_AMD_shader_atomic_counter_ops
 #define GL_AMD_shader_atomic_counter_ops 1
 #endif /* GL_AMD_shader_atomic_counter_ops */
+
+#ifndef GL_AMD_shader_ballot
+#define GL_AMD_shader_ballot 1
+#endif /* GL_AMD_shader_ballot */
 
 #ifndef GL_AMD_shader_explicit_vertex_parameter
 #define GL_AMD_shader_explicit_vertex_parameter 1

@@ -1,0 +1,215 @@
+Name
+
+    AMD_shader_ballot
+
+Name Strings
+
+    GL_AMD_shader_ballot
+
+Contact
+
+    Qun Lin, AMD (quentin.lin 'at' amd.com)
+
+Contributors
+
+    Qun Lin, AMD
+    Graham Sellers, AMD
+    Daniel Rakos, AMD
+    Rex Xu, AMD
+    Dominik Witczak, AMD
+
+Status
+
+    Shipping
+
+Version
+
+    Last Modified Date:         08/15/2016
+    Author Revision:            3
+
+Number
+
+    OpenGL Extension #497
+
+Dependencies
+
+    This extension is written against the OpenGL Shading Language
+    Specification, Version 4.50.
+
+    This extension requires GL_ARB_shader_group_vote and GL_ARB_shader_ballot.
+
+    This extension requires GL_ARB_gpu_shader_int64 or GL_AMD_gpu_shader_int64.
+
+Overview
+
+    The extensions ARB_shader_group_vote and ARB_shader_ballot introduced the
+    concept of sub-groups and a set of operations that allow data exchange
+    across shader invocations within a sub-group.
+
+    This extension further extends the capabilities of these extensions with
+    additional sub-group operations.
+
+IP Status
+
+    None.
+
+New Procedures and Functions
+
+    None.
+
+New Tokens
+
+    None.
+
+Modifications to the OpenGL Shading Language Specification, Version 4.50
+
+    Including the following line in a shader can be used to control the
+    language features described in this extension:
+
+      #extension GL_AMD_shader_ballot : <behavior>
+
+    where <behavior> is as specified in section 3.3.
+
+    New preprocessor #defines are added to the OpenGL Shading Language:
+
+      #define GL_AMD_shader_ballot 1
+
+Additions to Chapter 8 of the OpenGL Shading Language (GLSL) Specification,
+version 4.30 (Built-in functions)
+
+    Add Section 8.18, Shader Invocation Group Functions
+
+    +---------------------------------------------+-----------------------------------------------------------+
+    | Syntax                                      | Description                                               |
+    +---------------------------------------------+-----------------------------------------------------------+
+    | genType  minInvocationsAMD(genType  v)      | Returns the minimum value of <v> across all active shader |
+    | genIType minInvocationsAMD(genIType v)      | invocations in the sub-group. These functions must be     |
+    | genUType minInvocationsAMD(genUType v)      | used in uniform control flow. These functions operate     |
+    |                                             | component-wise.                                           |
+    +---------------------------------------------+-----------------------------------------------------------+
+    | genType  minInvocationsNonUniformAMD(       | Returns the minimum value of <v> across all active shader |
+    |          genType  v)                        | invocations in the sub-group. These functions could be    |
+    | genIType minInvocationsNonUniformAMD(       | used in non-uniform control flow. These functions operate |
+    |          genIType v)                        | component-wise.                                           |
+    | genUType minInvocationsNonUniformAMD(       |                                                           |
+    |          genUType v)                        |                                                           |
+    +---------------------------------------------+-----------------------------------------------------------+
+    | genType  maxInvocationsAMD(genType  v)      | Returns the maximum value of <v> across all active shader |
+    | genIType maxInvocationsAMD(genIType v)      | invocations in the sub-group. These functions must be     |
+    | genUType maxInvocationsAMD(genUType v)      | used in uniform control flow. These functions operate     |
+    |                                             | component-wise.                                           |
+    +---------------------------------------------+-----------------------------------------------------------+
+    | genType  maxInvocationsNonUniformAMD(       | Returns the maximum value of <v> across all active shader |
+    |          genType  v)                        | invocations in the sub-group. These functions could be    |
+    | genIType maxInvocationsNonUniformAMD(       | used in non-uniform control flow. These functions operate |
+    |          genIType v)                        | component-wise.                                           |
+    | genUType maxInvocationsNonUniformAMD(       |                                                           |
+    |          genUType v)                        |                                                           |
+    +---------------------------------------------+-----------------------------------------------------------+
+    | genType  addInvocationsAMD(genType  v)      | Returns the sum of the value of <v> across all active     |
+    | genIType addInvocationsAMD(genIType v)      | shader invocations in the sub-group. These functions must |
+    | genUType addInvocationsAMD(genUType v)      | be used in uniform control flow. These functions operate  |
+    |                                             | component-wise.                                           |
+    +---------------------------------------------+-----------------------------------------------------------+
+    | genType  addInvocationsNonUniformAMD(       | Returns the sum of the value of <v> across all active     |
+    |          genType  v)                        | shader invocations in the sub-group. These functions      |
+    | genIType addInvocationsNonUniformAMD(       | could be used in non-uniform control flow. These          |
+    |          genIType v)                        | functions operate component-wise.                         |
+    | genUType addInvocationsNonUniformAMD(       |                                                           |
+    |          genUType v)                        |                                                           |
+    +---------------------------------------------+-----------------------------------------------------------+
+    | genType  swizzleInvocationsAMD(             | Swizzles data within a group of 4 consecutive invocations |
+    |          genType data, uvec4 offset)        | of the sub-group based on <offset> as described below:    |
+    | genIType swizzleInvocationsAMD(             |                                                           |
+    |          genIType data, uvec4 offset)       | for (i = 0; i < gl_SubGroupSizeARB; i+=4) {               |
+    | genUType swizzleInvocationsAMD(             |     dataOut[i+0] = isActive[i+offset.x] ?                 |
+    |          genUType data, uvec4 offset)       |                    dataIn[i+offset.x] : 0;                |
+    |                                             |     dataOut[i+1] = isActive[i+offset.y] ?                 |
+    |                                             |                    dataIn[i+offset.y] : 0;                |
+    |                                             |     dataOut[i+2] = isActive[i+offset.z] ?                 |
+    |                                             |                    dataIn[i+offset.z] : 0;                |
+    |                                             |     dataOut[i+3] = isActive[i+offset.w] ?                 |
+    |                                             |                    dataIn[i+offset.w] : 0;                |
+    |                                             | }                                                         |
+    |                                             |                                                           |
+    |                                             | Where:                                                    |
+    |                                             | - isActive[i] tells whether the invocation with the index |
+    |                                             |   <i> is currently active in the sub-group.               |
+    |                                             | - dataIn[i] is the value of <data> for invocation index   |
+    |                                             |   <i>.                                                    |
+    |                                             | - dataOut[i] is the return value of the function for      |
+    |                                             |   invocation index <i>.                                   |
+    |                                             |                                                           |
+    |                                             | Components of <offset> must be constant integer           |
+    |                                             | expression with a value in the range [0, 3].              |
+    +---------------------------------------------+-----------------------------------------------------------+
+    | genType  swizzleInvocationsMaskedAMD(       | Swizzles data within a group of 32 consecutive            |
+    |          genType data, uvec3 mask)          | invocations with a limited mask as described below:       |
+    | genIType swizzleInvocationsMaskedAMD(       |                                                           |
+    |          genIType data, uvec3 mask)         | for (i = 0; i < gl_SubGroupSizeARB; i++) {                |
+    | genUType swizzleInvocationsMaskedAMD(       |     j = (((i & 0x1f) & mask.x) | mask.y) ^ mask.z;        |
+    |          genIType data, uvec3 mask)         |     j |= (i & 0x20); // which group of 32                 |
+    |                                             |     dataOut[i] = isActive[j] ? dataIn[j] : 0;             |
+    |                                             | }                                                         |
+    |                                             |                                                           |
+    |                                             | Where:                                                    |
+    |                                             | - isActive[i] tells whether the invocation with the index |
+    |                                             |   <i> is currently active in the sub-group.               |
+    |                                             | - dataIn[i] is the value of <data> for invocation index   |
+    |                                             |   <i>.                                                    |
+    |                                             | - dataOut[i] is the return value of the function for      |
+    |                                             |   invocation index <i>.                                   |
+    +---------------------------------------------+-----------------------------------------------------------+
+    | genType  writeInvocationAMD(                | Returns <inputValue> for all active invocations in the    |
+    |          genType  inputValue,               | sub-group except for the invocation whose invocation      |
+    |          genType  writeValue,               | index within the sub-group is <invocationIndex> for which |
+    |          uint     invocationIndex)          | <writeValue> is returned as described below:              |
+    | genIType writeInvocationAMD(                |                                                           |
+    |          genIType inputValue,               | for (i = 0; i < gl_SubGroupSizeARB; i++) {                |
+    |          genIType writeValue,               |     out[i] = (i == invocationIndex) ?                     |
+    |          uint     invocationIndex)          |              writeValue:inputValue;                       |
+    | genUType writeInvocationAMD(                | }                                                         |
+    |          genUType inputValue,               |                                                           |
+    |          genUType writeValue,               | Where out[i] is the return value of the function for      |
+    |          uint     invocationIndex)          | invocation index <i>.                                     |
+    |                                             |                                                           |
+    |                                             | <writeValue> and <invocationIndex> must be dynamically    |
+    |                                             | uniform within the sub-group, otherwise the return value  |
+    |                                             | of the function is undefined.                             |
+    +---------------------------------------------+-----------------------------------------------------------+
+    | uint mbcntAMD(uint64_t mask)                | Returns the bit count of gl_SubGroupLtMaskARB with <mask> |
+    |                                             | as described below:                                       |
+    |                                             |                                                           |
+    |                                             |   bitCount(gl_SubGroupLtMaskARB & mask).                  |
+    +---------------------------------------------+-----------------------------------------------------------+
+
+Additions to the AGL/GLX/WGL Specifications
+
+    None.
+
+GLX Protocol
+
+    None.
+
+Errors
+
+    None.
+
+Issues
+
+
+Revision History
+
+    Rev.    Date      Author    Changes
+    ----  --------    --------  -----------------------------------------
+    3     08/16/2016  rexu      Clarify that minInvocationsAMD, maxInvocationsAMD,
+                                addInvocationsAMD, along with their non-uniform
+                                versions, operate component-wise rather than on
+                                vector.
+
+    2     08/11/2016  rexu      Add non-uniform versions of minInvocationsAMD,
+                                maxInvocationsAMD, and addInvocationsAMD.
+                                Support those operations in non-uniform control
+                                flow.
+
+    1     04/21/2016  qlin      Internal revisions.
