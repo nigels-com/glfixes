@@ -20,7 +20,7 @@ Status
 
 Version
 
-    1.2, 26 October 2009
+    1.3, 12 September 2016
 
 Number
 
@@ -32,6 +32,8 @@ Dependencies
     which in turn is based OpenGL 1.3. Thus this spec is effectively
     written against OpenGL 1.3 but does not address sections explicitly
     removed or reduced by OpenGL-ES 1.0.
+    
+    This extension has interactions with the OpenGL ES 2.0 API.
 
 Overview
 
@@ -64,6 +66,8 @@ Overview
     LUMINANCE_ALPHA     LUMINANCE_ALPHA UNSIGNED_BYTE           2
     LUMINANCE           LUMINANCE       UNSIGNED_BYTE           1
     ALPHA               ALPHA           UNSIGNED_BYTE           1
+    
+    This format is renderable in versions of OpenGL ES from 2.0 onwards.
 
 IP Status
 
@@ -123,11 +127,27 @@ New State
 New Implementation Dependent State
 
     None
+    
+Interactions with the OpenGL ES 2.0 specification
+
+    Add the following entry to Table 4.5: Renderbuffer image formats,
+    showing their renderable type (color-, depth-, or stencil-renderable)
+    and the number of bits each format contains for color (R, G, B, A),
+    depth (D), and stencil (S) components:
+    
+    |-----------------|------------------|------|------|------|------|------|------|
+    | Sized           | Renderable       | R    | G    | B    | A    | D    | S    |
+    | Internal Format | Type             | bits | bits | bits | bits | bits | bits |
+    |-----------------|------------------|------|------|------|------|------|------|
+    | GL_BGRA_EXT     | color-renderable | 8    | 8    | 8    | 8    |      |      |
+    |-----------------|------------------|------|------|------|------|------|------|
 
 Revision History
 
     0.1,  26/04/2005  sks:  Initial revision.
     1.0,  08/05/2005  gdc:  Final revision.
-    1.1,  03/19/2009  Jon Leech: add extension number and fix tabbing /
+    1.1,  19/03/2009  Jon Leech: add extension number and fix tabbing /
                       whitespace issues.
-    1.2,  10/26/2009  Benj Lipchak: add EXT suffix to BGRA token.
+    1.2,  26/10/2009  Benj Lipchak: add EXT suffix to BGRA token.
+    1.3,  12/09/2016  Tobias Hector: Added interaction with ES 2.0 (made it renderable).
+                      Also made revision dates use the same (dd/mm/yyyy) format.

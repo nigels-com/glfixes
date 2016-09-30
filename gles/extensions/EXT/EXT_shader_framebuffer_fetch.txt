@@ -16,8 +16,8 @@ Status
 
 Version
 
-    Last Modified Date: May 28, 2013
-    Author Revision: 4
+    Last Modified Date: September 8, 2016
+    Author Revision: 5
 
 Number
 
@@ -209,6 +209,10 @@ Changes to the OpenGL ES Shading Language 1.0.17 Specification, Chapter 7
     
     Where <behavior> is as specified in section 3.3.
     
+    A new preprocessor #define is added to the OpenGL ES Shading Language:
+
+     #define GL_EXT_shader_framebuffer_fetch        1
+
     By default, gl_LastFragData is declared with the mediump precision
     qualifier. This can be changed by redeclaring the corresponding variables
     with the desired precision qualifier.
@@ -245,6 +249,10 @@ Changes to the OpenGL ES Shading Language 3.00.3 Specification, Chapter 4
     #extension GL_EXT_shader_framebuffer_fetch : <behavior>
     
     Where <behavior> is as specified in section 3.4."
+    
+    A new preprocessor #define is added to the OpenGL ES Shading Language:
+
+    #define GL_EXT_shader_framebuffer_fetch        1
 
 Interactions with OES_standard_derivatives
 
@@ -254,6 +262,7 @@ Interactions with OES_standard_derivatives
 
 Revision History
 
+    Version 5, 2016/09/08 - Added preprocessor defines.
     Version 4, 2013/05/28 - Added ES3 interaction as requested in Bug 10236
     Version 3, 2012/09/24 - Remove obsolete issue 3 about derivatives
     Version 2, 2012/06/21 - Fix MULTISAMPLE enabled -> SAMPLE_BUFFERS = 1,

@@ -15,6 +15,7 @@ Contributors
     Matt Trusten
     Maurice Ribble
     Daniel Koch
+    Jan-Harald Fredriksen
 
     Contributors to ANGLE_timer_query
     Contributors to ARB_timer_query
@@ -32,7 +33,7 @@ Status
 
 Version
 
-    Version 4, April 25, 2013
+    Version 7, September 2, 2016
 
 Number
 
@@ -43,6 +44,9 @@ Dependencies
     OpenGL ES 2.0 or greater required.
 
     The extension is written against the OpenGL ES 2.0 specification.
+    
+    Interaction: This extension adds GetInteger64vEXT if OpenGL ES 3.0 is not
+    supported
 
 Overview
 
@@ -102,12 +106,12 @@ New Tokens
 
     Accepted by the <target> parameter of GetQueryiv and QueryCounter.
     Accepted by the <value> parameter of GetBooleanv, GetIntegerv,
-    GetInteger64v, GetFloatv, and GetDoublev:
+    GetInteger64v, and GetFloatv:
 
         TIMESTAMP_EXT                                0x8E28
 
     Accepted by the <value> parameter of GetBooleanv, GetIntegerv,
-    GetInteger64v, GetFloatv, and GetDoublev:
+    GetInteger64v, and GetFloatv:
 
         GPU_DISJOINT_EXT                             0x8FBB
 
@@ -180,11 +184,14 @@ Additions to Chapter 5 of the OpenGL ES 2.0 Specification (Special Functions)
     TIME_ELAPSED_EXT, the GL prepares to start and stop the timer used for
     timer queries.  The timer is started or stopped when the effects from all
     previous commands on the GL client and server state and the framebuffer
-    have been fully realized.  The BeginQueryEXT and EndQueryEXT commands
-    may return before the timer is actually started or stopped.  When the timer
-    query timer is finally stopped, the elapsed time (in nanoseconds) is
-    written to the corresponding query object as the query result value, and
-    the query result for that object is marked as available.
+    have been fully realized.  On some architectures framebuffer can have 
+    different meanings (specifically on some tiling GPUs fully realized might refer
+    to the framebuffer being in tile memory before it gets copied out to system 
+    memory).  The BeginQueryEXT and EndQueryEXT commands may return before the
+    timer is actually started or stopped.  When the timer query timer is finally
+    stopped, the elapsed time (in nanoseconds) is written to the corresponding
+    query object as the query result value, and the query result for that object
+    is marked as available.
 
     If the elapsed time overflows the number of bits, <n>, available to hold
     elapsed time, its value becomes undefined.  It is recommended, but not
@@ -202,15 +209,18 @@ Additions to Chapter 5 of the OpenGL ES 2.0 Specification (Special Functions)
     is called with <target> TIMESTAMP_EXT, the GL records the current time
     into the corresponding query object. The time is recorded after all
     previous commands on the GL client and server state and the framebuffer
-    have been fully realized. When the time is recorded, the query result for
-    that object is marked available. QueryCounterEXT timer queries can be
-    used within a BeginQueryEXT / EndQueryEXT block where the <target> is
-    TIME_ELAPSED_EXT and it does not affect the result of that query object.
-    The error INVALID_OPERATION is generated if the <id> is already in use
-    within a BeginQueryEXT/EndQueryEXT block.
+    have been fully realized.  On some architectures framebuffer can have 
+    different meanings (specifically on some tiling GPUs fully realized might refer 
+    to the framebuffer being in tile memory before it gets copied out to system 
+    memory).  When the time is recorded, the query result for that object is 
+    marked available. QueryCounterEXT timer queries can be used within a 
+    BeginQueryEXT / EndQueryEXT block where the <target> is TIME_ELAPSED_EXT and
+    it does not affect the result of that query object.  The error 
+    INVALID_OPERATION is generated if the <id> is already in use within a 
+    BeginQueryEXT/EndQueryEXT block.
 
     The current time of the GL may be queried by calling GetIntegerv or
-    GetInteger64vEXT with the symbolic constant TIMESTAMP_EXT. This will return
+    GetInteger64v with the symbolic constant TIMESTAMP_EXT. This will return
     the GL time after all previous commands have reached the GL server but have
     not yet necessarily executed. By using a combination of this synchronous
     get command and the asynchronous timestamp query object target,
@@ -447,10 +457,9 @@ Examples
         would be delayed one frame to minimize the amount of time spent
         waiting for the GPU to finish rendering.
         
-    (2) This example is basically the same as the example above but uses
-        QueryCounter instead.
+    (2) This example uses QueryCounter.
     
-        GLint queries[N+1];
+        GLint queries[1];
         GLint available = 0;
         GLint disjointOccurred = 0;
         /* Timer queries can contain more than 32 bits of data, so always
@@ -458,52 +467,37 @@ Examples
         GLuint64 timeStart, timeEnd, timeElapsed = 0;
 
         /* Create a query object. */
-        glGenQueries(N+1, queries);
-        
+        glGenQueries(1, queries);
+
         /* Clear disjoint error */
         glGetIntegerv(GL_GPU_DISJOINT_EXT, &disjointOccurred);
 
-        /* Query current timestamp 1 */
+        /* Draw full rendertarget of objects */
+
         glQueryCounterEXT(queries[0], GL_TIMESTAMP_EXT);
-
-        /* Draw object 1 */
-        ....
-
-        /* Query current timestamp N */
-        glQueryCounter(queries[N-1], GL_TIMESTAMP_EXT);
-
-        /* Draw object N */
-        ....
-
-        /* Query current timestamp N+1 */
-        glQueryCounterEXT(queries[N], GL_TIMESTAMP_EXT);
-
-        /* Wait for all results to become available */
+        
+        /* Do some other work so you don't stall waiting for available */
+        
+        /* Wait for the query result to become available */
         while (!available) {
-            glGetQueryObjectiv(queries[N], GL_QUERY_RESULT_AVAILABLE, &available);
+            glGetQueryObjectiv(queries[0], GL_QUERY_RESULT_AVAILABLE, &available);
         }
         
-        /* Check for disjoint operation for all queries within
-           the last disjoint check. This way we can only check disjoint
-           once for all queries between, and once the last is filled we
-           know all previous will have been filled as well */
+        /* Check for disjoint operation. */
         glGetIntegerv(GL_GPU_DISJOINT_EXT, &disjointOccurred);
         
-        /* If a disjoint operation occurred, all timer queries in between
-           the last two disjoint checks that were filled are invalid, continue
-           without reading the the values */
+        /* If a disjoint operation occurred, continue without reading the the
+           values */
         if (!disjointOccurred) {
-            for (i = 0; i < N; i++) {
-                /* See how much time the rendering of object i took in nanoseconds. */
-                glGetQueryObjectui64vEXT(queries[i], GL_QUERY_RESULT, &timeElapsed);
+            /* Get timestamp for when rendertarget finished. */
+            glGetQueryObjectui64vEXT(queries[0], GL_QUERY_RESULT, &timeElapsed);
+            
+            /* Do something useful with the time if a disjoint operation did
+               not occur.  Note that care should be taken to use all
+               significant bits of the result, not just the least significant
+               32 bits. */
                 
-                /* Do something useful with the time if a disjoint operation did
-                   not occur.  Note that care should be taken to use all
-                   significant bits of the result, not just the least significant
-                   32 bits. */
-                    
-                AdjustObjectLODBasedOnDrawTime(i, timeElapsed);
-            }
+            AdjustObjectLODBasedOnDrawTime(i, timeElapsed);
         }
         
     (3) This example demonstrates how to measure the latency between GL
@@ -702,12 +696,54 @@ Issues
     spec takes precedence. If the implementation supports OpenGL ES 3.0 then 
     it should support both the core non-decorated functions and the EXT
     decorated functions.
+    
+    (18) How do times from BeginQueryEXT/EndQueryEXT with a <target> of 
+    TIME_ELAPSED_EXT and QueryCounterEXT with a <target> of TIMESTAMP_EXT 
+    compare on some Qualcomm and ARM tiling GPUs?
+    
+    This does not describe all tiling GPUs, but it is how some tiling GPUs from
+    ARM, Qualcomm, and possibly other vendors work.  This is just an
+    implementation note and there is no guarantee all ARM and Qualcomm 
+    implementations will work this way.
+    
+    TIME_ELAPSED_EXT will be a summation of all the time spent on the workload
+    between begin and end.  Tiling architectures might split this work up over a
+    binning pass and rendering many different tiles. It is up to the hardware 
+    and/or driver to add up all the time spent on the work between begin and end
+    and report a single number making the implementation transparent to
+    developers using this feature.  If the binning pass happens in parallel to 
+    rendering pass this time would not be counted twice.  On some
+    implementations this does not include the time to copy tile memory to or from
+    the frame buffer in system memory, and on other implementations this time 
+    is included.
+    
+    TIMESTAMP_EXT is the time when all the commands are complete and copied out
+    of tile memory to the framebuffer in system memory.  This can result in a 
+    courser grain timestamp than developers familiar with immediate GPUs expect.
+    For example all the draws to an FBO can often all get the same timestamp, or
+    even all the draw calls to multiple FBOs can end up with the same timestamp.
+    If some operation causes a midframe store/load (such as flush or readPixels)
+    then that would create another point for timestamps, but is a lot of extra
+    work for the GPU so it should be avoided.
+    
+    If a preemption event happens before the TIMESTAMP_EXT is reported then that
+    time will include the time for preemption.  With TIME_ELAPSED_EXT it is
+    undefined if the preemption time is counted or not.  Some hardware will
+    count the preemption time (even though it is from a different context).  For
+    this behavior GPU_DISJOINT_EXT will be set so you know there was an event
+    from a different context affecting results.  Other hardware will not count 
+    the time spent in the preempting context and for this cases GPU_DISJOINT_EXT
+    will not be set.
 
 Revision History
-
+    Revision 7, 2016/9/2 (Maurice Ribble)
+      - Clarify language dealing with GetInteger64v
+    Revision 6, 2016/7/15 (Maurice Ribble)
+      - Clarified some outstanding questions about tiling GPUs
+      - Added issue 18
     Revision 5, 2013/6/5
       - Minor cleanup to match new gl2ext.h
-    Revision 4, 2013/04/25 (Jon Leech)
+    Revision 4, 2013/4/25 (Jon Leech)
       - Cleanup for publication 
       - Fix value assigned to GPU_DISJOINT_EXT
     Revision 3, 2013/4/8

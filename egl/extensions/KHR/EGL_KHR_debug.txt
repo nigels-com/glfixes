@@ -16,6 +16,7 @@ Contributors
     Ray Smith, ARM
     Prabindh Sundareson, Texas Instruments
     James Jones, NVIDIA
+    Jesse Hall, Google
 
 Contact
 
@@ -33,7 +34,7 @@ Status
 
 Version
 
-    Version 17, Modified Date: September 23, 2015
+    Version 18, Modified Date: September 28, 2016
 
 Number
 
@@ -193,6 +194,9 @@ Additions to Chapter 3 of the EGL 1.5 Specification
 
     If the <attrib_list> contains an unknown attribute or value the function
     will return a EGL_BAD_ATTRIBUTE error.
+    
+    If there is no error, then the function will set the updated callback,
+    set the updated message types and return EGL_SUCCESS.
 
     The messages types, their purpose and initial states are given in
     table 13.1 below. The parameter <attrib_list> needs only contain the
@@ -266,7 +270,7 @@ Additions to Chapter 3 of the EGL 1.5 Specification
         their primary object. This <objectLabel> may be NULL even though the
         application labeled the object. This is because it is possible an error
         was raised while executing the command before the primary object was
-        validated, therefore its label can not be included in the callback.
+        validated, therefore its label cannot be included in the callback.
 
         <message> will contain a platform specific debug string message;
         This string should provide added information to the application
@@ -322,6 +326,9 @@ Additions to Chapter 3 of the EGL 1.5 Specification
       eglWaitGL                              context
       eglWaitNative                          thread
       eglWaitSync                            sync
+      eglDebugMessageControlKHR              -none-
+      eglQueryDebugKHR                       -none-
+      eglLabelObjectKHR                      labeled object
 
     ---------------------------------------------------------------------------
     Table 13.2: Recommendation of primary object in a callback as result
@@ -331,7 +338,8 @@ Additions to Chapter 3 of the EGL 1.5 Specification
     output, the implementation will call that function whenever any enabled
     message is generated. A message must be posted for every error since
     debug messages can be used as an alternative to eglGetError() for error
-    detection and handling.
+    detection and handling. Specifying a callback function does not affect the
+    behavior of eglGetError; errors are reported through both mechanisms.
 
     Applications that specify a callback function must be aware of certain
     special conditions when executing code inside a callback when it is
@@ -349,9 +357,10 @@ Additions to Chapter 3 of the EGL 1.5 Specification
     functions from within the callback function is undefined and may lead
     to program termination. It should not be considered reentrant.
 
-    An application can use multiple threads all using the same callback
-    function. It is the responsibility of the application to make this
-    thread safe.
+    Only one debug callback may be registered at a time; registering a new
+    callback will replace the previous callback. The callback is used by any
+    thread that calls EGL, so if the application calls into EGL concurrently
+    from multiple threads it must ensure the callback is thread-safe.
 
     EGL may employ internal threads to execute EGL commands. These threads can
     post debug messages to the callback function. The labels for these
@@ -405,6 +414,9 @@ Additions to Chapter 3 of the EGL 1.5 Specification
     EGL_OBJECT_THREAD_KHR, or EGL_OBJECT_DISPLAY_KHR; However for all other
     types it must be initialized in order to validate the <object> for
     attaching a label.
+
+    If there is no error, then the function will set the label and return
+    EGL_SUCCESS.
 
     3.13.3 Debug Queries:
 
@@ -483,12 +495,15 @@ Issues
      application thread. However, EGL may have internal helper threads that
      execute operations. These threads can callback but will have no
      threadLabel. It is the responsibility of EGL to ensure that if these
-     threads are blocked in the application's callback by a breakpoint, that
+     threads are blocked in the application's callback by a breakpoint; that
      EGL does not fail. Internal threads are an implementation detail and
      are not required.
 
 
 Revision History
+
+    Revision 18, 2016-07-28 (Jeff Vigil)
+      - Clarify return values/error codes.
 
     Revision 17, 2015-09-23 (Jeff Vigil)
       - Correct type name to "EGLDEBUGPROCKHR". Updated example code.

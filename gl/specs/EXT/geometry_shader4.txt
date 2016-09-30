@@ -313,7 +313,7 @@ Operation)
     Triangle Strips with Adjacency
 
     Triangle strips with adjacency are similar to triangle strips, except that
-    each line triangle edge has an adjacent vertex that can be accessed by a
+    each triangle edge has an adjacent vertex that can be accessed by a
     geometry shader (Section 2.15).  If a geometry shader is not active, the
     "adjacent" vertices are ignored.
 

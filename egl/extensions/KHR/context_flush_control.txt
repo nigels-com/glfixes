@@ -90,7 +90,7 @@ New Procedures and Functions
 
     None.
 
-New Tokens
+New Tokens (GL)
 
     NOTE: when implemented in an OpenGL ES context, all tokens defined by
     this extension must have a "_KHR" suffix. When implemented in an OpenGL
@@ -108,6 +108,8 @@ New Tokens
         GL_NONE                                             0x0000
         GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH                   0x82FC
 
+New Tokens (EGL)
+
     Accepted as an attribute name in the <*attrib_list> argument to
     eglCreateContext:
 
@@ -119,6 +121,8 @@ New Tokens
         EGL_CONTEXT_RELEASE_BEHAVIOR_NONE_KHR               0x0000
         EGL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR              0x2098
 
+New Tokens (GLX)
+
     Accepted as an attribute name in the <*attrib_list> argument to
     glXCreateContextAttribsARB:
 
@@ -129,6 +133,8 @@ New Tokens
 
         GLX_CONTEXT_RELEASE_BEHAVIOR_NONE_ARB               0x0000
         GLX_CONTEXT_RELEASE_BEHAVIOR_FLUSH_ARB              0x2098
+
+New Tokens (WGL)
 
     Accepted as an attribute name in the <*attrib_list> argument to
     wglCreateContextAttribsARB:
