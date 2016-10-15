@@ -550,7 +550,9 @@
         <enum value="0x31D7" name="EGL_PLATFORM_GBM_MESA" alias="EGL_PLATFORM_GBM_KHR"/>
         <enum value="0x31D8" name="EGL_PLATFORM_WAYLAND_KHR"/>
         <enum value="0x31D8" name="EGL_PLATFORM_WAYLAND_EXT" alias="EGL_PLATFORM_WAYLAND_KHR"/>
-            <unused start="0x31D9" end="0x31DF"/>
+            <unused start="0x31D9" end="0x31DC"/>
+        <enum value="0x31DD" name="EGL_PLATFORM_SURFACELESS_MESA"/>
+            <unused start="0x31DE" end="0x31DF"/>
     </enums>
 
     <enums namespace="EGL" start="0x31E0" end="0x31EF" vendor="HI" comment="Reserved for Mark Callow (Khronos bug 6799)">
@@ -2466,6 +2468,11 @@
         <extension name="EGL_MESA_platform_gbm" supported="egl">
             <require>
                 <enum name="EGL_PLATFORM_GBM_MESA"/>
+            </require>
+        </extension>
+        <extension name="EGL_MESA_platform_surfaceless" supported="egl">
+            <require>
+                <enum name="EGL_PLATFORM_SURFACELESS_MESA"/>
             </require>
         </extension>
         <extension name="EGL_NOK_swap_region" supported="egl">
