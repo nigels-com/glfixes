@@ -46,7 +46,7 @@ extern "C" {
 #define GL_GLES_PROTOTYPES 1
 #endif
 
-/* Generated on date 20160917 */
+/* Generated on date 20161014 */
 
 /* Generated C header for:
  * API: gles2

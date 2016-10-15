@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 33185 $ on $Date: 2016-09-28 15:30:58 -0700 (Wed, 28 Sep 2016) $
+** Khronos $Revision: 33226 $ on $Date: 2016-10-14 18:14:33 -0700 (Fri, 14 Oct 2016) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20160928
+#define EGL_EGLEXT_VERSION 20161014
 
 /* Generated C header for:
  * API: egl
@@ -831,6 +831,11 @@ EGLAPI EGLBoolean EGLAPIENTRY eglExportDMABUFImageMESA (EGLDisplay dpy, EGLImage
 #define EGL_MESA_platform_gbm 1
 #define EGL_PLATFORM_GBM_MESA             0x31D7
 #endif /* EGL_MESA_platform_gbm */
+
+#ifndef EGL_MESA_platform_surfaceless
+#define EGL_MESA_platform_surfaceless 1
+#define EGL_PLATFORM_SURFACELESS_MESA     0x31DD
+#endif /* EGL_MESA_platform_surfaceless */
 
 #ifndef EGL_NOK_swap_region
 #define EGL_NOK_swap_region 1
