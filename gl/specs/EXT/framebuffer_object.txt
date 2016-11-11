@@ -27,7 +27,7 @@ Contributors
     Kent Lin
     Rob Mace
     Teri Morrison
-    Chris Niederauer 
+    Chris Niederauer
     Brian Paul
     Paul Puey
     Ian Romanick
@@ -48,17 +48,18 @@ Contacts
 
 Status
 
-    Complete. 
+    Complete.
     Approved by the ARB "superbuffers" Working Group on January 31, 2005.
     Despite being controlled by the ARB WG, this is not an officially
     approved ARB extension at this time, thus the "EXT" tag.
 
 Version
 
-    Last Modified Date: May 3, 2016
-    Revision: #122
+    Last Modified Date: October 6, 2016
+    Revision: #123
 
 Number
+
     310
 
 Dependencies
@@ -643,7 +644,7 @@ Operations and the Framebuffer)
     summarizes the constants and the buffers they indicate. In this
     case, <buf> is a symbolic constant specifying a single color buffer
     for writing.  Specifying COLOR_ATTACHMENTi_EXT enables drawing only
-    to the image attached to the framebuffer at COLOR_ATTACHMENTi_EXT. 
+    to the image attached to the framebuffer at COLOR_ATTACHMENTi_EXT.
     Each COLOR_ATTACHMENTi_EXT adheres to COLOR_ATTACHMENTi_EXT =
     COLOR_ATTACHMENT0_EXT + i.  The intial value of DRAW_BUFFER for
     application-created framebuffer objects is COLOR_ATTACHMENT0_EXT.
@@ -672,7 +673,7 @@ Operations and the Framebuffer)
     error INVALID_OPERATION results.
 
     If the GL is bound to the application-created framebuffer and
-    DrawBuffer is supplied with a constant from table 4.4, or 
+    DrawBuffer is supplied with a constant from table 4.4, or
     COLOR_ATTACHMENTm where m is greater than or equal to
     MAX_COLOR_ATTACHMENTS, then the error INVALID_OPERATION results.
 
@@ -691,7 +692,7 @@ Operations and the Framebuffer)
     each fragment color is written.
 
     Each enumerant listed in <bufs> must be one of the values from
-    tables 10.nnn or 11.nnn.  Otherwise, INVALID_ENUM is generated. 
+    tables 10.nnn or 11.nnn.  Otherwise, INVALID_ENUM is generated.
     Further, acceptable values for the constants in <bufs> depend on
     whether the GL is using the default window-system-provided
     framebuffer (i.e., FRAMEBUFFER_BINDING_EXT is zero), or an
@@ -699,7 +700,7 @@ Operations and the Framebuffer)
     FRAMEBUFFER_BINDING_EXT is non-zero).  For more information about
     application-created framebuffer objects, see section 4.4.
 
-    
+
       symbolic       front  front   back   back   aux
       constant       left   right   left   right  i
       --------       -----  -----   ----   -----  ---
@@ -709,7 +710,7 @@ Operations and the Framebuffer)
       BACK LEFT                      X
       BACK RIGHT                            X
       AUXi                                         X
-      --------------------------------------------------    
+      --------------------------------------------------
       Table 11.nnn: Arguments to DrawBuffers, when the context is bound
       to the window-system-provided framebuffer, and the buffers that
       they indicate.
@@ -763,7 +764,7 @@ Operations and the Framebuffer)
     the window-system, then the error INVALID_OPERATION results.
 
     If the GL is bound to the application-created framebuffer and
-    DrawBuffers is supplied with a constant from table 11.nnn, or 
+    DrawBuffers is supplied with a constant from table 11.nnn, or
     COLOR_ATTACHMENTm where m is greater than or equal to
     MAX_COLOR_ATTACHMENTS, then the error INVALID_OPERATION results.
 
@@ -1395,12 +1396,12 @@ Operations and the Framebuffer)
           and the target of texture object <T> is enabled according
           to the texture target precedence rules of section 3.8.15,
           or
-        - if FRAGMENT_PROGRAM_ARB is enabled and the currently bound 
+        - if FRAGMENT_PROGRAM_ARB is enabled and the currently bound
           fragment program contains any instructions that
-          sample from the texture object <T> bound to <U>, 
+          sample from the texture object <T> bound to <U>,
           or
         - if the active fragment or vertex shader contains
-          any instructions that might sample from the texture object <T> bound 
+          any instructions that might sample from the texture object <T> bound
           to <U> if even those instructions might only be executed
           conditionally.
 
@@ -1574,7 +1575,7 @@ Operations and the Framebuffer)
     CheckFramebufferStatusEXT is called within a Begin/End pair,
     INVALID_OPERATION is generated.  If CheckFramebufferStatusEXT
     generates an error, 0 is returned.
-    
+
     Otherwise, an enum is returned that identifies whether
     or not the framebuffer bound to <target> is complete, and if not
     complete the enum identifies one of the rules of framebuffer
@@ -2055,7 +2056,6 @@ Dependent Values", table 9.nnn.
     ACCUM_GREEN_BITS
     ACCUM_BLUE_BITS
     ACCUM_ALPHA_BITS
-    STENCIL_REF
 
 To the same table called "Framebuffer Dependent Values", table 9.nnn
 add the following new framebuffer dependent state.
@@ -2102,7 +2102,7 @@ ARB_vertex_shader
     are all not supported, then all references to the currently bound
     program or shader should be ignored.
 
-Dependencies on ARB_framebuffer_object and OpenGL 3.0 
+Dependencies on ARB_framebuffer_object and OpenGL 3.0
 
     Framebuffer objects created with the commands defined by the
     GL_EXT_framebuffer_object extension are defined to be shared, while
@@ -2139,7 +2139,7 @@ Dependencies on ARB_framebuffer_object and OpenGL 3.0
    using BindFramebuffer.  Framebuffer objects created with
    BindFramebuffer may be bound with BindFramebufferEXT provided they are
    bound to the same context they were created on.
-   
+
 Dependencies on ARB_texture_rectangle
 
     If ARB_texture_rectangle is not supported, then all references to
@@ -4733,7 +4733,7 @@ Issues
             4.4.4.2, then it is undefined which of the enumerated value
             corresponding to one of the violated rules will be returned
             by CheckFramebufferStatusEXT.  Since the initial state of a
-            framebuffer violates multiple rules from section 4.4.4.2, 
+            framebuffer violates multiple rules from section 4.4.4.2,
             it is therefore undefined exactly which value is returned if
             CheckFramebufferStatusEXT is called while bound to a newly
             created framebuffer object.
@@ -7341,6 +7341,9 @@ Issues
          violated.
 
 Revision History
+    #123, October 6, 2016: Jon Leech
+        - Remove STENCIL_REF from list of state moved to become framebuffer
+          dependent (Bug 8422).
     #122, May 3, 2016: Kevin Rogvin, James Jones
         - Specify behaviour of mixing EXT and ARB_framebuffer_object /
           OpenGL 3.0 framebuffer objects so that the aliases of the
@@ -7457,7 +7460,7 @@ Revision History
           because of the current framebuffer binding are an
           INVALID_OPERATION.
         - Fix minor typos in DrawBuffer(s) and ReadBuffer definitions.
-          
+
     #111, February 28, 2005:  jjuliano, jsandmel
         - Add example 7 illustrating "depth-only" framebuffer object.
 
@@ -7492,7 +7495,7 @@ Revision History
 
     #105, January 17, 2005:  jjuliano
         - add XXX documenting "undefined-ness" of rendering
-          vs. texturing 
+          vs. texturing
         - minor language clarification and typo fix
 
     #104, January 14, 2005:  jjuliano, jsandmel

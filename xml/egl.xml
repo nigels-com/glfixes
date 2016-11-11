@@ -782,7 +782,22 @@
     </enums>
 
     <enums namespace="EGL" start="0x3440" end="0x344F" vendor="ANDROID" comment="Reserved for Kristian Kristensen (Bug 16033)">
-            <unused start="0x3440" end="0x344F"/>
+        <enum value="0x3440" name="EGL_DMA_BUF_PLANE3_FD_EXT"/>
+        <enum value="0x3441" name="EGL_DMA_BUF_PLANE3_OFFSET_EXT"/>
+        <enum value="0x3442" name="EGL_DMA_BUF_PLANE3_PITCH_EXT"/>
+        <enum value="0x3443" name="EGL_DMA_BUF_PLANE0_MODIFIER_LO_EXT"/>
+        <enum value="0x3444" name="EGL_DMA_BUF_PLANE0_MODIFIER_HI_EXT"/>
+        <enum value="0x3445" name="EGL_DMA_BUF_PLANE1_MODIFIER_LO_EXT"/>
+        <enum value="0x3446" name="EGL_DMA_BUF_PLANE1_MODIFIER_HI_EXT"/>
+        <enum value="0x3447" name="EGL_DMA_BUF_PLANE2_MODIFIER_LO_EXT"/>
+        <enum value="0x3448" name="EGL_DMA_BUF_PLANE2_MODIFIER_HI_EXT"/>
+        <enum value="0x3449" name="EGL_DMA_BUF_PLANE3_MODIFIER_LO_EXT"/>
+        <enum value="0x344A" name="EGL_DMA_BUF_PLANE3_MODIFIER_HI_EXT"/>
+            <unused start="0x344B" end="0x344F"/>
+    </enums>
+
+    <enums namespace="EGL" start="0x3450" end="0x345F" vendor="ANGLE" comment="Reserved for Shannon Woods (Bug 16106)">
+            <unused start="0x3450" end="0x345F"/>
     </enums>
 
 <!-- Please remember that new enumerant allocations must be obtained by
@@ -794,8 +809,8 @@
 
 <!-- Reservable for future use. To generate a new range, allocate multiples
      of 16 starting at the lowest available point in this block. -->
-    <enums namespace="EGL" start="0x3450" end="0x3FFF" vendor="KHR">
-            <unused start="0x3450" end="0x3FFF" comment="Reserved for future use"/>
+    <enums namespace="EGL" start="0x3460" end="0x3FFF" vendor="KHR" comment="Reserved for future use">
+            <unused start="0x3460" end="0x3FFF"/>
     </enums>
 
     <enums namespace="EGL" start="0x8F70" end="0x8F7F" vendor="HI" comment="For Mark Callow, Khronos bug 4055. Shared with GL.">
@@ -1273,6 +1288,22 @@
             <param><ptype>EGLint</ptype> <name>attribute</name></param>
             <param><ptype>EGLAttrib</ptype> *<name>value</name></param>
             <alias name="eglQueryDisplayAttribEXT"/>
+        </command>
+        <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglQueryDmaBufFormatsEXT</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLint</ptype> <name>max_formats</name></param>
+            <param><ptype>EGLint</ptype> <name>*formats</name></param>
+            <param><ptype>EGLint</ptype> <name>*num_formats</name></param>
+        </command>
+        <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglQueryDmaBufModifiersEXT</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLint</ptype> <name>format</name></param>
+            <param><ptype>EGLint</ptype> <name>max_modifiers</name></param>
+            <param><ptype>EGLuint64KHR</ptype> <name>*modifiers</name></param>
+            <param><ptype>EGLBoolean</ptype> <name>*external_only</name></param>
+            <param><ptype>EGLint</ptype> <name>*num_modifiers</name></param>
         </command>
         <command>
             <proto><ptype>EGLBoolean</ptype> <name>eglQueryNativeDisplayNV</name></proto>
@@ -1977,6 +2008,23 @@
                 <enum name="EGL_YUV_NARROW_RANGE_EXT"/>
                 <enum name="EGL_YUV_CHROMA_SITING_0_EXT"/>
                 <enum name="EGL_YUV_CHROMA_SITING_0_5_EXT"/>
+            </require>
+        </extension>
+        <extension name="EGL_EXT_image_dma_buf_import_modifiers" supported="egl">
+            <require>
+                <enum name="EGL_DMA_BUF_PLANE3_FD_EXT"/>
+                <enum name="EGL_DMA_BUF_PLANE3_OFFSET_EXT"/>
+                <enum name="EGL_DMA_BUF_PLANE3_PITCH_EXT"/>
+                <enum name="EGL_DMA_BUF_PLANE0_MODIFIER_LO_EXT"/>
+                <enum name="EGL_DMA_BUF_PLANE0_MODIFIER_HI_EXT"/>
+                <enum name="EGL_DMA_BUF_PLANE1_MODIFIER_LO_EXT"/>
+                <enum name="EGL_DMA_BUF_PLANE1_MODIFIER_HI_EXT"/>
+                <enum name="EGL_DMA_BUF_PLANE2_MODIFIER_LO_EXT"/>
+                <enum name="EGL_DMA_BUF_PLANE2_MODIFIER_HI_EXT"/>
+                <enum name="EGL_DMA_BUF_PLANE3_MODIFIER_LO_EXT"/>
+                <enum name="EGL_DMA_BUF_PLANE3_MODIFIER_HI_EXT"/>
+                <command name="eglQueryDmaBufFormatsEXT"/>
+                <command name="eglQueryDmaBufModifiersEXT"/>
             </require>
         </extension>
         <extension name="EGL_EXT_multiview_window" supported="egl">

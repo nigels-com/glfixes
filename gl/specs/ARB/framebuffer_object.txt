@@ -30,7 +30,7 @@ Contributors
     Kent Lin
     Rob Mace
     Teri Morrison
-    Chris Niederauer 
+    Chris Niederauer
     Brian Paul
     Paul Puey
     Ian Romanick
@@ -48,7 +48,7 @@ Contributors
 Contacts
 
     Rob Barris (rbarris 'at' gmail.com)
-    Daniel Koch, TransGaming Inc. 
+    Daniel Koch, TransGaming Inc.
 
 Notice
 
@@ -61,8 +61,8 @@ Status
 
 Version
 
-    Last Modified Date: June 20, 2016
-    Revision: #37
+    Last Modified Date: October 6, 2016
+    Revision: #38
 
 Number
 
@@ -115,17 +115,17 @@ Overview
 
     ARB_framebuffer_object is an extension intended to address the following
     goals:
-    
+
     - Reflect FBO-related functionality found in the OpenGL 3.0 specification.
-    
+
     - Integrate multiple disjoint extensions into a single ARB extension.
       These extensions are:
 
         EXT_framebuffer_object
         EXT_framebuffer_blit
         EXT_framebuffer_multisample
-        EXT_packed_depth_stencil    
-        
+        EXT_packed_depth_stencil
+
     - Where appropriate, relax some of the constraints expressed by previous
       FBO-related extensions. In particular the requirement of matching
       attachment dimensions and component sizes has been relaxed, to allow
@@ -211,7 +211,7 @@ Overview
     that of the window.  Finally, unlike the pbuffers of
     ARB_render_texture, a single framebuffer object can facilitate
     rendering to an unlimited number of texture objects.
-    
+
     This extension differs from EXT_framebuffer_object by splitting the
     framebuffer object binding point into separate DRAW and READ
     bindings (incorporating functionality introduced by
@@ -219,7 +219,7 @@ Overview
     framebuffer to another. In addition, a new high performance blit
     function is added to facilitate these blits and perform some data
     conversion where allowed.
- 
+
     This extension also enables usage of multisampling in conjunction with
     renderbuffers (incorporating functionality from
     EXT_packed_depth_stencil), as follows:
@@ -254,8 +254,8 @@ Overview
     resolve.  Instead, the application explicitly controls when the
     resolve operation is performed.  The resolve operation is affected
     by calling BlitFramebuffer where the source is a multisample
-    application-created framebuffer object and the destination is a 
-    single-sample framebuffer object (either application-created or 
+    application-created framebuffer object and the destination is a
+    single-sample framebuffer object (either application-created or
     window-system provided).
 
     This design for multisample resolve more closely matches current
@@ -289,8 +289,8 @@ Overview
     Using BlitFramebuffer as an explicit resolve to serialize access to
     the multisampled contents and eliminate the implicit per-sample
     resolve operation, we avoid both of these problems.
-    
-    This extension also enables usage of packed depth-stencil formats in 
+
+    This extension also enables usage of packed depth-stencil formats in
     renderbuffers (incorporating functionality from
     EXT_packed_depth_stencil), as follows:
 
@@ -363,7 +363,7 @@ Overview
     In addition, a new base internal format, GL_DEPTH_STENCIL, can
     be used by both texture images and renderbuffer storage.  When an
     image with a DEPTH_STENCIL internal format is attached to both
-    the depth and stencil attachment points of a framebuffer object, 
+    the depth and stencil attachment points of a framebuffer object,
     then it becomes both the depth and stencil
     buffers of the framebuffer.  This fits nicely with hardware that
     interleaves both depth and stencil data into a single buffer.  When
@@ -697,8 +697,8 @@ Additions to Chapter 2 of the 2.1 Specification (OpenGL Operation)
     "Calling Begin will result in an INVALID_FRAMEBUFFER_OPERATION
     error if the object bound to DRAW_FRAMEBUFFER_BINDING is not
     "framebuffer complete" (see section 4.4.4.2)."
-    
-    Update the bulleted list in section 2.15.4 "Shader Execution" in 
+
+    Update the bulleted list in section 2.15.4 "Shader Execution" in
     the subsection titled "Texture Access" to say:
 
     "* The sampler used in a texture lookup function is not one of
@@ -723,7 +723,7 @@ Additions to Chapter 2 of the 2.1 Specification (OpenGL Operation)
 
 Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
 
-    Update section 3.6.3 "Pixel Transfer Modes", the first paragraph of 
+    Update section 3.6.3 "Pixel Transfer Modes", the first paragraph of
     the subsection "Color Table Specification", in the definition of
     ColorTable, to say:
 
@@ -753,7 +753,7 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
     "... The formats COLOR_INDEX, DEPTH_COMPONENT, DEPTH_STENCIL,
     and STENCIL_INDEX and the type BITMAP are not allowed."
 
-    In section 3.6.3 "Pixel Transfer Modes", update the third paragraph 
+    In section 3.6.3 "Pixel Transfer Modes", update the third paragraph
     of the subsection "Convolution Filter Specification", in the definition
     of ConvolutionFilter2D, to say:
 
@@ -768,7 +768,7 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
     bound to READ_FRAMEBUFFER_BINDING is not "framebuffer
     complete" (see section 4.4.4.2)."
 
-    In section 3.6.3 "Pixel Transfer Modes", update the third paragraph 
+    In section 3.6.3 "Pixel Transfer Modes", update the third paragraph
     of the "Histogram Table Specification" subsection , in the definition of
     Histogram, to say:
 
@@ -850,16 +850,16 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
       ...           |  ...     ...     ...     ...
       BGRA          |  blue    green   red     alpha
       DEPTH_STENCIL |  depth   stencil N/A     N/A
-    
-    In section 3.6.4 "Rasterization of Pixel Rectangles", add the 
+
+    In section 3.6.4 "Rasterization of Pixel Rectangles", add the
     following sentence to the end of the first paragraph in "Conversion
     to floating-point":
 
     "For groups containing both components and indices, such as
     DEPTH_STENCIL, the indices are not converted."
 
-    In section 3.6.4 "Rasterization of Pixel Rectangles", update the 
-    last paragraph in the section "Conversion to Fragments" to say: 
+    In section 3.6.4 "Rasterization of Pixel Rectangles", update the
+    last paragraph in the section "Conversion to Fragments" to say:
 
     "... Groups arising from DrawPixels with a <format> of STENCIL_INDEX
     or DEPTH_STENCIL are treated specially and are described in
@@ -879,19 +879,19 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
        5. Depth/stencil: Each group comprises a single depth component
           and a single stencil index."
 
-    In section 3.6.5 "Pixel Transfer Operations" update the first paragraph 
+    In section 3.6.5 "Pixel Transfer Operations" update the first paragraph
     in the subsection "Arithmetic on Components" to say:
 
     "This step applies only to RGBA component and depth component
     groups, and to the depth components in depth/stencil groups. ..."
 
-    In section 3.6.5 "Pixel Transfer Operations" update the first paragraph 
+    In section 3.6.5 "Pixel Transfer Operations" update the first paragraph
     in the subsection "Arithmetic on Indices" to say:
 
     "This step applies only to color index and stencil index groups, and
     to the stencil indices in depth/stencil groups. ..."
 
-    In section 3.6.5 "Pixel Transfer Operations" update the first paragraph 
+    In section 3.6.5 "Pixel Transfer Operations" update the first paragraph
     in the subsection "Stencil Index Lookup" to say:
 
     "This step applies only to stencil index groups and to the stencil
@@ -905,11 +905,11 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
     DRAW_FRAMEBUFFER_BINDING is not "framebuffer complete"
     (see section 4.4.4.2)."
 
-    In section 3.8.1 "Texture Image Specification", update the following 
+    In section 3.8.1 "Texture Image Specification", update the following
     paragraphs as follows:
 
-    Update the fourth paragraph to say: 
-    
+    Update the fourth paragraph to say:
+
     "The selected groups are processed exactly as for DrawPixels,
     stopping just before final conversion.  Each R, G, B, A, or depth
     value so generated is clamped to [0, 1], while the stencil index
@@ -980,7 +980,7 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
       DEPTH24_STENCIL8 DEPTH_STENCIL                                   24    8
       ...                  ...           ...  ...  ...  ...  ...  ...  ...  ...
 
-    In section 3.8.2 "Alternate Texture Image Specification Commands", 
+    In section 3.8.2 "Alternate Texture Image Specification Commands",
     update the second paragraph, in the definition of CopyTexImage2D, to
     say:
 
@@ -1013,7 +1013,7 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
     internalformat of the texture array, not by an argument to the
     command..."
 
-    Append the following to section 3.8.2 "Alternate Texture Image 
+    Append the following to section 3.8.2 "Alternate Texture Image
     Specification Commands":
 
     "Calling CopyTexSubImage3D, CopyTexImage2D,
@@ -1098,7 +1098,7 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
     derived arrays, given identical level_base arrays."
 
     Add a new section between sections 3.8.9 and 3.8.10:
-    
+
     "3.8.10 DEPTH_STENCIL Textures
 
     If the texture image has a base internal format of
@@ -1115,12 +1115,12 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
 
     Update the second paragraph of section 3.8.11 "Texture State and
     Proxy State" to say:
-    
+
     "... and internal format state values, as well as state for the red,
     green, blue, alpha, luminance, intensity, depth, and stencil
     component resolutions."
-    
-    Modify the definition of DeleteTextures in section 3.8.12 "Texture 
+
+    Modify the definition of DeleteTextures in section 3.8.12 "Texture
     Objects", to read:
 
     "Texture objects are deleted by calling
@@ -1140,13 +1140,13 @@ Additions to Chapter 3 of the OpenGL 2.1 Specification (Rasterization)
     Unused names in textures are silently ignored, as is the value
     zero."
 
-    In section 3.8.14 "Texture Comparison Modes", update the first 
+    In section 3.8.14 "Texture Comparison Modes", update the first
     paragraph of "Depth Texture Comparison Mode" subsection to say:
 
     "If the currently bound texture's base internal format is
     DEPTH_COMPONENT or DEPTH_STENCIL..."
 
-    In the section 3.8.16 "Texture Application", update the first 
+    In the section 3.8.16 "Texture Application", update the first
     paragraph of to say:
 
     "...Otherwise, a texture value is found according to the parameter
@@ -1277,7 +1277,7 @@ Operations and the Framebuffer)
     framebuffer is the default framebuffer, the window system controls pixel
     ownership."
 
-    Change section 4.1.5 "Stencil Test", the fifth paragraph, 
+    Change section 4.1.5 "Stencil Test", the fifth paragraph,
     the second and third sentences, to read as follows:
 
     "<ref> is an integer reference value that is used in the unsigned
@@ -1299,7 +1299,7 @@ Operations and the Framebuffer)
 
     "The first such operation is controlling the buffers into which each of
     the fragment color values is written.  This is accomplished with either
-    DrawBuffer or DrawBuffers. The command 
+    DrawBuffer or DrawBuffers. The command
 
         void DrawBuffer( enum buf );
 
@@ -1351,16 +1351,16 @@ Operations and the Framebuffer)
     not indicate any of the color buffers allocated to the GL context,
     the error INVALID_OPERATION results.
 
-    If the GL is bound to a framebuffer object and <buf> is one of the 
+    If the GL is bound to a framebuffer object and <buf> is one of the
     constants from table 4.4, then the error INVALID_OPERATION results.
-    If <buf> is COLOR_ATTACHMENT<m> and <m> is greater than or equal to 
-    the value of MAX_COLOR_ATTACHMENTS, then the error INVALID_VALUE 
+    If <buf> is COLOR_ATTACHMENT<m> and <m> is greater than or equal to
+    the value of MAX_COLOR_ATTACHMENTS, then the error INVALID_VALUE
     results.
 
     If DrawBuffer is supplied with a constant that is neither legal for
     the default framebuffer nor an framebuffer object, then the error
     INVALID_ENUM results.
-    
+
     DrawBuffer will set the draw buffer for fragment colors other than
     zero to NONE.
 
@@ -1382,7 +1382,7 @@ Operations and the Framebuffer)
     DRAW_FRAMEBUFFER_BINDING is non-zero).  For more information about
     framebuffer objects, see section 4.4.
 
-    
+
       symbolic       front  front   back   back   aux
       constant       left   right   left   right  i
       --------       -----  -----   ----   -----  ---
@@ -1392,7 +1392,7 @@ Operations and the Framebuffer)
       BACK LEFT                      X
       BACK RIGHT                            X
       AUXi                                         X
-      --------------------------------------------------    
+      --------------------------------------------------
       Table 11.nnn: Arguments to DrawBuffers, when the context is bound
       to the default framebuffer, and the buffers that they indicate.
 
@@ -1424,10 +1424,10 @@ Operations and the Framebuffer)
 
     If a fragment shader writes to "gl_FragColor", DrawBuffers specifies
     a set of draw buffers into which the single fragment color defined
-    by "gl_FragColor" is written.  If a fragment shader writes to 
+    by "gl_FragColor" is written.  If a fragment shader writes to
     "gl_FragData", DrawBuffers specifies a set of draw buffers into which
     each of the multiple fragment colors defined by "gl_FragData" are
-    separately written.  If a fragment shader writes to neither 
+    separately written.  If a fragment shader writes to neither
     "gl_FragColor" nor "gl_FragData", the values of the fragment colors
     following shader execution are undefined, and may differ for each
     fragment color.
@@ -1445,7 +1445,7 @@ Operations and the Framebuffer)
     the window system, the error INVALID_OPERATION will be generated.
 
     If the GL is bound to a framebuffer object and
-    DrawBuffers is supplied with a constant from table 11.nnn, or 
+    DrawBuffers is supplied with a constant from table 11.nnn, or
     COLOR_ATTACHMENTm where m is greater than or equal to the value of
     MAX_COLOR_ATTACHMENTS, then the error INVALID_OPERATION results.
 
@@ -1472,14 +1472,14 @@ Operations and the Framebuffer)
     COLOR_ATTACHMENT0.  For both the default
     framebuffer and framebuffers objects, the initial state
     of draw buffers for fragment colors other then zero is NONE.
-    
-    The value of the draw buffer selected for fragment color <i> can be 
-    queried by calling GetIntegerv with the symbolic constant DRAW_BUFFERi. 
+
+    The value of the draw buffer selected for fragment color <i> can be
+    queried by calling GetIntegerv with the symbolic constant DRAW_BUFFERi.
     DRAW_BUFFER is equivalent to DRAW_BUFFER0."
 
     In section 4.2.2 "Fine Control of Buffer Updates", modify the beginning
     of the paragraph defining <mask> for StencilMask and StencilMaskSeparate
-    as follows: 
+    as follows:
 
     Modify the second to last paragraph of section 4.2.4 "The Accumulation
     Buffer" as follows:
@@ -1524,8 +1524,8 @@ Operations and the Framebuffer)
     complete, and the value of SAMPLE_BUFFERS for the read framebuffer
     is greater than zero."
 
-    In section 4.3.2 "Reading Pixels", add the following paragraph 
-    after the second paragraph of the section "Obtaining Pixels from 
+    In section 4.3.2 "Reading Pixels", add the following paragraph
+    after the second paragraph of the section "Obtaining Pixels from
     the Framebuffer":
 
     "If the <format> is DEPTH_STENCIL, then values are taken from
@@ -1596,9 +1596,9 @@ Operations and the Framebuffer)
     the selected buffer, regardless of how those values were placed
     there."
 
-    In section 4.3.2 "Reading Pixels", modify the last paragraph of the 
+    In section 4.3.2 "Reading Pixels", modify the last paragraph of the
     subsection "Obtaining Pixels from the Framebuffer", to say:
-    
+
     "... If the GL is in color index mode, and <format> is not
     DEPTH_COMPONENT, STENCIL_INDEX, or DEPTH_STENCIL, then the color
     index is obtained at each pixel location."
@@ -1617,13 +1617,13 @@ Operations and the Framebuffer)
     are taken to be zero, zero, and one respectively.
 
     In section 4.3.2 "Reading Pixels", update the first sentence of the
-    subsection "Conversion of RGBA values" to say: 
+    subsection "Conversion of RGBA values" to say:
 
     "This step applies only if the GL is in RGBA mode, and then only if
     <format> is neither STENCIL_INDEX, DEPTH_COMPONENT, nor
     DEPTH_STENCIL."
 
-    In section 4.3.2 "Reading Pixels", update the section "Conversion 
+    In section 4.3.2 "Reading Pixels", update the section "Conversion
     of Depth values" to say:
 
     "This step applies only if <format> is DEPTH_COMPONENT or
@@ -1785,7 +1785,7 @@ Operations and the Framebuffer)
     contain floating-point values, or if the read buffer contains
     non-floating-point values and any draw buffer contains
     floating-point values, an INVALID_OPERATION error is generated.
-    
+
     Calling BlitFramebuffer will result in an
     INVALID_FRAMEBUFFER_OPERATION error if the objects bound to
     DRAW_FRAMEBUFFER_BINDING and READ_FRAMEBUFFER_BINDING are
@@ -1811,9 +1811,9 @@ Operations and the Framebuffer)
     framebuffers are identical, the samples are copied without
     modification from the read framebuffer to the draw framebuffer.
     Otherwise, no copy is performed and an INVALID_OPERATION error is
-    generated. Note that the samples in the draw buffer are not 
-    guaranteed to be at the same sample location as the read buffer, 
-    so rendering using this newly created buffer can potentially 
+    generated. Note that the samples in the draw buffer are not
+    guaranteed to be at the same sample location as the read buffer,
+    so rendering using this newly created buffer can potentially
     have geometry cracks or incorrect antialiasing. This may occur
     if the sizes of the framebuffers do not match, if the
     formats differ, or if the source and destination rectangles are
@@ -1928,7 +1928,7 @@ Operations and the Framebuffer)
     implementations, the properties of the default framebuffer can
     change over time (e.g., in response to window system events
     such as attaching the context to a new window system drawable.)
-    
+
     Framebuffer objects (those with a non-zero
     name) differ from the default framebuffer in
     a few important ways.  First and foremost, unlike the
@@ -1968,13 +1968,13 @@ Operations and the Framebuffer)
 
           - There are no AUX buffer bitplanes, so the value of the
             implementation-dependent state variable AUX_BUFFERS is zero.
-            
+
           - If the attachment sizes are not all identical, rendering will be
             limited to the largest area that can fit in all of the
             attachments (i.e. an intersection of rectangles having a lower
             left of (0,0) and an upper right of (width,height) for each
             attachment)
-            
+
           - If the attachment sizes are not all identical, the values of
             pixels outside the common intersection area after rendering are
             undefined.
@@ -2110,7 +2110,7 @@ Operations and the Framebuffer)
     establishes the data storage, format, dimensions, and number of
     samples of a renderbuffer object's image.  <target> must be
     RENDERBUFFER.  <internalformat> must be color-renderable, depth-
-    renderable, or stencil-renderable (as defined in section 4.4.4).  
+    renderable, or stencil-renderable (as defined in section 4.4.4).
     <width> and <height> are the dimensions in pixels of the renderbuffer.
     If either <width> or <height> is greater than MAX_RENDERBUFFER_SIZE,
     or if <samples> is greater than MAX_SAMPLES,
@@ -2624,7 +2624,7 @@ Operations and the Framebuffer)
     If CheckFramebufferStatus is called within a Begin/End pair,
     an INVALID_OPERATION error is generated. If
     CheckFramebufferStatus generates an error, 0 is returned.
-    
+
     Otherwise, an enum is returned that identifies whether
     or not the framebuffer bound to <target> is complete, and if not
     complete the enum identifies one of the rules of framebuffer
@@ -2688,7 +2688,7 @@ Operations and the Framebuffer)
     the value of FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE at a particular
     attachment point is TEXTURE, the sizes may be determined by calling
     GetTexParameter, as described in section 6.1.3.
-    
+
 
     4.4.6 Mapping between Pixel and Element in Attached Image
 
@@ -2850,8 +2850,8 @@ Requests)
         NONE, no framebuffer is bound to <target>. In this case
         querying <pname> FRAMEBUFFER_ATTACHMENT_OBJECT_NAME
         will return zero, and all other queries will generate an
-        INVALID_OPERATION error. 
-        
+        INVALID_OPERATION error.
+
         If the value of FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE is not
         NONE, these queries apply to all other framebuffer types:
 
@@ -2864,14 +2864,14 @@ Requests)
             the number of bits in the corresponding red, green, blue, alpha,
             depth, or stencil component of the specified <attachment>. Zero
             is returned if the requested component is not present in
-            <attachment>. 
+            <attachment>.
 
           * If <pname> is FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE, <param>
             will contain the format of components of the specified
             attachment, one of FLOAT, INT, UNSIGNED_INT, UNSIGNED_NORMALIZED
             or INDEX for floating-point, signed integer, unsigned integer,
             unsigned fixed-point, or index components respectively. Only
-            color buffers may have index or integer components. 
+            color buffers may have index or integer components.
 
           * If <pname> is FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING, <param>
             will contain the encoding of components of the specified
@@ -2932,7 +2932,7 @@ Requests)
 
         The command
 
-        void GetRenderbufferParameteriv(enum target, enum pname, 
+        void GetRenderbufferParameteriv(enum target, enum pname,
                                         int* params);
 
         returns information about a bound renderbuffer object. <target> must
@@ -2954,7 +2954,7 @@ Requests)
         when the image array was defined), for the red, green, blue, alpha
         depth, or stencil components, respectively, of the image of the
         renderbuffer currently bound to <target>.
-        
+
         Otherwise, an INVALID_ENUM error is generated."
 
     In section 6.2 "State Tables", add a row to table 6.18 "Textures
@@ -3070,11 +3070,11 @@ Errors
 
     The error INVALID_VALUE is generated if FramebufferTexture{1D|2D}
     is called with a <level> that is greater than the log base 2 of
-    MAX_TEXTURE_SIZE and <texture> is a 1D or 2D texture. 
+    MAX_TEXTURE_SIZE and <texture> is a 1D or 2D texture.
 
     The error INVALID_VALUE is generated if FramebufferTexture2D
     is called with a <level> that is greater than the log base 2 of
-    MAX_CUBE_MAP_TEXTURE_SIZE and <texture> is a cubemap texture. 
+    MAX_CUBE_MAP_TEXTURE_SIZE and <texture> is a cubemap texture.
 
     The error INVALID_VALUE is generated if FramebufferTexture3D is
     called with a <level> greater than the log base 2 of the
@@ -3327,7 +3327,6 @@ Dependent Values", table 9.nnn.
     ACCUM_GREEN_BITS
     ACCUM_BLUE_BITS
     ACCUM_ALPHA_BITS
-    STENCIL_REF
 
 To the same table called "Framebuffer Dependent Values", table 9.nnn
 add the following new framebuffer dependent state.
@@ -3396,7 +3395,7 @@ Dependencies on ARB_texture_rg
 
 Dependencies on NV_float_buffer
 
-    If NV_float_buffer is not supported, delete the references to 
+    If NV_float_buffer is not supported, delete the references to
     FLOAT_R_NV, FLOAT_RG_NV, FLOAT_RGB_NV and FLOAT_RGBA_NV from the list
     of color-renderable base internal formats from section 4.4.4
 
@@ -3439,9 +3438,9 @@ Dependencies on EXT_framebuffer_object
    bound to the same context they were created on.
 
 Dependencies on EXT_texture_array
-    
-    If EXT_texture_array is not supported, delete all references to 
-    one- and two-dimensional array textures. 
+
+    If EXT_texture_array is not supported, delete all references to
+    one- and two-dimensional array textures.
 
 Dependencies on EXT_texture_integer
 
@@ -3449,7 +3448,7 @@ Dependencies on EXT_texture_integer
     be made:
 
     The definition of GetFramebufferAttachmentParameteriv should be
-    modified to remove any references to signed and unsigned integer 
+    modified to remove any references to signed and unsigned integer
     components for color buffers and the values of INT and UNSIGNED_INT
     should be removed from the list of possible values for <param> when
     <pname> is FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE.
@@ -3462,7 +3461,7 @@ Dependencies on ARB_framebuffer_sRGB
     The definition of GetFramebufferAttachmentParameteriv should be
     modified to remove any reference to sRGB-encoded components or
     color buffers and sRGB conversion. The value of SRGB should be
-    removed from the list of possible values for <param> when <pname> is 
+    removed from the list of possible values for <param> when <pname> is
     FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING.
 
 GLX Protocol
@@ -4102,7 +4101,7 @@ Usage Examples
         <draw to the window>
 
 Sample Code (from framebuffer_blit)
-        
+
     /* Render to framebuffer object 2 */
     glBindFramebuffer(DRAW_FRAMEBUFFER, 2);
     RenderScene();
@@ -4221,7 +4220,7 @@ Issues
            renderbuffers.
 
          * Added FramebufferTextureLayer.
-    
+
         Other features we have considered include:
 
          * Render to Vertex Attrib (RTVA)
@@ -4257,25 +4256,25 @@ Issues
            EXT_framebuffer_object, all attachments affected framebuffer
            completeness, independent of the DRAW_BUFFERi and READ_BUFFER
            state.)
-         * Added new queries for the sizes of the bit planes for color, 
+         * Added new queries for the sizes of the bit planes for color,
            depth and stencil attachments at a framebuffer attachment point.
          * Added new queries for framebuffer attachment component type and
            color encoding.
          * Many other minor tweaks to synchronize with the GL3 framebuffer
            objects.
-         * ARB FBOs are not shareable. 
-          
+         * ARB FBOs are not shareable.
+
     (4) Do we need new enum values, or can we re-use the ones from the EXT
         versions?
 
-        RESOLVED. This extension is designed to be compatible with 
+        RESOLVED. This extension is designed to be compatible with
         EXT_framebuffer_object, and thus we can reuse the enumerants. There
         are also a number of additional enumerants added in this extension.
 
     (5) What should a query of RED_BITS, GREEN_BITS, BLUE_BITS, ALPHA_BITS.
         return if the attached color-renderable images have different
         formats?
-        
+
         RESOLVED. The values of RED_BITS, GREEN_BIT, BLUE_BITS and
         ALPHA_BITS are only defined if all color attachments of the draw
         framebuffer have identical formats, in which case the color
@@ -4286,10 +4285,10 @@ Issues
         GetFramebufferAttachmentParameteriv using the new
         FRAMEBUFFER_ATTACHMENT_*_SIZE enumerants, or by querying the object
         attached at that point.
-        
+
     (6) What are the proper names for the 1 and 2 component fixed-point,
         float, and pure integer texture formats?
-        
+
         RESOLVED: as introduced in the 3.0 spec, using RED and RG base
         internal format terminology. The new RED/RG formats have also been
         spun out of 3.0 as the ARB_texture_rg extension.
@@ -4297,7 +4296,7 @@ Issues
     (7) This extension and EXT_framebuffer_object both have "bind
         framebuffer" functions (BindFramebuffer and BindFramebufferEXT). Are
         there any differences in functionality between the two functions?
- 
+
         RESOLVED: Yes. Both extensions will create a new framebuffer object
         if called with an unused name. However, BindFramebuffer defined in
         this extension will generate an INVALID_OPERATION error if the name
@@ -4306,7 +4305,7 @@ Issues
         modify the behavior of BindFramebufferEXT. This difference also
         applies to BindRenderbuffer from this extension vs.
         BindRenderbufferEXT from EXT_framebuffer_object.
- 
+
     (8) Why don't the new tokens and entry points in this extension have
        "ARB" suffixes like other ARB extensions?
 
@@ -4366,14 +4365,14 @@ Issues
         ARB specifications such as ARB_framebuffer_sRGB which describes
         (see its issue #9) that formats such as GL_SLUMINANCE8.
 
-   (10) Can ARB framebuffer objects be shared between contexts? 
-        ARB_framebuffer_object is supposed to be compatible with 
-        EXT_framebuffer_object, but also a subset of OpenGL 3.0. 
-        EXT_framebuffer_object (rev. 120) explicitly allows sharing in 
+   (10) Can ARB framebuffer objects be shared between contexts?
+        ARB_framebuffer_object is supposed to be compatible with
+        EXT_framebuffer_object, but also a subset of OpenGL 3.0.
+        EXT_framebuffer_object (rev. 120) explicitly allows sharing in
         issue 76, but the 3.0 spec explicitly disallows it in Appendix D.
 
-        Resolved: No. ARB_framebuffer_object is intended to capture the 
-        functionality that went into GL 3.0.  Furthermore, given that the 
+        Resolved: No. ARB_framebuffer_object is intended to capture the
+        functionality that went into GL 3.0.  Furthermore, given that the
         entry points and tokens in this extension and the core are identical
         there is no way that an implementation could differentiate FBOs
         created with this extension from those created by core GL.
@@ -4409,34 +4408,34 @@ Revision History
         - merge in framebuffer_blit and update other references to
           FRAMEBUFFER_EXT and FRAMEBUFFER_BINDING_EXT, eliminating all
           references to the obsolete bindings.
-          
+
     #5 May 2, 2008: rbarris, dgkoch
         - merge in framebuffer_multisample
-        
+
     #6 May 8, 2008: dgkoch
         - rebase against OpenGL 2.1 spec
-        
+
     #7 May 8, 2008: dgkoch
         - merge in packed_depth_stencil
-        
+
     #8 May 8, 2008: dgkoch
         - add caveat that MSAA to MSAA blit may have issues (khronos bug
           #3005)
-        
+
     #9 May 9, 2008: dgkoch
         - renamed from EXT_fbo2 to ARB_fbo. Changed all suffixes to _ARB
           instead of _EXT.
 
    #10 May 19, 2008: rbarris
         - Bugzilla 3013: allow dimension mismatches (esp. depth)
-        
+
    #11 May 21, 2008: dgkoch
         - Bugzilla 3014: allow different color formats when using MRT.
         - added Issues 4, 5
         - deleted FRAMEBUFFER_INCOMPLETE_FORMATS &
           FRAMEBUFFER_INCOMPLETE_DIMENSIONS
         - added text for proposed resolution of Issue (5)
-        
+
    #12 May 22, 2008: dgkoch
         - Bugzilla 3015: define one- and two- component formats to be
           color-renderable
@@ -4448,7 +4447,7 @@ Revision History
           MAX_RENDERBUFFER_SIZE to 64 matching MAX_TEXTURE_SIZE (pending
           resolution of bug 3454). Pose some open questions preceded by
           "***".
-   
+
    #14 June 26: dgkoch
         - change MAX_SAMPLES to 0, to indicate the multisampling is not
           required. (bug 3551)
@@ -4459,7 +4458,7 @@ Revision History
           oversight introduced with the original extension. Replace
           reference to nonexistent table 12.nnn with reference to
           table 3.15. Start introducing RED and RG formats from 3.0 spec.
-    
+
    #16 July 10: dgkoch
         - backport error change for DrawBuffer in 4.2.1 (bug 3530)
 
@@ -4507,12 +4506,12 @@ Revision History
         - allow texture arrays via FramebufferTextureLayer
         - removed reference to required format list which we don't have here.
         - updated resolution of issue (6)
-    
+
     #20 July 16, 2008: Daniel Koch, Rob Barris
         - simplification of language for logical operation when a FB-image
           is attached more than once
         - add interactions with EXT_texture_integer and ARB_framebuffer_sRGB
-        - Resolved issues (2), (4) and (5) 
+        - Resolved issues (2), (4) and (5)
         - Updated issue (3) (although the list is still not exhaustive)
 
     #21 July 17, 2008: Daniel Koch
@@ -4590,3 +4589,7 @@ Revision History
         - Specify behaviour of mixing EXT and ARB_framebuffer_object /
           OpenGL 3.0 framebuffer objects so that the aliases of the
           functions are correctly observed (Bug 1485)
+
+    #38, October 6, 2016: Jon Leech
+        - Remove STENCIL_REF from list of state moved to become framebuffer
+          dependent (Bug 8422).
