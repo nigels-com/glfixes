@@ -136,7 +136,7 @@ New State (OpenGL ES)
 
     Get Value                Type  Get Command  Initial Value  Description           Sec
     ------------------------ ----  -----------  -------------  --------------------  ------
-    POLYGON_OFFSET_CLAMP_IMG  R    GetFloatv          0        Polygon offset clamp  13.5.2
+    POLYGON_OFFSET_CLAMP_EXT  R    GetFloatv          0        Polygon offset clamp  13.5.2
 
 New Implementation Dependent State
 
@@ -210,6 +210,7 @@ Revision History
 
     Rev.    Date    Author     Changes
     ----  -------- ---------  ------------------------------------------
+    4     02/11/16  thector    Fixed an incorrect vendor suffix (was IMG)
     3     10/21/15  thector    Added OpenGL ES interactions.
     2     08/27/14  elengyel   Added enum value for new token, resolved
                                issues, changed status to complete.

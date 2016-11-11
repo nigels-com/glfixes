@@ -33,14 +33,14 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 33222 $ on $Date: 2016-10-14 05:14:59 -0700 (Fri, 14 Oct 2016) $
+** Khronos $Revision: 33260 $ on $Date: 2016-10-27 03:38:44 -0700 (Thu, 27 Oct 2016) $
 */
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
 #endif
 
-/* Generated on date 20161014 */
+/* Generated on date 20161027 */
 
 /* Generated C header for:
  * API: gles2
@@ -1331,6 +1331,16 @@ GL_APICALL void GL_APIENTRY glDrawArraysInstancedEXT (GLenum mode, GLint start, 
 GL_APICALL void GL_APIENTRY glDrawElementsInstancedEXT (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei primcount);
 #endif
 #endif /* GL_EXT_draw_instanced */
+
+#ifndef GL_EXT_draw_transform_feedback
+#define GL_EXT_draw_transform_feedback 1
+typedef void (GL_APIENTRYP PFNGLDRAWTRANSFORMFEEDBACKEXTPROC) (GLenum mode, GLuint id);
+typedef void (GL_APIENTRYP PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDEXTPROC) (GLenum mode, GLuint id, GLsizei instancecount);
+#ifdef GL_GLEXT_PROTOTYPES
+GL_APICALL void GL_APIENTRY glDrawTransformFeedbackEXT (GLenum mode, GLuint id);
+GL_APICALL void GL_APIENTRY glDrawTransformFeedbackInstancedEXT (GLenum mode, GLuint id, GLsizei instancecount);
+#endif
+#endif /* GL_EXT_draw_transform_feedback */
 
 #ifndef GL_EXT_float_blend
 #define GL_EXT_float_blend 1
