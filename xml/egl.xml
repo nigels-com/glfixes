@@ -625,7 +625,23 @@
         <enum value="0x323B" name="EGL_CUDA_EVENT_HANDLE_NV"/>
         <enum value="0x323C" name="EGL_SYNC_CUDA_EVENT_NV"/>
         <enum value="0x323D" name="EGL_SYNC_CUDA_EVENT_COMPLETE_NV"/>
-            <unused start="0x323E" end="0x324F"/>
+            <unused start="0x323E"/>
+        <enum value="0x323F" name="EGL_STREAM_CROSS_PARTITION_NV"/>
+        <enum value="0x3240" name="EGL_STREAM_STATE_INITIALIZING_NV"/>
+        <enum value="0x3241" name="EGL_STREAM_TYPE_NV"/>
+        <enum value="0x3242" name="EGL_STREAM_PROTOCOL_NV"/>
+        <enum value="0x3243" name="EGL_STREAM_ENDPOINT_NV"/>
+        <enum value="0x3244" name="EGL_STREAM_LOCAL_NV"/>
+        <enum value="0x3245" name="EGL_STREAM_CROSS_PROCESS_NV"/>
+        <enum value="0x3246" name="EGL_STREAM_PROTOCOL_FD_NV"/>
+        <enum value="0x3247" name="EGL_STREAM_PRODUCER_NV"/>
+        <enum value="0x3248" name="EGL_STREAM_CONSUMER_NV"/>
+            <unused start="0x3239" end="0x324A"/>
+        <enum value="0x324B" name="EGL_STREAM_PROTOCOL_SOCKET_NV"/>
+        <enum value="0x324C" name="EGL_SOCKET_HANDLE_NV"/>
+        <enum value="0x324D" name="EGL_SOCKET_TYPE_NV"/>
+        <enum value="0x324E" name="EGL_SOCKET_TYPE_UNIX_NV"/>
+        <enum value="0x324F" name="EGL_SOCKET_TYPE_INET_NV"/>
         <enum value="0x3250" name="EGL_MAX_STREAM_METADATA_BLOCKS_NV"/>
         <enum value="0x3251" name="EGL_MAX_STREAM_METADATA_BLOCK_SIZE_NV"/>
         <enum value="0x3252" name="EGL_MAX_STREAM_METADATA_TOTAL_SIZE_NV"/>
@@ -737,13 +753,41 @@
     <enums namespace="EGL" start="0x3320" end="0x339F" vendor="NV" comment="Reserved for James Jones (Bug 13209)">
             <unused start="0x3320" end="0x3327"/>
         <enum value="0x3328" name="EGL_PENDING_METADATA_NV"/>
-            <unused start="0x3329" end="0x332B"/>
+        <enum value="0x3329" name="EGL_PENDING_FRAME_NV"/>
+        <enum value="0x332A" name="EGL_STREAM_TIME_PENDING_NV"/>
+            <unused start="0x332B"/>
         <enum value="0x332C" name="EGL_YUV_PLANE0_TEXTURE_UNIT_NV"/>
         <enum value="0x332D" name="EGL_YUV_PLANE1_TEXTURE_UNIT_NV"/>
         <enum value="0x332E" name="EGL_YUV_PLANE2_TEXTURE_UNIT_NV"/>
-            <unused start="0x332F" end="0x334B"/>
+            <unused start="0x332F" end="0x3333"/>
+        <enum value="0x3334" name="EGL_SUPPORT_RESET_NV"/>
+        <enum value="0x3335" name="EGL_SUPPORT_REUSE_NV"/>
+        <enum value="0x3336" name="EGL_STREAM_FIFO_SYNCHRONOUS_NV"/>
+        <enum value="0x3337" name="EGL_PRODUCER_MAX_FRAME_HINT_NV"/>
+        <enum value="0x3338" name="EGL_CONSUMER_MAX_FRAME_HINT_NV"/>
+        <enum value="0x3339" name="EGL_COLOR_COMPONENT_TYPE_EXT"/>
+        <enum value="0x333A" name="EGL_COLOR_COMPONENT_TYPE_FIXED_EXT"/>
+        <enum value="0x333B" name="EGL_COLOR_COMPONENT_TYPE_FLOAT_EXT"/>
+            <unused start="0x333C" end="0x333E"/>
+        <enum value="0x333F" name="EGL_GL_COLORSPACE_BT2020_LINEAR_EXT"/>
+        <enum value="0x3340" name="EGL_GL_COLORSPACE_BT2020_PQ_EXT"/>
+        <enum value="0x3341" name="EGL_SMPTE2086_DISPLAY_PRIMARY_RX_EXT"/>
+        <enum value="0x3342" name="EGL_SMPTE2086_DISPLAY_PRIMARY_RY_EXT"/>
+        <enum value="0x3343" name="EGL_SMPTE2086_DISPLAY_PRIMARY_GX_EXT"/>
+        <enum value="0x3344" name="EGL_SMPTE2086_DISPLAY_PRIMARY_GY_EXT"/>
+        <enum value="0x3345" name="EGL_SMPTE2086_DISPLAY_PRIMARY_BX_EXT"/>
+        <enum value="0x3346" name="EGL_SMPTE2086_DISPLAY_PRIMARY_BY_EXT"/>
+        <enum value="0x3347" name="EGL_SMPTE2086_WHITE_POINT_X_EXT"/>
+        <enum value="0x3348" name="EGL_SMPTE2086_WHITE_POINT_Y_EXT"/>
+        <enum value="0x3349" name="EGL_SMPTE2086_MAX_LUMINANCE_EXT"/>
+        <enum value="0x334A" name="EGL_SMPTE2086_MIN_LUMINANCE_EXT"/>
+            <unused start="0x334B"/>
         <enum value="0x334C" name="EGL_GENERATE_RESET_ON_VIDEO_MEMORY_PURGE_NV"/>
-            <unused start="0x334D" end="0x339F"/>
+        <enum value="0x334D" name="EGL_STREAM_CROSS_OBJECT_NV"/>
+        <enum value="0x334E" name="EGL_STREAM_CROSS_DISPLAY_NV"/>
+        <enum value="0x334F" name="EGL_STREAM_CROSS_SYSTEM_NV"/>
+        <enum value="0x3350" name="EGL_GL_COLORSPACE_SCRGB_LINEAR_EXT"/>
+            <unused start="0x3351" end="0x339F"/>
     </enums>
 
     <enums namespace="EGL" start="0x33A0" end="0x33AF" vendor="ANGLE" comment="Reserved for Shannon Woods (Bug 13175)">
@@ -1422,6 +1466,11 @@
             <proto><ptype>EGLBoolean</ptype> <name>eglReleaseThread</name></proto>
         </command>
         <command>
+            <proto><ptype>EGLBoolean</ptype> <name>eglResetStreamNV</name></proto>
+            <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
+            <param><ptype>EGLStreamKHR</ptype> <name>stream</name></param>
+        </command>
+        <command>
             <proto>void <name>eglSetBlobCacheFuncsANDROID</name></proto>
             <param><ptype>EGLDisplay</ptype> <name>dpy</name></param>
             <param><ptype>EGLSetBlobFuncANDROID</ptype> <name>set</name></param>
@@ -1984,6 +2033,21 @@
                 <command name="eglQueryDisplayAttribEXT"/>
             </require>
         </extension>
+        <extension name="EGL_EXT_gl_colorspace_bt2020_linear" supported="egl">
+            <require>
+                <enum name="EGL_GL_COLORSPACE_BT2020_LINEAR_EXT"/>
+            </require>
+        </extension>
+        <extension name="EGL_EXT_gl_colorspace_bt2020_pq" supported="egl">
+            <require>
+                <enum name="EGL_GL_COLORSPACE_BT2020_PQ_EXT"/>
+            </require>
+        </extension>
+        <extension name="EGL_EXT_gl_colorspace_scrgb_linear" supported="egl">
+            <require>
+                <enum name="EGL_GL_COLORSPACE_SCRGB_LINEAR_EXT"/>
+            </require>
+        </extension>
         <extension name="EGL_EXT_image_dma_buf_import" supported="egl">
             <require>
                 <enum name="EGL_LINUX_DMA_BUF_EXT"/>
@@ -2064,6 +2128,13 @@
                 <enum name="EGL_OPENWF_PORT_ID_EXT"/>
             </require>
         </extension>
+        <extension name="EGL_EXT_pixel_format_float" supported="egl">
+            <require>
+                <enum name="EGL_COLOR_COMPONENT_TYPE_EXT"/>
+                <enum name="EGL_COLOR_COMPONENT_TYPE_FIXED_EXT"/>
+                <enum name="EGL_COLOR_COMPONENT_TYPE_FLOAT_EXT"/>
+            </require>
+        </extension>
         <extension name="EGL_EXT_platform_base" supported="egl">
             <require>
                 <command name="eglGetPlatformDisplayEXT"/>
@@ -2100,6 +2171,20 @@
         <extension name="EGL_EXT_stream_consumer_egloutput" supported="egl">
             <require>
                 <command name="eglStreamConsumerOutputEXT"/>
+            </require>
+        </extension>
+        <extension name="EGL_EXT_surface_SMPTE2086_metadata" supported="egl">
+            <require>
+                <enum name="EGL_SMPTE2086_DISPLAY_PRIMARY_RX_EXT"/>
+                <enum name="EGL_SMPTE2086_DISPLAY_PRIMARY_RY_EXT"/>
+                <enum name="EGL_SMPTE2086_DISPLAY_PRIMARY_GX_EXT"/>
+                <enum name="EGL_SMPTE2086_DISPLAY_PRIMARY_GY_EXT"/>
+                <enum name="EGL_SMPTE2086_DISPLAY_PRIMARY_BX_EXT"/>
+                <enum name="EGL_SMPTE2086_DISPLAY_PRIMARY_BY_EXT"/>
+                <enum name="EGL_SMPTE2086_WHITE_POINT_X_EXT"/>
+                <enum name="EGL_SMPTE2086_WHITE_POINT_Y_EXT"/>
+                <enum name="EGL_SMPTE2086_MAX_LUMINANCE_EXT"/>
+                <enum name="EGL_SMPTE2086_MIN_LUMINANCE_EXT"/>
             </require>
         </extension>
         <extension name="EGL_EXT_swap_buffers_with_damage" supported="egl">
@@ -2620,6 +2705,48 @@
                 <command name="eglStreamConsumerGLTextureExternalAttribsNV"/>
             </require>
         </extension>
+        <extension name="EGL_NV_stream_cross_object" supported="egl">
+            <require>
+                <enum name="EGL_STREAM_CROSS_OBJECT_NV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_cross_display" supported="egl">
+            <require>
+                <enum name="EGL_STREAM_CROSS_DISPLAY_NV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_cross_partition" supported="egl">
+            <require>
+                <enum name="EGL_STREAM_CROSS_PARTITION_NV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_cross_process" supported="egl">
+            <require>
+                <enum name="EGL_STREAM_CROSS_PROCESS_NV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_cross_system" supported="egl">
+            <require>
+                <enum name="EGL_STREAM_CROSS_SYSTEM_NV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_fifo_next" supported="egl">
+            <require>
+                <enum name="EGL_PENDING_FRAME_NV"/>
+                <enum name="EGL_STREAM_TIME_PENDING_NV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_fifo_synchronous" supported="egl">
+            <require>
+                <enum name="EGL_STREAM_FIFO_SYNCHRONOUS_NV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_frame_limits" supported="egl">
+            <require>
+                <enum name="EGL_PRODUCER_MAX_FRAME_HINT_NV"/>
+                <enum name="EGL_CONSUMER_MAX_FRAME_HINT_NV"/>
+            </require>
+        </extension>
         <extension name="EGL_NV_stream_metadata" supported="egl">
             <require>
                 <enum name="EGL_MAX_STREAM_METADATA_BLOCKS_NV"/>
@@ -2639,6 +2766,44 @@
                 <command name="eglQueryDisplayAttribNV"/>
                 <command name="eglSetStreamMetadataNV"/>
                 <command name="eglQueryStreamMetadataNV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_reset" supported="egl">
+            <require>
+                <enum name="EGL_SUPPORT_RESET_NV"/>
+                <enum name="EGL_SUPPORT_REUSE_NV"/>
+                <command name="eglResetStreamNV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_remote" supported="egl">
+            <require>
+                <enum name="EGL_STREAM_STATE_INITIALIZING_NV"/>
+                <enum name="EGL_STREAM_TYPE_NV"/>
+                <enum name="EGL_STREAM_PROTOCOL_NV"/>
+                <enum name="EGL_STREAM_ENDPOINT_NV"/>
+                <enum name="EGL_STREAM_LOCAL_NV"/>
+                <enum name="EGL_STREAM_PRODUCER_NV"/>
+                <enum name="EGL_STREAM_CONSUMER_NV"/>
+            </require>
+            <require comment="Supported only if EGL_KHR_stream_cross_process_fd is supported">
+                <enum name="EGL_STREAM_PROTOCOL_FD_NV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_socket" supported="egl">
+            <require>
+                <enum name="EGL_STREAM_PROTOCOL_SOCKET_NV"/>
+                <enum name="EGL_SOCKET_HANDLE_NV"/>
+                <enum name="EGL_SOCKET_TYPE_NV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_socket_inet" supported="egl">
+            <require>
+                <enum name="EGL_SOCKET_TYPE_INET_NV"/>
+            </require>
+        </extension>
+        <extension name="EGL_NV_stream_socket_unix" supported="egl">
+            <require>
+                <enum name="EGL_SOCKET_TYPE_UNIX_NV"/>
             </require>
         </extension>
         <extension name="EGL_NV_stream_sync" supported="egl">
