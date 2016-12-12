@@ -33,12 +33,12 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.opengl.org/registry/
 **
-** Khronos $Revision: 33288 $ on $Date: 2016-11-09 17:46:01 -0800 (Wed, 09 Nov 2016) $
+** Khronos $Revision: 33315 $ on $Date: 2016-11-29 20:46:46 -0800 (Tue, 29 Nov 2016) $
 */
 
 #include <EGL/eglplatform.h>
 
-#define EGL_EGLEXT_VERSION 20161109
+#define EGL_EGLEXT_VERSION 20161129
 
 /* Generated C header for:
  * API: egl
@@ -608,6 +608,21 @@ EGLAPI EGLBoolean EGLAPIENTRY eglQueryDisplayAttribEXT (EGLDisplay dpy, EGLint a
 #define EGL_EXT_device_query 1
 #endif /* EGL_EXT_device_query */
 
+#ifndef EGL_EXT_gl_colorspace_bt2020_linear
+#define EGL_EXT_gl_colorspace_bt2020_linear 1
+#define EGL_GL_COLORSPACE_BT2020_LINEAR_EXT 0x333F
+#endif /* EGL_EXT_gl_colorspace_bt2020_linear */
+
+#ifndef EGL_EXT_gl_colorspace_bt2020_pq
+#define EGL_EXT_gl_colorspace_bt2020_pq 1
+#define EGL_GL_COLORSPACE_BT2020_PQ_EXT   0x3340
+#endif /* EGL_EXT_gl_colorspace_bt2020_pq */
+
+#ifndef EGL_EXT_gl_colorspace_scrgb_linear
+#define EGL_EXT_gl_colorspace_scrgb_linear 1
+#define EGL_GL_COLORSPACE_SCRGB_LINEAR_EXT 0x3350
+#endif /* EGL_EXT_gl_colorspace_scrgb_linear */
+
 #ifndef EGL_EXT_image_dma_buf_import
 #define EGL_EXT_image_dma_buf_import 1
 #define EGL_LINUX_DMA_BUF_EXT             0x3270
@@ -702,6 +717,13 @@ EGLAPI const char *EGLAPIENTRY eglQueryOutputPortStringEXT (EGLDisplay dpy, EGLO
 #define EGL_OPENWF_PORT_ID_EXT            0x3239
 #endif /* EGL_EXT_output_openwf */
 
+#ifndef EGL_EXT_pixel_format_float
+#define EGL_EXT_pixel_format_float 1
+#define EGL_COLOR_COMPONENT_TYPE_EXT      0x3339
+#define EGL_COLOR_COMPONENT_TYPE_FIXED_EXT 0x333A
+#define EGL_COLOR_COMPONENT_TYPE_FLOAT_EXT 0x333B
+#endif /* EGL_EXT_pixel_format_float */
+
 #ifndef EGL_EXT_platform_base
 #define EGL_EXT_platform_base 1
 typedef EGLDisplay (EGLAPIENTRYP PFNEGLGETPLATFORMDISPLAYEXTPROC) (EGLenum platform, void *native_display, const EGLint *attrib_list);
@@ -746,6 +768,20 @@ typedef EGLBoolean (EGLAPIENTRYP PFNEGLSTREAMCONSUMEROUTPUTEXTPROC) (EGLDisplay 
 EGLAPI EGLBoolean EGLAPIENTRY eglStreamConsumerOutputEXT (EGLDisplay dpy, EGLStreamKHR stream, EGLOutputLayerEXT layer);
 #endif
 #endif /* EGL_EXT_stream_consumer_egloutput */
+
+#ifndef EGL_EXT_surface_SMPTE2086_metadata
+#define EGL_EXT_surface_SMPTE2086_metadata 1
+#define EGL_SMPTE2086_DISPLAY_PRIMARY_RX_EXT 0x3341
+#define EGL_SMPTE2086_DISPLAY_PRIMARY_RY_EXT 0x3342
+#define EGL_SMPTE2086_DISPLAY_PRIMARY_GX_EXT 0x3343
+#define EGL_SMPTE2086_DISPLAY_PRIMARY_GY_EXT 0x3344
+#define EGL_SMPTE2086_DISPLAY_PRIMARY_BX_EXT 0x3345
+#define EGL_SMPTE2086_DISPLAY_PRIMARY_BY_EXT 0x3346
+#define EGL_SMPTE2086_WHITE_POINT_X_EXT   0x3347
+#define EGL_SMPTE2086_WHITE_POINT_Y_EXT   0x3348
+#define EGL_SMPTE2086_MAX_LUMINANCE_EXT   0x3349
+#define EGL_SMPTE2086_MIN_LUMINANCE_EXT   0x334A
+#endif /* EGL_EXT_surface_SMPTE2086_metadata */
 
 #ifndef EGL_EXT_swap_buffers_with_damage
 #define EGL_EXT_swap_buffers_with_damage 1
@@ -957,6 +993,48 @@ EGLAPI EGLBoolean EGLAPIENTRY eglStreamConsumerGLTextureExternalAttribsNV (EGLDi
 #endif
 #endif /* EGL_NV_stream_consumer_gltexture_yuv */
 
+#ifndef EGL_NV_stream_cross_display
+#define EGL_NV_stream_cross_display 1
+#define EGL_STREAM_CROSS_DISPLAY_NV       0x334E
+#endif /* EGL_NV_stream_cross_display */
+
+#ifndef EGL_NV_stream_cross_object
+#define EGL_NV_stream_cross_object 1
+#define EGL_STREAM_CROSS_OBJECT_NV        0x334D
+#endif /* EGL_NV_stream_cross_object */
+
+#ifndef EGL_NV_stream_cross_partition
+#define EGL_NV_stream_cross_partition 1
+#define EGL_STREAM_CROSS_PARTITION_NV     0x323F
+#endif /* EGL_NV_stream_cross_partition */
+
+#ifndef EGL_NV_stream_cross_process
+#define EGL_NV_stream_cross_process 1
+#define EGL_STREAM_CROSS_PROCESS_NV       0x3245
+#endif /* EGL_NV_stream_cross_process */
+
+#ifndef EGL_NV_stream_cross_system
+#define EGL_NV_stream_cross_system 1
+#define EGL_STREAM_CROSS_SYSTEM_NV        0x334F
+#endif /* EGL_NV_stream_cross_system */
+
+#ifndef EGL_NV_stream_fifo_next
+#define EGL_NV_stream_fifo_next 1
+#define EGL_PENDING_FRAME_NV              0x3329
+#define EGL_STREAM_TIME_PENDING_NV        0x332A
+#endif /* EGL_NV_stream_fifo_next */
+
+#ifndef EGL_NV_stream_fifo_synchronous
+#define EGL_NV_stream_fifo_synchronous 1
+#define EGL_STREAM_FIFO_SYNCHRONOUS_NV    0x3336
+#endif /* EGL_NV_stream_fifo_synchronous */
+
+#ifndef EGL_NV_stream_frame_limits
+#define EGL_NV_stream_frame_limits 1
+#define EGL_PRODUCER_MAX_FRAME_HINT_NV    0x3337
+#define EGL_CONSUMER_MAX_FRAME_HINT_NV    0x3338
+#endif /* EGL_NV_stream_frame_limits */
+
 #ifndef EGL_NV_stream_metadata
 #define EGL_NV_stream_metadata 1
 #define EGL_MAX_STREAM_METADATA_BLOCKS_NV 0x3250
@@ -982,6 +1060,45 @@ EGLAPI EGLBoolean EGLAPIENTRY eglSetStreamMetadataNV (EGLDisplay dpy, EGLStreamK
 EGLAPI EGLBoolean EGLAPIENTRY eglQueryStreamMetadataNV (EGLDisplay dpy, EGLStreamKHR stream, EGLenum name, EGLint n, EGLint offset, EGLint size, void *data);
 #endif
 #endif /* EGL_NV_stream_metadata */
+
+#ifndef EGL_NV_stream_remote
+#define EGL_NV_stream_remote 1
+#define EGL_STREAM_STATE_INITIALIZING_NV  0x3240
+#define EGL_STREAM_TYPE_NV                0x3241
+#define EGL_STREAM_PROTOCOL_NV            0x3242
+#define EGL_STREAM_ENDPOINT_NV            0x3243
+#define EGL_STREAM_LOCAL_NV               0x3244
+#define EGL_STREAM_PRODUCER_NV            0x3247
+#define EGL_STREAM_CONSUMER_NV            0x3248
+#define EGL_STREAM_PROTOCOL_FD_NV         0x3246
+#endif /* EGL_NV_stream_remote */
+
+#ifndef EGL_NV_stream_reset
+#define EGL_NV_stream_reset 1
+#define EGL_SUPPORT_RESET_NV              0x3334
+#define EGL_SUPPORT_REUSE_NV              0x3335
+typedef EGLBoolean (EGLAPIENTRYP PFNEGLRESETSTREAMNVPROC) (EGLDisplay dpy, EGLStreamKHR stream);
+#ifdef EGL_EGLEXT_PROTOTYPES
+EGLAPI EGLBoolean EGLAPIENTRY eglResetStreamNV (EGLDisplay dpy, EGLStreamKHR stream);
+#endif
+#endif /* EGL_NV_stream_reset */
+
+#ifndef EGL_NV_stream_socket
+#define EGL_NV_stream_socket 1
+#define EGL_STREAM_PROTOCOL_SOCKET_NV     0x324B
+#define EGL_SOCKET_HANDLE_NV              0x324C
+#define EGL_SOCKET_TYPE_NV                0x324D
+#endif /* EGL_NV_stream_socket */
+
+#ifndef EGL_NV_stream_socket_inet
+#define EGL_NV_stream_socket_inet 1
+#define EGL_SOCKET_TYPE_INET_NV           0x324F
+#endif /* EGL_NV_stream_socket_inet */
+
+#ifndef EGL_NV_stream_socket_unix
+#define EGL_NV_stream_socket_unix 1
+#define EGL_SOCKET_TYPE_UNIX_NV           0x324E
+#endif /* EGL_NV_stream_socket_unix */
 
 #ifndef EGL_NV_stream_sync
 #define EGL_NV_stream_sync 1
