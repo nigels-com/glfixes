@@ -22,12 +22,12 @@ Status
 
 Version
 
-    Last Modified Date:         December 9, 2015
-    NVIDIA Revision:            2
+    Last Modified Date:         July 21, 2016
+    NVIDIA Revision:            4
 
 Number
 
-    Unassigned
+    OpenGL Extension #493
 
 Dependencies
 
@@ -229,7 +229,7 @@ Additions to the OpenGL 4.5 Specification (Compatibility Profile)
     texture or renderbuffer on the source GPU.  Synchronization of the copy with the destination
     GPU(s) is achieved with the interlock function:
 
-      void LGPUInterlockNVX()
+      void LGPUInterlockNVX(void)
 
     This is called to synchronize all linked GPUs to the same point in the API stream.  To
     guarantee consistency, the interlock command must be used as a barrier between any two
@@ -374,6 +374,4 @@ Revision History
 
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
-     2    12/09/15  jschnarr  Remove unimplemented portions, detail errors generated.
-     1    09/16/15  jschnarr  Initial revision.
-    
+     4    07/21/16  mjk       Register extension

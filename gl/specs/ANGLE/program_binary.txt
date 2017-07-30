@@ -17,7 +17,7 @@ Contact
 
 Status
 
-    Under development.
+    Implemented in ANGLE.
 
 Version
 
@@ -26,7 +26,7 @@ Version
 
 Number
 
-    TBD
+    OpenGL ES Extension #139
 
 Dependencies
 
@@ -53,10 +53,10 @@ New Tokens
 Additions to Chapter 2 of the OpenGL-ES 2.0 Specification (OpenGL Operation)
 
     Add the following paragraph to the end of section 2.15.4, Program Binaries:
-    
+
     "PROGRAM_BINARY_ANGLE, returned in the list of PROGRAM_BINARY_FORMATS_OES,
-    is a format that may be loaded into a program object via ProgramBinaryOES." 
-    
+    is a format that may be loaded into a program object via ProgramBinaryOES."
+
 Additions to Chapter 3 of the OpenGL ES 2.0 specification (Rasterizatoin)
 
     None.
@@ -89,6 +89,6 @@ Issues
     None
 
 Revision History
- 
+
     06/06/2012  apatrick  intial revision
 

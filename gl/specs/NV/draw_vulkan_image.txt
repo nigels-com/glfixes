@@ -8,7 +8,7 @@ Name Strings
 
 Contributors
 
-    TBD
+    Jeff Bolz, NVIDIA Corporation
 
 Contact
 
@@ -16,16 +16,17 @@ Contact
 
 Status
 
-    Draft
+    Complete
 
 Version
 
-    Last Modified Date:         2/14/2016
-    NVIDIA Revision:            1
+    Last Modified Date:         2/22/2017
+    NVIDIA Revision:            2
 
 Number
 
-    TBD
+    OpenGL Extension #501
+    OpenGL ES Extension #274
 
 Dependencies
 
@@ -295,3 +296,4 @@ Revision History
     Rev.    Date    Author    Changes
     ----  --------  --------  -----------------------------------------
      1    20160214  pdaniell  Initial draft
+     2    20170222  pdaniell  Registered extension

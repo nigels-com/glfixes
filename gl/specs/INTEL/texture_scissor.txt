@@ -87,7 +87,7 @@ enable one to simplify application code considerably.
 An added benefit of this extension is that it provides one with the facility
 of tiling 2D textures in 1D, 2D or 3D.
 
-New Procedures and Functions
+New Procedures and Functions 
 
 void    TexScissorINTEL(GLenum    target, 
                         GLclampf   tlow,

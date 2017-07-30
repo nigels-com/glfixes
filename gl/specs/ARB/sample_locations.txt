@@ -82,7 +82,7 @@ New Procedures and Functions
     void NamedFramebufferSampleLocationsfvARB(uint framebuffer, uint start,
                                               sizei count, const float *v);
 
-    void EvaluateDepthValuesARB( );
+    void EvaluateDepthValuesARB();
 
 New Tokens
 

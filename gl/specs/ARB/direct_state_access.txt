@@ -465,15 +465,6 @@ New Procedures and Functions
     void GetQueryBufferObjectui64v(uint id, uint buffer, enum pname,
                                    intptr offset);
 
-    /* Query buffer object functions */
-
-    void GetQueryBufferObjectiv(uint id,uint buffer,enum pname,intptr offset);
-
-    void GetQueryBufferObjectuiv(uint id,uint buffer,enum pname,intptr offset);
-
-    void GetQueryBufferObjecti64v(uint id,uint buffer,enum pname,intptr offset);
-
-    void GetQueryBufferObjectui64v(uint id,uint buffer,enum pname,intptr offset);
 
 New Tokens
 

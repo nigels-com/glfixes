@@ -110,16 +110,16 @@ Overview
 New Procedures and Functions
 
     void DrawElementsBaseVertex(enum mode, sizei count, enum type,
-         const void *indices, int basevertex);
+         void *indices, int basevertex);
 
     void DrawRangeElementsBaseVertex(enum mode, uint start, uint end,
-         sizei count, enum type, const void *indices, int basevertex);
+         sizei count, enum type, void *indices, int basevertex);
 
     void DrawElementsInstancedBaseVertex(enum mode, sizei count,
          enum type, const void *indices, sizei primcount, int basevertex);
 
-    void MultiDrawElementsBaseVertex(enum mode, const sizei *count, enum type,
-         const void * const *indices, sizei primcount, const int *basevertex)
+    void MultiDrawElementsBaseVertex(enum mode, sizei *count, enum type,
+         void **indices, sizei primcount, int *basevertex)
 
 New Tokens
 
